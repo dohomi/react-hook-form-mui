@@ -33,7 +33,7 @@ const FormContainerCore: FunctionComponent<FormContainerProps> = ({
   )
 }
 
-const FormContainer: FunctionComponent<FormContainerProps> = props => {
+export const FormContainer: FunctionComponent<FormContainerProps> = props => {
   if (!props.formContext) {
     return <FormContainerCore {...props} />
   }
@@ -49,5 +49,3 @@ const FormContainer: FunctionComponent<FormContainerProps> = props => {
     </FormContext>
   )
 }
-
-export default FormContainer

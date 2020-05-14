@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormContainer, MultiSelectElement } from '../src/'
+import { FormContainer, MultiSelectElement } from '../src'
 import { action } from '@storybook/addon-actions'
 import Button from '@material-ui/core/Button'
 

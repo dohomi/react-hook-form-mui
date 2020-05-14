@@ -6,7 +6,7 @@ import Select, { SelectProps } from '@material-ui/core/Select'
 import useFormValidation from './helpers/useFormValidation'
 import FormHelperText from '@material-ui/core/FormHelperText'
 
-type Props = {
+export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   menuItems: any
   label?: string
   itemKey?: string
@@ -22,12 +22,10 @@ type Props = {
   helperText?: string
 }
 
-export type MultiSelectElementProps = Omit<SelectProps, 'value'> & Props
-
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
 
-const MultiSelectElement: React.FunctionComponent<MultiSelectElementProps> = ({
+export function MultiSelectElement({
   menuItems,
   label = '',
   itemKey = '',
@@ -42,11 +40,11 @@ const MultiSelectElement: React.FunctionComponent<MultiSelectElementProps> = ({
   minWidth = 120,
   helperText,
   ...rest
-}) => {
+}: MultiSelectElementProps): JSX.Element {
   const { formValue, setValue, errorMessages } = useFormValidation({
     name,
     parseError,
-    required,
+    required
   })
 
   if (required) {
@@ -76,12 +74,12 @@ const MultiSelectElement: React.FunctionComponent<MultiSelectElementProps> = ({
           PaperProps: {
             style: {
               maxHeight: menuMaxHeight,
-              width: menuMaxWidth,
-            },
-          },
+              width: menuMaxWidth
+            }
+          }
         }}
         inputProps={{
-          error: errorMessages,
+          error: errorMessages
         }}
       >
         {menuItems.map((item: any) => (
@@ -89,7 +87,7 @@ const MultiSelectElement: React.FunctionComponent<MultiSelectElementProps> = ({
             key={!!itemKey ? item[itemKey] : item}
             value={itemValue ? item[itemValue] : item}
             style={{
-              fontWeight: (formValue || []).includes(item) ? 'bold' : 'normal',
+              fontWeight: (formValue || []).includes(item) ? 'bold' : 'normal'
             }}
           >
             {itemLabel ? item[itemLabel] : item}
@@ -101,4 +99,3 @@ const MultiSelectElement: React.FunctionComponent<MultiSelectElementProps> = ({
   )
 }
 
-export default MultiSelectElement

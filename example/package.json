@@ -8,8 +8,8 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "react-app-polyfill": "^1.0.0",
-    "react-form-hook-mui-lib": "file:.."
+    "mui-rff": "^2.1.15",
+    "react-app-polyfill": "^1.0.0"
   },
   "alias": {
     "react": "../node_modules/react",

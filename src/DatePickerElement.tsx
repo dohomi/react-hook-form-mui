@@ -5,8 +5,7 @@ import getNestedValue from './helpers/getNestedValue'
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date'
 import getErrorMessages from './helpers/getErrorMessages'
 
-interface DatePickerElement
-  extends Omit<DatePickerProps, 'value' | 'onChange'> {
+export type DatePickerElementProps = Omit<DatePickerProps, 'value' | 'onChange'> & {
   name: string
   required?: boolean
   isDate?: boolean
@@ -15,9 +14,7 @@ interface DatePickerElement
   validation?: any
 }
 
-type DatePickerElementProps = DatePickerElement
-
-export default function DatePickerElement({
+export function DatePickerElement({
   isDate,
   parseError,
   name,

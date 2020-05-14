@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import { CheckboxProps } from '@material-ui/core'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Checkbox from '@material-ui/core/Checkbox'
@@ -8,17 +8,25 @@ import FormControl from '@material-ui/core/FormControl'
 import useFormValidation from './helpers/useFormValidation'
 import { red } from '@material-ui/core/colors'
 
-const CheckboxElement: FunctionComponent<Omit<CheckboxProps, 'name'> & {
+export type CheckboxElementProps = Omit<CheckboxProps, 'name'> & {
   validation?: any
   name: string
   parseError?: Function
   label?: React.ReactNode
   helperText?: string
-}> = ({ name, validation = {}, required, parseError, label, ...rest }) => {
+}
+
+export function CheckboxElement({
+  name, validation = {},
+  required,
+  parseError,
+  label,
+  ...rest
+}: CheckboxElementProps): JSX.Element {
   const { setValue, formValue, errorMessages } = useFormValidation({
     parseError,
     name,
-    required,
+    required
   })
 
   return (
@@ -30,7 +38,7 @@ const CheckboxElement: FunctionComponent<Omit<CheckboxProps, 'name'> & {
             <Checkbox
               color={'primary'}
               style={{
-                color: errorMessages ? red[400] : undefined,
+                color: errorMessages ? red[400] : undefined
               }}
               value={formValue}
               checked={!!formValue}
@@ -43,5 +51,3 @@ const CheckboxElement: FunctionComponent<Omit<CheckboxProps, 'name'> & {
     </FormControl>
   )
 }
-
-export default CheckboxElement

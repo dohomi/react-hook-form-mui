@@ -26,11 +26,11 @@ export type RadioButtonGroupProps = {
 
 const useStyles = makeStyles({
   root: {
-    color: red[400],
-  },
+    color: red[400]
+  }
 })
 
-export default function RadioButtonGroup({
+export function RadioButtonGroup({
   helperText,
   options,
   label,
@@ -41,13 +41,13 @@ export default function RadioButtonGroup({
   required,
   emptyOptionLabel,
   onChange,
-  returnObject,
+  returnObject
 }: RadioButtonGroupProps): JSX.Element {
   const classes = useStyles()
   const { formValue, errorMessages, setValue } = useFormValidation({
     name,
     parseError,
-    required,
+    required
   })
 
   helperText = errorMessages || helperText

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FormContainer, SelectElement } from '../src/'
+import { FormContainer, SelectElement } from '../src'
 import { createStyles, makeStyles, Theme } from '@material-ui/core'
 import { action } from '@storybook/addon-actions'
 import { object, text } from '@storybook/addon-knobs'

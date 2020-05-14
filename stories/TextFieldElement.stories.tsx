@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { FunctionComponent, useEffect } from 'react'
-import { CheckboxElement, FormContainer, PasswordElement, TextFieldElement } from '../src/'
+import { CheckboxElement, FormContainer, PasswordElement, TextFieldElement } from '../src'
 import { action } from '@storybook/addon-actions'
 import Button from '@material-ui/core/Button'
 import { useForm, useFormContext } from 'react-hook-form'

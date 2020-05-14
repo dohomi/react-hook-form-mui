@@ -1,12 +1,11 @@
-import React, { createElement, FunctionComponent } from 'react'
+import React, { createElement } from 'react'
 import MenuItem from '@material-ui/core/MenuItem'
 import TextField, { TextFieldProps } from '@material-ui/core/TextField'
 import { Controller, useFormContext } from 'react-hook-form'
 import getNestedValue from './helpers/getNestedValue'
 import getErrorMessages from './helpers/getErrorMessages'
 
-type CustomTextFieldProps = Omit<TextFieldProps, 'name' | 'variant' | 'type'>
-export type SelectElementModule = CustomTextFieldProps & {
+export type SelectElementProps = Omit<TextFieldProps, 'name' | 'variant' | 'type'> & {
   validation?: any
   name: string
   options?: any[]
@@ -17,9 +16,8 @@ export type SelectElementModule = CustomTextFieldProps & {
   objectOnChange?: boolean
   onChange?: Function
 }
-type TextFieldValidationProps = SelectElementModule
 
-const SelectElement: FunctionComponent<TextFieldValidationProps> = ({
+export function SelectElement({
   name,
   required,
   valueKey = 'id',
@@ -30,7 +28,7 @@ const SelectElement: FunctionComponent<TextFieldValidationProps> = ({
   objectOnChange,
   validation = {},
   ...rest
-}) => {
+}: SelectElementProps): JSX.Element {
   const { errors, getValues, control, setValue } = useFormContext()
   const formValue: any = getNestedValue(getValues({ nest: true }), name)
   let value = formValue || ''
@@ -76,7 +74,7 @@ const SelectElement: FunctionComponent<TextFieldValidationProps> = ({
           error={!!errorMessages}
           helperText={errorMessages || rest.helperText}
           InputProps={{
-            onChange,
+            onChange
           }}
         >
           {!!isNativeSelect && <option />}
@@ -85,7 +83,7 @@ const SelectElement: FunctionComponent<TextFieldValidationProps> = ({
               ChildComponent,
               {
                 key: `${name}_${item[valueKey]}`,
-                value: item[valueKey],
+                value: item[valueKey]
               },
               item[labelKey]
             )
@@ -95,4 +93,3 @@ const SelectElement: FunctionComponent<TextFieldValidationProps> = ({
     />
   )
 }
-export default SelectElement
