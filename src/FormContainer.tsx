@@ -1,13 +1,8 @@
 import React, { FormHTMLAttributes, FunctionComponent } from 'react'
-import {
-  FormContext,
-  FormContextValues,
-  OnSubmit,
-  useForm,
-} from 'react-hook-form'
+import { FormContext, FormContextValues, OnSubmit, useForm } from 'react-hook-form'
 
 export type FormContainerProps = {
-  onSuccess: OnSubmit<Record<string, any>>
+  onSuccess: OnSubmit<any>
   defaultValues?: any
   formContext?: FormContextValues<any>
   FormProps?: FormHTMLAttributes<HTMLFormElement>
@@ -17,10 +12,10 @@ const FormContainerCore: FunctionComponent<FormContainerProps> = ({
   defaultValues = {},
   onSuccess,
   FormProps,
-  children,
+  children
 }) => {
-  const methods = useForm({
-    defaultValues,
+  const methods = useForm<typeof defaultValues>({
+    defaultValues
   })
   const { handleSubmit } = methods
 

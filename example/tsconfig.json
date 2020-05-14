@@ -8,12 +8,19 @@
     "noImplicitAny": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
+    "strict": true,
     "removeComments": true,
     "strictNullChecks": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "lib": ["es2015", "es2016", "dom"],
+    "lib": [
+      "es2015",
+      "es2016",
+      "dom"
+    ],
     "baseUrl": ".",
-    "types": ["node"]
+    "types": [
+      "node"
+    ]
   }
 }
