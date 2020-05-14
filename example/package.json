@@ -12,7 +12,7 @@
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.0",
     "react-dom": "^16.13.1",
-    "react-form-hook-mui": "^0.3.0",
+    "react-form-hook-mui": "^0.6.0",
     "react-hook-form": "^5.7.2"
   },
   "alias": {
