@@ -15,7 +15,7 @@ export default function useFormValidation({
   parseError,
 }: UseFormValidationProps) {
   const { setValue, errors, register, unregister, watch } = useFormContext()
-  const vals = watch({ nest: true })
+  const vals = watch()
   const formValue: any = getNestedValue(vals, name)
 
   useEffect(() => {

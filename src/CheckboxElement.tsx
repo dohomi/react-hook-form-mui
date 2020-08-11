@@ -42,7 +42,7 @@ export function CheckboxElement({
               }}
               value={formValue}
               checked={!!formValue}
-              onChange={() => setValue(name, !formValue, true)}
+              onChange={() => setValue(name, !formValue, { shouldValidate: true })}
             />
           }
         />

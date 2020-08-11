@@ -26,8 +26,8 @@ export type CheckboxButtonGroupProps = {
 
 const useStyles = makeStyles({
   root: {
-    color: red[400],
-  },
+    color: red[400]
+  }
 })
 
 export function CheckboxButtonGroup({
@@ -41,13 +41,13 @@ export function CheckboxButtonGroup({
   valueKey = 'id',
   onChange,
   returnObject,
-  disabled,
+  disabled
 }: CheckboxButtonGroupProps): JSX.Element {
   const classes = useStyles()
   const { setValue, formValue, errorMessages } = useFormValidation({
     parseError,
     name,
-    required,
+    required
   })
   const values: any[] = formValue || []
 
@@ -69,7 +69,7 @@ export function CheckboxButtonGroup({
         1
       )
     }
-    setValue(name, newArray, true)
+    setValue(name, newArray, { shouldValidate: true })
     onChange && onChange(newArray)
   }
 

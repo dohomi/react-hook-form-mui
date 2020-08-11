@@ -5,6 +5,9 @@ import FormControl from '@material-ui/core/FormControl'
 import Select, { SelectProps } from '@material-ui/core/Select'
 import useFormValidation from './helpers/useFormValidation'
 import FormHelperText from '@material-ui/core/FormHelperText'
+import Chip from '@material-ui/core/Chip'
+import CloseIcon from '@material-ui/icons/Cancel'
+
 
 export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   menuItems: any
@@ -20,6 +23,7 @@ export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   menuMaxHeight?: number
   menuMaxWidth?: number
   helperText?: string
+  showChips?: boolean
 }
 
 const ITEM_HEIGHT = 48
@@ -39,6 +43,8 @@ export function MultiSelectElement({
   menuMaxWidth = 250,
   minWidth = 120,
   helperText,
+  showChips,
+  variant,
   ...rest
 }: MultiSelectElementProps): JSX.Element {
   const { formValue, setValue, errorMessages } = useFormValidation({
@@ -51,21 +57,40 @@ export function MultiSelectElement({
     validation.required = 'required'
   }
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>): void => {
-    setValue(name, event.target.value, true)
+    setValue(name, event.target.value, { shouldValidate: true })
   }
 
   helperText = errorMessages || helperText
+
+  if (showChips) {
+    rest.renderValue = (selected) => (
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {(selected as any[] || []).map((value) => (
+          <Chip key={value} label={value} style={{ display: 'flex', flexWrap: 'wrap' }}
+                onDelete={() => {
+                  setValue(name, formValue.filter((i: any) => i !== value), { shouldValidate: true })
+                }} deleteIcon={<CloseIcon onMouseDown={(ev) => {
+            ev.stopPropagation()
+          }
+          } />} />
+        ))}
+      </div>
+    )
+  }
   return (
     <FormControl
+      variant={variant}
       style={{ minWidth }}
       fullWidth={rest.fullWidth}
       error={!!errorMessages}
     >
-      <InputLabel htmlFor="select-multiple" required={required}>
+      <InputLabel htmlFor={rest.id || `select-multi-select-${name}`} required={required}>
         {label}
       </InputLabel>
       <Select
+        id={rest.id || `select-multi-select-${name}`}
         {...rest}
+        label={label}
         multiple
         value={formValue || []}
         required={required}

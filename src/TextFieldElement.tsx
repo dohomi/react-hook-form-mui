@@ -4,17 +4,12 @@ import { Controller, useFormContext } from 'react-hook-form'
 import getErrorMessages from './helpers/getErrorMessages'
 
 export type TextFieldElementProps = Omit<TextFieldProps,
-  'name' | 'variant'> & {
+  'name'> & {
   validation?: any
   name: string
   parseError?: Function
 }
 
-/**
- * Important: variant is not part of props due to nasty and un-resolvable. you can't use variant only as provider props
- *
- * See: https://github.com/mui-org/material-ui/issues/15697
- */
 export function TextFieldElement({
   validation = {},
   parseError,
@@ -25,8 +20,6 @@ export function TextFieldElement({
 }: TextFieldElementProps): JSX.Element {
   const { errors, control } = useFormContext()
 
-  // const formValue: any = getNestedValue(getValues({ nest: true }), name)
-  // const value = formValue || ''
   if (required) {
     validation.required = 'This field is required'
   }

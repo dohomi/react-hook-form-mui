@@ -1,11 +1,11 @@
 import React, { FormHTMLAttributes, FunctionComponent } from 'react'
-import { FormContext, FormContextValues, OnSubmit, useForm } from 'react-hook-form'
+import { FormProvider, useForm, UseFormMethods } from 'react-hook-form'
 
 export type FormContainerProps = {
   defaultValues?: any
-  onSuccess?: OnSubmit<any>
-  handleSubmit?: Function
-  formContext?: FormContextValues<any>
+  onSuccess?: () => void
+  handleSubmit?: () => void
+  formContext?: UseFormMethods
   FormProps?: FormHTMLAttributes<HTMLFormElement>
 }
 
@@ -22,11 +22,11 @@ const FormContainerCore: FunctionComponent<FormContainerProps> = ({
   const { handleSubmit } = methods
 
   return (
-    <FormContext {...methods}>
+    <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSuccess)} noValidate {...FormProps}>
         {children}
       </form>
-    </FormContext>
+    </FormProvider>
   )
 }
 
@@ -34,21 +34,21 @@ export const FormContainer: FunctionComponent<FormContainerProps> = props => {
   if (!props.formContext && !props.handleSubmit) {
     return <FormContainerCore {...props} />
   } else if (props.handleSubmit && props.formContext) {
-    const onSubmit = props.handleSubmit
+    // const onSubmit = props.handleSubmit
     return (
-      <FormContext {...props.formContext as FormContextValues}>
+      <FormProvider {...props.formContext}>
         <form
           noValidate
           {...props.FormProps}
-          onSubmit={onSubmit as any}>
+          onSubmit={props.handleSubmit}>
           {props.children}
         </form>
-      </FormContext>
+      </FormProvider>
     )
   }
   if (props.formContext && props.onSuccess) {
     return (
-      <FormContext {...props.formContext as FormContextValues}>
+      <FormProvider {...props.formContext}>
         <form
           onSubmit={props.formContext.handleSubmit(props.onSuccess)}
           noValidate
@@ -56,7 +56,7 @@ export const FormContainer: FunctionComponent<FormContainerProps> = props => {
         >
           {props.children}
         </form>
-      </FormContext>
+      </FormProvider>
     )
   }
 

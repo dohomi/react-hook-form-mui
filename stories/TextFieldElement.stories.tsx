@@ -169,8 +169,8 @@ export const WithFormContext = () => {
   return (
     <FormContainer onSuccess={action('submit')}
                    formContext={formContext}>
-      <TextFieldElement name={'name'} label={'Name'} parseError={parseError} required /><br />
-      <TextFieldElement name={'email'} type="email" label={'Email'} required parseError={parseError} /><br />
+      <TextFieldElement name={'name'} label={'Name'} parseError={parseError} required variant={'outlined'} margin={'dense'}/><br />
+      <TextFieldElement name={'email'} type="email" label={'Email'} required parseError={parseError} variant={'outlined'} margin={'dense'} /><br /><br />
       <Button type={'submit'} color={'primary'} variant={'contained'}>Submit</Button>
     </FormContainer>
   )

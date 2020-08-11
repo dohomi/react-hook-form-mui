@@ -32,13 +32,17 @@ export const Basic = () => (
     'multi-select-iv': ['Van Henry'],
     'multi-select-ov': [1, 3]
   }} onSuccess={action('submit')}>
-    <MultiSelectElement menuItems={names} name={'multi-select-basic'} label={'The label'} /> <br />
-    <MultiSelectElement required menuItems={names} name={'multi-select-required'} label={'Required'} /><br />
-    <MultiSelectElement menuItems={names} name={'multi-select-fw'} label={'Full width'} fullWidth />
+    <MultiSelectElement menuItems={names} name={'multi-select-basic'} label={'The label'} /> <br /><br />
+    <MultiSelectElement required menuItems={names} name={'multi-select-required'} label={'Required'} variant={'outlined'} /><br />
+    <MultiSelectElement menuItems={names}
+                        name={'multi-select-fw'}
+                        showChips
+                        label={'Full width'} fullWidth />
     <MultiSelectElement
       menuItems={names}
       name={'multi-select-iv'}
       label={'Initial values'}
+      showChips
     /><br />
     <MultiSelectElement
       menuItems={objectVals}
@@ -48,6 +52,7 @@ export const Basic = () => (
       itemValue={'id'}
       itemKey={'id'}
       itemLabel={'name'}
+      variant={'filled'}
     /><br />
     <Button type={'submit'} color={'primary'}>Submit</Button>
   </FormContainer>

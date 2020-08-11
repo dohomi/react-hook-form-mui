@@ -23,7 +23,7 @@ export function DatePickerElement({
   ...rest
 }: DatePickerElementProps): JSX.Element {
   const { errors, getValues, control, setValue } = useFormContext()
-  const formValue: any = getNestedValue(getValues({ nest: true }), name)
+  const formValue: any = getNestedValue(getValues(), name)
   const value = formValue || undefined
   if (required) {
     validation.required = 'This field is required'
@@ -32,7 +32,7 @@ export function DatePickerElement({
   function onChange(date: MaterialUiPickersDate): void {
     const parsedDate =
       isDate && date ? date && date.toISOString().substr(0, 10) : date
-    setValue(name, parsedDate, true)
+    setValue(name, parsedDate, { shouldValidate: true })
     rest.onChange && rest.onChange(parsedDate)
   }
 

@@ -30,7 +30,7 @@ export function SelectElement({
   ...rest
 }: SelectElementProps): JSX.Element {
   const { errors, getValues, control, setValue } = useFormContext()
-  const formValue: any = getNestedValue(getValues({ nest: true }), name)
+  const formValue: any = getNestedValue(getValues(), name)
   let value = formValue || ''
   if (value && typeof value === 'object') {
     value = value[valueKey] // if value is object get key
@@ -45,7 +45,7 @@ export function SelectElement({
     if (type === 'number') {
       item = Number(item)
     }
-    setValue(name, item, true)
+    setValue(name, item, {shouldValidate:true})
     if (rest.onChange) {
       if (objectOnChange) {
         item = options.find(i => i[valueKey] === item)

@@ -62,7 +62,7 @@ export function RadioButtonGroup({
     const returnValue = returnObject
       ? options.find(items => items[valueKey] === radioValue)
       : radioValue
-    setValue(name, returnValue, true)
+    setValue(name, returnValue, { shouldValidate: true })
     onChange && onChange(returnValue)
   }
 
