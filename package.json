@@ -27,7 +27,7 @@
     "prepare": "tsdx build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "deploy": "npm run build-storybook && cd storybook-static && now --name react-hook-form-material-ui --prod"
+    "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod"
   },
   "dependencies": {},
   "peerDependencies": {
