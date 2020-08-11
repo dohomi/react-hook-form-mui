@@ -4,11 +4,11 @@
     "types"
   ],
   "compilerOptions": {
-    "module": "esnext",
     "lib": [
       "dom",
       "esnext"
     ],
+    "module": "esnext",
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
@@ -23,6 +23,7 @@
     "noEmit": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
+    "jsx": "react",
     "baseUrl": "./",
     "paths": {
       "@": [
@@ -32,7 +33,6 @@
         "src/*",
         "node_modules/*"
       ]
-    },
-    "jsx": "react"
+    }
   }
 }
