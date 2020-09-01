@@ -2,6 +2,7 @@ import * as React from 'react'
 import { FormContainer, MultiSelectElement } from '../src'
 import { action } from '@storybook/addon-actions'
 import Button from '@material-ui/core/Button'
+import { useForm } from 'react-hook-form'
 
 const names = [
   'Oliver Hansen',
@@ -33,7 +34,8 @@ export const Basic = () => (
     'multi-select-ov': [1, 3]
   }} onSuccess={action('submit')}>
     <MultiSelectElement menuItems={names} name={'multi-select-basic'} label={'The label'} /> <br /><br />
-    <MultiSelectElement required menuItems={names} name={'multi-select-required'} label={'Required'} variant={'outlined'} /><br />
+    <MultiSelectElement required menuItems={names} name={'multi-select-required'} label={'Required'}
+                        variant={'outlined'} /><br />
     <MultiSelectElement menuItems={names}
                         name={'multi-select-fw'}
                         showChips
@@ -58,3 +60,25 @@ export const Basic = () => (
   </FormContainer>
 )
 
+export const WithFormContext = () => {
+  const formContext = useForm<{ to: [number] }>({
+    defaultValues: {
+      to: [1]
+    }
+  })
+  return (
+    <FormContainer onSuccess={action('submit')}
+                   formContext={formContext as any}>
+      <MultiSelectElement
+        menuItems={objectVals}
+        name={'to'}
+        label={'With object vals'}
+        helperText="The label (initial values: [1, 3])"
+        itemValue={'id'}
+        itemKey={'id'}
+        itemLabel={'name'}
+        variant={'outlined'}
+      />
+    </FormContainer>
+  )
+}
