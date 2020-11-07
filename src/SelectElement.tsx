@@ -1,23 +1,12 @@
 import React, { createElement } from 'react'
 import MenuItem from '@material-ui/core/MenuItem'
-import TextField, { TextFieldProps } from '@material-ui/core/TextField'
+import TextField from '@material-ui/core/TextField'
 import { Controller, useFormContext } from 'react-hook-form'
 import getNestedValue from './helpers/getNestedValue'
 import getErrorMessages from './helpers/getErrorMessages'
+import { SelectElementProps } from './formTypes'
 
-export type SelectElementProps = Omit<TextFieldProps, 'name' | 'variant' | 'type'> & {
-  validation?: any
-  name: string
-  options?: any[]
-  valueKey?: string
-  labelKey?: string
-  type?: 'string' | 'number'
-  parseError?: Function
-  objectOnChange?: boolean
-  onChange?: Function
-}
-
-export function SelectElement({
+export default function SelectElement({
   name,
   required,
   valueKey = 'id',

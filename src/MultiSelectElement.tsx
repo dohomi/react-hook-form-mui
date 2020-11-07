@@ -2,34 +2,18 @@ import React from 'react'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '@material-ui/core/FormControl'
-import Select, { SelectProps } from '@material-ui/core/Select'
+import Select from '@material-ui/core/Select'
 import useFormValidation from './helpers/useFormValidation'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import Chip from '@material-ui/core/Chip'
 import CloseIcon from '@material-ui/icons/Cancel'
+import { MultiSelectElementProps } from './formTypes'
 
-
-export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
-  menuItems: any
-  label?: string
-  itemKey?: string
-  itemValue?: string
-  itemLabel?: string
-  required?: boolean
-  validation?: any
-  name: string
-  parseError?: Function
-  minWidth?: number
-  menuMaxHeight?: number
-  menuMaxWidth?: number
-  helperText?: string
-  showChips?: boolean
-}
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
 
-export function MultiSelectElement({
+export default function MultiSelectElement({
   menuItems,
   label = '',
   itemKey = '',

@@ -1,6 +1,5 @@
-import * as React from 'react'
-import { addDecorator, addParameters } from '@storybook/react'
-import { withKnobs } from '@storybook/addon-knobs'
+import React, { Suspense } from 'react'
+import { addParameters } from '@storybook/react'
 
 addParameters({
   options: {
@@ -8,4 +7,7 @@ addParameters({
       a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true })
   }
 })
-addDecorator(withKnobs())
+
+export const decorators = [(Story) => (
+  <Suspense fallback={<div>loading</div>}><Story /></Suspense>
+)]

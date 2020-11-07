@@ -1,16 +1,10 @@
-import React from 'react'
-import TextField, { TextFieldProps } from '@material-ui/core/TextField'
+import TextField from '@material-ui/core/TextField'
 import { Controller, useFormContext } from 'react-hook-form'
 import getErrorMessages from './helpers/getErrorMessages'
+import { TextFieldElementProps } from './formTypes'
+import React from 'react'
 
-export type TextFieldElementProps = Omit<TextFieldProps,
-  'name'> & {
-  validation?: any
-  name: string
-  parseError?: Function
-}
-
-export function TextFieldElement({
+export default function TextFieldElement({
   validation = {},
   parseError,
   type,

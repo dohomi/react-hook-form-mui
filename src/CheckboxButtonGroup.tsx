@@ -9,20 +9,7 @@ import { Checkbox } from '@material-ui/core'
 import FormGroup from '@material-ui/core/FormGroup'
 import { CheckboxProps } from '@material-ui/core/Checkbox'
 import useFormValidation from './helpers/useFormValidation'
-
-export type CheckboxButtonGroupProps = {
-  options: any[]
-  helperText?: string
-  name: string
-  required?: boolean
-  parseError?: Function
-  label?: string
-  labelKey?: string
-  valueKey?: string
-  onChange?: Function
-  returnObject?: boolean
-  disabled?: boolean
-}
+import { CheckboxButtonGroupProps } from './formTypes'
 
 const useStyles = makeStyles({
   root: {
@@ -30,7 +17,7 @@ const useStyles = makeStyles({
   }
 })
 
-export function CheckboxButtonGroup({
+export default function CheckboxButtonGroup({
   helperText,
   options,
   label,

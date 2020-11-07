@@ -1,20 +1,12 @@
 import React from 'react'
-import { DatePicker, DatePickerProps } from '@material-ui/pickers'
+import { DatePicker } from '@material-ui/pickers'
 import { Controller, useFormContext } from 'react-hook-form'
 import getNestedValue from './helpers/getNestedValue'
 import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date'
 import getErrorMessages from './helpers/getErrorMessages'
+import { DatePickerElementProps } from './formTypes'
 
-export type DatePickerElementProps = Omit<DatePickerProps, 'value' | 'onChange'> & {
-  name: string
-  required?: boolean
-  isDate?: boolean
-  parseError?: Function
-  onChange?: Function
-  validation?: any
-}
-
-export function DatePickerElement({
+export default function DatePickerElement({
   isDate,
   parseError,
   name,

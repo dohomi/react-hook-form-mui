@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { FormContainer, SelectElement } from '../src'
+import { FormContainer, SelectElement } from 'index.ts'
 // @ts-ignore
 import MutationObserver from 'mutation-observer'
 

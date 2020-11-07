@@ -8,21 +8,7 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import { red } from '@material-ui/core/colors'
 import useFormValidation from './helpers/useFormValidation'
-
-export type RadioButtonGroupProps = {
-  options: any[]
-  helperText?: string
-  name: string
-  required?: boolean
-  parseError?: Function
-  label?: string
-  labelKey?: string
-  valueKey?: string
-  type?: 'number' | 'string'
-  emptyOptionLabel?: 'string'
-  onChange?: Function
-  returnObject?: boolean
-}
+import { RadioButtonGroupProps } from './formTypes'
 
 const useStyles = makeStyles({
   root: {
@@ -30,7 +16,7 @@ const useStyles = makeStyles({
   }
 })
 
-export function RadioButtonGroup({
+export default function RadioButtonGroup({
   helperText,
   options,
   label,
