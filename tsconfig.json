@@ -8,7 +8,8 @@
       "dom",
       "esnext"
     ],
-    "module": "esnext",
+    "module": "ESNext",
+    "target": "ESNext",
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
@@ -24,15 +25,6 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "jsx": "react",
-    "baseUrl": "./",
-    "paths": {
-      "@": [
-        "./"
-      ],
-      "*": [
-        "src/*",
-        "node_modules/*"
-      ]
-    }
+    "baseUrl": "./"
   }
 }

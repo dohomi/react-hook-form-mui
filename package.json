@@ -1,5 +1,5 @@
 {
-  "version": "0.9.0",
+  "version": "0.10.3",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.now.sh",
@@ -12,8 +12,9 @@
   "name": "react-form-hook-mui",
   "author": "Dominic Garms",
   "source": "src/index.ts",
-  "main": "dist/index.esm.js",
-  "module": "dist/index.modern.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "esmodule": "dist/index.modern.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
@@ -23,8 +24,8 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "microbundle watch",
-    "build": "microbundle -f modern,esm,cjs --jsx React.createElement",
+    "start": "rimraf dist && microbundle watch",
+    "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement",
     "prepare": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

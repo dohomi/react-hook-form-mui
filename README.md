@@ -22,7 +22,7 @@ Check out Storybook: [Demo](https://react-hook-form-material-ui.now.sh/)
 You will find examples and use cases.
 
 ### Build
-This project uses `tsdx` for bundling.
+This project uses `microbundle` for bundling. It uses React.lazy under the hood to lazy load the components.
 
 ### License
 [MIT](./LICENSE)

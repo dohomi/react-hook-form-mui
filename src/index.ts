@@ -22,7 +22,7 @@ export {
   MultiSelectElement
 }
 
-export {
+export type {
   CheckboxButtonGroupProps,
   FormContainerProps,
   CheckboxElementProps,
