@@ -1,14 +1,14 @@
-import { lazy } from 'react'
+import universal from 'react-universal-component'
 
-const TextFieldElement = lazy(() => import('./TextFieldElement'))
-const FormContainer = lazy(() => import('./FormContainer'))
-const RadioButtonGroup = lazy(() => import('./RadioButtonGroup'))
-const CheckboxButtonGroup = lazy(() => import('./CheckboxButtonGroup'))
-const CheckboxElement = lazy(() => import('./CheckboxElement'))
-const PasswordElement = lazy(() => import('./PasswordElement'))
-const SelectElement = lazy(() => import('./SelectElement'))
-const MultiSelectElement = lazy(() => import('./MultiSelectElement'))
-const DatePickerElement = lazy(() => import('./DatePickerElement'))
+const TextFieldElement = universal(() => import('./TextFieldElement'))
+const FormContainer = universal(() => import('./FormContainer'))
+const RadioButtonGroup = universal(() => import('./RadioButtonGroup'))
+const CheckboxButtonGroup = universal(() => import('./CheckboxButtonGroup'))
+const CheckboxElement = universal(() => import('./CheckboxElement'))
+const PasswordElement = universal(() => import('./PasswordElement'))
+const SelectElement = universal(() => import('./SelectElement'))
+const MultiSelectElement = universal(() => import('./MultiSelectElement'))
+const DatePickerElement = universal(() => import('./DatePickerElement'))
 
 export {
   TextFieldElement,

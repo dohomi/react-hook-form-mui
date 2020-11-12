@@ -1,5 +1,5 @@
 {
-  "version": "0.10.3",
+  "version": "0.10.4",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.now.sh",
@@ -31,7 +31,9 @@
     "build-storybook": "build-storybook",
     "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-universal-component": "4.5.0"
+  },
   "peerDependencies": {
     "react": ">=16.8",
     "@material-ui/core": "> 4.7 <5",
