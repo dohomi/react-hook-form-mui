@@ -1,7 +1,7 @@
 import { CheckboxProps } from '@material-ui/core'
 import React, { FormHTMLAttributes } from 'react'
 import { DatePickerProps } from '@material-ui/pickers'
-import { UseFormMethods } from 'react-hook-form'
+import { UseFormReturn } from 'react-hook-form'
 import { SelectProps } from '@material-ui/core/Select'
 import { TextFieldProps } from '@material-ui/core/TextField'
 
@@ -37,7 +37,7 @@ export type FormContainerProps = {
   defaultValues?: any
   onSuccess?: () => void
   handleSubmit?: () => void
-  formContext?: UseFormMethods
+  formContext?: UseFormReturn
   FormProps?: FormHTMLAttributes<HTMLFormElement>
 }
 export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
@@ -56,7 +56,7 @@ export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   helperText?: string
   showChips?: boolean
 }
-export type PasswordElementProps = TextFieldElementPropsexport
+export type PasswordElementProps = TextFieldElementProps
 export type RadioButtonGroupProps = {
   options: any[]
   helperText?: string
