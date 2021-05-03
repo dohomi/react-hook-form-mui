@@ -18,7 +18,7 @@ export default function SelectElement({
   validation = {},
   ...rest
 }: SelectElementProps): JSX.Element {
-  const { errors, getValues, control, setValue } = useFormContext()
+  const { formState: { errors }, getValues, control, setValue } = useFormContext()
   const formValue: any = getNestedValue(getValues(), name)
   let value = formValue || ''
   if (value && typeof value === 'object') {
@@ -54,30 +54,29 @@ export default function SelectElement({
       name={name}
       control={control}
       rules={validation}
-      as={
-        <TextField
-          {...rest}
-          select
-          value={value}
-          required={required}
-          error={!!errorMessages}
-          helperText={errorMessages || rest.helperText}
-          InputProps={{
-            onChange
-          }}
-        >
-          {!!isNativeSelect && <option />}
-          {options.map((item: any) =>
-            createElement(
-              ChildComponent,
-              {
-                key: `${name}_${item[valueKey]}`,
-                value: item[valueKey]
-              },
-              item[labelKey]
-            )
-          )}
-        </TextField>
+      render={({ field }) => <TextField
+        {...field}
+        {...rest}
+        select
+        value={value}
+        required={required}
+        error={!!errorMessages}
+        helperText={errorMessages || rest.helperText}
+        InputProps={{
+          onChange
+        }}
+      >{isNativeSelect && <option />}
+        {options.map((item: any) =>
+          createElement(
+            ChildComponent,
+            {
+              key: `${name}_${item[valueKey]}`,
+              value: item[valueKey]
+            },
+            item[labelKey]
+          )
+        )}
+      </TextField>
       }
     />
   )

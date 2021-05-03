@@ -12,7 +12,7 @@ export default function TextFieldElement({
   name,
   ...rest
 }: TextFieldElementProps): JSX.Element {
-  const { errors, control } = useFormContext()
+  const { formState: { errors }, control } = useFormContext()
 
   if (required) {
     validation.required = 'This field is required'
@@ -27,17 +27,17 @@ export default function TextFieldElement({
   const errorMessages = getErrorMessages(name, errors, parseError)
   return (
     <Controller
-      required={required}
       name={name}
       control={control}
       rules={validation}
-      as={
-        <TextField
-          {...rest}
-          type={type}
-          error={!!errorMessages}
-          helperText={errorMessages || rest.helperText}
-        />
+      render={({ field }) => <TextField
+        {...field}
+        {...rest}
+        required={required}
+        type={type}
+        error={!!errorMessages}
+        helperText={errorMessages || rest.helperText}
+      />
       }
     />
   )
