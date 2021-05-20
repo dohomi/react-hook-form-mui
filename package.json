@@ -1,0 +1,86 @@
+{
+  "version": "0.10.5",
+  "license": "MIT",
+  "repository": "https://github.com/dohomi/react-hook-form-mui",
+  "homepage": "https://react-hook-form-material-ui.now.sh",
+  "keywords": [
+    "react",
+    "mui",
+    "material-ui",
+    "react-hook-form"
+  ],
+  "name": "react-form-hook-mui",
+  "author": "Dominic Garms",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "esmodule": "dist/index.modern.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "rimraf dist && microbundle watch",
+    "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement",
+    "_prepare": "npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod"
+  },
+  "dependencies": {
+    "react-universal-component": "4.5.0"
+  },
+  "peerDependencies": {
+    "@date-io/date-fns": "> 1.3.x <2",
+    "@material-ui/core": "> 4.7 <5",
+    "@material-ui/icons": "> 4.7 <5",
+    "@material-ui/pickers": "> 3.2.x <4",
+    "date-fns": "2.7.x",
+    "react": ">=17",
+    "react-hook-form": ">=7.3.5",
+    "typescript": ">= 4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@date-io/date-fns": "^1.3.13",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/pickers": "^3.2.10",
+    "@storybook/addon-actions": "6.2.9",
+    "@storybook/addon-docs": "6.2.9",
+    "@storybook/addon-knobs": "6.2.9",
+    "@storybook/addon-links": "6.2.9",
+    "@storybook/addons": "6.2.9",
+    "@storybook/builder-webpack5": "^6.2.9",
+    "@storybook/react": "6.2.9",
+    "@types/react": "^17.0.6",
+    "@types/react-dom": "^17.0.5",
+    "babel-loader": "^8.1.0",
+    "date-fns": "^2.15.0",
+    "microbundle": "^0.13.0",
+    "mutation-observer": "^1.0.3",
+    "react": "^17.0.2",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.6.2",
+    "react-is": "^17.0.1",
+    "ts-loader": "^9.2.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.2.4"
+  }
+}
