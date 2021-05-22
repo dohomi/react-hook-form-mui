@@ -3,8 +3,8 @@ import { FormProvider, useForm, UseFormReturn } from 'react-hook-form'
 
 export type FormContainerProps = {
   defaultValues?: any
-  onSuccess?: () => void
-  handleSubmit?: () => void
+  onSuccess?: (values: any) => void
+  handleSubmit?: (values: any) => void
   formContext?: UseFormReturn<any>
   FormProps?: FormHTMLAttributes<HTMLFormElement>
 }
