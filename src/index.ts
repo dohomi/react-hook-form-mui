@@ -1,15 +1,13 @@
 import universal from 'react-universal-component'
-import {
-  CheckboxButtonGroupProps,
-  CheckboxElementProps,
-  DatePickerElementProps,
-  FormContainerProps,
-  MultiSelectElementProps,
-  PasswordElementProps,
-  RadioButtonGroupProps,
-  SelectElementProps,
-  TextFieldElementProps
-} from './formTypes'
+import { TextFieldElementProps } from './TextFieldElement'
+import { DatePickerElementProps } from './DatePickerElement'
+import { MultiSelectElementProps } from './MultiSelectElement'
+import { SelectElementProps } from './SelectElement'
+import { PasswordElementProps } from './PasswordElement'
+import { CheckboxElementProps } from './CheckboxElement'
+import { CheckboxButtonGroupProps } from './CheckboxButtonGroup'
+import { RadioButtonGroupProps } from './RadioButtonGroup'
+import { FormContainerProps } from './FormContainer'
 
 const TextFieldElement = universal<TextFieldElementProps>(import('./TextFieldElement'))
 const FormContainer = universal<FormContainerProps>(import('./FormContainer'))
@@ -33,15 +31,15 @@ export {
   MultiSelectElement
 }
 
-export type {
-  CheckboxButtonGroupProps,
-  FormContainerProps,
-  CheckboxElementProps,
-  DatePickerElementProps,
-  MultiSelectElementProps,
-  PasswordElementProps,
-  RadioButtonGroupProps,
-  SelectElementProps,
-  TextFieldElementProps
-} from './formTypes'
 
+export type {
+  TextFieldElementProps,
+  FormContainerProps,
+  RadioButtonGroupProps,
+  CheckboxButtonGroupProps,
+  CheckboxElementProps,
+  PasswordElementProps,
+  SelectElementProps,
+  MultiSelectElementProps,
+  DatePickerElementProps
+}

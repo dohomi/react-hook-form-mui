@@ -8,14 +8,27 @@ import { red } from '@material-ui/core/colors'
 import { Checkbox } from '@material-ui/core'
 import FormGroup from '@material-ui/core/FormGroup'
 import { CheckboxProps } from '@material-ui/core/Checkbox'
-import { CheckboxButtonGroupProps } from './formTypes'
-import { useController } from 'react-hook-form'
+import { FieldError, useController } from 'react-hook-form'
 
 const useStyles = makeStyles({
   root: {
     color: red[400]
   }
 })
+
+export type CheckboxButtonGroupProps = {
+  options: any[]
+  helperText?: string
+  name: string
+  required?: boolean
+  parseError?: (error: FieldError) => string
+  label?: string
+  labelKey?: string
+  valueKey?: string
+  onChange?: Function
+  returnObject?: boolean
+  disabled?: boolean
+}
 
 export default function CheckboxButtonGroup({
   helperText,

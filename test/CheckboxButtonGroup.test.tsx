@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { CheckboxButtonGroup, FormContainer } from 'index.ts'
+import { CheckboxButtonGroup, FormContainer } from '../src'
 import { action } from '@storybook/addon-actions'
 // @ts-ignore
 import MutationObserver from 'mutation-observer'

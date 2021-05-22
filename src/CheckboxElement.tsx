@@ -5,8 +5,16 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormControl from '@material-ui/core/FormControl'
 import { red } from '@material-ui/core/colors'
-import { CheckboxElementProps } from './formTypes'
-import { Controller } from 'react-hook-form'
+import { Controller, ControllerProps, FieldError } from 'react-hook-form'
+import { CheckboxProps } from '@material-ui/core'
+
+export type CheckboxElementProps = Omit<CheckboxProps, 'name'> & {
+  validation?: ControllerProps['rules']
+  name: string
+  parseError?: (error: FieldError) => string
+  label?: React.ReactNode
+  helperText?: string
+}
 
 export default function CheckboxElement({
   name,

@@ -1,6 +1,13 @@
-import React, { FunctionComponent } from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { FormContainerProps } from './formTypes'
+import React, { FormHTMLAttributes, FunctionComponent } from 'react'
+import { FormProvider, useForm, UseFormReturn } from 'react-hook-form'
+
+export type FormContainerProps = {
+  defaultValues?: any
+  onSuccess?: () => void
+  handleSubmit?: () => void
+  formContext?: UseFormReturn<any>
+  FormProps?: FormHTMLAttributes<HTMLFormElement>
+}
 
 const FormContainerCore: FunctionComponent<FormContainerProps> = ({
   defaultValues = {},
@@ -22,7 +29,6 @@ const FormContainerCore: FunctionComponent<FormContainerProps> = ({
     </FormProvider>
   )
 }
-
 const FormContainer: FunctionComponent<FormContainerProps> = props => {
   if (!props.formContext && !props.handleSubmit) {
     return <FormContainerCore {...props} />

@@ -1,7 +1,16 @@
 import React from 'react'
-import { DatePicker } from '@material-ui/pickers'
-import { Controller } from 'react-hook-form'
-import { DatePickerElementProps } from './formTypes'
+import { DatePicker, DatePickerProps } from '@material-ui/pickers'
+import { Controller, ControllerProps, FieldError } from 'react-hook-form'
+
+export type DatePickerElementProps = Omit<DatePickerProps, 'value' | 'onChange'> & {
+  name: string
+  required?: boolean
+  isDate?: boolean
+  parseError?: (error: FieldError) => string
+  onChange?: (value: string) => void
+  validation?: ControllerProps['rules']
+  parseDate?: (date: string) => string
+}
 
 export default function DatePickerElement({
   isDate,

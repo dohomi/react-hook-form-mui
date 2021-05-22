@@ -1,5 +1,5 @@
 {
-  "version": "0.10.5",
+  "version": "1.0.0",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.now.sh",
@@ -26,7 +26,7 @@
   "scripts": {
     "start": "rimraf dist && microbundle watch",
     "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement",
-    "_prepare": "npm run build",
+    "prepare": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "check-types": "tsc --noemit",

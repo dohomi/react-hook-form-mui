@@ -7,14 +7,28 @@ import FormLabel from '@material-ui/core/FormLabel'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import { red } from '@material-ui/core/colors'
-import { RadioButtonGroupProps } from './formTypes'
-import { useController } from 'react-hook-form'
+import { FieldError, useController } from 'react-hook-form'
 
 const useStyles = makeStyles({
   root: {
     color: red[400]
   }
 })
+
+export type RadioButtonGroupProps = {
+  options: any[]
+  helperText?: string
+  name: string
+  required?: boolean
+  parseError?: (error: FieldError) => string
+  label?: string
+  labelKey?: string
+  valueKey?: string
+  type?: 'number' | 'string'
+  emptyOptionLabel?: 'string'
+  onChange?: (value: any) => void
+  returnObject?: boolean
+}
 
 export default function RadioButtonGroup({
   helperText,
