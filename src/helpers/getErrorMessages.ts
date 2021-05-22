@@ -9,4 +9,5 @@ const getErrorMessages = (name: string, errors: any, parseError?: Function) => {
   if (!errorType) return
   return parseError ? parseError(errorType) : `This field is ${errorType}`
 }
+
 export default getErrorMessages

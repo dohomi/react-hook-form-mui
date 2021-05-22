@@ -13,7 +13,7 @@
     "react-app-polyfill": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-form-hook-mui": "^0.6.0",
-    "react-hook-form": "^5.7.2"
+    "react-hook-form": "../"
   },
   "alias": {
     "scheduler/tracing": "../node_modules/scheduler/tracing-profiling"

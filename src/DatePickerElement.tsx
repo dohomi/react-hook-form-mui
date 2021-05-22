@@ -1,9 +1,6 @@
 import React from 'react'
 import { DatePicker } from '@material-ui/pickers'
-import { Controller, useFormContext } from 'react-hook-form'
-import getNestedValue from './helpers/getNestedValue'
-import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date'
-import getErrorMessages from './helpers/getErrorMessages'
+import { Controller } from 'react-hook-form'
 import { DatePickerElementProps } from './formTypes'
 
 export default function DatePickerElement({
@@ -11,39 +8,46 @@ export default function DatePickerElement({
   parseError,
   name,
   required,
+  parseDate,
   validation = {},
   ...rest
 }: DatePickerElementProps): JSX.Element {
-  const { formState: { errors }, getValues, control, setValue } = useFormContext()
-  const formValue: any = getNestedValue(getValues(), name)
-  const value = formValue || undefined
+
   if (required) {
     validation.required = 'This field is required'
   }
 
-  function onChange(date: MaterialUiPickersDate): void {
-    const parsedDate =
-      isDate && date ? date && date.toISOString().substr(0, 10) : date
-    setValue(name, parsedDate, { shouldValidate: true })
-    rest.onChange && rest.onChange(parsedDate)
-  }
-
-  const errorMessages = getErrorMessages(name, errors, parseError)
-
   return (
     <Controller
       name={name}
-      control={control}
       rules={validation}
-      render={({ field }) => <DatePicker
-        {...field}
-        {...rest}
-        required={!!required}
-        value={value}
-        onChange={onChange}
-        error={!!errorMessages}
-        helperText={errorMessages || rest.helperText}
-      />}
+      render={({ field: { onBlur, onChange, value }, fieldState: { error, invalid } }) =>
+        <DatePicker
+          {...rest}
+          value={value}
+          required={!!required}
+          onBlur={(ev) => {
+            onBlur()
+            if (typeof rest.onBlur === 'function') {
+              rest.onBlur(ev)
+            }
+          }}
+          onChange={(date) => {
+            let parsedDate = date
+            if (typeof parseDate === 'function') {
+              parsedDate = parseDate(date)
+            } else {
+              parsedDate = date.toISOString().substr(0, 10)
+            }
+            console.log(date, parsedDate)
+            onChange(parsedDate)
+            if (typeof rest.onChange === 'function') {
+              rest.onChange(parsedDate)
+            }
+          }}
+          error={invalid}
+          helperText={error ? (typeof parseError === 'function' ? parseError(error) : error.message) : rest.helperText}
+        />}
     />
   )
 }

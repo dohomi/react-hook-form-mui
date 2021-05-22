@@ -3,10 +3,10 @@ import { FunctionComponent, useEffect } from 'react'
 import { CheckboxElement, FormContainer, PasswordElement, TextFieldElement } from '../src'
 import { action } from '@storybook/addon-actions'
 import Button from '@material-ui/core/Button'
-import { useForm, useFormContext } from 'react-hook-form'
+import { FieldError, useForm, useFormContext } from 'react-hook-form'
 
-const parseError = (errorType: string) => {
-  if (errorType === 'pattern') {
+const parseError = (error: FieldError) => {
+  if (error.type === 'pattern') {
     return 'Enter an email'
   }
   return 'This field is required'
@@ -54,11 +54,18 @@ export const Basic = () => {
       /><br />
       <TextFieldElement
         required
-        parseError={parseError}
         type={'email'}
         margin={'dense'}
         label={'Email'}
         name={'default-email-field'}
+      /><br />
+      <TextFieldElement
+        required
+        parseError={parseError}
+        type={'email'}
+        margin={'dense'}
+        label={'Email with ParseError'}
+        name={'default-email-field-with-parsed'}
       /><br />
       <TextFieldElement
         margin={'dense'}
@@ -169,8 +176,10 @@ export const WithFormContext = () => {
   return (
     <FormContainer onSuccess={action('submit')}
                    formContext={formContext}>
-      <TextFieldElement name={'name'} label={'Name'} parseError={parseError} required variant={'outlined'} margin={'dense'}/><br />
-      <TextFieldElement name={'email'} type="email" label={'Email'} required parseError={parseError} variant={'outlined'} margin={'dense'} /><br /><br />
+      <TextFieldElement name={'name'} label={'Name'} parseError={parseError} required variant={'outlined'}
+                        margin={'dense'} /><br />
+      <TextFieldElement name={'email'} type="email" label={'Email'} required parseError={parseError}
+                        variant={'outlined'} margin={'dense'} /><br /><br />
       <Button type={'submit'} color={'primary'} variant={'contained'}>Submit</Button>
     </FormContainer>
   )

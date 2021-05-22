@@ -7,8 +7,8 @@ import FormLabel from '@material-ui/core/FormLabel'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import { red } from '@material-ui/core/colors'
-import useFormValidation from './helpers/useFormValidation'
 import { RadioButtonGroupProps } from './formTypes'
+import { useController } from 'react-hook-form'
 
 const useStyles = makeStyles({
   root: {
@@ -26,20 +26,24 @@ export default function RadioButtonGroup({
   valueKey = 'id',
   required,
   emptyOptionLabel,
-  onChange,
-  returnObject
+  returnObject,
+  ...rest
 }: RadioButtonGroupProps): JSX.Element {
   const classes = useStyles()
-  const { formValue, errorMessages, setValue } = useFormValidation({
+  // const { formValue, errorMessages, setValue } = useFormValidation({
+  //   name,
+  //   parseError,
+  //   required
+  // })
+  const { field: { value, onChange }, fieldState: { invalid, error } } = useController({
     name,
-    parseError,
-    required
+    rules: required ? { required: 'This field is required' } : undefined
   })
 
-  helperText = errorMessages || helperText
-  const hasError = !!errorMessages
+  helperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : helperText
+
   const radioProps: RadioProps = {}
-  if (hasError) {
+  if (invalid) {
     radioProps.className = classes.root
   }
 
@@ -48,23 +52,27 @@ export default function RadioButtonGroup({
     const returnValue = returnObject
       ? options.find(items => items[valueKey] === radioValue)
       : radioValue
-    setValue(name, returnValue, { shouldValidate: true })
-    onChange && onChange(returnValue)
+    // setValue(name, returnValue, { shouldValidate: true })
+    onChange(returnValue)
+    if (typeof rest.onChange === 'function') {
+      rest.onChange(returnValue)
+    }
   }
 
   return (
-    <FormControl error={hasError}>
-      {label && <FormLabel>{label}</FormLabel>}
-      <RadioGroup onChange={onRadioChange} name={name} value={formValue}>
+    <FormControl error={invalid}>
+      {label && <FormLabel required={required} error={invalid}>{label}</FormLabel>}
+      <RadioGroup onChange={onRadioChange}
+                  name={name}
+                  value={value || ''}>
         {emptyOptionLabel && (
           <FormControlLabel
-            control={<Radio {...radioProps} checked={!formValue} />}
+            control={<Radio {...radioProps} checked={!value} />}
             label={emptyOptionLabel}
             value=""
           />
         )}
         {options.map((option: any) => {
-          // console.log(option, stateVal)
           const optionKey = option[valueKey]
           if (!optionKey) {
             console.error(
@@ -73,10 +81,10 @@ export default function RadioButtonGroup({
             )
           }
           const isChecked = !!(
-            formValue &&
+            value &&
             (returnObject
-              ? formValue[valueKey] === optionKey
-              : formValue === optionKey)
+              ? value[valueKey] === optionKey
+              : value === optionKey)
           )
           return (
             <FormControlLabel
