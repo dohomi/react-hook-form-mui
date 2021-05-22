@@ -30,11 +30,6 @@ export default function RadioButtonGroup({
   ...rest
 }: RadioButtonGroupProps): JSX.Element {
   const classes = useStyles()
-  // const { formValue, errorMessages, setValue } = useFormValidation({
-  //   name,
-  //   parseError,
-  //   required
-  // })
   const { field: { value, onChange }, fieldState: { invalid, error } } = useController({
     name,
     rules: required ? { required: 'This field is required' } : undefined

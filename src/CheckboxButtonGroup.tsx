@@ -8,8 +8,8 @@ import { red } from '@material-ui/core/colors'
 import { Checkbox } from '@material-ui/core'
 import FormGroup from '@material-ui/core/FormGroup'
 import { CheckboxProps } from '@material-ui/core/Checkbox'
-import useFormValidation from './helpers/useFormValidation'
 import { CheckboxButtonGroupProps } from './formTypes'
+import { useController } from 'react-hook-form'
 
 const useStyles = makeStyles({
   root: {
@@ -26,22 +26,22 @@ export default function CheckboxButtonGroup({
   required,
   labelKey = 'label',
   valueKey = 'id',
-  onChange,
   returnObject,
-  disabled
+  disabled,
+  ...rest
 }: CheckboxButtonGroupProps): JSX.Element {
   const classes = useStyles()
-  const { setValue, formValue, errorMessages } = useFormValidation({
-    parseError,
+  const { field: { value = [], onChange }, fieldState: { invalid, error } } = useController({
     name,
-    required
+    rules: required ? { required: 'This field is required' } : undefined
   })
-  const values: any[] = formValue || []
+
+  helperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : helperText
 
   const handleChange = (index: number | string) => {
-    const newArray = [...values]
+    const newArray = [...value]
     const exists =
-      values.findIndex(i =>
+      value.findIndex((i: any) =>
         returnObject ? i[valueKey] === index : i === index
       ) === -1
     if (exists) {
@@ -50,26 +50,26 @@ export default function CheckboxButtonGroup({
       )
     } else {
       newArray.splice(
-        values.findIndex(i =>
+        value.findIndex((i: any) =>
           returnObject ? i[valueKey] === index : i === index
         ),
         1
       )
     }
-    setValue(name, newArray, { shouldValidate: true })
-    onChange && onChange(newArray)
+    // setValue(name, newArray, { shouldValidate: true })
+    onChange(newArray)
+    if (typeof rest.onChange === 'function') {
+      rest.onChange(newArray)
+    }
   }
-
-  helperText = errorMessages || helperText
-  const hasError = !!errorMessages
   const checkboxProps: CheckboxProps = {}
-  if (hasError) {
+  if (invalid) {
     checkboxProps.className = classes.root
   }
 
   return (
-    <FormControl error={hasError} required={required}>
-      {label && <FormLabel error={hasError}>{label}</FormLabel>}
+    <FormControl error={invalid} required={required}>
+      {label && <FormLabel error={invalid}>{label}</FormLabel>}
       <FormGroup>
         {options.map((option: any) => {
           const optionKey = option[valueKey]
@@ -80,7 +80,7 @@ export default function CheckboxButtonGroup({
             )
           }
           const isChecked =
-            values.findIndex(item =>
+            value.findIndex((item: any) =>
               returnObject ? item[valueKey] === optionKey : item === optionKey
             ) !== -1
           return (

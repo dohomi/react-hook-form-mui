@@ -32,7 +32,7 @@ export type DatePickerElementProps = Omit<DatePickerProps, 'value' | 'onChange'>
   required?: boolean
   isDate?: boolean
   parseError?: ParseError
-  onChange?: Function
+  onChange?: (value: string) => void
   validation?: ControllerProps['rules']
   parseDate?: (date: string) => string
 }
@@ -71,10 +71,10 @@ export type RadioButtonGroupProps = {
   valueKey?: string
   type?: 'number' | 'string'
   emptyOptionLabel?: 'string'
-  onChange?: Function
+  onChange?: (value: any) => void
   returnObject?: boolean
 }
-export type SelectElementProps = Omit<TextFieldProps, 'name' | 'variant' | 'type'> & {
+export type SelectElementProps = Omit<TextFieldProps, 'name' | 'variant' | 'type' | 'onChange'> & {
   validation?: ControllerProps['rules']
   name: string
   options?: any[]
@@ -83,7 +83,7 @@ export type SelectElementProps = Omit<TextFieldProps, 'name' | 'variant' | 'type
   type?: 'string' | 'number'
   parseError?: ParseError
   objectOnChange?: boolean
-  onChange?: Function
+  onChange?: (value: any) => void
 }
 export type TextFieldElementProps = Omit<TextFieldProps,
   'name'> & {

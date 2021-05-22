@@ -27,7 +27,6 @@ const FormContainer: FunctionComponent<FormContainerProps> = props => {
   if (!props.formContext && !props.handleSubmit) {
     return <FormContainerCore {...props} />
   } else if (props.handleSubmit && props.formContext) {
-    // const onSubmit = props.handleSubmit
     return (
       <FormProvider {...props.formContext}>
         <form

@@ -49,7 +49,7 @@ export default function SelectElement({
               if (objectOnChange) {
                 item = options.find(i => i[valueKey] === item)
               }
-              rest.onChange && rest.onChange(item as any)
+              rest.onChange(item)
             }
           }}
           select
