@@ -38,7 +38,7 @@ You can have a look at the `example` folder which sets up NextJS with `react-for
 
 ## Demo
 
-Check out Storybook: [Demo](https://react-hook-form-material-ui.now.sh/)
+Check out Storybook: [Demo](https://react-hook-form-material-ui.vercel.app)
 
 You will find examples and use cases.
 
