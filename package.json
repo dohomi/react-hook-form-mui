@@ -14,8 +14,7 @@
   "source": "src/index.ts",
   "main": "dist/react-form-hook-mui.cjs.js",
   "module": "dist/react-form-hook-mui.esm.js",
-  "esmodule": "dist/index.modern.js",
-  "typings": "dist/index.d.ts",
+  "typings": "dist/react-form-hook-mui.cjs.d.ts",
   "files": [
     "dist",
     "TextFieldElement ",
