@@ -1,6 +1,7 @@
-import { FormContainer, TextFieldElement } from 'react-form-hook-mui'
+import FormContainer from 'react-form-hook-mui/FormContainer'
+import TextFieldElement from 'react-form-hook-mui/TextFieldElement'
 
-import { Button, TextField } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import { useState } from 'react'
 
 type FormProps = {
@@ -15,12 +16,6 @@ export default function Index() {
   return (
     <div>
       <FormContainer defaultValues={defaultValues} onSuccess={onSubmit}>
-        <TextField name={'first'} label={'Textfield default'} /><br />
-        <TextField name={'second'}
-                   label={'Textfield primary'}
-                   variant={'outlined'}
-                   margin={'normal'}
-                   color={'primary'} /><br />
         <TextFieldElement name={'hallo'} label={'Hallo'} required /><br />
         <TextFieldElement color={'primary'} name={'primary'} label={'Primary'} /><br />
         <TextFieldElement color={'secondary'} name={'secondary'} label={'Secondary'} />
