@@ -1,0 +1,4 @@
+{
+  "main": "dist/react-form-hook-mui-PasswordElement.cjs.js",
+  "module": "dist/react-form-hook-mui-PasswordElement.esm.js"
+}

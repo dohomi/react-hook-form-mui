@@ -1,0 +1,4 @@
+{
+  "main": "dist/react-form-hook-mui-SelectElement.cjs.js",
+  "module": "dist/react-form-hook-mui-SelectElement.esm.js"
+}

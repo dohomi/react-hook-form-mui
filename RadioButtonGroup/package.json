@@ -1,0 +1,4 @@
+{
+  "main": "dist/react-form-hook-mui-RadioButtonGroup.cjs.js",
+  "module": "dist/react-form-hook-mui-RadioButtonGroup.esm.js"
+}

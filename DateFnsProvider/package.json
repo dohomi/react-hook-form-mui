@@ -1,0 +1,4 @@
+{
+  "main": "dist/react-form-hook-mui-DateFnsProvider.cjs.js",
+  "module": "dist/react-form-hook-mui-DateFnsProvider.esm.js"
+}

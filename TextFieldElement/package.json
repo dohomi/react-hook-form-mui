@@ -1,0 +1,4 @@
+{
+  "main": "dist/react-form-hook-mui-TextFieldElement.cjs.js",
+  "module": "dist/react-form-hook-mui-TextFieldElement.esm.js"
+}
