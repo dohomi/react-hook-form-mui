@@ -1,7 +1,6 @@
 import React, { MouseEvent, useState } from 'react'
 import TextFieldElement, { TextFieldElementProps } from './TextFieldElement'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import { IconButton } from '@material-ui/core'
+import { IconButton, InputAdornment } from '@material-ui/core'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 

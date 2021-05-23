@@ -1,7 +1,6 @@
 import React, { createElement } from 'react'
-import MenuItem from '@material-ui/core/MenuItem'
+import { MenuItem, TextField, TextFieldProps } from '@material-ui/core'
 import { Controller, ControllerProps, FieldError } from 'react-hook-form'
-import { TextField, TextFieldProps } from '@material-ui/core'
 
 export type SelectElementProps = Omit<TextFieldProps, 'name' | 'variant' | 'type' | 'onChange'> & {
   validation?: ControllerProps['rules']
