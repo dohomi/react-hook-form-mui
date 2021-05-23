@@ -1,13 +1,16 @@
 import React, { ChangeEvent } from 'react'
-import Radio, { RadioProps } from '@material-ui/core/Radio'
-import FormControl from '@material-ui/core/FormControl'
 import { makeStyles } from '@material-ui/core/styles'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormLabel from '@material-ui/core/FormLabel'
-import RadioGroup from '@material-ui/core/RadioGroup'
-import FormHelperText from '@material-ui/core/FormHelperText'
 import { red } from '@material-ui/core/colors'
 import { FieldError, useController } from 'react-hook-form'
+import {
+  FormControl,
+  FormControlLabel,
+  FormHelperText,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  RadioProps
+} from '@material-ui/core'
 
 const useStyles = makeStyles({
   root: {

@@ -1,49 +1,29 @@
-import universal from 'react-universal-component'
-import { TextFieldElementProps } from './TextFieldElement'
-import { DatePickerElementProps } from './DatePickerElement'
-import { MultiSelectElementProps } from './MultiSelectElement'
-import { SelectElementProps } from './SelectElement'
-import { PasswordElementProps } from './PasswordElement'
-import { CheckboxElementProps } from './CheckboxElement'
-import { CheckboxButtonGroupProps } from './CheckboxButtonGroup'
-import { RadioButtonGroupProps } from './RadioButtonGroup'
-import { FormContainerProps } from './FormContainer'
-import { DateFnsProviderProps } from './DateFnsProvider'
+export { default as TextFieldElement } from './TextFieldElement'
+export type { TextFieldElementProps } from './TextFieldElement'
 
-const TextFieldElement = universal<TextFieldElementProps>(import('./TextFieldElement'))
-const FormContainer = universal<FormContainerProps>(import('./FormContainer'))
-const RadioButtonGroup = universal<RadioButtonGroupProps>(import('./RadioButtonGroup'))
-const CheckboxButtonGroup = universal<CheckboxButtonGroupProps>(import('./CheckboxButtonGroup'))
-const CheckboxElement = universal<CheckboxElementProps>(import('./CheckboxElement'))
-const PasswordElement = universal<PasswordElementProps>(import('./PasswordElement'))
-const SelectElement = universal<SelectElementProps>(import('./SelectElement'))
-const MultiSelectElement = universal<MultiSelectElementProps>(import('./MultiSelectElement'))
-const DatePickerElement = universal<DatePickerElementProps>(import('./DatePickerElement'))
-const DateFnsProvider = universal<DateFnsProviderProps>(import('./DateFnsProvider'))
+export { default as FormContainer } from './FormContainer'
+export type { FormContainerProps } from './FormContainer'
 
-export {
-  TextFieldElement,
-  FormContainer,
-  RadioButtonGroup,
-  CheckboxButtonGroup,
-  CheckboxElement,
-  PasswordElement,
-  SelectElement,
-  DatePickerElement,
-  MultiSelectElement,
-  DateFnsProvider
-}
+export { default as DatePickerElement } from './DatePickerElement'
+export type { DatePickerElementProps } from './DatePickerElement'
 
+export { default as CheckboxElement } from './CheckboxElement'
+export type { CheckboxElementProps } from './CheckboxElement'
 
-export type {
-  TextFieldElementProps,
-  FormContainerProps,
-  RadioButtonGroupProps,
-  CheckboxButtonGroupProps,
-  CheckboxElementProps,
-  PasswordElementProps,
-  SelectElementProps,
-  MultiSelectElementProps,
-  DatePickerElementProps,
-  DateFnsProviderProps
-}
+export { default as SelectElement } from './SelectElement'
+export type { SelectElementProps } from './SelectElement'
+
+export { default as CheckboxButtonGroup } from './CheckboxButtonGroup'
+export type { CheckboxButtonGroupProps } from './CheckboxButtonGroup'
+
+export { default as DateFnsProvider } from './DateFnsProvider'
+export type { DateFnsProviderProps } from './DateFnsProvider'
+
+export { default as MultiSelectElement } from './MultiSelectElement'
+export type { MultiSelectElementProps } from './MultiSelectElement'
+
+export { default as PasswordElement } from './PasswordElement'
+export type { PasswordElementProps } from './PasswordElement'
+
+export { default as RadioButtonGroup } from './RadioButtonGroup'
+export type { RadioButtonGroupProps } from './RadioButtonGroup'

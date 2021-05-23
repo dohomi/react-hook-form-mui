@@ -1,5 +1,4 @@
 import { FormContainer, TextFieldElement } from '../src'
-import React from 'react'
 import { useForm } from 'react-hook-form'
 import Button from '@material-ui/core/Button'
 import { action } from '@storybook/addon-actions'

@@ -1,12 +1,7 @@
 import React from 'react'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormControl from '@material-ui/core/FormControl'
-import Select, { SelectProps } from '@material-ui/core/Select'
-import FormHelperText from '@material-ui/core/FormHelperText'
-import Chip from '@material-ui/core/Chip'
 import CloseIcon from '@material-ui/icons/Cancel'
 import { Controller, FieldError } from 'react-hook-form'
+import { Chip, FormControl, FormHelperText, InputLabel, MenuItem, Select, SelectProps } from '@material-ui/core'
 
 export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   menuItems: any

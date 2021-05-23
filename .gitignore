@@ -6,3 +6,5 @@ dist
 .idea
 .github
 storybook-static/
+example/.next
+example/node_modules

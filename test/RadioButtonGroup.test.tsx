@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { FormContainer, RadioButtonGroup } from 'index.ts'
+import { FormContainer, RadioButtonGroup } from '../_unused'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { FormContainer, TextFieldElement } from 'index.ts'
+import { FormContainer, TextFieldElement } from '../_unused'
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import MutationObserver from 'mutation-observer'

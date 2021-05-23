@@ -1,4 +1,4 @@
-import TextField, { TextFieldProps } from '@material-ui/core/TextField'
+import { TextField, TextFieldProps } from '@material-ui/core'
 import { Controller, ControllerProps, FieldError } from 'react-hook-form'
 import React from 'react'
 

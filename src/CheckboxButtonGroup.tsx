@@ -1,13 +1,15 @@
 import React from 'react'
-import FormControl from '@material-ui/core/FormControl'
 import { makeStyles } from '@material-ui/core/styles'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormLabel from '@material-ui/core/FormLabel'
-import FormHelperText from '@material-ui/core/FormHelperText'
 import { red } from '@material-ui/core/colors'
-import { Checkbox } from '@material-ui/core'
-import FormGroup from '@material-ui/core/FormGroup'
-import { CheckboxProps } from '@material-ui/core/Checkbox'
+import {
+  Checkbox,
+  CheckboxProps,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormHelperText,
+  FormLabel
+} from '@material-ui/core'
 import { FieldError, useController } from 'react-hook-form'
 
 const useStyles = makeStyles({

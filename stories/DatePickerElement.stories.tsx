@@ -1,9 +1,7 @@
-import * as React from 'react'
-import { DatePickerElement, FormContainer } from '../src'
+import { DateFnsProvider, DatePickerElement, FormContainer } from '../src'
 import { text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 import Button from '@material-ui/core/Button'
-import DateFnsProvider from '../src/DateFnsProvider'
 
 
 export default {

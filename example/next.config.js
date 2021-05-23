@@ -9,6 +9,7 @@ module.exports = {
     }
     config.resolve.alias['react'] = path.resolve(__dirname, '.', 'node_modules', 'react')
     config.resolve.alias['react-dom'] = path.resolve(__dirname, '.', 'node_modules', 'react-dom')
+    config.resolve.alias['@material-ui/core'] = path.resolve(__dirname, '.', 'node_modules', '@material-ui/core')
     return config
   }
 }

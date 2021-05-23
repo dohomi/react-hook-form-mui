@@ -15,7 +15,7 @@ export const Basic = () => (
     <div>
       <RadioButtonGroup
         label={text('label', 'Simple Radio Group with preset')}
-        name='default-radio-element'
+        name="default-radio-element"
         options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
         onChange={action('change')}
       />
@@ -23,7 +23,7 @@ export const Basic = () => (
     <div>
       <RadioButtonGroup
         label={text('label2', 'Simple Radio Group')}
-        name='default-radio-element-empty.deep'
+        name="default-radio-element-empty.deep"
         options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
         onChange={action('change')}
       />
@@ -32,7 +32,7 @@ export const Basic = () => (
       <RadioButtonGroup
         label={text('label3', 'Simple Radio Group required')}
         required
-        name='default-radio-element-required'
+        name="default-radio-element-required"
         options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
         onChange={action('change')}
       />
@@ -42,7 +42,7 @@ export const Basic = () => (
         label={text('label4', 'Radio Group returns object')}
         required
         returnObject
-        name='object-radio-element'
+        name="object-radio-element"
         options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
         onChange={action('change')}
       />
