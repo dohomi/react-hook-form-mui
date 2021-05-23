@@ -1,22 +1,16 @@
 import * as React from 'react'
 import { DatePickerElement, FormContainer } from '../src'
-import { MuiPickersUtilsProvider } from '@material-ui/pickers'
-import DateFnsUtils from '@date-io/date-fns'
 import { text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 import Button from '@material-ui/core/Button'
+import DateFnsProvider from '../src/DateFnsProvider'
 
-class LocalizedUtils extends DateFnsUtils {
-  dateFormat = 'P'
-}
 
 export default {
   title: 'DatePickerElement'
 }
-
-
 export const Basic = () => (
-  <MuiPickersUtilsProvider utils={LocalizedUtils}>
+  <DateFnsProvider>
     <FormContainer defaultValues={{
       'default-date-picker': '2020-01-01',
       'basic-data-picker': null,
@@ -55,6 +49,6 @@ export const Basic = () => (
       </div>
       <Button type={'submit'} color={'primary'}>Submit</Button>
     </FormContainer>
-  </MuiPickersUtilsProvider>
+  </DateFnsProvider>
 )
 

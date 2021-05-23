@@ -4,20 +4,25 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "next": "^10.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-form-hook-mui": "^1.0.1",
+    "react-form-hook-mui": "../",
     "react-hook-form": "^7.6.4"
   },
   "devDependencies": {
     "@types/react": "^17.0.6",
     "@types/react-dom": "^17.0.5",
     "typescript": "^4.2.4"
+  },
+  "resolutions": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   }
 }

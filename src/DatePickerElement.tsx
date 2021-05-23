@@ -1,15 +1,16 @@
 import React from 'react'
 import { DatePicker, DatePickerProps } from '@material-ui/pickers'
 import { Controller, ControllerProps, FieldError } from 'react-hook-form'
+import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date'
 
 export type DatePickerElementProps = Omit<DatePickerProps, 'value' | 'onChange'> & {
   name: string
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => string
-  onChange?: (value: string) => void
+  onChange?: (value?: string | Date | MaterialUiPickersDate) => void
   validation?: ControllerProps['rules']
-  parseDate?: (date: string) => string
+  parseDate?: (date: MaterialUiPickersDate) => string
 }
 
 export default function DatePickerElement({
@@ -41,14 +42,11 @@ export default function DatePickerElement({
               rest.onBlur(ev)
             }
           }}
-          onChange={(date) => {
-            let parsedDate = date
+          onChange={(date: MaterialUiPickersDate) => {
+            let parsedDate = date?.toISOString().substr(0, 10)
             if (typeof parseDate === 'function') {
               parsedDate = parseDate(date)
-            } else {
-              parsedDate = date.toISOString().substr(0, 10)
             }
-            console.log(date, parsedDate)
             onChange(parsedDate)
             if (typeof rest.onChange === 'function') {
               rest.onChange(parsedDate)

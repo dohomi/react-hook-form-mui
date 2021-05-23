@@ -8,6 +8,7 @@ import { CheckboxElementProps } from './CheckboxElement'
 import { CheckboxButtonGroupProps } from './CheckboxButtonGroup'
 import { RadioButtonGroupProps } from './RadioButtonGroup'
 import { FormContainerProps } from './FormContainer'
+import { DateFnsProviderProps } from './DateFnsProvider'
 
 const TextFieldElement = universal<TextFieldElementProps>(import('./TextFieldElement'))
 const FormContainer = universal<FormContainerProps>(import('./FormContainer'))
@@ -18,6 +19,7 @@ const PasswordElement = universal<PasswordElementProps>(import('./PasswordElemen
 const SelectElement = universal<SelectElementProps>(import('./SelectElement'))
 const MultiSelectElement = universal<MultiSelectElementProps>(import('./MultiSelectElement'))
 const DatePickerElement = universal<DatePickerElementProps>(import('./DatePickerElement'))
+const DateFnsProvider = universal<DateFnsProviderProps>(import('./DateFnsProvider'))
 
 export {
   TextFieldElement,
@@ -28,7 +30,8 @@ export {
   PasswordElement,
   SelectElement,
   DatePickerElement,
-  MultiSelectElement
+  MultiSelectElement,
+  DateFnsProvider
 }
 
 
@@ -41,5 +44,6 @@ export type {
   PasswordElementProps,
   SelectElementProps,
   MultiSelectElementProps,
-  DatePickerElementProps
+  DatePickerElementProps,
+  DateFnsProviderProps
 }
