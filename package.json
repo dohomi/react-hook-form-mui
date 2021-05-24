@@ -1,5 +1,5 @@
 {
-  "version": "1.1.4",
+  "version": "2.0.0",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.now.sh",
@@ -12,21 +12,12 @@
   "name": "react-form-hook-mui",
   "author": "Dominic Garms",
   "source": "src/index.ts",
-  "main": "dist/react-form-hook-mui.cjs.js",
+  "main": "dist/react-form-hook-mui.js",
   "module": "dist/react-form-hook-mui.esm.js",
-  "typings": "dist/react-form-hook-mui.cjs.d.ts",
+  "exports": "dist/react-form-hook-mui.modern.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist",
-    "TextFieldElement ",
-    "FormContainer",
-    "DatePickerElement",
-    "CheckboxElement",
-    "SelectElement",
-    "CheckboxButtonGroup",
-    "DateFnsProvider",
-    "MultiSelectElement",
-    "PasswordElement",
-    "RadioButtonGroup",
     "src"
   ],
   "engines": {
@@ -38,13 +29,11 @@
     "build-storybook": "build-storybook",
     "check-types": "tsc --noemit",
     "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod",
-    "dev": "preconstruct dev",
-    "watch": "preconstruct watch",
-    "fix": "preconstruct fix",
-    "build": "preconstruct build"
+    "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement"
   },
   "peerDependencies": {
     "@date-io/date-fns": "> 1.3.x <2",
+    "@date-io/dayjs": "> 1.3.x <2",
     "@material-ui/core": "> 4.7 <5",
     "@material-ui/icons": "> 4.7 <5",
     "@material-ui/pickers": "> 3.2.x <4",
@@ -52,26 +41,6 @@
     "react": ">=17",
     "react-hook-form": ">=7.3.5",
     "typescript": ">= 4.1"
-  },
-  "preconstruct": {
-    "entrypoints": [
-      "index.ts",
-      "TextFieldElement.tsx",
-      "FormContainer.tsx",
-      "DatePickerElement.tsx",
-      "CheckboxElement.tsx",
-      "SelectElement.tsx",
-      "CheckboxButtonGroup.tsx",
-      "DateFnsProvider.tsx",
-      "MultiSelectElement.tsx",
-      "PasswordElement.tsx",
-      "RadioButtonGroup.tsx"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
   },
   "prettier": {
     "printWidth": 80,
@@ -86,7 +55,6 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/pickers": "^3.2.10",
-    "@preconstruct/cli": "^2.1.0",
     "@storybook/addon-actions": "6.2.9",
     "@storybook/addon-docs": "6.2.9",
     "@storybook/addon-knobs": "6.2.9",
@@ -98,6 +66,7 @@
     "@types/react-dom": "^17.0.5",
     "babel-loader": "^8.1.0",
     "date-fns": "^2.15.0",
+    "microbundle": "^0.13.0",
     "mutation-observer": "^1.0.3",
     "react": "^17.0.2",
     "react-docgen-typescript-loader": "^3.7.2",
@@ -107,5 +76,7 @@
     "ts-loader": "^9.2.1",
     "tslib": "^2.0.3",
     "typescript": "^4.2.4"
+  },
+  "dependencies": {
   }
 }

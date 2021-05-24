@@ -1,16 +1,20 @@
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import React, { FC } from 'react'
-import DateFnsUtils from '@date-io/date-fns'
+import DateFnsUtils from '@date-io/dayjs'
 import { MuiPickersUtilsProviderProps } from '@material-ui/pickers/MuiPickersUtilsProvider'
+import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+dayjs.extend(localizedFormat)
 
 class LocalizedUtils extends DateFnsUtils {
-  dateFormat = 'P'
+  dateFormat = 'L'
 }
 
 export type DateFnsProviderProps = FC<Omit<MuiPickersUtilsProviderProps, 'utils'> & {
-  utils?: MuiPickersUtilsProviderProps['utils']
+  utils?: any
 }>
-const DateFnsProvider: DateFnsProviderProps = ({ children, utils, ...props }) => {
+
+const DateDayjsProvider: DateFnsProviderProps = ({ children, utils, ...props }) => {
   return (
     <MuiPickersUtilsProvider
       {...props}
@@ -18,4 +22,4 @@ const DateFnsProvider: DateFnsProviderProps = ({ children, utils, ...props }) =>
     >{children}</MuiPickersUtilsProvider>
   )
 }
-export default DateFnsProvider
+export default DateDayjsProvider

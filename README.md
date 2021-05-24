@@ -12,15 +12,13 @@ components:
 * CheckboxElement
 * PasswordElement
 * DatePickerElement
-* DateFnsProvider
 
 The components are written in TypeScript and attempt an easy integration.
 
 ## How to use it
 
 ```
-import FormContainer from 'react-form-hook-mui/FormContainer'
-import TextFieldElement from 'react-form-hook-mui/TextFieldElement'
+import {FormContainer, TextFieldElement} from 'react-form-hook-mui'
 
 function Form(){
   return (
@@ -44,11 +42,11 @@ You will find examples and use cases.
 
 ### Bundle
 
-This project uses `preconstruct` and multiple entries for bundling. To improve code splitting always import
-from `react-form-hook-mui/[MuiComponent]`.
-
-If you know that all components are in use you can import from `react-form-hook-mui` directly but its not recommended.
+This project uses `microbundle` and multiple entries for bundling. 
 
 ### License
 
 [MIT](./LICENSE)
+
+### Changelog
+* 2.x Most recent react-form-hook

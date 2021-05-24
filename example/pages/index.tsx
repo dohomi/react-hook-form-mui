@@ -1,6 +1,4 @@
-import FormContainer from 'react-form-hook-mui/FormContainer'
-import TextFieldElement from 'react-form-hook-mui/TextFieldElement'
-
+import { FormContainer, TextFieldElement } from 'react-form-hook-mui'
 import { Button } from '@material-ui/core'
 import { useState } from 'react'
 

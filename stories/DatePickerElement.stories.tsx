@@ -1,14 +1,15 @@
-import { DateFnsProvider, DatePickerElement, FormContainer } from '../src'
+import React from 'react'
+import { DatePickerElement, FormContainer } from '../src'
 import { text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 import Button from '@material-ui/core/Button'
-
+import DateDayjsProvider from '../src/DateDayjsProvider'
 
 export default {
   title: 'DatePickerElement'
 }
 export const Basic = () => (
-  <DateFnsProvider>
+  <DateDayjsProvider>
     <FormContainer defaultValues={{
       'default-date-picker': '2020-01-01',
       'basic-data-picker': null,
@@ -47,6 +48,6 @@ export const Basic = () => (
       </div>
       <Button type={'submit'} color={'primary'}>Submit</Button>
     </FormContainer>
-  </DateFnsProvider>
+  </DateDayjsProvider>
 )
 

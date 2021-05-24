@@ -16,9 +16,6 @@ export type { SelectElementProps } from './SelectElement'
 export { default as CheckboxButtonGroup } from './CheckboxButtonGroup'
 export type { CheckboxButtonGroupProps } from './CheckboxButtonGroup'
 
-export { default as DateFnsProvider } from './DateFnsProvider'
-export type { DateFnsProviderProps } from './DateFnsProvider'
-
 export { default as MultiSelectElement } from './MultiSelectElement'
 export type { MultiSelectElementProps } from './MultiSelectElement'
 

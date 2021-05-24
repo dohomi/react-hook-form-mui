@@ -1,5 +1,9 @@
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
 const path = require('path')
-module.exports = {
+
+module.exports = withBundleAnalyzer({
   future: {
     webpack5: true
   },
@@ -12,4 +16,4 @@ module.exports = {
     config.resolve.alias['@material-ui/core'] = path.resolve(__dirname, '.', 'node_modules', '@material-ui/core')
     return config
   }
-}
+})
