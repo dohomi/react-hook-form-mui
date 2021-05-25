@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.now.sh",
@@ -14,7 +14,7 @@
   "source": "src/index.ts",
   "main": "dist/react-form-hook-mui.js",
   "module": "dist/react-form-hook-mui.esm.js",
-  "exports": "dist/react-form-hook-mui.modern.js",
+  "exports": "./dist/react-form-hook-mui.modern.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
