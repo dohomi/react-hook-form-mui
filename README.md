@@ -58,4 +58,5 @@ This project uses `microbundle` and multiple entries for bundling.
 [MIT](./LICENSE)
 
 ### Changelog
-* 2.x Rename package to react-
+* 2.x Rename package to react-hook-form-mui
+* 1.x Deprecated
