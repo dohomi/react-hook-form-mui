@@ -1,6 +1,7 @@
+# Material-UI and react-hook-form combined
 ## About this project
 
-This project simplifies the use of `react-form-hook` and `Material-UI`. It provides opinionated use cases with following
+This project simplifies the use of `react-hook-form` and `Material-UI`. It provides opinionated use cases with following
 components:
 
 * FormContainer
@@ -57,4 +58,4 @@ This project uses `microbundle` and multiple entries for bundling.
 [MIT](./LICENSE)
 
 ### Changelog
-* 2.x Most recent react-form-hook
+* 2.x Rename package to react-
