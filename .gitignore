@@ -5,6 +5,7 @@ node_modules
 dist
 .idea
 .github
+.next
 storybook-static/
 example/.next
 example/node_modules
