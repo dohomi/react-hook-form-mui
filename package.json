@@ -1,5 +1,5 @@
 {
-  "version": "2.0.1",
+  "version": "2.0.2",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.now.sh",
@@ -9,12 +9,11 @@
     "material-ui",
     "react-hook-form"
   ],
-  "name": "react-form-hook-mui",
+  "name": "react-hook-form-mui",
   "author": "Dominic Garms",
   "source": "src/index.ts",
   "main": "dist/react-form-hook-mui.js",
   "module": "dist/react-form-hook-mui.esm.js",
-  "exports": "./dist/react-form-hook-mui.modern.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",

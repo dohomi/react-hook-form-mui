@@ -17,8 +17,16 @@ The components are written in TypeScript and attempt an easy integration.
 
 ## How to use it
 
+### Installation
 ```
-import {FormContainer, TextFieldElement} from 'react-form-hook-mui'
+   $npm install react-hook-form react-hook-form-mui
+```
+The dependency of `react-hook-form` is a peerDependency so don't forget to install it as well.
+
+### Your component code
+
+```
+import {FormContainer, TextFieldElement} from 'react-hook-form-mui'
 
 function Form(){
   return (
@@ -32,7 +40,7 @@ function Form(){
 }
 ```
 
-You can have a look at the `example` folder which sets up NextJS with `react-form-hook-mui`
+You can have a look at the `example` folder which sets up NextJS with `react-hook-form-mui`
 
 ## Demo
 
