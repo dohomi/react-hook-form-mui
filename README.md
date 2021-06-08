@@ -59,7 +59,7 @@ Examples for Dayjs or DateFns provider (used in the demo):
 
 ### Bundle
 
-This project uses `microbundle` and multiple entries for bundling. 
+This project uses `microbundle` to wrap the package for `npm`. 
 
 ### License
 
