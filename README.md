@@ -49,6 +49,14 @@ Check out Storybook: [Demo](https://react-hook-form-material-ui.vercel.app)
 
 You will find examples and use cases.
 
+### With Datepicker
+
+If you are using the `DatepickerElement` keep in mind that you have to wrap your form with a provider:
+
+Examples for Dayjs or DateFns provider (used in the demo):
+* [DateFns](/src/DateFnsProvider.tsx)
+* [Dayjs](/src/DateFnsProvider.tsx)
+
 ### Bundle
 
 This project uses `microbundle` and multiple entries for bundling. 
