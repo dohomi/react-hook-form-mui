@@ -43,6 +43,10 @@ function Form(){
 
 You can have a look at the `example` folder which sets up NextJS with `react-hook-form-mui`
 
+### FormContainer creates `formContext`
+
+The `<FormContainer />` wires up a form and you can create sub-components which either make use of `useFormContext() | useWatch()` to react to form values. 
+
 ## Demo
 
 Check out Storybook: [Demo](https://react-hook-form-material-ui.vercel.app)
