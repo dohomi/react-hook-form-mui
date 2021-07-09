@@ -1,10 +1,23 @@
+import React from 'react'
 import { FormContainer, TextFieldElement } from '../src'
-import { useForm } from 'react-hook-form'
+import { useForm, useWatch } from 'react-hook-form'
 import Button from '@material-ui/core/Button'
 import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'FormContainer'
+}
+
+const SubComponent = () => {
+  const [name, email] = useWatch({
+    name: ['name', 'email']
+  })
+  console.log(name, email)
+  return (
+    <>
+      <Button type={'submit'} color={'primary'} disabled={!(name && email)}>Submit</Button>
+    </>
+  )
 }
 
 export const Basic = () => (
@@ -14,8 +27,10 @@ export const Basic = () => (
     }}
     onSuccess={action('submit')}
   >
-    <TextFieldElement name={'name'} label={'Name'} /> <br />
-    <Button type={'submit'} color={'primary'}>Submit</Button>
+    <TextFieldElement name={'name'} label={'Name'} required /> <br />
+    <TextFieldElement name={'email'} label={'Email'} required type={'email'} /> <br />
+    <TextFieldElement name={'interest'} label={'Interest'} /> <br />
+    <SubComponent />
   </FormContainer>
 )
 
