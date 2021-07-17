@@ -49,6 +49,19 @@ export const Basic = () => {
         onChange={action('change')}
         objectOnChange
       /><br />
+      <SelectElement
+        className={classes.formControl}
+        value="Basic Select"
+        variant="outlined"
+        required
+        parseError={() => {
+          return 'This field is required'
+        }}
+        label={text('label', 'Outlined select')}
+        name="pre-select-element"
+        options={object('Options', [{ id: '1', title: 'Label 1' }, { id: '2', title: 'label 2' }])}
+        onChange={action('change')}
+      /><br />
       <Button type={'submit'} color={'primary'}>Submit</Button>
     </FormContainer>
   )
