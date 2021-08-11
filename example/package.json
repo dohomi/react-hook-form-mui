@@ -15,7 +15,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.6.4",
-    "react-hook-form-mui": "../"
+    "react-hook-form-mui": "file:.."
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^10.2.2",
