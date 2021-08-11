@@ -2,7 +2,7 @@ import React, { createElement } from 'react'
 import { MenuItem, TextField, TextFieldProps } from '@material-ui/core'
 import { Controller, ControllerProps, FieldError } from 'react-hook-form'
 
-export type SelectElementProps = Omit<TextFieldProps, 'name' | 'variant' | 'type' | 'onChange'> & {
+export type SelectElementProps = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
   validation?: ControllerProps['rules']
   name: string
   options?: any[]
