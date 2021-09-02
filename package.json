@@ -31,12 +31,12 @@
     "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement"
   },
   "peerDependencies": {
-    "@date-io/date-fns": "> 1.3.x <2",
-    "@date-io/dayjs": "> 1.3.x <2",
+    "@date-io/date-fns": ">= 1.3.x <2",
+    "@date-io/dayjs": ">= 1.3.x <2",
     "@material-ui/core": "> 4.7 <5",
     "@material-ui/icons": "> 4.7 <5",
     "@material-ui/pickers": "> 3.2.x <4",
-    "date-fns": ">2.7 <3",
+    "date-fns": ">=2.7 <3",
     "react": ">=17",
     "react-hook-form": ">=7.3.5",
     "typescript": ">= 4.1"
