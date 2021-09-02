@@ -30,6 +30,7 @@ export type CheckboxButtonGroupProps = {
   onChange?: Function
   returnObject?: boolean
   disabled?: boolean
+  row?: boolean
 }
 
 export default function CheckboxButtonGroup({
@@ -43,6 +44,7 @@ export default function CheckboxButtonGroup({
   valueKey = 'id',
   returnObject,
   disabled,
+  row,
   ...rest
 }: CheckboxButtonGroupProps): JSX.Element {
   const classes = useStyles()
@@ -85,7 +87,7 @@ export default function CheckboxButtonGroup({
   return (
     <FormControl error={invalid} required={required}>
       {label && <FormLabel error={invalid}>{label}</FormLabel>}
-      <FormGroup>
+      <FormGroup row={row}>
         {options.map((option: any) => {
           const optionKey = option[valueKey]
           if (!optionKey) {

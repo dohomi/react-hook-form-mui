@@ -31,6 +31,7 @@ export type RadioButtonGroupProps = {
   emptyOptionLabel?: 'string'
   onChange?: (value: any) => void
   returnObject?: boolean
+  row?: boolean
 }
 
 export default function RadioButtonGroup({
@@ -44,6 +45,7 @@ export default function RadioButtonGroup({
   required,
   emptyOptionLabel,
   returnObject,
+  row,
   ...rest
 }: RadioButtonGroupProps): JSX.Element {
   const classes = useStyles()
@@ -76,6 +78,7 @@ export default function RadioButtonGroup({
       {label && <FormLabel required={required} error={invalid}>{label}</FormLabel>}
       <RadioGroup onChange={onRadioChange}
                   name={name}
+                  row={row}
                   value={value || ''}>
         {emptyOptionLabel && (
           <FormControlLabel

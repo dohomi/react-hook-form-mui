@@ -22,6 +22,15 @@ export const Basic = () => (
     </div>
     <div>
       <RadioButtonGroup
+        row={true}
+        label={text('label-inline', 'Radio Group inline')}
+        name="default-radio-element-inline"
+        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
+        onChange={action('change')}
+      />
+    </div>
+    <div>
+      <RadioButtonGroup
         label={text('label2', 'Simple Radio Group')}
         name="default-radio-element-empty.deep"
         options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}

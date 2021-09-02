@@ -1,5 +1,5 @@
 {
-  "version": "2.0.7",
+  "version": "2.1.0",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.vercel.app",
@@ -20,7 +20,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
     "prepare": "npm run build",
@@ -63,7 +63,7 @@
     "@storybook/builder-webpack5": "^6.3.7",
     "@storybook/manager-webpack5": "^6.3.7",
     "@storybook/react": "6.3.7",
-    "@types/react": "^17.0.17",
+    "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "babel-loader": "^8.2.2",
     "date-fns": "^2.23.0",
@@ -72,11 +72,11 @@
     "react": "^17.0.2",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.12.2",
+    "react-hook-form": "^7.14.2",
     "react-is": "^17.0.2",
     "ts-loader": "^9.2.5",
-    "tslib": "^2.3.0",
-    "typescript": "^4.3.5",
-    "webpack": "^5.50.0"
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.2",
+    "webpack": "^5.51.1"
   }
 }

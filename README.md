@@ -70,5 +70,6 @@ This project uses `microbundle` to wrap the package for `npm`.
 [MIT](./LICENSE)
 
 ### Changelog
+* 2.1.x Introduce prop `row` to CheckboxButtonGroup and RadioButtonGroup
 * 2.x Rename package to react-hook-form-mui
 * 1.x Deprecated

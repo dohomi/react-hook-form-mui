@@ -2,6 +2,7 @@ import { action } from '@storybook/addon-actions'
 import { object, text } from '@storybook/addon-knobs'
 import Button from '@material-ui/core/Button'
 import { CheckboxButtonGroup, CheckboxElement, FormContainer } from '../src'
+import React from 'react'
 
 export default {
   title: 'CheckboxButtonGroup'
@@ -17,6 +18,15 @@ export const Basic = () => (
         label={text('label', 'The label')}
         options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
         name={'basic-checkbox-button-group'}
+        onChange={action('selected')}
+      />
+    </div>
+    <div>
+      <CheckboxButtonGroup
+        row={true}
+        label={text('label-inline', 'Inline checkbox group')}
+        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
+        name={'basic-checkbox-button-group-inline'}
         onChange={action('selected')}
       />
     </div>
