@@ -1,7 +1,7 @@
 import React from 'react'
-import { red } from '@material-ui/core/colors'
+import { red } from '@mui/material/colors'
 import { Controller, ControllerProps, FieldError } from 'react-hook-form'
-import { Checkbox, CheckboxProps, FormControl, FormControlLabel, FormGroup, FormHelperText } from '@material-ui/core'
+import { Checkbox, CheckboxProps, FormControl, FormControlLabel, FormGroup, FormHelperText } from '@mui/material'
 
 export type CheckboxElementProps = Omit<CheckboxProps, 'name'> & {
   validation?: ControllerProps['rules']

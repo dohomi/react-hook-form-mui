@@ -1,7 +1,7 @@
 import React from 'react'
-import CloseIcon from '@material-ui/icons/Cancel'
+import CloseIcon from '@mui/icons-material/Cancel'
 import { Controller, FieldError } from 'react-hook-form'
-import { Chip, FormControl, FormHelperText, InputLabel, MenuItem, Select, SelectProps } from '@material-ui/core'
+import { Chip, FormControl, FormHelperText, InputLabel, MenuItem, Select, SelectProps } from '@mui/material'
 
 export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   menuItems: any

@@ -1,5 +1,5 @@
 import React, { createElement } from 'react'
-import { MenuItem, TextField, TextFieldProps } from '@material-ui/core'
+import { MenuItem, TextField, TextFieldProps } from '@mui/material'
 import { Controller, ControllerProps, FieldError } from 'react-hook-form'
 
 export type SelectElementProps = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {

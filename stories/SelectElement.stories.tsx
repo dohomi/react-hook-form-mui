@@ -1,8 +1,8 @@
 import { FormContainer, SelectElement } from '../src'
-import { createStyles, makeStyles, Theme } from '@material-ui/core'
+import { createStyles, makeStyles, Theme } from '@mui/core'
 import { action } from '@storybook/addon-actions'
 import { object, text } from '@storybook/addon-knobs'
-import Button from '@material-ui/core/Button'
+import Button from '@mui/material/Button'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { DatePickerElement, FormContainer } from '../_unused'
-import { MuiPickersUtilsProvider } from '@material-ui/pickers'
+import { MuiPickersUtilsProvider } from '@mui/lab/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 
 class LocalizedUtils extends DateFnsUtils {

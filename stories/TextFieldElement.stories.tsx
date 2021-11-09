@@ -1,6 +1,6 @@
 import { FunctionComponent, useEffect } from 'react'
 import { action } from '@storybook/addon-actions'
-import { Button } from '@material-ui/core'
+import { Button } from '@mui/material'
 import { FieldError, useForm, useFormContext } from 'react-hook-form'
 import { CheckboxElement, FormContainer, PasswordElement, TextFieldElement } from '../src'
 

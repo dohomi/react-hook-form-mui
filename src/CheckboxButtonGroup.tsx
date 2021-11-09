@@ -1,6 +1,6 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import { red } from '@material-ui/core/colors'
+import { makeStyles } from '@mui/styles';
+import { red } from '@mui/material/colors'
 import {
   Checkbox,
   CheckboxProps,
@@ -9,7 +9,7 @@ import {
   FormGroup,
   FormHelperText,
   FormLabel
-} from '@material-ui/core'
+} from '@mui/material'
 import { FieldError, useController } from 'react-hook-form'
 
 const useStyles = makeStyles({

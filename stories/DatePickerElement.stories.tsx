@@ -2,7 +2,7 @@ import React from 'react'
 import { DatePickerElement, FormContainer } from '../src'
 import { text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
-import Button from '@material-ui/core/Button'
+import { Button } from '@mui/material'
 // import DateDayjsProvider from '../src/DateDayjsProvider'
 import DateFnsProvider from '../src/DateFnsProvider'
 
