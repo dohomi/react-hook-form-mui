@@ -1,8 +1,8 @@
 import React, { MouseEvent, useState } from 'react'
 import TextFieldElement, { TextFieldElementProps } from './TextFieldElement'
-import { IconButton, InputAdornment } from '@material-ui/core'
-import Visibility from '@material-ui/icons/Visibility'
-import VisibilityOff from '@material-ui/icons/VisibilityOff'
+import { IconButton, InputAdornment } from '@mui/material'
+import Visibility from '@mui/icons-material/Visibility'
+import VisibilityOff from '@mui/icons-material/VisibilityOff'
 
 export type PasswordElementProps = TextFieldElementProps
 

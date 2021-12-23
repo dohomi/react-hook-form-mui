@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { FormContainer, MultiSelectElement } from '../src'
 import { action } from '@storybook/addon-actions'
-import Button from '@material-ui/core/Button'
+import { Button } from '@mui/material'
 import { useForm } from 'react-hook-form'
 
 const names = [

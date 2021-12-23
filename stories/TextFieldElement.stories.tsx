@@ -1,8 +1,13 @@
 import { FunctionComponent, useEffect } from 'react'
 import { action } from '@storybook/addon-actions'
-import { Button } from '@material-ui/core'
+import { Button } from '@mui/material'
 import { FieldError, useForm, useFormContext } from 'react-hook-form'
 import { CheckboxElement, FormContainer, PasswordElement, TextFieldElement } from '../src'
+import React from 'react'
+
+export default {
+  title: 'TextFieldElement'
+}
 
 const parseError = (error: FieldError) => {
   if (error.type === 'pattern') {
@@ -27,10 +32,6 @@ const PasswordRepeat: FunctionComponent = () => {
                      name={'password-repeat'}
     />
   )
-}
-
-export default {
-  title: 'TextFieldElement'
 }
 
 export const Basic = () => {

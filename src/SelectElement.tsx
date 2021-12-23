@@ -1,6 +1,6 @@
 import React, { createElement } from 'react'
-import { MenuItem, TextField, TextFieldProps } from '@material-ui/core'
-import { Controller, ControllerProps, FieldError } from 'react-hook-form'
+import { MenuItem, TextField, TextFieldProps } from '@mui/material'
+import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
 
 export type SelectElementProps = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
   validation?: ControllerProps['rules']
@@ -12,6 +12,7 @@ export type SelectElementProps = Omit<TextFieldProps, 'name' | 'type' | 'onChang
   parseError?: (error: FieldError) => string
   objectOnChange?: boolean
   onChange?: (value: any) => void
+  control?: Control<any>
 }
 
 export default function SelectElement({
@@ -24,6 +25,7 @@ export default function SelectElement({
   type,
   objectOnChange,
   validation = {},
+  control,
   ...rest
 }: SelectElementProps): JSX.Element {
   const isNativeSelect = !!rest.SelectProps?.native
@@ -35,6 +37,7 @@ export default function SelectElement({
     <Controller
       name={name}
       rules={validation}
+      control={control}
       render={({ field: { onBlur, onChange, value }, fieldState: { invalid, error } }) => {
         // handle shrink on number input fields
         if (type === 'number' && value) {

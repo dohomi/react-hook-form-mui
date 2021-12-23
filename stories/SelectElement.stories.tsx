@@ -1,31 +1,20 @@
 import { FormContainer, SelectElement } from '../src'
-import { createStyles, makeStyles, Theme } from '@material-ui/core'
 import { action } from '@storybook/addon-actions'
 import { object, text } from '@storybook/addon-knobs'
-import Button from '@material-ui/core/Button'
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120
-    }
-  })
-)
+import { Button } from '@mui/material'
+import React from 'react'
 
 export default {
   title: 'SelectElement'
 }
 
 export const Basic = () => {
-  const classes = useStyles()
   return (
     <FormContainer defaultValues={{
       'default-select-element': '',
       'pre-select-element': '1'
     }} onSuccess={action('submit')}>
       <SelectElement
-        className={classes.formControl}
         value="Basic Select"
         required
         parseError={() => {
@@ -37,7 +26,6 @@ export const Basic = () => {
         onChange={action('change')}
       /><br />
       <SelectElement
-        className={classes.formControl}
         value="Basic Select"
         required
         parseError={() => {

@@ -1,14 +1,23 @@
 import React from 'react'
-import { red } from '@material-ui/core/colors'
-import { Controller, ControllerProps, FieldError } from 'react-hook-form'
-import { Checkbox, CheckboxProps, FormControl, FormControlLabel, FormGroup, FormHelperText } from '@material-ui/core'
+import { red } from '@mui/material/colors'
+import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
+import {
+  Checkbox,
+  CheckboxProps,
+  FormControl,
+  FormControlLabel,
+  FormControlLabelProps,
+  FormGroup,
+  FormHelperText
+} from '@mui/material'
 
 export type CheckboxElementProps = Omit<CheckboxProps, 'name'> & {
   validation?: ControllerProps['rules']
   name: string
   parseError?: (error: FieldError) => string
-  label?: React.ReactNode
+  label?: FormControlLabelProps['label']
   helperText?: string
+  control?: Control<any>
 }
 
 export default function CheckboxElement({
@@ -17,6 +26,7 @@ export default function CheckboxElement({
   required,
   parseError,
   label,
+  control,
   ...rest
 }: CheckboxElementProps): JSX.Element {
 
@@ -28,13 +38,14 @@ export default function CheckboxElement({
     <Controller
       name={name}
       rules={validation}
+      control={control}
       render={({ field: { value, onChange }, fieldState: { invalid, error } }) => {
         const helperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : rest.helperText
         return (
           <FormControl required={required} error={invalid}>
             <FormGroup row>
               <FormControlLabel
-                label={label}
+                label={label || ''}
                 control={
                   <Checkbox
                     color={'primary'}

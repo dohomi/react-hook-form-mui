@@ -1,7 +1,7 @@
 import React from 'react'
-import CloseIcon from '@material-ui/icons/Cancel'
-import { Controller, FieldError } from 'react-hook-form'
-import { Chip, FormControl, FormHelperText, InputLabel, MenuItem, Select, SelectProps } from '@material-ui/core'
+import CloseIcon from '@mui/icons-material/Cancel'
+import { Control, Controller, FieldError } from 'react-hook-form'
+import { Chip, FormControl, FormHelperText, InputLabel, MenuItem, Select, SelectProps } from '@mui/material'
 
 export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   menuItems: any
@@ -18,6 +18,7 @@ export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   menuMaxWidth?: number
   helperText?: string
   showChips?: boolean
+  control?: Control<any>
 }
 
 const ITEM_HEIGHT = 48
@@ -39,6 +40,7 @@ export default function MultiSelectElement({
   helperText,
   showChips,
   variant,
+  control,
   ...rest
 }: MultiSelectElementProps): JSX.Element {
 
@@ -50,6 +52,7 @@ export default function MultiSelectElement({
     <Controller
       name={name}
       rules={validation}
+      control={control}
       render={({ field: { value, onChange, onBlur }, fieldState: { invalid, error } }) => {
         helperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : helperText
         return (

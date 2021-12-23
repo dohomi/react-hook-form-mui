@@ -1,6 +1,4 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import { red } from '@material-ui/core/colors'
 import {
   Checkbox,
   CheckboxProps,
@@ -8,15 +6,10 @@ import {
   FormControlLabel,
   FormGroup,
   FormHelperText,
-  FormLabel
-} from '@material-ui/core'
-import { FieldError, useController } from 'react-hook-form'
-
-const useStyles = makeStyles({
-  root: {
-    color: red[400]
-  }
-})
+  FormLabel,
+  useTheme
+} from '@mui/material'
+import { Control, FieldError, useController } from 'react-hook-form'
 
 export type CheckboxButtonGroupProps = {
   options: any[]
@@ -31,6 +24,8 @@ export type CheckboxButtonGroupProps = {
   returnObject?: boolean
   disabled?: boolean
   row?: boolean
+  control?: Control<any>
+  checkboxColor?: CheckboxProps['color']
 }
 
 export default function CheckboxButtonGroup({
@@ -45,12 +40,15 @@ export default function CheckboxButtonGroup({
   returnObject,
   disabled,
   row,
+  control,
+  checkboxColor,
   ...rest
 }: CheckboxButtonGroupProps): JSX.Element {
-  const classes = useStyles()
+  const theme = useTheme()
   const { field: { value = [], onChange }, fieldState: { invalid, error } } = useController({
     name,
-    rules: required ? { required: 'This field is required' } : undefined
+    rules: required ? { required: 'This field is required' } : undefined,
+    control
   })
 
   helperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : helperText
@@ -79,10 +77,6 @@ export default function CheckboxButtonGroup({
       rest.onChange(newArray)
     }
   }
-  const checkboxProps: CheckboxProps = {}
-  if (invalid) {
-    checkboxProps.className = classes.root
-  }
 
   return (
     <FormControl error={invalid} required={required}>
@@ -104,8 +98,10 @@ export default function CheckboxButtonGroup({
             <FormControlLabel
               control={
                 <Checkbox
-                  {...checkboxProps}
-                  color="primary"
+                  sx={{
+                    color: invalid ? theme.palette.error.main : undefined
+                  }}
+                  color={checkboxColor || 'primary'}
                   value={optionKey}
                   checked={isChecked}
                   disabled={disabled}

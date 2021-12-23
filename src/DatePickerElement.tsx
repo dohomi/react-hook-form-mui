@@ -1,17 +1,20 @@
 import React from 'react'
-import { DatePicker, DatePickerProps } from '@material-ui/pickers'
-import { Controller, ControllerProps, FieldError } from 'react-hook-form'
-import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date'
+import { DatePicker, DatePickerProps } from '@mui/lab'
+import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
+import { ParseableDate } from '@mui/lab/internal/pickers/constants/prop-types'
+import { TextField, TextFieldProps } from '@mui/material'
 
-
-export type DatePickerElementProps = Omit<DatePickerProps, 'value' | 'onChange'> & {
+export type DatePickerElementProps<TDate = unknown> = Omit<DatePickerProps, 'value' | 'onChange' | 'renderInput'> & {
   name: string
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => string
-  onChange?: (value?: string | Date | MaterialUiPickersDate) => void
+  onChange?: (value?: ParseableDate<TDate>) => void
   validation?: ControllerProps['rules']
-  parseDate?: (date: MaterialUiPickersDate) => string
+  parseDate?: (date: ParseableDate<TDate>) => string
+  control?: Control<any>
+  inputProps?: TextFieldProps
+  helperText?: TextFieldProps['helperText']
 }
 
 export default function DatePickerElement({
@@ -21,6 +24,8 @@ export default function DatePickerElement({
   required,
   parseDate,
   validation = {},
+  inputProps,
+  control,
   ...rest
 }: DatePickerElementProps): JSX.Element {
 
@@ -32,18 +37,12 @@ export default function DatePickerElement({
     <Controller
       name={name}
       rules={validation}
-      render={({ field: { onBlur, onChange, value }, fieldState: { error, invalid } }) =>
+      control={control}
+      render={({ field: { onChange, value }, fieldState: { error, invalid } }) =>
         <DatePicker
           {...rest}
           value={value}
-          required={!!required}
-          onBlur={(ev) => {
-            onBlur()
-            if (typeof rest.onBlur === 'function') {
-              rest.onBlur(ev)
-            }
-          }}
-          onChange={(date: MaterialUiPickersDate) => {
+          onChange={(date: ParseableDate<any>) => {
             let parsedDate = date?.toISOString().substr(0, 10)
             if (typeof parseDate === 'function') {
               parsedDate = parseDate(date)
@@ -53,8 +52,20 @@ export default function DatePickerElement({
               rest.onChange(parsedDate)
             }
           }}
-          error={invalid}
-          helperText={error ? (typeof parseError === 'function' ? parseError(error) : error.message) : rest.helperText}
+          renderInput={
+            (params) =>
+              <TextField
+                {...params}
+                {...inputProps}
+                required={!!required}
+                error={invalid}
+                helperText={
+                  error
+                    ? (typeof parseError === 'function' ? parseError(error) : error.message)
+                    : inputProps?.helperText || rest.helperText
+                }
+              />
+          }
         />}
     />
   )
