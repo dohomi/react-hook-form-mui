@@ -4,7 +4,7 @@ import { text } from '@storybook/addon-knobs'
 import { action } from '@storybook/addon-actions'
 import { Button } from '@mui/material'
 import DateFnsProvider from '../src/DateFnsProvider'
-import { BoxMargin } from './Shared'
+import { BoxMargin } from '../src/Shared'
 
 export default {
   title: 'DatePickerElement'
