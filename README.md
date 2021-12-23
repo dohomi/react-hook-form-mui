@@ -24,6 +24,9 @@ The components are written in TypeScript and attempt an easy integration.
 ```
 The dependency of `react-hook-form` is a peerDependency so don't forget to install it as well.
 
+### Important
+From versions >= 3.x of this package MUI v5 is in use. Versions of 1 & 2 using Material-UI v4
+
 ### Your component code
 
 ```
@@ -70,6 +73,7 @@ This project uses `microbundle` to wrap the package for `npm`.
 [MIT](./LICENSE)
 
 ### Changelog
+* 3.x Material v5. Change usage to `@mui/material`
 * 2.1.x Introduce prop `row` to CheckboxButtonGroup and RadioButtonGroup
 * 2.x Rename package to react-hook-form-mui
 * 1.x Deprecated
