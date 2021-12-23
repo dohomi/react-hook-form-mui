@@ -1,7 +1,6 @@
 import React, { ChangeEvent } from 'react'
-import { red } from '@mui/material/colors'
 import { Control, FieldError, useController } from 'react-hook-form'
-import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup } from '@mui/material'
+import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup, useTheme } from '@mui/material'
 
 
 export type RadioButtonGroupProps = {
@@ -36,6 +35,7 @@ export default function RadioButtonGroup({
   control,
   ...rest
 }: RadioButtonGroupProps): JSX.Element {
+  const theme = useTheme()
   const { field: { value, onChange }, fieldState: { invalid, error } } = useController({
     name,
     rules: required ? { required: 'This field is required' } : undefined,
@@ -65,7 +65,9 @@ export default function RadioButtonGroup({
                   value={value || ''}>
         {emptyOptionLabel && (
           <FormControlLabel
-            control={<Radio sx={{ color: invalid ? red.A400 : undefined }} checked={!value} />}
+            control={<Radio sx={{
+              color: invalid ? theme.palette.error.main : undefined
+            }} checked={!value} />}
             label={emptyOptionLabel}
             value=""
           />
@@ -86,7 +88,9 @@ export default function RadioButtonGroup({
           )
           return (
             <FormControlLabel
-              control={<Radio sx={{ color: invalid ? red.A400 : undefined }} checked={isChecked} />}
+              control={<Radio sx={{
+                color: invalid ? theme.palette.error.main : undefined
+              }} checked={isChecked} />}
               value={optionKey}
               label={option[labelKey]}
               key={optionKey}

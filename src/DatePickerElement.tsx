@@ -41,7 +41,7 @@ export default function DatePickerElement({
       render={({ field: { onChange, value }, fieldState: { error, invalid } }) =>
         <DatePicker
           {...rest}
-          value={value}
+          value={value || ''}
           onChange={(date: ParseableDate<any>) => {
             let parsedDate = date?.toISOString().substr(0, 10)
             if (typeof parseDate === 'function') {

@@ -1,8 +1,23 @@
 import * as React from 'react'
 import { FormContainer, MultiSelectElement } from '../src'
 import { action } from '@storybook/addon-actions'
-import { Button } from '@mui/material'
-import { useForm } from 'react-hook-form'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { SubmitButton } from '../src/Shared'
+
+
+export default {
+  title: 'MultiSelectElement',
+  component: MultiSelectElement
+} as ComponentMeta<typeof MultiSelectElement>
+
+const Template: ComponentStory<typeof MultiSelectElement> = (args) => (
+  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
+    <MultiSelectElement {...args} />
+    <br />
+    <SubmitButton />
+  </FormContainer>
+)
+
 
 const names = [
   'Oliver Hansen',
@@ -17,68 +32,49 @@ const names = [
   'Kelly Snyder'
 ]
 
-const objectVals = [
-  { id: 1, name: 'Alpha' },
-  { id: 2, name: 'Beta' },
-  { id: 3, name: 'Celsius' },
-  { id: 4, name: 'Delta' }
-]
 
-export default {
-  title: 'MultiSelectElement'
+
+export const Basic = Template.bind({})
+Basic.args = {
+  name: 'basic',
+  menuItems: names
 }
 
-export const Basic = () => (
-  <FormContainer defaultValues={{
-    'multi-select-iv': ['Van Henry'],
-    'multi-select-ov': [1, 3]
-  }} onSuccess={action('submit')}>
-    <MultiSelectElement menuItems={names} name={'multi-select-basic'} label={'The label'} /> <br /><br />
-    <MultiSelectElement required menuItems={names} name={'multi-select-required'} label={'Required'}
-                        variant={'outlined'} /><br />
-    <MultiSelectElement menuItems={names}
-                        name={'multi-select-fw'}
-                        showChips
-                        label={'Full width'} fullWidth />
-    <MultiSelectElement
-      menuItems={names}
-      name={'multi-select-iv'}
-      label={'Initial values'}
-      showChips
-    /><br />
-    <MultiSelectElement
-      menuItems={objectVals}
-      name={'multi-select-ov'}
-      label={'With object vals'}
-      helperText="The label (initial values: [1, 3])"
-      itemValue={'id'}
-      itemKey={'id'}
-      itemLabel={'name'}
-      variant={'filled'}
-    /><br />
-    <Button type={'submit'} color={'primary'}>Submit</Button>
-  </FormContainer>
-)
-
-export const WithFormContext = () => {
-  const formContext = useForm<{ to: [number] }>({
-    defaultValues: {
-      to: [1]
-    }
-  })
-  return (
-    <FormContainer onSuccess={action('submit')}
-                   formContext={formContext as any}>
-      <MultiSelectElement
-        menuItems={objectVals}
-        name={'to'}
-        label={'With object vals'}
-        helperText="The label (initial values: [1, 3])"
-        itemValue={'id'}
-        itemKey={'id'}
-        itemLabel={'name'}
-        variant={'outlined'}
-      />
-    </FormContainer>
-  )
+export const WithLabel = Template.bind({})
+WithLabel.args = {
+  name: 'basic',
+  label: 'Select Field',
+  menuItems: names
 }
+
+export const Required = Template.bind({})
+Required.args = {
+  name: 'required',
+  label: 'Required Field',
+  menuItems: names,
+  required: true
+}
+
+export const WithChips = Template.bind({})
+WithChips.args = {
+  name: 'chips',
+  label: 'Required Field',
+  menuItems: names,
+  showChips: true
+}
+
+// const objectVals = [
+//   { id: 1, name: 'Alpha' },
+//   { id: 2, name: 'Beta' },
+//   { id: 3, name: 'Celsius' },
+//   { id: 4, name: 'Delta' }
+// ]
+// export const Object = Template.bind({})
+// Object.args = {
+//   name: 'object',
+//   label: 'Object Field',
+//   menuItems: objectVals,
+//   itemValue:'id',
+//   itemKey:'id',
+//   itemLabel:'name'
+// }

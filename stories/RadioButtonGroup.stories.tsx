@@ -1,63 +1,42 @@
 import * as React from 'react'
 import { FormContainer, RadioButtonGroup } from '../src'
 import { action } from '@storybook/addon-actions'
-import { object, text } from '@storybook/addon-knobs'
-import { Button } from '@mui/material'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { SubmitButton } from '../src/Shared'
 
 export default {
-  title: 'RadioButtonGroup'
-}
+  title: 'RadioButtonGroup',
+  component: RadioButtonGroup
+} as ComponentMeta<typeof RadioButtonGroup>
 
-export const Basic = () => (
-  <FormContainer defaultValues={{
-    'default-radio-element': '2'
-  }} onSuccess={action('submit')}>
-    <div>
-      <RadioButtonGroup
-        label={text('label', 'Simple Radio Group with preset')}
-        name="default-radio-element"
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        onChange={action('change')}
-      />
-    </div>
-    <div>
-      <RadioButtonGroup
-        row={true}
-        label={text('label-inline', 'Radio Group inline')}
-        name="default-radio-element-inline"
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        onChange={action('change')}
-      />
-    </div>
-    <div>
-      <RadioButtonGroup
-        label={text('label2', 'Simple Radio Group')}
-        name="default-radio-element-empty.deep"
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        onChange={action('change')}
-      />
-    </div>
-    <div>
-      <RadioButtonGroup
-        label={text('label3', 'Simple Radio Group required')}
-        required
-        name="default-radio-element-required"
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        onChange={action('change')}
-      />
-    </div>
-    <div>
-      <RadioButtonGroup
-        label={text('label4', 'Radio Group returns object')}
-        required
-        returnObject
-        name="object-radio-element"
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        onChange={action('change')}
-      />
-    </div>
-    <Button type={'submit'} color={'primary'}>Submit</Button>
+const Template: ComponentStory<typeof RadioButtonGroup> = (args) => (
+  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
+    <RadioButtonGroup {...args} />
+    <br />
+    <SubmitButton />
   </FormContainer>
 )
+const options = [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }]
 
+export const Basic = Template.bind({})
+Basic.args = {
+  label: 'Basic',
+  name: 'basic',
+  options
+}
 
+export const Inline = Template.bind({})
+Inline.args = {
+  label: 'Inline',
+  name: 'inline',
+  row: true,
+  options
+}
+
+export const Required = Template.bind({})
+Required.args = {
+  label: 'Required',
+  name: 'inline',
+  required: true,
+  options
+}

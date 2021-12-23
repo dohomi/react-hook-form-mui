@@ -1,12 +1,28 @@
-import { FunctionComponent, useEffect } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import { action } from '@storybook/addon-actions'
 import { Button } from '@mui/material'
 import { FieldError, useForm, useFormContext } from 'react-hook-form'
 import { CheckboxElement, FormContainer, PasswordElement, TextFieldElement } from '../src'
-import React from 'react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { SubmitButton } from '../src/Shared'
 
 export default {
-  title: 'TextFieldElement'
+  title: 'TextFieldElement',
+  component: TextFieldElement
+} as ComponentMeta<typeof TextFieldElement>
+
+const Template: ComponentStory<typeof TextFieldElement> = (args) => (
+  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
+    <TextFieldElement {...args} />
+    <br />
+    <SubmitButton />
+  </FormContainer>
+)
+
+export const Core = Template.bind({})
+Core.args = {
+  name: 'core',
+  label: 'Label'
 }
 
 const parseError = (error: FieldError) => {

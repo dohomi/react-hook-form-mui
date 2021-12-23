@@ -4,7 +4,7 @@ import { Control, Controller, FieldError } from 'react-hook-form'
 import { Chip, FormControl, FormHelperText, InputLabel, MenuItem, Select, SelectProps } from '@mui/material'
 
 export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
-  menuItems: any
+  menuItems: any[]
   label?: string
   itemKey?: string
   itemValue?: string
@@ -62,14 +62,16 @@ export default function MultiSelectElement({
             fullWidth={rest.fullWidth}
             error={invalid}
           >
-            <InputLabel error={invalid} htmlFor={rest.id || `select-multi-select-${name}`} required={required}>
-              {label}
-            </InputLabel>
+            {label && (
+              <InputLabel error={invalid} htmlFor={rest.id || `select-multi-select-${name}`} required={required}>
+                {label}
+              </InputLabel>
+            )}
             <Select
               {...rest}
               id={rest.id || `select-multi-select-${name}`}
-              label={label}
               multiple
+              label={label || undefined}
               error={invalid}
               value={value || []}
               required={required}

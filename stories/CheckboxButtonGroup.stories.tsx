@@ -1,77 +1,57 @@
 import { action } from '@storybook/addon-actions'
-import { object, text } from '@storybook/addon-knobs'
-import { Button } from '@mui/material'
-import { CheckboxButtonGroup, CheckboxElement, FormContainer } from '../src'
+import { CheckboxButtonGroup, FormContainer } from '../src'
 import React from 'react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { SubmitButton } from '../src/Shared'
 
 export default {
-  title: 'CheckboxButtonGroup'
+  title: 'CheckboxButtonGroup',
+  component: CheckboxButtonGroup
+} as ComponentMeta<typeof CheckboxButtonGroup>
+
+const Template: ComponentStory<typeof CheckboxButtonGroup> = (args) => (
+  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
+    <CheckboxButtonGroup {...args} />
+    <br />
+    <SubmitButton />
+  </FormContainer>
+)
+
+export const Basic = Template.bind({})
+Basic.args = {
+  label: 'Label',
+  name: 'basic-checkbox-button-group',
+  options: [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }]
 }
 
-export const Basic = () => (
-  <FormContainer defaultValues={{
-    'basic-checkbox-button-group': ['1'],
-    'disabled-checkbox-button-group': ['1']
-  }} onSuccess={action('submit')}>
-    <div>
-      <CheckboxButtonGroup
-        label={text('label', 'The label')}
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        name={'basic-checkbox-button-group'}
-        onChange={action('selected')}
-      />
-    </div>
-    <div>
-      <CheckboxButtonGroup
-        row={true}
-        label={text('label-inline', 'Inline checkbox group')}
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        name={'basic-checkbox-button-group-inline'}
-        onChange={action('selected')}
-      />
-    </div>
-    <div>
-      <CheckboxButtonGroup
-        label={text('label2', 'Return as object')}
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        name={'object-checkbox-button-group'}
-        onChange={action('selected')}
-        returnObject
-      />
-    </div>
-    <div>
-      <CheckboxButtonGroup
-        label={text('label3', 'Required check box')}
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        name={'required-checkbox-button-group'}
-        required
-        onChange={action('selected')}
-      />
-    </div>
-    <div>
-      <CheckboxButtonGroup
-        label={text('label3', 'Disabled Checkbox Group')}
-        options={object('Options', [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }])}
-        name={'disabled-checkbox-button-group'}
-        onChange={action('selected')}
-        disabled={true}
-      />
-    </div>
-    <Button type={'submit'} color={'primary'}>Submit</Button>
-  </FormContainer>
-)
+export const Inline = Template.bind({})
+Inline.args = {
+  label: 'Inline',
+  row: true,
+  name: 'basic-checkbox-inline',
+  options: [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }]
+}
 
-export const SingleCheckbox = () => (
-  <FormContainer defaultValues={{
-    'required': false,
-    'simple': false,
-    'pre-selected': true,
-    'pre-selected-required': true
-  }} onSuccess={action('submit')}>
-    <CheckboxElement name={'simple'} label={'Simple Checkbox'} /><br />
-    <CheckboxElement name={'pre-selected'} label={'Pre-Selected Checkbox'} /><br />
-    <CheckboxElement name={'required'} label={'Required Checkbox'} required /><br />
-    <CheckboxElement name={'pre-selected-required'} label={'Pre-Selected Required Checkbox'} required /><br />
-    <Button type={'submit'} color={'primary'}> Submit</Button>
-  </FormContainer>
-)
+export const ReturnObject = Template.bind({})
+ReturnObject.args = {
+  label: 'Object',
+  returnObject: true,
+  name: 'basic-checkbox-object',
+  options: [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }]
+}
+
+export const Required = Template.bind({})
+Required.args = {
+  label: 'Required',
+  required: true,
+  name: 'basic-checkbox-required',
+  options: [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }]
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  label: 'Disabled',
+  disabled: true,
+  name: 'basic-checkbox-disabled',
+  options: [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }]
+}
