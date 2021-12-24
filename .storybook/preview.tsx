@@ -1,5 +1,11 @@
 import React, { Suspense } from 'react'
 import { addParameters, Story } from '@storybook/react'
+// @ts-ignore
+import createEmotionCache from '../example/src/createEmotionCache'
+import { CacheProvider } from '@emotion/react'
+// @ts-ignore
+import theme from '../example/src/theme'
+import { ThemeProvider } from '@mui/material'
 
 addParameters({
   options: {
@@ -8,6 +14,12 @@ addParameters({
   }
 })
 
+const clientSideEmotionCache = createEmotionCache()
+
 export const decorators = [(Story: Story) => (
-  <Suspense fallback={<div>loading</div>}><Story /></Suspense>
+  <CacheProvider value={clientSideEmotionCache}>
+    <ThemeProvider theme={theme}>
+      <Suspense fallback={<div>loading</div>}><Story /></Suspense>
+    </ThemeProvider>
+  </CacheProvider>
 )]
