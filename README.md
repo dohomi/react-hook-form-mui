@@ -1,4 +1,5 @@
 # Material-UI and react-hook-form combined
+
 ## About this project
 
 This project simplifies the use of `react-hook-form` and `Material-UI`. It provides opinionated use cases with following
@@ -11,6 +12,7 @@ components:
 * RadioButtonGroup
 * CheckboxButtonGroup
 * CheckboxElement
+* SwitchElement
 * PasswordElement
 * DatePickerElement
 
@@ -19,12 +21,15 @@ The components are written in TypeScript and attempt an easy integration.
 ## How to use it
 
 ### Installation
+
 ```
    $npm install react-hook-form react-hook-form-mui
 ```
+
 The dependency of `react-hook-form` is a peerDependency so don't forget to install it as well.
 
 ### Important
+
 From versions >= 3.x of this package MUI v5 is in use. Versions of 1 & 2 using Material-UI v4
 
 ### Your component code
@@ -48,7 +53,8 @@ You can have a look at the `example` folder which sets up NextJS with `react-hoo
 
 ### FormContainer creates `formContext`
 
-The `<FormContainer />` wires up a form and you can create sub-components which either make use of `useFormContext() | useWatch()` to react to form values. 
+The `<FormContainer />` wires up a form and you can create sub-components which either make use
+of `useFormContext() | useWatch()` to react to form values.
 
 ## Demo
 
@@ -61,19 +67,22 @@ You will find examples and use cases.
 If you are using the `DatepickerElement` keep in mind that you have to wrap your form with a provider:
 
 Examples for Dayjs or DateFns provider (used in the demo):
+
 * [DateFns](/src/DateFnsProvider.tsx)
 * [Dayjs](/src/DateFnsProvider.tsx)
 
 ### Bundle
 
-This project uses `microbundle` to wrap the package for `npm`. 
+This project uses `microbundle` to wrap the package for `npm`.
 
 ### License
 
 [MIT](./LICENSE)
 
 ### Changelog
-* 3.x Material v5. Change usage to `@mui/material`
+
+* 3.1 Add SwitchElement component
+* 3.x Material v5. Change components to use `@mui/material`
 * 2.1.x Introduce prop `row` to CheckboxButtonGroup and RadioButtonGroup
 * 2.x Rename package to react-hook-form-mui
 * 1.x Deprecated

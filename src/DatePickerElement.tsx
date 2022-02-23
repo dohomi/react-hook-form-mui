@@ -42,10 +42,17 @@ export default function DatePickerElement({
         <DatePicker
           {...rest}
           value={value || ''}
-          onChange={(date: ParseableDate<any>) => {
-            let parsedDate = date?.toISOString().substr(0, 10)
-            if (typeof parseDate === 'function') {
-              parsedDate = parseDate(date)
+          onChange={(date: ParseableDate<any>, selectionState) => {
+            let parsedDate = ''
+            if (selectionState) {
+              if (typeof parseDate === 'function') {
+                parsedDate = parseDate(date)
+              }
+            } else {
+              parsedDate = date?.toISOString().substr(0, 10)
+              if (typeof parseDate === 'function') {
+                parsedDate = parseDate(date)
+              }
             }
             onChange(parsedDate)
             if (typeof rest.onChange === 'function') {
