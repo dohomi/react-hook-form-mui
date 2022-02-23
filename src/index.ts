@@ -24,3 +24,6 @@ export type { PasswordElementProps } from './PasswordElement'
 
 export { default as RadioButtonGroup } from './RadioButtonGroup'
 export type { RadioButtonGroupProps } from './RadioButtonGroup'
+
+export { default as SwitchElement } from './SwitchElement'
+export type { SwitchElementProps } from './SwitchElement'
