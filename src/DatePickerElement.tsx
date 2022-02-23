@@ -46,7 +46,7 @@ export default function DatePickerElement({
             let parsedDate = ''
             if (selectionState) {
               if (typeof parseDate === 'function') {
-                parsedDate = parseDate(date)
+                parsedDate = parseDate(selectionState)
               }
             } else {
               parsedDate = date?.toISOString().substr(0, 10)
