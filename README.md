@@ -81,6 +81,7 @@ This project uses `microbundle` to wrap the package for `npm`.
 
 ### Changelog
 
+* 3.4 Improve error color on checkbox
 * 3.1 Add SwitchElement component
 * 3.x Material v5. Change components to use `@mui/material`
 * 2.1.x Introduce prop `row` to CheckboxButtonGroup and RadioButtonGroup
