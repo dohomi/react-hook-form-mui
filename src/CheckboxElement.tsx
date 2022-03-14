@@ -1,5 +1,4 @@
 import React from 'react'
-import { red } from '@mui/material/colors'
 import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
 import {
   Checkbox,
@@ -49,8 +48,8 @@ export default function CheckboxElement({
                 control={
                   <Checkbox
                     color={'primary'}
-                    style={{
-                      color: invalid ? red[400] : undefined
+                    sx={{
+                      color: invalid ? "error.main" : undefined,
                     }}
                     value={value}
                     checked={!!value}
