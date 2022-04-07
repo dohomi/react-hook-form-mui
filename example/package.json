@@ -14,18 +14,18 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
-    "@mui/material": "^5.4.3",
-    "next": "^12.1.0",
+    "@mui/material": "^5.6.0",
+    "next": "^12.1.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.27.1",
+    "react-hook-form": "^7.29.0",
     "react-hook-form-mui": "file:.."
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^12.1.0",
-    "@types/react": "^17.0.37",
-    "@types/react-dom": "^17.0.11",
+    "@next/bundle-analyzer": "^12.1.4",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
     "cross-env": "^7.0.3",
-    "typescript": "^4.5.5"
+    "typescript": "^4.6.3"
   }
 }
