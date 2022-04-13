@@ -1,8 +1,15 @@
 import React from 'react'
 import { DatePicker, DatePickerProps } from '@mui/lab'
 import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
-import { ParseableDate } from '@mui/lab/internal/pickers/constants/prop-types'
 import { TextField, TextFieldProps } from '@mui/material'
+
+export declare type ParseableDate<TDate> =
+  | string
+  | number
+  | Date
+  | null
+  | undefined
+  | TDate;
 
 export type DatePickerElementProps<TDate = unknown> = Omit<DatePickerProps, 'value' | 'onChange' | 'renderInput'> & {
   name: string
