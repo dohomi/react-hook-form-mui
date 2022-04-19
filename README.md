@@ -81,6 +81,7 @@ This project uses `microbundle` to wrap the package for `npm`.
 
 ### Changelog
 
+* 3.2.0 New props `showCheckbox` on MultiSelect field and minor improvements.
 * 3.1.5 Update dependencies and fix peer
 * 3.1.4 Improve error color on checkbox
 * 3.1 Add SwitchElement component
