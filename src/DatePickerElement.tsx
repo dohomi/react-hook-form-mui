@@ -1,7 +1,6 @@
 import React from 'react'
 import { DatePicker, DatePickerProps } from '@mui/lab'
 import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
-import { ParseableDate } from '@mui/lab/internal/pickers/constants/prop-types'
 import { TextField, TextFieldProps } from '@mui/material'
 
 export type DatePickerElementProps<TDate = unknown> = Omit<DatePickerProps, 'value' | 'onChange' | 'renderInput'> & {
@@ -9,9 +8,9 @@ export type DatePickerElementProps<TDate = unknown> = Omit<DatePickerProps, 'val
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => string
-  onChange?: (value?: ParseableDate<TDate>) => void
+  onChange?: (value?: TDate) => void
   validation?: ControllerProps['rules']
-  parseDate?: (date: ParseableDate<TDate>) => string
+  parseDate?: (date: TDate) => string
   control?: Control<any>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
@@ -42,7 +41,7 @@ export default function DatePickerElement({
         <DatePicker
           {...rest}
           value={value || ''}
-          onChange={(date: ParseableDate<any>, selectionState) => {
+          onChange={(date, selectionState) => {
             let parsedDate = ''
             if (selectionState) {
               if (typeof parseDate === 'function') {

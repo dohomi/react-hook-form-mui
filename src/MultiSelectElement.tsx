@@ -1,7 +1,17 @@
 import React from 'react'
 import CloseIcon from '@mui/icons-material/Cancel'
 import { Control, Controller, FieldError } from 'react-hook-form'
-import { Chip, FormControl, FormHelperText, InputLabel, MenuItem, Select, SelectProps } from '@mui/material'
+import {
+  Checkbox,
+  Chip,
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  ListItemText,
+  MenuItem,
+  Select,
+  SelectProps
+} from '@mui/material'
 
 export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   menuItems: any[]
@@ -19,6 +29,7 @@ export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
   helperText?: string
   showChips?: boolean
   control?: Control<any>
+  showCheckbox?: boolean
 }
 
 const ITEM_HEIGHT = 48
@@ -41,6 +52,7 @@ export default function MultiSelectElement({
   showChips,
   variant,
   control,
+  showCheckbox,
   ...rest
 }: MultiSelectElementProps): JSX.Element {
 
@@ -85,7 +97,7 @@ export default function MultiSelectElement({
                   }
                 }
               }}
-              renderValue={showChips ? (selected) => (
+              renderValue={rest.renderValue || showChips ? (selected) => (
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                   {(selected as any[] || []).map((selectedValue) => (
                     <Chip
@@ -104,19 +116,23 @@ export default function MultiSelectElement({
                     />
                   ))}
                 </div>
-              ) : undefined}
+              ) : (selected) => selected?.join(', ')}
             >
-              {menuItems.map((item: any) => (
-                <MenuItem
-                  key={!!itemKey ? item[itemKey] : item}
-                  value={itemValue ? item[itemValue] : item}
-                  style={{
-                    fontWeight: (value || []).includes(item) ? 'bold' : 'normal'
-                  }}
-                >
-                  {itemLabel ? item[itemLabel] : item}
-                </MenuItem>
-              ))}
+              {menuItems.map((item: any) => {
+                const isChecked = value?.includes(item) ?? false
+                return (
+                  <MenuItem
+                    key={!!itemKey ? item[itemKey] : item}
+                    value={itemValue ? item[itemValue] : item}
+                    sx={{
+                      fontWeight: (theme) => isChecked ? theme.typography.fontWeightBold : theme.typography.fontWeightRegular
+                    }}
+                  >
+                    {showCheckbox && <Checkbox checked={isChecked} />}
+                    <ListItemText primary={itemLabel ? item[itemLabel] : item} />
+                  </MenuItem>
+                )
+              })}
             </Select>
             {helperText && <FormHelperText>{helperText}</FormHelperText>}
           </FormControl>

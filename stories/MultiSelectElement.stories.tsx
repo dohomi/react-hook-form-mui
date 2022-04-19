@@ -63,6 +63,14 @@ WithChips.args = {
   showChips: true
 }
 
+export const WithCheckbox = Template.bind({})
+WithCheckbox.args = {
+  name: 'checkbox',
+  label: 'Checkbox Field',
+  menuItems: names,
+  showCheckbox: true
+}
+
 // const objectVals = [
 //   { id: 1, name: 'Alpha' },
 //   { id: 2, name: 'Beta' },
