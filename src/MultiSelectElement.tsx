@@ -97,7 +97,7 @@ export default function MultiSelectElement({
                   }
                 }
               }}
-              renderValue={rest.renderValue || showChips ? (selected) => (
+              renderValue={typeof rest.renderValue === 'function' ? rest.renderValue : showChips ? (selected) => (
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                   {(selected as any[] || []).map((selectedValue) => (
                     <Chip
@@ -120,10 +120,12 @@ export default function MultiSelectElement({
             >
               {menuItems.map((item: any) => {
                 const isChecked = value?.includes(item) ?? false
+                const key = itemValue || itemKey
+                let val = key ? item[key] : item
                 return (
                   <MenuItem
-                    key={!!itemKey ? item[itemKey] : item}
-                    value={itemValue ? item[itemValue] : item}
+                    key={val}
+                    value={val}
                     sx={{
                       fontWeight: (theme) => isChecked ? theme.typography.fontWeightBold : theme.typography.fontWeightRegular
                     }}

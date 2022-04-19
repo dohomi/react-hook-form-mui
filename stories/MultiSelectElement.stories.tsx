@@ -33,7 +33,6 @@ const names = [
 ]
 
 
-
 export const Basic = Template.bind({})
 Basic.args = {
   name: 'basic',
@@ -71,18 +70,27 @@ WithCheckbox.args = {
   showCheckbox: true
 }
 
-// const objectVals = [
-//   { id: 1, name: 'Alpha' },
-//   { id: 2, name: 'Beta' },
-//   { id: 3, name: 'Celsius' },
-//   { id: 4, name: 'Delta' }
-// ]
-// export const Object = Template.bind({})
-// Object.args = {
-//   name: 'object',
-//   label: 'Object Field',
-//   menuItems: objectVals,
-//   itemValue:'id',
-//   itemKey:'id',
-//   itemLabel:'name'
-// }
+const objectVals = [
+  { id: 1, name: 'Alpha' },
+  { id: 2, name: 'Beta' },
+  { id: 3, name: 'Celsius' },
+  { id: 4, name: 'Delta' }
+]
+export const WithObjectArray = Template.bind({})
+WithObjectArray.args = {
+  name: 'object',
+  label: 'Object Field',
+  menuItems: objectVals,
+  itemKey: 'id',
+  itemLabel: 'name'
+}
+
+export const OverwriteRenderValue = Template.bind({})
+OverwriteRenderValue.args = {
+  name: 'object',
+  label: 'Object Field',
+  menuItems: objectVals,
+  itemKey: 'id',
+  itemLabel: 'name',
+  renderValue: (selected: any) => `You selected: ${(selected || [])?.length}`
+}
