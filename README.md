@@ -81,6 +81,7 @@ This project uses `microbundle` to wrap the package for `npm`.
 
 ### Changelog
 
+* 3.3.0 Fix `FormContainer` `children` prop on React 18 typing changes. Kudos to @TimMikeladze
 * 3.2.0 New props `showCheckbox` on MultiSelect field and minor improvements.
 * 3.1.5 Update dependencies and fix peer
 * 3.1.4 Improve error color on checkbox
