@@ -22,8 +22,8 @@ The components are written in TypeScript and attempt an easy integration.
 
 ### Installation
 
-```
-   $npm install react-hook-form react-hook-form-mui
+```console
+npm install react-hook-form react-hook-form-mui
 ```
 
 The dependency of `react-hook-form` is a peerDependency so don't forget to install it as well.
@@ -34,16 +34,16 @@ From versions >= 3.x of this package MUI v5 is in use. Versions of 1 & 2 using M
 
 ### Your component code
 
-```
-import {FormContainer, TextFieldElement} from 'react-hook-form-mui'
+```tsx
+import { FormContainer, TextFieldElement } from 'react-hook-form-mui'
 
-function Form(){
+function Form() {
   return (
     <FormContainer 
-      defaultValues={{name: ''}}
-      onSuccess={(data) => {console.log(data)}}
+      defaultValues={{ name: '' }}
+      onSuccess={data => console.log(data)}
     >
-      <TextFieldElement name="name" label="Name" required/>
+      <TextFieldElement name="name" label="Name" required />
     </FormContainer>
   )
 }
@@ -79,7 +79,7 @@ This project uses `microbundle` to wrap the package for `npm`.
 
 [MIT](./LICENSE)
 
-### Changelog
+### Backlog history
 
 * 3.3.0 Fix `FormContainer` `children` prop on React 18 typing changes. Kudos to @TimMikeladze
 * 3.2.0 New props `showCheckbox` on MultiSelect field and minor improvements.
@@ -90,3 +90,4 @@ This project uses `microbundle` to wrap the package for `npm`.
 * 2.1.x Introduce prop `row` to CheckboxButtonGroup and RadioButtonGroup
 * 2.x Rename package to react-hook-form-mui
 * 1.x Deprecated
+

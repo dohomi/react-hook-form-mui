@@ -1,5 +1,5 @@
 {
-  "version": "3.3.0",
+  "version": "3.4.0",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.vercel.app",
@@ -28,7 +28,10 @@
     "build-storybook": "build-storybook",
     "check-types": "tsc --noemit",
     "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod",
-    "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement"
+    "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement",
+    "release-minor": "release minor",
+    "release-patch": "release patch",
+    "release-major": "release major"
   },
   "peerDependencies": {
     "@mui/icons-material": ">= 5.x <6",
@@ -72,6 +75,7 @@
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.27.1",
     "react-is": "^17.0.2",
+    "release": "^6.3.1",
     "ts-loader": "^9.2.6",
     "tslib": "^2.3.1",
     "typescript": "^4.5.5",
