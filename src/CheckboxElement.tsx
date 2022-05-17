@@ -1,4 +1,3 @@
-import React from 'react'
 import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
 import {
   Checkbox,

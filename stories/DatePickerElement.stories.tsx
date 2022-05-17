@@ -1,4 +1,3 @@
-import React from 'react'
 import { DatePickerElement, FormContainer } from '../src'
 import { action } from '@storybook/addon-actions'
 import DateFnsProvider from '../src/DateFnsProvider'

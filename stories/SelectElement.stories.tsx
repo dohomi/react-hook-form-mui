@@ -1,6 +1,5 @@
 import { FormContainer, SelectElement } from '../src'
 import { action } from '@storybook/addon-actions'
-import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SubmitButton } from '../src/Shared'
 

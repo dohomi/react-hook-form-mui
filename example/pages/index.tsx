@@ -19,7 +19,7 @@ export default function Index() {
     }}>
       <FormContainer defaultValues={defaultValues} onSuccess={onSubmit}>
         <Stack direction={'column'}>
-          <TextFieldElement name={'hallo'} label={'Hallo'} required /><br />
+          <TextFieldElement name={'hallo'} label={'hallo'} /> <br />
           <TextFieldElement color={'primary'} name={'primary'} label={'Primary'} /><br />
           <TextFieldElement color={'secondary'} name={'secondary'} label={'Secondary'} />
           <br />

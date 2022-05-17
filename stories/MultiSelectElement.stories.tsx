@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { FormContainer, MultiSelectElement } from '../src'
 import { action } from '@storybook/addon-actions'
 import { ComponentMeta, ComponentStory } from '@storybook/react'

@@ -2,7 +2,6 @@ import { FormContainer, SwitchElement } from '../src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { SubmitButton } from '../src/Shared'
-import React from 'react'
 
 export default {
   title: 'Switch Element',

@@ -25,7 +25,7 @@
     "noEmit": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "baseUrl": "./"
   }
 }

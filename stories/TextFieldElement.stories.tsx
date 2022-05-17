@@ -1,8 +1,8 @@
-import React, { FunctionComponent, useEffect } from 'react'
+import { useEffect } from 'react'
 import { action } from '@storybook/addon-actions'
 import { Button } from '@mui/material'
-import { FieldError, useForm, useFormContext } from 'react-hook-form'
-import { CheckboxElement, FormContainer, PasswordElement, TextFieldElement } from '../src'
+import { FieldError, useForm } from 'react-hook-form'
+import { CheckboxElement, FormContainer, PasswordElement, PasswordRepeatElement, TextFieldElement } from '../src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SubmitButton } from '../src/Shared'
 
@@ -30,24 +30,6 @@ const parseError = (error: FieldError) => {
     return 'Enter an email'
   }
   return 'This field is required'
-}
-
-const PasswordRepeat: FunctionComponent = () => {
-  const { getValues } = useFormContext()
-  return (
-    <PasswordElement margin={'dense'}
-                     label={'Password Repeat'}
-                     required
-                     parseError={parseError}
-                     validation={{
-                       validate: (value: string) => {
-                         const { password } = getValues()
-                         return value === password || 'Password should match'
-                       }
-                     }}
-                     name={'password-repeat'}
-    />
-  )
 }
 
 export const Basic = () => {
@@ -95,7 +77,11 @@ export const Basic = () => {
                        required
                        name={'password'}
       /><br />
-      <PasswordRepeat /><br />
+      <PasswordRepeatElement passwordFieldName={'password'}
+                             name={'password-repeat'}
+                             margin={'dense'}
+                             label={'Repeat Password'}
+                             required /><br />
       <CheckboxElement name={'agree'} label={'Agree'} required /><br />
       <Button type={'submit'} color={'primary'} variant={'contained'}>Submit</Button>
     </FormContainer>

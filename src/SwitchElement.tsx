@@ -1,7 +1,5 @@
 import { Control, Controller } from 'react-hook-form'
 import { FormControlLabel, FormControlLabelProps, Switch } from '@mui/material'
-import React from 'react'
-// ----------------------------------------------------------------------
 
 type IProps = Omit<FormControlLabelProps, 'control'>;
 

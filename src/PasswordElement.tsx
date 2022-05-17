@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState } from 'react'
+import { MouseEvent, useState } from 'react'
 import TextFieldElement, { TextFieldElementProps } from './TextFieldElement'
 import { IconButton, InputAdornment } from '@mui/material'
 import Visibility from '@mui/icons-material/Visibility'

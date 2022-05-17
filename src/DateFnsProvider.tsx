@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import LocalizationProvider, { LocalizationProviderProps } from '@mui/lab/LocalizationProvider'
 

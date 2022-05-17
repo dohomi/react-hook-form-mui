@@ -1,4 +1,3 @@
-import React from 'react'
 import { FormContainer, TextFieldElement } from '../src'
 import { useForm, useWatch } from 'react-hook-form'
 import { Button } from '@mui/material'

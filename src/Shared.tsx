@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Box, Button } from '@mui/material'
 
 export const BoxMargin: FC = ({ children }) => {
