@@ -79,13 +79,3 @@ This project uses `microbundle` to wrap the package for `npm`.
 
 [MIT](./LICENSE)
 
-### Changelog
-
-* 3.2.0 New props `showCheckbox` on MultiSelect field and minor improvements.
-* 3.1.5 Update dependencies and fix peer
-* 3.1.4 Improve error color on checkbox
-* 3.1 Add SwitchElement component
-* 3.x Material v5. Change components to use `@mui/material`
-* 2.1.x Introduce prop `row` to CheckboxButtonGroup and RadioButtonGroup
-* 2.x Rename package to react-hook-form-mui
-* 1.x Deprecated
