@@ -28,8 +28,8 @@
     "build-storybook": "build-storybook",
     "check-types": "tsc --noemit",
     "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod",
-    "build": "rimraf dist && microbundle -f modern,esm,cjs --jsx React.createElement",
-    "build-tsup": "tsup src/index.ts --clean --format esm,cjs --dts --external react --inject ./react-shim.js",
+    "build-old": "rimraf dist && microbundle",
+    "build": "tsup src/index.ts --clean --format esm,cjs --dts --external react --inject ./react-shim.js",
     "dev-tsup": "tsup src/index.ts --clean --format esm,cjs --watch --dts --external react --inject ./react-shim.js",
     "release-minor": "release minor",
     "release-patch": "release patch",
@@ -81,7 +81,7 @@
     "ts-loader": "^9.2.6",
     "tslib": "^2.3.1",
     "tsup": "^5.12.8",
-    "typescript": "^4.5.5",
+    "typescript": "^4.6.4",
     "webpack": "^5.69.1"
   }
 }

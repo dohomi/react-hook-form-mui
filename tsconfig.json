@@ -26,6 +26,8 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "jsx": "react-jsx",
+    "jsxFactory": "",
+    "jsxFragmentFactory": "",
     "baseUrl": "./"
   }
 }
