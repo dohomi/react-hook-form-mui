@@ -37,7 +37,7 @@ export default function TextFieldElement({
         <TextField
           {...rest}
           name={name}
-          value={value || ''}
+          value={value ?? ''}
           onChange={onChange}
           onBlur={onBlur}
           required={required}

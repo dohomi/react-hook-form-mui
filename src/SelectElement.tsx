@@ -40,7 +40,7 @@ export default function SelectElement({
       control={control}
       render={({ field: { onBlur, onChange, value }, fieldState: { invalid, error } }) => {
         // handle shrink on number input fields
-        if (type === 'number' && value) {
+        if (type === 'number' && typeof value !== 'undefined') {
           rest.InputLabelProps = rest.InputLabelProps || {}
           rest.InputLabelProps.shrink = true
         }
@@ -50,7 +50,7 @@ export default function SelectElement({
         return <TextField
           {...rest}
           name={name}
-          value={value || ''}
+          value={value ?? ''}
           onBlur={onBlur}
           onChange={(event) => {
             let item: number | string = event.target.value
