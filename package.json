@@ -13,7 +13,7 @@
   "author": "Dominic Garms",
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "module": "dist/esm/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist/**",
@@ -29,7 +29,7 @@
     "check-types": "tsc --noemit",
     "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod",
     "build-old": "rimraf dist && microbundle",
-    "build": "tsup src/index.ts --clean --format esm,cjs --dts --external react --inject ./react-shim.js",
+    "build": "tsup src/index.ts --clean --format esm,cjs --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
     "dev-tsup": "tsup src/index.ts --clean --format esm,cjs --watch --dts --external react --inject ./react-shim.js",
     "release-minor": "release minor",
     "release-patch": "release patch",
