@@ -16,8 +16,7 @@
   "module": "dist/esm/index.js",
   "typings": "dist/index.d.ts",
   "files": [
-    "dist/**",
-    "src"
+    "dist/**"
   ],
   "engines": {
     "node": ">=14"
