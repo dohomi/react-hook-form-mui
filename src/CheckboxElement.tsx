@@ -8,7 +8,6 @@ import {
   FormGroup,
   FormHelperText
 } from '@mui/material'
-
 export type CheckboxElementProps = Omit<CheckboxProps, 'name'> & {
   validation?: ControllerProps['rules']
   name: string
@@ -16,8 +15,8 @@ export type CheckboxElementProps = Omit<CheckboxProps, 'name'> & {
   label?: FormControlLabelProps['label']
   helperText?: string
   control?: Control<any>
+  disabled?: boolean
 }
-
 export default function CheckboxElement({
   name,
   validation = {},
@@ -25,13 +24,12 @@ export default function CheckboxElement({
   parseError,
   label,
   control,
+  disabled,
   ...rest
 }: CheckboxElementProps): JSX.Element {
-
   if (required) {
     validation.required = 'This field is required'
   }
-
   return (
     <Controller
       name={name}
@@ -56,6 +54,7 @@ export default function CheckboxElement({
                       onChange(!value)
                       //setValue(name, !formValue, { shouldValidate: true })
                     }}
+                    disabled={disabled}
                   />
                 }
               />
