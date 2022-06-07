@@ -10,8 +10,11 @@ export default function PasswordRepeatElement(props: PasswordRepeatElementProps)
     control: props.control,
     defaultValue: ''
   })
+   
+  const {passwordFieldName, ...passwordProps} = props
+  
   return (
-    <PasswordElement {...props}
+    <PasswordElement {...passwordProps}
                      validation={{
                        validate: (value: string) => {
                          return value === pwValue || 'Password should match'
