@@ -5,13 +5,14 @@ export type PasswordRepeatElementProps = PasswordElementProps & {
   passwordFieldName: string
 }
 export default function PasswordRepeatElement(props: PasswordRepeatElementProps) {
+  const { passwordFieldName, ...rest } = props
   const pwValue = useWatch({
-    name: props.passwordFieldName,
-    control: props.control,
+    name: passwordFieldName,
+    control: rest.control,
     defaultValue: ''
   })
   return (
-    <PasswordElement {...props}
+    <PasswordElement {...rest}
                      validation={{
                        validate: (value: string) => {
                          return value === pwValue || 'Password should match'
