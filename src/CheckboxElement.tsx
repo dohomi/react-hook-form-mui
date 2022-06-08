@@ -25,6 +25,7 @@ export default function CheckboxElement({
   parseError,
   label,
   control,
+  helperText,
   ...rest
 }: CheckboxElementProps): JSX.Element {
 
@@ -38,7 +39,7 @@ export default function CheckboxElement({
       rules={validation}
       control={control}
       render={({ field: { value, onChange }, fieldState: { invalid, error } }) => {
-        const helperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : rest.helperText
+        const parsedHelperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : helperText
         return (
           <FormControl required={required} error={invalid}>
             <FormGroup row>
@@ -46,21 +47,22 @@ export default function CheckboxElement({
                 label={label || ''}
                 control={
                   <Checkbox
-                    color={'primary'}
+                    {...rest}
+                    color={rest.color || 'primary'}
                     sx={{
-                      color: invalid ? "error.main" : undefined,
+                      ...rest.sx,
+                      color: invalid ? 'error.main' : undefined
                     }}
                     value={value}
                     checked={!!value}
                     onChange={() => {
                       onChange(!value)
-                      //setValue(name, !formValue, { shouldValidate: true })
                     }}
                   />
                 }
               />
             </FormGroup>
-            {helperText && <FormHelperText error={invalid}>{helperText}</FormHelperText>}
+            {parsedHelperText && <FormHelperText error={invalid}>{parsedHelperText}</FormHelperText>}
           </FormControl>
         )
       }}

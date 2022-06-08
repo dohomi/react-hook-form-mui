@@ -2,7 +2,14 @@ import { useEffect } from 'react'
 import { action } from '@storybook/addon-actions'
 import { Button } from '@mui/material'
 import { FieldError, useForm } from 'react-hook-form'
-import { CheckboxElement, FormContainer, PasswordElement, PasswordRepeatElement, TextFieldElement } from '../src'
+import {
+  CheckboxElement,
+  FormContainer,
+  PasswordElement,
+  PasswordRepeatElement,
+  SelectElement,
+  TextFieldElement
+} from '../src'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { SubmitButton } from '../src/Shared'
 
@@ -57,6 +64,7 @@ export const Basic = () => {
         label={'Email'}
         name={'default-email-field'}
       /><br />
+      <SelectElement name={'test'} options={[{id: 2, text: 2}]} />
       <TextFieldElement
         required
         parseError={parseError}

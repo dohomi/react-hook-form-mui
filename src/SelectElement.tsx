@@ -5,7 +5,7 @@ import { Control, Controller, ControllerProps, FieldError } from 'react-hook-for
 export type SelectElementProps = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
   validation?: ControllerProps['rules']
   name: string
-  options?: any[]
+  options?: { id: string | number, title: string | number }[] | any[]
   valueKey?: string
   labelKey?: string
   type?: 'string' | 'number'
