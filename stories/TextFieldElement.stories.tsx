@@ -64,7 +64,6 @@ export const Basic = () => {
         label={'Email'}
         name={'default-email-field'}
       /><br />
-      <SelectElement name={'test'} options={[{id: 2, text: 2}]} />
       <TextFieldElement
         required
         parseError={parseError}
