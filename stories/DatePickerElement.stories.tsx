@@ -33,3 +33,11 @@ Required.args = {
   name: 'required',
   required: true
 }
+
+export const RequiredCustomMessage = Template.bind({})
+RequiredCustomMessage.args = {
+  label: 'Required Picker',
+  name: 'requiredCustomMessage',
+  required: true,
+  validation: { required: 'Custom required message' }
+}

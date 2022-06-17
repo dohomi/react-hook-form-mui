@@ -30,9 +30,11 @@ export default function SelectElement({
 }: SelectElementProps): JSX.Element {
   const isNativeSelect = !!rest.SelectProps?.native
   const ChildComponent = isNativeSelect ? 'option' : MenuItem
-  if (required) {
+
+  if (required && !validation.required) {
     validation.required = 'This field is required'
   }
+
   return (
     <Controller
       name={name}

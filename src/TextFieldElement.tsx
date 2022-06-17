@@ -18,16 +18,19 @@ export default function TextFieldElement({
   control,
   ...rest
 }: TextFieldElementProps): JSX.Element {
-  if (required) {
+
+  if (required && !validation.required) {
     validation.required = 'This field is required'
   }
-  if (type === 'email') {
+
+  if (type === 'email' && !validation.pattern) {
     validation.pattern = {
       // eslint-disable-next-line no-useless-escape
       value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       message: 'Please enter a valid email address'
     }
   }
+
   return (
     <Controller
       name={name}
