@@ -1,4 +1,4 @@
-import { DatePicker, DatePickerProps } from '@mui/lab'
+import { DatePicker, DatePickerProps } from '@mui/x-date-pickers/DatePicker';
 import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
 import { TextField, TextFieldProps } from '@mui/material'
 
@@ -10,14 +10,14 @@ export declare type ParseableDate<TDate> =
   | undefined
   | TDate;
 
-export type DatePickerElementProps<TDate = unknown> = Omit<DatePickerProps, 'value' | 'onChange' | 'renderInput'> & {
+export type DatePickerElementProps<TInputDate, TDate = TInputDate> = Omit<DatePickerProps<TInputDate, TDate>, 'value' | 'onChange' | 'renderInput'> & {
   name: string
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => string
-  onChange?: (value?: TDate) => void
+  onChange?: (value: TDate, keyboardInputValue?: string) => void
   validation?: ControllerProps['rules']
-  parseDate?: (date: TDate) => string
+  parseDate?: (value: TDate, keyboardInputValue?: string) => TDate
   control?: Control<any>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
@@ -33,7 +33,7 @@ export default function DatePickerElement({
   inputProps,
   control,
   ...rest
-}: DatePickerElementProps): JSX.Element {
+}: DatePickerElementProps<any, any>): JSX.Element {
 
   if (required) {
     validation.required = 'This field is required'
@@ -48,21 +48,24 @@ export default function DatePickerElement({
         <DatePicker
           {...rest}
           value={value || ''}
-          onChange={(date, selectionState) => {
-            let parsedDate = ''
-            if (selectionState) {
+          onChange={(value, keyboardInputValue) => {
+            let newValue = undefined
+            if (keyboardInputValue) {
               if (typeof parseDate === 'function') {
-                parsedDate = parseDate(selectionState)
+                newValue = parseDate(value, keyboardInputValue)
+              } else {
+                newValue = keyboardInputValue
               }
             } else {
-              parsedDate = date?.toISOString().substr(0, 10)
               if (typeof parseDate === 'function') {
-                parsedDate = parseDate(date)
+                newValue = parseDate(value)
+              } else {
+                newValue = value
               }
             }
-            onChange(parsedDate)
+            onChange(newValue, keyboardInputValue)
             if (typeof rest.onChange === 'function') {
-              rest.onChange(parsedDate)
+              rest.onChange(newValue, keyboardInputValue)
             }
           }}
           renderInput={
