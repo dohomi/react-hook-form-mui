@@ -69,6 +69,12 @@ export default function DatePickerElement({
             (params) =>
               <TextField
                 {...params}
+                inputProps={{
+                  ...params?.inputProps,
+                  ...(!value && {
+                    value: ''
+                  })
+                }}
                 {...inputProps}
                 required={!!required}
                 error={invalid}

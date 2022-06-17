@@ -15,7 +15,7 @@ export default function SwitchElement({ name, control, ...other }: SwitchElement
         <Controller
           name={name}
           control={control}
-          render={({ field }) => <Switch {...field} checked={field.value} />}
+          render={({ field }) => <Switch {...field} checked={!!field.value} />}
         />
       }
       {...other}

@@ -1,5 +1,6 @@
 import { FC } from 'react'
-import { Box, Button } from '@mui/material'
+import { Box, Button, Stack } from '@mui/material'
+import ResetFormButton from './ResetFormButton'
 
 export const BoxMargin: FC = ({ children }) => {
   return (
@@ -9,5 +10,10 @@ export const BoxMargin: FC = ({ children }) => {
   )
 }
 export const SubmitButton: FC = () => {
-  return <Button type={'submit'} color={'primary'}> Submit</Button>
+  return (
+    <Stack direction={'row'} spacing={2}>
+      <ResetFormButton />
+      <Button type={'submit'} color={'primary'}> Submit</Button>
+    </Stack>
+  )
 }
