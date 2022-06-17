@@ -66,18 +66,29 @@ export default function DatePickerElement({
             }
           }}
           renderInput={
-            (params) =>
-              <TextField
-                {...params}
-                {...inputProps}
-                required={!!required}
-                error={invalid}
-                helperText={
-                  error
-                    ? (typeof parseError === 'function' ? parseError(error) : error.message)
-                    : inputProps?.helperText || rest.helperText
-                }
-              />
+            (params) => {
+              const tempParams = { ...params };
+              if (!value) {
+                tempParams["inputProps"] = {
+                  ...tempParams["inputProps"],
+                  value: "",
+                };
+              }
+              
+              return (
+                <TextField
+                  {...tempParams}
+                  {...inputProps}
+                  required={!!required}
+                  error={invalid}
+                  helperText={
+                    error
+                      ? (typeof parseError === 'function' ? parseError(error) : error.message)
+                      : inputProps?.helperText || rest.helperText
+                  }
+                />
+              )
+            }
           }
         />}
     />
