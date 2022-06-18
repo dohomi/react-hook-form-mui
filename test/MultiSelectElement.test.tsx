@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { FormContainer, MultiSelectElement } from '../_unused'
+import { MultiSelectElement, FormContainer } from '../src'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')

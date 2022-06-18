@@ -21,6 +21,10 @@ const config: StorybookViteConfig = {
     'builder': '@storybook/builder-vite'
   },
   viteFinal: (config) => {
+    config.esbuild = {
+      ...config.esbuild,
+      logOverride: { 'this-is-undefined-in-esm': 'silent' }
+    }
     return config
   }
 }

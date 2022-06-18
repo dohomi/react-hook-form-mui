@@ -23,6 +23,8 @@ jobs:
 
       - name: Install dependencies (with cache)
         uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
 
       - name: Check types
         run: yarn check-types
