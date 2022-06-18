@@ -55,7 +55,7 @@ export default function MultiSelectElement({
   ...rest
 }: MultiSelectElementProps): JSX.Element {
 
-  if (required) {
+  if (required && !validation.required) {
     validation.required = 'This field is required'
   }
 

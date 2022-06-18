@@ -29,7 +29,7 @@ export default function CheckboxElement({
   ...rest
 }: CheckboxElementProps): JSX.Element {
 
-  if (required) {
+  if (required && !validation.required) {
     validation.required = 'This field is required'
   }
 

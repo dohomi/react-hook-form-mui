@@ -35,7 +35,7 @@ export default function DatePickerElement({
   ...rest
 }: DatePickerElementProps): JSX.Element {
 
-  if (required) {
+  if (required && !validation.required) {
     validation.required = 'This field is required'
   }
 
