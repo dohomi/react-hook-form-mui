@@ -4,7 +4,6 @@ const config: StorybookViteConfig = {
   'stories': [
     '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'
   ],
-  'staticDirs': ['../public'],
   'addons': [
     '@storybook/addon-essentials',
     '@storybook/addon-docs'
