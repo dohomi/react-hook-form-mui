@@ -70,3 +70,12 @@ export const WithHandleSubmit = () => {
     </FormContainer>
   )
 }
+
+export const NoDefaultValues = () => {
+  return (
+    <FormContainer onSuccess={action('submit')}>
+      <TextFieldElement name={'name'} label={'Name'} /><br />
+      <Button type={'submit'} color={'primary'}>Submit</Button>
+    </FormContainer>
+  )
+}

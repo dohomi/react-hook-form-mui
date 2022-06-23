@@ -1,68 +1,56 @@
-import { FormHTMLAttributes, FunctionComponent, PropsWithChildren } from 'react'
-import { FormProvider, useForm, UseFormReturn } from 'react-hook-form'
+import { FormHTMLAttributes, PropsWithChildren } from 'react'
+import { FormProvider, SubmitHandler, useForm, UseFormProps, UseFormReturn } from 'react-hook-form'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
-export type FormContainerProps = PropsWithChildren<{
-  defaultValues?: any
-  onSuccess?: (values: any) => void
-  handleSubmit?: (values: any) => void
-  formContext?: UseFormReturn<any>
+export type FormContainerProps<T> = PropsWithChildren<UseFormProps<T> & {
+  onSuccess?: SubmitHandler<T>
   FormProps?: FormHTMLAttributes<HTMLFormElement>
+  handleSubmit?: (values: T) => void
+  formContext?: UseFormReturn<T>
 }>
 
-const FormContainerCore: FunctionComponent<FormContainerProps> = ({
-  defaultValues = {},
-  onSuccess = () => {
-  },
+export default function FormContainer<TFieldValues extends FieldValues = FieldValues>({
+  handleSubmit,
+  children,
   FormProps,
-  children
-}) => {
-  const methods = useForm<typeof defaultValues>({
-    defaultValues
-  })
-  const { handleSubmit } = methods
+  formContext,
+  onSuccess,
+  ...useFormProps
+}: PropsWithChildren<FormContainerProps<TFieldValues>>) {
 
-  return (
-    <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSuccess)} noValidate {...FormProps}>
-        {children}
-      </form>
-    </FormProvider>
-  )
-}
-const FormContainer: FunctionComponent<FormContainerProps> = props => {
-  if (!props.formContext && !props.handleSubmit) {
-    return <FormContainerCore {...props} />
-  } else if (props.handleSubmit && props.formContext) {
+  if (!formContext) {
+    const methods = useForm<TFieldValues>({
+      ...useFormProps
+    })
+    const { handleSubmit } = methods
+
     return (
-      <FormProvider {...props.formContext}>
+      <FormProvider {...methods}>
+        <form
+          onSubmit={handleSubmit(onSuccess ? onSuccess : () => console.log('submit handler \'onSubmit\' is missing'))}
+          noValidate {...FormProps}>
+          {children}
+        </form>
+      </FormProvider>
+    )
+  } else {
+    if (typeof onSuccess === 'function' && typeof handleSubmit == 'function') {
+      console.warn('Property "onSuccess will be ignored because handleSubmit is provided"')
+    }
+    return (
+      <FormProvider {...formContext}>
         <form
           noValidate
-          {...props.FormProps}
-          onSubmit={props.handleSubmit}>
-          {props.children}
+          {...FormProps}
+          // @ts-ignore
+          onSubmit={handleSubmit ?
+            handleSubmit : onSuccess
+              ? formContext.handleSubmit(onSuccess)
+              : () => console.log('submit handler is missing')}>
+          {children}
         </form>
       </FormProvider>
     )
   }
-  if (props.formContext && props.onSuccess) {
-    return (
-      <FormProvider {...props.formContext}>
-        <form
-          onSubmit={props.formContext.handleSubmit(props.onSuccess)}
-          noValidate
-          {...props.FormProps}
-        >
-          {props.children}
-        </form>
-      </FormProvider>
-    )
-  }
-
-  return (
-    <div>
-      Incomplete setup of FormContainer..
-    </div>
-  )
 }
 
-export default FormContainer
