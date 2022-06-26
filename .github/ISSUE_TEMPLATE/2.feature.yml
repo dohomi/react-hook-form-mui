@@ -1,5 +1,5 @@
 # Issue template copied from MUI
-name: Bug Report 🐛
+name: Feature request 💄
 description: Create a bug report for react-hook-form-mui.
 body:
   - type: markdown
@@ -24,22 +24,9 @@ body:
           required: true
   - type: textarea
     attributes:
-      label: Current behavior 😯
-      description: Describe what happens instead of the expected behavior.
+      label: Summary 💡
+      description: Describe how it should work.
   - type: textarea
     attributes:
-      label: Expected behavior 🤔
-      description: Describe what should happen.
-  - type: textarea
-    attributes:
-      label: Steps to reproduce 🕹
-      description: |           
-        Add proper steps and context.
-        # TODO add reproduction link 
-      value: |
-        Steps:
-
-        1.
-        2.
-        3.
-        4.
+      label: Examples 🌈
+      description: Provide a link to the example, other implementations, or screenshots of the expected behavior.
