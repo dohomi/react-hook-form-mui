@@ -1,18 +1,19 @@
 # Material-UI and react-hook-form combined
 
 <div align="center">
-          <img src="./rhf-mui.png" alt="Material-UI and react-hook-form combined" />
+  <a href="https://react-hook-form-material-ui.vercel.app/" rel="noopener" target="_blank">
+    <img src="./rhf-mui.png" alt="Material-UI and react-hook-form combined" />
+  </a>
 </div>
 
 <div align="center">
 
 ![GitHub](https://img.shields.io/github/license/dohomi/react-hook-form-mui)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/dohomi/react-hook-form-mui.svg)](http://isitmaintained.com/project/dohomi/react-hook-form-mui "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/dohomi/react-hook-form-mui.svg)](http://isitmaintained.com/project/dohomi/react-hook-form-mui "Percentage of issues still open")
-
-
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/dohomi/react-hook-form-mui.svg)](http://isitmaintained.com/project/dohomi/react-hook-form-mui 'Average time to resolve an issue')
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/dohomi/react-hook-form-mui.svg)](http://isitmaintained.com/project/dohomi/react-hook-form-mui 'Percentage of issues still open')
 
 </div>
+
 ## About this project
 
 This project simplifies the use of [`react-hook-form`](https://github.com/react-hook-form/react-hook-form) and [`Material-UI`](https://github.com/mui/material-ui). It provides opinionated use cases with following
@@ -52,7 +53,7 @@ import { FormContainer, TextFieldElement } from 'react-hook-form-mui'
 
 function Form() {
   return (
-    <FormContainer 
+    <FormContainer
       defaultValues={{ name: '' }}
       onSuccess={data => console.log(data)}
     >
@@ -87,7 +88,3 @@ Examples for Dayjs or DateFns provider (used in the demo):
 ### Bundle
 
 This project uses `microbundle` to wrap the package for `npm`.
-
-### License
-
-[MIT](./LICENSE)
