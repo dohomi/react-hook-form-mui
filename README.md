@@ -1,8 +1,22 @@
 # Material-UI and react-hook-form combined
 
+<div align="center">
+  <a href="https://react-hook-form-material-ui.vercel.app/" rel="noopener" target="_blank">
+    <img src="./rhf-mui.png" alt="Material-UI and react-hook-form combined" />
+  </a>
+</div>
+
+<div align="center">
+
+![GitHub](https://img.shields.io/github/license/dohomi/react-hook-form-mui)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/dohomi/react-hook-form-mui.svg)](http://isitmaintained.com/project/dohomi/react-hook-form-mui 'Average time to resolve an issue')
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/dohomi/react-hook-form-mui.svg)](http://isitmaintained.com/project/dohomi/react-hook-form-mui 'Percentage of issues still open')
+
+</div>
+
 ## About this project
 
-This project simplifies the use of `react-hook-form` and `Material-UI`. It provides opinionated use cases with following
+This project simplifies the use of [`react-hook-form`](https://github.com/react-hook-form/react-hook-form) and [`Material-UI`](https://github.com/mui/material-ui). It provides opinionated use cases with following
 components:
 
 * FormContainer
@@ -39,7 +53,7 @@ import { FormContainer, TextFieldElement } from 'react-hook-form-mui'
 
 function Form() {
   return (
-    <FormContainer 
+    <FormContainer
       defaultValues={{ name: '' }}
       onSuccess={data => console.log(data)}
     >
@@ -49,7 +63,7 @@ function Form() {
 }
 ```
 
-You can have a look at the `example` folder which sets up NextJS with `react-hook-form-mui`
+You can have a look at the [`example`](./example/) folder which sets up NextJS with `react-hook-form-mui`
 
 ### FormContainer creates `formContext`
 
@@ -74,20 +88,3 @@ Examples for Dayjs or DateFns provider (used in the demo):
 ### Bundle
 
 This project uses `microbundle` to wrap the package for `npm`.
-
-### License
-
-[MIT](./LICENSE)
-
-### Backlog history
-
-* 3.3.0 Fix `FormContainer` `children` prop on React 18 typing changes. Kudos to @TimMikeladze
-* 3.2.0 New props `showCheckbox` on MultiSelect field and minor improvements.
-* 3.1.5 Update dependencies and fix peer
-* 3.1.4 Improve error color on checkbox
-* 3.1 Add SwitchElement component
-* 3.x Material v5. Change components to use `@mui/material`
-* 2.1.x Introduce prop `row` to CheckboxButtonGroup and RadioButtonGroup
-* 2.x Rename package to react-hook-form-mui
-* 1.x Deprecated
-
