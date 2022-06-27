@@ -1,5 +1,10 @@
-import { DatePicker, DatePickerProps } from '@mui/x-date-pickers/DatePicker';
-import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
+import { DatePicker, DatePickerProps } from '@mui/x-date-pickers/DatePicker'
+import {
+  Control,
+  Controller,
+  ControllerProps,
+  FieldError,
+} from 'react-hook-form'
 import { TextField, TextFieldProps } from '@mui/material'
 
 export declare type ParseableDate<TDate> =
@@ -8,9 +13,12 @@ export declare type ParseableDate<TDate> =
   | Date
   | null
   | undefined
-  | TDate;
+  | TDate
 
-export type DatePickerElementProps<TInputDate, TDate = TInputDate> = Omit<DatePickerProps<TInputDate, TDate>, 'value' | 'onChange' | 'renderInput'> & {
+export type DatePickerElementProps<TInputDate, TDate = TInputDate> = Omit<
+  DatePickerProps<TInputDate, TDate>,
+  'value' | 'onChange' | 'renderInput'
+> & {
   name: string
   required?: boolean
   isDate?: boolean
@@ -44,7 +52,10 @@ export default function DatePickerElement({
       name={name}
       rules={validation}
       control={control}
-      render={({ field: { onChange, value }, fieldState: { error, invalid } }) =>
+      render={({
+        field: { onChange, value },
+        fieldState: { error, invalid },
+      }) => (
         <DatePicker
           {...rest}
           value={value || ''}
@@ -68,27 +79,29 @@ export default function DatePickerElement({
               rest.onChange(newValue, keyboardInputValue)
             }
           }}
-          renderInput={
-            (params) =>
-              <TextField
-                {...params}
-                inputProps={{
-                  ...params?.inputProps,
-                  ...(!value && {
-                    value: ''
-                  })
-                }}
-                {...inputProps}
-                required={!!required}
-                error={invalid}
-                helperText={
-                  error
-                    ? (typeof parseError === 'function' ? parseError(error) : error.message)
-                    : inputProps?.helperText || rest.helperText
-                }
-              />
-          }
-        />}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              inputProps={{
+                ...params?.inputProps,
+                ...(!value && {
+                  value: '',
+                }),
+              }}
+              {...inputProps}
+              required={!!required}
+              error={invalid}
+              helperText={
+                error
+                  ? typeof parseError === 'function'
+                    ? parseError(error)
+                    : error.message
+                  : inputProps?.helperText || rest.helperText
+              }
+            />
+          )}
+        />
+      )}
     />
   )
 }
