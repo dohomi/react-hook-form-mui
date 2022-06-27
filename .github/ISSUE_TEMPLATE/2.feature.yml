@@ -1,0 +1,32 @@
+# Issue template copied from MUI
+name: Feature request 💄
+description: Create a bug report for react-hook-form-mui.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide a searchable summary of the issue in the title above ⬆️.
+
+        Thanks for contributing by creating an issue! ❤️
+  - type: checkboxes
+    attributes:
+      label: Duplicates
+      description: Please [search the history](https://github.com/dohomi/react-hook-form-mui/issues) to see if an issue already exists for the same problem. Please be sure that this is not bug in the [MUI](https://github.com/mui/material-ui/issues) or in the [RHF](https://github.com/react-hook-form/react-hook-form/issues)
+      options:
+        - label: I have searched the existing issues
+          required: true
+  - type: checkboxes
+    attributes:
+      label: Latest version
+      description: We roll bug fixes, performance enhancements, and other improvements into new releases.
+      options:
+        - label: I have tested the latest version
+          required: true
+  - type: textarea
+    attributes:
+      label: Summary 💡
+      description: Describe how it should work.
+  - type: textarea
+    attributes:
+      label: Examples 🌈
+      description: Provide a link to the example, other implementations, or screenshots of the expected behavior.
