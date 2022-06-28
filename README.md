@@ -20,6 +20,7 @@ This project simplifies the use of [`react-hook-form`](https://github.com/react-
 components:
 
 * FormContainer
+* AutocompleteElement
 * TextFieldElement
 * SelectElement
 * MultiSelectElement

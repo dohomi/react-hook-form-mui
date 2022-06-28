@@ -30,3 +30,6 @@ export type { SwitchElementProps } from './SwitchElement'
 
 export { default as PasswordRepeatElement } from './PasswordRepeatElement'
 export type { PasswordRepeatElementProps } from './PasswordRepeatElement'
+
+export { default as AutocompleteElement } from './AutocompleteElement'
+export type { AutocompleteElementProps } from './AutocompleteElement'
