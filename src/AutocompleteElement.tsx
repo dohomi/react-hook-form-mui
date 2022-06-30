@@ -69,7 +69,7 @@ export default function AutocompleteElement({
           onChange={(event, value, reason, details) => {
             const v = (Array.isArray(value)) ?
               value.map((i: any) => i?.id || i)
-              : value.id || value
+              : value?.id || value
             field.onChange(v)
             if (autocompleteProps?.onChange) {
               autocompleteProps.onChange(event, value, reason, details)
