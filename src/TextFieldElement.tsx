@@ -1,15 +1,16 @@
 import { TextField, TextFieldProps } from '@mui/material'
-import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
+import { Control, Controller, ControllerProps, FieldError, Path } from 'react-hook-form'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
-export type TextFieldElementProps = Omit<TextFieldProps,
+export type TextFieldElementProps<T> = Omit<TextFieldProps,
   'name'> & {
   validation?: ControllerProps['rules']
-  name: string
+  name: Path<T>
   parseError?: (error: FieldError) => string
-  control?: Control<any>
+  control?: Control<T>
 }
 
-export default function TextFieldElement({
+export default function TextFieldElement<TFieldValues extends FieldValues>({
   validation = {},
   parseError,
   type,
@@ -17,7 +18,7 @@ export default function TextFieldElement({
   name,
   control,
   ...rest
-}: TextFieldElementProps): JSX.Element {
+}: TextFieldElementProps<TFieldValues>): JSX.Element {
 
   if (required && !validation.required) {
     validation.required = 'This field is required'

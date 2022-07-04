@@ -1,10 +1,11 @@
 import { createElement } from 'react'
 import { MenuItem, TextField, TextFieldProps } from '@mui/material'
-import { Control, Controller, ControllerProps, FieldError } from 'react-hook-form'
+import { Control, Controller, ControllerProps, FieldError, Path } from 'react-hook-form'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
-export type SelectElementProps = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
+export type SelectElementProps<T> = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
   validation?: ControllerProps['rules']
-  name: string
+  name: Path<T>
   options?: { id: string | number, title: string | number }[] | any[]
   valueKey?: string
   labelKey?: string
@@ -12,14 +13,14 @@ export type SelectElementProps = Omit<TextFieldProps, 'name' | 'type' | 'onChang
   parseError?: (error: FieldError) => string
   objectOnChange?: boolean
   onChange?: (value: any) => void
-  control?: Control<any>
+  control?: Control<T>
 }
 
-export default function SelectElement({
+export default function SelectElement<TFieldValues extends FieldValues>({
   name,
   required,
   valueKey = 'id',
-  labelKey = 'title',
+  labelKey = 'label',
   options = [],
   parseError,
   type,
@@ -27,7 +28,7 @@ export default function SelectElement({
   validation = {},
   control,
   ...rest
-}: SelectElementProps): JSX.Element {
+}: SelectElementProps<TFieldValues>): JSX.Element {
   const isNativeSelect = !!rest.SelectProps?.native
   const ChildComponent = isNativeSelect ? 'option' : MenuItem
 

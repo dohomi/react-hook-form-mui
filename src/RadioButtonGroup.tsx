@@ -1,12 +1,13 @@
 import { ChangeEvent } from 'react'
-import { Control, FieldError, useController } from 'react-hook-form'
+import { Control, FieldError, Path, useController } from 'react-hook-form'
 import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup, useTheme } from '@mui/material'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
 
-export type RadioButtonGroupProps = {
-  options: any[]
+export type RadioButtonGroupProps<T> = {
+  options: { label: string, id: string | number }[] | any[]
   helperText?: string
-  name: string
+  name: Path<T>
   required?: boolean
   parseError?: (error: FieldError) => string
   label?: string
@@ -17,10 +18,10 @@ export type RadioButtonGroupProps = {
   onChange?: (value: any) => void
   returnObject?: boolean
   row?: boolean
-  control?: Control<any>
+  control?: Control<T>
 }
 
-export default function RadioButtonGroup({
+export default function RadioButtonGroup<TFieldValues extends FieldValues>({
   helperText,
   options,
   label,
@@ -34,7 +35,7 @@ export default function RadioButtonGroup({
   row,
   control,
   ...rest
-}: RadioButtonGroupProps): JSX.Element {
+}: RadioButtonGroupProps<TFieldValues>): JSX.Element {
   const theme = useTheme()
   const { field: { value, onChange }, fieldState: { invalid, error } } = useController({
     name,

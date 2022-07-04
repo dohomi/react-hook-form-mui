@@ -1,14 +1,19 @@
-import { Control, Controller } from 'react-hook-form'
+import { Control, Controller, Path } from 'react-hook-form'
 import { FormControlLabel, FormControlLabelProps, Switch } from '@mui/material'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
 type IProps = Omit<FormControlLabelProps, 'control'>;
 
-export type SwitchElementProps = IProps & {
-  name: string;
-  control?: Control<any>
+export type SwitchElementProps<T> = IProps & {
+  name: Path<T>;
+  control?: Control<T>
 }
 
-export default function SwitchElement({ name, control, ...other }: SwitchElementProps) {
+export default function SwitchElement<TFieldValues extends FieldValues>({
+  name,
+  control,
+  ...other
+}: SwitchElementProps<TFieldValues>) {
   return (
     <FormControlLabel
       control={

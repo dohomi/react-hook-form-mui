@@ -3,9 +3,10 @@ import {
   Control,
   Controller,
   ControllerProps,
-  FieldError,
+  FieldError, Path
 } from 'react-hook-form'
 import { TextField, TextFieldProps } from '@mui/material'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
 export declare type ParseableDate<TDate> =
   | string
@@ -15,23 +16,21 @@ export declare type ParseableDate<TDate> =
   | undefined
   | TDate
 
-export type DatePickerElementProps<TInputDate, TDate = TInputDate> = Omit<
-  DatePickerProps<TInputDate, TDate>,
-  'value' | 'onChange' | 'renderInput'
-> & {
-  name: string
+export type DatePickerElementProps<T, TInputDate, TDate = TInputDate> = Omit<DatePickerProps<TInputDate, TDate>,
+  'value' | 'onChange' | 'renderInput'> & {
+  name: Path<T>
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => string
   onChange?: (value: TDate, keyboardInputValue?: string) => void
   validation?: ControllerProps['rules']
   parseDate?: (value: TDate, keyboardInputValue?: string) => TDate
-  control?: Control<any>
+  control?: Control<T>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
 }
 
-export default function DatePickerElement({
+export default function DatePickerElement<TFieldValues extends FieldValues>({
   isDate,
   parseError,
   name,
@@ -41,7 +40,7 @@ export default function DatePickerElement({
   inputProps,
   control,
   ...rest
-}: DatePickerElementProps<any, any>): JSX.Element {
+}: DatePickerElementProps<TFieldValues, any, any>): JSX.Element {
 
   if (required && !validation.required) {
     validation.required = 'This field is required'
@@ -54,7 +53,7 @@ export default function DatePickerElement({
       control={control}
       render={({
         field: { onChange, value },
-        fieldState: { error, invalid },
+        fieldState: { error, invalid }
       }) => (
         <DatePicker
           {...rest}
@@ -85,8 +84,8 @@ export default function DatePickerElement({
               inputProps={{
                 ...params?.inputProps,
                 ...(!value && {
-                  value: '',
-                }),
+                  value: ''
+                })
               }}
               {...inputProps}
               required={!!required}

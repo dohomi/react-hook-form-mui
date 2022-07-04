@@ -1,15 +1,17 @@
 import PasswordElement, { PasswordElementProps } from './PasswordElement'
-import { useWatch } from 'react-hook-form'
+import { Path, useWatch } from 'react-hook-form'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
-export type PasswordRepeatElementProps = PasswordElementProps & {
-  passwordFieldName: string
+export type PasswordRepeatElementProps<T> = PasswordElementProps<T> & {
+  passwordFieldName: Path<T>
 }
-export default function PasswordRepeatElement(props: PasswordRepeatElementProps) {
-  const { passwordFieldName, ...rest } = props
+export default function PasswordRepeatElement<TFieldValues extends FieldValues>({
+  passwordFieldName,
+  ...rest
+}: PasswordRepeatElementProps<TFieldValues>) {
   const pwValue = useWatch({
     name: passwordFieldName,
-    control: rest.control,
-    defaultValue: ''
+    control: rest.control
   })
   return (
     <PasswordElement {...rest}

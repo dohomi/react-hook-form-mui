@@ -1,13 +1,14 @@
-import { Controller, ControllerProps } from 'react-hook-form'
+import { Control, Controller, ControllerProps, Path } from 'react-hook-form'
 import { Autocomplete, AutocompleteProps, Checkbox, TextField, TextFieldProps } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
-export type AutocompleteElementProps<T, M extends boolean | undefined, D extends boolean | undefined> = {
-  name: string
+export type AutocompleteElementProps<F, T, M extends boolean | undefined, D extends boolean | undefined> = {
+  name: Path<F>
   options: T[]
   loading?: boolean
   multiple?: M
-  control?: ControllerProps['control']
+  control?: Control<F>
   rules?: ControllerProps['rules']
   required?: boolean
   label?: TextFieldProps['label']
@@ -21,7 +22,7 @@ type AutoDefault = {
   label: string
 }
 
-export default function AutocompleteElement({
+export default function AutocompleteElement<TFieldValues extends FieldValues>({
   textFieldProps,
   autocompleteProps,
   name,
@@ -33,7 +34,7 @@ export default function AutocompleteElement({
   required,
   multiple,
   label
-}: AutocompleteElementProps<AutoDefault | string | any, boolean | undefined, boolean | undefined>) {
+}: AutocompleteElementProps<TFieldValues, AutoDefault | string | any, boolean | undefined, boolean | undefined>) {
   const validationRules: ControllerProps['rules'] = {
     ...rules,
     ...(required && {
@@ -45,14 +46,16 @@ export default function AutocompleteElement({
       name={name}
       control={control}
       rules={validationRules}
-      render={({ field, fieldState: { error } }) => (
+      render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (
         <Autocomplete
           {...autocompleteProps}
           loading={loading}
           multiple={multiple}
-          value={multiple ?
-            field.value?.map((i: any) => options.find((j) => (j.id || j) === i)) ?? [] :
-            options.find((i) => (i.id || i) === field.value) || null}
+          value={
+            multiple
+              ? (value || []).map((i: any) => options.find((j) => (j.id || j) === i))
+              : options.find((i) => (i.id || i) === value) || null
+          }
           options={options}
           disableCloseOnSelect={typeof autocompleteProps?.disableCloseOnSelect === 'boolean' ? autocompleteProps.disableCloseOnSelect : !!multiple}
           isOptionEqualToValue={autocompleteProps?.isOptionEqualToValue ?
@@ -70,7 +73,7 @@ export default function AutocompleteElement({
             const v = (Array.isArray(value)) ?
               value.map((i: any) => i?.id || i)
               : value?.id || value
-            field.onChange(v)
+            onChange(v)
             if (autocompleteProps?.onChange) {
               autocompleteProps.onChange(event, value, reason, details)
             }
@@ -85,7 +88,7 @@ export default function AutocompleteElement({
             </li>
           ) : undefined}
           onBlur={(event) => {
-            field.onBlur()
+            onBlur()
             if (typeof autocompleteProps?.onBlur === 'function') {
               autocompleteProps.onBlur(event)
             }

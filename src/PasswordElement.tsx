@@ -3,12 +3,16 @@ import TextFieldElement, { TextFieldElementProps } from './TextFieldElement'
 import { IconButton, IconButtonProps, InputAdornment } from '@mui/material'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
-export type PasswordElementProps = TextFieldElementProps & {
+export type PasswordElementProps<T> = TextFieldElementProps<T> & {
   iconColor?: IconButtonProps['color']
 }
 
-export default function PasswordElement({iconColor, ...props}: PasswordElementProps): JSX.Element {
+export default function PasswordElement<TFieldValues extends FieldValues>({
+  iconColor,
+  ...props
+}: PasswordElementProps<TFieldValues>): JSX.Element {
   const [password, setPassword] = useState<boolean>(true)
   return (
     <TextFieldElement
