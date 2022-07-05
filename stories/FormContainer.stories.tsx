@@ -1,6 +1,6 @@
 import {
   AutocompleteElement, CheckboxButtonGroup, CheckboxElement, DatePickerElement,
-  FormContainer, PasswordElement, PasswordRepeatElement,
+  FormContainer, MultiSelectElement, PasswordElement, PasswordRepeatElement,
   RadioButtonGroup,
   SelectElement,
   SwitchElement,
@@ -87,7 +87,7 @@ export const NoDefaultValues = () => {
 
 export const StrictTypingForm = () => {
   const { control, handleSubmit } = useForm<{
-    name: string, auto: string, auto_multi: string[], select: string, switch: boolean, checkbox: string[], check: boolean, date: string, radio: string, password: string, password_repeat: string
+    multi_select: string[], name: string, auto: string, auto_multi: string[], select: string, switch: boolean, checkbox: string[], check: boolean, date: string, radio: string, password: string, password_repeat: string
   }>({
     defaultValues: {
       name: ''
@@ -99,13 +99,17 @@ export const StrictTypingForm = () => {
       <form onSubmit={handleSubmit(action('submit'))} noValidate>
         <TextFieldElement name={'name'} label={'Name'} control={control} fullWidth /><br /><br />
         <AutocompleteElement name={'auto'} label={'Autocomplete'} control={control} options={options} /><br />
-        <AutocompleteElement name={'auto_multi'} label={'Autocomplete Multiple'} multiple control={control} options={options} /><br />
+        <AutocompleteElement name={'auto_multi'} label={'Autocomplete Multiple'} multiple control={control}
+                             options={options} /><br />
         <SelectElement name={'select'} label={'Select'} control={control} options={options} fullWidth /><br /><br />
+        <MultiSelectElement showCheckbox name={'multi_select'} label={'Multi Select'} control={control} options={options}
+                            fullWidth /><br /><br />
         <DatePickerElement name={'date'} control={control} /> <br />
         <RadioButtonGroup name={'radio'} label={'Radio'} control={control} options={options} /><br />
         <CheckboxButtonGroup name={'checkbox'} label={'Radio'} control={control} options={options} /><br />
-        <PasswordElement name={'password'} label={'Password'} control={control} /><br /><br/>
-        <PasswordRepeatElement name={'password_repeat'} label={'Password Repeat'} passwordFieldName={'password'} control={control} /><br />
+        <PasswordElement name={'password'} label={'Password'} control={control} /><br /><br />
+        <PasswordRepeatElement name={'password_repeat'} label={'Password Repeat'} passwordFieldName={'password'}
+                               control={control} /><br />
         <SwitchElement name={'switch'} label={'Switch'} control={control} /><br />
         <CheckboxElement name={'check'} label={'Check'} control={control} /><br />
         <Button type={'submit'} color={'primary'}>Submit</Button>

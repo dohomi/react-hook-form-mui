@@ -6,7 +6,7 @@ import { FieldValues } from 'react-hook-form/dist/types/fields'
 export type SelectElementProps<T> = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
   validation?: ControllerProps['rules']
   name: Path<T>
-  options?: { id: string | number, title: string | number }[] | any[]
+  options?: { id: string | number, label: string | number }[] | any[]
   valueKey?: string
   labelKey?: string
   type?: 'string' | 'number'

@@ -1,5 +1,5 @@
 import CloseIcon from '@mui/icons-material/Cancel'
-import { Control, Controller, FieldError } from 'react-hook-form'
+import { Control, Controller, FieldError, Path } from 'react-hook-form'
 import {
   Checkbox,
   Chip,
@@ -11,35 +11,36 @@ import {
   Select,
   SelectProps
 } from '@mui/material'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
-export type MultiSelectElementProps = Omit<SelectProps, 'value'> & {
-  menuItems: any[]
+export type MultiSelectElementProps<T> = Omit<SelectProps, 'value'> & {
+  options: { id: string | number, label: string }[] | any[]
   label?: string
   itemKey?: string
   itemValue?: string
   itemLabel?: string
   required?: boolean
   validation?: any
-  name: string
+  name: Path<T>
   parseError?: (error: FieldError) => string
   minWidth?: number
   menuMaxHeight?: number
   menuMaxWidth?: number
   helperText?: string
   showChips?: boolean
-  control?: Control<any>
+  control?: Control<T>
   showCheckbox?: boolean
 }
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8
 
-export default function MultiSelectElement({
-  menuItems,
+export default function MultiSelectElement<TFieldValues extends FieldValues>({
+  options,
   label = '',
-  itemKey = '',
+  itemKey = 'id',
   itemValue = '',
-  itemLabel = '',
+  itemLabel = 'label',
   required = false,
   validation = {},
   parseError,
@@ -53,7 +54,7 @@ export default function MultiSelectElement({
   control,
   showCheckbox,
   ...rest
-}: MultiSelectElementProps): JSX.Element {
+}: MultiSelectElementProps<TFieldValues>): JSX.Element {
 
   if (required && !validation.required) {
     validation.required = 'This field is required'
@@ -115,12 +116,11 @@ export default function MultiSelectElement({
                     />
                   ))}
                 </div>
-              ) : (selected) => selected?.join(', ')}
+              ) : (selected) => Array.isArray(selected) ? selected.join(', ') : ''}
             >
-              {menuItems.map((item: any) => {
-                const isChecked = value?.includes(item) ?? false
-                const key = itemValue || itemKey
-                let val = key ? item[key] : item
+              {options.map((item) => {
+                const val: string | number = item[itemValue || itemKey] || item
+                const isChecked = Array.isArray(value) ? value.includes(val) : false
                 return (
                   <MenuItem
                     key={val}
@@ -130,7 +130,7 @@ export default function MultiSelectElement({
                     }}
                   >
                     {showCheckbox && <Checkbox checked={isChecked} />}
-                    <ListItemText primary={itemLabel ? item[itemLabel] : item} />
+                    <ListItemText primary={item[itemLabel] || item} />
                   </MenuItem>
                 )
               })}

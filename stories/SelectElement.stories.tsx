@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof SelectElement> = (args) => (
   </FormContainer>
 )
 
-const options = [{ id: '1', title: 'Label 1' }, { id: '2', title: 'label 2' }]
+const options = [{ id: '1', label: 'Label 1' }, { id: '2', label: 'label 2' }]
 
 export const Basic = Template.bind({})
 Basic.args = {
