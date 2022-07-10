@@ -1,0 +1,39 @@
+import { FormContainer, SwitchElement } from '../src'
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { action } from '@storybook/addon-actions'
+import { SubmitButton } from '../src/Shared'
+
+<Meta title="MDX/Switch" component={SwitchElement} />
+
+export const Template = (args) => (
+  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
+    <SwitchElement name="Unchecked" {...args} />
+      <br />
+    <SubmitButton />
+  </FormContainer>
+  )
+
+# Switch
+
+Like a normal [MUI `Switch`](https://mui.com/material-ui/react-switch/) but enhaned by control binding and automatic `checked` updates.
+
+<Canvas>
+  <Story 
+    name="Basic"
+    args={{ 
+      name: 'Switch',
+      label: 'Switch Label'
+    }}>
+     {Template.bind({})}
+   </Story>
+
+   <Story 
+    name="Label Position"
+    args={{ 
+      name: 'Switch',
+      label: 'Switch Label',
+      labelPlacement: 'start'
+    }}>
+     {Template.bind({})}
+   </Story>
+</Canvas>

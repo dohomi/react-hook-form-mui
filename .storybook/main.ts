@@ -9,7 +9,8 @@ const config: StorybookViteConfig = {
     '@storybook/addon-docs'
   ],
   features: {
-    emotionAlias: false
+    emotionAlias: false,
+    previewMdx2: true
   },
   typescript: {
     check: false,
