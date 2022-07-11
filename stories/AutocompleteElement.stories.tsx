@@ -1,17 +1,17 @@
-import { AutocompleteElement, FormContainer } from '../src'
-import { FC, PropsWithChildren } from 'react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
-import { Box, Button } from '@mui/material'
-
+import {AutocompleteElement, FormContainer} from '../src'
+import {FC, PropsWithChildren} from 'react'
+import {ComponentMeta, ComponentStory} from '@storybook/react'
+import {action} from '@storybook/addon-actions'
+import {Box, Button} from '@mui/material'
+ 
 export default {
   title: 'Autocomplete',
   component: AutocompleteElement
 } as ComponentMeta<typeof AutocompleteElement>
 
-const FormWrap: FC<PropsWithChildren> = ({ children }) => (
+const FormWrap: FC<PropsWithChildren> = ({children}) => (
   <FormContainer onSuccess={action('form-submit')}
-                 defaultValues={{ preselect: 2, 'multi-preselect': [2] }}>
+    defaultValues={{preselect: {id: 2, label: 'Second'}, 'multi-preselect': [{id: 2, label: 'Second'}]}}>
     {children}
     <Box marginTop={2}>
       <Button type={'submit'}>Submit</Button>
@@ -27,7 +27,7 @@ const Template: ComponentStory<typeof AutocompleteElement> = (args) => {
   )
 }
 
-const options = [{ label: 'First', id: 1 }, { label: 'Second', id: 2 }, { label: 'Third', id: 3 }, {
+const options = [{label: 'First', id: 1}, {label: 'Second', id: 2}, {label: 'Third', id: 3}, {
   label: 'Four',
   id: 4
 }]
