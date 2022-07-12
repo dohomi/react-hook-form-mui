@@ -2,7 +2,6 @@ import {Control, Controller, ControllerProps, Path} from 'react-hook-form'
 import {Autocomplete, AutocompleteProps, Checkbox, TextField, TextFieldProps} from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
-import {useRef} from 'react'
 
 export type AutocompleteElementProps<F, T, M extends boolean | undefined, D extends boolean | undefined> = {
     name: Path<F>
