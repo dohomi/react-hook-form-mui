@@ -2,6 +2,7 @@ import {Control, Controller, ControllerProps, Path} from 'react-hook-form'
 import {Autocomplete, AutocompleteProps, Checkbox, TextField, TextFieldProps} from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useRef} from 'react'
 
 export type AutocompleteElementProps<F, T, M extends boolean | undefined, D extends boolean | undefined> = {
     name: Path<F>
@@ -9,6 +10,7 @@ export type AutocompleteElementProps<F, T, M extends boolean | undefined, D exte
     loading?: boolean
     multiple?: M
     control?: Control<F>
+    matchId?: boolean
     rules?: ControllerProps['rules']
     required?: boolean
     label?: TextFieldProps['label']
@@ -33,6 +35,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
   rules,
   required,
   multiple,
+  matchId,
   label
 }: AutocompleteElementProps<TFieldValues, AutoDefault | string | any, boolean | undefined, boolean | undefined>) {
   const validationRules: ControllerProps['rules'] = {
@@ -47,9 +50,16 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
       control={control}
       rules={validationRules}
       render={({field: {onChange, onBlur, value, ...fieldRest}, fieldState: {error}}) => {
+        let currentValue = multiple ? value || [] : value || null
+        if (matchId) {
+          currentValue = multiple
+            ? (value || []).map((i: any) => options.find((j) => (j.id || j) === i))
+            : options.find((i) => (i.id || i) === value) || null
+        }
         return (
           <Autocomplete
             {...autocompleteProps}
+            value={currentValue}
             loading={loading}
             multiple={multiple}
             options={options}
@@ -66,7 +76,13 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
               }
             }
             onChange={(event, value, reason, details) => {
-              onChange(value)
+              let changedVal = value
+              if (matchId) {
+                changedVal = (Array.isArray(value))
+                  ? value.map((i: any) => i?.id || i)
+                  : value?.id || value
+              }
+              onChange(changedVal)
               if (autocompleteProps?.onChange) {
                 autocompleteProps.onChange(event, value, reason, details)
               }
@@ -105,7 +121,6 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                 helperText={error ? error.message : textFieldProps?.helperText}
               />
             )}
-            value={multiple ? value || [] : value || null}
             {...fieldRest}
           />
         )

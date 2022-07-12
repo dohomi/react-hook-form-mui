@@ -3,7 +3,7 @@ import {FC, PropsWithChildren} from 'react'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {Box, Button} from '@mui/material'
- 
+
 export default {
   title: 'Autocomplete',
   component: AutocompleteElement
@@ -11,7 +11,12 @@ export default {
 
 const FormWrap: FC<PropsWithChildren> = ({children}) => (
   <FormContainer onSuccess={action('form-submit')}
-    defaultValues={{preselect: {id: 2, label: 'Second'}, 'multi-preselect': [{id: 2, label: 'Second'}]}}>
+    defaultValues={{
+      preselect: {id: 2, label: 'Second'},
+      'multi-preselect': [{id: 2, label: 'Second'}],
+      'match-id': 2,
+      'match-id-multi': [2, 3],
+    }}>
     {children}
     <Box marginTop={2}>
       <Button type={'submit'}>Submit</Button>
@@ -95,4 +100,21 @@ Loading.args = {
   multiple: true,
   showCheckbox: true,
   loading: true
+}
+
+export const MatchId = Template.bind({})
+MatchId.args = {
+  label: 'Match ID',
+  name: 'match-id',
+  options,
+  matchId: true
+}
+
+export const MatchIdMulti = Template.bind({})
+MatchIdMulti.args = {
+  label: 'Match ID',
+  name: 'match-id-multi',
+  options,
+  multiple:true,
+  matchId: true
 }
