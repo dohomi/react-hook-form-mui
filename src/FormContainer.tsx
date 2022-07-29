@@ -21,13 +21,18 @@ export default function FormContainer<TFieldValues extends FieldValues = FieldVa
     const methods = useForm<TFieldValues>({
       ...useFormProps
     })
-    const { handleSubmit } = methods
+    const { handleSubmit, reset } = methods
+
+    const submitAndClear: SubmitHandler<T> = (data) => {
+      onSuccess!(data)
+      return reset();
+    };
 
     return (
       <FormProvider {...methods}>
         <form
-          onSubmit={handleSubmit(onSuccess ? onSuccess : () => console.log('submit handler \'onSubmit\' is missing'))}
-          noValidate {...FormProps}>
+          onSubmit={handleSubmit(onSuccess ? submitAndClear : () => console.log('submit handler \'onSubmit\' is missing'))}
+          noValidate {...FormProps} >
           {children}
         </form>
       </FormProvider>
