@@ -3,6 +3,7 @@ import {FC, PropsWithChildren} from 'react'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {Box, Button} from '@mui/material'
+import LocationIcon from '@mui/icons-material/LocationOn'
 
 export default {
   title: 'Autocomplete',
@@ -115,6 +116,16 @@ MatchIdMulti.args = {
   label: 'Match ID',
   name: 'match-id-multi',
   options,
-  multiple:true,
+  multiple: true,
   matchId: true
+}
+
+export const CustomInput = Template.bind({})
+CustomInput.args = {
+  name: 'custom-input',
+  options,
+  textFieldProps: {
+    placeholder: 'Some placeholder',
+    InputProps: {startAdornment: <LocationIcon/>, endAdornment: null},
+  }
 }

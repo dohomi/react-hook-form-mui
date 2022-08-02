@@ -115,7 +115,8 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                       {loading ? <CircularProgress color="inherit" size={20}/> : null}
                       {params.InputProps.endAdornment}
                     </>
-                  )
+                  ),
+                  ...textFieldProps?.InputProps
                 }}
                 helperText={error ? error.message : textFieldProps?.helperText}
               />
