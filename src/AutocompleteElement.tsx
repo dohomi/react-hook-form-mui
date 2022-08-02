@@ -105,15 +105,16 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
               <TextField name={name}
                 required={rules?.required ? true : required}
                 label={label}
-                {...textFieldProps}
                 {...params}
+                {...textFieldProps}
                 error={!!error}
                 InputProps={{
                   ...params.InputProps,
+                  ...textFieldProps.InputProps
                   endAdornment: (
                     <>
                       {loading ? <CircularProgress color="inherit" size={20}/> : null}
-                      {params.InputProps.endAdornment}
+                      {textFieldProps.InputProps.endAdornment}
                     </>
                   )
                 }}
