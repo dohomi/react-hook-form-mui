@@ -110,7 +110,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                 error={!!error}
                 InputProps={{
                   ...params.InputProps,
-                  ...textFieldProps.InputProps
+                  ...textFieldProps.InputProps,
                   endAdornment: (
                     <>
                       {loading ? <CircularProgress color="inherit" size={20}/> : null}
