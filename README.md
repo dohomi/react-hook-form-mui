@@ -16,7 +16,8 @@
 
 ## About this project
 
-This project simplifies the use of [`react-hook-form`](https://github.com/react-hook-form/react-hook-form) and [`Material-UI`](https://github.com/mui/material-ui). It provides opinionated use cases with following
+This project simplifies the use of [`react-hook-form`](https://github.com/react-hook-form/react-hook-form)
+and [`Material-UI`](https://github.com/mui/material-ui). It provides opinionated use cases with following
 components:
 
 * FormContainer
@@ -38,10 +39,16 @@ The components are written in TypeScript and attempt an easy integration.
 ### Installation
 
 ```console
-npm install react-hook-form react-hook-form-mui
+# npm install react-hook-form react-hook-form-mui
+# yarn add react-hook-form react-hook-form-mui
 ```
 
-The dependency of `react-hook-form` is a peerDependency so don't forget to install it as well.
+This package utilizes pickers and icons of the MUI ecosystem. If you make use of it add them to your app.
+
+```console
+#  npm install @mui/x-date-pickers @mui/icons-material
+#  yarn add @mui/x-date-pickers @mui/icons-material
+```
 
 ### Important
 
@@ -50,17 +57,17 @@ From versions >= 3.x of this package MUI v5 is in use. Versions of 1 & 2 using M
 ### Your component code
 
 ```tsx
-import { FormContainer, TextFieldElement } from 'react-hook-form-mui'
+import {FormContainer, TextFieldElement} from 'react-hook-form-mui'
 
 function Form() {
-  return (
-    <FormContainer
-      defaultValues={{ name: '' }}
-      onSuccess={data => console.log(data)}
-    >
-      <TextFieldElement name="name" label="Name" required />
-    </FormContainer>
-  )
+    return (
+        <FormContainer
+            defaultValues={{name: ''}}
+            onSuccess={data => console.log(data)}
+        >
+            <TextFieldElement name="name" label="Name" required/>
+        </FormContainer>
+    )
 }
 ```
 

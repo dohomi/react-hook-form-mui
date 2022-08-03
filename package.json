@@ -39,8 +39,15 @@
     "@mui/material": ">= 5.x <6",
     "@mui/x-date-pickers": ">=5.0.0-alpha.6 <6",
     "react": ">=17 <19",
-    "react-hook-form": ">=7.33.1",
-    "typescript": ">= 4.1"
+    "react-hook-form": ">=7.33.1"
+  },
+  "peerDependenciesMeta": {
+    "@mui/icons-material": {
+      "optional": true
+    },
+    "@mui/x-date-pickers": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@date-io/date-fns": "^2.13.1",
