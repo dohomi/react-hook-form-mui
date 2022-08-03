@@ -1,9 +1,10 @@
 import CloseIcon from '@mui/icons-material/Cancel'
-import { Control, Controller, FieldError, Path } from 'react-hook-form'
+import {Control, Controller, FieldError, Path} from 'react-hook-form'
 import {
   Checkbox,
   Chip,
   FormControl,
+  FormControlProps,
   FormHelperText,
   InputLabel,
   ListItemText,
@@ -11,25 +12,26 @@ import {
   Select,
   SelectProps
 } from '@mui/material'
-import { FieldValues } from 'react-hook-form/dist/types/fields'
+import {FieldValues} from 'react-hook-form/dist/types/fields'
 
 export type MultiSelectElementProps<T> = Omit<SelectProps, 'value'> & {
-  options: { id: string | number, label: string }[] | any[]
-  label?: string
-  itemKey?: string
-  itemValue?: string
-  itemLabel?: string
-  required?: boolean
-  validation?: any
-  name: Path<T>
-  parseError?: (error: FieldError) => string
-  minWidth?: number
-  menuMaxHeight?: number
-  menuMaxWidth?: number
-  helperText?: string
-  showChips?: boolean
-  control?: Control<T>
-  showCheckbox?: boolean
+    options: { id: string | number, label: string }[] | any[]
+    label?: string
+    itemKey?: string
+    itemValue?: string
+    itemLabel?: string
+    required?: boolean
+    validation?: any
+    name: Path<T>
+    parseError?: (error: FieldError) => string
+    minWidth?: number
+    menuMaxHeight?: number
+    menuMaxWidth?: number
+    helperText?: string
+    showChips?: boolean
+    control?: Control<T>
+    showCheckbox?: boolean
+    formControlProps?: Omit<FormControlProps, 'fullWidth' | 'variant'>
 }
 
 const ITEM_HEIGHT = 48
@@ -50,9 +52,9 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
   minWidth = 120,
   helperText,
   showChips,
-  variant,
   control,
   showCheckbox,
+  formControlProps,
   ...rest
 }: MultiSelectElementProps<TFieldValues>): JSX.Element {
 
@@ -65,17 +67,22 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({ field: { value, onChange, onBlur }, fieldState: { invalid, error } }) => {
+      render={({field: {value, onChange, onBlur}, fieldState: {invalid, error}}) => {
         helperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : helperText
         return (
           <FormControl
-            variant={variant}
-            style={{ minWidth }}
+            {...formControlProps}
+            style={{
+              ...formControlProps?.style,
+              minWidth,
+            }}
+            variant={rest.variant}
             fullWidth={rest.fullWidth}
             error={invalid}
           >
             {label && (
-              <InputLabel error={invalid} htmlFor={rest.id || `select-multi-select-${name}`} required={required}>
+              <InputLabel error={invalid} htmlFor={rest.id || `select-multi-select-${name}`}
+                required={required}>
                 {label}
               </InputLabel>
             )}
@@ -98,12 +105,12 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                 }
               }}
               renderValue={typeof rest.renderValue === 'function' ? rest.renderValue : showChips ? (selected) => (
-                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                <div style={{display: 'flex', flexWrap: 'wrap'}}>
                   {(selected as any[] || []).map((selectedValue) => (
                     <Chip
                       key={selectedValue}
                       label={selectedValue}
-                      style={{ display: 'flex', flexWrap: 'wrap' }}
+                      style={{display: 'flex', flexWrap: 'wrap'}}
                       onDelete={() => {
                         onChange(value.filter((i: any) => i !== selectedValue))
                         // setValue(name, formValue.filter((i: any) => i !== value), { shouldValidate: true })
@@ -111,7 +118,7 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                       deleteIcon={<CloseIcon
                         onMouseDown={(ev) => {
                           ev.stopPropagation()
-                        }} />
+                        }}/>
                       }
                     />
                   ))}
@@ -129,8 +136,8 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                       fontWeight: (theme) => isChecked ? theme.typography.fontWeightBold : theme.typography.fontWeightRegular
                     }}
                   >
-                    {showCheckbox && <Checkbox checked={isChecked} />}
-                    <ListItemText primary={item[itemLabel] || item} />
+                    {showCheckbox && <Checkbox checked={isChecked}/>}
+                    <ListItemText primary={item[itemLabel] || item}/>
                   </MenuItem>
                 )
               })}

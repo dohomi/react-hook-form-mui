@@ -1,7 +1,7 @@
-import { FormContainer, MultiSelectElement } from '../src'
-import { action } from '@storybook/addon-actions'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { SubmitButton } from '../src/Shared'
+import {FormContainer, MultiSelectElement} from '../src'
+import {action} from '@storybook/addon-actions'
+import {ComponentMeta, ComponentStory} from '@storybook/react'
+import {SubmitButton} from '../src/Shared'
 
 
 export default {
@@ -12,8 +12,8 @@ export default {
 const Template: ComponentStory<typeof MultiSelectElement> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>
     <MultiSelectElement {...args} />
-    <br />
-    <SubmitButton />
+    <br/>
+    <SubmitButton/>
   </FormContainer>
 )
 
@@ -35,21 +35,28 @@ const names = [
 export const Basic = Template.bind({})
 Basic.args = {
   name: 'basic',
-  menuItems: names
+  options: names
+}
+
+export const Filled = Template.bind({})
+Filled.args = {
+  name: 'filled',
+  options: names,
+  variant: 'filled'
 }
 
 export const WithLabel = Template.bind({})
 WithLabel.args = {
   name: 'basic',
   label: 'Select Field',
-  menuItems: names
+  options: names
 }
 
 export const Required = Template.bind({})
 Required.args = {
   name: 'required',
   label: 'Required Field',
-  menuItems: names,
+  options: names,
   required: true
 }
 
@@ -57,7 +64,7 @@ export const WithChips = Template.bind({})
 WithChips.args = {
   name: 'chips',
   label: 'Required Field',
-  menuItems: names,
+  options: names,
   showChips: true
 }
 
@@ -65,21 +72,21 @@ export const WithCheckbox = Template.bind({})
 WithCheckbox.args = {
   name: 'checkbox',
   label: 'Checkbox Field',
-  menuItems: names,
+  options: names,
   showCheckbox: true
 }
 
 const objectVals = [
-  { id: 1, name: 'Alpha' },
-  { id: 2, name: 'Beta' },
-  { id: 3, name: 'Celsius' },
-  { id: 4, name: 'Delta' }
+  {id: 1, name: 'Alpha'},
+  {id: 2, name: 'Beta'},
+  {id: 3, name: 'Celsius'},
+  {id: 4, name: 'Delta'}
 ]
 export const WithObjectArray = Template.bind({})
 WithObjectArray.args = {
   name: 'object',
   label: 'Object Field',
-  menuItems: objectVals,
+  options: objectVals,
   itemKey: 'id',
   itemLabel: 'name'
 }
@@ -88,7 +95,7 @@ export const OverwriteRenderValue = Template.bind({})
 OverwriteRenderValue.args = {
   name: 'object',
   label: 'Object Field',
-  menuItems: objectVals,
+  options: objectVals,
   itemKey: 'id',
   itemLabel: 'name',
   renderValue: (selected: any) => `You selected: ${(selected || [])?.length}`
