@@ -105,8 +105,8 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
               <TextField name={name}
                 required={rules?.required ? true : required}
                 label={label}
-                {...textFieldProps}
                 {...params}
+                {...textFieldProps}
                 error={!!error}
                 InputProps={{
                   ...params.InputProps,
