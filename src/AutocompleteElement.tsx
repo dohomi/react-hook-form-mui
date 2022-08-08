@@ -118,6 +118,10 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                   ),
                   ...textFieldProps?.InputProps
                 }}
+                inputProps={{
+                  ...params.inputProps,
+                  ...textFieldProps?.inputProps
+                }}
                 helperText={error ? error.message : textFieldProps?.helperText}
               />
             )}
