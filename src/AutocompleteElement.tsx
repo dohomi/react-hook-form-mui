@@ -86,7 +86,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                 autocompleteProps.onChange(event, value, reason, details)
               }
             }}
-            renderOption={showCheckbox ? (props, option, {selected}) => (
+            renderOption={autocompleteProps?.renderOption ?? (showCheckbox ? (props, option, {selected}) => (
               <li {...props}>
                 <Checkbox
                   sx={{marginRight: 1}}
@@ -94,7 +94,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                 />
                 {autocompleteProps?.getOptionLabel?.(option) || option.label || option}
               </li>
-            ) : undefined}
+            ) : undefined)}
             onBlur={(event) => {
               onBlur()
               if (typeof autocompleteProps?.onBlur === 'function') {
