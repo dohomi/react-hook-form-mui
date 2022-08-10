@@ -33,3 +33,6 @@ export type { PasswordRepeatElementProps } from './PasswordRepeatElement'
 
 export { default as AutocompleteElement } from './AutocompleteElement'
 export type { AutocompleteElementProps } from './AutocompleteElement'
+
+export { default as SliderElement } from './SliderElement'
+export type { SliderElementProps } from './SliderElement'
