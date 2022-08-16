@@ -31,6 +31,7 @@ components:
 * SwitchElement
 * PasswordElement
 * DatePickerElement
+* SliderElement
 
 The components are written in TypeScript and attempt an easy integration.
 
