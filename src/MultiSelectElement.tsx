@@ -97,10 +97,14 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
               onChange={onChange}
               onBlur={onBlur}
               MenuProps={{
+                ...rest.MenuProps,
                 PaperProps: {
-                  style: {
-                    maxHeight: menuMaxHeight,
-                    width: menuMaxWidth
+                  ...rest.MenuProps?.PaperProps ?? {
+                    style: {
+                      maxHeight: menuMaxHeight,
+                      width: menuMaxWidth,
+                      ...rest.MenuProps?.PaperProps?.style
+                    }
                   }
                 }
               }}

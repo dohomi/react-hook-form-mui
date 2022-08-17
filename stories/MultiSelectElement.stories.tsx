@@ -31,6 +31,7 @@ const names = [
   'Kelly Snyder'
 ]
 
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 export const Basic = Template.bind({})
 Basic.args = {
@@ -99,4 +100,21 @@ OverwriteRenderValue.args = {
   itemKey: 'id',
   itemLabel: 'name',
   renderValue: (selected: any) => `You selected: ${(selected || [])?.length}`
+}
+
+export const MonthPicker = Template.bind({})
+MonthPicker.args = {
+  name: 'month',
+  options: months,
+  MenuProps: {
+    PaperProps: {
+      sx: {
+        '& .MuiList-root': {
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '4px'
+        }
+      }
+    }
+  }
 }
