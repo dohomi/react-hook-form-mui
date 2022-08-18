@@ -7,6 +7,9 @@ export type { FormContainerProps } from './FormContainer'
 export { default as DatePickerElement } from './DatePickerElement'
 export type { DatePickerElementProps } from './DatePickerElement'
 
+export { default as DateTimePickerElement } from './DateTimePickerElement'
+export type { DateTimePickerElementProps } from './DateTimePickerElement'
+
 export { default as CheckboxElement } from './CheckboxElement'
 export type { CheckboxElementProps } from './CheckboxElement'
 
