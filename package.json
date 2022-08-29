@@ -24,10 +24,7 @@
     "check-types": "cd packages/rhf-mui && tsc --noemit",
     "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod",
     "build": "cd packages/rhf-mui && yarn build",
-    "dev": "cd packages/rhf-mui && yarn dev",
-    "release-minor": "cd packages/rhf-mui && npm run build && npm run check-types && release minor",
-    "release-patch": "cd packages/rhf-mui && npm run build && npm run check-types && release patch",
-    "release-major": "cd packages/rhf-mui && npm run build && npm run check-types && release major"
+    "dev": "cd packages/rhf-mui && yarn dev"
   },
   "devDependencies": {
     "eslint": "^8.18.0",
