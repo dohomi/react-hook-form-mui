@@ -33,9 +33,7 @@
     "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod",
     "build-old": "rimraf dist && microbundle",
     "build": "tsup src/index.ts --clean --format esm,cjs --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
-    "dev-tsup": "tsup src/index.ts --clean --format esm,cjs --watch --dts --external react --inject ./react-shim.js",
-    "build:esm": "tsc --noEmit false --outDir dist/esm",
-    "build:common": "tsc --noEmit false --outDir dist --target ES5 --module CommonJS",
+    "dev": "tsup src/index.ts --clean --format esm,cjs --watch --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
     "release-minor": "npm run build && npm run check-types && release minor",
     "release-patch": "npm run build && npm run check-types && release patch",
     "release-major": "npm run build && npm run check-types && release major"
