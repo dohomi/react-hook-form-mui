@@ -1,33 +1,48 @@
 {
-  "include": [
-    "src",
-    "types"
-  ],
   "compilerOptions": {
+    // THIS MUST BE AT ROOT, if you set baseurl in sub-package it breaks intellisense jump to
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "dist",
+    "importHelpers": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+    "jsx": "react-jsx",
+    "module": "system",
+    "moduleResolution": "node",
+    "noEmitOnError": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "target": "es5",
+    "types": [
+      "node",
+      "react"
+    ],
     "lib": [
       "dom",
       "esnext"
-    ],
-    "module": "ESNext",
-    "target": "ESNext",
-    "importHelpers": true,
-    "declaration": true,
-    "sourceMap": true,
-    "rootDir": "./src",
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "jsx": "react-jsx",
-    "jsxFactory": "",
-    "jsxFragmentFactory": "",
-    "baseUrl": "./"
+    ]
+  },
+  "exclude": [
+    "**/test",
+    "**/dist",
+    "**/types",
+    "**/__tests__"
+  ],
+  "typeAcquisition": {
+    "enable": true
   }
 }
