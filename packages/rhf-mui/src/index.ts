@@ -39,3 +39,5 @@ export type {AutocompleteElementProps} from './AutocompleteElement'
 
 export {default as SliderElement} from './SliderElement'
 export type {SliderElementProps} from './SliderElement'
+
+export * from 'react-hook-form'
