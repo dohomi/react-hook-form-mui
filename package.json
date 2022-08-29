@@ -21,10 +21,10 @@
     "storybook": "cd apps/storybook && start-storybook -p 6006",
     "nextjs": "cd apps/nextjs && yarn dev",
     "build-storybook": "cd apps/storybook && build-storybook",
-    "check-types": "tsc --noemit",
+    "check-types": "cd packages/rhf-mui && tsc --noemit",
     "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod",
     "build": "cd packages/rhf-mui && tsup packages/rhf-mui/src/index.ts --clean --format esm,cjs --dts --external react --inject packages/rhf-mui/react-shim.js --legacy-output --minify --sourcemap",
-    "dev-tsup": "tsup packages/rhf-mui/src/index.ts --clean --format esm,cjs --watch --dts --external react --inject packages/rhf-mui/react-shim.js",
+    "dev-tsup": "cd packages/rhf-mui && tsup packages/rhf-mui/src/index.ts --clean --format esm,cjs --watch --dts --external react --inject packages/rhf-mui/react-shim.js",
     "release-minor": "cd packages/rhf-mui && npm run build && npm run check-types && release minor",
     "release-patch": "cd packages/rhf-mui && npm run build && npm run check-types && release patch",
     "release-major": "cd packages/rhf-mui && npm run build && npm run check-types && release major"
