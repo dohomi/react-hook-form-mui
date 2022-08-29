@@ -103,8 +103,8 @@ export const StrictTypingForm = () => {
     return (
         <DateFnsProvider>
             <form onSubmit={handleSubmit(action('submit'))} noValidate>
-                <TextFieldElement name={'nothing'} label={'Name'} control={control} fullWidth/><br/><br/>
-                <AutocompleteElement name={'some'} label={'Autocomplete'} control={control} options={options}/><br/>
+                <TextFieldElement name={'name'} label={'Name'} control={control} fullWidth/><br/><br/>
+                <AutocompleteElement name={'auto'} label={'Autocomplete'} control={control} options={options}/><br/>
                 <AutocompleteElement name={'auto_multi'} label={'Autocomplete Multiple'} multiple control={control}
                                      options={options}/><br/>
                 <SelectElement name={'select'} label={'Select'} control={control} options={options}

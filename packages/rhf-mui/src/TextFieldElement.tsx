@@ -1,27 +1,24 @@
 import {TextField, TextFieldProps} from '@mui/material'
-import {Controller, ControllerProps, FieldError, UseControllerProps} from 'react-hook-form'
-import {FieldPath, FieldValues} from "react-hook-form/dist/types";
+import {Control, Controller, ControllerProps, FieldError, Path} from 'react-hook-form'
+import {FieldValues} from 'react-hook-form/dist/types/fields'
 
-export type TextFieldElementProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> =
-    Omit<TextFieldProps,
-        'name'>
-    & Pick<UseControllerProps<TFieldValues, TName>, 'name' | 'control'>
-    & {
+export type TextFieldElementProps<T extends FieldValues = FieldValues> = Omit<TextFieldProps,
+    'name'> & {
     validation?: ControllerProps['rules']
-    // name: Path<T>
+    name: Path<T>
     parseError?: (error: FieldError) => string
-    // control?: Control<T>
+    control?: Control<T>
 }
 
-export default function TextFieldElement({
-                                             validation = {},
-                                             parseError,
-                                             type,
-                                             required,
-                                             name,
-                                             control,
-                                             ...rest
-                                         }: TextFieldElementProps): JSX.Element {
+export default function TextFieldElement<TFieldValues extends FieldValues = FieldValues>({
+                                                                                             validation = {},
+                                                                                             parseError,
+                                                                                             type,
+                                                                                             required,
+                                                                                             name,
+                                                                                             control,
+                                                                                             ...rest
+                                                                                         }: TextFieldElementProps<TFieldValues>): JSX.Element {
 
     if (required && !validation.required) {
         validation.required = 'This field is required'

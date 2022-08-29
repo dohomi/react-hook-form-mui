@@ -19,6 +19,7 @@
   "scripts": {
     "prepare": "cd packages/rhf-mui && yarn run build",
     "storybook": "cd apps/storybook && start-storybook -p 6006",
+    "nextjs": "cd apps/nextjs && yarn dev",
     "build-storybook": "cd apps/storybook && build-storybook",
     "check-types": "tsc --noemit",
     "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod",
