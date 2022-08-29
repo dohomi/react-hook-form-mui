@@ -72,7 +72,7 @@ function Form() {
 }
 ```
 
-You can have a look at the [`example`](./example/) folder which sets up NextJS with `react-hook-form-mui`
+You can have a look at the [`example`](apps/nextjs/) folder which sets up NextJS with `react-hook-form-mui`
 
 ### FormContainer creates `formContext`
 
@@ -91,8 +91,8 @@ If you are using the `DatepickerElement` keep in mind that you have to wrap your
 
 Examples for Dayjs or DateFns provider (used in the demo):
 
-* [DateFns](/src/DateFnsProvider.tsx)
-* [Dayjs](/src/DateFnsProvider.tsx)
+* [DateFns](/apps/storybook/src/DateFnsProvider.tsx)
+* [Dayjs](/apps/storybook/src/DateFnsProvider.tsx)
 
 ### Bundle
 

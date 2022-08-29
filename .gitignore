@@ -6,8 +6,8 @@ dist
 .idea
 .next
 storybook-static/
-example/.next
-example/node_modules
+apps/nextjs/.next
+apps/nextjs/node_modules
 TextFieldElement
 PasswordElement
 RadioButtonGroup

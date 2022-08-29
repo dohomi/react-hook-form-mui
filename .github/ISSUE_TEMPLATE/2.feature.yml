@@ -29,4 +29,4 @@ body:
   - type: textarea
     attributes:
       label: Examples 🌈
-      description: Provide a link to the example, other implementations, or screenshots of the expected behavior.
+      description: Provide a link to the nextjs, other implementations, or screenshots of the expected behavior.

@@ -1,0 +1,33 @@
+{
+  "name": "nextjs",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "analyze": "cross-env ANALYZE=true next build"
+  },
+  "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/material": "latest",
+    "@mui/icons-material": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-hook-form": "latest",
+    "react-hook-form-mui": "*"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "cross-env": "latest",
+    "eslint-config-next": "latest",
+    "typescript": "4.7.4"
+  }
+}
