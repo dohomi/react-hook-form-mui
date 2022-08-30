@@ -40,4 +40,7 @@ export type {AutocompleteElementProps} from './AutocompleteElement'
 export {default as SliderElement} from './SliderElement'
 export type {SliderElementProps} from './SliderElement'
 
+export {default as ToggleButtonGroupElement} from './ToggleButtonGroupElement'
+export type {ToggleButtonGroupElementProps} from './ToggleButtonGroupElement'
+
 export * from 'react-hook-form'
