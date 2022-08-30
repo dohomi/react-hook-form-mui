@@ -32,8 +32,9 @@ components:
 * PasswordElement
 * DatePickerElement
 * SliderElement
+* ToggleButtonGroupElement
 
-The components are written in TypeScript and attempt an easy integration.
+Please check out the [demo](https://react-hook-form-material-ui.vercel.app/) for the element overview.
 
 ## How to use it
 
@@ -94,6 +95,24 @@ Examples for Dayjs or DateFns provider (used in the demo):
 * [DateFns](/apps/storybook/src/DateFnsProvider.tsx)
 * [Dayjs](/apps/storybook/src/DateFnsProvider.tsx)
 
+### Troubleshooting
+
+#### Issues if context is undefined (useWatch)
+
+For convenient reasons this package is re-exporting `react-hook-form` which is especially required if you have context
+issues of React.
+
+```tsx
+import {useWatch} from 'react-hook-form-mui' // instead of react-hook-form
+
+const MySubmit = () => {
+    const value = useWatch('fieldName')
+    return (
+        <Button disabled={!value}>Submit</Button>
+    )
+}
+```
+
 ### Bundle
 
-This project uses `microbundle` to wrap the package for `npm`.
+This project uses `tsup` to wrap the package for `npm`.
