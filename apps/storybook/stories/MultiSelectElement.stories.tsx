@@ -1,4 +1,4 @@
-import {FormContainer, MultiSelectElement} from 'react-hook-form-mui'
+import {FormContainer, MultiSelectElement} from 'react-hook-form-mui/src'
 import {action} from '@storybook/addon-actions'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import {SubmitButton} from '../src/Shared'
@@ -49,6 +49,14 @@ Filled.args = {
 export const WithLabel = Template.bind({})
 WithLabel.args = {
     name: 'basic',
+    label: 'Select Field',
+    options: names
+}
+
+export const WithLabelSmall = Template.bind({})
+WithLabelSmall.args = {
+    name: 'basic_small',
+    size: 'small',
     label: 'Select Field',
     options: names
 }
@@ -106,6 +114,26 @@ export const MonthPicker = Template.bind({})
 MonthPicker.args = {
     name: 'month',
     options: months,
+    label: 'Months',
+    MenuProps: {
+        PaperProps: {
+            sx: {
+                '& .MuiList-root': {
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gap: '4px'
+                }
+            }
+        }
+    }
+}
+
+export const MonthPickerSmall = Template.bind({})
+MonthPickerSmall.args = {
+    name: 'months_small',
+    options: months,
+    label: 'Months',
+    size: 'small',
     MenuProps: {
         PaperProps: {
             sx: {

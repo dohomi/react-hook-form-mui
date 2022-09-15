@@ -79,10 +79,13 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                         variant={rest.variant}
                         fullWidth={rest.fullWidth}
                         error={invalid}
+                        size={rest.size}
                     >
                         {label && (
-                            <InputLabel error={invalid} htmlFor={rest.id || `select-multi-select-${name}`}
-                                        required={required}>
+                            <InputLabel
+                                size={rest.size === 'small' ? 'small' : undefined}
+                                error={invalid} htmlFor={rest.id || `select-multi-select-${name}`}
+                                required={required}>
                                 {label}
                             </InputLabel>
                         )}

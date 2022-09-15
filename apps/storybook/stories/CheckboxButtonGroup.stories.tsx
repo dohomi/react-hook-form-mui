@@ -1,5 +1,5 @@
 import {action} from '@storybook/addon-actions'
-import {CheckboxButtonGroup, FormContainer} from 'react-hook-form-mui'
+import {CheckboxButtonGroup, FormContainer} from 'react-hook-form-mui/src'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import {SubmitButton} from '../src/Shared'
 

@@ -1,4 +1,4 @@
-import {DateTimePickerElement, FormContainer} from 'react-hook-form-mui'
+import {DateTimePickerElement, FormContainer} from 'react-hook-form-mui/src'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import DateFnsProvider from '../src/DateFnsProvider'
 import {action} from '@storybook/addon-actions'

@@ -1,4 +1,4 @@
-import {DatePickerElement, FormContainer} from 'react-hook-form-mui'
+import {DatePickerElement, FormContainer} from 'react-hook-form-mui/src'
 import {action} from '@storybook/addon-actions'
 import DateFnsProvider from '../src/DateFnsProvider'
 import {SubmitButton} from '../src/Shared'
