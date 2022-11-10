@@ -10,6 +10,9 @@ export type {DatePickerElementProps} from './DatePickerElement'
 export {default as DateTimePickerElement} from './DateTimePickerElement'
 export type {DateTimePickerElementProps} from './DateTimePickerElement'
 
+export {default as TimePickerElement} from './TimePickerElement'
+export type {TimePickerElementProps} from './TimePickerElement'
+
 export {default as CheckboxElement} from './CheckboxElement'
 export type {CheckboxElementProps} from './CheckboxElement'
 
