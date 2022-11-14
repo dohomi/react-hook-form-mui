@@ -31,6 +31,7 @@ components:
 * SwitchElement
 * PasswordElement
 * DatePickerElement
+* DateTimePickerElement
 * SliderElement
 * ToggleButtonGroupElement
 
