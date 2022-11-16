@@ -1,6 +1,8 @@
-import {StorybookViteConfig} from '@storybook/builder-vite'
+// import {StorybookViteConfig} from '@storybook/builder-vite'
 
-const config: StorybookViteConfig = {
+// const {mergeConfig} = require('vite');
+
+const config = {
     'stories': [
         '../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'
     ],
@@ -16,15 +18,26 @@ const config: StorybookViteConfig = {
     },
     'framework': '@storybook/react',
     'core': {
-        'builder': '@storybook/builder-vite'
+        // 'builder': '@storybook/builder-vite'
+        'builder': 'webpack5'
     },
-    viteFinal: (config) => {
-        config.esbuild = {
-            ...config.esbuild,
-            logOverride: {'this-is-undefined-in-esm': 'silent'}
-        }
-        return config
-    }
+    // viteFinal: (config, {configType}) => {
+    //     config.esbuild = {
+    //         ...config.esbuild,
+    //         logOverride: {'this-is-undefined-in-esm': 'silent'}
+    //     }
+    //     return mergeConfig(config, {
+    //         resolve: {
+    //             preserveSymlinks: true,
+    //             dedupe: ["@storybook/client-api"]
+    //         },
+    //         build: {
+    //             commonjsOptions: {
+    //                 transformMixedEsModules: true,
+    //             },
+    //         },
+    //     })
+    // }
 }
 export default config
 

@@ -1,5 +1,5 @@
 import {FormContainer, TextFieldElement} from 'react-hook-form-mui'
-import {Box, Button, Stack} from '@mui/material'
+import {Button, Stack} from '@mui/material'
 import {useState} from 'react'
 
 type FormProps = {
@@ -12,10 +12,7 @@ export default function Index() {
   }
   const defaultValues: FormProps = {hallo: ''}
   return (
-    <Box sx={{
-      maxWidth: 300,
-      margin: '30px auto 0 auto'
-    }}>
+    <>
       <FormContainer defaultValues={defaultValues} onSuccess={onSubmit}>
         <Stack direction={'column'}>
           <TextFieldElement name={'hallo'} label={'hallo'}/> <br/>
@@ -29,7 +26,7 @@ export default function Index() {
                 Data:<br/>
         {JSON.stringify(values)}
       </div>
-    </Box>
+    </>
   )
 }
 
