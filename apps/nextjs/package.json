@@ -15,8 +15,8 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
-    "@mui/material": "latest",
     "@mui/icons-material": "latest",
+    "@mui/material": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
@@ -29,6 +29,6 @@
     "@types/react-dom": "latest",
     "cross-env": "latest",
     "eslint-config-next": "latest",
-    "typescript": "4.7.4"
+    "typescript": "^4.7.4"
   }
 }
