@@ -38,7 +38,6 @@
   },
   "devDependencies": {
     "@date-io/date-fns": "^2.16.0",
-    "@date-io/dayjs": "^2.16.0",
     "@emotion/cache": "latest",
     "@emotion/react": "latest",
     "@emotion/server": "latest",

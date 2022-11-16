@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react'
+import {Suspense} from 'react'
 import {addParameters, Story} from '@storybook/react'
 // @ts-ignore
 import createEmotionCache from '../../nextjs/src/createEmotionCache'
@@ -6,6 +6,7 @@ import {CacheProvider} from '@emotion/react'
 // @ts-ignore
 import theme from '../../nextjs/src/theme'
 import {ThemeProvider} from '@mui/material'
+import DateFnsProvider from 'react-hook-form-mui/src/DateFnsProvider'
 
 addParameters({
     options: {
@@ -19,7 +20,9 @@ const clientSideEmotionCache = createEmotionCache()
 export const decorators = [(Story: Story) => (
     <CacheProvider value={clientSideEmotionCache}>
         <ThemeProvider theme={theme}>
-            <Suspense fallback={<div>loading</div>}><Story/></Suspense>
+            <DateFnsProvider>
+                <Suspense fallback={<div>loading</div>}><Story/></Suspense>
+            </DateFnsProvider>
         </ThemeProvider>
     </CacheProvider>
 )]

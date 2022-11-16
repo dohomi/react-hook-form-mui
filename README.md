@@ -93,8 +93,8 @@ If you are using the `DatepickerElement` keep in mind that you have to wrap your
 
 Examples for Dayjs or DateFns provider (used in the demo):
 
-* [DateFns](/apps/storybook/src/DateFnsProvider.tsx)
-* [Dayjs](/apps/storybook/src/DateFnsProvider.tsx)
+* [DateFns](/packages/rhf-mui/src/DateFnsProvider.tsx)
+* [Dayjs](/packages/rhf-mui/src/DateFnsProvider.tsx)
 
 ### Troubleshooting
 
