@@ -61,7 +61,7 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
                             if (typeof parseDate === 'function') {
                                 newValue = parseDate(value, keyboardInputValue)
                             } else {
-                                newValue = keyboardInputValue
+                                newValue = value
                             }
                         } else {
                             if (typeof parseDate === 'function') {
