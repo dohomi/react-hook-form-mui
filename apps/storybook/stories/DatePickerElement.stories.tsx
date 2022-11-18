@@ -38,3 +38,11 @@ RequiredCustomMessage.args = {
   required: true,
   validation: {required: 'Custom required message'}
 }
+
+export const DisableTextInput = Template.bind({})
+DisableTextInput.args = {
+  label: 'Required Picker',
+  name: 'requiredCustomMessage',
+  required: true,
+  textReadOnly: true
+}

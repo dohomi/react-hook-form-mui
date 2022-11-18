@@ -25,6 +25,7 @@ export type DateTimePickerElementProps<T extends FieldValues, TInputDate, TDate 
     control?: Control<T>
     inputProps?: TextFieldProps
     helperText?: TextFieldProps['helperText']
+    textReadOnly?: boolean
 }
 
 export default function DateTimePickerElement<TFieldValues extends FieldValues>({
@@ -36,6 +37,7 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
   validation = {},
   inputProps,
   control,
+  textReadOnly,
   ...rest
 }: DateTimePickerElementProps<TFieldValues, any, any>): JSX.Element {
 
@@ -82,6 +84,9 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
                 ...params?.inputProps,
                 ...(!value && {
                   value: ''
+                }),
+                ...(textReadOnly && {
+                  readOnly: true
                 })
               }}
               {...inputProps}

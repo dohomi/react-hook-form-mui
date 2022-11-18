@@ -22,9 +22,8 @@
     "next": "cd apps/nextjs && yarn dev",
     "build-storybook": "cd apps/storybook && build-storybook",
     "check-types": "cd packages/rhf-mui && tsc --noemit",
-    "deploy": "npm run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod",
-    "build": "cd packages/rhf-mui && yarn build",
-    "dev": "npx lerna run watch"
+    "deploy": "npm run build-storybook && cd apps/storybook/storybook-static && vercel --name react-hook-form-material-ui --prod",
+    "build": "cd packages/rhf-mui && yarn build"
   },
   "devDependencies": {
     "eslint": "^8.18.0",
