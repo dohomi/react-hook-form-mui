@@ -1,5 +1,5 @@
 import {TextField, TextFieldProps} from '@mui/material'
-import {Control, Controller, ControllerProps, FieldError, Path} from 'react-hook-form'
+import {Control, Controller, ControllerProps, FieldError, Path, useFormContext} from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
 export type TextFieldElementProps<T extends FieldValues = FieldValues> = Omit<TextFieldProps,
@@ -32,6 +32,8 @@ export default function TextFieldElement<TFieldValues extends FieldValues = Fiel
         }
     }
 
+    const { register } = useFormContext()
+
     return (
         <Controller
             name={name}
@@ -49,6 +51,7 @@ export default function TextFieldElement<TFieldValues extends FieldValues = Fiel
                         }
                     }}
                     onBlur={onBlur}
+                    ref={register(name).ref}
                     required={required}
                     type={type}
                     error={invalid}

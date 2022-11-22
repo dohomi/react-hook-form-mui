@@ -1,5 +1,5 @@
 import {ChangeEvent} from 'react'
-import {Control, FieldError, Path, useController} from 'react-hook-form'
+import {Control, FieldError, Path, useController, useFormContext} from 'react-hook-form'
 import {FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup, useTheme} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
@@ -57,10 +57,13 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
         }
     }
 
+    const { register } = useFormContext()
+
     return (
         <FormControl error={invalid}>
             {label && <FormLabel required={required} error={invalid}>{label}</FormLabel>}
             <RadioGroup onChange={onRadioChange}
+                        ref={register(name).ref}
                         name={name}
                         row={row}
                         value={value || ''}>

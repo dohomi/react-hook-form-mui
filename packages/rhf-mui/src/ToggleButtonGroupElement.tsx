@@ -1,4 +1,4 @@
-import {Control, Controller, ControllerProps, FieldError, Path} from "react-hook-form";
+import {Control, Controller, ControllerProps, FieldError, Path, useFormContext} from "react-hook-form";
 import {FieldValues} from "react-hook-form/dist/types/fields";
 import {
     FormControl,
@@ -48,6 +48,7 @@ export default function ToggleButtonGroupElement<TFieldValues extends FieldValue
     }
 
     const isRequired = required || !!validation?.required;
+    const { register } = useFormContext()
     return (
         <Controller
             name={name}
@@ -70,6 +71,7 @@ export default function ToggleButtonGroupElement<TFieldValues extends FieldValue
                                     toggleButtonGroupProps.onChange(event, val)
                                 }
                             }}
+                            ref={register(name).ref}
                         >
                             {options.map(({label, id, ...toggleProps}) => (
                                 <ToggleButton value={id} {...toggleProps} key={id}>{label}</ToggleButton>

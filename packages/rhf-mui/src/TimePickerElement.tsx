@@ -5,6 +5,7 @@ import {
   ControllerProps,
   FieldError,
   Path,
+  useFormContext,
 } from 'react-hook-form'
 import { TextField, TextFieldProps } from '@mui/material'
 import { FieldValues } from 'react-hook-form/dist/types/fields'
@@ -51,6 +52,8 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
     validation.required = 'This field is required'
   }
 
+  const { register } = useFormContext()
+
   return (
     <Controller
       name={name}
@@ -86,6 +89,7 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
           renderInput={(params) => (
             <TextField
               {...params}
+              ref={register(name).ref}
               inputProps={{
                 ...params?.inputProps,
                 ...(!value && {

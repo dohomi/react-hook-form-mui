@@ -1,5 +1,5 @@
 import CloseIcon from '@mui/icons-material/Cancel'
-import {Control, Controller, FieldError, Path} from 'react-hook-form'
+import {Control, Controller, FieldError, Path, useFormContext} from 'react-hook-form'
 import {
     Checkbox,
     Chip,
@@ -62,6 +62,8 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
         validation.required = 'This field is required'
     }
 
+    const { register } = useFormContext()
+
     return (
         <Controller
             name={name}
@@ -99,6 +101,7 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                             required={required}
                             onChange={onChange}
                             onBlur={onBlur}
+                            ref={register(name).ref}
                             MenuProps={{
                                 ...rest.MenuProps,
                                 PaperProps: {

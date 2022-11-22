@@ -1,6 +1,6 @@
 import {createElement} from 'react'
 import {MenuItem, TextField, TextFieldProps} from '@mui/material'
-import {Control, Controller, ControllerProps, FieldError, Path} from 'react-hook-form'
+import {Control, Controller, ControllerProps, FieldError, Path, useFormContext} from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
 export type SelectElementProps<T extends FieldValues> = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
@@ -36,6 +36,8 @@ export default function SelectElement<TFieldValues extends FieldValues>({
         validation.required = 'This field is required'
     }
 
+    const { register } = useFormContext()
+
     return (
         <Controller
             name={name}
@@ -68,6 +70,7 @@ export default function SelectElement<TFieldValues extends FieldValues>({
                             rest.onChange(item)
                         }
                     }}
+                    ref={register(name).ref}
                     select
                     required={required}
                     error={invalid}

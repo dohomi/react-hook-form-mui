@@ -1,4 +1,4 @@
-import {Control, Controller, ControllerProps, FieldError, Path} from 'react-hook-form'
+import {Control, Controller, ControllerProps, FieldError, Path, useFormContext} from 'react-hook-form'
 import {
     Checkbox,
     CheckboxProps,
@@ -34,6 +34,8 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
         validation.required = 'This field is required'
     }
 
+    const { register } = useFormContext()
+
     return (
         <Controller
             name={name}
@@ -59,6 +61,7 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
                                         onChange={() => {
                                             onChange(!value)
                                         }}
+                                        ref={register(name).ref}
                                     />
                                 }
                             />

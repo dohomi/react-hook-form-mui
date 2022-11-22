@@ -1,4 +1,4 @@
-import {Control, Controller, Path} from 'react-hook-form'
+import {Control, Controller, Path, useFormContext} from 'react-hook-form'
 import {FormLabel, Slider, SliderProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
@@ -14,6 +14,7 @@ export default function SliderElement<TFieldValues extends FieldValues>({
                                                                             label,
                                                                             ...other
                                                                         }: SliderElementProps<TFieldValues>) {
+    const { register } = useFormContext()
     return (
         <>
             {label && <FormLabel component="legend">{label}</FormLabel>}
@@ -25,6 +26,7 @@ export default function SliderElement<TFieldValues extends FieldValues>({
                         {...other}
                         value={value}
                         onChange={onChange}
+                        ref={register(name).ref}
                         valueLabelDisplay={other.valueLabelDisplay || 'auto'}
                     />
                 )}

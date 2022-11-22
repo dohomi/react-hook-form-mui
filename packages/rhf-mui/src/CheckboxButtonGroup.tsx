@@ -8,7 +8,7 @@ import {
   FormLabel,
   useTheme
 } from '@mui/material'
-import {Control, FieldError, Path, useController} from 'react-hook-form'
+import {Control, FieldError, Path, useController, useFormContext} from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
 export type CheckboxButtonGroupProps<T extends FieldValues> = {
@@ -78,6 +78,8 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
         }
     }
 
+    const { register } = useFormContext()
+
     return (
         <FormControl error={invalid} required={required}>
             {label && <FormLabel error={invalid}>{label}</FormLabel>}
@@ -106,6 +108,7 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
                                     checked={isChecked}
                                     disabled={disabled}
                                     onChange={() => handleChange(optionKey)}
+                                    ref={register(name).ref}
                                 />
                             }
                             label={option[labelKey]}

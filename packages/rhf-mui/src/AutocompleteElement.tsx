@@ -1,4 +1,4 @@
-import {Control, Controller, ControllerProps, Path} from 'react-hook-form'
+import {Control, Controller, ControllerProps, Path, useFormContext} from 'react-hook-form'
 import {Autocomplete, AutocompleteProps, Checkbox, TextField, TextFieldProps} from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
@@ -43,6 +43,9 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
             required: rules?.required || 'This field is required'
         })
     }
+
+    const { register } = useFormContext()
+
     return (
         <Controller
             name={name}
@@ -126,6 +129,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                             />
                         )}
                         {...fieldRest}
+                        ref={register(name).ref}
                     />
                 )
             }}/>

@@ -1,4 +1,4 @@
-import {Control, Controller, Path} from 'react-hook-form'
+import {Control, Controller, Path, useFormContext} from 'react-hook-form'
 import {FormControlLabel, FormControlLabelProps, Switch} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
@@ -14,13 +14,14 @@ export default function SwitchElement<TFieldValues extends FieldValues>({
                                                                             control,
                                                                             ...other
                                                                         }: SwitchElementProps<TFieldValues>) {
+    const { register } = useFormContext()
     return (
         <FormControlLabel
             control={
                 <Controller
                     name={name}
                     control={control}
-                    render={({field}) => <Switch {...field} checked={!!field.value}/>}
+                    render={({field}) => <Switch {...field} ref={register(name).ref} checked={!!field.value}/>}
                 />
             }
             {...other}
