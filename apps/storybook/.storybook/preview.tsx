@@ -6,7 +6,7 @@ import {CacheProvider} from '@emotion/react'
 // @ts-ignore
 import theme from '../../nextjs/src/theme'
 import {ThemeProvider} from '@mui/material'
-import {DateFnsProvider} from 'react-hook-form-mui/src'
+import {DateFnsProvider} from 'react-hook-form-mui/src/date-fns'
 
 addParameters({
     options: {

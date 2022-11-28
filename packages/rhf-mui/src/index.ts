@@ -46,7 +46,4 @@ export type {SliderElementProps} from './SliderElement'
 export {default as ToggleButtonGroupElement} from './ToggleButtonGroupElement'
 export type {ToggleButtonGroupElementProps} from './ToggleButtonGroupElement'
 
-export {default as DateFnsProvider} from './DateFnsProvider'
-export type {DateFnsProviderProps} from './DateFnsProvider'
-
 export * from 'react-hook-form'

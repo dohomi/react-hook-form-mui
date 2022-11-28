@@ -27,6 +27,13 @@ Label.args = {
   label: 'Slider Label',
 }
 
+export const Required = Template.bind({})
+Required.args = {
+  name: 'slider_required',
+  label: 'Required Label',
+  required: true
+}
+
 export const WithOptions = Template.bind({})
 WithOptions.args = {
   name: 'slider',

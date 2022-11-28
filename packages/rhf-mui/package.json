@@ -28,7 +28,7 @@
   "scripts": {
     "prepare": "npm run build",
     "check-types": "tsc --noemit",
-    "build": "tsup src/index.ts --clean --format esm,cjs --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
+    "build": "tsup src/index.ts src/date-fns.ts --clean --format esm,cjs --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
     "watch": "tsup src/index.ts --clean --format esm,cjs --watch --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
     "release-minor": "npm run build && npm run check-types && release minor",
     "release-patch": "npm run build && npm run check-types && release patch",
