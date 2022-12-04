@@ -51,7 +51,7 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
       rules={validation}
       control={control}
       render={({
-        field: {onChange, value},
+        field: {onChange, value,onBlur},
         fieldState: {error, invalid}
       }) => (
         <DateTimePicker
@@ -80,6 +80,10 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
           renderInput={(params) => (
             <TextField
               {...params}
+              onBlur={(...args) => {
+                onBlur()
+                if (params.onBlur) params.onBlur(...args)
+              }}
               inputProps={{
                 ...params?.inputProps,
                 ...(!value && {
