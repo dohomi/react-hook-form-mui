@@ -57,6 +57,10 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
         <DateTimePicker
           {...rest}
           value={value || ''}
+          onClose={(...args) => {
+            onBlur()
+            if(rest.onClose) rest.onClose(...args)
+          }}
           onChange={(value, keyboardInputValue) => {
             let newValue: string | undefined = undefined
             if (keyboardInputValue) {
