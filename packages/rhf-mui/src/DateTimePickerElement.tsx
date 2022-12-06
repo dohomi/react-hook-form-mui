@@ -51,12 +51,16 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
       rules={validation}
       control={control}
       render={({
-        field: {onChange, value},
+        field: {onChange, value,onBlur},
         fieldState: {error, invalid}
       }) => (
         <DateTimePicker
           {...rest}
           value={value || ''}
+          onClose={(...args) => {
+            onBlur()
+            if(rest.onClose) rest.onClose(...args)
+          }}
           onChange={(value, keyboardInputValue) => {
             let newValue: string | undefined = undefined
             if (keyboardInputValue) {
@@ -80,6 +84,10 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
           renderInput={(params) => (
             <TextField
               {...params}
+              onBlur={(...args) => {
+                onBlur()
+                if (params.onBlur) params.onBlur(...args)
+              }}
               inputProps={{
                 ...params?.inputProps,
                 ...(!value && {
