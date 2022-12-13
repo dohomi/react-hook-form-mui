@@ -1,31 +1,41 @@
-import {DatePicker, DatePickerProps} from '@mui/x-date-pickers/DatePicker'
-import {Control, Controller, ControllerProps, FieldError, Path} from 'react-hook-form'
-import {TextField, TextFieldProps} from '@mui/material'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
+import { DatePicker, DatePickerProps } from '@mui/x-date-pickers/DatePicker'
+import {
+  Control,
+  Controller,
+  ControllerProps,
+  FieldError,
+  Path,
+} from 'react-hook-form'
+import { TextField, TextFieldProps } from '@mui/material'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 
 export declare type ParseableDate<TDate> =
-    | string
-    | number
-    | Date
-    | null
-    | undefined
-    | TDate
+  | string
+  | number
+  | Date
+  | null
+  | undefined
+  | TDate
 
-export type DatePickerElementProps<T extends FieldValues, TInputDate, TDate = TInputDate> =
-    Omit<DatePickerProps<TInputDate, TDate>,
-        'value' | 'onChange' | 'renderInput'>
-    & {
-    name: Path<T>
-    required?: boolean
-    isDate?: boolean
-    parseError?: (error: FieldError) => string
-    onChange?: (value: TDate, keyboardInputValue?: string) => void
-    validation?: ControllerProps['rules']
-    parseDate?: (value: TDate, keyboardInputValue?: string) => TDate
-    control?: Control<T>
-    inputProps?: TextFieldProps
-    helperText?: TextFieldProps['helperText']
-    textReadOnly?: boolean
+export type DatePickerElementProps<
+  T extends FieldValues,
+  TInputDate,
+  TDate = TInputDate
+> = Omit<
+  DatePickerProps<TInputDate, TDate>,
+  'value' | 'onChange' | 'renderInput'
+> & {
+  name: Path<T>
+  required?: boolean
+  isDate?: boolean
+  parseError?: (error: FieldError) => string
+  onChange?: (value: TDate, keyboardInputValue?: string) => void
+  validation?: ControllerProps['rules']
+  parseDate?: (value: TDate, keyboardInputValue?: string) => TDate
+  control?: Control<T>
+  inputProps?: TextFieldProps
+  helperText?: TextFieldProps['helperText']
+  textReadOnly?: boolean
 }
 
 export default function DatePickerElement<TFieldValues extends FieldValues>({
@@ -40,7 +50,6 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
   textReadOnly,
   ...rest
 }: DatePickerElementProps<TFieldValues, any, any>): JSX.Element {
-
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -51,15 +60,16 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
       rules={validation}
       control={control}
       render={({
-        field: {onChange, value,onBlur},
-        fieldState: {error, invalid}
+        field: { onChange, value, onBlur, ref },
+        fieldState: { error, invalid },
       }) => (
         <DatePicker
           {...rest}
+          inputRef={ref}
           value={value || ''}
           onClose={(...args) => {
             onBlur()
-            if(rest.onClose) rest.onClose(...args)
+            if (rest.onClose) rest.onClose(...args)
           }}
           onChange={(value, keyboardInputValue) => {
             let newValue: undefined | string = undefined
@@ -92,11 +102,11 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
               inputProps={{
                 ...params?.inputProps,
                 ...(!value && {
-                  value: ''
+                  value: '',
                 }),
                 ...(textReadOnly && {
-                  readOnly: true
-                })
+                  readOnly: true,
+                }),
               }}
               {...inputProps}
               required={!!required}
