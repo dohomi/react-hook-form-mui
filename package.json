@@ -22,7 +22,10 @@
     "next": "cd apps/nextjs && yarn dev",
     "build-storybook": "cd apps/storybook && build-storybook",
     "check-types": "cd packages/rhf-mui && tsc --noemit",
-    "lint": "eslint apps/nextjs/src/** packages/rhf-mui/src/** apps/storybook/stories/** apps/storybook/src/** --fix",
+    "lint": "eslint apps/nextjs/src/** packages/rhf-mui/src/** apps/storybook/stories/** apps/storybook/src/**",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "npx prettier apps/nextjs/src/** packages/rhf-mui/src/** apps/storybook/stories/** apps/storybook/src/** --check",
+    "prettier:fix": "npm run prettier -- --write",
     "deploy": "npm run build-storybook && cd apps/storybook/storybook-static && vercel --name react-hook-form-material-ui --prod",
     "build": "cd packages/rhf-mui && yarn build"
   },
