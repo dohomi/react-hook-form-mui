@@ -10,30 +10,30 @@ export type PasswordElementProps<T extends FieldValues> = TextFieldElementProps<
 }
 
 export default function PasswordElement<TFieldValues extends FieldValues>({
-                                                                              iconColor,
-                                                                              ...props
-                                                                          }: PasswordElementProps<TFieldValues>): JSX.Element {
-    const [password, setPassword] = useState<boolean>(true)
-    return (
-        <TextFieldElement
-            {...props}
-            InputProps={{
-                endAdornment: (
-                    <InputAdornment position={'end'}>
-                        <IconButton
-                            onMouseDown={(e: MouseEvent<HTMLButtonElement>) =>
-                                e.preventDefault()
-                            }
-                            onClick={() => setPassword(!password)}
-                            tabIndex={-1}
-                            color={iconColor ?? 'default'}
-                        >
-                            {password ? <Visibility/> : <VisibilityOff/>}
-                        </IconButton>
-                    </InputAdornment>
-                )
-            }}
-            type={password ? 'password' : 'text'}
-        />
-    )
+  iconColor,
+  ...props
+}: PasswordElementProps<TFieldValues>): JSX.Element {
+  const [password, setPassword] = useState<boolean>(true)
+  return (
+    <TextFieldElement
+      {...props}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position={'end'}>
+            <IconButton
+              onMouseDown={(e: MouseEvent<HTMLButtonElement>) =>
+                e.preventDefault()
+              }
+              onClick={() => setPassword(!password)}
+              tabIndex={-1}
+              color={iconColor ?? 'default'}
+            >
+              {password ? <Visibility/> : <VisibilityOff/>}
+            </IconButton>
+          </InputAdornment>
+        )
+      }}
+      type={password ? 'password' : 'text'}
+    />
+  )
 }
