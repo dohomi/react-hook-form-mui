@@ -48,7 +48,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
       name={name}
       control={control}
       rules={validationRules}
-      render={({field: {onChange, onBlur, value, ...fieldRest}, fieldState: {error}}) => {
+      render={({field: {onChange, onBlur, value, ref, ...fieldRest}, fieldState: {error}}) => {
         let currentValue = multiple ? value || [] : value || null
         if (matchId) {
           currentValue = multiple
@@ -123,6 +123,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                   ...textFieldProps?.inputProps
                 }}
                 helperText={error ? error.message : textFieldProps?.helperText}
+                inputRef={ref}
               />
             )}
             {...fieldRest}

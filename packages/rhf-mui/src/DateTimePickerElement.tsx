@@ -50,7 +50,7 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
       rules={validation}
       control={control}
       render={({
-        field: {onChange, value,onBlur},
+        field: {onChange, value,onBlur, ref},
         fieldState: {error, invalid}
       }) => (
         <DateTimePicker
@@ -106,6 +106,7 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
                     : error.message
                   : inputProps?.helperText || rest.helperText
               }
+              inputRef={ref}
             />
           )}
         />

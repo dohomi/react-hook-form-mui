@@ -41,7 +41,7 @@ export default function SelectElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({field: {onBlur, onChange, value}, fieldState: {invalid, error}}) => {
+      render={({field: {onBlur, onChange, value, ref}, fieldState: {invalid, error}}) => {
         // handle shrink on number input fields
         if (type === 'number' && typeof value !== 'undefined') {
           rest.InputLabelProps = rest.InputLabelProps || {}
@@ -72,6 +72,7 @@ export default function SelectElement<TFieldValues extends FieldValues>({
           required={required}
           error={invalid}
           helperText={error ? (typeof parseError === 'function' ? parseError(error) : error.message) : rest.helperText}
+          inputRef={ref}
         >{isNativeSelect && <option/>}
           {options.map((item: any) =>
             createElement(

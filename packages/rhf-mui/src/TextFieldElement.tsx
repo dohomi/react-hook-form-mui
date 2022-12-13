@@ -37,7 +37,7 @@ export default function TextFieldElement<TFieldValues extends FieldValues = Fiel
       name={name}
       control={control}
       rules={validation}
-      render={({field: {value, onChange, onBlur}, fieldState: {invalid, error}}) =>
+      render={({field: {value, onChange, onBlur, ref}, fieldState: {invalid, error}}) =>
         <TextField
           {...rest}
           name={name}
@@ -53,6 +53,7 @@ export default function TextFieldElement<TFieldValues extends FieldValues = Fiel
           type={type}
           error={invalid}
           helperText={error ? (typeof parseError === 'function' ? parseError(error) : error.message) : rest.helperText}
+          inputRef={ref}
         />
       }
     />
