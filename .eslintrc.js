@@ -1,4 +1,3 @@
-
 module.exports = {
   env: {
     browser: true,
@@ -39,5 +38,6 @@ module.exports = {
       'never'
     ],
     'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-explicit-any': 0
   }
 }

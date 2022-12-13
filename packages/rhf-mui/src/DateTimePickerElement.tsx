@@ -29,7 +29,6 @@ export type DateTimePickerElementProps<T extends FieldValues, TInputDate, TDate 
 }
 
 export default function DateTimePickerElement<TFieldValues extends FieldValues>({
-  isDate,
   parseError,
   name,
   required,

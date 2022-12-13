@@ -10,20 +10,20 @@ export type SwitchElementProps<T extends FieldValues> = IProps & {
 }
 
 export default function SwitchElement<TFieldValues extends FieldValues>({
-                                                                            name,
-                                                                            control,
-                                                                            ...other
-                                                                        }: SwitchElementProps<TFieldValues>) {
-    return (
-        <FormControlLabel
-            control={
-                <Controller
-                    name={name}
-                    control={control}
-                    render={({field}) => <Switch {...field} checked={!!field.value}/>}
-                />
-            }
-            {...other}
+  name,
+  control,
+  ...other
+}: SwitchElementProps<TFieldValues>) {
+  return (
+    <FormControlLabel
+      control={
+        <Controller
+          name={name}
+          control={control}
+          render={({field}) => <Switch {...field} checked={!!field.value}/>}
         />
-    )
+      }
+      {...other}
+    />
+  )
 }

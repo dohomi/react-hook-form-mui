@@ -29,7 +29,6 @@ export type DatePickerElementProps<T extends FieldValues, TInputDate, TDate = TI
 }
 
 export default function DatePickerElement<TFieldValues extends FieldValues>({
-  isDate,
   parseError,
   name,
   required,
