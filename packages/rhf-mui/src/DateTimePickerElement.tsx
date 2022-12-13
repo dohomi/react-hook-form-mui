@@ -1,49 +1,34 @@
-import {
-  DateTimePicker,
-  DateTimePickerProps,
-} from '@mui/x-date-pickers/DateTimePicker'
-import {
-  Control,
-  Controller,
-  ControllerProps,
-  FieldError,
-  Path,
-} from 'react-hook-form'
-import { TextField, TextFieldProps } from '@mui/material'
-import { FieldValues } from 'react-hook-form/dist/types/fields'
+import {DateTimePicker, DateTimePickerProps} from '@mui/x-date-pickers/DateTimePicker'
+import {Control, Controller, ControllerProps, FieldError, Path} from 'react-hook-form'
+import {TextField, TextFieldProps} from '@mui/material'
+import {FieldValues} from 'react-hook-form/dist/types/fields'
 
 export declare type ParseableDate<TDate> =
-  | string
-  | number
-  | Date
-  | null
-  | undefined
-  | TDate
+    | string
+    | number
+    | Date
+    | null
+    | undefined
+    | TDate
 
-export type DateTimePickerElementProps<
-  T extends FieldValues,
-  TInputDate,
-  TDate = TInputDate
-> = Omit<
-  DateTimePickerProps<TInputDate, TDate>,
-  'value' | 'onChange' | 'renderInput'
-> & {
-  name: Path<T>
-  required?: boolean
-  isDate?: boolean
-  parseError?: (error: FieldError) => string
-  onChange?: (value: TDate, keyboardInputValue?: string) => void
-  validation?: ControllerProps['rules']
-  parseDate?: (value: TDate, keyboardInputValue?: string) => TDate
-  control?: Control<T>
-  inputProps?: TextFieldProps
-  helperText?: TextFieldProps['helperText']
-  textReadOnly?: boolean
+export type DateTimePickerElementProps<T extends FieldValues, TInputDate, TDate = TInputDate> =
+    Omit<DateTimePickerProps<TInputDate, TDate>,
+        'value' | 'onChange' | 'renderInput'>
+    & {
+    name: Path<T>
+    required?: boolean
+    isDate?: boolean
+    parseError?: (error: FieldError) => string
+    onChange?: (value: TDate, keyboardInputValue?: string) => void
+    validation?: ControllerProps['rules']
+    parseDate?: (value: TDate, keyboardInputValue?: string) => TDate
+    control?: Control<T>
+    inputProps?: TextFieldProps
+    helperText?: TextFieldProps['helperText']
+    textReadOnly?: boolean
 }
 
-export default function DateTimePickerElement<
-  TFieldValues extends FieldValues
->({
+export default function DateTimePickerElement<TFieldValues extends FieldValues>({
   isDate,
   parseError,
   name,
@@ -55,6 +40,7 @@ export default function DateTimePickerElement<
   textReadOnly,
   ...rest
 }: DateTimePickerElementProps<TFieldValues, any, any>): JSX.Element {
+
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -65,15 +51,15 @@ export default function DateTimePickerElement<
       rules={validation}
       control={control}
       render={({
-        field: { onChange, value, onBlur, ref },
-        fieldState: { error, invalid },
+        field: {onChange, value,onBlur},
+        fieldState: {error, invalid}
       }) => (
         <DateTimePicker
           {...rest}
           value={value || ''}
           onClose={(...args) => {
             onBlur()
-            if (rest.onClose) rest.onClose(...args)
+            if(rest.onClose) rest.onClose(...args)
           }}
           onChange={(value, keyboardInputValue) => {
             let newValue: string | undefined = undefined
@@ -98,7 +84,6 @@ export default function DateTimePickerElement<
           renderInput={(params) => (
             <TextField
               {...params}
-              inputRef={ref}
               onBlur={(...args) => {
                 onBlur()
                 if (params.onBlur) params.onBlur(...args)
@@ -106,11 +91,11 @@ export default function DateTimePickerElement<
               inputProps={{
                 ...params?.inputProps,
                 ...(!value && {
-                  value: '',
+                  value: ''
                 }),
                 ...(textReadOnly && {
-                  readOnly: true,
-                }),
+                  readOnly: true
+                })
               }}
               {...inputProps}
               required={!!required}
