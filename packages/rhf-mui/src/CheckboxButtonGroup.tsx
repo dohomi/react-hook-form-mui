@@ -8,25 +8,31 @@ import {
   FormLabel,
   useTheme,
 } from '@mui/material'
-import {Control, ControllerProps, FieldError, Path, useController} from 'react-hook-form'
+import {
+  Control,
+  ControllerProps,
+  FieldError,
+  Path,
+  useController,
+} from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
 export type CheckboxButtonGroupProps<T extends FieldValues> = {
-    options: { id: string | number, label: string }[] | any[]
-    helperText?: string
-    name: Path<T>
-    required?: boolean
-    parseError?: (error: FieldError) => string
-    label?: string
-    labelKey?: string
-    valueKey?: string
-    onChange?: (data: any) => void
-    returnObject?: boolean
-    disabled?: boolean
-    row?: boolean
-    control?: Control<T>
-    rules?: ControllerProps['rules']
-    checkboxColor?: CheckboxProps['color']
+  options: {id: string | number; label: string}[] | any[]
+  helperText?: string
+  name: Path<T>
+  required?: boolean
+  parseError?: (error: FieldError) => string
+  label?: string
+  labelKey?: string
+  valueKey?: string
+  onChange?: (data: any) => void
+  returnObject?: boolean
+  disabled?: boolean
+  row?: boolean
+  control?: Control<T>
+  rules?: ControllerProps['rules']
+  checkboxColor?: CheckboxProps['color']
 }
 
 export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
@@ -47,10 +53,13 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
   ...rest
 }: CheckboxButtonGroupProps<TFieldValues>): JSX.Element {
   const theme = useTheme()
-  const {field: {value = [], onChange}, fieldState: {error}} = useController({
+  const {
+    field: {value = [], onChange},
+    fieldState: {error},
+  } = useController({
     name,
     rules: required ? {required: 'This field is required'} : rules,
-    control
+    control,
   })
 
   helperText = error
@@ -105,7 +114,7 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
               control={
                 <Checkbox
                   sx={{
-                    color: error ? theme.palette.error.main : undefined
+                    color: error ? theme.palette.error.main : undefined,
                   }}
                   color={checkboxColor || 'primary'}
                   value={optionKey}
