@@ -8,22 +8,15 @@ export const Layout: FunctionComponent<PropsWithChildren> = ({children}) => {
       <AppBar>
         <Toolbar>
           <Link href={'/'} passHref legacyBehavior>
-            <Button color={'inherit'}>
-                            Base
-            </Button>
+            <Button color={'inherit'}>Base</Button>
           </Link>
           <Link href={'/withSub'} passHref legacyBehavior>
-            <Button color={'inherit'}>
-                            With useWatch
-            </Button>
+            <Button color={'inherit'}>With useWatch</Button>
           </Link>
         </Toolbar>
       </AppBar>
-      <Toolbar/>
-      <Box padding={3}>
-
-        {children}
-      </Box>
+      <Toolbar />
+      <Box padding={3}>{children}</Box>
     </Box>
   )
 }

@@ -10,16 +10,19 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content={theme.palette.primary.main}/>
+          <meta name="theme-color" content={theme.palette.primary.main} />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          />
         </Head>
         <body>
-          <Main/>
-          <NextScript/>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     )
@@ -63,7 +66,7 @@ MyDocument.getInitialProps = async (ctx) => {
       enhanceApp: (App: any) =>
         function EnhanceApp(props) {
           return <App emotionCache={cache} {...props} />
-        }
+        },
     })
 
   const initialProps = await Document.getInitialProps(ctx)
@@ -82,6 +85,9 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [...emotionStyleTags, ...React.Children.toArray(initialProps.styles)]
+    styles: [
+      ...emotionStyleTags,
+      ...React.Children.toArray(initialProps.styles),
+    ],
   }
 }

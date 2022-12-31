@@ -5,30 +5,28 @@ import {ComponentMeta, ComponentStory} from '@storybook/react'
 
 export default {
   title: 'DatePickerElement',
-  component: DatePickerElement
+  component: DatePickerElement,
 } as ComponentMeta<typeof DatePickerElement>
-
 
 const Template: ComponentStory<typeof DatePickerElement> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>
     <DatePickerElement {...args} />
-    <br/>
-    <SubmitButton/>
+    <br />
+    <SubmitButton />
   </FormContainer>
 )
-
 
 export const Basic = Template.bind({})
 Basic.args = {
   label: 'Date Picker',
-  name: 'basic'
+  name: 'basic',
 }
 
 export const Required = Template.bind({})
 Required.args = {
   label: 'Required Picker',
   name: 'required',
-  required: true
+  required: true,
 }
 
 export const RequiredCustomMessage = Template.bind({})
@@ -36,7 +34,7 @@ RequiredCustomMessage.args = {
   label: 'Required Picker',
   name: 'requiredCustomMessage',
   required: true,
-  validation: {required: 'Custom required message'}
+  validation: {required: 'Custom required message'},
 }
 
 export const DisableTextInput = Template.bind({})
@@ -44,5 +42,5 @@ DisableTextInput.args = {
   label: 'Required Picker',
   name: 'requiredCustomMessage',
   required: true,
-  textReadOnly: true
+  textReadOnly: true,
 }

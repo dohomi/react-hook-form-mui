@@ -5,30 +5,28 @@ import {SubmitButton} from '../src/Shared'
 
 export default {
   title: 'DateTimePickerElement',
-  component: DateTimePickerElement
+  component: DateTimePickerElement,
 } as ComponentMeta<typeof DateTimePickerElement>
-
 
 const Template: ComponentStory<typeof DateTimePickerElement> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>
     <DateTimePickerElement {...args} />
-    <br/>
-    <SubmitButton/>
+    <br />
+    <SubmitButton />
   </FormContainer>
 )
-
 
 export const Basic = Template.bind({})
 Basic.args = {
   label: 'Datetime Picker',
-  name: 'basic'
+  name: 'basic',
 }
 
 export const RequiredPicker = Template.bind({})
 RequiredPicker.args = {
   label: 'Datetime Picker',
   name: 'required_picker',
-  required: true
+  required: true,
 }
 
 export const RequiredPickerCustom = Template.bind({})
@@ -36,7 +34,7 @@ RequiredPickerCustom.args = {
   label: 'Datetime Picker',
   name: 'required_picker_custom',
   required: true,
-  validation: {required: 'Custom required message'}
+  validation: {required: 'Custom required message'},
 }
 
 export const DisableTextInput = Template.bind({})
@@ -44,5 +42,5 @@ DisableTextInput.args = {
   label: 'Required Picker',
   name: 'requiredCustomMessage',
   required: true,
-  textReadOnly: true
+  textReadOnly: true,
 }
