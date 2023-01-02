@@ -7,28 +7,28 @@ import {
   FormContainer,
   PasswordElement,
   PasswordRepeatElement,
-  TextFieldElement
+  TextFieldElement,
 } from 'react-hook-form-mui/src'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import {SubmitButton} from '../src/Shared'
 
 export default {
   title: 'TextFieldElement',
-  component: TextFieldElement
+  component: TextFieldElement,
 } as ComponentMeta<typeof TextFieldElement>
 
 const Template: ComponentStory<typeof TextFieldElement> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>
     <TextFieldElement {...args} />
-    <br/>
-    <SubmitButton/>
+    <br />
+    <SubmitButton />
   </FormContainer>
 )
 
 export const Core = Template.bind({})
 Core.args = {
   name: 'core',
-  label: 'Label'
+  label: 'Label',
 }
 
 const parseError = (error: FieldError) => {
@@ -40,29 +40,34 @@ const parseError = (error: FieldError) => {
 
 export const Basic = () => {
   const form = {
-    agree: false
+    agree: false,
   }
 
   return (
-    <FormContainer defaultValues={form} onSuccess={action('submit')}
+    <FormContainer
+      defaultValues={form}
+      onSuccess={action('submit')}
       FormProps={{
         'aria-autocomplete': 'none',
-        autoComplete: 'new-password'
-      }}>
+        autoComplete: 'new-password',
+      }}
+    >
       <TextFieldElement
         required
         autoComplete={'new-password'}
         margin={'dense'}
         label={'Name'}
         name={'default-text-field'}
-      /><br/>
+      />
+      <br />
       <TextFieldElement
         required
         type={'email'}
         margin={'dense'}
         label={'Email'}
         name={'default-email-field'}
-      /><br/>
+      />
+      <br />
       <TextFieldElement
         required
         parseError={parseError}
@@ -70,43 +75,56 @@ export const Basic = () => {
         margin={'dense'}
         label={'Email with ParseError'}
         name={'default-email-field-with-parsed'}
-      /><br/>
+      />
+      <br />
       <TextFieldElement
         margin={'dense'}
         label={'Number'}
         name={'number-text-field'}
         required
         type={'number'}
-      /><br/>
-      <PasswordElement margin={'dense'}
+      />
+      <br />
+      <PasswordElement
+        margin={'dense'}
         label={'Password'}
         required
         name={'password'}
-      /><br/>
-      <PasswordRepeatElement passwordFieldName={'password'}
+      />
+      <br />
+      <PasswordRepeatElement
+        passwordFieldName={'password'}
         name={'password-repeat'}
         margin={'dense'}
         label={'Repeat Password'}
-        required/><br/>
-      <CheckboxElement name={'agree'} label={'Agree'} required/><br/>
-      <Button type={'submit'} color={'primary'} variant={'contained'}>Submit</Button>
+        required
+      />
+      <br />
+      <CheckboxElement name={'agree'} label={'Agree'} required />
+      <br />
+      <Button type={'submit'} color={'primary'} variant={'contained'}>
+        Submit
+      </Button>
     </FormContainer>
   )
 }
 
 export const PreDefined = () => (
-  <FormContainer defaultValues={{
-    'default-text-field': 'Test Data',
-    'default-email-field': 'info@nextjs.com',
-    'number-text-field': 6
-  }} onSuccess={action('submit')}
+  <FormContainer
+    defaultValues={{
+      'default-text-field': 'Test Data',
+      'default-email-field': 'info@nextjs.com',
+      'number-text-field': 6,
+    }}
+    onSuccess={action('submit')}
   >
     <TextFieldElement
       required
       margin={'dense'}
       label={'Name'}
       name={'default-text-field'}
-    /><br/>
+    />
+    <br />
     <TextFieldElement
       required
       parseError={parseError}
@@ -114,37 +132,42 @@ export const PreDefined = () => (
       margin={'dense'}
       label={'Email'}
       name={'default-email-field'}
-    /><br/>
+    />
+    <br />
     <TextFieldElement
       margin={'dense'}
       label={'Number'}
       name={'number-text-field'}
       required
       type={'number'}
-    /><br/>
-    <Button type={'submit'} color={'primary'} variant={'contained'}>Submit</Button>
+    />
+    <br />
+    <Button type={'submit'} color={'primary'} variant={'contained'}>
+      Submit
+    </Button>
   </FormContainer>
 )
 
-
 export const PreDefinedNested = () => (
-  <FormContainer defaultValues={{
-    a: {
-      'default-text-field': 'Test Data'
-    },
-    b: {
-      'default-email-field': 'info@nextjs.com',
-      'number-text-field': 6
-    }
-  }}
-  onSuccess={action('submit')}
+  <FormContainer
+    defaultValues={{
+      a: {
+        'default-text-field': 'Test Data',
+      },
+      b: {
+        'default-email-field': 'info@nextjs.com',
+        'number-text-field': 6,
+      },
+    }}
+    onSuccess={action('submit')}
   >
     <TextFieldElement
       required
       margin={'dense'}
       label={'Name'}
       name={'a.default-text-field'}
-    /><br/>
+    />
+    <br />
     <TextFieldElement
       required
       parseError={parseError}
@@ -152,44 +175,60 @@ export const PreDefinedNested = () => (
       margin={'dense'}
       label={'Email'}
       name={'b.default-email-field'}
-    /><br/>
+    />
+    <br />
     <TextFieldElement
       margin={'dense'}
       label={'Number'}
       name={'b.number-text-field'}
       required
       type={'number'}
-    /><br/>
-    <Button type={'submit'} color={'primary'} variant={'contained'}>Submit</Button>
+    />
+    <br />
+    <Button type={'submit'} color={'primary'} variant={'contained'}>
+      Submit
+    </Button>
   </FormContainer>
 )
 
-
 export const WithFormContext = () => {
-  const formContext = useForm<{ email: string, name: string }>({
+  const formContext = useForm<{email: string; name: string}>({
     defaultValues: {
       email: '',
-      name: ''
-    }
+      name: '',
+    },
   })
   const {watch} = formContext
   const emailValue = watch('email')
 
-  useEffect(
-    () => {
-      console.log('email changed', emailValue)
-    },
-    [emailValue]
-  )
+  useEffect(() => {
+    console.log('email changed', emailValue)
+  }, [emailValue])
   return (
-    <FormContainer onSuccess={action('submit')}
-      formContext={formContext}>
-      <TextFieldElement name={'name'} label={'Name'} parseError={parseError} required variant={'outlined'}
-        margin={'dense'}/><br/>
-      <TextFieldElement name={'email'} type="email" label={'Email'} required parseError={parseError}
-        variant={'outlined'} margin={'dense'}/><br/><br/>
-      <Button type={'submit'} color={'primary'} variant={'contained'}>Submit</Button>
+    <FormContainer onSuccess={action('submit')} formContext={formContext}>
+      <TextFieldElement
+        name={'name'}
+        label={'Name'}
+        parseError={parseError}
+        required
+        variant={'outlined'}
+        margin={'dense'}
+      />
+      <br />
+      <TextFieldElement
+        name={'email'}
+        type="email"
+        label={'Email'}
+        required
+        parseError={parseError}
+        variant={'outlined'}
+        margin={'dense'}
+      />
+      <br />
+      <br />
+      <Button type={'submit'} color={'primary'} variant={'contained'}>
+        Submit
+      </Button>
     </FormContainer>
   )
 }
-

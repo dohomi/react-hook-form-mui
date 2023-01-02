@@ -13,8 +13,8 @@ const Template: ComponentStory<typeof TimePickerElement> = (args) => (
   <DateFnsProvider>
     <FormContainer defaultValues={{}} onSuccess={action('submit')}>
       <TimePickerElement {...args} />
-      <br/>
-      <SubmitButton/>
+      <br />
+      <SubmitButton />
     </FormContainer>
   </DateFnsProvider>
 )
