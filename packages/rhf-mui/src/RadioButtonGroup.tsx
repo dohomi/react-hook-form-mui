@@ -108,7 +108,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
           }
           const isChecked = !!(
             value &&
-            (returnObject ? value[valueKey] === optionKey : value === optionKey)
+            (returnObject ? value[valueKey] == optionKey : value == optionKey)
           )
           return (
             <FormControlLabel
