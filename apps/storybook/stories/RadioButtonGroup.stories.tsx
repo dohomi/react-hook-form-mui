@@ -11,8 +11,8 @@ export default {
 const Template: ComponentStory<typeof RadioButtonGroup> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>
     <RadioButtonGroup {...args} />
-    <br />
-    <SubmitButton />
+    <br/>
+    <SubmitButton/>
   </FormContainer>
 )
 const options = [
@@ -42,3 +42,13 @@ Required.args = {
   required: true,
   options,
 }
+
+export const ValueAsNumber = Template.bind({})
+ValueAsNumber.args = {
+  label: 'Required',
+  name: 'number_value',
+  required: true,
+  type: 'number',
+  options: options.map(i => ({id: Number(i.id), label: i.label})),
+}
+
