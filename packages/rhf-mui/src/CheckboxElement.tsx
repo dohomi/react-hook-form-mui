@@ -68,8 +68,11 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
                     }}
                     value={value}
                     checked={!!value}
-                    onChange={() => {
+                    onChange={(ev) => {
                       onChange(!value)
+                      if (typeof rest.onChange === 'function') {
+                        rest.onChange(ev, !value)
+                      }
                     }}
                   />
                 }
