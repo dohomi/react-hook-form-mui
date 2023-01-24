@@ -56,10 +56,7 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({
-        field: {onChange, value, ref},
-        fieldState: {error, invalid},
-      }) => (
+      render={({field: {onChange, value}, fieldState: {error}}) => (
         <TimePicker
           {...rest}
           value={value || ''}
@@ -94,7 +91,7 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
               }}
               {...inputProps}
               required={!!required}
-              error={invalid}
+              error={!!error}
               helperText={
                 error
                   ? typeof parseError === 'function'
@@ -102,7 +99,6 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
                     : error.message
                   : inputProps?.helperText || rest.helperText
               }
-              inputRef={ref}
             />
           )}
         />

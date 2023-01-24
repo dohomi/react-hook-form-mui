@@ -64,7 +64,7 @@ export default function DateTimePickerElement<
       rules={validation}
       control={control}
       render={({
-        field: {onChange, value, onBlur, ref},
+        field: {onChange, value, onBlur},
         fieldState: {error, invalid},
       }) => (
         <DateTimePicker
@@ -120,7 +120,6 @@ export default function DateTimePickerElement<
                     : error.message
                   : inputProps?.helperText || rest.helperText
               }
-              inputRef={ref}
             />
           )}
         />

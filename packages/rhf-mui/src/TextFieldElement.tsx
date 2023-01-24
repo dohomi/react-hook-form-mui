@@ -49,14 +49,16 @@ export default function TextFieldElement<
       rules={validation}
       render={({
         field: {value, onChange, onBlur, ref},
-        fieldState: {invalid, error},
+        fieldState: {error},
       }) => (
         <TextField
           {...rest}
           name={name}
           value={value ?? ''}
           onChange={(ev) => {
-            onChange(ev)
+            onChange(
+              type === 'number' ? Number(ev.target.value) : ev.target.value
+            )
             if (typeof rest.onChange === 'function') {
               rest.onChange(ev)
             }
@@ -64,7 +66,7 @@ export default function TextFieldElement<
           onBlur={onBlur}
           required={required}
           type={type}
-          error={invalid}
+          error={!!error}
           helperText={
             error
               ? typeof parseError === 'function'
