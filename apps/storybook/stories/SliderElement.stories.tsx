@@ -11,8 +11,8 @@ export default {
 const Template: ComponentStory<typeof SliderElement> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>
     <SliderElement {...args} />
-    <br/>
-    <SubmitButton/>
+    <br />
+    <SubmitButton />
   </FormContainer>
 )
 
@@ -31,7 +31,7 @@ export const Required = Template.bind({})
 Required.args = {
   name: 'slider_required',
   label: 'Required Label',
-  required: true
+  required: true,
 }
 
 export const WithOptions = Template.bind({})

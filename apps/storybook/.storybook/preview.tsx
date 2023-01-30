@@ -9,20 +9,26 @@ import {ThemeProvider} from '@mui/material'
 import {DateFnsProvider} from 'react-hook-form-mui/src/date-fns'
 
 addParameters({
-    options: {
-        storySort: (a: any, b: any) =>
-            a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, {numeric: true})
-    }
+  options: {
+    storySort: (a: any, b: any) =>
+      a[1].kind === b[1].kind
+        ? 0
+        : a[1].id.localeCompare(b[1].id, undefined, {numeric: true}),
+  },
 })
 
 const clientSideEmotionCache = createEmotionCache()
 
-export const decorators = [(Story: Story) => (
+export const decorators = [
+  (Story: Story) => (
     <CacheProvider value={clientSideEmotionCache}>
-        <ThemeProvider theme={theme}>
-            <DateFnsProvider>
-                <Suspense fallback={<div>loading</div>}><Story/></Suspense>
-            </DateFnsProvider>
-        </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <DateFnsProvider>
+          <Suspense fallback={<div>loading</div>}>
+            <Story />
+          </Suspense>
+        </DateFnsProvider>
+      </ThemeProvider>
     </CacheProvider>
-)]
+  ),
+]

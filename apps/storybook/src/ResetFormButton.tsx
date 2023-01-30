@@ -1,12 +1,15 @@
-import { Button } from '@mui/material'
-import { useFormContext } from 'react-hook-form'
+import {Button} from '@mui/material'
+import {useFormContext} from 'react-hook-form'
 
 export default function ResetFormButton() {
-  const { reset } = useFormContext()
+  const {reset} = useFormContext()
   return (
-    <Button onClick={() => {
-      reset({})
-    }
-    }>Reset</Button>
+    <Button
+      onClick={() => {
+        reset({})
+      }}
+    >
+      Reset
+    </Button>
   )
 }

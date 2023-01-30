@@ -12,7 +12,7 @@ import {Layout} from '../components/Layout'
 const clientSideEmotionCache = createEmotionCache()
 
 interface MyAppProps extends AppProps {
-    emotionCache?: EmotionCache;
+  emotionCache?: EmotionCache
 }
 
 export default function MyApp(props: MyAppProps) {
@@ -21,10 +21,10 @@ export default function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <Head>
         <title>Demo for MUI react-hook-forms</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width"/>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <ThemeProvider theme={theme}>
-        <CssBaseline/>
+        <CssBaseline />
         <Layout>
           <Component {...pageProps} />
         </Layout>

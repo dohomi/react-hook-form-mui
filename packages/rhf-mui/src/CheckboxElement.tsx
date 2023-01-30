@@ -1,4 +1,10 @@
-import {Control, Controller, ControllerProps, FieldError, Path} from 'react-hook-form'
+import {
+  Control,
+  Controller,
+  ControllerProps,
+  FieldError,
+  Path,
+} from 'react-hook-form'
 import {
   Checkbox,
   CheckboxProps,
@@ -6,17 +12,20 @@ import {
   FormControlLabel,
   FormControlLabelProps,
   FormGroup,
-  FormHelperText
+  FormHelperText,
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
-export type CheckboxElementProps<T extends FieldValues> = Omit<CheckboxProps, 'name'> & {
-    validation?: ControllerProps['rules']
-    name: Path<T>
-    parseError?: (error: FieldError) => string
-    label?: FormControlLabelProps['label']
-    helperText?: string
-    control?: Control<T>
+export type CheckboxElementProps<T extends FieldValues> = Omit<
+  CheckboxProps,
+  'name'
+> & {
+  validation?: ControllerProps['rules']
+  name: Path<T>
+  parseError?: (error: FieldError) => string
+  label?: FormControlLabelProps['label']
+  helperText?: string
+  control?: Control<T>
 }
 
 export default function CheckboxElement<TFieldValues extends FieldValues>({
@@ -29,7 +38,6 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
   helperText,
   ...rest
 }: CheckboxElementProps<TFieldValues>): JSX.Element {
-
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -40,7 +48,11 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
       rules={validation}
       control={control}
       render={({field: {value, onChange}, fieldState: {invalid, error}}) => {
-        const parsedHelperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : helperText
+        const parsedHelperText = error
+          ? typeof parseError === 'function'
+            ? parseError(error)
+            : error.message
+          : helperText
         return (
           <FormControl required={required} error={invalid}>
             <FormGroup row>
@@ -52,7 +64,7 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
                     color={rest.color || 'primary'}
                     sx={{
                       ...rest.sx,
-                      color: invalid ? 'error.main' : undefined
+                      color: invalid ? 'error.main' : undefined,
                     }}
                     value={value}
                     checked={!!value}
@@ -63,7 +75,11 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
                 }
               />
             </FormGroup>
-            {parsedHelperText && <FormHelperText error={invalid}>{parsedHelperText}</FormHelperText>}
+            {parsedHelperText && (
+              <FormHelperText error={invalid}>
+                {parsedHelperText}
+              </FormHelperText>
+            )}
           </FormControl>
         )
       }}

@@ -1,4 +1,10 @@
-import {Control, Controller, ControllerProps, FieldError, Path} from 'react-hook-form'
+import {
+  Control,
+  Controller,
+  ControllerProps,
+  FieldError,
+  Path,
+} from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {
   FormControl,
@@ -8,18 +14,17 @@ import {
   ToggleButton,
   ToggleButtonGroup,
   ToggleButtonGroupProps,
-  ToggleButtonProps
+  ToggleButtonProps,
 } from '@mui/material'
 import {ReactNode} from 'react'
 
-type SingleToggleButtonProps =
-    Omit<ToggleButtonProps, 'value' | 'children'>
-    & {
-    id: number | string
-    label: ReactNode
+type SingleToggleButtonProps = Omit<ToggleButtonProps, 'value' | 'children'> & {
+  id: number | string
+  label: ReactNode
 }
 
-export type ToggleButtonGroupElementProps<T extends FieldValues> = ToggleButtonGroupProps & {
+export type ToggleButtonGroupElementProps<T extends FieldValues> =
+  ToggleButtonGroupProps & {
     required?: boolean
     label?: string
     validation?: ControllerProps['rules']
@@ -29,9 +34,11 @@ export type ToggleButtonGroupElementProps<T extends FieldValues> = ToggleButtonG
     options: SingleToggleButtonProps[]
     formLabelProps?: FormLabelProps
     helperText?: string
-}
+  }
 
-export default function ToggleButtonGroupElement<TFieldValues extends FieldValues = FieldValues>({
+export default function ToggleButtonGroupElement<
+  TFieldValues extends FieldValues = FieldValues
+>({
   name,
   control,
   label,
@@ -53,13 +60,27 @@ export default function ToggleButtonGroupElement<TFieldValues extends FieldValue
       name={name}
       control={control}
       rules={validation}
-      render={({field: {value, onChange, onBlur}, fieldState: {invalid, error}}) => {
-        const renderHelperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : helperText
+      render={({
+        field: {value, onChange, onBlur},
+        fieldState: {invalid, error},
+      }) => {
+        const renderHelperText = error
+          ? typeof parseError === 'function'
+            ? parseError(error)
+            : error.message
+          : helperText
         return (
           <FormControl error={invalid} required={isRequired}>
-            {label &&
-                            <FormLabel {...formLabelProps} error={invalid} required={isRequired}
-                              sx={{mb: 1, ...formLabelProps?.sx}}>{label}</FormLabel>}
+            {label && (
+              <FormLabel
+                {...formLabelProps}
+                error={invalid}
+                required={isRequired}
+                sx={{mb: 1, ...formLabelProps?.sx}}
+              >
+                {label}
+              </FormLabel>
+            )}
             <ToggleButtonGroup
               {...toggleButtonGroupProps}
               value={value}
@@ -72,10 +93,14 @@ export default function ToggleButtonGroupElement<TFieldValues extends FieldValue
               }}
             >
               {options.map(({label, id, ...toggleProps}) => (
-                <ToggleButton value={id} {...toggleProps} key={id}>{label}</ToggleButton>
+                <ToggleButton value={id} {...toggleProps} key={id}>
+                  {label}
+                </ToggleButton>
               ))}
             </ToggleButtonGroup>
-            {renderHelperText && <FormHelperText>{renderHelperText}</FormHelperText>}
+            {renderHelperText && (
+              <FormHelperText>{renderHelperText}</FormHelperText>
+            )}
           </FormControl>
         )
       }}

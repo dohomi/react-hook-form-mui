@@ -10,28 +10,31 @@ import {
   ListItemText,
   MenuItem,
   Select,
-  SelectProps
+  SelectProps,
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
-export type MultiSelectElementProps<T extends FieldValues> = Omit<SelectProps, 'value'> & {
-    options: { id: string | number, label: string }[] | any[]
-    label?: string
-    itemKey?: string
-    itemValue?: string
-    itemLabel?: string
-    required?: boolean
-    validation?: any
-    name: Path<T>
-    parseError?: (error: FieldError) => string
-    minWidth?: number
-    menuMaxHeight?: number
-    menuMaxWidth?: number
-    helperText?: string
-    showChips?: boolean
-    control?: Control<T>
-    showCheckbox?: boolean
-    formControlProps?: Omit<FormControlProps, 'fullWidth' | 'variant'>
+export type MultiSelectElementProps<T extends FieldValues> = Omit<
+  SelectProps,
+  'value'
+> & {
+  options: {id: string | number; label: string}[] | any[]
+  label?: string
+  itemKey?: string
+  itemValue?: string
+  itemLabel?: string
+  required?: boolean
+  validation?: any
+  name: Path<T>
+  parseError?: (error: FieldError) => string
+  minWidth?: number
+  menuMaxHeight?: number
+  menuMaxWidth?: number
+  helperText?: string
+  showChips?: boolean
+  control?: Control<T>
+  showCheckbox?: boolean
+  formControlProps?: Omit<FormControlProps, 'fullWidth' | 'variant'>
 }
 
 const ITEM_HEIGHT = 48
@@ -57,7 +60,6 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
   formControlProps,
   ...rest
 }: MultiSelectElementProps<TFieldValues>): JSX.Element {
-
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -67,8 +69,15 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({field: {value, onChange, onBlur}, fieldState: {invalid, error}}) => {
-        helperText = error ? (typeof parseError === 'function' ? parseError(error) : error.message) : helperText
+      render={({
+        field: {value, onChange, onBlur},
+        fieldState: {invalid, error},
+      }) => {
+        helperText = error
+          ? typeof parseError === 'function'
+            ? parseError(error)
+            : error.message
+          : helperText
         return (
           <FormControl
             {...formControlProps}
@@ -84,8 +93,10 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
             {label && (
               <InputLabel
                 size={rest.size === 'small' ? 'small' : undefined}
-                error={invalid} htmlFor={rest.id || `select-multi-select-${name}`}
-                required={required}>
+                error={invalid}
+                htmlFor={rest.id || `select-multi-select-${name}`}
+                required={required}
+              >
                 {label}
               </InputLabel>
             )}
@@ -102,49 +113,65 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
               MenuProps={{
                 ...rest.MenuProps,
                 PaperProps: {
-                  ...rest.MenuProps?.PaperProps ?? {
+                  ...(rest.MenuProps?.PaperProps ?? {
                     style: {
                       maxHeight: menuMaxHeight,
                       width: menuMaxWidth,
-                      ...rest.MenuProps?.PaperProps?.style
-                    }
-                  }
-                }
+                      ...rest.MenuProps?.PaperProps?.style,
+                    },
+                  }),
+                },
               }}
-              renderValue={typeof rest.renderValue === 'function' ? rest.renderValue : showChips ? (selected) => (
-                <div style={{display: 'flex', flexWrap: 'wrap'}}>
-                  {(selected as any[] || []).map((selectedValue) => (
-                    <Chip
-                      key={selectedValue}
-                      label={selectedValue}
-                      style={{display: 'flex', flexWrap: 'wrap'}}
-                      onDelete={() => {
-                        onChange(value.filter((i: any) => i !== selectedValue))
-                        // setValue(name, formValue.filter((i: any) => i !== value), { shouldValidate: true })
-                      }}
-                      deleteIcon={<CloseIcon
-                        onMouseDown={(ev) => {
-                          ev.stopPropagation()
-                        }}/>
-                      }
-                    />
-                  ))}
-                </div>
-              ) : (selected) => Array.isArray(selected) ? selected.join(', ') : ''}
+              renderValue={
+                typeof rest.renderValue === 'function'
+                  ? rest.renderValue
+                  : showChips
+                  ? (selected) => (
+                      <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                        {((selected as any[]) || []).map((selectedValue) => (
+                          <Chip
+                            key={selectedValue}
+                            label={selectedValue}
+                            style={{display: 'flex', flexWrap: 'wrap'}}
+                            onDelete={() => {
+                              onChange(
+                                value.filter((i: any) => i !== selectedValue)
+                              )
+                              // setValue(name, formValue.filter((i: any) => i !== value), { shouldValidate: true })
+                            }}
+                            deleteIcon={
+                              <CloseIcon
+                                onMouseDown={(ev) => {
+                                  ev.stopPropagation()
+                                }}
+                              />
+                            }
+                          />
+                        ))}
+                      </div>
+                    )
+                  : (selected) =>
+                      Array.isArray(selected) ? selected.join(', ') : ''
+              }
             >
               {options.map((item) => {
                 const val: string | number = item[itemValue || itemKey] || item
-                const isChecked = Array.isArray(value) ? value.includes(val) : false
+                const isChecked = Array.isArray(value)
+                  ? value.includes(val)
+                  : false
                 return (
                   <MenuItem
                     key={val}
                     value={val}
                     sx={{
-                      fontWeight: (theme) => isChecked ? theme.typography.fontWeightBold : theme.typography.fontWeightRegular
+                      fontWeight: (theme) =>
+                        isChecked
+                          ? theme.typography.fontWeightBold
+                          : theme.typography.fontWeightRegular,
                     }}
                   >
-                    {showCheckbox && <Checkbox checked={isChecked}/>}
-                    <ListItemText primary={item[itemLabel] || item}/>
+                    {showCheckbox && <Checkbox checked={isChecked} />}
+                    <ListItemText primary={item[itemLabel] || item} />
                   </MenuItem>
                 )
               })}
@@ -156,4 +183,3 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
     />
   )
 }
-

@@ -5,7 +5,7 @@ import {SubmitButton} from '../src/Shared'
 
 export default {
   title: 'RadioButtonGroup',
-  component: RadioButtonGroup
+  component: RadioButtonGroup,
 } as ComponentMeta<typeof RadioButtonGroup>
 
 const Template: ComponentStory<typeof RadioButtonGroup> = (args) => (
@@ -15,13 +15,16 @@ const Template: ComponentStory<typeof RadioButtonGroup> = (args) => (
     <SubmitButton/>
   </FormContainer>
 )
-const options = [{id: '1', label: 'Label 1'}, {id: '2', label: 'label 2'}]
+const options = [
+  {id: '1', label: 'Label 1'},
+  {id: '2', label: 'label 2'},
+]
 
 export const Basic = Template.bind({})
 Basic.args = {
   label: 'Basic',
   name: 'basic',
-  options
+  options,
 }
 
 export const Inline = Template.bind({})
@@ -29,7 +32,7 @@ Inline.args = {
   label: 'Inline',
   name: 'inline',
   row: true,
-  options
+  options,
 }
 
 export const Required = Template.bind({})
@@ -37,5 +40,15 @@ Required.args = {
   label: 'Required',
   name: 'inline',
   required: true,
-  options
+  options,
 }
+
+export const ValueAsNumber = Template.bind({})
+ValueAsNumber.args = {
+  label: 'Required',
+  name: 'number_value',
+  required: true,
+  type: 'number',
+  options: options.map(i => ({id: Number(i.id), label: i.label})),
+}
+

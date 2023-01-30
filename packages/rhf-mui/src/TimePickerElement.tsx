@@ -1,4 +1,4 @@
-import { TimePicker, TimePickerProps } from '@mui/x-date-pickers/TimePicker'
+import {TimePicker, TimePickerProps} from '@mui/x-date-pickers/TimePicker'
 import {
   Control,
   Controller,
@@ -6,8 +6,8 @@ import {
   FieldError,
   Path,
 } from 'react-hook-form'
-import { TextField, TextFieldProps } from '@mui/material'
-import { FieldValues } from 'react-hook-form/dist/types/fields'
+import {TextField, TextFieldProps} from '@mui/material'
+import {FieldValues} from 'react-hook-form/dist/types/fields'
 
 export declare type ParseableDate<TDate> =
   | string
@@ -56,10 +56,7 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({
-        field: { onChange, value, ref },
-        fieldState: { error, invalid },
-      }) => (
+      render={({field: {onChange, value}, fieldState: {error}}) => (
         <TimePicker
           {...rest}
           ref={(r) => {
@@ -97,7 +94,7 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
               }}
               {...inputProps}
               required={!!required}
-              error={invalid}
+              error={!!error}
               helperText={
                 error
                   ? typeof parseError === 'function'

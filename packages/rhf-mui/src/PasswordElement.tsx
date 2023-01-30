@@ -5,9 +5,10 @@ import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
-export type PasswordElementProps<T extends FieldValues> = TextFieldElementProps<T> & {
+export type PasswordElementProps<T extends FieldValues> =
+  TextFieldElementProps<T> & {
     iconColor?: IconButtonProps['color']
-}
+  }
 
 export default function PasswordElement<TFieldValues extends FieldValues>({
   iconColor,
@@ -28,10 +29,10 @@ export default function PasswordElement<TFieldValues extends FieldValues>({
               tabIndex={-1}
               color={iconColor ?? 'default'}
             >
-              {password ? <Visibility/> : <VisibilityOff/>}
+              {password ? <Visibility /> : <VisibilityOff />}
             </IconButton>
           </InputAdornment>
-        )
+        ),
       }}
       type={password ? 'password' : 'text'}
     />

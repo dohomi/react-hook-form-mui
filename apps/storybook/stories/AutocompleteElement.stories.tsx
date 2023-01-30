@@ -7,17 +7,19 @@ import LocationIcon from '@mui/icons-material/LocationOn'
 
 export default {
   title: 'Autocomplete',
-  component: AutocompleteElement
+  component: AutocompleteElement,
 } as ComponentMeta<typeof AutocompleteElement>
 
 const FormWrap: FC<PropsWithChildren> = ({children}) => (
-  <FormContainer onSuccess={action('form-submit')}
+  <FormContainer
+    onSuccess={action('form-submit')}
     defaultValues={{
       preselect: {id: 2, label: 'Second'},
       'multi-preselect': [{id: 2, label: 'Second'}],
       'match-id': 2,
       'match-id-multi': [2, 3],
-    }}>
+    }}
+  >
     {children}
     <Box marginTop={2}>
       <Button type={'submit'}>Submit</Button>
@@ -33,29 +35,34 @@ const Template: ComponentStory<typeof AutocompleteElement> = (args) => {
   )
 }
 
-const options = [{label: 'First', id: 1}, {label: 'Second', id: 2}, {label: 'Third', id: 3}, {
-  label: 'Four',
-  id: 4
-}]
+const options = [
+  {label: 'First', id: 1},
+  {label: 'Second', id: 2},
+  {label: 'Third', id: 3},
+  {
+    label: 'Four',
+    id: 4,
+  },
+]
 
 export const Basic = Template.bind({})
 
 Basic.args = {
   name: 'basic',
-  options
+  options,
 }
 
 export const BasicPreSelect = Template.bind({})
 BasicPreSelect.args = {
   name: 'preselect',
-  options
+  options,
 }
 
 export const MultiSelect = Template.bind({})
 MultiSelect.args = {
   name: 'multi',
   options,
-  multiple: true
+  multiple: true,
 }
 
 export const MultiSelectRequired = Template.bind({})
@@ -64,7 +71,7 @@ MultiSelectRequired.args = {
   name: 'multi-required',
   options,
   multiple: true,
-  required: true
+  required: true,
 }
 
 export const MultiSelectRequiredCustom = Template.bind({})
@@ -74,15 +81,15 @@ MultiSelectRequiredCustom.args = {
   options,
   multiple: true,
   rules: {
-    required: 'Please fill out.'
-  }
+    required: 'Please fill out.',
+  },
 }
 
 export const MultiSelectPredefined = Template.bind({})
 MultiSelectPredefined.args = {
   name: 'multi-preselect',
   options,
-  multiple: true
+  multiple: true,
 }
 
 export const MultiSelectCheckbox = Template.bind({})
@@ -90,7 +97,7 @@ MultiSelectCheckbox.args = {
   name: 'multicheck',
   options,
   multiple: true,
-  showCheckbox: true
+  showCheckbox: true,
 }
 
 export const Loading = Template.bind({})
@@ -100,7 +107,7 @@ Loading.args = {
   options: [],
   multiple: true,
   showCheckbox: true,
-  loading: true
+  loading: true,
 }
 
 export const MatchId = Template.bind({})
@@ -108,7 +115,7 @@ MatchId.args = {
   label: 'Match ID',
   name: 'match-id',
   options,
-  matchId: true
+  matchId: true,
 }
 
 export const MatchIdMulti = Template.bind({})
@@ -117,7 +124,7 @@ MatchIdMulti.args = {
   name: 'match-id-multi',
   options,
   multiple: true,
-  matchId: true
+  matchId: true,
 }
 
 export const CustomInput = Template.bind({})
@@ -126,6 +133,6 @@ CustomInput.args = {
   options,
   textFieldProps: {
     placeholder: 'Some placeholder',
-    InputProps: {startAdornment: <LocationIcon/>, endAdornment: null},
-  }
+    InputProps: {startAdornment: <LocationIcon />, endAdornment: null},
+  },
 }

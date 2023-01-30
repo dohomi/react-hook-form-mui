@@ -1,26 +1,40 @@
 import {Control, Controller, ControllerProps, Path} from 'react-hook-form'
-import {Autocomplete, AutocompleteProps, Checkbox, TextField, TextFieldProps} from '@mui/material'
+import {
+  Autocomplete,
+  AutocompleteProps,
+  Checkbox,
+  TextField,
+  TextFieldProps,
+} from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 
-export type AutocompleteElementProps<F extends FieldValues, T, M extends boolean | undefined, D extends boolean | undefined> = {
-    name: Path<F>
-    control?: Control<F>
-    options: T[]
-    loading?: boolean
-    multiple?: M
-    matchId?: boolean
-    rules?: ControllerProps['rules']
-    required?: boolean
-    label?: TextFieldProps['label']
-    showCheckbox?: boolean
-    autocompleteProps?: Omit<AutocompleteProps<T, M, D, any>, 'name' | 'options' | 'loading' | 'renderInput'>
-    textFieldProps?: Omit<TextFieldProps, 'name' | 'required' | 'label'>
+export type AutocompleteElementProps<
+  F extends FieldValues,
+  T,
+  M extends boolean | undefined,
+  D extends boolean | undefined
+> = {
+  name: Path<F>
+  control?: Control<F>
+  options: T[]
+  loading?: boolean
+  multiple?: M
+  matchId?: boolean
+  rules?: ControllerProps['rules']
+  required?: boolean
+  label?: TextFieldProps['label']
+  showCheckbox?: boolean
+  autocompleteProps?: Omit<
+    AutocompleteProps<T, M, D, any>,
+    'name' | 'options' | 'loading' | 'renderInput'
+  >
+  textFieldProps?: Omit<TextFieldProps, 'name' | 'required' | 'label'>
 }
 
 type AutoDefault = {
-    id: string | number // must keep id in case of keepObject
-    label: string
+  id: string | number // must keep id in case of keepObject
+  label: string
 }
 
 export default function AutocompleteElement<TFieldValues extends FieldValues>({
@@ -35,24 +49,31 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
   required,
   multiple,
   matchId,
-  label
-}: AutocompleteElementProps<TFieldValues, AutoDefault | string | any, boolean | undefined, boolean | undefined>) {
+  label,
+}: AutocompleteElementProps<
+  TFieldValues,
+  AutoDefault | string | any,
+  boolean | undefined,
+  boolean | undefined
+>) {
   const validationRules: ControllerProps['rules'] = {
     ...rules,
     ...(required && {
-      required: rules?.required || 'This field is required'
-    })
+      required: rules?.required || 'This field is required',
+    }),
   }
   return (
     <Controller
       name={name}
       control={control}
       rules={validationRules}
-      render={({field: {onChange, onBlur, value, ref, ...fieldRest}, fieldState: {error}}) => {
+      render={({field: {onChange, onBlur, value}, fieldState: {error}}) => {
         let currentValue = multiple ? value || [] : value || null
         if (matchId) {
           currentValue = multiple
-            ? (value || []).map((i: any) => options.find((j) => (j.id || j) === i))
+            ? (value || []).map((i: any) =>
+                options.find((j) => (j.id || j) === i)
+              )
             : options.find((i) => (i.id || i) === value) || null
         }
         return (
@@ -62,22 +83,29 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
             loading={loading}
             multiple={multiple}
             options={options}
-            disableCloseOnSelect={typeof autocompleteProps?.disableCloseOnSelect === 'boolean' ? autocompleteProps.disableCloseOnSelect : !!multiple}
-            isOptionEqualToValue={autocompleteProps?.isOptionEqualToValue ?
-              autocompleteProps.isOptionEqualToValue :
-              (option, value) => {
-                return value ? option.id === (value?.id || value) : false
-              }}
-            getOptionLabel={autocompleteProps?.getOptionLabel ?
-              autocompleteProps.getOptionLabel :
-              (option) => {
-                return `${option?.label || option}`
-              }
+            disableCloseOnSelect={
+              typeof autocompleteProps?.disableCloseOnSelect === 'boolean'
+                ? autocompleteProps.disableCloseOnSelect
+                : !!multiple
+            }
+            isOptionEqualToValue={
+              autocompleteProps?.isOptionEqualToValue
+                ? autocompleteProps.isOptionEqualToValue
+                : (option, value) => {
+                    return value ? option.id === (value?.id || value) : false
+                  }
+            }
+            getOptionLabel={
+              autocompleteProps?.getOptionLabel
+                ? autocompleteProps.getOptionLabel
+                : (option) => {
+                    return `${option?.label || option}`
+                  }
             }
             onChange={(event, value, reason, details) => {
               let changedVal = value
               if (matchId) {
-                changedVal = (Array.isArray(value))
+                changedVal = Array.isArray(value)
                   ? value.map((i: any) => i?.id || i)
                   : value?.id || value
               }
@@ -86,15 +114,19 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                 autocompleteProps.onChange(event, value, reason, details)
               }
             }}
-            renderOption={autocompleteProps?.renderOption ?? (showCheckbox ? (props, option, {selected}) => (
-              <li {...props}>
-                <Checkbox
-                  sx={{marginRight: 1}}
-                  checked={selected}
-                />
-                {autocompleteProps?.getOptionLabel?.(option) || option.label || option}
-              </li>
-            ) : undefined)}
+            renderOption={
+              autocompleteProps?.renderOption ??
+              (showCheckbox
+                ? (props, option, {selected}) => (
+                    <li {...props}>
+                      <Checkbox sx={{marginRight: 1}} checked={selected} />
+                      {autocompleteProps?.getOptionLabel?.(option) ||
+                        option.label ||
+                        option}
+                    </li>
+                  )
+                : undefined)
+            }
             onBlur={(event) => {
               onBlur()
               if (typeof autocompleteProps?.onBlur === 'function') {
@@ -102,7 +134,8 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
               }
             }}
             renderInput={(params) => (
-              <TextField name={name}
+              <TextField
+                name={name}
                 required={rules?.required ? true : required}
                 label={label}
                 {...textFieldProps}
@@ -112,23 +145,24 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                   ...params.InputProps,
                   endAdornment: (
                     <>
-                      {loading ? <CircularProgress color="inherit" size={20}/> : null}
+                      {loading ? (
+                        <CircularProgress color="inherit" size={20} />
+                      ) : null}
                       {params.InputProps.endAdornment}
                     </>
                   ),
-                  ...textFieldProps?.InputProps
+                  ...textFieldProps?.InputProps,
                 }}
                 inputProps={{
                   ...params.inputProps,
-                  ...textFieldProps?.inputProps
+                  ...textFieldProps?.inputProps,
                 }}
                 helperText={error ? error.message : textFieldProps?.helperText}
-                inputRef={ref}
               />
             )}
-            {...fieldRest}
           />
         )
-      }}/>
+      }}
+    />
   )
 }
