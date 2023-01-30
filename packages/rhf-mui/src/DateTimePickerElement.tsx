@@ -55,6 +55,9 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
       }) => (
         <DateTimePicker
           {...rest}
+          ref={(r) => {
+            ref(r?.querySelector('input'))
+          }}
           value={value || ''}
           onClose={(...args) => {
             onBlur()
@@ -106,7 +109,6 @@ export default function DateTimePickerElement<TFieldValues extends FieldValues>(
                     : error.message
                   : inputProps?.helperText || rest.helperText
               }
-              inputRef={ref}
             />
           )}
         />

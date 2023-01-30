@@ -62,6 +62,9 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
       }) => (
         <TimePicker
           {...rest}
+          ref={(r) => {
+            ref(r?.querySelector('input'))
+          }}
           value={value || ''}
           onChange={(value, keyboardInputValue) => {
             let newValue: string | null = null
@@ -102,7 +105,6 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
                     : error.message
                   : inputProps?.helperText || rest.helperText
               }
-              inputRef={ref}
             />
           )}
         />
