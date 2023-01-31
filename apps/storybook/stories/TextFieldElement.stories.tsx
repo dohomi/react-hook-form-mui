@@ -100,7 +100,12 @@ export const Basic = () => {
         required
       />
       <br />
-      <CheckboxElement name={'agree'} label={'Agree'} required />
+      <CheckboxElement
+        name={'agree'}
+        label={'Agree'}
+        required
+        onChange={(ev, checked) => console.log(ev, checked)}
+      />
       <br />
       <Button type={'submit'} color={'primary'} variant={'contained'}>
         Submit
