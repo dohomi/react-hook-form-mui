@@ -34,7 +34,8 @@ export type ToggleButtonGroupElementProps<T extends FieldValues> =
     options: SingleToggleButtonProps[]
     formLabelProps?: FormLabelProps
     helperText?: string
-  }
+    enforceAtLeastOneSelected? : boolean,
+}
 
 export default function ToggleButtonGroupElement<
   TFieldValues extends FieldValues = FieldValues
@@ -48,6 +49,8 @@ export default function ToggleButtonGroupElement<
   parseError,
   helperText,
   formLabelProps,
+  enforceAtLeastOneSelected = false,
+  exclusive,
   ...toggleButtonGroupProps
 }: ToggleButtonGroupElementProps<TFieldValues>) {
   if (required && !validation.required) {
@@ -83,9 +86,15 @@ export default function ToggleButtonGroupElement<
             )}
             <ToggleButtonGroup
               {...toggleButtonGroupProps}
+              exclusive={exclusive}
               value={value}
               onBlur={onBlur}
               onChange={(event, val) => {
+                if (enforceAtLeastOneSelected) {
+                  // don't allow unselecting the last item
+                  if (exclusive && val === null) return
+                  if (!exclusive && val.length === 0) return
+                }
                 onChange(val)
                 if (typeof toggleButtonGroupProps.onChange === 'function') {
                   toggleButtonGroupProps.onChange(event, val)
