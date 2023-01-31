@@ -34,8 +34,8 @@ export type ToggleButtonGroupElementProps<T extends FieldValues> =
     options: SingleToggleButtonProps[]
     formLabelProps?: FormLabelProps
     helperText?: string
-    enforceAtLeastOneSelected? : boolean,
-}
+    enforceAtLeastOneSelected?: boolean
+  }
 
 export default function ToggleButtonGroupElement<
   TFieldValues extends FieldValues = FieldValues

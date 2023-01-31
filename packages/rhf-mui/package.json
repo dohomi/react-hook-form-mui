@@ -1,5 +1,5 @@
 {
-  "version": "5.13.0",
+  "version": "5.12.4",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.vercel.app",
@@ -32,7 +32,8 @@
     "watch": "tsup src/index.ts --clean --format esm,cjs --watch --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
     "release-minor": "npm run build && npm run check-types && release minor",
     "release-patch": "npm run build && npm run check-types && release patch",
-    "release-major": "npm run build && npm run check-types && release major"
+    "release-major": "npm run build && npm run check-types && release major",
+    "npmPublish": "npm publish"
   },
   "peerDependencies": {
     "@mui/icons-material": ">= 5.x <6",

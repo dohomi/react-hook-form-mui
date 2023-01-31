@@ -71,6 +71,14 @@ Exclusive.args = {
   exclusive: true,
 }
 
+export const EnforceOne = Template.bind({})
+EnforceOne.args = {
+  name: 'exclusive',
+  options,
+  exclusive: true,
+  enforceAtLeastOneSelected: true,
+}
+
 export const WithIcons = Template.bind({})
 WithIcons.args = {
   name: 'exclusive',
