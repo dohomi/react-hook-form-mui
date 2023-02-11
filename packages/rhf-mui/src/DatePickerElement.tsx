@@ -8,6 +8,7 @@ import {
 } from 'react-hook-form'
 import {TextField, TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {mergeProps} from './utils'
 
 export declare type ParseableDate<TDate> =
   | string
@@ -29,16 +30,20 @@ export type DatePickerElementProps<
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => string
-  onChange?: (value: TDate, keyboardInputValue?: string) => void
+  onChange?: (value: TDate | null, keyboardInputValue?: string) => void
   validation?: ControllerProps['rules']
-  parseDate?: (value: TDate, keyboardInputValue?: string) => TDate
+  parseDate?: (value: TDate | null, keyboardInputValue?: string) => TDate
   control?: Control<T>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
 }
 
-export default function DatePickerElement<TFieldValues extends FieldValues>({
+export default function DatePickerElement<
+  TFieldValues extends FieldValues,
+  TInputDate,
+  TDate = TInputDate
+>({
   parseError,
   name,
   required,
@@ -48,7 +53,7 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
   control,
   textReadOnly,
   ...rest
-}: DatePickerElementProps<TFieldValues, any, any>): JSX.Element {
+}: DatePickerElementProps<TFieldValues, TInputDate, TDate>): JSX.Element {
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -63,62 +68,43 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
         fieldState: {error, invalid},
       }) => (
         <DatePicker
-          {...rest}
-          ref={(r) => {
-            ref(r?.querySelector('input'))
-          }}
-          value={value || ''}
-          onClose={(...args) => {
-            onBlur()
-            if (rest.onClose) rest.onClose(...args)
-          }}
-          onChange={(value, keyboardInputValue) => {
-            let newValue: undefined | string = undefined
-            if (keyboardInputValue) {
-              if (typeof parseDate === 'function') {
-                newValue = parseDate(value, keyboardInputValue)
-              } else {
-                newValue = value
-              }
-            } else {
-              if (typeof parseDate === 'function') {
-                newValue = parseDate(value)
-              } else {
-                newValue = value
-              }
-            }
+          {...mergeProps(rest, {
+            value: value,
+            onClose: onBlur,
+            onChange: (value, keyboardInputValue) => {
+              const newValue =
+                typeof parseDate === 'function'
+                  ? parseDate(value, keyboardInputValue)
+                  : value
 
-            onChange(newValue, keyboardInputValue)
-            if (typeof rest.onChange === 'function') {
-              rest.onChange(newValue, keyboardInputValue)
-            }
-          }}
+              onChange(newValue, keyboardInputValue)
+            },
+            ref: (r) => {
+              ref(r?.querySelector('input'))
+            },
+          })}
           renderInput={(params) => (
             <TextField
-              {...params}
-              onBlur={(...args) => {
-                onBlur()
-                if (params.onBlur) params.onBlur(...args)
-              }}
-              inputProps={{
-                ...params?.inputProps,
-                ...(!value && {
-                  value: '',
-                }),
-                ...(textReadOnly && {
-                  readOnly: true,
-                }),
-              }}
-              {...inputProps}
-              required={!!required}
-              error={invalid}
-              helperText={
-                error
-                  ? typeof parseError === 'function'
-                    ? parseError(error)
-                    : error.message
-                  : inputProps?.helperText || rest.helperText
-              }
+              {...mergeProps(
+                params,
+                {
+                  onBlur: onBlur,
+                  inputProps: {
+                    ...(textReadOnly && {
+                      readOnly: true,
+                    }),
+                  },
+
+                  required: !!required,
+                  error: invalid,
+                  helperText: error
+                    ? typeof parseError === 'function'
+                      ? parseError(error)
+                      : error.message
+                    : inputProps?.helperText || rest.helperText,
+                },
+                {inputProps}
+              )}
             />
           )}
         />
