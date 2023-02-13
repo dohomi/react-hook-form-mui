@@ -57,7 +57,9 @@ export default function TextFieldElement<
           value={value ?? ''}
           onChange={(ev) => {
             onChange(
-              type === 'number' ? Number(ev.target.value) : ev.target.value
+              type === 'number' && ev.target.value
+                ? +ev.target.value
+                : ev.target.value
             )
             if (typeof rest.onChange === 'function') {
               rest.onChange(ev)
