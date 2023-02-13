@@ -70,7 +70,7 @@ export default function SelectElement<TFieldValues extends FieldValues>({
             onBlur={onBlur}
             onChange={(event) => {
               let item: number | string = event.target.value
-              if (type === 'number') {
+              if (type === 'number' && item) {
                 item = Number(item)
               }
               onChange(item)
