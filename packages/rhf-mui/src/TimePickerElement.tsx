@@ -31,20 +31,20 @@ export type TimePickerElementProps<
   parseError?: (error: FieldError) => string
   onChange?: (value: TDate, keyboardInputValue?: string) => void
   validation?: ControllerProps['rules']
-  parseDate?: (value: TDate, keyboardInputValue?: string) => TDate
   control?: Control<T>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
+  textReadOnly?: boolean
 }
 
 export default function TimePickerElement<TFieldValues extends FieldValues>({
   parseError,
   name,
   required,
-  parseDate,
   validation = {},
   inputProps,
   control,
+  textReadOnly,
   ...rest
 }: TimePickerElementProps<TFieldValues, string | null>): JSX.Element {
   if (required && !validation.required) {
@@ -56,45 +56,30 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({field: {onChange, value, ref}, fieldState: {error}}) => (
+      defaultValue={null as any}
+      render={({field, fieldState: {error}}) => (
         <TimePicker
           {...rest}
+          {...field}
           ref={(r) => {
-            ref(r?.querySelector('input'))
+            field.ref(r?.querySelector('input'))
           }}
-          value={value || ''}
-          onChange={(value, keyboardInputValue) => {
-            let newValue: string | null = null
-            if (keyboardInputValue) {
-              if (typeof parseDate === 'function') {
-                newValue = parseDate(value, keyboardInputValue)
-              } else {
-                newValue = keyboardInputValue
-              }
-            } else {
-              if (typeof parseDate === 'function') {
-                newValue = parseDate(value)
-              } else {
-                newValue = value
-              }
+          onClose={(...args) => {
+            field.onBlur()
+            if (rest.onClose) {
+              rest.onClose(...args)
             }
-            onChange(newValue, keyboardInputValue)
+          }}
+          onChange={(v, keyboardInputValue) => {
+            // console.log(v, keyboardInputValue)
+            field.onChange(v, keyboardInputValue)
             if (typeof rest.onChange === 'function') {
-              rest.onChange(newValue, keyboardInputValue)
+              rest.onChange(v, keyboardInputValue)
             }
           }}
-          renderInput={(params) => (
+          renderInput={({error: inputError, ...params}) => (
             <TextField
-              {...params}
-              inputProps={{
-                ...params?.inputProps,
-                ...(!value && {
-                  value: '',
-                }),
-              }}
               {...inputProps}
-              required={!!required}
-              error={!!error}
               helperText={
                 error
                   ? typeof parseError === 'function'
@@ -102,6 +87,14 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
                     : error.message
                   : inputProps?.helperText || rest.helperText
               }
+              {...params}
+              error={!!error}
+              inputProps={{
+                ...params?.inputProps,
+                ...(textReadOnly && {
+                  readOnly: true,
+                }),
+              }}
             />
           )}
         />

@@ -26,7 +26,7 @@ export type DateTimePickerElementProps<
   TDate = TInputDate
 > = Omit<
   DateTimePickerProps<TInputDate, TDate>,
-  'value' | 'onChange' | 'renderInput'
+  'value' | 'onChange' | 'renderInput' | 'inputFormat'
 > & {
   name: Path<T>
   required?: boolean
@@ -34,7 +34,6 @@ export type DateTimePickerElementProps<
   parseError?: (error: FieldError) => string
   onChange?: (value: TDate, keyboardInputValue?: string) => void
   validation?: ControllerProps['rules']
-  parseDate?: (value: TDate, keyboardInputValue?: string) => TDate
   control?: Control<T>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
@@ -47,7 +46,6 @@ export default function DateTimePickerElement<
   parseError,
   name,
   required,
-  parseDate,
   validation = {},
   inputProps,
   control,
@@ -63,59 +61,29 @@ export default function DateTimePickerElement<
       name={name}
       rules={validation}
       control={control}
-      render={({
-        field: {onChange, value, onBlur, ref},
-        fieldState: {error, invalid},
-      }) => (
+      defaultValue={'' as any}
+      render={({field, fieldState: {error}}) => (
         <DateTimePicker
           {...rest}
+          {...field}
           ref={(r) => {
-            ref(r?.querySelector('input'))
+            field.ref(r?.querySelector('input'))
           }}
-          value={value || ''}
           onClose={(...args) => {
-            onBlur()
-            if (rest.onClose) rest.onClose(...args)
-          }}
-          onChange={(value, keyboardInputValue) => {
-            let newValue: string | undefined = undefined
-            if (keyboardInputValue) {
-              if (typeof parseDate === 'function') {
-                newValue = parseDate(value, keyboardInputValue)
-              } else {
-                newValue = value
-              }
-            } else {
-              if (typeof parseDate === 'function') {
-                newValue = parseDate(value)
-              } else {
-                newValue = value
-              }
+            field.onBlur()
+            if (rest.onClose) {
+              rest.onClose(...args)
             }
-            onChange(newValue, keyboardInputValue)
+          }}
+          onChange={(v, keyboardInputValue) => {
+            field.onChange(v, keyboardInputValue)
             if (typeof rest.onChange === 'function') {
-              rest.onChange(newValue, keyboardInputValue)
+              rest.onChange(v, keyboardInputValue)
             }
           }}
-          renderInput={(params) => (
+          renderInput={({error: inputError, ...params}) => (
             <TextField
-              {...params}
-              onBlur={(...args) => {
-                onBlur()
-                if (params.onBlur) params.onBlur(...args)
-              }}
-              inputProps={{
-                ...params?.inputProps,
-                ...(!value && {
-                  value: '',
-                }),
-                ...(textReadOnly && {
-                  readOnly: true,
-                }),
-              }}
               {...inputProps}
-              required={!!required}
-              error={invalid}
               helperText={
                 error
                   ? typeof parseError === 'function'
@@ -123,6 +91,14 @@ export default function DateTimePickerElement<
                     : error.message
                   : inputProps?.helperText || rest.helperText
               }
+              {...params}
+              error={!!error}
+              inputProps={{
+                ...params?.inputProps,
+                ...(textReadOnly && {
+                  readOnly: true,
+                }),
+              }}
             />
           )}
         />
