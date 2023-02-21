@@ -3,6 +3,7 @@ import {
   CheckboxProps,
   FormControl,
   FormControlLabel,
+  FormControlLabelProps,
   FormGroup,
   FormHelperText,
   FormLabel,
@@ -33,6 +34,7 @@ export type CheckboxButtonGroupProps<T extends FieldValues> = {
   control?: Control<T>
   rules?: ControllerProps['rules']
   checkboxColor?: CheckboxProps['color']
+  labelProps?: Omit<FormControlLabelProps, 'label' | 'control'>
 }
 
 export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
@@ -50,6 +52,7 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
   control,
   checkboxColor,
   rules,
+  labelProps,
   ...rest
 }: CheckboxButtonGroupProps<TFieldValues>): JSX.Element {
   const theme = useTheme()
@@ -111,6 +114,7 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
             ) !== -1
           return (
             <FormControlLabel
+              {...labelProps}
               control={
                 <Checkbox
                   sx={{

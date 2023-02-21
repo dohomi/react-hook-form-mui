@@ -3,6 +3,7 @@ import {Control, FieldError, Path, useController} from 'react-hook-form'
 import {
   FormControl,
   FormControlLabel,
+  FormControlLabelProps,
   FormHelperText,
   FormLabel,
   Radio,
@@ -26,6 +27,7 @@ export type RadioButtonGroupProps<T extends FieldValues> = {
   returnObject?: boolean
   row?: boolean
   control?: Control<T>
+  labelProps?: Omit<FormControlLabelProps, 'label' | 'control' | 'value'>
 }
 
 export default function RadioButtonGroup<TFieldValues extends FieldValues>({
@@ -42,6 +44,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
   row,
   control,
   type,
+  labelProps,
   ...rest
 }: RadioButtonGroupProps<TFieldValues>): JSX.Element {
   const theme = useTheme()
@@ -87,6 +90,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
       >
         {emptyOptionLabel && (
           <FormControlLabel
+            {...labelProps}
             control={
               <Radio
                 sx={{

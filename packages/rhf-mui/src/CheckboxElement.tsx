@@ -26,6 +26,7 @@ export type CheckboxElementProps<T extends FieldValues> = Omit<
   label?: FormControlLabelProps['label']
   helperText?: string
   control?: Control<T>
+  labelProps?: Omit<FormControlLabelProps, 'label' | 'control'>
 }
 
 export default function CheckboxElement<TFieldValues extends FieldValues>({
@@ -36,6 +37,7 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
   label,
   control,
   helperText,
+  labelProps,
   ...rest
 }: CheckboxElementProps<TFieldValues>): JSX.Element {
   if (required && !validation.required) {
@@ -47,16 +49,17 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({field: {value, onChange}, fieldState: {invalid, error}}) => {
+      render={({field: {value, onChange}, fieldState: {error}}) => {
         const parsedHelperText = error
           ? typeof parseError === 'function'
             ? parseError(error)
             : error.message
           : helperText
         return (
-          <FormControl required={required} error={invalid}>
+          <FormControl required={required} error={!!error}>
             <FormGroup row>
               <FormControlLabel
+                {...labelProps}
                 label={label || ''}
                 control={
                   <Checkbox
@@ -64,7 +67,7 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
                     color={rest.color || 'primary'}
                     sx={{
                       ...rest.sx,
-                      color: invalid ? 'error.main' : undefined,
+                      color: error ? 'error.main' : undefined,
                     }}
                     value={value}
                     checked={!!value}
@@ -79,7 +82,7 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
               />
             </FormGroup>
             {parsedHelperText && (
-              <FormHelperText error={invalid}>
+              <FormHelperText error={!!error}>
                 {parsedHelperText}
               </FormHelperText>
             )}
