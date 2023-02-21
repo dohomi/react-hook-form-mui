@@ -23,7 +23,7 @@ export type DatePickerElementProps<
   TDate = TInputDate
 > = Omit<
   DatePickerProps<TInputDate, TDate>,
-  'value' | 'onChange' | 'renderInput' | 'inputFormat'
+  'value' | 'onChange' | 'renderInput'
 > & {
   name: Path<T>
   required?: boolean

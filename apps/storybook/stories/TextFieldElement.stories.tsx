@@ -100,6 +100,8 @@ export const Basic = () => {
         required
       />
       <br />
+      <TextFieldElement name={'textarea'} multiline />
+      <br />
       <CheckboxElement
         name={'agree'}
         label={'Agree'}
