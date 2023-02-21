@@ -46,4 +46,7 @@ export type {SliderElementProps} from './SliderElement'
 export {default as ToggleButtonGroupElement} from './ToggleButtonGroupElement'
 export type {ToggleButtonGroupElementProps} from './ToggleButtonGroupElement'
 
+export {default as TextareaAutosizeElement} from './TextareaAutosizeElement'
+export type {TextareaAutosizeElementProps} from './TextareaAutosizeElement'
+
 export * from 'react-hook-form'

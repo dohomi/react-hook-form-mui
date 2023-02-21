@@ -2,7 +2,7 @@ import {AutocompleteElement, FormContainer} from 'react-hook-form-mui/src'
 import React, {FC, PropsWithChildren} from 'react'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
-import {Box, Button} from '@mui/material'
+import {Box, Button, Tooltip} from '@mui/material'
 import LocationIcon from '@mui/icons-material/LocationOn'
 
 export default {
@@ -136,3 +136,17 @@ CustomInput.args = {
     InputProps: {startAdornment: <LocationIcon />, endAdornment: null},
   },
 }
+
+export const WithTooltip = () => (
+  <FormWrap>
+    <Tooltip title={'Some Tooltip'}>
+      <div>
+        <AutocompleteElement
+          options={options}
+          name={'tooltip'}
+          label={'With Tooltip'}
+        />
+      </div>
+    </Tooltip>
+  </FormWrap>
+)
