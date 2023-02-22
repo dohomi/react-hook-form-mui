@@ -1,10 +1,11 @@
 import {useEffect} from 'react'
 import {action} from '@storybook/addon-actions'
-import {Button} from '@mui/material'
+import {Button, Stack} from '@mui/material'
 import {FieldError, useForm} from 'react-hook-form'
 import {
   CheckboxElement,
   FormContainer,
+  FormErrorProvider,
   PasswordElement,
   PasswordRepeatElement,
   TextFieldElement,
@@ -239,3 +240,38 @@ export const WithFormContext = () => {
     </FormContainer>
   )
 }
+
+export const WithFormErrorProvider = () => (
+  <FormErrorProvider
+    onError={(error) => {
+      console.log('you can hook your own error message', error)
+      if (error.type === 'required') {
+        return 'Overwritten Error Message'
+      }
+      return error?.message
+    }}
+  >
+    <FormContainer onSuccess={action('submit')}>
+      <Stack spacing={3}>
+        <TextFieldElement
+          name={'name'}
+          label={'Name'}
+          required
+          variant={'outlined'}
+          margin={'dense'}
+        />
+        <TextFieldElement
+          name={'email'}
+          type="email"
+          label={'Email'}
+          required
+          variant={'outlined'}
+          margin={'dense'}
+        />
+        <Button type={'submit'} color={'primary'} variant={'contained'}>
+          Submit
+        </Button>
+      </Stack>
+    </FormContainer>
+  </FormErrorProvider>
+)

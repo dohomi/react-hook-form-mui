@@ -7,6 +7,7 @@ import {
   Path,
 } from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useFormError} from './FormErrorProvider'
 
 export type TextFieldElementProps<T extends FieldValues = FieldValues> = Omit<
   TextFieldProps,
@@ -29,6 +30,8 @@ export default function TextFieldElement<
   control,
   ...rest
 }: TextFieldElementProps<TFieldValues>): JSX.Element {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -71,8 +74,8 @@ export default function TextFieldElement<
           error={!!error}
           helperText={
             error
-              ? typeof parseError === 'function'
-                ? parseError(error)
+              ? typeof customErrorFn === 'function'
+                ? customErrorFn(error)
                 : error.message
               : rest.helperText
           }

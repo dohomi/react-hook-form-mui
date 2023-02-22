@@ -49,4 +49,8 @@ export type {ToggleButtonGroupElementProps} from './ToggleButtonGroupElement'
 export {default as TextareaAutosizeElement} from './TextareaAutosizeElement'
 export type {TextareaAutosizeElementProps} from './TextareaAutosizeElement'
 
+export {default as FormErrorProvider} from './FormErrorProvider'
+export type {FormErrorProviderProps} from './FormErrorProvider'
+export {useFormError} from './FormErrorProvider'
+
 export * from 'react-hook-form'

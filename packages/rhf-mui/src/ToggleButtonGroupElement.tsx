@@ -17,6 +17,7 @@ import {
   ToggleButtonProps,
 } from '@mui/material'
 import {ReactNode} from 'react'
+import {useFormError} from './FormErrorProvider'
 
 type SingleToggleButtonProps = Omit<ToggleButtonProps, 'value' | 'children'> & {
   id: number | string
@@ -53,6 +54,8 @@ export default function ToggleButtonGroupElement<
   exclusive,
   ...toggleButtonGroupProps
 }: ToggleButtonGroupElementProps<TFieldValues>) {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -63,21 +66,18 @@ export default function ToggleButtonGroupElement<
       name={name}
       control={control}
       rules={validation}
-      render={({
-        field: {value, onChange, onBlur},
-        fieldState: {invalid, error},
-      }) => {
+      render={({field: {value, onChange, onBlur}, fieldState: {error}}) => {
         const renderHelperText = error
-          ? typeof parseError === 'function'
-            ? parseError(error)
+          ? typeof customErrorFn === 'function'
+            ? customErrorFn(error)
             : error.message
           : helperText
         return (
-          <FormControl error={invalid} required={isRequired}>
+          <FormControl error={!!error} required={isRequired}>
             {label && (
               <FormLabel
                 {...formLabelProps}
-                error={invalid}
+                error={!!error}
                 required={isRequired}
                 sx={{mb: 1, ...formLabelProps?.sx}}
               >
