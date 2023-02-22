@@ -1,8 +1,7 @@
 import {action} from '@storybook/addon-actions'
-import {FormContainer} from 'react-hook-form-mui/src'
+import {CheckboxElement, FormContainer} from 'react-hook-form-mui/src'
 import {ComponentMeta, ComponentStory} from '@storybook/react'
 import {SubmitButton} from '../src/Shared'
-import {CheckboxElement} from 'react-hook-form-mui'
 
 export default {
   title: 'Checkbox',
