@@ -28,6 +28,7 @@ export type RadioButtonGroupProps<T extends FieldValues> = {
   row?: boolean
   control?: Control<T>
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control' | 'value'>
+  disabled?: boolean
 }
 
 export default function RadioButtonGroup<TFieldValues extends FieldValues>({
@@ -45,6 +46,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
   control,
   type,
   labelProps,
+  disabled,
   ...rest
 }: RadioButtonGroupProps<TFieldValues>): JSX.Element {
   const theme = useTheme()
@@ -123,6 +125,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
                   sx={{
                     color: error ? theme.palette.error.main : undefined,
                   }}
+                  disabled={disabled}
                   checked={isChecked}
                 />
               }

@@ -51,3 +51,11 @@ ValueAsNumber.args = {
   type: 'number',
   options: options.map((i) => ({id: Number(i.id), label: i.label})),
 }
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+  label: 'Disabled',
+  name: 'disabled',
+  options,
+  disabled: true,
+}

@@ -44,3 +44,16 @@ DisableTextInput.args = {
   required: true,
   textReadOnly: true,
 }
+
+export const CustomiseInput = Template.bind({})
+CustomiseInput.args = {
+  label: 'Custom Style',
+  name: 'custom',
+  inputProps: {
+    sx: {
+      '& .MuiOutlinedInput-root': {
+        borderColor: 'green',
+      },
+    },
+  },
+}
