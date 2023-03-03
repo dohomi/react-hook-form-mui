@@ -11,7 +11,7 @@ import {
   SelectElement,
   SwitchElement,
   TextFieldElement,
-} from 'react-hook-form-mui/src'
+} from '../../../packages/rhf-mui/src'
 import {useForm, useWatch} from 'react-hook-form'
 import {Button} from '@mui/material'
 import {action} from '@storybook/addon-actions'
@@ -41,6 +41,27 @@ export const Basic = () => (
       name: '',
     }}
     onSuccess={action('submit')}
+  >
+    <TextFieldElement name={'name'} label={'Name'} required /> <br />
+    <TextFieldElement
+      name={'email'}
+      label={'Email'}
+      required
+      type={'email'}
+    />{' '}
+    <br />
+    <TextFieldElement name={'interest'} label={'Interest'} /> <br />
+    <SubComponent />
+  </FormContainer>
+)
+
+export const WithErrorHandler = () => (
+  <FormContainer
+    defaultValues={{
+      name: '',
+    }}
+    onSuccess={action('submit')}
+    onError={action('error')}
   >
     <TextFieldElement name={'name'} label={'Name'} required /> <br />
     <TextFieldElement
