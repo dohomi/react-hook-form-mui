@@ -120,6 +120,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
           const isChecked = val === optionKey
           return (
             <FormControlLabel
+              {...labelProps}
               control={
                 <Radio
                   sx={{
