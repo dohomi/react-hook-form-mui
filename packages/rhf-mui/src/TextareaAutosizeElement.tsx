@@ -8,6 +8,7 @@ import {
 } from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {CSSProperties} from 'react'
+import {useFormError} from './FormErrorProvider'
 
 export type TextareaAutosizeElementProps<T extends FieldValues = FieldValues> =
   Omit<TextFieldProps, 'name' | 'type'> & {
@@ -30,6 +31,8 @@ export default function TextareaAutosizeElement<
   resizeStyle,
   ...rest
 }: TextareaAutosizeElementProps<TFieldValues>): JSX.Element {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -58,8 +61,8 @@ export default function TextareaAutosizeElement<
           error={!!error}
           helperText={
             error
-              ? typeof parseError === 'function'
-                ? parseError(error)
+              ? typeof customErrorFn === 'function'
+                ? customErrorFn(error)
                 : error.message
               : rest.helperText
           }

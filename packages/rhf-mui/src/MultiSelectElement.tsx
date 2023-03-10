@@ -13,6 +13,7 @@ import {
   SelectProps,
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useFormError} from './FormErrorProvider'
 
 export type MultiSelectElementProps<T extends FieldValues> = Omit<
   SelectProps,
@@ -60,6 +61,8 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
   formControlProps,
   ...rest
 }: MultiSelectElementProps<TFieldValues>): JSX.Element {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -74,8 +77,8 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
         fieldState: {invalid, error},
       }) => {
         helperText = error
-          ? typeof parseError === 'function'
-            ? parseError(error)
+          ? typeof customErrorFn === 'function'
+            ? customErrorFn(error)
             : error.message
           : helperText
         return (

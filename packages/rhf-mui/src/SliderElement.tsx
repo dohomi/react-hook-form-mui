@@ -14,6 +14,7 @@ import {
   SliderProps,
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useFormError} from './FormErrorProvider'
 
 export type SliderElementProps<T extends FieldValues> = Omit<
   SliderProps,
@@ -38,6 +39,8 @@ export default function SliderElement<TFieldValues extends FieldValues>({
   formControlProps,
   ...other
 }: SliderElementProps<TFieldValues>) {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   if (required && !rules.required) {
     rules.required = 'This field is required'
   }
@@ -48,8 +51,8 @@ export default function SliderElement<TFieldValues extends FieldValues>({
       rules={rules}
       render={({field: {onChange, value}, fieldState: {invalid, error}}) => {
         const parsedHelperText = error
-          ? typeof parseError === 'function'
-            ? parseError(error)
+          ? typeof customErrorFn === 'function'
+            ? customErrorFn(error)
             : error.message
           : null
         return (

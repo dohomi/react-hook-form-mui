@@ -8,6 +8,7 @@ import {
   Path,
 } from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useFormError} from './FormErrorProvider'
 
 export type SelectElementProps<T extends FieldValues> = Omit<
   TextFieldProps,
@@ -38,6 +39,8 @@ export default function SelectElement<TFieldValues extends FieldValues>({
   control,
   ...rest
 }: SelectElementProps<TFieldValues>): JSX.Element {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   const isNativeSelect = !!rest.SelectProps?.native
   const ChildComponent = isNativeSelect ? 'option' : MenuItem
 
@@ -52,7 +55,7 @@ export default function SelectElement<TFieldValues extends FieldValues>({
       control={control}
       render={({
         field: {onBlur, onChange, value, ref},
-        fieldState: {invalid, error},
+        fieldState: {error},
       }) => {
         // handle shrink on number input fields
         if (type === 'number' && typeof value !== 'undefined') {
@@ -83,11 +86,11 @@ export default function SelectElement<TFieldValues extends FieldValues>({
             }}
             select
             required={required}
-            error={invalid}
+            error={!!error}
             helperText={
               error
-                ? typeof parseError === 'function'
-                  ? parseError(error)
+                ? typeof customErrorFn === 'function'
+                  ? customErrorFn(error)
                   : error.message
                 : rest.helperText
             }

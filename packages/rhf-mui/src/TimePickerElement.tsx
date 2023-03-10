@@ -8,6 +8,7 @@ import {
 } from 'react-hook-form'
 import {TextField, TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useFormError} from './FormErrorProvider'
 
 export declare type ParseableDate<TDate> =
   | string
@@ -47,6 +48,8 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
   textReadOnly,
   ...rest
 }: TimePickerElementProps<TFieldValues, string | null>): JSX.Element {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -82,8 +85,8 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
               {...inputProps}
               helperText={
                 error
-                  ? typeof parseError === 'function'
-                    ? parseError(error)
+                  ? typeof customErrorFn === 'function'
+                    ? customErrorFn(error)
                     : error.message
                   : inputProps?.helperText || rest.helperText
               }

@@ -11,7 +11,7 @@ import {
   SelectElement,
   SwitchElement,
   TextFieldElement,
-} from '../../../packages/rhf-mui/src'
+} from 'react-hook-form-mui/src'
 import {useForm, useWatch} from 'react-hook-form'
 import {Button} from '@mui/material'
 import {action} from '@storybook/addon-actions'

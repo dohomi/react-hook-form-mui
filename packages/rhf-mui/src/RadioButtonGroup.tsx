@@ -11,6 +11,7 @@ import {
   useTheme,
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useFormError} from './FormErrorProvider'
 
 export type RadioButtonGroupProps<T extends FieldValues> = {
   options: {label: string; id: string | number}[] | any[]
@@ -50,6 +51,8 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
   ...rest
 }: RadioButtonGroupProps<TFieldValues>): JSX.Element {
   const theme = useTheme()
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   const {
     field: {value, onChange},
     fieldState: {error},
@@ -60,8 +63,8 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
   })
 
   helperText = error
-    ? typeof parseError === 'function'
-      ? parseError(error)
+    ? typeof customErrorFn === 'function'
+      ? customErrorFn(error)
       : error.message
     : helperText
 

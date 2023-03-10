@@ -15,6 +15,7 @@ import {
   FormHelperText,
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useFormError} from './FormErrorProvider'
 
 export type CheckboxElementProps<T extends FieldValues> = Omit<
   CheckboxProps,
@@ -40,6 +41,8 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
   labelProps,
   ...rest
 }: CheckboxElementProps<TFieldValues>): JSX.Element {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -51,8 +54,8 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
       control={control}
       render={({field: {value, onChange}, fieldState: {error}}) => {
         const parsedHelperText = error
-          ? typeof parseError === 'function'
-            ? parseError(error)
+          ? typeof customErrorFn === 'function'
+            ? customErrorFn(error)
             : error.message
           : helperText
         return (

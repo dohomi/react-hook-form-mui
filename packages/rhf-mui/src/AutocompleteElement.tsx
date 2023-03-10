@@ -1,4 +1,10 @@
-import {Control, Controller, ControllerProps, Path} from 'react-hook-form'
+import {
+  Control,
+  Controller,
+  ControllerProps,
+  FieldError,
+  Path,
+} from 'react-hook-form'
 import {
   Autocomplete,
   AutocompleteProps,
@@ -8,6 +14,7 @@ import {
 } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useFormError} from './FormErrorProvider'
 
 export type AutocompleteElementProps<
   F extends FieldValues,
@@ -22,6 +29,7 @@ export type AutocompleteElementProps<
   multiple?: M
   matchId?: boolean
   rules?: ControllerProps['rules']
+  parseError?: (error: FieldError) => string
   required?: boolean
   label?: TextFieldProps['label']
   showCheckbox?: boolean
@@ -50,12 +58,15 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
   multiple,
   matchId,
   label,
+  parseError,
 }: AutocompleteElementProps<
   TFieldValues,
   AutoDefault | string | any,
   boolean | undefined,
   boolean | undefined
 >) {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   const validationRules: ControllerProps['rules'] = {
     ...rules,
     ...(required && {
@@ -141,6 +152,10 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                 {...textFieldProps}
                 {...params}
                 error={!!error}
+                InputLabelProps={{
+                  ...params.InputLabelProps,
+                  ...textFieldProps?.InputLabelProps,
+                }}
                 InputProps={{
                   ...params.InputProps,
                   endAdornment: (
@@ -157,7 +172,13 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                   ...params.inputProps,
                   ...textFieldProps?.inputProps,
                 }}
-                helperText={error ? error.message : textFieldProps?.helperText}
+                helperText={
+                  error
+                    ? typeof customErrorFn === 'function'
+                      ? customErrorFn(error)
+                      : error.message
+                    : textFieldProps?.helperText
+                }
               />
             )}
           />

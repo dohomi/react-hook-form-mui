@@ -17,6 +17,7 @@ import {
   useController,
 } from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {useFormError} from './FormErrorProvider'
 
 export type CheckboxButtonGroupProps<T extends FieldValues> = {
   options: {id: string | number; label: string}[] | any[]
@@ -55,6 +56,8 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
   labelProps,
   ...rest
 }: CheckboxButtonGroupProps<TFieldValues>): JSX.Element {
+  const errorMsgFn = useFormError()
+  const customErrorFn = parseError || errorMsgFn
   const theme = useTheme()
   const {
     field: {value = [], onChange},
@@ -66,8 +69,8 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
   })
 
   helperText = error
-    ? typeof parseError === 'function'
-      ? parseError(error)
+    ? typeof customErrorFn === 'function'
+      ? customErrorFn(error)
       : error.message
     : helperText
 
