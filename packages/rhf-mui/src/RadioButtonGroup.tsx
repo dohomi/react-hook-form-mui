@@ -23,7 +23,7 @@ export type RadioButtonGroupProps<T extends FieldValues> = {
   labelKey?: string
   valueKey?: string
   type?: 'number' | 'string'
-  emptyOptionLabel?: 'string'
+  emptyOptionLabel?: string
   onChange?: (value: any) => void
   returnObject?: boolean
   row?: boolean
