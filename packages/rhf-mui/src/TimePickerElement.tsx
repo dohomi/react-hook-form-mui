@@ -1,4 +1,8 @@
-import {TimePicker, TimePickerProps} from '@mui/x-date-pickers/TimePicker'
+import {
+  TimePicker,
+  TimePickerProps,
+  TimePickerSlotsComponentsProps,
+} from '@mui/x-date-pickers/TimePicker'
 import {
   Control,
   Controller,
@@ -6,36 +10,30 @@ import {
   FieldError,
   Path,
 } from 'react-hook-form'
-import {TextField, TextFieldProps} from '@mui/material'
+import {TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
-
-export declare type ParseableDate<TDate> =
-  | string
-  | number
-  | Date
-  | null
-  | undefined
-  | TDate
+import {PickerChangeHandlerContext} from '@mui/x-date-pickers/internals/hooks/usePicker/usePickerValue'
 
 export type TimePickerElementProps<
   T extends FieldValues,
   TInputDate,
   TDate = TInputDate
-> = Omit<
-  TimePickerProps<TInputDate, TDate>,
-  'value' | 'onChange' | 'renderInput'
-> & {
+> = Omit<TimePickerProps<TDate>, 'value' | 'onChange' | 'renderInput'> & {
   name: Path<T>
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => string
-  onChange?: (value: TDate, keyboardInputValue?: string) => void
+  onChange?: (
+    value: TDate,
+    keyboardInputValue?: PickerChangeHandlerContext<any>
+  ) => void
   validation?: ControllerProps['rules']
   control?: Control<T>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
+  slotProps?: Omit<TimePickerSlotsComponentsProps<TDate>, 'textField'>
 }
 
 export default function TimePickerElement<TFieldValues extends FieldValues>({
@@ -46,6 +44,7 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
   inputProps,
   control,
   textReadOnly,
+  slotProps,
   ...rest
 }: TimePickerElementProps<TFieldValues, string | null>): JSX.Element {
   const errorMsgFn = useFormError()
@@ -80,26 +79,25 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
               rest.onChange(v, keyboardInputValue)
             }
           }}
-          renderInput={({error: inputError, ...params}) => (
-            <TextField
-              {...inputProps}
-              helperText={
-                error
-                  ? typeof customErrorFn === 'function'
-                    ? customErrorFn(error)
-                    : error.message
-                  : inputProps?.helperText || rest.helperText
-              }
-              {...params}
-              error={!!error}
-              inputProps={{
-                ...params?.inputProps,
+          slotProps={{
+            ...slotProps,
+            textField: {
+              ...inputProps,
+              required,
+              error: !!error,
+              helperText: error
+                ? typeof customErrorFn === 'function'
+                  ? customErrorFn(error)
+                  : error.message
+                : inputProps?.helperText || rest.helperText,
+              inputProps: {
+                ...inputProps?.inputProps,
                 ...(textReadOnly && {
-                  readOnly: true,
+                  readonly: true,
                 }),
-              }}
-            />
-          )}
+              },
+            },
+          }}
         />
       )}
     />

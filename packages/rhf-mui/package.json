@@ -38,7 +38,7 @@
   "peerDependencies": {
     "@mui/icons-material": ">= 5.x <6",
     "@mui/material": ">= 5.x <6",
-    "@mui/x-date-pickers": ">=5.0.0-alpha.6 <6",
+    "@mui/x-date-pickers": ">=6.0.1 <7",
     "react": ">=17 <19",
     "react-hook-form": ">=7.33.1"
   },
@@ -59,7 +59,7 @@
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.4",
-    "@mui/x-date-pickers": "^5.0.0-alpha.6",
+    "@mui/x-date-pickers": "^6.0.1",
     "@swc/core": "^1.3.17",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",

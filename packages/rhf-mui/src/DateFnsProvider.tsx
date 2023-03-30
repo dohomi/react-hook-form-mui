@@ -3,18 +3,19 @@ import {
   LocalizationProvider,
   LocalizationProviderProps,
 } from '@mui/x-date-pickers'
+import {MuiPickersAdapter} from '@mui/x-date-pickers/internals/models'
 
-export type DateFnsProviderProps = Omit<
-  LocalizationProviderProps,
+export type DateFnsProviderProps<TDate> = Omit<
+  LocalizationProviderProps<TDate>,
   'dateAdapter'
 > & {
-  dateAdapter?: LocalizationProviderProps['dateAdapter']
+  dateAdapter?: new (...args: any) => MuiPickersAdapter<TDate>
 }
 
 export default function DateFnsProvider({
   children,
   ...props
-}: DateFnsProviderProps) {
+}: DateFnsProviderProps<Date>) {
   const {dateAdapter, ...localizationProps} = props
   return (
     <LocalizationProvider

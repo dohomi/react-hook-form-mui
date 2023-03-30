@@ -62,9 +62,9 @@ export default function SelectElement<TFieldValues extends FieldValues>({
           rest.InputLabelProps = rest.InputLabelProps || {}
           rest.InputLabelProps.shrink = true
         }
-        if (typeof value === 'object') {
-          value = value[valueKey] // if value is object get key
-        }
+
+        value = value?.[valueKey] ?? value // try fetch key value
+
         return (
           <TextField
             {...rest}

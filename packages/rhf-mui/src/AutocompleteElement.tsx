@@ -79,13 +79,13 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
       control={control}
       rules={validationRules}
       render={({field: {onChange, onBlur, value}, fieldState: {error}}) => {
-        let currentValue = multiple ? value || [] : value || null
+        let currentValue = multiple ? value || [] : value ?? null
         if (matchId) {
           currentValue = multiple
             ? (value || []).map((i: any) =>
-                options.find((j) => (j.id || j) === i)
+                options.find((j) => (j.id ?? j) === i)
               )
-            : options.find((i) => (i.id || i) === value) || null
+            : options.find((i) => (i.id ?? i) === value) ?? null
         }
         return (
           <Autocomplete
@@ -103,22 +103,22 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
               autocompleteProps?.isOptionEqualToValue
                 ? autocompleteProps.isOptionEqualToValue
                 : (option, value) => {
-                    return value ? option.id === (value?.id || value) : false
+                    return value ? option.id === (value?.id ?? value) : false
                   }
             }
             getOptionLabel={
               autocompleteProps?.getOptionLabel
                 ? autocompleteProps.getOptionLabel
                 : (option) => {
-                    return `${option?.label || option}`
+                    return `${option?.label ?? option}`
                   }
             }
             onChange={(event, value, reason, details) => {
               let changedVal = value
               if (matchId) {
                 changedVal = Array.isArray(value)
-                  ? value.map((i: any) => i?.id || i)
-                  : value?.id || value
+                  ? value.map((i: any) => i?.id ?? i)
+                  : value?.id ?? value
               }
               onChange(changedVal)
               if (autocompleteProps?.onChange) {
