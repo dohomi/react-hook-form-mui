@@ -57,6 +57,8 @@ This package utilizes pickers and icons of the MUI ecosystem. If you make use of
 
 From versions >= 3.x of this package MUI v5 is in use. Versions of 1 & 2 using Material-UI v4
 
+From version >= 6 x-date-pickers version 6 is in use. Make sure you upgrade your dependencies.
+
 ### Your component code
 
 ```tsx
