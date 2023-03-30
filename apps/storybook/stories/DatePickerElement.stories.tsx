@@ -9,7 +9,12 @@ export default {
 } as ComponentMeta<typeof DatePickerElement>
 
 const Template: ComponentStory<typeof DatePickerElement> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
+  <FormContainer
+    defaultValues={{
+      preset: '2023-02-01',
+    }}
+    onSuccess={action('submit')}
+  >
     <DatePickerElement {...args} />
     <br />
     <SubmitButton />
@@ -49,6 +54,19 @@ export const CustomiseInput = Template.bind({})
 CustomiseInput.args = {
   label: 'Custom Style',
   name: 'custom',
+  inputProps: {
+    sx: {
+      '& .MuiOutlinedInput-root': {
+        borderColor: 'green',
+      },
+    },
+  },
+}
+
+export const PresetValue = Template.bind({})
+PresetValue.args = {
+  label: 'Custom Style',
+  name: 'preset',
   inputProps: {
     sx: {
       '& .MuiOutlinedInput-root': {

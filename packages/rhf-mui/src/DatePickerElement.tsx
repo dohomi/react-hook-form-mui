@@ -59,47 +59,53 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
       rules={validation}
       control={control}
       defaultValue={null as any}
-      render={({field, fieldState: {error}}) => (
-        <DatePicker
-          {...rest}
-          {...field}
-          ref={(r) => {
-            field.ref(r?.querySelector('input'))
-          }}
-          onClose={(...args) => {
-            field.onBlur()
-            if (rest.onClose) {
-              rest.onClose(...args)
-            }
-          }}
-          onChange={(v, keyboardInputValue) => {
-            // console.log(v, keyboardInputValue)
-            field.onChange(v, keyboardInputValue)
-            if (typeof rest.onChange === 'function') {
-              rest.onChange(v, keyboardInputValue)
-            }
-          }}
-          slotProps={{
-            ...slotProps,
-            textField: {
-              ...inputProps,
-              required,
-              error: !!error,
-              helperText: error
-                ? typeof customErrorFn === 'function'
-                  ? customErrorFn(error)
-                  : error.message
-                : inputProps?.helperText || rest.helperText,
-              inputProps: {
-                ...inputProps?.inputProps,
-                ...(textReadOnly && {
-                  readonly: true,
-                }),
+      render={({field, fieldState: {error}}) => {
+        if (field?.value && typeof field?.value === 'string') {
+          field.value = new Date(field.value) as any // need to see if this works for all localization adaptors
+        }
+
+        return (
+          <DatePicker
+            {...rest}
+            {...field}
+            ref={(r) => {
+              field.ref(r?.querySelector('input'))
+            }}
+            onClose={(...args) => {
+              field.onBlur()
+              if (rest.onClose) {
+                rest.onClose(...args)
+              }
+            }}
+            onChange={(v, keyboardInputValue) => {
+              // console.log(v, keyboardInputValue)
+              field.onChange(v, keyboardInputValue)
+              if (typeof rest.onChange === 'function') {
+                rest.onChange(v, keyboardInputValue)
+              }
+            }}
+            slotProps={{
+              ...slotProps,
+              textField: {
+                ...inputProps,
+                required,
+                error: !!error,
+                helperText: error
+                  ? typeof customErrorFn === 'function'
+                    ? customErrorFn(error)
+                    : error.message
+                  : inputProps?.helperText || rest.helperText,
+                inputProps: {
+                  ...inputProps?.inputProps,
+                  ...(textReadOnly && {
+                    readonly: true,
+                  }),
+                },
               },
-            },
-          }}
-        />
-      )}
+            }}
+          />
+        )
+      }}
     />
   )
 }

@@ -102,7 +102,7 @@ export default function SelectElement<TFieldValues extends FieldValues>({
                 ChildComponent,
                 {
                   key: `${name}_${item[valueKey]}`,
-                  value: item[valueKey],
+                  value: item?.[valueKey] ?? item,
                 },
                 item[labelKey]
               )
