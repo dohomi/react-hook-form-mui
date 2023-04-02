@@ -134,11 +134,19 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                   ? (selected) => (
                       <div style={{display: 'flex', flexWrap: 'wrap'}}>
                         {(preserveOrder
-                          ? options
-                              .filter((option) =>
-                                (selected as any[]).includes(option[itemValue])
-                              )
-                              .map((option) => option[itemValue])
+                          ? itemValue !== null && itemValue !== ''
+                            ? options
+                                .filter((option) =>
+                                  (selected as any[]).includes(
+                                    option[itemValue]
+                                  )
+                                )
+                                .map((option) => option[itemValue])
+                            : options
+                                .filter((option) =>
+                                  (selected as any[]).includes(option.id)
+                                )
+                                .map((option) => option.id)
                           : (selected as any[]) || []
                         ).map((selectedValue) => (
                           <Chip
