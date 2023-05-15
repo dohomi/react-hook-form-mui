@@ -27,7 +27,7 @@
     "prettier": "npx prettier apps/nextjs/src/** packages/rhf-mui/src/** apps/storybook/stories/** apps/storybook/src/** --check",
     "prettier:fix": "prettier --write \"**/*.{js,ts,tsx}\"",
     "deploy": "npm run build-storybook && cd apps/storybook/storybook-static && vercel --name react-hook-form-material-ui --prod",
-    "build": "cd packages/rhf-mui && yarn build"
+    "build": "yarn lint:fix && yarn prettier:fix && cd packages/rhf-mui && yarn build"
   },
   "devDependencies": {
     "eslint": "^8.18.0",
