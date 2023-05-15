@@ -33,6 +33,7 @@ export type MultiSelectElementProps<T extends FieldValues> = Omit<
   menuMaxWidth?: number
   helperText?: string
   showChips?: boolean
+  preserveOrder?: boolean
   control?: Control<T>
   showCheckbox?: boolean
   formControlProps?: Omit<FormControlProps, 'fullWidth' | 'variant'>
@@ -56,6 +57,7 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
   minWidth = 120,
   helperText,
   showChips,
+  preserveOrder,
   control,
   showCheckbox,
   formControlProps,
@@ -131,7 +133,22 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                   : showChips
                   ? (selected) => (
                       <div style={{display: 'flex', flexWrap: 'wrap'}}>
-                        {((selected as any[]) || []).map((selectedValue) => (
+                        {(preserveOrder
+                          ? itemValue !== null && itemValue !== ''
+                            ? options
+                                .filter((option) =>
+                                  (selected as any[]).includes(
+                                    option[itemValue]
+                                  )
+                                )
+                                .map((option) => option[itemValue])
+                            : options
+                                .filter((option) =>
+                                  (selected as any[]).includes(option.id)
+                                )
+                                .map((option) => option.id)
+                          : (selected as any[]) || []
+                        ).map((selectedValue) => (
                           <Chip
                             key={selectedValue}
                             label={selectedValue}
