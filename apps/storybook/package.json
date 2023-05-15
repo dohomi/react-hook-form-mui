@@ -26,15 +26,16 @@
     "node": ">=14"
   },
   "scripts": {
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
     "check-types": "tsc --noemit",
     "deploy": "yarn run build-storybook && cd storybook-static && vercel --name react-hook-form-material-ui --prod"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form-mui": "*"
+    "react-hook-form-mui": "*",
+    "vite": "^4.3.5"
   },
   "devDependencies": {
     "@date-io/date-fns": "^2.16.0",
@@ -45,10 +46,9 @@
     "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
     "@mui/x-date-pickers": "^5.0.8",
-    "@storybook/addon-essentials": "^6.5.13",
-    "@storybook/builder-webpack5": "^6.5.13",
-    "@storybook/manager-webpack5": "^6.5.13",
-    "@storybook/react": "^6.5.13",
+    "@storybook/addon-essentials": "^7.0.11",
+    "@storybook/react": "^7.0.11",
+    "@storybook/react-vite": "^7.0.11",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@typescript-eslint/eslint-plugin": "^5.30.4",
@@ -60,6 +60,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.27.1",
+    "storybook": "^7.0.11",
     "typescript": "^4.7.4"
   }
 }

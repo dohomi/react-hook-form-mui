@@ -74,10 +74,7 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({
-        field: {value, onChange, onBlur},
-        fieldState: {invalid, error},
-      }) => {
+      render={({field: {value, onChange, onBlur}, fieldState: {error}}) => {
         helperText = error
           ? typeof customErrorFn === 'function'
             ? customErrorFn(error)
@@ -92,13 +89,13 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
             }}
             variant={rest.variant}
             fullWidth={rest.fullWidth}
-            error={invalid}
+            error={!!error}
             size={rest.size}
           >
             {label && (
               <InputLabel
                 size={rest.size === 'small' ? 'small' : undefined}
-                error={invalid}
+                error={!!error}
                 htmlFor={rest.id || `select-multi-select-${name}`}
                 required={required}
               >
@@ -110,7 +107,7 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
               id={rest.id || `select-multi-select-${name}`}
               multiple
               label={label || undefined}
-              error={invalid}
+              error={!!error}
               value={value || []}
               required={required}
               onChange={onChange}
@@ -134,19 +131,9 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                   ? (selected) => (
                       <div style={{display: 'flex', flexWrap: 'wrap'}}>
                         {(preserveOrder
-                          ? itemValue !== null && itemValue !== ''
-                            ? options
-                                .filter((option) =>
-                                  (selected as any[]).includes(
-                                    option[itemValue]
-                                  )
-                                )
-                                .map((option) => option[itemValue])
-                            : options
-                                .filter((option) =>
-                                  (selected as any[]).includes(option.id)
-                                )
-                                .map((option) => option.id)
+                          ? options.filter((option) =>
+                              (selected as any[]).includes(option)
+                            )
                           : (selected as any[]) || []
                         ).map((selectedValue) => (
                           <Chip

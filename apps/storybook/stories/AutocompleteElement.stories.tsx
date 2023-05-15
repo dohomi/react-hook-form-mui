@@ -1,6 +1,6 @@
 import {AutocompleteElement, FormContainer} from 'react-hook-form-mui/src'
 import React, {FC, PropsWithChildren} from 'react'
-import {ComponentMeta, ComponentStory} from '@storybook/react'
+import {Meta, StoryFn} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {Box, Button, Tooltip} from '@mui/material'
 import LocationIcon from '@mui/icons-material/LocationOn'
@@ -8,7 +8,7 @@ import LocationIcon from '@mui/icons-material/LocationOn'
 export default {
   title: 'Autocomplete',
   component: AutocompleteElement,
-} as ComponentMeta<typeof AutocompleteElement>
+} as Meta<typeof AutocompleteElement>
 
 const FormWrap: FC<PropsWithChildren> = ({children}) => (
   <FormContainer
@@ -27,7 +27,7 @@ const FormWrap: FC<PropsWithChildren> = ({children}) => (
   </FormContainer>
 )
 
-const Template: ComponentStory<typeof AutocompleteElement> = (args) => {
+const Template: StoryFn<typeof AutocompleteElement> = (args) => {
   return (
     <FormWrap>
       <AutocompleteElement {...args} />
@@ -45,95 +45,127 @@ const options = [
   },
 ]
 
-export const Basic = Template.bind({})
+export const Basic = {
+  render: Template,
 
-Basic.args = {
-  name: 'basic',
-  options,
-}
-
-export const BasicPreSelect = Template.bind({})
-BasicPreSelect.args = {
-  name: 'preselect',
-  options,
-}
-
-export const MultiSelect = Template.bind({})
-MultiSelect.args = {
-  name: 'multi',
-  options,
-  multiple: true,
-}
-
-export const MultiSelectRequired = Template.bind({})
-MultiSelectRequired.args = {
-  label: 'Multiple Required',
-  name: 'multi-required',
-  options,
-  multiple: true,
-  required: true,
-}
-
-export const MultiSelectRequiredCustom = Template.bind({})
-MultiSelectRequiredCustom.args = {
-  label: 'Multiple Required Custom',
-  name: 'multi-required-custom',
-  options,
-  multiple: true,
-  rules: {
-    required: 'Please fill out.',
+  args: {
+    name: 'basic',
+    options,
   },
 }
 
-export const MultiSelectPredefined = Template.bind({})
-MultiSelectPredefined.args = {
-  name: 'multi-preselect',
-  options,
-  multiple: true,
+export const BasicPreSelect = {
+  render: Template,
+
+  args: {
+    name: 'preselect',
+    options,
+  },
 }
 
-export const MultiSelectCheckbox = Template.bind({})
-MultiSelectCheckbox.args = {
-  name: 'multicheck',
-  options,
-  multiple: true,
-  showCheckbox: true,
+export const MultiSelect = {
+  render: Template,
+
+  args: {
+    name: 'multi',
+    options,
+    multiple: true,
+  },
 }
 
-export const Loading = Template.bind({})
-Loading.args = {
-  label: 'Loading State',
-  name: 'loading',
-  options: [],
-  multiple: true,
-  showCheckbox: true,
-  loading: true,
+export const MultiSelectRequired = {
+  render: Template,
+
+  args: {
+    label: 'Multiple Required',
+    name: 'multi-required',
+    options,
+    multiple: true,
+    required: true,
+  },
 }
 
-export const MatchId = Template.bind({})
-MatchId.args = {
-  label: 'Match ID',
-  name: 'match-id',
-  options,
-  matchId: true,
+export const MultiSelectRequiredCustom = {
+  render: Template,
+
+  args: {
+    label: 'Multiple Required Custom',
+    name: 'multi-required-custom',
+    options,
+    multiple: true,
+    rules: {
+      required: 'Please fill out.',
+    },
+  },
 }
 
-export const MatchIdMulti = Template.bind({})
-MatchIdMulti.args = {
-  label: 'Match ID',
-  name: 'match-id-multi',
-  options,
-  multiple: true,
-  matchId: true,
+export const MultiSelectPredefined = {
+  render: Template,
+
+  args: {
+    name: 'multi-preselect',
+    options,
+    multiple: true,
+  },
 }
 
-export const CustomInput = Template.bind({})
-CustomInput.args = {
-  name: 'custom-input',
-  options,
-  textFieldProps: {
-    placeholder: 'Some placeholder',
-    InputProps: {startAdornment: <LocationIcon />, endAdornment: null},
+export const MultiSelectCheckbox = {
+  render: Template,
+
+  args: {
+    name: 'multicheck',
+    options,
+    multiple: true,
+    showCheckbox: true,
+  },
+}
+
+export const Loading = {
+  render: Template,
+
+  args: {
+    label: 'Loading State',
+    name: 'loading',
+    options: [],
+    multiple: true,
+    showCheckbox: true,
+    loading: true,
+  },
+}
+
+export const MatchId = {
+  render: Template,
+
+  args: {
+    label: 'Match ID',
+    name: 'match-id',
+    options,
+    matchId: true,
+  },
+}
+
+export const MatchIdMulti = {
+  render: Template,
+
+  args: {
+    label: 'Match ID',
+    name: 'match-id-multi',
+    options,
+    multiple: true,
+    matchId: true,
+  },
+}
+
+export const CustomInput = {
+  render: Template,
+
+  args: {
+    name: 'custom-input',
+    options,
+    textFieldProps: {
+      placeholder: 'Some placeholder',
+      InputProps: {startAdornment: <LocationIcon />, endAdornment: null},
+    },
   },
 }
 

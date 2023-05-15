@@ -10,15 +10,15 @@ import {
   PasswordRepeatElement,
   TextFieldElement,
 } from 'react-hook-form-mui/src'
-import {ComponentMeta, ComponentStory} from '@storybook/react'
+import {Meta, StoryFn} from '@storybook/react'
 import {SubmitButton} from '../src/Shared'
 
 export default {
   title: 'TextFieldElement',
   component: TextFieldElement,
-} as ComponentMeta<typeof TextFieldElement>
+} as Meta<typeof TextFieldElement>
 
-const Template: ComponentStory<typeof TextFieldElement> = (args) => (
+const Template: StoryFn<typeof TextFieldElement> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>
     <TextFieldElement {...args} />
     <br />
@@ -26,10 +26,13 @@ const Template: ComponentStory<typeof TextFieldElement> = (args) => (
   </FormContainer>
 )
 
-export const Core = Template.bind({})
-Core.args = {
-  name: 'core',
-  label: 'Label',
+export const Core = {
+  render: Template,
+
+  args: {
+    name: 'core',
+    label: 'Label',
+  },
 }
 
 const parseError = (error: FieldError) => {

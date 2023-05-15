@@ -1,14 +1,14 @@
 import {DatePickerElement, FormContainer} from 'react-hook-form-mui/src'
 import {action} from '@storybook/addon-actions'
 import {SubmitButton} from '../src/Shared'
-import {ComponentMeta, ComponentStory} from '@storybook/react'
+import {Meta, StoryFn} from '@storybook/react'
 
 export default {
   title: 'DatePickerElement',
   component: DatePickerElement,
-} as ComponentMeta<typeof DatePickerElement>
+} as Meta<typeof DatePickerElement>
 
-const Template: ComponentStory<typeof DatePickerElement> = (args) => (
+const Template: StoryFn<typeof DatePickerElement> = (args) => (
   <FormContainer
     defaultValues={{
       preset: '2023-02-01',
@@ -21,56 +21,74 @@ const Template: ComponentStory<typeof DatePickerElement> = (args) => (
   </FormContainer>
 )
 
-export const Basic = Template.bind({})
-Basic.args = {
-  label: 'Date Picker',
-  name: 'basic',
+export const Basic = {
+  render: Template,
+
+  args: {
+    label: 'Date Picker',
+    name: 'basic',
+  },
 }
 
-export const Required = Template.bind({})
-Required.args = {
-  label: 'Required Picker',
-  name: 'required',
-  required: true,
+export const Required = {
+  render: Template,
+
+  args: {
+    label: 'Required Picker',
+    name: 'required',
+    required: true,
+  },
 }
 
-export const RequiredCustomMessage = Template.bind({})
-RequiredCustomMessage.args = {
-  label: 'Required Picker',
-  name: 'requiredCustomMessage',
-  required: true,
-  validation: {required: 'Custom required message'},
+export const RequiredCustomMessage = {
+  render: Template,
+
+  args: {
+    label: 'Required Picker',
+    name: 'requiredCustomMessage',
+    required: true,
+    validation: {required: 'Custom required message'},
+  },
 }
 
-export const DisableTextInput = Template.bind({})
-DisableTextInput.args = {
-  label: 'Required Picker',
-  name: 'requiredCustomMessage',
-  required: true,
-  textReadOnly: true,
+export const DisableTextInput = {
+  render: Template,
+
+  args: {
+    label: 'Required Picker',
+    name: 'requiredCustomMessage',
+    required: true,
+    textReadOnly: true,
+  },
 }
 
-export const CustomiseInput = Template.bind({})
-CustomiseInput.args = {
-  label: 'Custom Style',
-  name: 'custom',
-  inputProps: {
-    sx: {
-      '& .MuiOutlinedInput-root': {
-        borderColor: 'green',
+export const CustomiseInput = {
+  render: Template,
+
+  args: {
+    label: 'Custom Style',
+    name: 'custom',
+    inputProps: {
+      sx: {
+        '& .MuiOutlinedInput-root': {
+          borderColor: 'green',
+        },
       },
     },
   },
 }
 
-export const PresetValue = Template.bind({})
-PresetValue.args = {
-  label: 'Custom Style',
-  name: 'preset',
-  inputProps: {
-    sx: {
-      '& .MuiOutlinedInput-root': {
-        borderColor: 'green',
+export const PresetValue = {
+  render: Template,
+
+  args: {
+    label: 'Custom Style',
+    name: 'preset',
+    inputProps: {
+      sx: {
+        '& .MuiOutlinedInput-root': {
+          borderColor: 'green',
+        },
       },
     },
   },

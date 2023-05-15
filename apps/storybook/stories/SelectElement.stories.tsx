@@ -1,12 +1,12 @@
 import {FormContainer, SelectElement} from 'react-hook-form-mui/src'
 import {action} from '@storybook/addon-actions'
-import {ComponentMeta, ComponentStory} from '@storybook/react'
+import {Meta, StoryFn} from '@storybook/react'
 import {SubmitButton} from '../src/Shared'
 
 export default {
   title: 'SelectElement',
   component: SelectElement,
-} as ComponentMeta<typeof SelectElement>
+} as Meta<typeof SelectElement>
 
 const months = [
   'January',
@@ -26,7 +26,7 @@ const months = [
   label: i,
 }))
 
-const Template: ComponentStory<typeof SelectElement> = (args) => (
+const Template: StoryFn<typeof SelectElement> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>
     <SelectElement {...args} />
     <br />
@@ -39,37 +39,46 @@ const options = [
   {id: '2', label: 'label 2'},
 ]
 
-export const Basic = Template.bind({})
-Basic.args = {
-  name: 'basic',
-  label: 'Basic',
-  options,
-}
+export const Basic = {
+  render: Template,
 
-export const Required = Template.bind({})
-Required.args = {
-  name: 'required',
-  label: 'Required',
-  required: true,
-  options,
-}
-
-export const MonthPicker = Template.bind({})
-MonthPicker.args = {
-  name: 'month',
-  options: months,
-  label: 'Pick a month',
-  sx: {
-    minWidth: '150px',
+  args: {
+    name: 'basic',
+    label: 'Basic',
+    options,
   },
-  SelectProps: {
-    MenuProps: {
-      PaperProps: {
-        sx: {
-          '& .MuiList-root': {
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '4px',
+}
+
+export const Required = {
+  render: Template,
+
+  args: {
+    name: 'required',
+    label: 'Required',
+    required: true,
+    options,
+  },
+}
+
+export const MonthPicker = {
+  render: Template,
+
+  args: {
+    name: 'month',
+    options: months,
+    label: 'Pick a month',
+    sx: {
+      minWidth: '150px',
+    },
+    SelectProps: {
+      MenuProps: {
+        PaperProps: {
+          sx: {
+            '& .MuiList-root': {
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '4px',
+            },
           },
         },
       },

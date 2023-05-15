@@ -2,19 +2,17 @@
 
 // const {mergeConfig} = require('vite');
 
-const config = {
+import {StorybookConfig} from '@storybook/react-vite'
+
+const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
   addons: ['@storybook/addon-essentials', '@storybook/addon-docs'],
-  features: {
-    emotionAlias: false,
-  },
   typescript: {
     check: false,
   },
-  framework: '@storybook/react',
-  core: {
-    // 'builder': '@storybook/builder-vite'
-    builder: 'webpack5',
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
   },
   // viteFinal: (config, {configType}) => {
   //     config.esbuild = {
@@ -33,5 +31,8 @@ const config = {
   //         },
   //     })
   // }
+  docs: {
+    autodocs: true,
+  },
 }
 export default config

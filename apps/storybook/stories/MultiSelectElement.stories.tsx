@@ -1,14 +1,14 @@
 import {FormContainer, MultiSelectElement} from 'react-hook-form-mui/src'
 import {action} from '@storybook/addon-actions'
-import {ComponentMeta, ComponentStory} from '@storybook/react'
+import {Meta, StoryFn} from '@storybook/react'
 import {SubmitButton} from '../src/Shared'
 
 export default {
   title: 'MultiSelectElement',
   component: MultiSelectElement,
-} as ComponentMeta<typeof MultiSelectElement>
+} as Meta<typeof MultiSelectElement>
 
-const Template: ComponentStory<typeof MultiSelectElement> = (args) => (
+const Template: StoryFn<typeof MultiSelectElement> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>
     <MultiSelectElement {...args} />
     <br />
@@ -44,56 +44,89 @@ const months = [
   'December',
 ]
 
-export const Basic = Template.bind({})
-Basic.args = {
-  name: 'basic',
-  options: names,
+export const Basic = {
+  render: Template,
+
+  args: {
+    name: 'basic',
+    options: names,
+  },
 }
 
-export const Filled = Template.bind({})
-Filled.args = {
-  name: 'filled',
-  options: names,
-  variant: 'filled',
+export const Filled = {
+  render: Template,
+
+  args: {
+    name: 'filled',
+    options: names,
+    variant: 'filled',
+  },
 }
 
-export const WithLabel = Template.bind({})
-WithLabel.args = {
-  name: 'basic',
-  label: 'Select Field',
-  options: names,
+export const WithLabel = {
+  render: Template,
+
+  args: {
+    name: 'basic',
+    label: 'Select Field',
+    options: names,
+  },
 }
 
-export const WithLabelSmall = Template.bind({})
-WithLabelSmall.args = {
-  name: 'basic_small',
-  size: 'small',
-  label: 'Select Field',
-  options: names,
+export const WithLabelSmall = {
+  render: Template,
+
+  args: {
+    name: 'basic_small',
+    size: 'small',
+    label: 'Select Field',
+    options: names,
+  },
 }
 
-export const Required = Template.bind({})
-Required.args = {
-  name: 'required',
-  label: 'Required Field',
-  options: names,
-  required: true,
+export const Required = {
+  render: Template,
+
+  args: {
+    name: 'required',
+    label: 'Required Field',
+    options: names,
+    required: true,
+  },
 }
 
-export const WithChips = Template.bind({})
-WithChips.args = {
-  name: 'chips',
-  label: 'Required Field',
-  options: names,
-  showChips: true,
+export const WithChips = {
+  render: Template,
+
+  args: {
+    name: 'chips',
+    label: 'Required Field',
+    options: names,
+    showChips: true,
+  },
 }
 
-export const WithCheckbox = Template.bind({})
-WithCheckbox.args = {
-  name: 'checkbox',
-  label: 'Checkbox Field',
-  options: names,
-  showCheckbox: true,
+export const WithChipsPreserveOrder = {
+  render: Template,
+
+  args: {
+    name: 'chips',
+    label: 'Required Field',
+    options: names,
+    showChips: true,
+    preserveOrder: true,
+  },
+}
+
+export const WithCheckbox = {
+  render: Template,
+
+  args: {
+    name: 'checkbox',
+    label: 'Checkbox Field',
+    options: names,
+    showCheckbox: true,
+  },
 }
 
 const objectVals = [
@@ -102,56 +135,69 @@ const objectVals = [
   {id: 3, name: 'Celsius'},
   {id: 4, name: 'Delta'},
 ]
-export const WithObjectArray = Template.bind({})
-WithObjectArray.args = {
-  name: 'object',
-  label: 'Object Field',
-  options: objectVals,
-  itemKey: 'id',
-  itemLabel: 'name',
+
+export const WithObjectArray = {
+  render: Template,
+
+  args: {
+    name: 'object',
+    label: 'Object Field',
+    options: objectVals,
+    itemKey: 'id',
+    itemLabel: 'name',
+  },
 }
 
-export const OverwriteRenderValue = Template.bind({})
-OverwriteRenderValue.args = {
-  name: 'object',
-  label: 'Object Field',
-  options: objectVals,
-  itemKey: 'id',
-  itemLabel: 'name',
-  renderValue: (selected: any) => `You selected: ${(selected || [])?.length}`,
+export const OverwriteRenderValue = {
+  render: Template,
+
+  args: {
+    name: 'object',
+    label: 'Object Field',
+    options: objectVals,
+    itemKey: 'id',
+    itemLabel: 'name',
+    renderValue: (selected: any) => `You selected: ${(selected || [])?.length}`,
+  },
 }
 
-export const MonthPicker = Template.bind({})
-MonthPicker.args = {
-  name: 'month',
-  options: months,
-  label: 'Months',
-  MenuProps: {
-    PaperProps: {
-      sx: {
-        '& .MuiList-root': {
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '4px',
+export const MonthPicker = {
+  render: Template,
+
+  args: {
+    name: 'month',
+    options: months,
+    label: 'Months',
+    MenuProps: {
+      PaperProps: {
+        sx: {
+          '& .MuiList-root': {
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '4px',
+          },
         },
       },
     },
   },
 }
 
-export const MonthPickerSmall = Template.bind({})
-MonthPickerSmall.args = {
-  name: 'months_small',
-  options: months,
-  label: 'Months',
-  size: 'small',
-  MenuProps: {
-    PaperProps: {
-      sx: {
-        '& .MuiList-root': {
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '4px',
+export const MonthPickerSmall = {
+  render: Template,
+
+  args: {
+    name: 'months_small',
+    options: months,
+    label: 'Months',
+    size: 'small',
+    MenuProps: {
+      PaperProps: {
+        sx: {
+          '& .MuiList-root': {
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '4px',
+          },
         },
       },
     },
