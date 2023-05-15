@@ -68,10 +68,12 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
                   <Checkbox
                     {...rest}
                     color={rest.color || 'primary'}
-                    sx={{
-                      ...rest.sx,
-                      color: error ? 'error.main' : undefined,
-                    }}
+                    sx={[
+                      ...(Array.isArray(rest.sx) ? rest.sx : [rest.sx]),
+                      {
+                        color: error ? 'error.main' : undefined,
+                      },
+                    ]}
                     value={value}
                     checked={!!value}
                     onChange={(ev) => {
