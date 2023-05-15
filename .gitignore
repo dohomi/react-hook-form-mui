@@ -12,7 +12,7 @@ node_modules
 dist
 .idea
 .next
-storybook-static/
+
 apps/nextjs/.next
 apps/nextjs/node_modules
 TextFieldElement

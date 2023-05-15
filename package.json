@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
@@ -20,13 +20,13 @@
     "prepare": "cd packages/rhf-mui && yarn run build && simple-git-hooks",
     "storybook": "turbo run storybook",
     "next": "cd apps/nextjs && yarn dev",
-    "build-storybook": "cd apps/storybook && build-storybook",
+    "build-storybook": "cd apps/storybook && yarn build-storybook",
     "check-types": "cd packages/rhf-mui && tsc --noemit",
     "lint": "eslint apps/nextjs/src/** packages/rhf-mui/src/** apps/storybook/stories/** apps/storybook/src/**",
     "lint:fix": "npm run lint -- --fix",
     "prettier": "npx prettier apps/nextjs/src/** packages/rhf-mui/src/** apps/storybook/stories/** apps/storybook/src/** --check",
     "prettier:fix": "prettier --write \"**/*.{js,ts,tsx}\"",
-    "deploy": "npm run build-storybook && cd apps/storybook/storybook-static && vercel --name react-hook-form-material-ui --prod",
+    "deploy": "yarm build && cd apps/storybook/storybook-static && vercel --name react-hook-form-material-ui --prod",
     "build": "yarn lint:fix && yarn prettier:fix && cd packages/rhf-mui && yarn build"
   },
   "devDependencies": {
