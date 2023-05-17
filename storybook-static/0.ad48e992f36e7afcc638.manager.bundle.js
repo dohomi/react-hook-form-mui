@@ -1965,7 +1965,7 @@
               )
             )
           })
-      }.call(this, __webpack_require__(56)))
+      }).call(this, __webpack_require__(56))
     },
     830: function (module, exports, __webpack_require__) {
       'use strict'
@@ -3503,7 +3503,7 @@
         )
         module.exports && (module.exports = Prism),
           void 0 !== global && (global.Prism = Prism)
-      }.call(this, __webpack_require__(56)))
+      }).call(this, __webpack_require__(56))
     },
     854: function (module, exports, __webpack_require__) {
       'use strict'

@@ -8375,43 +8375,6 @@ function prepareStory(
       decorators
     ),
     unboundStoryFn = (context) => decoratedStoryFn(context),
-    prepareContext = (context) => {
-      let finalContext = context
-      if (scope.FEATURES?.argTypeTargetsV7) {
-        let argsByTarget = groupArgsByTarget(context)
-        finalContext = {
-          ...context,
-          allArgs: context.args,
-          argsByTarget,
-          args: argsByTarget[UNTARGETED] || {},
-        }
-      }
-      let mappedArgs = Object.entries(finalContext.args).reduce(
-          (acc, [key2, val]) => {
-            if (!finalContext.argTypes[key2]?.mapping)
-              return (acc[key2] = val), acc
-            let mappingFn = (originalValue) =>
-              originalValue in finalContext.argTypes[key2].mapping
-                ? finalContext.argTypes[key2].mapping[originalValue]
-                : originalValue
-            return (
-              (acc[key2] = Array.isArray(val)
-                ? val.map(mappingFn)
-                : mappingFn(val)),
-              acc
-            )
-          },
-          {}
-        ),
-        includedArgs = Object.entries(mappedArgs).reduce((acc, [key2, val]) => {
-          let argType = finalContext.argTypes[key2] || {}
-          return (
-            v(argType, mappedArgs, finalContext.globals) && (acc[key2] = val),
-            acc
-          )
-        }, {})
-      return {...finalContext, args: includedArgs}
-    },
     play = storyAnnotations?.play || componentAnnotations.play
   return {
     ...partialAnnotations,
@@ -8432,7 +8395,6 @@ function prepareStory(
         }
         return play(playFunctionContext)
       }),
-    prepareContext,
   }
 }
 function prepareMeta(componentAnnotations, projectAnnotations, moduleExport) {
@@ -8508,6 +8470,44 @@ function preparePartialAnnotations(
   )
   let {name: name2, story, ...withoutStoryIdentifiers} = contextForEnhancers
   return withoutStoryIdentifiers
+}
+function prepareContext(context) {
+  let {args: unmappedArgs} = context,
+    targetedContext = {...context, allArgs: void 0, argsByTarget: void 0}
+  if (scope.FEATURES?.argTypeTargetsV7) {
+    let argsByTarget = groupArgsByTarget(context)
+    targetedContext = {
+      ...context,
+      allArgs: context.args,
+      argsByTarget,
+      args: argsByTarget[UNTARGETED] || {},
+    }
+  }
+  let mappedArgs = Object.entries(targetedContext.args).reduce(
+      (acc, [key2, val]) => {
+        if (!targetedContext.argTypes[key2]?.mapping)
+          return (acc[key2] = val), acc
+        let mappingFn = (originalValue) =>
+          originalValue in targetedContext.argTypes[key2].mapping
+            ? targetedContext.argTypes[key2].mapping[originalValue]
+            : originalValue
+        return (
+          (acc[key2] = Array.isArray(val)
+            ? val.map(mappingFn)
+            : mappingFn(val)),
+          acc
+        )
+      },
+      {}
+    ),
+    includedArgs = Object.entries(mappedArgs).reduce((acc, [key2, val]) => {
+      let argType = targetedContext.argTypes[key2] || {}
+      return (
+        v(argType, mappedArgs, targetedContext.globals) && (acc[key2] = val),
+        acc
+      )
+    }, {})
+  return {...targetedContext, unmappedArgs, args: includedArgs}
 }
 var inferType = (value2, name2, visited) => {
     let type = typeof value2
@@ -8747,7 +8747,7 @@ function composeStory(
         globals: defaultGlobals,
         args: {...story.initialArgs, ...extraArgs},
       }
-      return story.unboundStoryFn(story.prepareContext(context))
+      return story.unboundStoryFn(prepareContext(context))
     }
   return (
     (composedStory.storyName = storyName),
@@ -8968,15 +8968,15 @@ var CSF_CACHE_SIZE = 1e3,
         ])
       return {entryExports, csfFiles}
     }
-    getStoryContext(story) {
+    getStoryContext(story, {forceInitialArgs = !1} = {}) {
       if (!this.globals)
         throw new Error('getStoryContext called before initialization')
-      return {
+      return prepareContext({
         ...story,
-        args: this.args.get(story.id),
+        args: forceInitialArgs ? story.initialArgs : this.args.get(story.id),
         globals: this.globals.get(),
         hooks: this.hooks[story.id],
-      }
+      })
     }
     cleanupStory(story) {
       this.hooks[story.id].clean()
@@ -12928,7 +12928,8 @@ var StoryRender = class {
     storyContext() {
       if (!this.story)
         throw new Error('Cannot call storyContext before preparing')
-      return this.store.getStoryContext(this.story)
+      let {forceInitialArgs} = this.renderOptions
+      return this.store.getStoryContext(this.story, {forceInitialArgs})
     }
     async render({initial = !1, forceRemount = !1} = {}) {
       let {canvasElement} = this
@@ -12944,24 +12945,17 @@ var StoryRender = class {
         applyLoaders,
         unboundStoryFn,
         playFunction,
-        prepareContext,
-        initialArgs,
       } = this.story
       forceRemount &&
         !initial &&
         (this.cancelRender(), (this.abortController = new AbortController()))
       let abortSignal = this.abortController.signal
       try {
-        let getCurrentContext = () =>
-            prepareContext({
-              ...this.storyContext(),
-              ...(this.renderOptions.forceInitialArgs && {args: initialArgs}),
-            }),
-          loadedContext
+        let loadedContext
         if (
           (await this.runPhase(abortSignal, 'loading', async () => {
             loadedContext = await applyLoaders({
-              ...getCurrentContext(),
+              ...this.storyContext(),
               viewMode: this.viewMode,
             })
           }),
@@ -12970,7 +12964,7 @@ var StoryRender = class {
           return
         let renderStoryContext = {
             ...loadedContext,
-            ...getCurrentContext(),
+            ...this.storyContext(),
             abortSignal,
             canvasElement,
           },
@@ -13837,22 +13831,18 @@ var PreviewWithSelection = class extends Preview {
         isStoryRender(render))
       ) {
         if (!render.story) throw new Error('Render has not been prepared!')
-        let {
-          parameters,
-          initialArgs,
-          argTypes,
-          args: args2,
-        } = this.storyStore.getStoryContext(render.story)
+        let {parameters, initialArgs, argTypes, unmappedArgs} =
+          this.storyStore.getStoryContext(render.story)
         scope.FEATURES?.storyStoreV7 &&
           this.channel.emit(STORY_PREPARED, {
             id: storyId,
             parameters,
             initialArgs,
             argTypes,
-            args: args2,
+            args: unmappedArgs,
           }),
           (implementationChanged || persistedArgs) &&
-            this.channel.emit(STORY_ARGS_UPDATED, {storyId, args: args2})
+            this.channel.emit(STORY_ARGS_UPDATED, {storyId, args: unmappedArgs})
       } else if (scope.FEATURES?.storyStoreV7) {
         if (!this.storyStore.projectAnnotations)
           throw new Error('Store not initialized')
@@ -14545,6 +14535,7 @@ __export(client_api_exports, {
   normalizeInputTypes: () => normalizeInputTypes,
   normalizeProjectAnnotations: () => normalizeProjectAnnotations,
   normalizeStory: () => normalizeStory,
+  prepareContext: () => prepareContext,
   prepareMeta: () => prepareMeta,
   prepareStory: () => prepareStory,
   processCSFFile: () => processCSFFile,
@@ -14617,6 +14608,7 @@ __export(store_exports, {
   normalizeInputTypes: () => normalizeInputTypes,
   normalizeProjectAnnotations: () => normalizeProjectAnnotations,
   normalizeStory: () => normalizeStory,
+  prepareContext: () => prepareContext,
   prepareMeta: () => prepareMeta,
   prepareStory: () => prepareStory,
   processCSFFile: () => processCSFFile,

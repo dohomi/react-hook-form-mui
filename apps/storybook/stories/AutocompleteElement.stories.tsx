@@ -1,37 +1,36 @@
 import {AutocompleteElement, FormContainer} from 'react-hook-form-mui/src'
-import React, {FC, PropsWithChildren} from 'react'
-import {Meta, StoryFn} from '@storybook/react'
+import React from 'react'
+import {Meta, StoryObj} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {Box, Button, Tooltip} from '@mui/material'
 import LocationIcon from '@mui/icons-material/LocationOn'
 
-export default {
+const meta = {
   title: 'Autocomplete',
   component: AutocompleteElement,
-} as Meta<typeof AutocompleteElement>
+  decorators: [FormWrap],
+} satisfies Meta<typeof AutocompleteElement>
 
-const FormWrap: FC<PropsWithChildren> = ({children}) => (
-  <FormContainer
-    onSuccess={action('form-submit')}
-    defaultValues={{
-      preselect: {id: 2, label: 'Second'},
-      'multi-preselect': [{id: 2, label: 'Second'}],
-      'match-id': 2,
-      'match-id-multi': [2, 3],
-    }}
-  >
-    {children}
-    <Box marginTop={2}>
-      <Button type={'submit'}>Submit</Button>
-    </Box>
-  </FormContainer>
-)
+export default meta
 
-const Template: StoryFn<typeof AutocompleteElement> = (args) => {
+type Story = StoryObj<typeof meta>
+
+function FormWrap(Story) {
   return (
-    <FormWrap>
-      <AutocompleteElement {...args} />
-    </FormWrap>
+    <FormContainer
+      onSuccess={action('form-submit')}
+      defaultValues={{
+        preselect: {id: 2, label: 'Second'},
+        'multi-preselect': [{id: 2, label: 'Second'}],
+        'match-id': 2,
+        'match-id-multi': [2, 3],
+      }}
+    >
+      <Story />
+      <Box marginTop={2}>
+        <Button type={'submit'}>Submit</Button>
+      </Box>
+    </FormContainer>
   )
 }
 
@@ -45,9 +44,7 @@ const options = [
   },
 ]
 
-export const Basic = {
-  render: Template,
-
+export const Basic: Story = {
   args: {
     name: 'basic',
     options,
@@ -55,8 +52,6 @@ export const Basic = {
 }
 
 export const BasicPreSelect = {
-  render: Template,
-
   args: {
     name: 'preselect',
     options,
@@ -64,8 +59,6 @@ export const BasicPreSelect = {
 }
 
 export const MultiSelect = {
-  render: Template,
-
   args: {
     name: 'multi',
     options,
@@ -74,8 +67,6 @@ export const MultiSelect = {
 }
 
 export const MultiSelectRequired = {
-  render: Template,
-
   args: {
     label: 'Multiple Required',
     name: 'multi-required',
@@ -86,8 +77,6 @@ export const MultiSelectRequired = {
 }
 
 export const MultiSelectRequiredCustom = {
-  render: Template,
-
   args: {
     label: 'Multiple Required Custom',
     name: 'multi-required-custom',
@@ -100,8 +89,6 @@ export const MultiSelectRequiredCustom = {
 }
 
 export const MultiSelectPredefined = {
-  render: Template,
-
   args: {
     name: 'multi-preselect',
     options,
@@ -110,8 +97,6 @@ export const MultiSelectPredefined = {
 }
 
 export const MultiSelectCheckbox = {
-  render: Template,
-
   args: {
     name: 'multicheck',
     options,
@@ -121,8 +106,6 @@ export const MultiSelectCheckbox = {
 }
 
 export const Loading = {
-  render: Template,
-
   args: {
     label: 'Loading State',
     name: 'loading',
@@ -134,8 +117,6 @@ export const Loading = {
 }
 
 export const MatchId = {
-  render: Template,
-
   args: {
     label: 'Match ID',
     name: 'match-id',
@@ -145,8 +126,6 @@ export const MatchId = {
 }
 
 export const MatchIdMulti = {
-  render: Template,
-
   args: {
     label: 'Match ID',
     name: 'match-id-multi',
@@ -157,8 +136,6 @@ export const MatchIdMulti = {
 }
 
 export const CustomInput = {
-  render: Template,
-
   args: {
     name: 'custom-input',
     options,

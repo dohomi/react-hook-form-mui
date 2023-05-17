@@ -2,35 +2,19 @@
 
 // const {mergeConfig} = require('vite');
 
-import {StorybookConfig} from '@storybook/react-vite'
+import {StorybookConfig} from '@storybook/nextjs'
 
 const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-docs'],
-  typescript: {
-    check: false,
-  },
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+  ],
   framework: {
-    name: '@storybook/react-vite',
+    name: '@storybook/nextjs',
     options: {},
   },
-  // viteFinal: (config, {configType}) => {
-  //     config.esbuild = {
-  //         ...config.esbuild,
-  //         logOverride: {'this-is-undefined-in-esm': 'silent'}
-  //     }
-  //     return mergeConfig(config, {
-  //         resolve: {
-  //             preserveSymlinks: true,
-  //             dedupe: ["@storybook/client-api"]
-  //         },
-  //         build: {
-  //             commonjsOptions: {
-  //                 transformMixedEsModules: true,
-  //             },
-  //         },
-  //     })
-  // }
   docs: {
     autodocs: true,
   },

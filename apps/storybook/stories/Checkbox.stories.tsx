@@ -3,10 +3,12 @@ import {CheckboxElement, FormContainer} from 'react-hook-form-mui/src'
 import {Meta, StoryFn} from '@storybook/react'
 import {SubmitButton} from '../src/Shared'
 
-export default {
+const meta = {
   title: 'Checkbox',
   component: CheckboxElement,
-} as Meta<typeof CheckboxElement>
+} satisfies Meta<typeof CheckboxElement>
+
+export default meta
 
 const Template: StoryFn<typeof CheckboxElement> = (args) => (
   <FormContainer defaultValues={{}} onSuccess={action('submit')}>

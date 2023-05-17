@@ -29,6 +29,6 @@
     "@types/react-dom": "latest",
     "cross-env": "latest",
     "eslint-config-next": "latest",
-    "typescript": "^4.7.4"
+    "typescript": "latest"
   }
 }
