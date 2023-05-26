@@ -1,36 +1,18 @@
-import {FormContainer, TimePickerElement} from 'react-hook-form-mui/src'
-import {Meta, StoryFn} from '@storybook/react'
-import DateFnsProvider from '../../../packages/rhf-mui/src/DateFnsProvider'
-import {action} from '@storybook/addon-actions'
-import {SubmitButton} from '../src/Shared'
+import {TimePickerElement} from 'react-hook-form-mui/src'
+import {Meta, StoryObj} from '@storybook/react'
+import {FormContainerDecorator} from '../src/FormDecorator'
 
-export default {
+const meta = {
   title: 'TimePickerElement',
   component: TimePickerElement,
-} as Meta<typeof TimePickerElement>
+  decorators: [FormContainerDecorator],
+} satisfies Meta<typeof TimePickerElement>
 
-const Template: StoryFn<typeof TimePickerElement> = (args) => (
-  <DateFnsProvider>
-    <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-      <TimePickerElement {...args} />
-      <br />
-      <SubmitButton />
-    </FormContainer>
-  </DateFnsProvider>
-)
+export default meta
 
-export const Basic = {
-  render: Template,
+type Story = StoryObj<typeof meta>
 
-  args: {
-    label: 'Time Picker',
-    name: 'basic',
-  },
-}
-
-export const RequiredPicker = {
-  render: Template,
-
+export const RequiredPicker: Story = {
   args: {
     label: 'Time Picker',
     name: 'required_picker',
@@ -38,9 +20,7 @@ export const RequiredPicker = {
   },
 }
 
-export const RequiredPickerCustom = {
-  render: Template,
-
+export const RequiredPickerCustom: Story = {
   args: {
     label: 'Time Picker',
     name: 'required_picker_custom',
@@ -49,9 +29,7 @@ export const RequiredPickerCustom = {
   },
 }
 
-export const DisableTextInput = {
-  render: Template,
-
+export const DisableTextInput: Story = {
   args: {
     label: 'Required Picker',
     name: 'requiredCustomMessage',

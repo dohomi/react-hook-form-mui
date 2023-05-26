@@ -1,38 +1,25 @@
-import {DatePickerElement, FormContainer} from 'react-hook-form-mui/src'
-import {action} from '@storybook/addon-actions'
-import {SubmitButton} from '../src/Shared'
-import {Meta, StoryFn} from '@storybook/react'
+import {DatePickerElement} from 'react-hook-form-mui/src'
+import {Meta, StoryObj} from '@storybook/react'
+import {FormContainerDecorator} from '../src/FormDecorator'
 
-export default {
+const meta = {
   title: 'DatePickerElement',
   component: DatePickerElement,
-} as Meta<typeof DatePickerElement>
+  decorators: [FormContainerDecorator],
+} satisfies Meta<typeof DatePickerElement>
 
-const Template: StoryFn<typeof DatePickerElement> = (args) => (
-  <FormContainer
-    defaultValues={{
-      preset: '2023-02-01',
-    }}
-    onSuccess={action('submit')}
-  >
-    <DatePickerElement {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
+export default meta
 
-export const Basic = {
-  render: Template,
+type Story = StoryObj<typeof meta>
 
+export const Basic: Story = {
   args: {
     label: 'Date Picker',
     name: 'basic',
   },
 }
 
-export const Required = {
-  render: Template,
-
+export const Required: Story = {
   args: {
     label: 'Required Picker',
     name: 'required',
@@ -40,9 +27,7 @@ export const Required = {
   },
 }
 
-export const RequiredCustomMessage = {
-  render: Template,
-
+export const RequiredCustomMessage: Story = {
   args: {
     label: 'Required Picker',
     name: 'requiredCustomMessage',
@@ -51,9 +36,7 @@ export const RequiredCustomMessage = {
   },
 }
 
-export const DisableTextInput = {
-  render: Template,
-
+export const DisableTextInput: Story = {
   args: {
     label: 'Required Picker',
     name: 'requiredCustomMessage',
@@ -62,9 +45,7 @@ export const DisableTextInput = {
   },
 }
 
-export const CustomiseInput = {
-  render: Template,
-
+export const CustomiseInput: Story = {
   args: {
     label: 'Custom Style',
     name: 'custom',
@@ -78,9 +59,7 @@ export const CustomiseInput = {
   },
 }
 
-export const PresetValue = {
-  render: Template,
-
+export const PresetValue: Story = {
   args: {
     label: 'Custom Style',
     name: 'preset',

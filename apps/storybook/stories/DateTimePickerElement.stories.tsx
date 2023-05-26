@@ -1,33 +1,23 @@
-import {DateTimePickerElement, FormContainer} from 'react-hook-form-mui/src'
-import {Meta, StoryFn} from '@storybook/react'
-import {action} from '@storybook/addon-actions'
-import {SubmitButton} from '../src/Shared'
+import {DateTimePickerElement} from 'react-hook-form-mui/src'
+import {Meta, StoryObj} from '@storybook/react'
+import {FormContainerDecorator} from '../src/FormDecorator'
 
-export default {
+const meta = {
   title: 'DateTimePickerElement',
   component: DateTimePickerElement,
-} as Meta<typeof DateTimePickerElement>
+  decorators: [FormContainerDecorator],
+} satisfies Meta<typeof DateTimePickerElement>
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: StoryFn<typeof DateTimePickerElement> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-    <DateTimePickerElement {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
-
-export const Basic = {
-  render: Template,
-
+export const Basic: Story = {
   args: {
     label: 'Datetime Picker',
-    name: 'basic',
+    name: 'datetime',
   },
 }
 
-export const RequiredPicker = {
-  render: Template,
-
+export const RequiredPicker: Story = {
   args: {
     label: 'Datetime Picker',
     name: 'required_picker',
@@ -35,9 +25,7 @@ export const RequiredPicker = {
   },
 }
 
-export const RequiredPickerCustom = {
-  render: Template,
-
+export const RequiredPickerCustom: Story = {
   args: {
     label: 'Datetime Picker',
     name: 'required_picker_custom',
@@ -46,9 +34,7 @@ export const RequiredPickerCustom = {
   },
 }
 
-export const DisableTextInput = {
-  render: Template,
-
+export const DisableTextInput: Story = {
   args: {
     label: 'Required Picker',
     name: 'requiredCustomMessage',
