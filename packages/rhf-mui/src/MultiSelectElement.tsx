@@ -65,6 +65,12 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
 }: MultiSelectElementProps<TFieldValues>): JSX.Element {
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
+  const renderLabel = (item: any) =>
+    options.find((op) => {
+      const optionVal = op[itemValue || itemKey] ?? op
+      return optionVal === item
+    })?.[itemLabel] ?? item
+
   if (required && !validation.required) {
     validation.required = 'This field is required'
   }
@@ -138,7 +144,7 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                         ).map((selectedValue) => (
                           <Chip
                             key={selectedValue}
-                            label={selectedValue}
+                            label={renderLabel(selectedValue)}
                             style={{display: 'flex', flexWrap: 'wrap'}}
                             onDelete={() => {
                               onChange(
@@ -158,7 +164,9 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                       </div>
                     )
                   : (selected) =>
-                      Array.isArray(selected) ? selected.join(', ') : ''
+                      Array.isArray(selected)
+                        ? selected.map(renderLabel).join(', ')
+                        : ''
               }
             >
               {options.map((item) => {

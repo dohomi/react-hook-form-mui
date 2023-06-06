@@ -148,6 +148,19 @@ export const WithObjectArray = {
   },
 }
 
+export const WithObjectArrayChips = {
+  render: Template,
+
+  args: {
+    name: 'object',
+    label: 'Object Field',
+    options: objectVals,
+    itemKey: 'id',
+    itemLabel: 'name',
+    showChips: true,
+  },
+}
+
 export const OverwriteRenderValue = {
   render: Template,
 
