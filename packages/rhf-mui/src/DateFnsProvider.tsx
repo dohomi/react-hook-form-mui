@@ -2,11 +2,11 @@ import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns'
 import {
   LocalizationProvider,
   LocalizationProviderProps,
+  MuiPickersAdapter,
 } from '@mui/x-date-pickers'
-import {MuiPickersAdapter} from '@mui/x-date-pickers/internals/models'
 
 export type DateFnsProviderProps<TDate> = Omit<
-  LocalizationProviderProps<TDate>,
+  LocalizationProviderProps<TDate, any>,
   'dateAdapter'
 > & {
   dateAdapter?: new (...args: any) => MuiPickersAdapter<TDate>

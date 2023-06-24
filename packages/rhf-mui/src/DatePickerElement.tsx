@@ -13,21 +13,16 @@ import {
 import {TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
-import {PickerChangeHandlerContext} from '@mui/x-date-pickers/internals/hooks/usePicker/usePickerValue'
 
 export type DatePickerElementProps<
   T extends FieldValues,
   TInputDate,
   TDate = TInputDate
-> = Omit<DatePickerProps<TDate>, 'value' | 'onChange' | 'slotProps'> & {
+> = Omit<DatePickerProps<TDate>, 'value' | 'slotProps'> & {
   name: Path<T>
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => string
-  onChange?: (
-    value: TDate,
-    keyboardInputValue?: PickerChangeHandlerContext<any>
-  ) => void
   validation?: ControllerProps['rules']
   control?: Control<T>
   inputProps?: TextFieldProps
@@ -96,10 +91,8 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
                     : error.message
                   : inputProps?.helperText || rest.helperText,
                 inputProps: {
+                  readOnly: !!textReadOnly,
                   ...inputProps?.inputProps,
-                  ...(textReadOnly && {
-                    readonly: true,
-                  }),
                 },
               },
             }}

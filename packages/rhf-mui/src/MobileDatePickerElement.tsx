@@ -13,26 +13,20 @@ import {
 import {TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
-import {PickerChangeHandlerContext} from '@mui/x-date-pickers/internals/hooks/usePicker/usePickerValue'
 
 export type MobileDatePickerElementProps<
   T extends FieldValues,
   TInputDate,
   TDate = TInputDate
-> = Omit<MobileDatePickerProps<TDate>, 'value' | 'onChange' | 'slotProps'> & {
+> = Omit<MobileDatePickerProps<TDate>, 'value' | 'slotProps'> & {
   name: Path<T>
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => string
-  onChange?: (
-    value: TDate,
-    keyboardInputValue?: PickerChangeHandlerContext<any>
-  ) => void
   validation?: ControllerProps['rules']
   control?: Control<T>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
-  textReadOnly?: boolean
   slotProps?: Omit<MobileDatePickerSlotsComponentsProps<TDate>, 'textField'>
 }
 
@@ -45,7 +39,6 @@ export default function MobileDatePickerElement<
   validation = {},
   inputProps,
   control,
-  textReadOnly,
   slotProps,
   ...rest
 }: MobileDatePickerElementProps<TFieldValues, any, any>): JSX.Element {
@@ -97,12 +90,6 @@ export default function MobileDatePickerElement<
                     ? customErrorFn(error)
                     : error.message
                   : inputProps?.helperText || rest.helperText,
-                inputProps: {
-                  ...inputProps?.inputProps,
-                  ...(textReadOnly && {
-                    readonly: true,
-                  }),
-                },
               },
             }}
           />

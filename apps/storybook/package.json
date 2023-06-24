@@ -45,7 +45,7 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
-    "@mui/x-date-pickers": "^5.0.8",
+    "@mui/x-date-pickers": "^6.9.0",
     "@storybook/addon-essentials": "latest",
     "@storybook/nextjs": "latest",
     "@storybook/react": "latest",
