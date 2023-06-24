@@ -1,5 +1,5 @@
 {
-  "version": "6.2.0",
+  "version": "6.3.0",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.vercel.app",
@@ -38,7 +38,7 @@
   "peerDependencies": {
     "@mui/icons-material": ">= 5.x <6",
     "@mui/material": ">= 5.x <6",
-    "@mui/x-date-pickers": ">=6.0.1 <7",
+    "@mui/x-date-pickers": ">=6.1.0 <7",
     "react": ">=17 <19",
     "react-hook-form": ">=7.33.1"
   },
