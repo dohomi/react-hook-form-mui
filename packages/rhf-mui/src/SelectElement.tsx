@@ -16,7 +16,7 @@ export type SelectElementProps<T extends FieldValues> = Omit<
 > & {
   validation?: ControllerProps['rules']
   name: Path<T>
-  options?: {id: string | number; label: string | number}[] | any[]
+  options?: readonly {id: string | number; label: string | number}[] | readonly any[]
   valueKey?: string
   labelKey?: string
   type?: 'string' | 'number'
