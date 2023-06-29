@@ -30,3 +30,11 @@ LabelPosition.args = {
     labelPlacement: 'top',
   },
 }
+
+export const CustomTransform = Template.bind({})
+CustomTransform.args = {
+  label: 'Label',
+  name: 'basic',
+  transformValue: (checked: boolean) => (checked ? 'checked' : 'unchecked'),
+  parseValue: (value) => value === 'checked',
+}

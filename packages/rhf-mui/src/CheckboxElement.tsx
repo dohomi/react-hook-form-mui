@@ -28,7 +28,21 @@ export type CheckboxElementProps<T extends FieldValues> = Omit<
   helperText?: string
   control?: Control<T>
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control'>
+  /**
+   * Function to transform the value from the form controller to a boolean that can be used by the MUI Checkbox component.
+   *
+   * You probably want to use this prop together with `transformValue`.
+   */
+  parseValue?: (formDataValue: unknown) => boolean
+  /**
+   * Function to transform the input value before sending it to the Form Controller.
+   *
+   * You probably want to use this prop together with `parseValue`.
+   */
+  transformValue?: (checked: boolean) => unknown
 }
+
+const defaultTransform = (value: any): any => value
 
 export default function CheckboxElement<TFieldValues extends FieldValues>({
   name,
@@ -39,6 +53,8 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
   control,
   helperText,
   labelProps,
+  parseValue = defaultTransform,
+  transformValue = defaultTransform,
   ...rest
 }: CheckboxElementProps<TFieldValues>): JSX.Element {
   const errorMsgFn = useFormError()
@@ -73,11 +89,11 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
                       color: error ? 'error.main' : undefined,
                     }}
                     value={value}
-                    checked={!!value}
+                    checked={!!parseValue(value)}
                     onChange={(ev) => {
-                      onChange(!value)
+                      onChange(transformValue(ev.target.checked))
                       if (typeof rest.onChange === 'function') {
-                        rest.onChange(ev, !value)
+                        rest.onChange(ev, !ev.target.checked)
                       }
                     }}
                   />
