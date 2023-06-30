@@ -275,3 +275,53 @@ export const WithFormErrorProvider = () => (
     </FormContainer>
   </FormErrorProvider>
 )
+
+export const WithTransformations = () => {
+  const form = {
+    lowercase: 'play with me',
+    numbersOnly: 12345,
+  }
+  return (
+    <FormContainer
+      defaultValues={form}
+      onSuccess={action('submit')}
+      FormProps={{
+        'aria-autocomplete': 'none',
+      }}
+    >
+      <p>
+        You can use <code>transformValue</code> and <code>parseValue</code> to
+        present the stored value in a different format to the user.
+      </p>
+      <TextFieldElement
+        name={'lowercase'}
+        margin={'dense'}
+        label={'Lowercase transformation'}
+        parseValue={(value) => String(value).toUpperCase()}
+        transformValue={(value) => String(value).toLowerCase()}
+        helperText={
+          'The text is always shown in uppercase, but stored in lowercase'
+        }
+        required
+      />
+      <br />
+      <TextFieldElement
+        name={'numbersOnly'}
+        margin={'dense'}
+        label={'Numbers only'}
+        transformValue={(value) => {
+          const valueAsNUmber = parseFloat(value as string)
+          if (isNaN(valueAsNUmber)) {
+            return 0
+          }
+          return valueAsNUmber
+        }}
+        helperText={
+          'Transforms the input value into a number without using type="number"'
+        }
+        required
+      />
+      <SubmitButton />
+    </FormContainer>
+  )
+}

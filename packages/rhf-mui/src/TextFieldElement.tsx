@@ -17,7 +17,21 @@ export type TextFieldElementProps<T extends FieldValues = FieldValues> = Omit<
   name: Path<T>
   parseError?: (error: FieldError) => string
   control?: Control<T>
+  /**
+   * Function to transform the value from the form controller to a boolean that can be used by the MUI TextField component.
+   *
+   * You probably want to use this prop together with `transformValue`.
+   */
+  parseValue?: (formDataValue: unknown) => string
+  /**
+   * Function to transform the input value before sending it to the Form Controller.
+   *
+   * You probably want to use this prop together with `parseValue`.
+   */
+  transformValue?: (inputValue: string | number) => unknown
 }
+
+const defaultTransform = (value: any): any => value
 
 export default function TextFieldElement<
   TFieldValues extends FieldValues = FieldValues
@@ -28,6 +42,8 @@ export default function TextFieldElement<
   required,
   name,
   control,
+  parseValue = defaultTransform,
+  transformValue = defaultTransform,
   ...rest
 }: TextFieldElementProps<TFieldValues>): JSX.Element {
   const errorMsgFn = useFormError()
@@ -57,12 +73,14 @@ export default function TextFieldElement<
         <TextField
           {...rest}
           name={name}
-          value={value ?? ''}
+          value={parseValue(value) ?? ''}
           onChange={(ev) => {
             onChange(
-              type === 'number' && ev.target.value
-                ? +ev.target.value
-                : ev.target.value
+              transformValue(
+                type === 'number' && ev.target.value
+                  ? +ev.target.value
+                  : ev.target.value
+              )
             )
             if (typeof rest.onChange === 'function') {
               rest.onChange(ev)
