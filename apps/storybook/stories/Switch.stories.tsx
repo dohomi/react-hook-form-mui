@@ -35,3 +35,11 @@ Disabled.args = {
   label: 'Disabled Switch',
   disabled: true,
 }
+
+export const CustomTransform = Template.bind({})
+CustomTransform.args = {
+  label: 'Label',
+  name: 'switch',
+  transformValue: (checked: boolean) => (checked ? 'checked' : 'unchecked'),
+  parseValue: (value) => value === 'checked',
+}
