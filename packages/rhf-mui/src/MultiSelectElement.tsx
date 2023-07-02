@@ -14,6 +14,7 @@ import {
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
+import {ReactNode} from 'react'
 
 export type MultiSelectElementProps<T extends FieldValues> = Omit<
   SelectProps,
@@ -27,7 +28,7 @@ export type MultiSelectElementProps<T extends FieldValues> = Omit<
   required?: boolean
   validation?: any
   name: Path<T>
-  parseError?: (error: FieldError) => string
+  parseError?: (error: FieldError) => ReactNode
   minWidth?: number
   menuMaxHeight?: number
   menuMaxWidth?: number

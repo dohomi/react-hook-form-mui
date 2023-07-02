@@ -13,6 +13,7 @@ import {
 import {TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
+import {ReactNode} from 'react'
 
 export type TimePickerElementProps<
   T extends FieldValues,
@@ -22,7 +23,7 @@ export type TimePickerElementProps<
   name: Path<T>
   required?: boolean
   isDate?: boolean
-  parseError?: (error: FieldError) => string
+  parseError?: (error: FieldError) => ReactNode
   validation?: ControllerProps['rules']
   control?: Control<T>
   inputProps?: TextFieldProps

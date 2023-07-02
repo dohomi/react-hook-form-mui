@@ -16,6 +16,7 @@ import {
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
+import {ReactNode} from 'react'
 
 export type CheckboxElementProps<T extends FieldValues> = Omit<
   CheckboxProps,
@@ -23,7 +24,7 @@ export type CheckboxElementProps<T extends FieldValues> = Omit<
 > & {
   validation?: ControllerProps['rules']
   name: Path<T>
-  parseError?: (error: FieldError) => string
+  parseError?: (error: FieldError) => ReactNode
   label?: FormControlLabelProps['label']
   helperText?: string
   control?: Control<T>
