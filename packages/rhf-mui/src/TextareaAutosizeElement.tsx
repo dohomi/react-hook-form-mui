@@ -7,14 +7,14 @@ import {
   Path,
 } from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
-import {CSSProperties} from 'react'
+import {CSSProperties, ReactNode} from 'react'
 import {useFormError} from './FormErrorProvider'
 
 export type TextareaAutosizeElementProps<T extends FieldValues = FieldValues> =
   Omit<TextFieldProps, 'name' | 'type'> & {
     validation?: ControllerProps['rules']
     name: Path<T>
-    parseError?: (error: FieldError) => string
+    parseError?: (error: FieldError) => ReactNode
     control?: Control<T>
     resizeStyle?: CSSProperties['resize']
   }

@@ -18,13 +18,14 @@ import {
 } from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
+import {ReactNode} from 'react'
 
 export type CheckboxButtonGroupProps<T extends FieldValues> = {
   options: {id: string | number; label: string}[] | any[]
   helperText?: string
   name: Path<T>
   required?: boolean
-  parseError?: (error: FieldError) => string
+  parseError?: (error: FieldError) => ReactNode
   label?: string
   labelKey?: string
   valueKey?: string

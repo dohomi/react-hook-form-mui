@@ -1,4 +1,4 @@
-import {ChangeEvent} from 'react'
+import {ChangeEvent, ReactNode} from 'react'
 import {Control, FieldError, Path, useController} from 'react-hook-form'
 import {
   FormControl,
@@ -19,7 +19,7 @@ export type RadioButtonGroupProps<T extends FieldValues> = {
   helperText?: string
   name: Path<T>
   required?: boolean
-  parseError?: (error: FieldError) => string
+  parseError?: (error: FieldError) => ReactNode
   label?: string
   labelKey?: string
   valueKey?: string

@@ -1,4 +1,4 @@
-import {createElement} from 'react'
+import {ReactNode, createElement} from 'react'
 import {MenuItem, TextField, TextFieldProps} from '@mui/material'
 import {
   Control,
@@ -22,7 +22,7 @@ export type SelectElementProps<T extends FieldValues> = Omit<
   valueKey?: string
   labelKey?: string
   type?: 'string' | 'number'
-  parseError?: (error: FieldError) => string
+  parseError?: (error: FieldError) => ReactNode
   objectOnChange?: boolean
   onChange?: (value: any) => void
   control?: Control<T>
