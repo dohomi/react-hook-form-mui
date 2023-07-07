@@ -15,6 +15,7 @@ import {
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
+import {ReactNode} from 'react'
 
 export type SliderElementProps<T extends FieldValues> = Omit<
   SliderProps,
@@ -24,7 +25,7 @@ export type SliderElementProps<T extends FieldValues> = Omit<
   control?: Control<T>
   label?: string
   rules?: ControllerProps['rules']
-  parseError?: (error: FieldError) => string
+  parseError?: (error: FieldError) => ReactNode
   required?: boolean
   formControlProps?: FormControlProps
 }

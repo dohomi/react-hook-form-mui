@@ -15,6 +15,7 @@ import {
 import CircularProgress from '@mui/material/CircularProgress'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
+import {ReactNode} from 'react'
 
 export type AutocompleteElementProps<
   F extends FieldValues,
@@ -29,7 +30,7 @@ export type AutocompleteElementProps<
   multiple?: M
   matchId?: boolean
   rules?: ControllerProps['rules']
-  parseError?: (error: FieldError) => string
+  parseError?: (error: FieldError) => ReactNode
   required?: boolean
   label?: TextFieldProps['label']
   showCheckbox?: boolean

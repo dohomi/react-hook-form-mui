@@ -30,7 +30,7 @@ export type ToggleButtonGroupElementProps<T extends FieldValues> =
     label?: string
     validation?: ControllerProps['rules']
     name: Path<T>
-    parseError?: (error: FieldError) => string
+    parseError?: (error: FieldError) => ReactNode
     control?: Control<T>
     options: SingleToggleButtonProps[]
     formLabelProps?: FormLabelProps

@@ -8,6 +8,7 @@ import {
 } from 'react-hook-form'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
+import {ReactNode} from 'react'
 
 export type TextFieldElementProps<T extends FieldValues = FieldValues> = Omit<
   TextFieldProps,
@@ -15,7 +16,7 @@ export type TextFieldElementProps<T extends FieldValues = FieldValues> = Omit<
 > & {
   validation?: ControllerProps['rules']
   name: Path<T>
-  parseError?: (error: FieldError) => string
+  parseError?: (error: FieldError) => ReactNode
   control?: Control<T>
   /**
    * You override the MUI's TextField component by passing a reference of the component you want to use.
