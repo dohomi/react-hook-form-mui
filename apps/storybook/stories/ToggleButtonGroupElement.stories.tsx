@@ -3,7 +3,7 @@ import {
   ToggleButtonGroupElement,
   ToggleButtonGroupElementProps,
 } from 'react-hook-form-mui/src'
-import {Meta, StoryFn} from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {SubmitButton} from '../src/Shared'
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft'
@@ -11,18 +11,25 @@ import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter'
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight'
 import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify'
 
-export default {
+const meta = {
   title: 'ToggleButtonGroupElement',
   component: ToggleButtonGroupElement,
-} as Meta<typeof ToggleButtonGroupElement>
+  decorators: [Decorator],
+} satisfies Meta<typeof ToggleButtonGroupElement>
 
-const Template: StoryFn<typeof ToggleButtonGroupElement> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-    <ToggleButtonGroupElement {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+function Decorator(Story) {
+  return (
+    <FormContainer defaultValues={{}} onSuccess={action('submit')}>
+      <Story />
+      <br />
+      <SubmitButton />
+    </FormContainer>
+  )
+}
 
 const options: ToggleButtonGroupElementProps<any>['options'] = [
   {
@@ -58,18 +65,14 @@ const optionIcons: ToggleButtonGroupElementProps<any>['options'] = [
   },
 ]
 
-export const Basic = {
-  render: Template,
-
+export const Basic: Story = {
   args: {
     name: 'basic',
     options,
   },
 }
 
-export const Exclusive = {
-  render: Template,
-
+export const Exclusive: Story = {
   args: {
     name: 'exclusive',
     options,
@@ -77,9 +80,7 @@ export const Exclusive = {
   },
 }
 
-export const EnforceOne = {
-  render: Template,
-
+export const EnforceOne: Story = {
   args: {
     name: 'exclusive',
     options,
@@ -88,18 +89,14 @@ export const EnforceOne = {
   },
 }
 
-export const WithIcons = {
-  render: Template,
-
+export const WithIcons: Story = {
   args: {
     name: 'exclusive',
     options: optionIcons,
   },
 }
 
-export const WithLabel = {
-  render: Template,
-
+export const WithLabel: Story = {
   args: {
     name: 'exclusive',
     options: optionIcons,
@@ -107,9 +104,7 @@ export const WithLabel = {
   },
 }
 
-export const WithLabelRequired = {
-  render: Template,
-
+export const WithLabelRequired: Story = {
   args: {
     name: 'exclusive',
     options: optionIcons,
@@ -118,14 +113,21 @@ export const WithLabelRequired = {
   },
 }
 
-export const WithCustomHelperText = {
-  render: Template,
-
+export const WithCustomHelperText: Story = {
   args: {
     name: 'exclusive',
     options: optionIcons,
     label: 'Please Select',
     required: true,
     helperText: 'Some helper text',
+  },
+}
+
+export const FullWidth: Story = {
+  args: {
+    options: options,
+    name: 'fullWidth',
+    label: 'Full Width',
+    fullWidth: true,
   },
 }

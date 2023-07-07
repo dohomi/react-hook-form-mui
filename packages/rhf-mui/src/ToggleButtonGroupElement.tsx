@@ -73,7 +73,11 @@ export default function ToggleButtonGroupElement<
             : error.message
           : helperText
         return (
-          <FormControl error={!!error} required={isRequired}>
+          <FormControl
+            error={!!error}
+            required={isRequired}
+            fullWidth={toggleButtonGroupProps?.fullWidth}
+          >
             {label && (
               <FormLabel
                 {...formLabelProps}

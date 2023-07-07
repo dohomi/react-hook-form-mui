@@ -1,7 +1,7 @@
 'use strict'
 ;(self.webpackChunkrhfm_storybook = self.webpackChunkrhfm_storybook || []).push(
   [
-    [423],
+    [878],
     {
       './node_modules/@mui/material/esm/Box/Box.js': (
         __unused_webpack_module,
@@ -10,10 +10,10 @@
       ) => {
         __webpack_require__.d(__webpack_exports__, {Z: () => Box_Box})
         var esm_extends = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+            './node_modules/@babel/runtime/helpers/esm/extends.js'
           ),
           objectWithoutPropertiesLoose = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+            './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
           ),
           react = __webpack_require__('../../node_modules/react/index.js'),
           clsx_m = __webpack_require__(
@@ -36,7 +36,7 @@
           )
         const _excluded = ['className', 'component']
         var ClassNameGenerator = __webpack_require__(
-          './node_modules/@mui/material/node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
+          './node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
         )
         const Box = (function createBox(options = {}) {
             const {
@@ -80,11 +80,11 @@
         })
         var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_9__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             '../../node_modules/react/index.js'
@@ -99,7 +99,7 @@
             './node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js'
           ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-            './node_modules/@mui/material/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _styles_styled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
             './node_modules/@mui/material/esm/styles/styled.js'
@@ -281,14 +281,14 @@
         __webpack_require__.d(__webpack_exports__, {Z: () => extendSxProp})
         var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _getThemeValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             './node_modules/@mui/system/esm/getThemeValue.js'
@@ -441,7 +441,7 @@
               })
         } catch (__react_docgen_typescript_loader_error) {}
       },
-      './stories/SelectElement.stories.tsx': (
+      './stories/Checkbox.stories.tsx': (
         __unused_webpack_module,
         __webpack_exports__,
         __webpack_require__
@@ -449,19 +449,15 @@
         __webpack_require__.r(__webpack_exports__),
           __webpack_require__.d(__webpack_exports__, {
             Basic: () => Basic,
-            MonthPicker: () => MonthPicker,
-            Required: () => Required,
+            LabelPosition: () => LabelPosition,
             default: () => __WEBPACK_DEFAULT_EXPORT__,
           })
         var _Basic$parameters,
           _Basic$parameters2,
           _Basic$parameters2$do,
-          _Required$parameters,
-          _Required$parameters2,
-          _Required$parameters3,
-          _MonthPicker$paramete,
-          _MonthPicker$paramete2,
-          _MonthPicker$paramete3,
+          _LabelPosition$parame,
+          _LabelPosition$parame2,
+          _LabelPosition$parame3,
           _Users_dominicgarms_Documents_Coding_react_react_hook_form_mui_node_modules_storybook_nextjs_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
               '../../node_modules/@storybook/nextjs/node_modules/@babel/runtime/helpers/esm/defineProperty.js'
@@ -469,12 +465,12 @@
           react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             '../../node_modules/react/index.js'
           ),
-          react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__ =
-            __webpack_require__('../../packages/rhf-mui/src/index.ts'),
-          _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_3__ =
+          _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_2__ =
             __webpack_require__(
               '../../node_modules/@storybook/addon-actions/dist/index.mjs'
             ),
+          react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__ =
+            __webpack_require__('../../packages/rhf-mui/src/index.ts'),
           _src_Shared__WEBPACK_IMPORTED_MODULE_4__ =
             __webpack_require__('./src/Shared.tsx'),
           __jsx = react__WEBPACK_IMPORTED_MODULE_0__.createElement
@@ -514,76 +510,35 @@
           return target
         }
         const __WEBPACK_DEFAULT_EXPORT__ = {
-          title: 'SelectElement',
-          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.nj,
+          title: 'Checkbox',
+          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Zo,
         }
-        var months = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December',
-          ].map(function (i) {
-            return {id: i, label: i}
-          }),
-          Template = function Template(args) {
-            return __jsx(
-              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.Yb,
-              {
-                defaultValues: {},
-                onSuccess: (0,
-                _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_3__.aD)(
-                  'submit'
-                ),
-              },
-              __jsx(
-                react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.nj,
-                args
+        var Template = function Template(args) {
+          return __jsx(
+            react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Yb,
+            {
+              defaultValues: {},
+              onSuccess: (0,
+              _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_2__.aD)(
+                'submit'
               ),
-              __jsx('br', null),
-              __jsx(_src_Shared__WEBPACK_IMPORTED_MODULE_4__.M, null)
-            )
-          }
+            },
+            __jsx(
+              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Zo,
+              args
+            ),
+            __jsx('br', null),
+            __jsx(_src_Shared__WEBPACK_IMPORTED_MODULE_4__.M, null)
+          )
+        }
         Template.displayName = 'Template'
-        var options = [
-            {id: '1', label: 'Label 1'},
-            {id: '2', label: 'label 2'},
-          ],
-          Basic = {
-            render: Template,
-            args: {name: 'basic', label: 'Basic', options},
-          },
-          Required = {
-            render: Template,
-            args: {name: 'required', label: 'Required', required: !0, options},
-          },
-          MonthPicker = {
+        var Basic = {render: Template, args: {label: 'Label', name: 'basic'}},
+          LabelPosition = {
             render: Template,
             args: {
-              name: 'month',
-              options: months,
-              label: 'Pick a month',
-              sx: {minWidth: '150px'},
-              SelectProps: {
-                MenuProps: {
-                  PaperProps: {
-                    sx: {
-                      '& .MuiList-root': {
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(3, 1fr)',
-                        gap: '4px',
-                      },
-                    },
-                  },
-                },
-              },
+              label: 'Label',
+              name: 'basic',
+              labelProps: {labelPlacement: 'top'},
             },
           }
         ;(Basic.parameters = _objectSpread(
@@ -603,7 +558,7 @@
                 source: _objectSpread(
                   {
                     originalSource:
-                      "{\n  render: Template,\n  args: {\n    name: 'basic',\n    label: 'Basic',\n    options\n  }\n}",
+                      "{\n  render: Template,\n  args: {\n    label: 'Label',\n    name: 'basic'\n  }\n}",
                   },
                   null === (_Basic$parameters2 = Basic.parameters) ||
                     void 0 === _Basic$parameters2 ||
@@ -617,65 +572,34 @@
             ),
           }
         )),
-          (Required.parameters = _objectSpread(
-            _objectSpread({}, Required.parameters),
+          (LabelPosition.parameters = _objectSpread(
+            _objectSpread({}, LabelPosition.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
-                  null === (_Required$parameters = Required.parameters) ||
-                    void 0 === _Required$parameters
+                  null === (_LabelPosition$parame = LabelPosition.parameters) ||
+                    void 0 === _LabelPosition$parame
                     ? void 0
-                    : _Required$parameters.docs
+                    : _LabelPosition$parame.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'required',\n    label: 'Required',\n    required: true,\n    options\n  }\n}",
-                    },
-                    null === (_Required$parameters2 = Required.parameters) ||
-                      void 0 === _Required$parameters2 ||
-                      null ===
-                        (_Required$parameters3 = _Required$parameters2.docs) ||
-                      void 0 === _Required$parameters3
-                      ? void 0
-                      : _Required$parameters3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (MonthPicker.parameters = _objectSpread(
-            _objectSpread({}, MonthPicker.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null === (_MonthPicker$paramete = MonthPicker.parameters) ||
-                    void 0 === _MonthPicker$paramete
-                    ? void 0
-                    : _MonthPicker$paramete.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'month',\n    options: months,\n    label: 'Pick a month',\n    sx: {\n      minWidth: '150px'\n    },\n    SelectProps: {\n      MenuProps: {\n        PaperProps: {\n          sx: {\n            '& .MuiList-root': {\n              display: 'grid',\n              gridTemplateColumns: 'repeat(3, 1fr)',\n              gap: '4px'\n            }\n          }\n        }\n      }\n    }\n  }\n}",
+                        "{\n  render: Template,\n  args: {\n    label: 'Label',\n    name: 'basic',\n    labelProps: {\n      labelPlacement: 'top'\n    }\n  }\n}",
                     },
                     null ===
-                      (_MonthPicker$paramete2 = MonthPicker.parameters) ||
-                      void 0 === _MonthPicker$paramete2 ||
+                      (_LabelPosition$parame2 = LabelPosition.parameters) ||
+                      void 0 === _LabelPosition$parame2 ||
                       null ===
-                        (_MonthPicker$paramete3 =
-                          _MonthPicker$paramete2.docs) ||
-                      void 0 === _MonthPicker$paramete3
+                        (_LabelPosition$parame3 =
+                          _LabelPosition$parame2.docs) ||
+                      void 0 === _LabelPosition$parame3
                       ? void 0
-                      : _MonthPicker$paramete3.source
+                      : _LabelPosition$parame3.source
                   ),
                 }
               ),

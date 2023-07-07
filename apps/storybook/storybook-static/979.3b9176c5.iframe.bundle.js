@@ -1,8 +1,50 @@
-/*! For license information please see 587.10b930bb.iframe.bundle.js.LICENSE.txt */
+/*! For license information please see 979.3b9176c5.iframe.bundle.js.LICENSE.txt */
 ;(self.webpackChunkrhfm_storybook = self.webpackChunkrhfm_storybook || []).push(
   [
-    [587],
+    [979],
     {
+      './node_modules/@babel/runtime/helpers/esm/extends.js': (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict'
+        function _extends() {
+          return (
+            (_extends = Object.assign
+              ? Object.assign.bind()
+              : function (target) {
+                  for (var i = 1; i < arguments.length; i++) {
+                    var source = arguments[i]
+                    for (var key in source)
+                      Object.prototype.hasOwnProperty.call(source, key) &&
+                        (target[key] = source[key])
+                  }
+                  return target
+                }),
+            _extends.apply(this, arguments)
+          )
+        }
+        __webpack_require__.d(__webpack_exports__, {Z: () => _extends})
+      },
+      './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js':
+        (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+          'use strict'
+          function _objectWithoutPropertiesLoose(source, excluded) {
+            if (null == source) return {}
+            var key,
+              i,
+              target = {},
+              sourceKeys = Object.keys(source)
+            for (i = 0; i < sourceKeys.length; i++)
+              (key = sourceKeys[i]),
+                excluded.indexOf(key) >= 0 || (target[key] = source[key])
+            return target
+          }
+          __webpack_require__.d(__webpack_exports__, {
+            Z: () => _objectWithoutPropertiesLoose,
+          })
+        },
       './node_modules/@mui/private-theming/useTheme/ThemeContext.js': (
         __unused_webpack_module,
         __webpack_exports__,
@@ -44,24 +86,11 @@
         __webpack_require__.d(__webpack_exports__, {
           Z: () => esm_ThemeProvider_ThemeProvider,
         })
-        var react = __webpack_require__('../../node_modules/react/index.js')
-        function _extends() {
-          return (
-            (_extends = Object.assign
-              ? Object.assign.bind()
-              : function (target) {
-                  for (var i = 1; i < arguments.length; i++) {
-                    var source = arguments[i]
-                    for (var key in source)
-                      Object.prototype.hasOwnProperty.call(source, key) &&
-                        (target[key] = source[key])
-                  }
-                  return target
-                }),
-            _extends.apply(this, arguments)
-          )
-        }
-        var ThemeContext = __webpack_require__(
+        var react = __webpack_require__('../../node_modules/react/index.js'),
+          esm_extends = __webpack_require__(
+            './node_modules/@babel/runtime/helpers/esm/extends.js'
+          ),
+          ThemeContext = __webpack_require__(
             './node_modules/@mui/private-theming/useTheme/ThemeContext.js'
           ),
           useTheme = __webpack_require__(
@@ -84,7 +113,7 @@
                   : (function mergeOuterLocalTheme(outerTheme, localTheme) {
                       if ('function' == typeof localTheme)
                         return localTheme(outerTheme)
-                      return _extends({}, outerTheme, localTheme)
+                      return (0, esm_extends.Z)({}, outerTheme, localTheme)
                     })(outerTheme, localTheme)
               return (
                 null != output && (output[nested] = null !== outerTheme), output
@@ -136,7 +165,7 @@
           k9: () => handleBreakpoints,
         })
         var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-          './node_modules/@mui/system/node_modules/@mui/utils/esm/deepmerge.js'
+          './node_modules/@mui/utils/esm/deepmerge.js'
         )
         const values = {xs: 0, sm: 600, md: 900, lg: 1200, xl: 1536},
           defaultBreakpoints = {
@@ -273,13 +302,13 @@
           Z: () => createTheme_createTheme,
         })
         var esm_extends = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+            './node_modules/@babel/runtime/helpers/esm/extends.js'
           ),
           objectWithoutPropertiesLoose = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+            './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
           ),
           deepmerge = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           )
         const _excluded = ['values', 'unit', 'step'],
           sortBreakpointsValues = (values) => {
@@ -423,7 +452,7 @@
           Z: () => __WEBPACK_DEFAULT_EXPORT__,
         })
         var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-          './node_modules/@mui/system/node_modules/@mui/utils/esm/deepmerge.js'
+          './node_modules/@mui/utils/esm/deepmerge.js'
         )
         const __WEBPACK_DEFAULT_EXPORT__ = function merge(acc, item) {
           return item
@@ -607,7 +636,7 @@
           Z: () => __WEBPACK_DEFAULT_EXPORT__,
         })
         var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@mui/utils/esm/capitalize.js'
+            './node_modules/@mui/utils/esm/capitalize.js'
           ),
           _breakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
             './node_modules/@mui/system/esm/breakpoints.js'
@@ -736,46 +765,7 @@
             : contextTheme
         }
       },
-      './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js':
-        (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-          'use strict'
-          function _extends() {
-            return (
-              (_extends = Object.assign
-                ? Object.assign.bind()
-                : function (target) {
-                    for (var i = 1; i < arguments.length; i++) {
-                      var source = arguments[i]
-                      for (var key in source)
-                        Object.prototype.hasOwnProperty.call(source, key) &&
-                          (target[key] = source[key])
-                    }
-                    return target
-                  }),
-              _extends.apply(this, arguments)
-            )
-          }
-          __webpack_require__.d(__webpack_exports__, {Z: () => _extends})
-        },
-      './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js':
-        (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-          'use strict'
-          function _objectWithoutPropertiesLoose(source, excluded) {
-            if (null == source) return {}
-            var key,
-              i,
-              target = {},
-              sourceKeys = Object.keys(source)
-            for (i = 0; i < sourceKeys.length; i++)
-              (key = sourceKeys[i]),
-                excluded.indexOf(key) >= 0 || (target[key] = source[key])
-            return target
-          }
-          __webpack_require__.d(__webpack_exports__, {
-            Z: () => _objectWithoutPropertiesLoose,
-          })
-        },
-      './node_modules/@mui/system/node_modules/@mui/utils/esm/capitalize.js': (
+      './node_modules/@mui/utils/esm/capitalize.js': (
         __unused_webpack_module,
         __webpack_exports__,
         __webpack_require__
@@ -784,7 +774,7 @@
         __webpack_require__.d(__webpack_exports__, {Z: () => capitalize})
         var _formatMuiErrorMessage__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
-            './node_modules/@mui/system/node_modules/@mui/utils/esm/formatMuiErrorMessage.js'
+            './node_modules/@mui/utils/esm/formatMuiErrorMessage.js'
           )
         function capitalize(string) {
           if ('string' != typeof string)
@@ -794,7 +784,7 @@
           return string.charAt(0).toUpperCase() + string.slice(1)
         }
       },
-      './node_modules/@mui/system/node_modules/@mui/utils/esm/deepmerge.js': (
+      './node_modules/@mui/utils/esm/deepmerge.js': (
         __unused_webpack_module,
         __webpack_exports__,
         __webpack_require__
@@ -806,7 +796,7 @@
         })
         var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+            './node_modules/@babel/runtime/helpers/esm/extends.js'
           )
         function isPlainObject(item) {
           return (
@@ -842,25 +832,28 @@
           )
         }
       },
-      './node_modules/@mui/system/node_modules/@mui/utils/esm/formatMuiErrorMessage.js':
-        (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-          'use strict'
-          function formatMuiErrorMessage(code) {
-            let url = 'https://mui.com/production-error/?code=' + code
-            for (let i = 1; i < arguments.length; i += 1)
-              url += '&args[]=' + encodeURIComponent(arguments[i])
-            return (
-              'Minified MUI error #' +
-              code +
-              '; visit ' +
-              url +
-              ' for the full message.'
-            )
-          }
-          __webpack_require__.d(__webpack_exports__, {
-            Z: () => formatMuiErrorMessage,
-          })
-        },
+      './node_modules/@mui/utils/esm/formatMuiErrorMessage.js': (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict'
+        function formatMuiErrorMessage(code) {
+          let url = 'https://mui.com/production-error/?code=' + code
+          for (let i = 1; i < arguments.length; i += 1)
+            url += '&args[]=' + encodeURIComponent(arguments[i])
+          return (
+            'Minified MUI error #' +
+            code +
+            '; visit ' +
+            url +
+            ' for the full message.'
+          )
+        }
+        __webpack_require__.d(__webpack_exports__, {
+          Z: () => formatMuiErrorMessage,
+        })
+      },
       '../../node_modules/@babel/runtime/helpers/esm/extends.js': (
         __unused_webpack_module,
         __webpack_exports__,
@@ -4187,462 +4180,1986 @@
           )
         }
       },
-      '../../node_modules/@mui/x-date-pickers/AdapterDateFns/index.js': (
-        __unused_webpack_module,
-        __webpack_exports__,
-        __webpack_require__
-      ) => {
-        'use strict'
-        function toInteger(dirtyNumber) {
-          if (null === dirtyNumber || !0 === dirtyNumber || !1 === dirtyNumber)
-            return NaN
-          var number = Number(dirtyNumber)
-          return isNaN(number)
-            ? number
-            : number < 0
-            ? Math.ceil(number)
-            : Math.floor(number)
-        }
-        function requiredArgs(required, args) {
-          if (args.length < required)
-            throw new TypeError(
-              required +
-                ' argument' +
-                (required > 1 ? 's' : '') +
-                ' required, but only ' +
-                args.length +
-                ' present'
+      '../../node_modules/@mui/x-date-pickers/AdapterDateFns/AdapterDateFns.js':
+        (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+          'use strict'
+          __webpack_require__.d(__webpack_exports__, {H: () => AdapterDateFns})
+          var esm_extends = __webpack_require__(
+            '../../node_modules/@mui/x-date-pickers/node_modules/@babel/runtime/helpers/esm/extends.js'
+          )
+          function toInteger(dirtyNumber) {
+            if (
+              null === dirtyNumber ||
+              !0 === dirtyNumber ||
+              !1 === dirtyNumber
             )
-        }
-        function _typeof(obj) {
-          return (
-            (_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            _typeof(obj)
-          )
-        }
-        function toDate(argument) {
-          requiredArgs(1, arguments)
-          var argStr = Object.prototype.toString.call(argument)
-          return argument instanceof Date ||
-            ('object' === _typeof(argument) && '[object Date]' === argStr)
-            ? new Date(argument.getTime())
-            : 'number' == typeof argument || '[object Number]' === argStr
-            ? new Date(argument)
-            : (('string' != typeof argument && '[object String]' !== argStr) ||
-                'undefined' == typeof console ||
-                (console.warn(
-                  "Starting with v2.0.0-beta.1 date-fns doesn't accept strings as date arguments. Please use `parseISO` to parse strings. See: https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#string-arguments"
-                ),
-                console.warn(new Error().stack)),
-              new Date(NaN))
-        }
-        function addDays(dirtyDate, dirtyAmount) {
-          requiredArgs(2, arguments)
-          var date = toDate(dirtyDate),
-            amount = toInteger(dirtyAmount)
-          return isNaN(amount)
-            ? new Date(NaN)
-            : amount
-            ? (date.setDate(date.getDate() + amount), date)
-            : date
-        }
-        function addMilliseconds(dirtyDate, dirtyAmount) {
-          requiredArgs(2, arguments)
-          var timestamp = toDate(dirtyDate).getTime(),
-            amount = toInteger(dirtyAmount)
-          return new Date(timestamp + amount)
-        }
-        __webpack_require__.d(__webpack_exports__, {H: () => AdapterDateFns})
-        function addMonths(dirtyDate, dirtyAmount) {
-          requiredArgs(2, arguments)
-          var date = toDate(dirtyDate),
-            amount = toInteger(dirtyAmount)
-          if (isNaN(amount)) return new Date(NaN)
-          if (!amount) return date
-          var dayOfMonth = date.getDate(),
-            endOfDesiredMonth = new Date(date.getTime())
-          return (
-            endOfDesiredMonth.setMonth(date.getMonth() + amount + 1, 0),
-            dayOfMonth >= endOfDesiredMonth.getDate()
-              ? endOfDesiredMonth
-              : (date.setFullYear(
-                  endOfDesiredMonth.getFullYear(),
-                  endOfDesiredMonth.getMonth(),
-                  dayOfMonth
-                ),
-                date)
-          )
-        }
-        function addYears(dirtyDate, dirtyAmount) {
-          return (
-            requiredArgs(2, arguments),
-            addMonths(dirtyDate, 12 * toInteger(dirtyAmount))
-          )
-        }
-        function compareAsc(dirtyDateLeft, dirtyDateRight) {
-          requiredArgs(2, arguments)
-          var dateLeft = toDate(dirtyDateLeft),
-            dateRight = toDate(dirtyDateRight),
-            diff = dateLeft.getTime() - dateRight.getTime()
-          return diff < 0 ? -1 : diff > 0 ? 1 : diff
-        }
-        function differenceInYears(dirtyDateLeft, dirtyDateRight) {
-          requiredArgs(2, arguments)
-          var dateLeft = toDate(dirtyDateLeft),
-            dateRight = toDate(dirtyDateRight),
-            sign = compareAsc(dateLeft, dateRight),
-            difference = Math.abs(
-              (function differenceInCalendarYears(
-                dirtyDateLeft,
-                dirtyDateRight
-              ) {
-                requiredArgs(2, arguments)
-                var dateLeft = toDate(dirtyDateLeft),
-                  dateRight = toDate(dirtyDateRight)
-                return dateLeft.getFullYear() - dateRight.getFullYear()
-              })(dateLeft, dateRight)
-            )
-          dateLeft.setFullYear(1584), dateRight.setFullYear(1584)
-          var isLastYearNotFull = compareAsc(dateLeft, dateRight) === -sign,
-            result = sign * (difference - Number(isLastYearNotFull))
-          return 0 === result ? 0 : result
-        }
-        function endOfDay(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate)
-          return date.setHours(23, 59, 59, 999), date
-        }
-        function endOfMonth(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate),
-            month = date.getMonth()
-          return (
-            date.setFullYear(date.getFullYear(), month + 1, 0),
-            date.setHours(23, 59, 59, 999),
-            date
-          )
-        }
-        function differenceInMonths(dirtyDateLeft, dirtyDateRight) {
-          requiredArgs(2, arguments)
-          var result,
-            dateLeft = toDate(dirtyDateLeft),
-            dateRight = toDate(dirtyDateRight),
-            sign = compareAsc(dateLeft, dateRight),
-            difference = Math.abs(
-              (function differenceInCalendarMonths(
-                dirtyDateLeft,
-                dirtyDateRight
-              ) {
-                requiredArgs(2, arguments)
-                var dateLeft = toDate(dirtyDateLeft),
-                  dateRight = toDate(dirtyDateRight)
-                return (
-                  12 * (dateLeft.getFullYear() - dateRight.getFullYear()) +
-                  (dateLeft.getMonth() - dateRight.getMonth())
-                )
-              })(dateLeft, dateRight)
-            )
-          if (difference < 1) result = 0
-          else {
-            1 === dateLeft.getMonth() &&
-              dateLeft.getDate() > 27 &&
-              dateLeft.setDate(30),
-              dateLeft.setMonth(dateLeft.getMonth() - sign * difference)
-            var isLastMonthNotFull = compareAsc(dateLeft, dateRight) === -sign
-            ;(function isLastDayOfMonth(dirtyDate) {
-              requiredArgs(1, arguments)
-              var date = toDate(dirtyDate)
-              return endOfDay(date).getTime() === endOfMonth(date).getTime()
-            })(toDate(dirtyDateLeft)) &&
-              1 === difference &&
-              1 === compareAsc(dirtyDateLeft, dateRight) &&
-              (isLastMonthNotFull = !1),
-              (result = sign * (difference - Number(isLastMonthNotFull)))
+              return NaN
+            var number = Number(dirtyNumber)
+            return isNaN(number)
+              ? number
+              : number < 0
+              ? Math.ceil(number)
+              : Math.floor(number)
           }
-          return 0 === result ? 0 : result
-        }
-        var roundingMap = {
-            ceil: Math.ceil,
-            round: Math.round,
-            floor: Math.floor,
-            trunc: function trunc(value) {
-              return value < 0 ? Math.ceil(value) : Math.floor(value)
-            },
-          },
-          defaultRoundingMethod = 'trunc'
-        function getRoundingMethod(method) {
-          return method
-            ? roundingMap[method]
-            : roundingMap[defaultRoundingMethod]
-        }
-        function getTimezoneOffsetInMilliseconds(date) {
-          var utcDate = new Date(
-            Date.UTC(
-              date.getFullYear(),
-              date.getMonth(),
-              date.getDate(),
-              date.getHours(),
-              date.getMinutes(),
-              date.getSeconds(),
-              date.getMilliseconds()
-            )
-          )
-          return (
-            utcDate.setUTCFullYear(date.getFullYear()),
-            date.getTime() - utcDate.getTime()
-          )
-        }
-        function startOfDay(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate)
-          return date.setHours(0, 0, 0, 0), date
-        }
-        var MILLISECONDS_IN_DAY = 864e5
-        function compareLocalAsc(dateLeft, dateRight) {
-          var diff =
-            dateLeft.getFullYear() - dateRight.getFullYear() ||
-            dateLeft.getMonth() - dateRight.getMonth() ||
-            dateLeft.getDate() - dateRight.getDate() ||
-            dateLeft.getHours() - dateRight.getHours() ||
-            dateLeft.getMinutes() - dateRight.getMinutes() ||
-            dateLeft.getSeconds() - dateRight.getSeconds() ||
-            dateLeft.getMilliseconds() - dateRight.getMilliseconds()
-          return diff < 0 ? -1 : diff > 0 ? 1 : diff
-        }
-        function differenceInDays(dirtyDateLeft, dirtyDateRight) {
-          requiredArgs(2, arguments)
-          var dateLeft = toDate(dirtyDateLeft),
-            dateRight = toDate(dirtyDateRight),
-            sign = compareLocalAsc(dateLeft, dateRight),
-            difference = Math.abs(
-              (function differenceInCalendarDays(
-                dirtyDateLeft,
-                dirtyDateRight
-              ) {
-                requiredArgs(2, arguments)
-                var startOfDayLeft = startOfDay(dirtyDateLeft),
-                  startOfDayRight = startOfDay(dirtyDateRight),
-                  timestampLeft =
-                    startOfDayLeft.getTime() -
-                    getTimezoneOffsetInMilliseconds(startOfDayLeft),
-                  timestampRight =
-                    startOfDayRight.getTime() -
-                    getTimezoneOffsetInMilliseconds(startOfDayRight)
-                return Math.round(
-                  (timestampLeft - timestampRight) / MILLISECONDS_IN_DAY
-                )
-              })(dateLeft, dateRight)
-            )
-          dateLeft.setDate(dateLeft.getDate() - sign * difference)
-          var result =
-            sign *
-            (difference -
-              Number(compareLocalAsc(dateLeft, dateRight) === -sign))
-          return 0 === result ? 0 : result
-        }
-        Math.pow(10, 8)
-        var millisecondsInMinute = 6e4,
-          millisecondsInHour = 36e5
-        function differenceInMilliseconds(dateLeft, dateRight) {
-          return (
-            requiredArgs(2, arguments),
-            toDate(dateLeft).getTime() - toDate(dateRight).getTime()
-          )
-        }
-        var defaultOptions = {}
-        function getDefaultOptions() {
-          return defaultOptions
-        }
-        function endOfWeek(dirtyDate, options) {
-          var _ref,
-            _ref2,
-            _ref3,
-            _options$weekStartsOn,
-            _options$locale,
-            _options$locale$optio,
-            _defaultOptions$local,
-            _defaultOptions$local2
-          requiredArgs(1, arguments)
-          var defaultOptions = getDefaultOptions(),
-            weekStartsOn = toInteger(
-              null !==
-                (_ref =
-                  null !==
-                    (_ref2 =
-                      null !==
-                        (_ref3 =
-                          null !==
-                            (_options$weekStartsOn =
-                              null == options
-                                ? void 0
-                                : options.weekStartsOn) &&
-                          void 0 !== _options$weekStartsOn
-                            ? _options$weekStartsOn
-                            : null == options ||
-                              null === (_options$locale = options.locale) ||
-                              void 0 === _options$locale ||
-                              null ===
-                                (_options$locale$optio =
-                                  _options$locale.options) ||
-                              void 0 === _options$locale$optio
-                            ? void 0
-                            : _options$locale$optio.weekStartsOn) &&
-                      void 0 !== _ref3
-                        ? _ref3
-                        : defaultOptions.weekStartsOn) && void 0 !== _ref2
-                    ? _ref2
-                    : null ===
-                        (_defaultOptions$local = defaultOptions.locale) ||
-                      void 0 === _defaultOptions$local ||
-                      null ===
-                        (_defaultOptions$local2 =
-                          _defaultOptions$local.options) ||
-                      void 0 === _defaultOptions$local2
-                    ? void 0
-                    : _defaultOptions$local2.weekStartsOn) && void 0 !== _ref
-                ? _ref
-                : 0
-            )
-          if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
-            throw new RangeError(
-              'weekStartsOn must be between 0 and 6 inclusively'
-            )
-          var date = toDate(dirtyDate),
-            day = date.getDay(),
-            diff = 6 + (day < weekStartsOn ? -7 : 0) - (day - weekStartsOn)
-          return (
-            date.setDate(date.getDate() + diff),
-            date.setHours(23, 59, 59, 999),
-            date
-          )
-        }
-        function endOfYear(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate),
-            year = date.getFullYear()
-          return (
-            date.setFullYear(year + 1, 0, 0),
-            date.setHours(23, 59, 59, 999),
-            date
-          )
-        }
-        function isDate_typeof(obj) {
-          return (
-            (isDate_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            isDate_typeof(obj)
-          )
-        }
-        function isValid(dirtyDate) {
-          if (
-            (requiredArgs(1, arguments),
-            !(function isDate(value) {
-              return (
-                requiredArgs(1, arguments),
-                value instanceof Date ||
-                  ('object' === isDate_typeof(value) &&
-                    '[object Date]' === Object.prototype.toString.call(value))
+          function requiredArgs(required, args) {
+            if (args.length < required)
+              throw new TypeError(
+                required +
+                  ' argument' +
+                  (required > 1 ? 's' : '') +
+                  ' required, but only ' +
+                  args.length +
+                  ' present'
               )
-            })(dirtyDate) && 'number' != typeof dirtyDate)
-          )
-            return !1
-          var date = toDate(dirtyDate)
-          return !isNaN(Number(date))
-        }
-        function subMilliseconds(dirtyDate, dirtyAmount) {
-          return (
-            requiredArgs(2, arguments),
-            addMilliseconds(dirtyDate, -toInteger(dirtyAmount))
-          )
-        }
-        function startOfUTCISOWeek(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate),
-            day = date.getUTCDay(),
-            diff = (day < 1 ? 7 : 0) + day - 1
-          return (
-            date.setUTCDate(date.getUTCDate() - diff),
-            date.setUTCHours(0, 0, 0, 0),
-            date
-          )
-        }
-        function getUTCISOWeekYear(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate),
-            year = date.getUTCFullYear(),
-            fourthOfJanuaryOfNextYear = new Date(0)
-          fourthOfJanuaryOfNextYear.setUTCFullYear(year + 1, 0, 4),
-            fourthOfJanuaryOfNextYear.setUTCHours(0, 0, 0, 0)
-          var startOfNextYear = startOfUTCISOWeek(fourthOfJanuaryOfNextYear),
-            fourthOfJanuaryOfThisYear = new Date(0)
-          fourthOfJanuaryOfThisYear.setUTCFullYear(year, 0, 4),
-            fourthOfJanuaryOfThisYear.setUTCHours(0, 0, 0, 0)
-          var startOfThisYear = startOfUTCISOWeek(fourthOfJanuaryOfThisYear)
-          return date.getTime() >= startOfNextYear.getTime()
-            ? year + 1
-            : date.getTime() >= startOfThisYear.getTime()
-            ? year
-            : year - 1
-        }
-        var MILLISECONDS_IN_WEEK = 6048e5
-        function getUTCISOWeek(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate),
-            diff =
-              startOfUTCISOWeek(date).getTime() -
-              (function startOfUTCISOWeekYear(dirtyDate) {
+          }
+          function _typeof(obj) {
+            return (
+              (_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              _typeof(obj)
+            )
+          }
+          function toDate(argument) {
+            requiredArgs(1, arguments)
+            var argStr = Object.prototype.toString.call(argument)
+            return argument instanceof Date ||
+              ('object' === _typeof(argument) && '[object Date]' === argStr)
+              ? new Date(argument.getTime())
+              : 'number' == typeof argument || '[object Number]' === argStr
+              ? new Date(argument)
+              : (('string' != typeof argument &&
+                  '[object String]' !== argStr) ||
+                  'undefined' == typeof console ||
+                  (console.warn(
+                    "Starting with v2.0.0-beta.1 date-fns doesn't accept strings as date arguments. Please use `parseISO` to parse strings. See: https://github.com/date-fns/date-fns/blob/master/docs/upgradeGuide.md#string-arguments"
+                  ),
+                  console.warn(new Error().stack)),
+                new Date(NaN))
+          }
+          function addDays(dirtyDate, dirtyAmount) {
+            requiredArgs(2, arguments)
+            var date = toDate(dirtyDate),
+              amount = toInteger(dirtyAmount)
+            return isNaN(amount)
+              ? new Date(NaN)
+              : amount
+              ? (date.setDate(date.getDate() + amount), date)
+              : date
+          }
+          function addMilliseconds(dirtyDate, dirtyAmount) {
+            requiredArgs(2, arguments)
+            var timestamp = toDate(dirtyDate).getTime(),
+              amount = toInteger(dirtyAmount)
+            return new Date(timestamp + amount)
+          }
+          function addMonths(dirtyDate, dirtyAmount) {
+            requiredArgs(2, arguments)
+            var date = toDate(dirtyDate),
+              amount = toInteger(dirtyAmount)
+            if (isNaN(amount)) return new Date(NaN)
+            if (!amount) return date
+            var dayOfMonth = date.getDate(),
+              endOfDesiredMonth = new Date(date.getTime())
+            return (
+              endOfDesiredMonth.setMonth(date.getMonth() + amount + 1, 0),
+              dayOfMonth >= endOfDesiredMonth.getDate()
+                ? endOfDesiredMonth
+                : (date.setFullYear(
+                    endOfDesiredMonth.getFullYear(),
+                    endOfDesiredMonth.getMonth(),
+                    dayOfMonth
+                  ),
+                  date)
+            )
+          }
+          function addYears(dirtyDate, dirtyAmount) {
+            return (
+              requiredArgs(2, arguments),
+              addMonths(dirtyDate, 12 * toInteger(dirtyAmount))
+            )
+          }
+          function compareAsc(dirtyDateLeft, dirtyDateRight) {
+            requiredArgs(2, arguments)
+            var dateLeft = toDate(dirtyDateLeft),
+              dateRight = toDate(dirtyDateRight),
+              diff = dateLeft.getTime() - dateRight.getTime()
+            return diff < 0 ? -1 : diff > 0 ? 1 : diff
+          }
+          function differenceInYears(dirtyDateLeft, dirtyDateRight) {
+            requiredArgs(2, arguments)
+            var dateLeft = toDate(dirtyDateLeft),
+              dateRight = toDate(dirtyDateRight),
+              sign = compareAsc(dateLeft, dateRight),
+              difference = Math.abs(
+                (function differenceInCalendarYears(
+                  dirtyDateLeft,
+                  dirtyDateRight
+                ) {
+                  requiredArgs(2, arguments)
+                  var dateLeft = toDate(dirtyDateLeft),
+                    dateRight = toDate(dirtyDateRight)
+                  return dateLeft.getFullYear() - dateRight.getFullYear()
+                })(dateLeft, dateRight)
+              )
+            dateLeft.setFullYear(1584), dateRight.setFullYear(1584)
+            var isLastYearNotFull = compareAsc(dateLeft, dateRight) === -sign,
+              result = sign * (difference - Number(isLastYearNotFull))
+            return 0 === result ? 0 : result
+          }
+          function endOfDay(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate)
+            return date.setHours(23, 59, 59, 999), date
+          }
+          function endOfMonth(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate),
+              month = date.getMonth()
+            return (
+              date.setFullYear(date.getFullYear(), month + 1, 0),
+              date.setHours(23, 59, 59, 999),
+              date
+            )
+          }
+          function differenceInMonths(dirtyDateLeft, dirtyDateRight) {
+            requiredArgs(2, arguments)
+            var result,
+              dateLeft = toDate(dirtyDateLeft),
+              dateRight = toDate(dirtyDateRight),
+              sign = compareAsc(dateLeft, dateRight),
+              difference = Math.abs(
+                (function differenceInCalendarMonths(
+                  dirtyDateLeft,
+                  dirtyDateRight
+                ) {
+                  requiredArgs(2, arguments)
+                  var dateLeft = toDate(dirtyDateLeft),
+                    dateRight = toDate(dirtyDateRight)
+                  return (
+                    12 * (dateLeft.getFullYear() - dateRight.getFullYear()) +
+                    (dateLeft.getMonth() - dateRight.getMonth())
+                  )
+                })(dateLeft, dateRight)
+              )
+            if (difference < 1) result = 0
+            else {
+              1 === dateLeft.getMonth() &&
+                dateLeft.getDate() > 27 &&
+                dateLeft.setDate(30),
+                dateLeft.setMonth(dateLeft.getMonth() - sign * difference)
+              var isLastMonthNotFull = compareAsc(dateLeft, dateRight) === -sign
+              ;(function isLastDayOfMonth(dirtyDate) {
                 requiredArgs(1, arguments)
-                var year = getUTCISOWeekYear(dirtyDate),
-                  fourthOfJanuary = new Date(0)
+                var date = toDate(dirtyDate)
+                return endOfDay(date).getTime() === endOfMonth(date).getTime()
+              })(toDate(dirtyDateLeft)) &&
+                1 === difference &&
+                1 === compareAsc(dirtyDateLeft, dateRight) &&
+                (isLastMonthNotFull = !1),
+                (result = sign * (difference - Number(isLastMonthNotFull)))
+            }
+            return 0 === result ? 0 : result
+          }
+          var roundingMap = {
+              ceil: Math.ceil,
+              round: Math.round,
+              floor: Math.floor,
+              trunc: function trunc(value) {
+                return value < 0 ? Math.ceil(value) : Math.floor(value)
+              },
+            },
+            defaultRoundingMethod = 'trunc'
+          function getRoundingMethod(method) {
+            return method
+              ? roundingMap[method]
+              : roundingMap[defaultRoundingMethod]
+          }
+          function getTimezoneOffsetInMilliseconds(date) {
+            var utcDate = new Date(
+              Date.UTC(
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate(),
+                date.getHours(),
+                date.getMinutes(),
+                date.getSeconds(),
+                date.getMilliseconds()
+              )
+            )
+            return (
+              utcDate.setUTCFullYear(date.getFullYear()),
+              date.getTime() - utcDate.getTime()
+            )
+          }
+          function startOfDay(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate)
+            return date.setHours(0, 0, 0, 0), date
+          }
+          var MILLISECONDS_IN_DAY = 864e5
+          function compareLocalAsc(dateLeft, dateRight) {
+            var diff =
+              dateLeft.getFullYear() - dateRight.getFullYear() ||
+              dateLeft.getMonth() - dateRight.getMonth() ||
+              dateLeft.getDate() - dateRight.getDate() ||
+              dateLeft.getHours() - dateRight.getHours() ||
+              dateLeft.getMinutes() - dateRight.getMinutes() ||
+              dateLeft.getSeconds() - dateRight.getSeconds() ||
+              dateLeft.getMilliseconds() - dateRight.getMilliseconds()
+            return diff < 0 ? -1 : diff > 0 ? 1 : diff
+          }
+          function differenceInDays(dirtyDateLeft, dirtyDateRight) {
+            requiredArgs(2, arguments)
+            var dateLeft = toDate(dirtyDateLeft),
+              dateRight = toDate(dirtyDateRight),
+              sign = compareLocalAsc(dateLeft, dateRight),
+              difference = Math.abs(
+                (function differenceInCalendarDays(
+                  dirtyDateLeft,
+                  dirtyDateRight
+                ) {
+                  requiredArgs(2, arguments)
+                  var startOfDayLeft = startOfDay(dirtyDateLeft),
+                    startOfDayRight = startOfDay(dirtyDateRight),
+                    timestampLeft =
+                      startOfDayLeft.getTime() -
+                      getTimezoneOffsetInMilliseconds(startOfDayLeft),
+                    timestampRight =
+                      startOfDayRight.getTime() -
+                      getTimezoneOffsetInMilliseconds(startOfDayRight)
+                  return Math.round(
+                    (timestampLeft - timestampRight) / MILLISECONDS_IN_DAY
+                  )
+                })(dateLeft, dateRight)
+              )
+            dateLeft.setDate(dateLeft.getDate() - sign * difference)
+            var result =
+              sign *
+              (difference -
+                Number(compareLocalAsc(dateLeft, dateRight) === -sign))
+            return 0 === result ? 0 : result
+          }
+          Math.pow(10, 8)
+          var millisecondsInMinute = 6e4,
+            millisecondsInHour = 36e5
+          function differenceInMilliseconds(dateLeft, dateRight) {
+            return (
+              requiredArgs(2, arguments),
+              toDate(dateLeft).getTime() - toDate(dateRight).getTime()
+            )
+          }
+          var defaultOptions = {}
+          function getDefaultOptions() {
+            return defaultOptions
+          }
+          function endOfWeek(dirtyDate, options) {
+            var _ref,
+              _ref2,
+              _ref3,
+              _options$weekStartsOn,
+              _options$locale,
+              _options$locale$optio,
+              _defaultOptions$local,
+              _defaultOptions$local2
+            requiredArgs(1, arguments)
+            var defaultOptions = getDefaultOptions(),
+              weekStartsOn = toInteger(
+                null !==
+                  (_ref =
+                    null !==
+                      (_ref2 =
+                        null !==
+                          (_ref3 =
+                            null !==
+                              (_options$weekStartsOn =
+                                null == options
+                                  ? void 0
+                                  : options.weekStartsOn) &&
+                            void 0 !== _options$weekStartsOn
+                              ? _options$weekStartsOn
+                              : null == options ||
+                                null === (_options$locale = options.locale) ||
+                                void 0 === _options$locale ||
+                                null ===
+                                  (_options$locale$optio =
+                                    _options$locale.options) ||
+                                void 0 === _options$locale$optio
+                              ? void 0
+                              : _options$locale$optio.weekStartsOn) &&
+                        void 0 !== _ref3
+                          ? _ref3
+                          : defaultOptions.weekStartsOn) && void 0 !== _ref2
+                      ? _ref2
+                      : null ===
+                          (_defaultOptions$local = defaultOptions.locale) ||
+                        void 0 === _defaultOptions$local ||
+                        null ===
+                          (_defaultOptions$local2 =
+                            _defaultOptions$local.options) ||
+                        void 0 === _defaultOptions$local2
+                      ? void 0
+                      : _defaultOptions$local2.weekStartsOn) && void 0 !== _ref
+                  ? _ref
+                  : 0
+              )
+            if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
+              throw new RangeError(
+                'weekStartsOn must be between 0 and 6 inclusively'
+              )
+            var date = toDate(dirtyDate),
+              day = date.getDay(),
+              diff = 6 + (day < weekStartsOn ? -7 : 0) - (day - weekStartsOn)
+            return (
+              date.setDate(date.getDate() + diff),
+              date.setHours(23, 59, 59, 999),
+              date
+            )
+          }
+          function endOfYear(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate),
+              year = date.getFullYear()
+            return (
+              date.setFullYear(year + 1, 0, 0),
+              date.setHours(23, 59, 59, 999),
+              date
+            )
+          }
+          function isDate_typeof(obj) {
+            return (
+              (isDate_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              isDate_typeof(obj)
+            )
+          }
+          function isValid(dirtyDate) {
+            if (
+              (requiredArgs(1, arguments),
+              !(function isDate(value) {
                 return (
-                  fourthOfJanuary.setUTCFullYear(year, 0, 4),
-                  fourthOfJanuary.setUTCHours(0, 0, 0, 0),
-                  startOfUTCISOWeek(fourthOfJanuary)
+                  requiredArgs(1, arguments),
+                  value instanceof Date ||
+                    ('object' === isDate_typeof(value) &&
+                      '[object Date]' === Object.prototype.toString.call(value))
                 )
-              })(date).getTime()
-          return Math.round(diff / MILLISECONDS_IN_WEEK) + 1
-        }
-        function startOfUTCWeek(dirtyDate, options) {
-          var _ref,
-            _ref2,
-            _ref3,
-            _options$weekStartsOn,
-            _options$locale,
-            _options$locale$optio,
-            _defaultOptions$local,
-            _defaultOptions$local2
-          requiredArgs(1, arguments)
-          var defaultOptions = getDefaultOptions(),
-            weekStartsOn = toInteger(
-              null !==
-                (_ref =
-                  null !==
-                    (_ref2 =
+              })(dirtyDate) && 'number' != typeof dirtyDate)
+            )
+              return !1
+            var date = toDate(dirtyDate)
+            return !isNaN(Number(date))
+          }
+          function subMilliseconds(dirtyDate, dirtyAmount) {
+            return (
+              requiredArgs(2, arguments),
+              addMilliseconds(dirtyDate, -toInteger(dirtyAmount))
+            )
+          }
+          function startOfUTCISOWeek(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate),
+              day = date.getUTCDay(),
+              diff = (day < 1 ? 7 : 0) + day - 1
+            return (
+              date.setUTCDate(date.getUTCDate() - diff),
+              date.setUTCHours(0, 0, 0, 0),
+              date
+            )
+          }
+          function getUTCISOWeekYear(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate),
+              year = date.getUTCFullYear(),
+              fourthOfJanuaryOfNextYear = new Date(0)
+            fourthOfJanuaryOfNextYear.setUTCFullYear(year + 1, 0, 4),
+              fourthOfJanuaryOfNextYear.setUTCHours(0, 0, 0, 0)
+            var startOfNextYear = startOfUTCISOWeek(fourthOfJanuaryOfNextYear),
+              fourthOfJanuaryOfThisYear = new Date(0)
+            fourthOfJanuaryOfThisYear.setUTCFullYear(year, 0, 4),
+              fourthOfJanuaryOfThisYear.setUTCHours(0, 0, 0, 0)
+            var startOfThisYear = startOfUTCISOWeek(fourthOfJanuaryOfThisYear)
+            return date.getTime() >= startOfNextYear.getTime()
+              ? year + 1
+              : date.getTime() >= startOfThisYear.getTime()
+              ? year
+              : year - 1
+          }
+          var MILLISECONDS_IN_WEEK = 6048e5
+          function getUTCISOWeek(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate),
+              diff =
+                startOfUTCISOWeek(date).getTime() -
+                (function startOfUTCISOWeekYear(dirtyDate) {
+                  requiredArgs(1, arguments)
+                  var year = getUTCISOWeekYear(dirtyDate),
+                    fourthOfJanuary = new Date(0)
+                  return (
+                    fourthOfJanuary.setUTCFullYear(year, 0, 4),
+                    fourthOfJanuary.setUTCHours(0, 0, 0, 0),
+                    startOfUTCISOWeek(fourthOfJanuary)
+                  )
+                })(date).getTime()
+            return Math.round(diff / MILLISECONDS_IN_WEEK) + 1
+          }
+          function startOfUTCWeek(dirtyDate, options) {
+            var _ref,
+              _ref2,
+              _ref3,
+              _options$weekStartsOn,
+              _options$locale,
+              _options$locale$optio,
+              _defaultOptions$local,
+              _defaultOptions$local2
+            requiredArgs(1, arguments)
+            var defaultOptions = getDefaultOptions(),
+              weekStartsOn = toInteger(
+                null !==
+                  (_ref =
+                    null !==
+                      (_ref2 =
+                        null !==
+                          (_ref3 =
+                            null !==
+                              (_options$weekStartsOn =
+                                null == options
+                                  ? void 0
+                                  : options.weekStartsOn) &&
+                            void 0 !== _options$weekStartsOn
+                              ? _options$weekStartsOn
+                              : null == options ||
+                                null === (_options$locale = options.locale) ||
+                                void 0 === _options$locale ||
+                                null ===
+                                  (_options$locale$optio =
+                                    _options$locale.options) ||
+                                void 0 === _options$locale$optio
+                              ? void 0
+                              : _options$locale$optio.weekStartsOn) &&
+                        void 0 !== _ref3
+                          ? _ref3
+                          : defaultOptions.weekStartsOn) && void 0 !== _ref2
+                      ? _ref2
+                      : null ===
+                          (_defaultOptions$local = defaultOptions.locale) ||
+                        void 0 === _defaultOptions$local ||
+                        null ===
+                          (_defaultOptions$local2 =
+                            _defaultOptions$local.options) ||
+                        void 0 === _defaultOptions$local2
+                      ? void 0
+                      : _defaultOptions$local2.weekStartsOn) && void 0 !== _ref
+                  ? _ref
+                  : 0
+              )
+            if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
+              throw new RangeError(
+                'weekStartsOn must be between 0 and 6 inclusively'
+              )
+            var date = toDate(dirtyDate),
+              day = date.getUTCDay(),
+              diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn
+            return (
+              date.setUTCDate(date.getUTCDate() - diff),
+              date.setUTCHours(0, 0, 0, 0),
+              date
+            )
+          }
+          function getUTCWeekYear(dirtyDate, options) {
+            var _ref,
+              _ref2,
+              _ref3,
+              _options$firstWeekCon,
+              _options$locale,
+              _options$locale$optio,
+              _defaultOptions$local,
+              _defaultOptions$local2
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate),
+              year = date.getUTCFullYear(),
+              defaultOptions = getDefaultOptions(),
+              firstWeekContainsDate = toInteger(
+                null !==
+                  (_ref =
+                    null !==
+                      (_ref2 =
+                        null !==
+                          (_ref3 =
+                            null !==
+                              (_options$firstWeekCon =
+                                null == options
+                                  ? void 0
+                                  : options.firstWeekContainsDate) &&
+                            void 0 !== _options$firstWeekCon
+                              ? _options$firstWeekCon
+                              : null == options ||
+                                null === (_options$locale = options.locale) ||
+                                void 0 === _options$locale ||
+                                null ===
+                                  (_options$locale$optio =
+                                    _options$locale.options) ||
+                                void 0 === _options$locale$optio
+                              ? void 0
+                              : _options$locale$optio.firstWeekContainsDate) &&
+                        void 0 !== _ref3
+                          ? _ref3
+                          : defaultOptions.firstWeekContainsDate) &&
+                    void 0 !== _ref2
+                      ? _ref2
+                      : null ===
+                          (_defaultOptions$local = defaultOptions.locale) ||
+                        void 0 === _defaultOptions$local ||
+                        null ===
+                          (_defaultOptions$local2 =
+                            _defaultOptions$local.options) ||
+                        void 0 === _defaultOptions$local2
+                      ? void 0
+                      : _defaultOptions$local2.firstWeekContainsDate) &&
+                  void 0 !== _ref
+                  ? _ref
+                  : 1
+              )
+            if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7))
+              throw new RangeError(
+                'firstWeekContainsDate must be between 1 and 7 inclusively'
+              )
+            var firstWeekOfNextYear = new Date(0)
+            firstWeekOfNextYear.setUTCFullYear(
+              year + 1,
+              0,
+              firstWeekContainsDate
+            ),
+              firstWeekOfNextYear.setUTCHours(0, 0, 0, 0)
+            var startOfNextYear = startOfUTCWeek(firstWeekOfNextYear, options),
+              firstWeekOfThisYear = new Date(0)
+            firstWeekOfThisYear.setUTCFullYear(year, 0, firstWeekContainsDate),
+              firstWeekOfThisYear.setUTCHours(0, 0, 0, 0)
+            var startOfThisYear = startOfUTCWeek(firstWeekOfThisYear, options)
+            return date.getTime() >= startOfNextYear.getTime()
+              ? year + 1
+              : date.getTime() >= startOfThisYear.getTime()
+              ? year
+              : year - 1
+          }
+          var getUTCWeek_MILLISECONDS_IN_WEEK = 6048e5
+          function getUTCWeek(dirtyDate, options) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate),
+              diff =
+                startOfUTCWeek(date, options).getTime() -
+                (function startOfUTCWeekYear(dirtyDate, options) {
+                  var _ref,
+                    _ref2,
+                    _ref3,
+                    _options$firstWeekCon,
+                    _options$locale,
+                    _options$locale$optio,
+                    _defaultOptions$local,
+                    _defaultOptions$local2
+                  requiredArgs(1, arguments)
+                  var defaultOptions = getDefaultOptions(),
+                    firstWeekContainsDate = toInteger(
                       null !==
-                        (_ref3 =
+                        (_ref =
+                          null !==
+                            (_ref2 =
+                              null !==
+                                (_ref3 =
+                                  null !==
+                                    (_options$firstWeekCon =
+                                      null == options
+                                        ? void 0
+                                        : options.firstWeekContainsDate) &&
+                                  void 0 !== _options$firstWeekCon
+                                    ? _options$firstWeekCon
+                                    : null == options ||
+                                      null ===
+                                        (_options$locale = options.locale) ||
+                                      void 0 === _options$locale ||
+                                      null ===
+                                        (_options$locale$optio =
+                                          _options$locale.options) ||
+                                      void 0 === _options$locale$optio
+                                    ? void 0
+                                    : _options$locale$optio.firstWeekContainsDate) &&
+                              void 0 !== _ref3
+                                ? _ref3
+                                : defaultOptions.firstWeekContainsDate) &&
+                          void 0 !== _ref2
+                            ? _ref2
+                            : null ===
+                                (_defaultOptions$local =
+                                  defaultOptions.locale) ||
+                              void 0 === _defaultOptions$local ||
+                              null ===
+                                (_defaultOptions$local2 =
+                                  _defaultOptions$local.options) ||
+                              void 0 === _defaultOptions$local2
+                            ? void 0
+                            : _defaultOptions$local2.firstWeekContainsDate) &&
+                        void 0 !== _ref
+                        ? _ref
+                        : 1
+                    ),
+                    year = getUTCWeekYear(dirtyDate, options),
+                    firstWeek = new Date(0)
+                  return (
+                    firstWeek.setUTCFullYear(year, 0, firstWeekContainsDate),
+                    firstWeek.setUTCHours(0, 0, 0, 0),
+                    startOfUTCWeek(firstWeek, options)
+                  )
+                })(date, options).getTime()
+            return Math.round(diff / getUTCWeek_MILLISECONDS_IN_WEEK) + 1
+          }
+          function addLeadingZeros(number, targetLength) {
+            for (
+              var sign = number < 0 ? '-' : '',
+                output = Math.abs(number).toString();
+              output.length < targetLength;
+
+            )
+              output = '0' + output
+            return sign + output
+          }
+          const lightFormatters = {
+            y: function y(date, token) {
+              var signedYear = date.getUTCFullYear(),
+                year = signedYear > 0 ? signedYear : 1 - signedYear
+              return addLeadingZeros(
+                'yy' === token ? year % 100 : year,
+                token.length
+              )
+            },
+            M: function M(date, token) {
+              var month = date.getUTCMonth()
+              return 'M' === token
+                ? String(month + 1)
+                : addLeadingZeros(month + 1, 2)
+            },
+            d: function d(date, token) {
+              return addLeadingZeros(date.getUTCDate(), token.length)
+            },
+            a: function a(date, token) {
+              var dayPeriodEnumValue =
+                date.getUTCHours() / 12 >= 1 ? 'pm' : 'am'
+              switch (token) {
+                case 'a':
+                case 'aa':
+                  return dayPeriodEnumValue.toUpperCase()
+                case 'aaa':
+                  return dayPeriodEnumValue
+                case 'aaaaa':
+                  return dayPeriodEnumValue[0]
+                default:
+                  return 'am' === dayPeriodEnumValue ? 'a.m.' : 'p.m.'
+              }
+            },
+            h: function h(date, token) {
+              return addLeadingZeros(
+                date.getUTCHours() % 12 || 12,
+                token.length
+              )
+            },
+            H: function H(date, token) {
+              return addLeadingZeros(date.getUTCHours(), token.length)
+            },
+            m: function m(date, token) {
+              return addLeadingZeros(date.getUTCMinutes(), token.length)
+            },
+            s: function s(date, token) {
+              return addLeadingZeros(date.getUTCSeconds(), token.length)
+            },
+            S: function S(date, token) {
+              var numberOfDigits = token.length,
+                milliseconds = date.getUTCMilliseconds()
+              return addLeadingZeros(
+                Math.floor(milliseconds * Math.pow(10, numberOfDigits - 3)),
+                token.length
+              )
+            },
+          }
+          var dayPeriodEnum_midnight = 'midnight',
+            dayPeriodEnum_noon = 'noon',
+            dayPeriodEnum_morning = 'morning',
+            dayPeriodEnum_afternoon = 'afternoon',
+            dayPeriodEnum_evening = 'evening',
+            dayPeriodEnum_night = 'night',
+            formatters_formatters = {
+              G: function G(date, token, localize) {
+                var era = date.getUTCFullYear() > 0 ? 1 : 0
+                switch (token) {
+                  case 'G':
+                  case 'GG':
+                  case 'GGG':
+                    return localize.era(era, {width: 'abbreviated'})
+                  case 'GGGGG':
+                    return localize.era(era, {width: 'narrow'})
+                  default:
+                    return localize.era(era, {width: 'wide'})
+                }
+              },
+              y: function y(date, token, localize) {
+                if ('yo' === token) {
+                  var signedYear = date.getUTCFullYear(),
+                    year = signedYear > 0 ? signedYear : 1 - signedYear
+                  return localize.ordinalNumber(year, {unit: 'year'})
+                }
+                return lightFormatters.y(date, token)
+              },
+              Y: function Y(date, token, localize, options) {
+                var signedWeekYear = getUTCWeekYear(date, options),
+                  weekYear =
+                    signedWeekYear > 0 ? signedWeekYear : 1 - signedWeekYear
+                return 'YY' === token
+                  ? addLeadingZeros(weekYear % 100, 2)
+                  : 'Yo' === token
+                  ? localize.ordinalNumber(weekYear, {unit: 'year'})
+                  : addLeadingZeros(weekYear, token.length)
+              },
+              R: function R(date, token) {
+                return addLeadingZeros(getUTCISOWeekYear(date), token.length)
+              },
+              u: function u(date, token) {
+                return addLeadingZeros(date.getUTCFullYear(), token.length)
+              },
+              Q: function Q(date, token, localize) {
+                var quarter = Math.ceil((date.getUTCMonth() + 1) / 3)
+                switch (token) {
+                  case 'Q':
+                    return String(quarter)
+                  case 'QQ':
+                    return addLeadingZeros(quarter, 2)
+                  case 'Qo':
+                    return localize.ordinalNumber(quarter, {unit: 'quarter'})
+                  case 'QQQ':
+                    return localize.quarter(quarter, {
+                      width: 'abbreviated',
+                      context: 'formatting',
+                    })
+                  case 'QQQQQ':
+                    return localize.quarter(quarter, {
+                      width: 'narrow',
+                      context: 'formatting',
+                    })
+                  default:
+                    return localize.quarter(quarter, {
+                      width: 'wide',
+                      context: 'formatting',
+                    })
+                }
+              },
+              q: function q(date, token, localize) {
+                var quarter = Math.ceil((date.getUTCMonth() + 1) / 3)
+                switch (token) {
+                  case 'q':
+                    return String(quarter)
+                  case 'qq':
+                    return addLeadingZeros(quarter, 2)
+                  case 'qo':
+                    return localize.ordinalNumber(quarter, {unit: 'quarter'})
+                  case 'qqq':
+                    return localize.quarter(quarter, {
+                      width: 'abbreviated',
+                      context: 'standalone',
+                    })
+                  case 'qqqqq':
+                    return localize.quarter(quarter, {
+                      width: 'narrow',
+                      context: 'standalone',
+                    })
+                  default:
+                    return localize.quarter(quarter, {
+                      width: 'wide',
+                      context: 'standalone',
+                    })
+                }
+              },
+              M: function M(date, token, localize) {
+                var month = date.getUTCMonth()
+                switch (token) {
+                  case 'M':
+                  case 'MM':
+                    return lightFormatters.M(date, token)
+                  case 'Mo':
+                    return localize.ordinalNumber(month + 1, {unit: 'month'})
+                  case 'MMM':
+                    return localize.month(month, {
+                      width: 'abbreviated',
+                      context: 'formatting',
+                    })
+                  case 'MMMMM':
+                    return localize.month(month, {
+                      width: 'narrow',
+                      context: 'formatting',
+                    })
+                  default:
+                    return localize.month(month, {
+                      width: 'wide',
+                      context: 'formatting',
+                    })
+                }
+              },
+              L: function L(date, token, localize) {
+                var month = date.getUTCMonth()
+                switch (token) {
+                  case 'L':
+                    return String(month + 1)
+                  case 'LL':
+                    return addLeadingZeros(month + 1, 2)
+                  case 'Lo':
+                    return localize.ordinalNumber(month + 1, {unit: 'month'})
+                  case 'LLL':
+                    return localize.month(month, {
+                      width: 'abbreviated',
+                      context: 'standalone',
+                    })
+                  case 'LLLLL':
+                    return localize.month(month, {
+                      width: 'narrow',
+                      context: 'standalone',
+                    })
+                  default:
+                    return localize.month(month, {
+                      width: 'wide',
+                      context: 'standalone',
+                    })
+                }
+              },
+              w: function w(date, token, localize, options) {
+                var week = getUTCWeek(date, options)
+                return 'wo' === token
+                  ? localize.ordinalNumber(week, {unit: 'week'})
+                  : addLeadingZeros(week, token.length)
+              },
+              I: function I(date, token, localize) {
+                var isoWeek = getUTCISOWeek(date)
+                return 'Io' === token
+                  ? localize.ordinalNumber(isoWeek, {unit: 'week'})
+                  : addLeadingZeros(isoWeek, token.length)
+              },
+              d: function d(date, token, localize) {
+                return 'do' === token
+                  ? localize.ordinalNumber(date.getUTCDate(), {unit: 'date'})
+                  : lightFormatters.d(date, token)
+              },
+              D: function D(date, token, localize) {
+                var dayOfYear = (function getUTCDayOfYear(dirtyDate) {
+                  requiredArgs(1, arguments)
+                  var date = toDate(dirtyDate),
+                    timestamp = date.getTime()
+                  date.setUTCMonth(0, 1), date.setUTCHours(0, 0, 0, 0)
+                  var difference = timestamp - date.getTime()
+                  return Math.floor(difference / 864e5) + 1
+                })(date)
+                return 'Do' === token
+                  ? localize.ordinalNumber(dayOfYear, {unit: 'dayOfYear'})
+                  : addLeadingZeros(dayOfYear, token.length)
+              },
+              E: function E(date, token, localize) {
+                var dayOfWeek = date.getUTCDay()
+                switch (token) {
+                  case 'E':
+                  case 'EE':
+                  case 'EEE':
+                    return localize.day(dayOfWeek, {
+                      width: 'abbreviated',
+                      context: 'formatting',
+                    })
+                  case 'EEEEE':
+                    return localize.day(dayOfWeek, {
+                      width: 'narrow',
+                      context: 'formatting',
+                    })
+                  case 'EEEEEE':
+                    return localize.day(dayOfWeek, {
+                      width: 'short',
+                      context: 'formatting',
+                    })
+                  default:
+                    return localize.day(dayOfWeek, {
+                      width: 'wide',
+                      context: 'formatting',
+                    })
+                }
+              },
+              e: function e(date, token, localize, options) {
+                var dayOfWeek = date.getUTCDay(),
+                  localDayOfWeek =
+                    (dayOfWeek - options.weekStartsOn + 8) % 7 || 7
+                switch (token) {
+                  case 'e':
+                    return String(localDayOfWeek)
+                  case 'ee':
+                    return addLeadingZeros(localDayOfWeek, 2)
+                  case 'eo':
+                    return localize.ordinalNumber(localDayOfWeek, {unit: 'day'})
+                  case 'eee':
+                    return localize.day(dayOfWeek, {
+                      width: 'abbreviated',
+                      context: 'formatting',
+                    })
+                  case 'eeeee':
+                    return localize.day(dayOfWeek, {
+                      width: 'narrow',
+                      context: 'formatting',
+                    })
+                  case 'eeeeee':
+                    return localize.day(dayOfWeek, {
+                      width: 'short',
+                      context: 'formatting',
+                    })
+                  default:
+                    return localize.day(dayOfWeek, {
+                      width: 'wide',
+                      context: 'formatting',
+                    })
+                }
+              },
+              c: function c(date, token, localize, options) {
+                var dayOfWeek = date.getUTCDay(),
+                  localDayOfWeek =
+                    (dayOfWeek - options.weekStartsOn + 8) % 7 || 7
+                switch (token) {
+                  case 'c':
+                    return String(localDayOfWeek)
+                  case 'cc':
+                    return addLeadingZeros(localDayOfWeek, token.length)
+                  case 'co':
+                    return localize.ordinalNumber(localDayOfWeek, {unit: 'day'})
+                  case 'ccc':
+                    return localize.day(dayOfWeek, {
+                      width: 'abbreviated',
+                      context: 'standalone',
+                    })
+                  case 'ccccc':
+                    return localize.day(dayOfWeek, {
+                      width: 'narrow',
+                      context: 'standalone',
+                    })
+                  case 'cccccc':
+                    return localize.day(dayOfWeek, {
+                      width: 'short',
+                      context: 'standalone',
+                    })
+                  default:
+                    return localize.day(dayOfWeek, {
+                      width: 'wide',
+                      context: 'standalone',
+                    })
+                }
+              },
+              i: function i(date, token, localize) {
+                var dayOfWeek = date.getUTCDay(),
+                  isoDayOfWeek = 0 === dayOfWeek ? 7 : dayOfWeek
+                switch (token) {
+                  case 'i':
+                    return String(isoDayOfWeek)
+                  case 'ii':
+                    return addLeadingZeros(isoDayOfWeek, token.length)
+                  case 'io':
+                    return localize.ordinalNumber(isoDayOfWeek, {unit: 'day'})
+                  case 'iii':
+                    return localize.day(dayOfWeek, {
+                      width: 'abbreviated',
+                      context: 'formatting',
+                    })
+                  case 'iiiii':
+                    return localize.day(dayOfWeek, {
+                      width: 'narrow',
+                      context: 'formatting',
+                    })
+                  case 'iiiiii':
+                    return localize.day(dayOfWeek, {
+                      width: 'short',
+                      context: 'formatting',
+                    })
+                  default:
+                    return localize.day(dayOfWeek, {
+                      width: 'wide',
+                      context: 'formatting',
+                    })
+                }
+              },
+              a: function a(date, token, localize) {
+                var dayPeriodEnumValue =
+                  date.getUTCHours() / 12 >= 1 ? 'pm' : 'am'
+                switch (token) {
+                  case 'a':
+                  case 'aa':
+                    return localize.dayPeriod(dayPeriodEnumValue, {
+                      width: 'abbreviated',
+                      context: 'formatting',
+                    })
+                  case 'aaa':
+                    return localize
+                      .dayPeriod(dayPeriodEnumValue, {
+                        width: 'abbreviated',
+                        context: 'formatting',
+                      })
+                      .toLowerCase()
+                  case 'aaaaa':
+                    return localize.dayPeriod(dayPeriodEnumValue, {
+                      width: 'narrow',
+                      context: 'formatting',
+                    })
+                  default:
+                    return localize.dayPeriod(dayPeriodEnumValue, {
+                      width: 'wide',
+                      context: 'formatting',
+                    })
+                }
+              },
+              b: function b(date, token, localize) {
+                var dayPeriodEnumValue,
+                  hours = date.getUTCHours()
+                switch (
+                  ((dayPeriodEnumValue =
+                    12 === hours
+                      ? dayPeriodEnum_noon
+                      : 0 === hours
+                      ? dayPeriodEnum_midnight
+                      : hours / 12 >= 1
+                      ? 'pm'
+                      : 'am'),
+                  token)
+                ) {
+                  case 'b':
+                  case 'bb':
+                    return localize.dayPeriod(dayPeriodEnumValue, {
+                      width: 'abbreviated',
+                      context: 'formatting',
+                    })
+                  case 'bbb':
+                    return localize
+                      .dayPeriod(dayPeriodEnumValue, {
+                        width: 'abbreviated',
+                        context: 'formatting',
+                      })
+                      .toLowerCase()
+                  case 'bbbbb':
+                    return localize.dayPeriod(dayPeriodEnumValue, {
+                      width: 'narrow',
+                      context: 'formatting',
+                    })
+                  default:
+                    return localize.dayPeriod(dayPeriodEnumValue, {
+                      width: 'wide',
+                      context: 'formatting',
+                    })
+                }
+              },
+              B: function B(date, token, localize) {
+                var dayPeriodEnumValue,
+                  hours = date.getUTCHours()
+                switch (
+                  ((dayPeriodEnumValue =
+                    hours >= 17
+                      ? dayPeriodEnum_evening
+                      : hours >= 12
+                      ? dayPeriodEnum_afternoon
+                      : hours >= 4
+                      ? dayPeriodEnum_morning
+                      : dayPeriodEnum_night),
+                  token)
+                ) {
+                  case 'B':
+                  case 'BB':
+                  case 'BBB':
+                    return localize.dayPeriod(dayPeriodEnumValue, {
+                      width: 'abbreviated',
+                      context: 'formatting',
+                    })
+                  case 'BBBBB':
+                    return localize.dayPeriod(dayPeriodEnumValue, {
+                      width: 'narrow',
+                      context: 'formatting',
+                    })
+                  default:
+                    return localize.dayPeriod(dayPeriodEnumValue, {
+                      width: 'wide',
+                      context: 'formatting',
+                    })
+                }
+              },
+              h: function h(date, token, localize) {
+                if ('ho' === token) {
+                  var hours = date.getUTCHours() % 12
+                  return (
+                    0 === hours && (hours = 12),
+                    localize.ordinalNumber(hours, {unit: 'hour'})
+                  )
+                }
+                return lightFormatters.h(date, token)
+              },
+              H: function H(date, token, localize) {
+                return 'Ho' === token
+                  ? localize.ordinalNumber(date.getUTCHours(), {unit: 'hour'})
+                  : lightFormatters.H(date, token)
+              },
+              K: function K(date, token, localize) {
+                var hours = date.getUTCHours() % 12
+                return 'Ko' === token
+                  ? localize.ordinalNumber(hours, {unit: 'hour'})
+                  : addLeadingZeros(hours, token.length)
+              },
+              k: function k(date, token, localize) {
+                var hours = date.getUTCHours()
+                return (
+                  0 === hours && (hours = 24),
+                  'ko' === token
+                    ? localize.ordinalNumber(hours, {unit: 'hour'})
+                    : addLeadingZeros(hours, token.length)
+                )
+              },
+              m: function m(date, token, localize) {
+                return 'mo' === token
+                  ? localize.ordinalNumber(date.getUTCMinutes(), {
+                      unit: 'minute',
+                    })
+                  : lightFormatters.m(date, token)
+              },
+              s: function s(date, token, localize) {
+                return 'so' === token
+                  ? localize.ordinalNumber(date.getUTCSeconds(), {
+                      unit: 'second',
+                    })
+                  : lightFormatters.s(date, token)
+              },
+              S: function S(date, token) {
+                return lightFormatters.S(date, token)
+              },
+              X: function X(date, token, _localize, options) {
+                var timezoneOffset = (
+                  options._originalDate || date
+                ).getTimezoneOffset()
+                if (0 === timezoneOffset) return 'Z'
+                switch (token) {
+                  case 'X':
+                    return formatTimezoneWithOptionalMinutes(timezoneOffset)
+                  case 'XXXX':
+                  case 'XX':
+                    return formatTimezone(timezoneOffset)
+                  default:
+                    return formatTimezone(timezoneOffset, ':')
+                }
+              },
+              x: function x(date, token, _localize, options) {
+                var timezoneOffset = (
+                  options._originalDate || date
+                ).getTimezoneOffset()
+                switch (token) {
+                  case 'x':
+                    return formatTimezoneWithOptionalMinutes(timezoneOffset)
+                  case 'xxxx':
+                  case 'xx':
+                    return formatTimezone(timezoneOffset)
+                  default:
+                    return formatTimezone(timezoneOffset, ':')
+                }
+              },
+              O: function O(date, token, _localize, options) {
+                var timezoneOffset = (
+                  options._originalDate || date
+                ).getTimezoneOffset()
+                switch (token) {
+                  case 'O':
+                  case 'OO':
+                  case 'OOO':
+                    return 'GMT' + formatTimezoneShort(timezoneOffset, ':')
+                  default:
+                    return 'GMT' + formatTimezone(timezoneOffset, ':')
+                }
+              },
+              z: function z(date, token, _localize, options) {
+                var timezoneOffset = (
+                  options._originalDate || date
+                ).getTimezoneOffset()
+                switch (token) {
+                  case 'z':
+                  case 'zz':
+                  case 'zzz':
+                    return 'GMT' + formatTimezoneShort(timezoneOffset, ':')
+                  default:
+                    return 'GMT' + formatTimezone(timezoneOffset, ':')
+                }
+              },
+              t: function t(date, token, _localize, options) {
+                var originalDate = options._originalDate || date
+                return addLeadingZeros(
+                  Math.floor(originalDate.getTime() / 1e3),
+                  token.length
+                )
+              },
+              T: function T(date, token, _localize, options) {
+                return addLeadingZeros(
+                  (options._originalDate || date).getTime(),
+                  token.length
+                )
+              },
+            }
+          function formatTimezoneShort(offset, dirtyDelimiter) {
+            var sign = offset > 0 ? '-' : '+',
+              absOffset = Math.abs(offset),
+              hours = Math.floor(absOffset / 60),
+              minutes = absOffset % 60
+            if (0 === minutes) return sign + String(hours)
+            var delimiter = dirtyDelimiter || ''
+            return (
+              sign + String(hours) + delimiter + addLeadingZeros(minutes, 2)
+            )
+          }
+          function formatTimezoneWithOptionalMinutes(offset, dirtyDelimiter) {
+            return offset % 60 == 0
+              ? (offset > 0 ? '-' : '+') +
+                  addLeadingZeros(Math.abs(offset) / 60, 2)
+              : formatTimezone(offset, dirtyDelimiter)
+          }
+          function formatTimezone(offset, dirtyDelimiter) {
+            var delimiter = dirtyDelimiter || '',
+              sign = offset > 0 ? '-' : '+',
+              absOffset = Math.abs(offset)
+            return (
+              sign +
+              addLeadingZeros(Math.floor(absOffset / 60), 2) +
+              delimiter +
+              addLeadingZeros(absOffset % 60, 2)
+            )
+          }
+          const format_formatters = formatters_formatters
+          var dateLongFormatter = function dateLongFormatter(
+              pattern,
+              formatLong
+            ) {
+              switch (pattern) {
+                case 'P':
+                  return formatLong.date({width: 'short'})
+                case 'PP':
+                  return formatLong.date({width: 'medium'})
+                case 'PPP':
+                  return formatLong.date({width: 'long'})
+                default:
+                  return formatLong.date({width: 'full'})
+              }
+            },
+            timeLongFormatter = function timeLongFormatter(
+              pattern,
+              formatLong
+            ) {
+              switch (pattern) {
+                case 'p':
+                  return formatLong.time({width: 'short'})
+                case 'pp':
+                  return formatLong.time({width: 'medium'})
+                case 'ppp':
+                  return formatLong.time({width: 'long'})
+                default:
+                  return formatLong.time({width: 'full'})
+              }
+            },
+            longFormatters = {
+              p: timeLongFormatter,
+              P: function dateTimeLongFormatter(pattern, formatLong) {
+                var dateTimeFormat,
+                  matchResult = pattern.match(/(P+)(p+)?/) || [],
+                  datePattern = matchResult[1],
+                  timePattern = matchResult[2]
+                if (!timePattern) return dateLongFormatter(pattern, formatLong)
+                switch (datePattern) {
+                  case 'P':
+                    dateTimeFormat = formatLong.dateTime({width: 'short'})
+                    break
+                  case 'PP':
+                    dateTimeFormat = formatLong.dateTime({width: 'medium'})
+                    break
+                  case 'PPP':
+                    dateTimeFormat = formatLong.dateTime({width: 'long'})
+                    break
+                  default:
+                    dateTimeFormat = formatLong.dateTime({width: 'full'})
+                }
+                return dateTimeFormat
+                  .replace(
+                    '{{date}}',
+                    dateLongFormatter(datePattern, formatLong)
+                  )
+                  .replace(
+                    '{{time}}',
+                    timeLongFormatter(timePattern, formatLong)
+                  )
+              },
+            }
+          const format_longFormatters = longFormatters
+          var protectedDayOfYearTokens = ['D', 'DD'],
+            protectedWeekYearTokens = ['YY', 'YYYY']
+          function isProtectedDayOfYearToken(token) {
+            return -1 !== protectedDayOfYearTokens.indexOf(token)
+          }
+          function isProtectedWeekYearToken(token) {
+            return -1 !== protectedWeekYearTokens.indexOf(token)
+          }
+          function throwProtectedError(token, format, input) {
+            if ('YYYY' === token)
+              throw new RangeError(
+                'Use `yyyy` instead of `YYYY` (in `'
+                  .concat(format, '`) for formatting years to the input `')
+                  .concat(
+                    input,
+                    '`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md'
+                  )
+              )
+            if ('YY' === token)
+              throw new RangeError(
+                'Use `yy` instead of `YY` (in `'
+                  .concat(format, '`) for formatting years to the input `')
+                  .concat(
+                    input,
+                    '`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md'
+                  )
+              )
+            if ('D' === token)
+              throw new RangeError(
+                'Use `d` instead of `D` (in `'
+                  .concat(
+                    format,
+                    '`) for formatting days of the month to the input `'
+                  )
+                  .concat(
+                    input,
+                    '`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md'
+                  )
+              )
+            if ('DD' === token)
+              throw new RangeError(
+                'Use `dd` instead of `DD` (in `'
+                  .concat(
+                    format,
+                    '`) for formatting days of the month to the input `'
+                  )
+                  .concat(
+                    input,
+                    '`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md'
+                  )
+              )
+          }
+          var formatDistanceLocale = {
+            lessThanXSeconds: {
+              one: 'less than a second',
+              other: 'less than {{count}} seconds',
+            },
+            xSeconds: {one: '1 second', other: '{{count}} seconds'},
+            halfAMinute: 'half a minute',
+            lessThanXMinutes: {
+              one: 'less than a minute',
+              other: 'less than {{count}} minutes',
+            },
+            xMinutes: {one: '1 minute', other: '{{count}} minutes'},
+            aboutXHours: {one: 'about 1 hour', other: 'about {{count}} hours'},
+            xHours: {one: '1 hour', other: '{{count}} hours'},
+            xDays: {one: '1 day', other: '{{count}} days'},
+            aboutXWeeks: {one: 'about 1 week', other: 'about {{count}} weeks'},
+            xWeeks: {one: '1 week', other: '{{count}} weeks'},
+            aboutXMonths: {
+              one: 'about 1 month',
+              other: 'about {{count}} months',
+            },
+            xMonths: {one: '1 month', other: '{{count}} months'},
+            aboutXYears: {one: 'about 1 year', other: 'about {{count}} years'},
+            xYears: {one: '1 year', other: '{{count}} years'},
+            overXYears: {one: 'over 1 year', other: 'over {{count}} years'},
+            almostXYears: {
+              one: 'almost 1 year',
+              other: 'almost {{count}} years',
+            },
+          }
+          const _lib_formatDistance = function formatDistance(
+            token,
+            count,
+            options
+          ) {
+            var result,
+              tokenValue = formatDistanceLocale[token]
+            return (
+              (result =
+                'string' == typeof tokenValue
+                  ? tokenValue
+                  : 1 === count
+                  ? tokenValue.one
+                  : tokenValue.other.replace('{{count}}', count.toString())),
+              null != options && options.addSuffix
+                ? options.comparison && options.comparison > 0
+                  ? 'in ' + result
+                  : result + ' ago'
+                : result
+            )
+          }
+          function buildFormatLongFn(args) {
+            return function () {
+              var options =
+                  arguments.length > 0 && void 0 !== arguments[0]
+                    ? arguments[0]
+                    : {},
+                width = options.width
+                  ? String(options.width)
+                  : args.defaultWidth
+              return args.formats[width] || args.formats[args.defaultWidth]
+            }
+          }
+          var formatLong = {
+            date: buildFormatLongFn({
+              formats: {
+                full: 'EEEE, MMMM do, y',
+                long: 'MMMM do, y',
+                medium: 'MMM d, y',
+                short: 'MM/dd/yyyy',
+              },
+              defaultWidth: 'full',
+            }),
+            time: buildFormatLongFn({
+              formats: {
+                full: 'h:mm:ss a zzzz',
+                long: 'h:mm:ss a z',
+                medium: 'h:mm:ss a',
+                short: 'h:mm a',
+              },
+              defaultWidth: 'full',
+            }),
+            dateTime: buildFormatLongFn({
+              formats: {
+                full: "{{date}} 'at' {{time}}",
+                long: "{{date}} 'at' {{time}}",
+                medium: '{{date}}, {{time}}',
+                short: '{{date}}, {{time}}',
+              },
+              defaultWidth: 'full',
+            }),
+          }
+          var formatRelativeLocale = {
+            lastWeek: "'last' eeee 'at' p",
+            yesterday: "'yesterday at' p",
+            today: "'today at' p",
+            tomorrow: "'tomorrow at' p",
+            nextWeek: "eeee 'at' p",
+            other: 'P',
+          }
+          function buildLocalizeFn(args) {
+            return function (dirtyIndex, options) {
+              var valuesArray
+              if (
+                'formatting' ===
+                  (null != options && options.context
+                    ? String(options.context)
+                    : 'standalone') &&
+                args.formattingValues
+              ) {
+                var defaultWidth =
+                    args.defaultFormattingWidth || args.defaultWidth,
+                  width =
+                    null != options && options.width
+                      ? String(options.width)
+                      : defaultWidth
+                valuesArray =
+                  args.formattingValues[width] ||
+                  args.formattingValues[defaultWidth]
+              } else {
+                var _defaultWidth = args.defaultWidth,
+                  _width =
+                    null != options && options.width
+                      ? String(options.width)
+                      : args.defaultWidth
+                valuesArray = args.values[_width] || args.values[_defaultWidth]
+              }
+              return valuesArray[
+                args.argumentCallback
+                  ? args.argumentCallback(dirtyIndex)
+                  : dirtyIndex
+              ]
+            }
+          }
+          function buildMatchFn(args) {
+            return function (string) {
+              var options =
+                  arguments.length > 1 && void 0 !== arguments[1]
+                    ? arguments[1]
+                    : {},
+                width = options.width,
+                matchPattern =
+                  (width && args.matchPatterns[width]) ||
+                  args.matchPatterns[args.defaultMatchWidth],
+                matchResult = string.match(matchPattern)
+              if (!matchResult) return null
+              var value,
+                matchedString = matchResult[0],
+                parsePatterns =
+                  (width && args.parsePatterns[width]) ||
+                  args.parsePatterns[args.defaultParseWidth],
+                key = Array.isArray(parsePatterns)
+                  ? (function findIndex(array, predicate) {
+                      for (var key = 0; key < array.length; key++)
+                        if (predicate(array[key])) return key
+                      return
+                    })(parsePatterns, function (pattern) {
+                      return pattern.test(matchedString)
+                    })
+                  : (function findKey(object, predicate) {
+                      for (var key in object)
+                        if (
+                          object.hasOwnProperty(key) &&
+                          predicate(object[key])
+                        )
+                          return key
+                      return
+                    })(parsePatterns, function (pattern) {
+                      return pattern.test(matchedString)
+                    })
+              return (
+                (value = args.valueCallback ? args.valueCallback(key) : key),
+                {
+                  value: (value = options.valueCallback
+                    ? options.valueCallback(value)
+                    : value),
+                  rest: string.slice(matchedString.length),
+                }
+              )
+            }
+          }
+          const en_US = {
+              code: 'en-US',
+              formatDistance: _lib_formatDistance,
+              formatLong,
+              formatRelative: function formatRelative(
+                token,
+                _date,
+                _baseDate,
+                _options
+              ) {
+                return formatRelativeLocale[token]
+              },
+              localize: {
+                ordinalNumber: function ordinalNumber(dirtyNumber, _options) {
+                  var number = Number(dirtyNumber),
+                    rem100 = number % 100
+                  if (rem100 > 20 || rem100 < 10)
+                    switch (rem100 % 10) {
+                      case 1:
+                        return number + 'st'
+                      case 2:
+                        return number + 'nd'
+                      case 3:
+                        return number + 'rd'
+                    }
+                  return number + 'th'
+                },
+                era: buildLocalizeFn({
+                  values: {
+                    narrow: ['B', 'A'],
+                    abbreviated: ['BC', 'AD'],
+                    wide: ['Before Christ', 'Anno Domini'],
+                  },
+                  defaultWidth: 'wide',
+                }),
+                quarter: buildLocalizeFn({
+                  values: {
+                    narrow: ['1', '2', '3', '4'],
+                    abbreviated: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    wide: [
+                      '1st quarter',
+                      '2nd quarter',
+                      '3rd quarter',
+                      '4th quarter',
+                    ],
+                  },
+                  defaultWidth: 'wide',
+                  argumentCallback: function argumentCallback(quarter) {
+                    return quarter - 1
+                  },
+                }),
+                month: buildLocalizeFn({
+                  values: {
+                    narrow: [
+                      'J',
+                      'F',
+                      'M',
+                      'A',
+                      'M',
+                      'J',
+                      'J',
+                      'A',
+                      'S',
+                      'O',
+                      'N',
+                      'D',
+                    ],
+                    abbreviated: [
+                      'Jan',
+                      'Feb',
+                      'Mar',
+                      'Apr',
+                      'May',
+                      'Jun',
+                      'Jul',
+                      'Aug',
+                      'Sep',
+                      'Oct',
+                      'Nov',
+                      'Dec',
+                    ],
+                    wide: [
+                      'January',
+                      'February',
+                      'March',
+                      'April',
+                      'May',
+                      'June',
+                      'July',
+                      'August',
+                      'September',
+                      'October',
+                      'November',
+                      'December',
+                    ],
+                  },
+                  defaultWidth: 'wide',
+                }),
+                day: buildLocalizeFn({
+                  values: {
+                    narrow: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                    short: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    abbreviated: [
+                      'Sun',
+                      'Mon',
+                      'Tue',
+                      'Wed',
+                      'Thu',
+                      'Fri',
+                      'Sat',
+                    ],
+                    wide: [
+                      'Sunday',
+                      'Monday',
+                      'Tuesday',
+                      'Wednesday',
+                      'Thursday',
+                      'Friday',
+                      'Saturday',
+                    ],
+                  },
+                  defaultWidth: 'wide',
+                }),
+                dayPeriod: buildLocalizeFn({
+                  values: {
+                    narrow: {
+                      am: 'a',
+                      pm: 'p',
+                      midnight: 'mi',
+                      noon: 'n',
+                      morning: 'morning',
+                      afternoon: 'afternoon',
+                      evening: 'evening',
+                      night: 'night',
+                    },
+                    abbreviated: {
+                      am: 'AM',
+                      pm: 'PM',
+                      midnight: 'midnight',
+                      noon: 'noon',
+                      morning: 'morning',
+                      afternoon: 'afternoon',
+                      evening: 'evening',
+                      night: 'night',
+                    },
+                    wide: {
+                      am: 'a.m.',
+                      pm: 'p.m.',
+                      midnight: 'midnight',
+                      noon: 'noon',
+                      morning: 'morning',
+                      afternoon: 'afternoon',
+                      evening: 'evening',
+                      night: 'night',
+                    },
+                  },
+                  defaultWidth: 'wide',
+                  formattingValues: {
+                    narrow: {
+                      am: 'a',
+                      pm: 'p',
+                      midnight: 'mi',
+                      noon: 'n',
+                      morning: 'in the morning',
+                      afternoon: 'in the afternoon',
+                      evening: 'in the evening',
+                      night: 'at night',
+                    },
+                    abbreviated: {
+                      am: 'AM',
+                      pm: 'PM',
+                      midnight: 'midnight',
+                      noon: 'noon',
+                      morning: 'in the morning',
+                      afternoon: 'in the afternoon',
+                      evening: 'in the evening',
+                      night: 'at night',
+                    },
+                    wide: {
+                      am: 'a.m.',
+                      pm: 'p.m.',
+                      midnight: 'midnight',
+                      noon: 'noon',
+                      morning: 'in the morning',
+                      afternoon: 'in the afternoon',
+                      evening: 'in the evening',
+                      night: 'at night',
+                    },
+                  },
+                  defaultFormattingWidth: 'wide',
+                }),
+              },
+              match: {
+                ordinalNumber: (function buildMatchPatternFn(args) {
+                  return function (string) {
+                    var options =
+                        arguments.length > 1 && void 0 !== arguments[1]
+                          ? arguments[1]
+                          : {},
+                      matchResult = string.match(args.matchPattern)
+                    if (!matchResult) return null
+                    var matchedString = matchResult[0],
+                      parseResult = string.match(args.parsePattern)
+                    if (!parseResult) return null
+                    var value = args.valueCallback
+                      ? args.valueCallback(parseResult[0])
+                      : parseResult[0]
+                    return {
+                      value: (value = options.valueCallback
+                        ? options.valueCallback(value)
+                        : value),
+                      rest: string.slice(matchedString.length),
+                    }
+                  }
+                })({
+                  matchPattern: /^(\d+)(th|st|nd|rd)?/i,
+                  parsePattern: /\d+/i,
+                  valueCallback: function valueCallback(value) {
+                    return parseInt(value, 10)
+                  },
+                }),
+                era: buildMatchFn({
+                  matchPatterns: {
+                    narrow: /^(b|a)/i,
+                    abbreviated:
+                      /^(b\.?\s?c\.?|b\.?\s?c\.?\s?e\.?|a\.?\s?d\.?|c\.?\s?e\.?)/i,
+                    wide: /^(before christ|before common era|anno domini|common era)/i,
+                  },
+                  defaultMatchWidth: 'wide',
+                  parsePatterns: {any: [/^b/i, /^(a|c)/i]},
+                  defaultParseWidth: 'any',
+                }),
+                quarter: buildMatchFn({
+                  matchPatterns: {
+                    narrow: /^[1234]/i,
+                    abbreviated: /^q[1234]/i,
+                    wide: /^[1234](th|st|nd|rd)? quarter/i,
+                  },
+                  defaultMatchWidth: 'wide',
+                  parsePatterns: {any: [/1/i, /2/i, /3/i, /4/i]},
+                  defaultParseWidth: 'any',
+                  valueCallback: function valueCallback(index) {
+                    return index + 1
+                  },
+                }),
+                month: buildMatchFn({
+                  matchPatterns: {
+                    narrow: /^[jfmasond]/i,
+                    abbreviated:
+                      /^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i,
+                    wide: /^(january|february|march|april|may|june|july|august|september|october|november|december)/i,
+                  },
+                  defaultMatchWidth: 'wide',
+                  parsePatterns: {
+                    narrow: [
+                      /^j/i,
+                      /^f/i,
+                      /^m/i,
+                      /^a/i,
+                      /^m/i,
+                      /^j/i,
+                      /^j/i,
+                      /^a/i,
+                      /^s/i,
+                      /^o/i,
+                      /^n/i,
+                      /^d/i,
+                    ],
+                    any: [
+                      /^ja/i,
+                      /^f/i,
+                      /^mar/i,
+                      /^ap/i,
+                      /^may/i,
+                      /^jun/i,
+                      /^jul/i,
+                      /^au/i,
+                      /^s/i,
+                      /^o/i,
+                      /^n/i,
+                      /^d/i,
+                    ],
+                  },
+                  defaultParseWidth: 'any',
+                }),
+                day: buildMatchFn({
+                  matchPatterns: {
+                    narrow: /^[smtwf]/i,
+                    short: /^(su|mo|tu|we|th|fr|sa)/i,
+                    abbreviated: /^(sun|mon|tue|wed|thu|fri|sat)/i,
+                    wide: /^(sunday|monday|tuesday|wednesday|thursday|friday|saturday)/i,
+                  },
+                  defaultMatchWidth: 'wide',
+                  parsePatterns: {
+                    narrow: [/^s/i, /^m/i, /^t/i, /^w/i, /^t/i, /^f/i, /^s/i],
+                    any: [/^su/i, /^m/i, /^tu/i, /^w/i, /^th/i, /^f/i, /^sa/i],
+                  },
+                  defaultParseWidth: 'any',
+                }),
+                dayPeriod: buildMatchFn({
+                  matchPatterns: {
+                    narrow:
+                      /^(a|p|mi|n|(in the|at) (morning|afternoon|evening|night))/i,
+                    any: /^([ap]\.?\s?m\.?|midnight|noon|(in the|at) (morning|afternoon|evening|night))/i,
+                  },
+                  defaultMatchWidth: 'any',
+                  parsePatterns: {
+                    any: {
+                      am: /^a/i,
+                      pm: /^p/i,
+                      midnight: /^mi/i,
+                      noon: /^no/i,
+                      morning: /morning/i,
+                      afternoon: /afternoon/i,
+                      evening: /evening/i,
+                      night: /night/i,
+                    },
+                  },
+                  defaultParseWidth: 'any',
+                }),
+              },
+              options: {weekStartsOn: 0, firstWeekContainsDate: 1},
+            },
+            defaultLocale = en_US
+          var formattingTokensRegExp =
+              /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g,
+            longFormattingTokensRegExp = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g,
+            escapedStringRegExp = /^'([^]*?)'?$/,
+            doubleQuoteRegExp = /''/g,
+            unescapedLatinCharacterRegExp = /[a-zA-Z]/
+          function format(dirtyDate, dirtyFormatStr, options) {
+            var _ref,
+              _options$locale,
+              _ref2,
+              _ref3,
+              _ref4,
+              _options$firstWeekCon,
+              _options$locale2,
+              _options$locale2$opti,
+              _defaultOptions$local,
+              _defaultOptions$local2,
+              _ref5,
+              _ref6,
+              _ref7,
+              _options$weekStartsOn,
+              _options$locale3,
+              _options$locale3$opti,
+              _defaultOptions$local3,
+              _defaultOptions$local4
+            requiredArgs(2, arguments)
+            var formatStr = String(dirtyFormatStr),
+              defaultOptions = getDefaultOptions(),
+              locale =
+                null !==
+                  (_ref =
+                    null !==
+                      (_options$locale =
+                        null == options ? void 0 : options.locale) &&
+                    void 0 !== _options$locale
+                      ? _options$locale
+                      : defaultOptions.locale) && void 0 !== _ref
+                  ? _ref
+                  : defaultLocale,
+              firstWeekContainsDate = toInteger(
+                null !==
+                  (_ref2 =
+                    null !==
+                      (_ref3 =
+                        null !==
+                          (_ref4 =
+                            null !==
+                              (_options$firstWeekCon =
+                                null == options
+                                  ? void 0
+                                  : options.firstWeekContainsDate) &&
+                            void 0 !== _options$firstWeekCon
+                              ? _options$firstWeekCon
+                              : null == options ||
+                                null === (_options$locale2 = options.locale) ||
+                                void 0 === _options$locale2 ||
+                                null ===
+                                  (_options$locale2$opti =
+                                    _options$locale2.options) ||
+                                void 0 === _options$locale2$opti
+                              ? void 0
+                              : _options$locale2$opti.firstWeekContainsDate) &&
+                        void 0 !== _ref4
+                          ? _ref4
+                          : defaultOptions.firstWeekContainsDate) &&
+                    void 0 !== _ref3
+                      ? _ref3
+                      : null ===
+                          (_defaultOptions$local = defaultOptions.locale) ||
+                        void 0 === _defaultOptions$local ||
+                        null ===
+                          (_defaultOptions$local2 =
+                            _defaultOptions$local.options) ||
+                        void 0 === _defaultOptions$local2
+                      ? void 0
+                      : _defaultOptions$local2.firstWeekContainsDate) &&
+                  void 0 !== _ref2
+                  ? _ref2
+                  : 1
+              )
+            if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7))
+              throw new RangeError(
+                'firstWeekContainsDate must be between 1 and 7 inclusively'
+              )
+            var weekStartsOn = toInteger(
+              null !==
+                (_ref5 =
+                  null !==
+                    (_ref6 =
+                      null !==
+                        (_ref7 =
                           null !==
                             (_options$weekStartsOn =
                               null == options
@@ -4651,126 +6168,235 @@
                           void 0 !== _options$weekStartsOn
                             ? _options$weekStartsOn
                             : null == options ||
-                              null === (_options$locale = options.locale) ||
-                              void 0 === _options$locale ||
+                              null === (_options$locale3 = options.locale) ||
+                              void 0 === _options$locale3 ||
                               null ===
-                                (_options$locale$optio =
-                                  _options$locale.options) ||
-                              void 0 === _options$locale$optio
+                                (_options$locale3$opti =
+                                  _options$locale3.options) ||
+                              void 0 === _options$locale3$opti
                             ? void 0
-                            : _options$locale$optio.weekStartsOn) &&
-                      void 0 !== _ref3
-                        ? _ref3
-                        : defaultOptions.weekStartsOn) && void 0 !== _ref2
-                    ? _ref2
+                            : _options$locale3$opti.weekStartsOn) &&
+                      void 0 !== _ref7
+                        ? _ref7
+                        : defaultOptions.weekStartsOn) && void 0 !== _ref6
+                    ? _ref6
                     : null ===
-                        (_defaultOptions$local = defaultOptions.locale) ||
-                      void 0 === _defaultOptions$local ||
+                        (_defaultOptions$local3 = defaultOptions.locale) ||
+                      void 0 === _defaultOptions$local3 ||
                       null ===
-                        (_defaultOptions$local2 =
-                          _defaultOptions$local.options) ||
-                      void 0 === _defaultOptions$local2
+                        (_defaultOptions$local4 =
+                          _defaultOptions$local3.options) ||
+                      void 0 === _defaultOptions$local4
                     ? void 0
-                    : _defaultOptions$local2.weekStartsOn) && void 0 !== _ref
-                ? _ref
+                    : _defaultOptions$local4.weekStartsOn) && void 0 !== _ref5
+                ? _ref5
                 : 0
             )
-          if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
-            throw new RangeError(
-              'weekStartsOn must be between 0 and 6 inclusively'
+            if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
+              throw new RangeError(
+                'weekStartsOn must be between 0 and 6 inclusively'
+              )
+            if (!locale.localize)
+              throw new RangeError('locale must contain localize property')
+            if (!locale.formatLong)
+              throw new RangeError('locale must contain formatLong property')
+            var originalDate = toDate(dirtyDate)
+            if (!isValid(originalDate))
+              throw new RangeError('Invalid time value')
+            var utcDate = subMilliseconds(
+                originalDate,
+                getTimezoneOffsetInMilliseconds(originalDate)
+              ),
+              formatterOptions = {
+                firstWeekContainsDate,
+                weekStartsOn,
+                locale,
+                _originalDate: originalDate,
+              }
+            return formatStr
+              .match(longFormattingTokensRegExp)
+              .map(function (substring) {
+                var firstCharacter = substring[0]
+                return 'p' === firstCharacter || 'P' === firstCharacter
+                  ? (0, format_longFormatters[firstCharacter])(
+                      substring,
+                      locale.formatLong
+                    )
+                  : substring
+              })
+              .join('')
+              .match(formattingTokensRegExp)
+              .map(function (substring) {
+                if ("''" === substring) return "'"
+                var firstCharacter = substring[0]
+                if ("'" === firstCharacter)
+                  return (function cleanEscapedString(input) {
+                    var matched = input.match(escapedStringRegExp)
+                    if (!matched) return input
+                    return matched[1].replace(doubleQuoteRegExp, "'")
+                  })(substring)
+                var formatter = format_formatters[firstCharacter]
+                if (formatter)
+                  return (
+                    (null != options && options.useAdditionalWeekYearTokens) ||
+                      !isProtectedWeekYearToken(substring) ||
+                      throwProtectedError(
+                        substring,
+                        dirtyFormatStr,
+                        String(dirtyDate)
+                      ),
+                    (null != options && options.useAdditionalDayOfYearTokens) ||
+                      !isProtectedDayOfYearToken(substring) ||
+                      throwProtectedError(
+                        substring,
+                        dirtyFormatStr,
+                        String(dirtyDate)
+                      ),
+                    formatter(
+                      utcDate,
+                      substring,
+                      locale.localize,
+                      formatterOptions
+                    )
+                  )
+                if (firstCharacter.match(unescapedLatinCharacterRegExp))
+                  throw new RangeError(
+                    'Format string contains an unescaped latin alphabet character `' +
+                      firstCharacter +
+                      '`'
+                  )
+                return substring
+              })
+              .join('')
+          }
+          function getDaysInMonth(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate),
+              year = date.getFullYear(),
+              monthIndex = date.getMonth(),
+              lastDayOfMonth = new Date(0)
+            return (
+              lastDayOfMonth.setFullYear(year, monthIndex + 1, 0),
+              lastDayOfMonth.setHours(0, 0, 0, 0),
+              lastDayOfMonth.getDate()
             )
-          var date = toDate(dirtyDate),
-            day = date.getUTCDay(),
-            diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn
-          return (
-            date.setUTCDate(date.getUTCDate() - diff),
-            date.setUTCHours(0, 0, 0, 0),
-            date
-          )
-        }
-        function getUTCWeekYear(dirtyDate, options) {
-          var _ref,
-            _ref2,
-            _ref3,
-            _options$firstWeekCon,
-            _options$locale,
-            _options$locale$optio,
-            _defaultOptions$local,
-            _defaultOptions$local2
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate),
-            year = date.getUTCFullYear(),
-            defaultOptions = getDefaultOptions(),
-            firstWeekContainsDate = toInteger(
-              null !==
-                (_ref =
-                  null !==
-                    (_ref2 =
-                      null !==
-                        (_ref3 =
-                          null !==
-                            (_options$firstWeekCon =
-                              null == options
-                                ? void 0
-                                : options.firstWeekContainsDate) &&
-                          void 0 !== _options$firstWeekCon
-                            ? _options$firstWeekCon
-                            : null == options ||
-                              null === (_options$locale = options.locale) ||
-                              void 0 === _options$locale ||
-                              null ===
-                                (_options$locale$optio =
-                                  _options$locale.options) ||
-                              void 0 === _options$locale$optio
-                            ? void 0
-                            : _options$locale$optio.firstWeekContainsDate) &&
-                      void 0 !== _ref3
-                        ? _ref3
-                        : defaultOptions.firstWeekContainsDate) &&
-                  void 0 !== _ref2
-                    ? _ref2
-                    : null ===
-                        (_defaultOptions$local = defaultOptions.locale) ||
-                      void 0 === _defaultOptions$local ||
-                      null ===
-                        (_defaultOptions$local2 =
-                          _defaultOptions$local.options) ||
-                      void 0 === _defaultOptions$local2
-                    ? void 0
-                    : _defaultOptions$local2.firstWeekContainsDate) &&
-                void 0 !== _ref
-                ? _ref
-                : 1
+          }
+          function startOfWeek(dirtyDate, options) {
+            var _ref,
+              _ref2,
+              _ref3,
+              _options$weekStartsOn,
+              _options$locale,
+              _options$locale$optio,
+              _defaultOptions$local,
+              _defaultOptions$local2
+            requiredArgs(1, arguments)
+            var defaultOptions = getDefaultOptions(),
+              weekStartsOn = toInteger(
+                null !==
+                  (_ref =
+                    null !==
+                      (_ref2 =
+                        null !==
+                          (_ref3 =
+                            null !==
+                              (_options$weekStartsOn =
+                                null == options
+                                  ? void 0
+                                  : options.weekStartsOn) &&
+                            void 0 !== _options$weekStartsOn
+                              ? _options$weekStartsOn
+                              : null == options ||
+                                null === (_options$locale = options.locale) ||
+                                void 0 === _options$locale ||
+                                null ===
+                                  (_options$locale$optio =
+                                    _options$locale.options) ||
+                                void 0 === _options$locale$optio
+                              ? void 0
+                              : _options$locale$optio.weekStartsOn) &&
+                        void 0 !== _ref3
+                          ? _ref3
+                          : defaultOptions.weekStartsOn) && void 0 !== _ref2
+                      ? _ref2
+                      : null ===
+                          (_defaultOptions$local = defaultOptions.locale) ||
+                        void 0 === _defaultOptions$local ||
+                        null ===
+                          (_defaultOptions$local2 =
+                            _defaultOptions$local.options) ||
+                        void 0 === _defaultOptions$local2
+                      ? void 0
+                      : _defaultOptions$local2.weekStartsOn) && void 0 !== _ref
+                  ? _ref
+                  : 0
+              )
+            if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
+              throw new RangeError(
+                'weekStartsOn must be between 0 and 6 inclusively'
+              )
+            var date = toDate(dirtyDate),
+              day = date.getDay(),
+              diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn
+            return (
+              date.setDate(date.getDate() - diff),
+              date.setHours(0, 0, 0, 0),
+              date
             )
-          if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7))
-            throw new RangeError(
-              'firstWeekContainsDate must be between 1 and 7 inclusively'
-            )
-          var firstWeekOfNextYear = new Date(0)
-          firstWeekOfNextYear.setUTCFullYear(
-            year + 1,
-            0,
-            firstWeekContainsDate
-          ),
-            firstWeekOfNextYear.setUTCHours(0, 0, 0, 0)
-          var startOfNextYear = startOfUTCWeek(firstWeekOfNextYear, options),
-            firstWeekOfThisYear = new Date(0)
-          firstWeekOfThisYear.setUTCFullYear(year, 0, firstWeekContainsDate),
-            firstWeekOfThisYear.setUTCHours(0, 0, 0, 0)
-          var startOfThisYear = startOfUTCWeek(firstWeekOfThisYear, options)
-          return date.getTime() >= startOfNextYear.getTime()
-            ? year + 1
-            : date.getTime() >= startOfThisYear.getTime()
-            ? year
-            : year - 1
-        }
-        var getUTCWeek_MILLISECONDS_IN_WEEK = 6048e5
-        function getUTCWeek(dirtyDate, options) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate),
-            diff =
-              startOfUTCWeek(date, options).getTime() -
-              (function startOfUTCWeekYear(dirtyDate, options) {
+          }
+          function startOfWeekYear(dirtyDate, options) {
+            var _ref,
+              _ref2,
+              _ref3,
+              _options$firstWeekCon,
+              _options$locale,
+              _options$locale$optio,
+              _defaultOptions$local,
+              _defaultOptions$local2
+            requiredArgs(1, arguments)
+            var defaultOptions = getDefaultOptions(),
+              firstWeekContainsDate = toInteger(
+                null !==
+                  (_ref =
+                    null !==
+                      (_ref2 =
+                        null !==
+                          (_ref3 =
+                            null !==
+                              (_options$firstWeekCon =
+                                null == options
+                                  ? void 0
+                                  : options.firstWeekContainsDate) &&
+                            void 0 !== _options$firstWeekCon
+                              ? _options$firstWeekCon
+                              : null == options ||
+                                null === (_options$locale = options.locale) ||
+                                void 0 === _options$locale ||
+                                null ===
+                                  (_options$locale$optio =
+                                    _options$locale.options) ||
+                                void 0 === _options$locale$optio
+                              ? void 0
+                              : _options$locale$optio.firstWeekContainsDate) &&
+                        void 0 !== _ref3
+                          ? _ref3
+                          : defaultOptions.firstWeekContainsDate) &&
+                    void 0 !== _ref2
+                      ? _ref2
+                      : null ===
+                          (_defaultOptions$local = defaultOptions.locale) ||
+                        void 0 === _defaultOptions$local ||
+                        null ===
+                          (_defaultOptions$local2 =
+                            _defaultOptions$local.options) ||
+                        void 0 === _defaultOptions$local2
+                      ? void 0
+                      : _defaultOptions$local2.firstWeekContainsDate) &&
+                  void 0 !== _ref
+                  ? _ref
+                  : 1
+              ),
+              year = (function getWeekYear(dirtyDate, options) {
                 var _ref,
                   _ref2,
                   _ref3,
@@ -4780,7 +6406,9 @@
                   _defaultOptions$local,
                   _defaultOptions$local2
                 requiredArgs(1, arguments)
-                var defaultOptions = getDefaultOptions(),
+                var date = toDate(dirtyDate),
+                  year = date.getFullYear(),
+                  defaultOptions = getDefaultOptions(),
                   firstWeekContainsDate = toInteger(
                     null !==
                       (_ref =
@@ -4822,1260 +6450,7748 @@
                       void 0 !== _ref
                       ? _ref
                       : 1
-                  ),
-                  year = getUTCWeekYear(dirtyDate, options),
-                  firstWeek = new Date(0)
-                return (
-                  firstWeek.setUTCFullYear(year, 0, firstWeekContainsDate),
-                  firstWeek.setUTCHours(0, 0, 0, 0),
-                  startOfUTCWeek(firstWeek, options)
-                )
-              })(date, options).getTime()
-          return Math.round(diff / getUTCWeek_MILLISECONDS_IN_WEEK) + 1
-        }
-        function addLeadingZeros(number, targetLength) {
-          for (
-            var sign = number < 0 ? '-' : '',
-              output = Math.abs(number).toString();
-            output.length < targetLength;
-
-          )
-            output = '0' + output
-          return sign + output
-        }
-        const lightFormatters = {
-          y: function y(date, token) {
-            var signedYear = date.getUTCFullYear(),
-              year = signedYear > 0 ? signedYear : 1 - signedYear
-            return addLeadingZeros(
-              'yy' === token ? year % 100 : year,
-              token.length
-            )
-          },
-          M: function M(date, token) {
-            var month = date.getUTCMonth()
-            return 'M' === token
-              ? String(month + 1)
-              : addLeadingZeros(month + 1, 2)
-          },
-          d: function d(date, token) {
-            return addLeadingZeros(date.getUTCDate(), token.length)
-          },
-          a: function a(date, token) {
-            var dayPeriodEnumValue = date.getUTCHours() / 12 >= 1 ? 'pm' : 'am'
-            switch (token) {
-              case 'a':
-              case 'aa':
-                return dayPeriodEnumValue.toUpperCase()
-              case 'aaa':
-                return dayPeriodEnumValue
-              case 'aaaaa':
-                return dayPeriodEnumValue[0]
-              default:
-                return 'am' === dayPeriodEnumValue ? 'a.m.' : 'p.m.'
-            }
-          },
-          h: function h(date, token) {
-            return addLeadingZeros(date.getUTCHours() % 12 || 12, token.length)
-          },
-          H: function H(date, token) {
-            return addLeadingZeros(date.getUTCHours(), token.length)
-          },
-          m: function m(date, token) {
-            return addLeadingZeros(date.getUTCMinutes(), token.length)
-          },
-          s: function s(date, token) {
-            return addLeadingZeros(date.getUTCSeconds(), token.length)
-          },
-          S: function S(date, token) {
-            var numberOfDigits = token.length,
-              milliseconds = date.getUTCMilliseconds()
-            return addLeadingZeros(
-              Math.floor(milliseconds * Math.pow(10, numberOfDigits - 3)),
-              token.length
-            )
-          },
-        }
-        var dayPeriodEnum_midnight = 'midnight',
-          dayPeriodEnum_noon = 'noon',
-          dayPeriodEnum_morning = 'morning',
-          dayPeriodEnum_afternoon = 'afternoon',
-          dayPeriodEnum_evening = 'evening',
-          dayPeriodEnum_night = 'night',
-          formatters_formatters = {
-            G: function G(date, token, localize) {
-              var era = date.getUTCFullYear() > 0 ? 1 : 0
-              switch (token) {
-                case 'G':
-                case 'GG':
-                case 'GGG':
-                  return localize.era(era, {width: 'abbreviated'})
-                case 'GGGGG':
-                  return localize.era(era, {width: 'narrow'})
-                default:
-                  return localize.era(era, {width: 'wide'})
-              }
-            },
-            y: function y(date, token, localize) {
-              if ('yo' === token) {
-                var signedYear = date.getUTCFullYear(),
-                  year = signedYear > 0 ? signedYear : 1 - signedYear
-                return localize.ordinalNumber(year, {unit: 'year'})
-              }
-              return lightFormatters.y(date, token)
-            },
-            Y: function Y(date, token, localize, options) {
-              var signedWeekYear = getUTCWeekYear(date, options),
-                weekYear =
-                  signedWeekYear > 0 ? signedWeekYear : 1 - signedWeekYear
-              return 'YY' === token
-                ? addLeadingZeros(weekYear % 100, 2)
-                : 'Yo' === token
-                ? localize.ordinalNumber(weekYear, {unit: 'year'})
-                : addLeadingZeros(weekYear, token.length)
-            },
-            R: function R(date, token) {
-              return addLeadingZeros(getUTCISOWeekYear(date), token.length)
-            },
-            u: function u(date, token) {
-              return addLeadingZeros(date.getUTCFullYear(), token.length)
-            },
-            Q: function Q(date, token, localize) {
-              var quarter = Math.ceil((date.getUTCMonth() + 1) / 3)
-              switch (token) {
-                case 'Q':
-                  return String(quarter)
-                case 'QQ':
-                  return addLeadingZeros(quarter, 2)
-                case 'Qo':
-                  return localize.ordinalNumber(quarter, {unit: 'quarter'})
-                case 'QQQ':
-                  return localize.quarter(quarter, {
-                    width: 'abbreviated',
-                    context: 'formatting',
-                  })
-                case 'QQQQQ':
-                  return localize.quarter(quarter, {
-                    width: 'narrow',
-                    context: 'formatting',
-                  })
-                default:
-                  return localize.quarter(quarter, {
-                    width: 'wide',
-                    context: 'formatting',
-                  })
-              }
-            },
-            q: function q(date, token, localize) {
-              var quarter = Math.ceil((date.getUTCMonth() + 1) / 3)
-              switch (token) {
-                case 'q':
-                  return String(quarter)
-                case 'qq':
-                  return addLeadingZeros(quarter, 2)
-                case 'qo':
-                  return localize.ordinalNumber(quarter, {unit: 'quarter'})
-                case 'qqq':
-                  return localize.quarter(quarter, {
-                    width: 'abbreviated',
-                    context: 'standalone',
-                  })
-                case 'qqqqq':
-                  return localize.quarter(quarter, {
-                    width: 'narrow',
-                    context: 'standalone',
-                  })
-                default:
-                  return localize.quarter(quarter, {
-                    width: 'wide',
-                    context: 'standalone',
-                  })
-              }
-            },
-            M: function M(date, token, localize) {
-              var month = date.getUTCMonth()
-              switch (token) {
-                case 'M':
-                case 'MM':
-                  return lightFormatters.M(date, token)
-                case 'Mo':
-                  return localize.ordinalNumber(month + 1, {unit: 'month'})
-                case 'MMM':
-                  return localize.month(month, {
-                    width: 'abbreviated',
-                    context: 'formatting',
-                  })
-                case 'MMMMM':
-                  return localize.month(month, {
-                    width: 'narrow',
-                    context: 'formatting',
-                  })
-                default:
-                  return localize.month(month, {
-                    width: 'wide',
-                    context: 'formatting',
-                  })
-              }
-            },
-            L: function L(date, token, localize) {
-              var month = date.getUTCMonth()
-              switch (token) {
-                case 'L':
-                  return String(month + 1)
-                case 'LL':
-                  return addLeadingZeros(month + 1, 2)
-                case 'Lo':
-                  return localize.ordinalNumber(month + 1, {unit: 'month'})
-                case 'LLL':
-                  return localize.month(month, {
-                    width: 'abbreviated',
-                    context: 'standalone',
-                  })
-                case 'LLLLL':
-                  return localize.month(month, {
-                    width: 'narrow',
-                    context: 'standalone',
-                  })
-                default:
-                  return localize.month(month, {
-                    width: 'wide',
-                    context: 'standalone',
-                  })
-              }
-            },
-            w: function w(date, token, localize, options) {
-              var week = getUTCWeek(date, options)
-              return 'wo' === token
-                ? localize.ordinalNumber(week, {unit: 'week'})
-                : addLeadingZeros(week, token.length)
-            },
-            I: function I(date, token, localize) {
-              var isoWeek = getUTCISOWeek(date)
-              return 'Io' === token
-                ? localize.ordinalNumber(isoWeek, {unit: 'week'})
-                : addLeadingZeros(isoWeek, token.length)
-            },
-            d: function d(date, token, localize) {
-              return 'do' === token
-                ? localize.ordinalNumber(date.getUTCDate(), {unit: 'date'})
-                : lightFormatters.d(date, token)
-            },
-            D: function D(date, token, localize) {
-              var dayOfYear = (function getUTCDayOfYear(dirtyDate) {
-                requiredArgs(1, arguments)
-                var date = toDate(dirtyDate),
-                  timestamp = date.getTime()
-                date.setUTCMonth(0, 1), date.setUTCHours(0, 0, 0, 0)
-                var difference = timestamp - date.getTime()
-                return Math.floor(difference / 864e5) + 1
-              })(date)
-              return 'Do' === token
-                ? localize.ordinalNumber(dayOfYear, {unit: 'dayOfYear'})
-                : addLeadingZeros(dayOfYear, token.length)
-            },
-            E: function E(date, token, localize) {
-              var dayOfWeek = date.getUTCDay()
-              switch (token) {
-                case 'E':
-                case 'EE':
-                case 'EEE':
-                  return localize.day(dayOfWeek, {
-                    width: 'abbreviated',
-                    context: 'formatting',
-                  })
-                case 'EEEEE':
-                  return localize.day(dayOfWeek, {
-                    width: 'narrow',
-                    context: 'formatting',
-                  })
-                case 'EEEEEE':
-                  return localize.day(dayOfWeek, {
-                    width: 'short',
-                    context: 'formatting',
-                  })
-                default:
-                  return localize.day(dayOfWeek, {
-                    width: 'wide',
-                    context: 'formatting',
-                  })
-              }
-            },
-            e: function e(date, token, localize, options) {
-              var dayOfWeek = date.getUTCDay(),
-                localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7
-              switch (token) {
-                case 'e':
-                  return String(localDayOfWeek)
-                case 'ee':
-                  return addLeadingZeros(localDayOfWeek, 2)
-                case 'eo':
-                  return localize.ordinalNumber(localDayOfWeek, {unit: 'day'})
-                case 'eee':
-                  return localize.day(dayOfWeek, {
-                    width: 'abbreviated',
-                    context: 'formatting',
-                  })
-                case 'eeeee':
-                  return localize.day(dayOfWeek, {
-                    width: 'narrow',
-                    context: 'formatting',
-                  })
-                case 'eeeeee':
-                  return localize.day(dayOfWeek, {
-                    width: 'short',
-                    context: 'formatting',
-                  })
-                default:
-                  return localize.day(dayOfWeek, {
-                    width: 'wide',
-                    context: 'formatting',
-                  })
-              }
-            },
-            c: function c(date, token, localize, options) {
-              var dayOfWeek = date.getUTCDay(),
-                localDayOfWeek = (dayOfWeek - options.weekStartsOn + 8) % 7 || 7
-              switch (token) {
-                case 'c':
-                  return String(localDayOfWeek)
-                case 'cc':
-                  return addLeadingZeros(localDayOfWeek, token.length)
-                case 'co':
-                  return localize.ordinalNumber(localDayOfWeek, {unit: 'day'})
-                case 'ccc':
-                  return localize.day(dayOfWeek, {
-                    width: 'abbreviated',
-                    context: 'standalone',
-                  })
-                case 'ccccc':
-                  return localize.day(dayOfWeek, {
-                    width: 'narrow',
-                    context: 'standalone',
-                  })
-                case 'cccccc':
-                  return localize.day(dayOfWeek, {
-                    width: 'short',
-                    context: 'standalone',
-                  })
-                default:
-                  return localize.day(dayOfWeek, {
-                    width: 'wide',
-                    context: 'standalone',
-                  })
-              }
-            },
-            i: function i(date, token, localize) {
-              var dayOfWeek = date.getUTCDay(),
-                isoDayOfWeek = 0 === dayOfWeek ? 7 : dayOfWeek
-              switch (token) {
-                case 'i':
-                  return String(isoDayOfWeek)
-                case 'ii':
-                  return addLeadingZeros(isoDayOfWeek, token.length)
-                case 'io':
-                  return localize.ordinalNumber(isoDayOfWeek, {unit: 'day'})
-                case 'iii':
-                  return localize.day(dayOfWeek, {
-                    width: 'abbreviated',
-                    context: 'formatting',
-                  })
-                case 'iiiii':
-                  return localize.day(dayOfWeek, {
-                    width: 'narrow',
-                    context: 'formatting',
-                  })
-                case 'iiiiii':
-                  return localize.day(dayOfWeek, {
-                    width: 'short',
-                    context: 'formatting',
-                  })
-                default:
-                  return localize.day(dayOfWeek, {
-                    width: 'wide',
-                    context: 'formatting',
-                  })
-              }
-            },
-            a: function a(date, token, localize) {
-              var dayPeriodEnumValue =
-                date.getUTCHours() / 12 >= 1 ? 'pm' : 'am'
-              switch (token) {
-                case 'a':
-                case 'aa':
-                  return localize.dayPeriod(dayPeriodEnumValue, {
-                    width: 'abbreviated',
-                    context: 'formatting',
-                  })
-                case 'aaa':
-                  return localize
-                    .dayPeriod(dayPeriodEnumValue, {
-                      width: 'abbreviated',
-                      context: 'formatting',
-                    })
-                    .toLowerCase()
-                case 'aaaaa':
-                  return localize.dayPeriod(dayPeriodEnumValue, {
-                    width: 'narrow',
-                    context: 'formatting',
-                  })
-                default:
-                  return localize.dayPeriod(dayPeriodEnumValue, {
-                    width: 'wide',
-                    context: 'formatting',
-                  })
-              }
-            },
-            b: function b(date, token, localize) {
-              var dayPeriodEnumValue,
-                hours = date.getUTCHours()
-              switch (
-                ((dayPeriodEnumValue =
-                  12 === hours
-                    ? dayPeriodEnum_noon
-                    : 0 === hours
-                    ? dayPeriodEnum_midnight
-                    : hours / 12 >= 1
-                    ? 'pm'
-                    : 'am'),
-                token)
-              ) {
-                case 'b':
-                case 'bb':
-                  return localize.dayPeriod(dayPeriodEnumValue, {
-                    width: 'abbreviated',
-                    context: 'formatting',
-                  })
-                case 'bbb':
-                  return localize
-                    .dayPeriod(dayPeriodEnumValue, {
-                      width: 'abbreviated',
-                      context: 'formatting',
-                    })
-                    .toLowerCase()
-                case 'bbbbb':
-                  return localize.dayPeriod(dayPeriodEnumValue, {
-                    width: 'narrow',
-                    context: 'formatting',
-                  })
-                default:
-                  return localize.dayPeriod(dayPeriodEnumValue, {
-                    width: 'wide',
-                    context: 'formatting',
-                  })
-              }
-            },
-            B: function B(date, token, localize) {
-              var dayPeriodEnumValue,
-                hours = date.getUTCHours()
-              switch (
-                ((dayPeriodEnumValue =
-                  hours >= 17
-                    ? dayPeriodEnum_evening
-                    : hours >= 12
-                    ? dayPeriodEnum_afternoon
-                    : hours >= 4
-                    ? dayPeriodEnum_morning
-                    : dayPeriodEnum_night),
-                token)
-              ) {
-                case 'B':
-                case 'BB':
-                case 'BBB':
-                  return localize.dayPeriod(dayPeriodEnumValue, {
-                    width: 'abbreviated',
-                    context: 'formatting',
-                  })
-                case 'BBBBB':
-                  return localize.dayPeriod(dayPeriodEnumValue, {
-                    width: 'narrow',
-                    context: 'formatting',
-                  })
-                default:
-                  return localize.dayPeriod(dayPeriodEnumValue, {
-                    width: 'wide',
-                    context: 'formatting',
-                  })
-              }
-            },
-            h: function h(date, token, localize) {
-              if ('ho' === token) {
-                var hours = date.getUTCHours() % 12
-                return (
-                  0 === hours && (hours = 12),
-                  localize.ordinalNumber(hours, {unit: 'hour'})
-                )
-              }
-              return lightFormatters.h(date, token)
-            },
-            H: function H(date, token, localize) {
-              return 'Ho' === token
-                ? localize.ordinalNumber(date.getUTCHours(), {unit: 'hour'})
-                : lightFormatters.H(date, token)
-            },
-            K: function K(date, token, localize) {
-              var hours = date.getUTCHours() % 12
-              return 'Ko' === token
-                ? localize.ordinalNumber(hours, {unit: 'hour'})
-                : addLeadingZeros(hours, token.length)
-            },
-            k: function k(date, token, localize) {
-              var hours = date.getUTCHours()
-              return (
-                0 === hours && (hours = 24),
-                'ko' === token
-                  ? localize.ordinalNumber(hours, {unit: 'hour'})
-                  : addLeadingZeros(hours, token.length)
-              )
-            },
-            m: function m(date, token, localize) {
-              return 'mo' === token
-                ? localize.ordinalNumber(date.getUTCMinutes(), {unit: 'minute'})
-                : lightFormatters.m(date, token)
-            },
-            s: function s(date, token, localize) {
-              return 'so' === token
-                ? localize.ordinalNumber(date.getUTCSeconds(), {unit: 'second'})
-                : lightFormatters.s(date, token)
-            },
-            S: function S(date, token) {
-              return lightFormatters.S(date, token)
-            },
-            X: function X(date, token, _localize, options) {
-              var timezoneOffset = (
-                options._originalDate || date
-              ).getTimezoneOffset()
-              if (0 === timezoneOffset) return 'Z'
-              switch (token) {
-                case 'X':
-                  return formatTimezoneWithOptionalMinutes(timezoneOffset)
-                case 'XXXX':
-                case 'XX':
-                  return formatTimezone(timezoneOffset)
-                default:
-                  return formatTimezone(timezoneOffset, ':')
-              }
-            },
-            x: function x(date, token, _localize, options) {
-              var timezoneOffset = (
-                options._originalDate || date
-              ).getTimezoneOffset()
-              switch (token) {
-                case 'x':
-                  return formatTimezoneWithOptionalMinutes(timezoneOffset)
-                case 'xxxx':
-                case 'xx':
-                  return formatTimezone(timezoneOffset)
-                default:
-                  return formatTimezone(timezoneOffset, ':')
-              }
-            },
-            O: function O(date, token, _localize, options) {
-              var timezoneOffset = (
-                options._originalDate || date
-              ).getTimezoneOffset()
-              switch (token) {
-                case 'O':
-                case 'OO':
-                case 'OOO':
-                  return 'GMT' + formatTimezoneShort(timezoneOffset, ':')
-                default:
-                  return 'GMT' + formatTimezone(timezoneOffset, ':')
-              }
-            },
-            z: function z(date, token, _localize, options) {
-              var timezoneOffset = (
-                options._originalDate || date
-              ).getTimezoneOffset()
-              switch (token) {
-                case 'z':
-                case 'zz':
-                case 'zzz':
-                  return 'GMT' + formatTimezoneShort(timezoneOffset, ':')
-                default:
-                  return 'GMT' + formatTimezone(timezoneOffset, ':')
-              }
-            },
-            t: function t(date, token, _localize, options) {
-              var originalDate = options._originalDate || date
-              return addLeadingZeros(
-                Math.floor(originalDate.getTime() / 1e3),
-                token.length
-              )
-            },
-            T: function T(date, token, _localize, options) {
-              return addLeadingZeros(
-                (options._originalDate || date).getTime(),
-                token.length
-              )
-            },
-          }
-        function formatTimezoneShort(offset, dirtyDelimiter) {
-          var sign = offset > 0 ? '-' : '+',
-            absOffset = Math.abs(offset),
-            hours = Math.floor(absOffset / 60),
-            minutes = absOffset % 60
-          if (0 === minutes) return sign + String(hours)
-          var delimiter = dirtyDelimiter || ''
-          return sign + String(hours) + delimiter + addLeadingZeros(minutes, 2)
-        }
-        function formatTimezoneWithOptionalMinutes(offset, dirtyDelimiter) {
-          return offset % 60 == 0
-            ? (offset > 0 ? '-' : '+') +
-                addLeadingZeros(Math.abs(offset) / 60, 2)
-            : formatTimezone(offset, dirtyDelimiter)
-        }
-        function formatTimezone(offset, dirtyDelimiter) {
-          var delimiter = dirtyDelimiter || '',
-            sign = offset > 0 ? '-' : '+',
-            absOffset = Math.abs(offset)
-          return (
-            sign +
-            addLeadingZeros(Math.floor(absOffset / 60), 2) +
-            delimiter +
-            addLeadingZeros(absOffset % 60, 2)
-          )
-        }
-        const format_formatters = formatters_formatters
-        var dateLongFormatter = function dateLongFormatter(
-            pattern,
-            formatLong
-          ) {
-            switch (pattern) {
-              case 'P':
-                return formatLong.date({width: 'short'})
-              case 'PP':
-                return formatLong.date({width: 'medium'})
-              case 'PPP':
-                return formatLong.date({width: 'long'})
-              default:
-                return formatLong.date({width: 'full'})
-            }
-          },
-          timeLongFormatter = function timeLongFormatter(pattern, formatLong) {
-            switch (pattern) {
-              case 'p':
-                return formatLong.time({width: 'short'})
-              case 'pp':
-                return formatLong.time({width: 'medium'})
-              case 'ppp':
-                return formatLong.time({width: 'long'})
-              default:
-                return formatLong.time({width: 'full'})
-            }
-          },
-          longFormatters = {
-            p: timeLongFormatter,
-            P: function dateTimeLongFormatter(pattern, formatLong) {
-              var dateTimeFormat,
-                matchResult = pattern.match(/(P+)(p+)?/) || [],
-                datePattern = matchResult[1],
-                timePattern = matchResult[2]
-              if (!timePattern) return dateLongFormatter(pattern, formatLong)
-              switch (datePattern) {
-                case 'P':
-                  dateTimeFormat = formatLong.dateTime({width: 'short'})
-                  break
-                case 'PP':
-                  dateTimeFormat = formatLong.dateTime({width: 'medium'})
-                  break
-                case 'PPP':
-                  dateTimeFormat = formatLong.dateTime({width: 'long'})
-                  break
-                default:
-                  dateTimeFormat = formatLong.dateTime({width: 'full'})
-              }
-              return dateTimeFormat
-                .replace('{{date}}', dateLongFormatter(datePattern, formatLong))
-                .replace('{{time}}', timeLongFormatter(timePattern, formatLong))
-            },
-          }
-        const format_longFormatters = longFormatters
-        var protectedDayOfYearTokens = ['D', 'DD'],
-          protectedWeekYearTokens = ['YY', 'YYYY']
-        function isProtectedDayOfYearToken(token) {
-          return -1 !== protectedDayOfYearTokens.indexOf(token)
-        }
-        function isProtectedWeekYearToken(token) {
-          return -1 !== protectedWeekYearTokens.indexOf(token)
-        }
-        function throwProtectedError(token, format, input) {
-          if ('YYYY' === token)
-            throw new RangeError(
-              'Use `yyyy` instead of `YYYY` (in `'
-                .concat(format, '`) for formatting years to the input `')
-                .concat(
-                  input,
-                  '`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md'
-                )
-            )
-          if ('YY' === token)
-            throw new RangeError(
-              'Use `yy` instead of `YY` (in `'
-                .concat(format, '`) for formatting years to the input `')
-                .concat(
-                  input,
-                  '`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md'
-                )
-            )
-          if ('D' === token)
-            throw new RangeError(
-              'Use `d` instead of `D` (in `'
-                .concat(
-                  format,
-                  '`) for formatting days of the month to the input `'
-                )
-                .concat(
-                  input,
-                  '`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md'
-                )
-            )
-          if ('DD' === token)
-            throw new RangeError(
-              'Use `dd` instead of `DD` (in `'
-                .concat(
-                  format,
-                  '`) for formatting days of the month to the input `'
-                )
-                .concat(
-                  input,
-                  '`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md'
-                )
-            )
-        }
-        var formatDistanceLocale = {
-          lessThanXSeconds: {
-            one: 'less than a second',
-            other: 'less than {{count}} seconds',
-          },
-          xSeconds: {one: '1 second', other: '{{count}} seconds'},
-          halfAMinute: 'half a minute',
-          lessThanXMinutes: {
-            one: 'less than a minute',
-            other: 'less than {{count}} minutes',
-          },
-          xMinutes: {one: '1 minute', other: '{{count}} minutes'},
-          aboutXHours: {one: 'about 1 hour', other: 'about {{count}} hours'},
-          xHours: {one: '1 hour', other: '{{count}} hours'},
-          xDays: {one: '1 day', other: '{{count}} days'},
-          aboutXWeeks: {one: 'about 1 week', other: 'about {{count}} weeks'},
-          xWeeks: {one: '1 week', other: '{{count}} weeks'},
-          aboutXMonths: {one: 'about 1 month', other: 'about {{count}} months'},
-          xMonths: {one: '1 month', other: '{{count}} months'},
-          aboutXYears: {one: 'about 1 year', other: 'about {{count}} years'},
-          xYears: {one: '1 year', other: '{{count}} years'},
-          overXYears: {one: 'over 1 year', other: 'over {{count}} years'},
-          almostXYears: {one: 'almost 1 year', other: 'almost {{count}} years'},
-        }
-        const _lib_formatDistance = function formatDistance(
-          token,
-          count,
-          options
-        ) {
-          var result,
-            tokenValue = formatDistanceLocale[token]
-          return (
-            (result =
-              'string' == typeof tokenValue
-                ? tokenValue
-                : 1 === count
-                ? tokenValue.one
-                : tokenValue.other.replace('{{count}}', count.toString())),
-            null != options && options.addSuffix
-              ? options.comparison && options.comparison > 0
-                ? 'in ' + result
-                : result + ' ago'
-              : result
-          )
-        }
-        function buildFormatLongFn(args) {
-          return function () {
-            var options =
-                arguments.length > 0 && void 0 !== arguments[0]
-                  ? arguments[0]
-                  : {},
-              width = options.width ? String(options.width) : args.defaultWidth
-            return args.formats[width] || args.formats[args.defaultWidth]
-          }
-        }
-        var formatLong = {
-          date: buildFormatLongFn({
-            formats: {
-              full: 'EEEE, MMMM do, y',
-              long: 'MMMM do, y',
-              medium: 'MMM d, y',
-              short: 'MM/dd/yyyy',
-            },
-            defaultWidth: 'full',
-          }),
-          time: buildFormatLongFn({
-            formats: {
-              full: 'h:mm:ss a zzzz',
-              long: 'h:mm:ss a z',
-              medium: 'h:mm:ss a',
-              short: 'h:mm a',
-            },
-            defaultWidth: 'full',
-          }),
-          dateTime: buildFormatLongFn({
-            formats: {
-              full: "{{date}} 'at' {{time}}",
-              long: "{{date}} 'at' {{time}}",
-              medium: '{{date}}, {{time}}',
-              short: '{{date}}, {{time}}',
-            },
-            defaultWidth: 'full',
-          }),
-        }
-        var formatRelativeLocale = {
-          lastWeek: "'last' eeee 'at' p",
-          yesterday: "'yesterday at' p",
-          today: "'today at' p",
-          tomorrow: "'tomorrow at' p",
-          nextWeek: "eeee 'at' p",
-          other: 'P',
-        }
-        function buildLocalizeFn(args) {
-          return function (dirtyIndex, options) {
-            var valuesArray
-            if (
-              'formatting' ===
-                (null != options && options.context
-                  ? String(options.context)
-                  : 'standalone') &&
-              args.formattingValues
-            ) {
-              var defaultWidth =
-                  args.defaultFormattingWidth || args.defaultWidth,
-                width =
-                  null != options && options.width
-                    ? String(options.width)
-                    : defaultWidth
-              valuesArray =
-                args.formattingValues[width] ||
-                args.formattingValues[defaultWidth]
-            } else {
-              var _defaultWidth = args.defaultWidth,
-                _width =
-                  null != options && options.width
-                    ? String(options.width)
-                    : args.defaultWidth
-              valuesArray = args.values[_width] || args.values[_defaultWidth]
-            }
-            return valuesArray[
-              args.argumentCallback
-                ? args.argumentCallback(dirtyIndex)
-                : dirtyIndex
-            ]
-          }
-        }
-        function buildMatchFn(args) {
-          return function (string) {
-            var options =
-                arguments.length > 1 && void 0 !== arguments[1]
-                  ? arguments[1]
-                  : {},
-              width = options.width,
-              matchPattern =
-                (width && args.matchPatterns[width]) ||
-                args.matchPatterns[args.defaultMatchWidth],
-              matchResult = string.match(matchPattern)
-            if (!matchResult) return null
-            var value,
-              matchedString = matchResult[0],
-              parsePatterns =
-                (width && args.parsePatterns[width]) ||
-                args.parsePatterns[args.defaultParseWidth],
-              key = Array.isArray(parsePatterns)
-                ? (function findIndex(array, predicate) {
-                    for (var key = 0; key < array.length; key++)
-                      if (predicate(array[key])) return key
-                    return
-                  })(parsePatterns, function (pattern) {
-                    return pattern.test(matchedString)
-                  })
-                : (function findKey(object, predicate) {
-                    for (var key in object)
-                      if (object.hasOwnProperty(key) && predicate(object[key]))
-                        return key
-                    return
-                  })(parsePatterns, function (pattern) {
-                    return pattern.test(matchedString)
-                  })
+                  )
+                if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7))
+                  throw new RangeError(
+                    'firstWeekContainsDate must be between 1 and 7 inclusively'
+                  )
+                var firstWeekOfNextYear = new Date(0)
+                firstWeekOfNextYear.setFullYear(
+                  year + 1,
+                  0,
+                  firstWeekContainsDate
+                ),
+                  firstWeekOfNextYear.setHours(0, 0, 0, 0)
+                var startOfNextYear = startOfWeek(firstWeekOfNextYear, options),
+                  firstWeekOfThisYear = new Date(0)
+                firstWeekOfThisYear.setFullYear(year, 0, firstWeekContainsDate),
+                  firstWeekOfThisYear.setHours(0, 0, 0, 0)
+                var startOfThisYear = startOfWeek(firstWeekOfThisYear, options)
+                return date.getTime() >= startOfNextYear.getTime()
+                  ? year + 1
+                  : date.getTime() >= startOfThisYear.getTime()
+                  ? year
+                  : year - 1
+              })(dirtyDate, options),
+              firstWeek = new Date(0)
             return (
-              (value = args.valueCallback ? args.valueCallback(key) : key),
-              {
-                value: (value = options.valueCallback
-                  ? options.valueCallback(value)
-                  : value),
-                rest: string.slice(matchedString.length),
-              }
+              firstWeek.setFullYear(year, 0, firstWeekContainsDate),
+              firstWeek.setHours(0, 0, 0, 0),
+              startOfWeek(firstWeek, options)
             )
           }
-        }
-        const en_US = {
-            code: 'en-US',
-            formatDistance: _lib_formatDistance,
-            formatLong,
-            formatRelative: function formatRelative(
-              token,
-              _date,
-              _baseDate,
-              _options
-            ) {
-              return formatRelativeLocale[token]
-            },
-            localize: {
-              ordinalNumber: function ordinalNumber(dirtyNumber, _options) {
-                var number = Number(dirtyNumber),
-                  rem100 = number % 100
-                if (rem100 > 20 || rem100 < 10)
-                  switch (rem100 % 10) {
-                    case 1:
-                      return number + 'st'
-                    case 2:
-                      return number + 'nd'
-                    case 3:
-                      return number + 'rd'
-                  }
-                return number + 'th'
-              },
-              era: buildLocalizeFn({
-                values: {
-                  narrow: ['B', 'A'],
-                  abbreviated: ['BC', 'AD'],
-                  wide: ['Before Christ', 'Anno Domini'],
-                },
-                defaultWidth: 'wide',
-              }),
-              quarter: buildLocalizeFn({
-                values: {
-                  narrow: ['1', '2', '3', '4'],
-                  abbreviated: ['Q1', 'Q2', 'Q3', 'Q4'],
-                  wide: [
-                    '1st quarter',
-                    '2nd quarter',
-                    '3rd quarter',
-                    '4th quarter',
-                  ],
-                },
-                defaultWidth: 'wide',
-                argumentCallback: function argumentCallback(quarter) {
-                  return quarter - 1
-                },
-              }),
-              month: buildLocalizeFn({
-                values: {
-                  narrow: [
-                    'J',
-                    'F',
-                    'M',
-                    'A',
-                    'M',
-                    'J',
-                    'J',
-                    'A',
-                    'S',
-                    'O',
-                    'N',
-                    'D',
-                  ],
-                  abbreviated: [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec',
-                  ],
-                  wide: [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'August',
-                    'September',
-                    'October',
-                    'November',
-                    'December',
-                  ],
-                },
-                defaultWidth: 'wide',
-              }),
-              day: buildLocalizeFn({
-                values: {
-                  narrow: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-                  short: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                  abbreviated: [
-                    'Sun',
-                    'Mon',
-                    'Tue',
-                    'Wed',
-                    'Thu',
-                    'Fri',
-                    'Sat',
-                  ],
-                  wide: [
-                    'Sunday',
-                    'Monday',
-                    'Tuesday',
-                    'Wednesday',
-                    'Thursday',
-                    'Friday',
-                    'Saturday',
-                  ],
-                },
-                defaultWidth: 'wide',
-              }),
-              dayPeriod: buildLocalizeFn({
-                values: {
-                  narrow: {
-                    am: 'a',
-                    pm: 'p',
-                    midnight: 'mi',
-                    noon: 'n',
-                    morning: 'morning',
-                    afternoon: 'afternoon',
-                    evening: 'evening',
-                    night: 'night',
-                  },
-                  abbreviated: {
-                    am: 'AM',
-                    pm: 'PM',
-                    midnight: 'midnight',
-                    noon: 'noon',
-                    morning: 'morning',
-                    afternoon: 'afternoon',
-                    evening: 'evening',
-                    night: 'night',
-                  },
-                  wide: {
-                    am: 'a.m.',
-                    pm: 'p.m.',
-                    midnight: 'midnight',
-                    noon: 'noon',
-                    morning: 'morning',
-                    afternoon: 'afternoon',
-                    evening: 'evening',
-                    night: 'night',
-                  },
-                },
-                defaultWidth: 'wide',
-                formattingValues: {
-                  narrow: {
-                    am: 'a',
-                    pm: 'p',
-                    midnight: 'mi',
-                    noon: 'n',
-                    morning: 'in the morning',
-                    afternoon: 'in the afternoon',
-                    evening: 'in the evening',
-                    night: 'at night',
-                  },
-                  abbreviated: {
-                    am: 'AM',
-                    pm: 'PM',
-                    midnight: 'midnight',
-                    noon: 'noon',
-                    morning: 'in the morning',
-                    afternoon: 'in the afternoon',
-                    evening: 'in the evening',
-                    night: 'at night',
-                  },
-                  wide: {
-                    am: 'a.m.',
-                    pm: 'p.m.',
-                    midnight: 'midnight',
-                    noon: 'noon',
-                    morning: 'in the morning',
-                    afternoon: 'in the afternoon',
-                    evening: 'in the evening',
-                    night: 'at night',
-                  },
-                },
-                defaultFormattingWidth: 'wide',
-              }),
-            },
-            match: {
-              ordinalNumber: (function buildMatchPatternFn(args) {
-                return function (string) {
-                  var options =
-                      arguments.length > 1 && void 0 !== arguments[1]
-                        ? arguments[1]
-                        : {},
-                    matchResult = string.match(args.matchPattern)
-                  if (!matchResult) return null
-                  var matchedString = matchResult[0],
-                    parseResult = string.match(args.parsePattern)
-                  if (!parseResult) return null
-                  var value = args.valueCallback
-                    ? args.valueCallback(parseResult[0])
-                    : parseResult[0]
-                  return {
-                    value: (value = options.valueCallback
-                      ? options.valueCallback(value)
-                      : value),
-                    rest: string.slice(matchedString.length),
-                  }
+          function isAfter(dirtyDate, dirtyDateToCompare) {
+            requiredArgs(2, arguments)
+            var date = toDate(dirtyDate),
+              dateToCompare = toDate(dirtyDateToCompare)
+            return date.getTime() > dateToCompare.getTime()
+          }
+          function isBefore(dirtyDate, dirtyDateToCompare) {
+            requiredArgs(2, arguments)
+            var date = toDate(dirtyDate),
+              dateToCompare = toDate(dirtyDateToCompare)
+            return date.getTime() < dateToCompare.getTime()
+          }
+          function startOfHour(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate)
+            return date.setMinutes(0, 0, 0), date
+          }
+          function assign_assign(target, object) {
+            if (null == target)
+              throw new TypeError(
+                'assign requires that input parameter not be null or undefined'
+              )
+            for (var property in object)
+              Object.prototype.hasOwnProperty.call(object, property) &&
+                (target[property] = object[property])
+            return target
+          }
+          function Setter_typeof(obj) {
+            return (
+              (Setter_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              Setter_typeof(obj)
+            )
+          }
+          function _inherits(subClass, superClass) {
+            if ('function' != typeof superClass && null !== superClass)
+              throw new TypeError(
+                'Super expression must either be null or a function'
+              )
+            ;(subClass.prototype = Object.create(
+              superClass && superClass.prototype,
+              {constructor: {value: subClass, writable: !0, configurable: !0}}
+            )),
+              superClass && _setPrototypeOf(subClass, superClass)
+          }
+          function _setPrototypeOf(o, p) {
+            return (
+              (_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              _setPrototypeOf(o, p)
+            )
+          }
+          function _createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function _isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
                 }
-              })({
-                matchPattern: /^(\d+)(th|st|nd|rd)?/i,
-                parsePattern: /\d+/i,
-                valueCallback: function valueCallback(value) {
-                  return parseInt(value, 10)
-                },
-              }),
-              era: buildMatchFn({
-                matchPatterns: {
-                  narrow: /^(b|a)/i,
-                  abbreviated:
-                    /^(b\.?\s?c\.?|b\.?\s?c\.?\s?e\.?|a\.?\s?d\.?|c\.?\s?e\.?)/i,
-                  wide: /^(before christ|before common era|anno domini|common era)/i,
-                },
-                defaultMatchWidth: 'wide',
-                parsePatterns: {any: [/^b/i, /^(a|c)/i]},
-                defaultParseWidth: 'any',
-              }),
-              quarter: buildMatchFn({
-                matchPatterns: {
-                  narrow: /^[1234]/i,
-                  abbreviated: /^q[1234]/i,
-                  wide: /^[1234](th|st|nd|rd)? quarter/i,
-                },
-                defaultMatchWidth: 'wide',
-                parsePatterns: {any: [/1/i, /2/i, /3/i, /4/i]},
-                defaultParseWidth: 'any',
-                valueCallback: function valueCallback(index) {
-                  return index + 1
-                },
-              }),
-              month: buildMatchFn({
-                matchPatterns: {
-                  narrow: /^[jfmasond]/i,
-                  abbreviated:
-                    /^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i,
-                  wide: /^(january|february|march|april|may|june|july|august|september|october|november|december)/i,
-                },
-                defaultMatchWidth: 'wide',
-                parsePatterns: {
-                  narrow: [
-                    /^j/i,
-                    /^f/i,
-                    /^m/i,
-                    /^a/i,
-                    /^m/i,
-                    /^j/i,
-                    /^j/i,
-                    /^a/i,
-                    /^s/i,
-                    /^o/i,
-                    /^n/i,
-                    /^d/i,
-                  ],
-                  any: [
-                    /^ja/i,
-                    /^f/i,
-                    /^mar/i,
-                    /^ap/i,
-                    /^may/i,
-                    /^jun/i,
-                    /^jul/i,
-                    /^au/i,
-                    /^s/i,
-                    /^o/i,
-                    /^n/i,
-                    /^d/i,
-                  ],
-                },
-                defaultParseWidth: 'any',
-              }),
-              day: buildMatchFn({
-                matchPatterns: {
-                  narrow: /^[smtwf]/i,
-                  short: /^(su|mo|tu|we|th|fr|sa)/i,
-                  abbreviated: /^(sun|mon|tue|wed|thu|fri|sat)/i,
-                  wide: /^(sunday|monday|tuesday|wednesday|thursday|friday|saturday)/i,
-                },
-                defaultMatchWidth: 'wide',
-                parsePatterns: {
-                  narrow: [/^s/i, /^m/i, /^t/i, /^w/i, /^t/i, /^f/i, /^s/i],
-                  any: [/^su/i, /^m/i, /^tu/i, /^w/i, /^th/i, /^f/i, /^sa/i],
-                },
-                defaultParseWidth: 'any',
-              }),
-              dayPeriod: buildMatchFn({
-                matchPatterns: {
-                  narrow:
-                    /^(a|p|mi|n|(in the|at) (morning|afternoon|evening|night))/i,
-                  any: /^([ap]\.?\s?m\.?|midnight|noon|(in the|at) (morning|afternoon|evening|night))/i,
-                },
-                defaultMatchWidth: 'any',
-                parsePatterns: {
-                  any: {
-                    am: /^a/i,
-                    pm: /^p/i,
-                    midnight: /^mi/i,
-                    noon: /^no/i,
-                    morning: /morning/i,
-                    afternoon: /afternoon/i,
-                    evening: /evening/i,
-                    night: /night/i,
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = _getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = _getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function _possibleConstructorReturn(self, call) {
+                if (
+                  call &&
+                  ('object' === Setter_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return _assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function _assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function _getPrototypeOf(o) {
+            return (
+              (_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              _getPrototypeOf(o)
+            )
+          }
+          function _classCallCheck(instance, Constructor) {
+            if (!(instance instanceof Constructor))
+              throw new TypeError('Cannot call a class as a function')
+          }
+          function _defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function _createClass(Constructor, protoProps, staticProps) {
+            return (
+              protoProps &&
+                _defineProperties(Constructor.prototype, protoProps),
+              staticProps && _defineProperties(Constructor, staticProps),
+              Constructor
+            )
+          }
+          function _defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var Setter = (function () {
+              function Setter() {
+                _classCallCheck(this, Setter),
+                  _defineProperty(this, 'subPriority', 0)
+              }
+              return (
+                _createClass(Setter, [
+                  {
+                    key: 'validate',
+                    value: function validate(_utcDate, _options) {
+                      return !0
+                    },
+                  },
+                ]),
+                Setter
+              )
+            })(),
+            ValueSetter = (function (_Setter) {
+              _inherits(ValueSetter, _Setter)
+              var _super = _createSuper(ValueSetter)
+              function ValueSetter(
+                value,
+                validateValue,
+                setValue,
+                priority,
+                subPriority
+              ) {
+                var _this
+                return (
+                  _classCallCheck(this, ValueSetter),
+                  ((_this = _super.call(this)).value = value),
+                  (_this.validateValue = validateValue),
+                  (_this.setValue = setValue),
+                  (_this.priority = priority),
+                  subPriority && (_this.subPriority = subPriority),
+                  _this
+                )
+              }
+              return (
+                _createClass(ValueSetter, [
+                  {
+                    key: 'validate',
+                    value: function validate(utcDate, options) {
+                      return this.validateValue(utcDate, this.value, options)
+                    },
+                  },
+                  {
+                    key: 'set',
+                    value: function set(utcDate, flags, options) {
+                      return this.setValue(utcDate, flags, this.value, options)
+                    },
+                  },
+                ]),
+                ValueSetter
+              )
+            })(Setter),
+            DateToSystemTimezoneSetter = (function (_Setter2) {
+              _inherits(DateToSystemTimezoneSetter, _Setter2)
+              var _super2 = _createSuper(DateToSystemTimezoneSetter)
+              function DateToSystemTimezoneSetter() {
+                var _this2
+                _classCallCheck(this, DateToSystemTimezoneSetter)
+                for (
+                  var _len = arguments.length, args = new Array(_len), _key = 0;
+                  _key < _len;
+                  _key++
+                )
+                  args[_key] = arguments[_key]
+                return (
+                  _defineProperty(
+                    _assertThisInitialized(
+                      (_this2 = _super2.call.apply(
+                        _super2,
+                        [this].concat(args)
+                      ))
+                    ),
+                    'priority',
+                    10
+                  ),
+                  _defineProperty(
+                    _assertThisInitialized(_this2),
+                    'subPriority',
+                    -1
+                  ),
+                  _this2
+                )
+              }
+              return (
+                _createClass(DateToSystemTimezoneSetter, [
+                  {
+                    key: 'set',
+                    value: function set(date, flags) {
+                      if (flags.timestampIsSet) return date
+                      var convertedDate = new Date(0)
+                      return (
+                        convertedDate.setFullYear(
+                          date.getUTCFullYear(),
+                          date.getUTCMonth(),
+                          date.getUTCDate()
+                        ),
+                        convertedDate.setHours(
+                          date.getUTCHours(),
+                          date.getUTCMinutes(),
+                          date.getUTCSeconds(),
+                          date.getUTCMilliseconds()
+                        ),
+                        convertedDate
+                      )
+                    },
+                  },
+                ]),
+                DateToSystemTimezoneSetter
+              )
+            })(Setter)
+          function Parser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          var Parser = (function () {
+            function Parser() {
+              !(function Parser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, Parser)
+            }
+            return (
+              (function Parser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    Parser_defineProperties(Constructor.prototype, protoProps),
+                  staticProps &&
+                    Parser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(Parser, [
+                {
+                  key: 'run',
+                  value: function run(dateString, token, match, options) {
+                    var result = this.parse(dateString, token, match, options)
+                    return result
+                      ? {
+                          setter: new ValueSetter(
+                            result.value,
+                            this.validate,
+                            this.set,
+                            this.priority,
+                            this.subPriority
+                          ),
+                          rest: result.rest,
+                        }
+                      : null
                   },
                 },
-                defaultParseWidth: 'any',
-              }),
-            },
-            options: {weekStartsOn: 0, firstWeekContainsDate: 1},
-          },
-          defaultLocale = en_US
-        var formattingTokensRegExp =
-            /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g,
-          longFormattingTokensRegExp = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g,
-          escapedStringRegExp = /^'([^]*?)'?$/,
-          doubleQuoteRegExp = /''/g,
-          unescapedLatinCharacterRegExp = /[a-zA-Z]/
-        function format(dirtyDate, dirtyFormatStr, options) {
-          var _ref,
-            _options$locale,
-            _ref2,
-            _ref3,
-            _ref4,
-            _options$firstWeekCon,
-            _options$locale2,
-            _options$locale2$opti,
-            _defaultOptions$local,
-            _defaultOptions$local2,
-            _ref5,
-            _ref6,
-            _ref7,
-            _options$weekStartsOn,
-            _options$locale3,
-            _options$locale3$opti,
-            _defaultOptions$local3,
-            _defaultOptions$local4
-          requiredArgs(2, arguments)
-          var formatStr = String(dirtyFormatStr),
-            defaultOptions = getDefaultOptions(),
-            locale =
-              null !==
-                (_ref =
-                  null !==
-                    (_options$locale =
-                      null == options ? void 0 : options.locale) &&
-                  void 0 !== _options$locale
-                    ? _options$locale
-                    : defaultOptions.locale) && void 0 !== _ref
-                ? _ref
-                : defaultLocale,
-            firstWeekContainsDate = toInteger(
+                {
+                  key: 'validate',
+                  value: function validate(_utcDate, _value, _options) {
+                    return !0
+                  },
+                },
+              ]),
+              Parser
+            )
+          })()
+          function EraParser_typeof(obj) {
+            return (
+              (EraParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              EraParser_typeof(obj)
+            )
+          }
+          function EraParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function EraParser_setPrototypeOf(o, p) {
+            return (
+              (EraParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              EraParser_setPrototypeOf(o, p)
+            )
+          }
+          function EraParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function EraParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = EraParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = EraParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function EraParser_possibleConstructorReturn(self, call) {
+                if (
+                  call &&
+                  ('object' === EraParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return EraParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function EraParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function EraParser_getPrototypeOf(o) {
+            return (
+              (EraParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              EraParser_getPrototypeOf(o)
+            )
+          }
+          function EraParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var EraParser = (function (_Parser) {
+              !(function EraParser_inherits(subClass, superClass) {
+                if ('function' != typeof superClass && null !== superClass)
+                  throw new TypeError(
+                    'Super expression must either be null or a function'
+                  )
+                ;(subClass.prototype = Object.create(
+                  superClass && superClass.prototype,
+                  {
+                    constructor: {
+                      value: subClass,
+                      writable: !0,
+                      configurable: !0,
+                    },
+                  }
+                )),
+                  superClass && EraParser_setPrototypeOf(subClass, superClass)
+              })(EraParser, _Parser)
+              var _super = EraParser_createSuper(EraParser)
+              function EraParser() {
+                var _this
+                !(function EraParser_classCallCheck(instance, Constructor) {
+                  if (!(instance instanceof Constructor))
+                    throw new TypeError('Cannot call a class as a function')
+                })(this, EraParser)
+                for (
+                  var _len = arguments.length, args = new Array(_len), _key = 0;
+                  _key < _len;
+                  _key++
+                )
+                  args[_key] = arguments[_key]
+                return (
+                  EraParser_defineProperty(
+                    EraParser_assertThisInitialized(
+                      (_this = _super.call.apply(_super, [this].concat(args)))
+                    ),
+                    'priority',
+                    140
+                  ),
+                  EraParser_defineProperty(
+                    EraParser_assertThisInitialized(_this),
+                    'incompatibleTokens',
+                    ['R', 'u', 't', 'T']
+                  ),
+                  _this
+                )
+              }
+              return (
+                (function EraParser_createClass(
+                  Constructor,
+                  protoProps,
+                  staticProps
+                ) {
+                  return (
+                    protoProps &&
+                      EraParser_defineProperties(
+                        Constructor.prototype,
+                        protoProps
+                      ),
+                    staticProps &&
+                      EraParser_defineProperties(Constructor, staticProps),
+                    Constructor
+                  )
+                })(EraParser, [
+                  {
+                    key: 'parse',
+                    value: function parse(dateString, token, match) {
+                      switch (token) {
+                        case 'G':
+                        case 'GG':
+                        case 'GGG':
+                          return (
+                            match.era(dateString, {width: 'abbreviated'}) ||
+                            match.era(dateString, {width: 'narrow'})
+                          )
+                        case 'GGGGG':
+                          return match.era(dateString, {width: 'narrow'})
+                        default:
+                          return (
+                            match.era(dateString, {width: 'wide'}) ||
+                            match.era(dateString, {width: 'abbreviated'}) ||
+                            match.era(dateString, {width: 'narrow'})
+                          )
+                      }
+                    },
+                  },
+                  {
+                    key: 'set',
+                    value: function set(date, flags, value) {
+                      return (
+                        (flags.era = value),
+                        date.setUTCFullYear(value, 0, 1),
+                        date.setUTCHours(0, 0, 0, 0),
+                        date
+                      )
+                    },
+                  },
+                ]),
+                EraParser
+              )
+            })(Parser),
+            numericPatterns_month = /^(1[0-2]|0?\d)/,
+            numericPatterns_date = /^(3[0-1]|[0-2]?\d)/,
+            numericPatterns_dayOfYear = /^(36[0-6]|3[0-5]\d|[0-2]?\d?\d)/,
+            numericPatterns_week = /^(5[0-3]|[0-4]?\d)/,
+            numericPatterns_hour23h = /^(2[0-3]|[0-1]?\d)/,
+            numericPatterns_hour24h = /^(2[0-4]|[0-1]?\d)/,
+            numericPatterns_hour11h = /^(1[0-1]|0?\d)/,
+            numericPatterns_hour12h = /^(1[0-2]|0?\d)/,
+            numericPatterns_minute = /^[0-5]?\d/,
+            numericPatterns_second = /^[0-5]?\d/,
+            numericPatterns_singleDigit = /^\d/,
+            numericPatterns_twoDigits = /^\d{1,2}/,
+            numericPatterns_threeDigits = /^\d{1,3}/,
+            numericPatterns_fourDigits = /^\d{1,4}/,
+            numericPatterns_anyDigitsSigned = /^-?\d+/,
+            numericPatterns_singleDigitSigned = /^-?\d/,
+            numericPatterns_twoDigitsSigned = /^-?\d{1,2}/,
+            numericPatterns_threeDigitsSigned = /^-?\d{1,3}/,
+            numericPatterns_fourDigitsSigned = /^-?\d{1,4}/,
+            timezonePatterns_basicOptionalMinutes = /^([+-])(\d{2})(\d{2})?|Z/,
+            timezonePatterns_basic = /^([+-])(\d{2})(\d{2})|Z/,
+            timezonePatterns_basicOptionalSeconds =
+              /^([+-])(\d{2})(\d{2})((\d{2}))?|Z/,
+            timezonePatterns_extended = /^([+-])(\d{2}):(\d{2})|Z/,
+            timezonePatterns_extendedOptionalSeconds =
+              /^([+-])(\d{2}):(\d{2})(:(\d{2}))?|Z/
+          function mapValue(parseFnResult, mapFn) {
+            return parseFnResult
+              ? {value: mapFn(parseFnResult.value), rest: parseFnResult.rest}
+              : parseFnResult
+          }
+          function parseNumericPattern(pattern, dateString) {
+            var matchResult = dateString.match(pattern)
+            return matchResult
+              ? {
+                  value: parseInt(matchResult[0], 10),
+                  rest: dateString.slice(matchResult[0].length),
+                }
+              : null
+          }
+          function parseTimezonePattern(pattern, dateString) {
+            var matchResult = dateString.match(pattern)
+            if (!matchResult) return null
+            if ('Z' === matchResult[0])
+              return {value: 0, rest: dateString.slice(1)}
+            var sign = '+' === matchResult[1] ? 1 : -1,
+              hours = matchResult[2] ? parseInt(matchResult[2], 10) : 0,
+              minutes = matchResult[3] ? parseInt(matchResult[3], 10) : 0,
+              seconds = matchResult[5] ? parseInt(matchResult[5], 10) : 0
+            return {
+              value:
+                sign *
+                (hours * millisecondsInHour +
+                  minutes * millisecondsInMinute +
+                  1e3 * seconds),
+              rest: dateString.slice(matchResult[0].length),
+            }
+          }
+          function parseAnyDigitsSigned(dateString) {
+            return parseNumericPattern(
+              numericPatterns_anyDigitsSigned,
+              dateString
+            )
+          }
+          function parseNDigits(n, dateString) {
+            switch (n) {
+              case 1:
+                return parseNumericPattern(
+                  numericPatterns_singleDigit,
+                  dateString
+                )
+              case 2:
+                return parseNumericPattern(
+                  numericPatterns_twoDigits,
+                  dateString
+                )
+              case 3:
+                return parseNumericPattern(
+                  numericPatterns_threeDigits,
+                  dateString
+                )
+              case 4:
+                return parseNumericPattern(
+                  numericPatterns_fourDigits,
+                  dateString
+                )
+              default:
+                return parseNumericPattern(
+                  new RegExp('^\\d{1,' + n + '}'),
+                  dateString
+                )
+            }
+          }
+          function parseNDigitsSigned(n, dateString) {
+            switch (n) {
+              case 1:
+                return parseNumericPattern(
+                  numericPatterns_singleDigitSigned,
+                  dateString
+                )
+              case 2:
+                return parseNumericPattern(
+                  numericPatterns_twoDigitsSigned,
+                  dateString
+                )
+              case 3:
+                return parseNumericPattern(
+                  numericPatterns_threeDigitsSigned,
+                  dateString
+                )
+              case 4:
+                return parseNumericPattern(
+                  numericPatterns_fourDigitsSigned,
+                  dateString
+                )
+              default:
+                return parseNumericPattern(
+                  new RegExp('^-?\\d{1,' + n + '}'),
+                  dateString
+                )
+            }
+          }
+          function dayPeriodEnumToHours(dayPeriod) {
+            switch (dayPeriod) {
+              case 'morning':
+                return 4
+              case 'evening':
+                return 17
+              case 'pm':
+              case 'noon':
+              case 'afternoon':
+                return 12
+              default:
+                return 0
+            }
+          }
+          function normalizeTwoDigitYear(twoDigitYear, currentYear) {
+            var result,
+              isCommonEra = currentYear > 0,
+              absCurrentYear = isCommonEra ? currentYear : 1 - currentYear
+            if (absCurrentYear <= 50) result = twoDigitYear || 100
+            else {
+              var rangeEnd = absCurrentYear + 50
+              result =
+                twoDigitYear +
+                100 * Math.floor(rangeEnd / 100) -
+                (twoDigitYear >= rangeEnd % 100 ? 100 : 0)
+            }
+            return isCommonEra ? result : 1 - result
+          }
+          function isLeapYearIndex(year) {
+            return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)
+          }
+          function YearParser_typeof(obj) {
+            return (
+              (YearParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              YearParser_typeof(obj)
+            )
+          }
+          function YearParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function YearParser_setPrototypeOf(o, p) {
+            return (
+              (YearParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              YearParser_setPrototypeOf(o, p)
+            )
+          }
+          function YearParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function YearParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = YearParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = YearParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function YearParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === YearParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return YearParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function YearParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function YearParser_getPrototypeOf(o) {
+            return (
+              (YearParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              YearParser_getPrototypeOf(o)
+            )
+          }
+          function YearParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var YearParser = (function (_Parser) {
+            !(function YearParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass && YearParser_setPrototypeOf(subClass, superClass)
+            })(YearParser, _Parser)
+            var _super = YearParser_createSuper(YearParser)
+            function YearParser() {
+              var _this
+              !(function YearParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, YearParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                YearParser_defineProperty(
+                  YearParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  130
+                ),
+                YearParser_defineProperty(
+                  YearParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['Y', 'R', 'u', 'w', 'I', 'i', 'e', 'c', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function YearParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    YearParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    YearParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(YearParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    var valueCallback = function valueCallback(year) {
+                      return {year, isTwoDigitYear: 'yy' === token}
+                    }
+                    switch (token) {
+                      case 'y':
+                        return mapValue(
+                          parseNDigits(4, dateString),
+                          valueCallback
+                        )
+                      case 'yo':
+                        return mapValue(
+                          match.ordinalNumber(dateString, {unit: 'year'}),
+                          valueCallback
+                        )
+                      default:
+                        return mapValue(
+                          parseNDigits(token.length, dateString),
+                          valueCallback
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value.isTwoDigitYear || value.year > 0
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, flags, value) {
+                    var currentYear = date.getUTCFullYear()
+                    if (value.isTwoDigitYear) {
+                      var normalizedTwoDigitYear = normalizeTwoDigitYear(
+                        value.year,
+                        currentYear
+                      )
+                      return (
+                        date.setUTCFullYear(normalizedTwoDigitYear, 0, 1),
+                        date.setUTCHours(0, 0, 0, 0),
+                        date
+                      )
+                    }
+                    var year =
+                      'era' in flags && 1 !== flags.era
+                        ? 1 - value.year
+                        : value.year
+                    return (
+                      date.setUTCFullYear(year, 0, 1),
+                      date.setUTCHours(0, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              YearParser
+            )
+          })(Parser)
+          function LocalWeekYearParser_typeof(obj) {
+            return (
+              (LocalWeekYearParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              LocalWeekYearParser_typeof(obj)
+            )
+          }
+          function LocalWeekYearParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function LocalWeekYearParser_setPrototypeOf(o, p) {
+            return (
+              (LocalWeekYearParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              LocalWeekYearParser_setPrototypeOf(o, p)
+            )
+          }
+          function LocalWeekYearParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function LocalWeekYearParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = LocalWeekYearParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  LocalWeekYearParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function LocalWeekYearParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === LocalWeekYearParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return LocalWeekYearParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function LocalWeekYearParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function LocalWeekYearParser_getPrototypeOf(o) {
+            return (
+              (LocalWeekYearParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              LocalWeekYearParser_getPrototypeOf(o)
+            )
+          }
+          function LocalWeekYearParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var LocalWeekYearParser = (function (_Parser) {
+            !(function LocalWeekYearParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  LocalWeekYearParser_setPrototypeOf(subClass, superClass)
+            })(LocalWeekYearParser, _Parser)
+            var _super = LocalWeekYearParser_createSuper(LocalWeekYearParser)
+            function LocalWeekYearParser() {
+              var _this
+              !(function LocalWeekYearParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, LocalWeekYearParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                LocalWeekYearParser_defineProperty(
+                  LocalWeekYearParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  130
+                ),
+                LocalWeekYearParser_defineProperty(
+                  LocalWeekYearParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'y',
+                    'R',
+                    'u',
+                    'Q',
+                    'q',
+                    'M',
+                    'L',
+                    'I',
+                    'd',
+                    'D',
+                    'i',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function LocalWeekYearParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    LocalWeekYearParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    LocalWeekYearParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(LocalWeekYearParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    var valueCallback = function valueCallback(year) {
+                      return {year, isTwoDigitYear: 'YY' === token}
+                    }
+                    switch (token) {
+                      case 'Y':
+                        return mapValue(
+                          parseNDigits(4, dateString),
+                          valueCallback
+                        )
+                      case 'Yo':
+                        return mapValue(
+                          match.ordinalNumber(dateString, {unit: 'year'}),
+                          valueCallback
+                        )
+                      default:
+                        return mapValue(
+                          parseNDigits(token.length, dateString),
+                          valueCallback
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value.isTwoDigitYear || value.year > 0
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, flags, value, options) {
+                    var currentYear = getUTCWeekYear(date, options)
+                    if (value.isTwoDigitYear) {
+                      var normalizedTwoDigitYear = normalizeTwoDigitYear(
+                        value.year,
+                        currentYear
+                      )
+                      return (
+                        date.setUTCFullYear(
+                          normalizedTwoDigitYear,
+                          0,
+                          options.firstWeekContainsDate
+                        ),
+                        date.setUTCHours(0, 0, 0, 0),
+                        startOfUTCWeek(date, options)
+                      )
+                    }
+                    var year =
+                      'era' in flags && 1 !== flags.era
+                        ? 1 - value.year
+                        : value.year
+                    return (
+                      date.setUTCFullYear(
+                        year,
+                        0,
+                        options.firstWeekContainsDate
+                      ),
+                      date.setUTCHours(0, 0, 0, 0),
+                      startOfUTCWeek(date, options)
+                    )
+                  },
+                },
+              ]),
+              LocalWeekYearParser
+            )
+          })(Parser)
+          function ISOWeekYearParser_typeof(obj) {
+            return (
+              (ISOWeekYearParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              ISOWeekYearParser_typeof(obj)
+            )
+          }
+          function ISOWeekYearParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function ISOWeekYearParser_setPrototypeOf(o, p) {
+            return (
+              (ISOWeekYearParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              ISOWeekYearParser_setPrototypeOf(o, p)
+            )
+          }
+          function ISOWeekYearParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function ISOWeekYearParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = ISOWeekYearParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  ISOWeekYearParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function ISOWeekYearParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === ISOWeekYearParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return ISOWeekYearParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function ISOWeekYearParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function ISOWeekYearParser_getPrototypeOf(o) {
+            return (
+              (ISOWeekYearParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              ISOWeekYearParser_getPrototypeOf(o)
+            )
+          }
+          function ISOWeekYearParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var ISOWeekYearParser = (function (_Parser) {
+            !(function ISOWeekYearParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  ISOWeekYearParser_setPrototypeOf(subClass, superClass)
+            })(ISOWeekYearParser, _Parser)
+            var _super = ISOWeekYearParser_createSuper(ISOWeekYearParser)
+            function ISOWeekYearParser() {
+              var _this
+              !(function ISOWeekYearParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, ISOWeekYearParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                ISOWeekYearParser_defineProperty(
+                  ISOWeekYearParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  130
+                ),
+                ISOWeekYearParser_defineProperty(
+                  ISOWeekYearParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'G',
+                    'y',
+                    'Y',
+                    'u',
+                    'Q',
+                    'q',
+                    'M',
+                    'L',
+                    'w',
+                    'd',
+                    'D',
+                    'e',
+                    'c',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function ISOWeekYearParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    ISOWeekYearParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    ISOWeekYearParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(ISOWeekYearParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token) {
+                    return parseNDigitsSigned(
+                      'R' === token ? 4 : token.length,
+                      dateString
+                    )
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(_date, _flags, value) {
+                    var firstWeekOfYear = new Date(0)
+                    return (
+                      firstWeekOfYear.setUTCFullYear(value, 0, 4),
+                      firstWeekOfYear.setUTCHours(0, 0, 0, 0),
+                      startOfUTCISOWeek(firstWeekOfYear)
+                    )
+                  },
+                },
+              ]),
+              ISOWeekYearParser
+            )
+          })(Parser)
+          function ExtendedYearParser_typeof(obj) {
+            return (
+              (ExtendedYearParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              ExtendedYearParser_typeof(obj)
+            )
+          }
+          function ExtendedYearParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function ExtendedYearParser_setPrototypeOf(o, p) {
+            return (
+              (ExtendedYearParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              ExtendedYearParser_setPrototypeOf(o, p)
+            )
+          }
+          function ExtendedYearParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function ExtendedYearParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = ExtendedYearParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  ExtendedYearParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function ExtendedYearParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === ExtendedYearParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return ExtendedYearParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function ExtendedYearParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function ExtendedYearParser_getPrototypeOf(o) {
+            return (
+              (ExtendedYearParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              ExtendedYearParser_getPrototypeOf(o)
+            )
+          }
+          function ExtendedYearParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var ExtendedYearParser = (function (_Parser) {
+            !(function ExtendedYearParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  ExtendedYearParser_setPrototypeOf(subClass, superClass)
+            })(ExtendedYearParser, _Parser)
+            var _super = ExtendedYearParser_createSuper(ExtendedYearParser)
+            function ExtendedYearParser() {
+              var _this
+              !(function ExtendedYearParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, ExtendedYearParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                ExtendedYearParser_defineProperty(
+                  ExtendedYearParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  130
+                ),
+                ExtendedYearParser_defineProperty(
+                  ExtendedYearParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['G', 'y', 'Y', 'R', 'w', 'I', 'i', 'e', 'c', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function ExtendedYearParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    ExtendedYearParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    ExtendedYearParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(ExtendedYearParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token) {
+                    return parseNDigitsSigned(
+                      'u' === token ? 4 : token.length,
+                      dateString
+                    )
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.setUTCFullYear(value, 0, 1),
+                      date.setUTCHours(0, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              ExtendedYearParser
+            )
+          })(Parser)
+          function QuarterParser_typeof(obj) {
+            return (
+              (QuarterParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              QuarterParser_typeof(obj)
+            )
+          }
+          function QuarterParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function QuarterParser_setPrototypeOf(o, p) {
+            return (
+              (QuarterParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              QuarterParser_setPrototypeOf(o, p)
+            )
+          }
+          function QuarterParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function QuarterParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = QuarterParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = QuarterParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function QuarterParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === QuarterParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return QuarterParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function QuarterParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function QuarterParser_getPrototypeOf(o) {
+            return (
+              (QuarterParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              QuarterParser_getPrototypeOf(o)
+            )
+          }
+          function QuarterParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var QuarterParser = (function (_Parser) {
+            !(function QuarterParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass && QuarterParser_setPrototypeOf(subClass, superClass)
+            })(QuarterParser, _Parser)
+            var _super = QuarterParser_createSuper(QuarterParser)
+            function QuarterParser() {
+              var _this
+              !(function QuarterParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, QuarterParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                QuarterParser_defineProperty(
+                  QuarterParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  120
+                ),
+                QuarterParser_defineProperty(
+                  QuarterParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'Y',
+                    'R',
+                    'q',
+                    'M',
+                    'L',
+                    'w',
+                    'I',
+                    'd',
+                    'D',
+                    'i',
+                    'e',
+                    'c',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function QuarterParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    QuarterParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    QuarterParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(QuarterParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'Q':
+                      case 'QQ':
+                        return parseNDigits(token.length, dateString)
+                      case 'Qo':
+                        return match.ordinalNumber(dateString, {
+                          unit: 'quarter',
+                        })
+                      case 'QQQ':
+                        return (
+                          match.quarter(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.quarter(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                      case 'QQQQQ':
+                        return match.quarter(dateString, {
+                          width: 'narrow',
+                          context: 'formatting',
+                        })
+                      default:
+                        return (
+                          match.quarter(dateString, {
+                            width: 'wide',
+                            context: 'formatting',
+                          }) ||
+                          match.quarter(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.quarter(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 1 && value <= 4
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.setUTCMonth(3 * (value - 1), 1),
+                      date.setUTCHours(0, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              QuarterParser
+            )
+          })(Parser)
+          function StandAloneQuarterParser_typeof(obj) {
+            return (
+              (StandAloneQuarterParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              StandAloneQuarterParser_typeof(obj)
+            )
+          }
+          function StandAloneQuarterParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function StandAloneQuarterParser_setPrototypeOf(o, p) {
+            return (
+              (StandAloneQuarterParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              StandAloneQuarterParser_setPrototypeOf(o, p)
+            )
+          }
+          function StandAloneQuarterParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function StandAloneQuarterParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = StandAloneQuarterParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  StandAloneQuarterParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function StandAloneQuarterParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === StandAloneQuarterParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return StandAloneQuarterParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function StandAloneQuarterParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function StandAloneQuarterParser_getPrototypeOf(o) {
+            return (
+              (StandAloneQuarterParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              StandAloneQuarterParser_getPrototypeOf(o)
+            )
+          }
+          function StandAloneQuarterParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var StandAloneQuarterParser = (function (_Parser) {
+            !(function StandAloneQuarterParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  StandAloneQuarterParser_setPrototypeOf(subClass, superClass)
+            })(StandAloneQuarterParser, _Parser)
+            var _super = StandAloneQuarterParser_createSuper(
+              StandAloneQuarterParser
+            )
+            function StandAloneQuarterParser() {
+              var _this
+              !(function StandAloneQuarterParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, StandAloneQuarterParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                StandAloneQuarterParser_defineProperty(
+                  StandAloneQuarterParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  120
+                ),
+                StandAloneQuarterParser_defineProperty(
+                  StandAloneQuarterParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'Y',
+                    'R',
+                    'Q',
+                    'M',
+                    'L',
+                    'w',
+                    'I',
+                    'd',
+                    'D',
+                    'i',
+                    'e',
+                    'c',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function StandAloneQuarterParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    StandAloneQuarterParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    StandAloneQuarterParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(StandAloneQuarterParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'q':
+                      case 'qq':
+                        return parseNDigits(token.length, dateString)
+                      case 'qo':
+                        return match.ordinalNumber(dateString, {
+                          unit: 'quarter',
+                        })
+                      case 'qqq':
+                        return (
+                          match.quarter(dateString, {
+                            width: 'abbreviated',
+                            context: 'standalone',
+                          }) ||
+                          match.quarter(dateString, {
+                            width: 'narrow',
+                            context: 'standalone',
+                          })
+                        )
+                      case 'qqqqq':
+                        return match.quarter(dateString, {
+                          width: 'narrow',
+                          context: 'standalone',
+                        })
+                      default:
+                        return (
+                          match.quarter(dateString, {
+                            width: 'wide',
+                            context: 'standalone',
+                          }) ||
+                          match.quarter(dateString, {
+                            width: 'abbreviated',
+                            context: 'standalone',
+                          }) ||
+                          match.quarter(dateString, {
+                            width: 'narrow',
+                            context: 'standalone',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 1 && value <= 4
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.setUTCMonth(3 * (value - 1), 1),
+                      date.setUTCHours(0, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              StandAloneQuarterParser
+            )
+          })(Parser)
+          function MonthParser_typeof(obj) {
+            return (
+              (MonthParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              MonthParser_typeof(obj)
+            )
+          }
+          function MonthParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function MonthParser_setPrototypeOf(o, p) {
+            return (
+              (MonthParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              MonthParser_setPrototypeOf(o, p)
+            )
+          }
+          function MonthParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function MonthParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = MonthParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = MonthParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function MonthParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === MonthParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return MonthParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function MonthParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function MonthParser_getPrototypeOf(o) {
+            return (
+              (MonthParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              MonthParser_getPrototypeOf(o)
+            )
+          }
+          function MonthParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var MonthParser = (function (_Parser) {
+            !(function MonthParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass && MonthParser_setPrototypeOf(subClass, superClass)
+            })(MonthParser, _Parser)
+            var _super = MonthParser_createSuper(MonthParser)
+            function MonthParser() {
+              var _this
+              !(function MonthParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, MonthParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                MonthParser_defineProperty(
+                  MonthParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'incompatibleTokens',
+                  [
+                    'Y',
+                    'R',
+                    'q',
+                    'Q',
+                    'L',
+                    'w',
+                    'I',
+                    'D',
+                    'i',
+                    'e',
+                    'c',
+                    't',
+                    'T',
+                  ]
+                ),
+                MonthParser_defineProperty(
+                  MonthParser_assertThisInitialized(_this),
+                  'priority',
+                  110
+                ),
+                _this
+              )
+            }
+            return (
+              (function MonthParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    MonthParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    MonthParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(MonthParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    var valueCallback = function valueCallback(value) {
+                      return value - 1
+                    }
+                    switch (token) {
+                      case 'M':
+                        return mapValue(
+                          parseNumericPattern(
+                            numericPatterns_month,
+                            dateString
+                          ),
+                          valueCallback
+                        )
+                      case 'MM':
+                        return mapValue(
+                          parseNDigits(2, dateString),
+                          valueCallback
+                        )
+                      case 'Mo':
+                        return mapValue(
+                          match.ordinalNumber(dateString, {unit: 'month'}),
+                          valueCallback
+                        )
+                      case 'MMM':
+                        return (
+                          match.month(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.month(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                      case 'MMMMM':
+                        return match.month(dateString, {
+                          width: 'narrow',
+                          context: 'formatting',
+                        })
+                      default:
+                        return (
+                          match.month(dateString, {
+                            width: 'wide',
+                            context: 'formatting',
+                          }) ||
+                          match.month(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.month(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 0 && value <= 11
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.setUTCMonth(value, 1),
+                      date.setUTCHours(0, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              MonthParser
+            )
+          })(Parser)
+          function StandAloneMonthParser_typeof(obj) {
+            return (
+              (StandAloneMonthParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              StandAloneMonthParser_typeof(obj)
+            )
+          }
+          function StandAloneMonthParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function StandAloneMonthParser_setPrototypeOf(o, p) {
+            return (
+              (StandAloneMonthParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              StandAloneMonthParser_setPrototypeOf(o, p)
+            )
+          }
+          function StandAloneMonthParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function StandAloneMonthParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = StandAloneMonthParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  StandAloneMonthParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function StandAloneMonthParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === StandAloneMonthParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return StandAloneMonthParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function StandAloneMonthParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function StandAloneMonthParser_getPrototypeOf(o) {
+            return (
+              (StandAloneMonthParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              StandAloneMonthParser_getPrototypeOf(o)
+            )
+          }
+          function StandAloneMonthParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var StandAloneMonthParser = (function (_Parser) {
+            !(function StandAloneMonthParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  StandAloneMonthParser_setPrototypeOf(subClass, superClass)
+            })(StandAloneMonthParser, _Parser)
+            var _super = StandAloneMonthParser_createSuper(
+              StandAloneMonthParser
+            )
+            function StandAloneMonthParser() {
+              var _this
+              !(function StandAloneMonthParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, StandAloneMonthParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                StandAloneMonthParser_defineProperty(
+                  StandAloneMonthParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  110
+                ),
+                StandAloneMonthParser_defineProperty(
+                  StandAloneMonthParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'Y',
+                    'R',
+                    'q',
+                    'Q',
+                    'M',
+                    'w',
+                    'I',
+                    'D',
+                    'i',
+                    'e',
+                    'c',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function StandAloneMonthParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    StandAloneMonthParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    StandAloneMonthParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(StandAloneMonthParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    var valueCallback = function valueCallback(value) {
+                      return value - 1
+                    }
+                    switch (token) {
+                      case 'L':
+                        return mapValue(
+                          parseNumericPattern(
+                            numericPatterns_month,
+                            dateString
+                          ),
+                          valueCallback
+                        )
+                      case 'LL':
+                        return mapValue(
+                          parseNDigits(2, dateString),
+                          valueCallback
+                        )
+                      case 'Lo':
+                        return mapValue(
+                          match.ordinalNumber(dateString, {unit: 'month'}),
+                          valueCallback
+                        )
+                      case 'LLL':
+                        return (
+                          match.month(dateString, {
+                            width: 'abbreviated',
+                            context: 'standalone',
+                          }) ||
+                          match.month(dateString, {
+                            width: 'narrow',
+                            context: 'standalone',
+                          })
+                        )
+                      case 'LLLLL':
+                        return match.month(dateString, {
+                          width: 'narrow',
+                          context: 'standalone',
+                        })
+                      default:
+                        return (
+                          match.month(dateString, {
+                            width: 'wide',
+                            context: 'standalone',
+                          }) ||
+                          match.month(dateString, {
+                            width: 'abbreviated',
+                            context: 'standalone',
+                          }) ||
+                          match.month(dateString, {
+                            width: 'narrow',
+                            context: 'standalone',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 0 && value <= 11
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.setUTCMonth(value, 1),
+                      date.setUTCHours(0, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              StandAloneMonthParser
+            )
+          })(Parser)
+          function LocalWeekParser_typeof(obj) {
+            return (
+              (LocalWeekParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              LocalWeekParser_typeof(obj)
+            )
+          }
+          function LocalWeekParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function LocalWeekParser_setPrototypeOf(o, p) {
+            return (
+              (LocalWeekParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              LocalWeekParser_setPrototypeOf(o, p)
+            )
+          }
+          function LocalWeekParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function LocalWeekParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = LocalWeekParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = LocalWeekParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function LocalWeekParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === LocalWeekParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return LocalWeekParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function LocalWeekParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function LocalWeekParser_getPrototypeOf(o) {
+            return (
+              (LocalWeekParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              LocalWeekParser_getPrototypeOf(o)
+            )
+          }
+          function LocalWeekParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var LocalWeekParser = (function (_Parser) {
+            !(function LocalWeekParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  LocalWeekParser_setPrototypeOf(subClass, superClass)
+            })(LocalWeekParser, _Parser)
+            var _super = LocalWeekParser_createSuper(LocalWeekParser)
+            function LocalWeekParser() {
+              var _this
+              !(function LocalWeekParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, LocalWeekParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                LocalWeekParser_defineProperty(
+                  LocalWeekParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  100
+                ),
+                LocalWeekParser_defineProperty(
+                  LocalWeekParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'y',
+                    'R',
+                    'u',
+                    'q',
+                    'Q',
+                    'M',
+                    'L',
+                    'I',
+                    'd',
+                    'D',
+                    'i',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function LocalWeekParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    LocalWeekParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    LocalWeekParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(LocalWeekParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'w':
+                        return parseNumericPattern(
+                          numericPatterns_week,
+                          dateString
+                        )
+                      case 'wo':
+                        return match.ordinalNumber(dateString, {unit: 'week'})
+                      default:
+                        return parseNDigits(token.length, dateString)
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 1 && value <= 53
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value, options) {
+                    return startOfUTCWeek(
+                      (function setUTCWeek(dirtyDate, dirtyWeek, options) {
+                        requiredArgs(2, arguments)
+                        var date = toDate(dirtyDate),
+                          week = toInteger(dirtyWeek),
+                          diff = getUTCWeek(date, options) - week
+                        return (
+                          date.setUTCDate(date.getUTCDate() - 7 * diff), date
+                        )
+                      })(date, value, options),
+                      options
+                    )
+                  },
+                },
+              ]),
+              LocalWeekParser
+            )
+          })(Parser)
+          function ISOWeekParser_typeof(obj) {
+            return (
+              (ISOWeekParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              ISOWeekParser_typeof(obj)
+            )
+          }
+          function ISOWeekParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function ISOWeekParser_setPrototypeOf(o, p) {
+            return (
+              (ISOWeekParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              ISOWeekParser_setPrototypeOf(o, p)
+            )
+          }
+          function ISOWeekParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function ISOWeekParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = ISOWeekParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = ISOWeekParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function ISOWeekParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === ISOWeekParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return ISOWeekParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function ISOWeekParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function ISOWeekParser_getPrototypeOf(o) {
+            return (
+              (ISOWeekParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              ISOWeekParser_getPrototypeOf(o)
+            )
+          }
+          function ISOWeekParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var ISOWeekParser = (function (_Parser) {
+            !(function ISOWeekParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass && ISOWeekParser_setPrototypeOf(subClass, superClass)
+            })(ISOWeekParser, _Parser)
+            var _super = ISOWeekParser_createSuper(ISOWeekParser)
+            function ISOWeekParser() {
+              var _this
+              !(function ISOWeekParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, ISOWeekParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                ISOWeekParser_defineProperty(
+                  ISOWeekParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  100
+                ),
+                ISOWeekParser_defineProperty(
+                  ISOWeekParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'y',
+                    'Y',
+                    'u',
+                    'q',
+                    'Q',
+                    'M',
+                    'L',
+                    'w',
+                    'd',
+                    'D',
+                    'e',
+                    'c',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function ISOWeekParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    ISOWeekParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    ISOWeekParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(ISOWeekParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'I':
+                        return parseNumericPattern(
+                          numericPatterns_week,
+                          dateString
+                        )
+                      case 'Io':
+                        return match.ordinalNumber(dateString, {unit: 'week'})
+                      default:
+                        return parseNDigits(token.length, dateString)
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 1 && value <= 53
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return startOfUTCISOWeek(
+                      (function setUTCISOWeek(dirtyDate, dirtyISOWeek) {
+                        requiredArgs(2, arguments)
+                        var date = toDate(dirtyDate),
+                          isoWeek = toInteger(dirtyISOWeek),
+                          diff = getUTCISOWeek(date) - isoWeek
+                        return (
+                          date.setUTCDate(date.getUTCDate() - 7 * diff), date
+                        )
+                      })(date, value)
+                    )
+                  },
+                },
+              ]),
+              ISOWeekParser
+            )
+          })(Parser)
+          function DateParser_typeof(obj) {
+            return (
+              (DateParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              DateParser_typeof(obj)
+            )
+          }
+          function DateParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function DateParser_setPrototypeOf(o, p) {
+            return (
+              (DateParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              DateParser_setPrototypeOf(o, p)
+            )
+          }
+          function DateParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function DateParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = DateParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = DateParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function DateParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === DateParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return DateParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function DateParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function DateParser_getPrototypeOf(o) {
+            return (
+              (DateParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              DateParser_getPrototypeOf(o)
+            )
+          }
+          function DateParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+            DAYS_IN_MONTH_LEAP_YEAR = [
+              31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+            ],
+            DateParser = (function (_Parser) {
+              !(function DateParser_inherits(subClass, superClass) {
+                if ('function' != typeof superClass && null !== superClass)
+                  throw new TypeError(
+                    'Super expression must either be null or a function'
+                  )
+                ;(subClass.prototype = Object.create(
+                  superClass && superClass.prototype,
+                  {
+                    constructor: {
+                      value: subClass,
+                      writable: !0,
+                      configurable: !0,
+                    },
+                  }
+                )),
+                  superClass && DateParser_setPrototypeOf(subClass, superClass)
+              })(DateParser, _Parser)
+              var _super = DateParser_createSuper(DateParser)
+              function DateParser() {
+                var _this
+                !(function DateParser_classCallCheck(instance, Constructor) {
+                  if (!(instance instanceof Constructor))
+                    throw new TypeError('Cannot call a class as a function')
+                })(this, DateParser)
+                for (
+                  var _len = arguments.length, args = new Array(_len), _key = 0;
+                  _key < _len;
+                  _key++
+                )
+                  args[_key] = arguments[_key]
+                return (
+                  DateParser_defineProperty(
+                    DateParser_assertThisInitialized(
+                      (_this = _super.call.apply(_super, [this].concat(args)))
+                    ),
+                    'priority',
+                    90
+                  ),
+                  DateParser_defineProperty(
+                    DateParser_assertThisInitialized(_this),
+                    'subPriority',
+                    1
+                  ),
+                  DateParser_defineProperty(
+                    DateParser_assertThisInitialized(_this),
+                    'incompatibleTokens',
+                    ['Y', 'R', 'q', 'Q', 'w', 'I', 'D', 'i', 'e', 'c', 't', 'T']
+                  ),
+                  _this
+                )
+              }
+              return (
+                (function DateParser_createClass(
+                  Constructor,
+                  protoProps,
+                  staticProps
+                ) {
+                  return (
+                    protoProps &&
+                      DateParser_defineProperties(
+                        Constructor.prototype,
+                        protoProps
+                      ),
+                    staticProps &&
+                      DateParser_defineProperties(Constructor, staticProps),
+                    Constructor
+                  )
+                })(DateParser, [
+                  {
+                    key: 'parse',
+                    value: function parse(dateString, token, match) {
+                      switch (token) {
+                        case 'd':
+                          return parseNumericPattern(
+                            numericPatterns_date,
+                            dateString
+                          )
+                        case 'do':
+                          return match.ordinalNumber(dateString, {unit: 'date'})
+                        default:
+                          return parseNDigits(token.length, dateString)
+                      }
+                    },
+                  },
+                  {
+                    key: 'validate',
+                    value: function validate(date, value) {
+                      var isLeapYear = isLeapYearIndex(date.getUTCFullYear()),
+                        month = date.getUTCMonth()
+                      return isLeapYear
+                        ? value >= 1 && value <= DAYS_IN_MONTH_LEAP_YEAR[month]
+                        : value >= 1 && value <= DAYS_IN_MONTH[month]
+                    },
+                  },
+                  {
+                    key: 'set',
+                    value: function set(date, _flags, value) {
+                      return (
+                        date.setUTCDate(value),
+                        date.setUTCHours(0, 0, 0, 0),
+                        date
+                      )
+                    },
+                  },
+                ]),
+                DateParser
+              )
+            })(Parser)
+          function DayOfYearParser_typeof(obj) {
+            return (
+              (DayOfYearParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              DayOfYearParser_typeof(obj)
+            )
+          }
+          function DayOfYearParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function DayOfYearParser_setPrototypeOf(o, p) {
+            return (
+              (DayOfYearParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              DayOfYearParser_setPrototypeOf(o, p)
+            )
+          }
+          function DayOfYearParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function DayOfYearParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = DayOfYearParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = DayOfYearParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function DayOfYearParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === DayOfYearParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return DayOfYearParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function DayOfYearParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function DayOfYearParser_getPrototypeOf(o) {
+            return (
+              (DayOfYearParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              DayOfYearParser_getPrototypeOf(o)
+            )
+          }
+          function DayOfYearParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var DayOfYearParser = (function (_Parser) {
+            !(function DayOfYearParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  DayOfYearParser_setPrototypeOf(subClass, superClass)
+            })(DayOfYearParser, _Parser)
+            var _super = DayOfYearParser_createSuper(DayOfYearParser)
+            function DayOfYearParser() {
+              var _this
+              !(function DayOfYearParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, DayOfYearParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                DayOfYearParser_defineProperty(
+                  DayOfYearParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  90
+                ),
+                DayOfYearParser_defineProperty(
+                  DayOfYearParser_assertThisInitialized(_this),
+                  'subpriority',
+                  1
+                ),
+                DayOfYearParser_defineProperty(
+                  DayOfYearParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'Y',
+                    'R',
+                    'q',
+                    'Q',
+                    'M',
+                    'L',
+                    'w',
+                    'I',
+                    'd',
+                    'E',
+                    'i',
+                    'e',
+                    'c',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function DayOfYearParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    DayOfYearParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    DayOfYearParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(DayOfYearParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'D':
+                      case 'DD':
+                        return parseNumericPattern(
+                          numericPatterns_dayOfYear,
+                          dateString
+                        )
+                      case 'Do':
+                        return match.ordinalNumber(dateString, {unit: 'date'})
+                      default:
+                        return parseNDigits(token.length, dateString)
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(date, value) {
+                    return isLeapYearIndex(date.getUTCFullYear())
+                      ? value >= 1 && value <= 366
+                      : value >= 1 && value <= 365
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.setUTCMonth(0, value),
+                      date.setUTCHours(0, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              DayOfYearParser
+            )
+          })(Parser)
+          function setUTCDay(dirtyDate, dirtyDay, options) {
+            var _ref,
+              _ref2,
+              _ref3,
+              _options$weekStartsOn,
+              _options$locale,
+              _options$locale$optio,
+              _defaultOptions$local,
+              _defaultOptions$local2
+            requiredArgs(2, arguments)
+            var defaultOptions = getDefaultOptions(),
+              weekStartsOn = toInteger(
+                null !==
+                  (_ref =
+                    null !==
+                      (_ref2 =
+                        null !==
+                          (_ref3 =
+                            null !==
+                              (_options$weekStartsOn =
+                                null == options
+                                  ? void 0
+                                  : options.weekStartsOn) &&
+                            void 0 !== _options$weekStartsOn
+                              ? _options$weekStartsOn
+                              : null == options ||
+                                null === (_options$locale = options.locale) ||
+                                void 0 === _options$locale ||
+                                null ===
+                                  (_options$locale$optio =
+                                    _options$locale.options) ||
+                                void 0 === _options$locale$optio
+                              ? void 0
+                              : _options$locale$optio.weekStartsOn) &&
+                        void 0 !== _ref3
+                          ? _ref3
+                          : defaultOptions.weekStartsOn) && void 0 !== _ref2
+                      ? _ref2
+                      : null ===
+                          (_defaultOptions$local = defaultOptions.locale) ||
+                        void 0 === _defaultOptions$local ||
+                        null ===
+                          (_defaultOptions$local2 =
+                            _defaultOptions$local.options) ||
+                        void 0 === _defaultOptions$local2
+                      ? void 0
+                      : _defaultOptions$local2.weekStartsOn) && void 0 !== _ref
+                  ? _ref
+                  : 0
+              )
+            if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
+              throw new RangeError(
+                'weekStartsOn must be between 0 and 6 inclusively'
+              )
+            var date = toDate(dirtyDate),
+              day = toInteger(dirtyDay),
+              diff =
+                (((day % 7) + 7) % 7 < weekStartsOn ? 7 : 0) +
+                day -
+                date.getUTCDay()
+            return date.setUTCDate(date.getUTCDate() + diff), date
+          }
+          function DayParser_typeof(obj) {
+            return (
+              (DayParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              DayParser_typeof(obj)
+            )
+          }
+          function DayParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function DayParser_setPrototypeOf(o, p) {
+            return (
+              (DayParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              DayParser_setPrototypeOf(o, p)
+            )
+          }
+          function DayParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function DayParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = DayParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = DayParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function DayParser_possibleConstructorReturn(self, call) {
+                if (
+                  call &&
+                  ('object' === DayParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return DayParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function DayParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function DayParser_getPrototypeOf(o) {
+            return (
+              (DayParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              DayParser_getPrototypeOf(o)
+            )
+          }
+          function DayParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var DayParser = (function (_Parser) {
+            !(function DayParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass && DayParser_setPrototypeOf(subClass, superClass)
+            })(DayParser, _Parser)
+            var _super = DayParser_createSuper(DayParser)
+            function DayParser() {
+              var _this
+              !(function DayParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, DayParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                DayParser_defineProperty(
+                  DayParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  90
+                ),
+                DayParser_defineProperty(
+                  DayParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['D', 'i', 'e', 'c', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function DayParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    DayParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    DayParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(DayParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'E':
+                      case 'EE':
+                      case 'EEE':
+                        return (
+                          match.day(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                      case 'EEEEE':
+                        return match.day(dateString, {
+                          width: 'narrow',
+                          context: 'formatting',
+                        })
+                      case 'EEEEEE':
+                        return (
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                      default:
+                        return (
+                          match.day(dateString, {
+                            width: 'wide',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 0 && value <= 6
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value, options) {
+                    return (
+                      (date = setUTCDay(date, value, options)).setUTCHours(
+                        0,
+                        0,
+                        0,
+                        0
+                      ),
+                      date
+                    )
+                  },
+                },
+              ]),
+              DayParser
+            )
+          })(Parser)
+          function LocalDayParser_typeof(obj) {
+            return (
+              (LocalDayParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              LocalDayParser_typeof(obj)
+            )
+          }
+          function LocalDayParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function LocalDayParser_setPrototypeOf(o, p) {
+            return (
+              (LocalDayParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              LocalDayParser_setPrototypeOf(o, p)
+            )
+          }
+          function LocalDayParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function LocalDayParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = LocalDayParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = LocalDayParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function LocalDayParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === LocalDayParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return LocalDayParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function LocalDayParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function LocalDayParser_getPrototypeOf(o) {
+            return (
+              (LocalDayParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              LocalDayParser_getPrototypeOf(o)
+            )
+          }
+          function LocalDayParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var LocalDayParser = (function (_Parser) {
+            !(function LocalDayParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  LocalDayParser_setPrototypeOf(subClass, superClass)
+            })(LocalDayParser, _Parser)
+            var _super = LocalDayParser_createSuper(LocalDayParser)
+            function LocalDayParser() {
+              var _this
+              !(function LocalDayParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, LocalDayParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                LocalDayParser_defineProperty(
+                  LocalDayParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  90
+                ),
+                LocalDayParser_defineProperty(
+                  LocalDayParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'y',
+                    'R',
+                    'u',
+                    'q',
+                    'Q',
+                    'M',
+                    'L',
+                    'I',
+                    'd',
+                    'D',
+                    'E',
+                    'i',
+                    'c',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function LocalDayParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    LocalDayParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    LocalDayParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(LocalDayParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match, options) {
+                    var valueCallback = function valueCallback(value) {
+                      var wholeWeekDays = 7 * Math.floor((value - 1) / 7)
+                      return (
+                        ((value + options.weekStartsOn + 6) % 7) + wholeWeekDays
+                      )
+                    }
+                    switch (token) {
+                      case 'e':
+                      case 'ee':
+                        return mapValue(
+                          parseNDigits(token.length, dateString),
+                          valueCallback
+                        )
+                      case 'eo':
+                        return mapValue(
+                          match.ordinalNumber(dateString, {unit: 'day'}),
+                          valueCallback
+                        )
+                      case 'eee':
+                        return (
+                          match.day(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                      case 'eeeee':
+                        return match.day(dateString, {
+                          width: 'narrow',
+                          context: 'formatting',
+                        })
+                      case 'eeeeee':
+                        return (
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                      default:
+                        return (
+                          match.day(dateString, {
+                            width: 'wide',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'formatting',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 0 && value <= 6
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value, options) {
+                    return (
+                      (date = setUTCDay(date, value, options)).setUTCHours(
+                        0,
+                        0,
+                        0,
+                        0
+                      ),
+                      date
+                    )
+                  },
+                },
+              ]),
+              LocalDayParser
+            )
+          })(Parser)
+          function StandAloneLocalDayParser_typeof(obj) {
+            return (
+              (StandAloneLocalDayParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              StandAloneLocalDayParser_typeof(obj)
+            )
+          }
+          function StandAloneLocalDayParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function StandAloneLocalDayParser_setPrototypeOf(o, p) {
+            return (
+              (StandAloneLocalDayParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              StandAloneLocalDayParser_setPrototypeOf(o, p)
+            )
+          }
+          function StandAloneLocalDayParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function StandAloneLocalDayParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = StandAloneLocalDayParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  StandAloneLocalDayParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function StandAloneLocalDayParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === StandAloneLocalDayParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return StandAloneLocalDayParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function StandAloneLocalDayParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function StandAloneLocalDayParser_getPrototypeOf(o) {
+            return (
+              (StandAloneLocalDayParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              StandAloneLocalDayParser_getPrototypeOf(o)
+            )
+          }
+          function StandAloneLocalDayParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var StandAloneLocalDayParser = (function (_Parser) {
+            !(function StandAloneLocalDayParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  StandAloneLocalDayParser_setPrototypeOf(subClass, superClass)
+            })(StandAloneLocalDayParser, _Parser)
+            var _super = StandAloneLocalDayParser_createSuper(
+              StandAloneLocalDayParser
+            )
+            function StandAloneLocalDayParser() {
+              var _this
+              !(function StandAloneLocalDayParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, StandAloneLocalDayParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                StandAloneLocalDayParser_defineProperty(
+                  StandAloneLocalDayParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  90
+                ),
+                StandAloneLocalDayParser_defineProperty(
+                  StandAloneLocalDayParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'y',
+                    'R',
+                    'u',
+                    'q',
+                    'Q',
+                    'M',
+                    'L',
+                    'I',
+                    'd',
+                    'D',
+                    'E',
+                    'i',
+                    'e',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function StandAloneLocalDayParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    StandAloneLocalDayParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    StandAloneLocalDayParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(StandAloneLocalDayParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match, options) {
+                    var valueCallback = function valueCallback(value) {
+                      var wholeWeekDays = 7 * Math.floor((value - 1) / 7)
+                      return (
+                        ((value + options.weekStartsOn + 6) % 7) + wholeWeekDays
+                      )
+                    }
+                    switch (token) {
+                      case 'c':
+                      case 'cc':
+                        return mapValue(
+                          parseNDigits(token.length, dateString),
+                          valueCallback
+                        )
+                      case 'co':
+                        return mapValue(
+                          match.ordinalNumber(dateString, {unit: 'day'}),
+                          valueCallback
+                        )
+                      case 'ccc':
+                        return (
+                          match.day(dateString, {
+                            width: 'abbreviated',
+                            context: 'standalone',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'standalone',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'standalone',
+                          })
+                        )
+                      case 'ccccc':
+                        return match.day(dateString, {
+                          width: 'narrow',
+                          context: 'standalone',
+                        })
+                      case 'cccccc':
+                        return (
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'standalone',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'standalone',
+                          })
+                        )
+                      default:
+                        return (
+                          match.day(dateString, {
+                            width: 'wide',
+                            context: 'standalone',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'abbreviated',
+                            context: 'standalone',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'standalone',
+                          }) ||
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'standalone',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 0 && value <= 6
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value, options) {
+                    return (
+                      (date = setUTCDay(date, value, options)).setUTCHours(
+                        0,
+                        0,
+                        0,
+                        0
+                      ),
+                      date
+                    )
+                  },
+                },
+              ]),
+              StandAloneLocalDayParser
+            )
+          })(Parser)
+          function ISODayParser_typeof(obj) {
+            return (
+              (ISODayParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              ISODayParser_typeof(obj)
+            )
+          }
+          function ISODayParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function ISODayParser_setPrototypeOf(o, p) {
+            return (
+              (ISODayParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              ISODayParser_setPrototypeOf(o, p)
+            )
+          }
+          function ISODayParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function ISODayParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = ISODayParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = ISODayParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function ISODayParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === ISODayParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return ISODayParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function ISODayParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function ISODayParser_getPrototypeOf(o) {
+            return (
+              (ISODayParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              ISODayParser_getPrototypeOf(o)
+            )
+          }
+          function ISODayParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var ISODayParser = (function (_Parser) {
+            !(function ISODayParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass && ISODayParser_setPrototypeOf(subClass, superClass)
+            })(ISODayParser, _Parser)
+            var _super = ISODayParser_createSuper(ISODayParser)
+            function ISODayParser() {
+              var _this
+              !(function ISODayParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, ISODayParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                ISODayParser_defineProperty(
+                  ISODayParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  90
+                ),
+                ISODayParser_defineProperty(
+                  ISODayParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  [
+                    'y',
+                    'Y',
+                    'u',
+                    'q',
+                    'Q',
+                    'M',
+                    'L',
+                    'w',
+                    'd',
+                    'D',
+                    'E',
+                    'e',
+                    'c',
+                    't',
+                    'T',
+                  ]
+                ),
+                _this
+              )
+            }
+            return (
+              (function ISODayParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    ISODayParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    ISODayParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(ISODayParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    var valueCallback = function valueCallback(value) {
+                      return 0 === value ? 7 : value
+                    }
+                    switch (token) {
+                      case 'i':
+                      case 'ii':
+                        return parseNDigits(token.length, dateString)
+                      case 'io':
+                        return match.ordinalNumber(dateString, {unit: 'day'})
+                      case 'iii':
+                        return mapValue(
+                          match.day(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                            match.day(dateString, {
+                              width: 'short',
+                              context: 'formatting',
+                            }) ||
+                            match.day(dateString, {
+                              width: 'narrow',
+                              context: 'formatting',
+                            }),
+                          valueCallback
+                        )
+                      case 'iiiii':
+                        return mapValue(
+                          match.day(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          }),
+                          valueCallback
+                        )
+                      case 'iiiiii':
+                        return mapValue(
+                          match.day(dateString, {
+                            width: 'short',
+                            context: 'formatting',
+                          }) ||
+                            match.day(dateString, {
+                              width: 'narrow',
+                              context: 'formatting',
+                            }),
+                          valueCallback
+                        )
+                      default:
+                        return mapValue(
+                          match.day(dateString, {
+                            width: 'wide',
+                            context: 'formatting',
+                          }) ||
+                            match.day(dateString, {
+                              width: 'abbreviated',
+                              context: 'formatting',
+                            }) ||
+                            match.day(dateString, {
+                              width: 'short',
+                              context: 'formatting',
+                            }) ||
+                            match.day(dateString, {
+                              width: 'narrow',
+                              context: 'formatting',
+                            }),
+                          valueCallback
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 1 && value <= 7
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      (date = (function setUTCISODay(dirtyDate, dirtyDay) {
+                        requiredArgs(2, arguments)
+                        var day = toInteger(dirtyDay)
+                        day % 7 == 0 && (day -= 7)
+                        var date = toDate(dirtyDate),
+                          diff =
+                            (((day % 7) + 7) % 7 < 1 ? 7 : 0) +
+                            day -
+                            date.getUTCDay()
+                        return date.setUTCDate(date.getUTCDate() + diff), date
+                      })(date, value)),
+                      date.setUTCHours(0, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              ISODayParser
+            )
+          })(Parser)
+          function AMPMParser_typeof(obj) {
+            return (
+              (AMPMParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              AMPMParser_typeof(obj)
+            )
+          }
+          function AMPMParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function AMPMParser_setPrototypeOf(o, p) {
+            return (
+              (AMPMParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              AMPMParser_setPrototypeOf(o, p)
+            )
+          }
+          function AMPMParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function AMPMParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = AMPMParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = AMPMParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function AMPMParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === AMPMParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return AMPMParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function AMPMParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function AMPMParser_getPrototypeOf(o) {
+            return (
+              (AMPMParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              AMPMParser_getPrototypeOf(o)
+            )
+          }
+          function AMPMParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var AMPMParser = (function (_Parser) {
+            !(function AMPMParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass && AMPMParser_setPrototypeOf(subClass, superClass)
+            })(AMPMParser, _Parser)
+            var _super = AMPMParser_createSuper(AMPMParser)
+            function AMPMParser() {
+              var _this
+              !(function AMPMParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, AMPMParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                AMPMParser_defineProperty(
+                  AMPMParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  80
+                ),
+                AMPMParser_defineProperty(
+                  AMPMParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['b', 'B', 'H', 'k', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function AMPMParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    AMPMParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    AMPMParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(AMPMParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'a':
+                      case 'aa':
+                      case 'aaa':
+                        return (
+                          match.dayPeriod(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.dayPeriod(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                      case 'aaaaa':
+                        return match.dayPeriod(dateString, {
+                          width: 'narrow',
+                          context: 'formatting',
+                        })
+                      default:
+                        return (
+                          match.dayPeriod(dateString, {
+                            width: 'wide',
+                            context: 'formatting',
+                          }) ||
+                          match.dayPeriod(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.dayPeriod(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.setUTCHours(dayPeriodEnumToHours(value), 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              AMPMParser
+            )
+          })(Parser)
+          function AMPMMidnightParser_typeof(obj) {
+            return (
+              (AMPMMidnightParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              AMPMMidnightParser_typeof(obj)
+            )
+          }
+          function AMPMMidnightParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function AMPMMidnightParser_setPrototypeOf(o, p) {
+            return (
+              (AMPMMidnightParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              AMPMMidnightParser_setPrototypeOf(o, p)
+            )
+          }
+          function AMPMMidnightParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function AMPMMidnightParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = AMPMMidnightParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  AMPMMidnightParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function AMPMMidnightParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === AMPMMidnightParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return AMPMMidnightParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function AMPMMidnightParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function AMPMMidnightParser_getPrototypeOf(o) {
+            return (
+              (AMPMMidnightParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              AMPMMidnightParser_getPrototypeOf(o)
+            )
+          }
+          function AMPMMidnightParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var AMPMMidnightParser = (function (_Parser) {
+            !(function AMPMMidnightParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  AMPMMidnightParser_setPrototypeOf(subClass, superClass)
+            })(AMPMMidnightParser, _Parser)
+            var _super = AMPMMidnightParser_createSuper(AMPMMidnightParser)
+            function AMPMMidnightParser() {
+              var _this
+              !(function AMPMMidnightParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, AMPMMidnightParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                AMPMMidnightParser_defineProperty(
+                  AMPMMidnightParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  80
+                ),
+                AMPMMidnightParser_defineProperty(
+                  AMPMMidnightParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['a', 'B', 'H', 'k', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function AMPMMidnightParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    AMPMMidnightParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    AMPMMidnightParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(AMPMMidnightParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'b':
+                      case 'bb':
+                      case 'bbb':
+                        return (
+                          match.dayPeriod(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.dayPeriod(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                      case 'bbbbb':
+                        return match.dayPeriod(dateString, {
+                          width: 'narrow',
+                          context: 'formatting',
+                        })
+                      default:
+                        return (
+                          match.dayPeriod(dateString, {
+                            width: 'wide',
+                            context: 'formatting',
+                          }) ||
+                          match.dayPeriod(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.dayPeriod(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.setUTCHours(dayPeriodEnumToHours(value), 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              AMPMMidnightParser
+            )
+          })(Parser)
+          function DayPeriodParser_typeof(obj) {
+            return (
+              (DayPeriodParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              DayPeriodParser_typeof(obj)
+            )
+          }
+          function DayPeriodParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function DayPeriodParser_setPrototypeOf(o, p) {
+            return (
+              (DayPeriodParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              DayPeriodParser_setPrototypeOf(o, p)
+            )
+          }
+          function DayPeriodParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function DayPeriodParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = DayPeriodParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = DayPeriodParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function DayPeriodParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === DayPeriodParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return DayPeriodParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function DayPeriodParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function DayPeriodParser_getPrototypeOf(o) {
+            return (
+              (DayPeriodParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              DayPeriodParser_getPrototypeOf(o)
+            )
+          }
+          function DayPeriodParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var DayPeriodParser = (function (_Parser) {
+            !(function DayPeriodParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  DayPeriodParser_setPrototypeOf(subClass, superClass)
+            })(DayPeriodParser, _Parser)
+            var _super = DayPeriodParser_createSuper(DayPeriodParser)
+            function DayPeriodParser() {
+              var _this
+              !(function DayPeriodParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, DayPeriodParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                DayPeriodParser_defineProperty(
+                  DayPeriodParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  80
+                ),
+                DayPeriodParser_defineProperty(
+                  DayPeriodParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['a', 'b', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function DayPeriodParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    DayPeriodParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    DayPeriodParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(DayPeriodParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'B':
+                      case 'BB':
+                      case 'BBB':
+                        return (
+                          match.dayPeriod(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.dayPeriod(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                      case 'BBBBB':
+                        return match.dayPeriod(dateString, {
+                          width: 'narrow',
+                          context: 'formatting',
+                        })
+                      default:
+                        return (
+                          match.dayPeriod(dateString, {
+                            width: 'wide',
+                            context: 'formatting',
+                          }) ||
+                          match.dayPeriod(dateString, {
+                            width: 'abbreviated',
+                            context: 'formatting',
+                          }) ||
+                          match.dayPeriod(dateString, {
+                            width: 'narrow',
+                            context: 'formatting',
+                          })
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.setUTCHours(dayPeriodEnumToHours(value), 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              DayPeriodParser
+            )
+          })(Parser)
+          function Hour1to12Parser_typeof(obj) {
+            return (
+              (Hour1to12Parser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              Hour1to12Parser_typeof(obj)
+            )
+          }
+          function Hour1to12Parser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function Hour1to12Parser_setPrototypeOf(o, p) {
+            return (
+              (Hour1to12Parser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              Hour1to12Parser_setPrototypeOf(o, p)
+            )
+          }
+          function Hour1to12Parser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function Hour1to12Parser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = Hour1to12Parser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = Hour1to12Parser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function Hour1to12Parser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === Hour1to12Parser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return Hour1to12Parser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function Hour1to12Parser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function Hour1to12Parser_getPrototypeOf(o) {
+            return (
+              (Hour1to12Parser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              Hour1to12Parser_getPrototypeOf(o)
+            )
+          }
+          function Hour1to12Parser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var Hour1to12Parser = (function (_Parser) {
+            !(function Hour1to12Parser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  Hour1to12Parser_setPrototypeOf(subClass, superClass)
+            })(Hour1to12Parser, _Parser)
+            var _super = Hour1to12Parser_createSuper(Hour1to12Parser)
+            function Hour1to12Parser() {
+              var _this
+              !(function Hour1to12Parser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, Hour1to12Parser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                Hour1to12Parser_defineProperty(
+                  Hour1to12Parser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  70
+                ),
+                Hour1to12Parser_defineProperty(
+                  Hour1to12Parser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['H', 'K', 'k', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function Hour1to12Parser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    Hour1to12Parser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    Hour1to12Parser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(Hour1to12Parser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'h':
+                        return parseNumericPattern(
+                          numericPatterns_hour12h,
+                          dateString
+                        )
+                      case 'ho':
+                        return match.ordinalNumber(dateString, {unit: 'hour'})
+                      default:
+                        return parseNDigits(token.length, dateString)
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 1 && value <= 12
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    var isPM = date.getUTCHours() >= 12
+                    return (
+                      isPM && value < 12
+                        ? date.setUTCHours(value + 12, 0, 0, 0)
+                        : isPM || 12 !== value
+                        ? date.setUTCHours(value, 0, 0, 0)
+                        : date.setUTCHours(0, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              Hour1to12Parser
+            )
+          })(Parser)
+          function Hour0to23Parser_typeof(obj) {
+            return (
+              (Hour0to23Parser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              Hour0to23Parser_typeof(obj)
+            )
+          }
+          function Hour0to23Parser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function Hour0to23Parser_setPrototypeOf(o, p) {
+            return (
+              (Hour0to23Parser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              Hour0to23Parser_setPrototypeOf(o, p)
+            )
+          }
+          function Hour0to23Parser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function Hour0to23Parser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = Hour0to23Parser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = Hour0to23Parser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function Hour0to23Parser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === Hour0to23Parser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return Hour0to23Parser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function Hour0to23Parser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function Hour0to23Parser_getPrototypeOf(o) {
+            return (
+              (Hour0to23Parser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              Hour0to23Parser_getPrototypeOf(o)
+            )
+          }
+          function Hour0to23Parser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var Hour0to23Parser = (function (_Parser) {
+            !(function Hour0to23Parser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  Hour0to23Parser_setPrototypeOf(subClass, superClass)
+            })(Hour0to23Parser, _Parser)
+            var _super = Hour0to23Parser_createSuper(Hour0to23Parser)
+            function Hour0to23Parser() {
+              var _this
+              !(function Hour0to23Parser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, Hour0to23Parser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                Hour0to23Parser_defineProperty(
+                  Hour0to23Parser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  70
+                ),
+                Hour0to23Parser_defineProperty(
+                  Hour0to23Parser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['a', 'b', 'h', 'K', 'k', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function Hour0to23Parser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    Hour0to23Parser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    Hour0to23Parser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(Hour0to23Parser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'H':
+                        return parseNumericPattern(
+                          numericPatterns_hour23h,
+                          dateString
+                        )
+                      case 'Ho':
+                        return match.ordinalNumber(dateString, {unit: 'hour'})
+                      default:
+                        return parseNDigits(token.length, dateString)
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 0 && value <= 23
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return date.setUTCHours(value, 0, 0, 0), date
+                  },
+                },
+              ]),
+              Hour0to23Parser
+            )
+          })(Parser)
+          function Hour0To11Parser_typeof(obj) {
+            return (
+              (Hour0To11Parser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              Hour0To11Parser_typeof(obj)
+            )
+          }
+          function Hour0To11Parser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function Hour0To11Parser_setPrototypeOf(o, p) {
+            return (
+              (Hour0To11Parser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              Hour0To11Parser_setPrototypeOf(o, p)
+            )
+          }
+          function Hour0To11Parser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function Hour0To11Parser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = Hour0To11Parser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = Hour0To11Parser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function Hour0To11Parser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === Hour0To11Parser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return Hour0To11Parser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function Hour0To11Parser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function Hour0To11Parser_getPrototypeOf(o) {
+            return (
+              (Hour0To11Parser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              Hour0To11Parser_getPrototypeOf(o)
+            )
+          }
+          function Hour0To11Parser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var Hour0To11Parser = (function (_Parser) {
+            !(function Hour0To11Parser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  Hour0To11Parser_setPrototypeOf(subClass, superClass)
+            })(Hour0To11Parser, _Parser)
+            var _super = Hour0To11Parser_createSuper(Hour0To11Parser)
+            function Hour0To11Parser() {
+              var _this
+              !(function Hour0To11Parser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, Hour0To11Parser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                Hour0To11Parser_defineProperty(
+                  Hour0To11Parser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  70
+                ),
+                Hour0To11Parser_defineProperty(
+                  Hour0To11Parser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['h', 'H', 'k', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function Hour0To11Parser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    Hour0To11Parser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    Hour0To11Parser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(Hour0To11Parser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'K':
+                        return parseNumericPattern(
+                          numericPatterns_hour11h,
+                          dateString
+                        )
+                      case 'Ko':
+                        return match.ordinalNumber(dateString, {unit: 'hour'})
+                      default:
+                        return parseNDigits(token.length, dateString)
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 0 && value <= 11
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return (
+                      date.getUTCHours() >= 12 && value < 12
+                        ? date.setUTCHours(value + 12, 0, 0, 0)
+                        : date.setUTCHours(value, 0, 0, 0),
+                      date
+                    )
+                  },
+                },
+              ]),
+              Hour0To11Parser
+            )
+          })(Parser)
+          function Hour1To24Parser_typeof(obj) {
+            return (
+              (Hour1To24Parser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              Hour1To24Parser_typeof(obj)
+            )
+          }
+          function Hour1To24Parser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function Hour1To24Parser_setPrototypeOf(o, p) {
+            return (
+              (Hour1To24Parser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              Hour1To24Parser_setPrototypeOf(o, p)
+            )
+          }
+          function Hour1To24Parser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function Hour1To24Parser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = Hour1To24Parser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = Hour1To24Parser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function Hour1To24Parser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === Hour1To24Parser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return Hour1To24Parser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function Hour1To24Parser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function Hour1To24Parser_getPrototypeOf(o) {
+            return (
+              (Hour1To24Parser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              Hour1To24Parser_getPrototypeOf(o)
+            )
+          }
+          function Hour1To24Parser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var Hour1To24Parser = (function (_Parser) {
+            !(function Hour1To24Parser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  Hour1To24Parser_setPrototypeOf(subClass, superClass)
+            })(Hour1To24Parser, _Parser)
+            var _super = Hour1To24Parser_createSuper(Hour1To24Parser)
+            function Hour1To24Parser() {
+              var _this
+              !(function Hour1To24Parser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, Hour1To24Parser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                Hour1To24Parser_defineProperty(
+                  Hour1To24Parser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  70
+                ),
+                Hour1To24Parser_defineProperty(
+                  Hour1To24Parser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['a', 'b', 'h', 'H', 'K', 't', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function Hour1To24Parser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    Hour1To24Parser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    Hour1To24Parser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(Hour1To24Parser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'k':
+                        return parseNumericPattern(
+                          numericPatterns_hour24h,
+                          dateString
+                        )
+                      case 'ko':
+                        return match.ordinalNumber(dateString, {unit: 'hour'})
+                      default:
+                        return parseNDigits(token.length, dateString)
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 1 && value <= 24
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    var hours = value <= 24 ? value % 24 : value
+                    return date.setUTCHours(hours, 0, 0, 0), date
+                  },
+                },
+              ]),
+              Hour1To24Parser
+            )
+          })(Parser)
+          function MinuteParser_typeof(obj) {
+            return (
+              (MinuteParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              MinuteParser_typeof(obj)
+            )
+          }
+          function MinuteParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function MinuteParser_setPrototypeOf(o, p) {
+            return (
+              (MinuteParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              MinuteParser_setPrototypeOf(o, p)
+            )
+          }
+          function MinuteParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function MinuteParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = MinuteParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = MinuteParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function MinuteParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === MinuteParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return MinuteParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function MinuteParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function MinuteParser_getPrototypeOf(o) {
+            return (
+              (MinuteParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              MinuteParser_getPrototypeOf(o)
+            )
+          }
+          function MinuteParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var MinuteParser = (function (_Parser) {
+            !(function MinuteParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass && MinuteParser_setPrototypeOf(subClass, superClass)
+            })(MinuteParser, _Parser)
+            var _super = MinuteParser_createSuper(MinuteParser)
+            function MinuteParser() {
+              var _this
+              !(function MinuteParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, MinuteParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                MinuteParser_defineProperty(
+                  MinuteParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  60
+                ),
+                MinuteParser_defineProperty(
+                  MinuteParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['t', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function MinuteParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    MinuteParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    MinuteParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(MinuteParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 'm':
+                        return parseNumericPattern(
+                          numericPatterns_minute,
+                          dateString
+                        )
+                      case 'mo':
+                        return match.ordinalNumber(dateString, {unit: 'minute'})
+                      default:
+                        return parseNDigits(token.length, dateString)
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 0 && value <= 59
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return date.setUTCMinutes(value, 0, 0), date
+                  },
+                },
+              ]),
+              MinuteParser
+            )
+          })(Parser)
+          function SecondParser_typeof(obj) {
+            return (
+              (SecondParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              SecondParser_typeof(obj)
+            )
+          }
+          function SecondParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function SecondParser_setPrototypeOf(o, p) {
+            return (
+              (SecondParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              SecondParser_setPrototypeOf(o, p)
+            )
+          }
+          function SecondParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function SecondParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = SecondParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget = SecondParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function SecondParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === SecondParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return SecondParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function SecondParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function SecondParser_getPrototypeOf(o) {
+            return (
+              (SecondParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              SecondParser_getPrototypeOf(o)
+            )
+          }
+          function SecondParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var SecondParser = (function (_Parser) {
+            !(function SecondParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass && SecondParser_setPrototypeOf(subClass, superClass)
+            })(SecondParser, _Parser)
+            var _super = SecondParser_createSuper(SecondParser)
+            function SecondParser() {
+              var _this
+              !(function SecondParser_classCallCheck(instance, Constructor) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, SecondParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                SecondParser_defineProperty(
+                  SecondParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  50
+                ),
+                SecondParser_defineProperty(
+                  SecondParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['t', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function SecondParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    SecondParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    SecondParser_defineProperties(Constructor, staticProps),
+                  Constructor
+                )
+              })(SecondParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token, match) {
+                    switch (token) {
+                      case 's':
+                        return parseNumericPattern(
+                          numericPatterns_second,
+                          dateString
+                        )
+                      case 'so':
+                        return match.ordinalNumber(dateString, {unit: 'second'})
+                      default:
+                        return parseNDigits(token.length, dateString)
+                    }
+                  },
+                },
+                {
+                  key: 'validate',
+                  value: function validate(_date, value) {
+                    return value >= 0 && value <= 59
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return date.setUTCSeconds(value, 0), date
+                  },
+                },
+              ]),
+              SecondParser
+            )
+          })(Parser)
+          function FractionOfSecondParser_typeof(obj) {
+            return (
+              (FractionOfSecondParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              FractionOfSecondParser_typeof(obj)
+            )
+          }
+          function FractionOfSecondParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function FractionOfSecondParser_setPrototypeOf(o, p) {
+            return (
+              (FractionOfSecondParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              FractionOfSecondParser_setPrototypeOf(o, p)
+            )
+          }
+          function FractionOfSecondParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function FractionOfSecondParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = FractionOfSecondParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  FractionOfSecondParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function FractionOfSecondParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === FractionOfSecondParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return FractionOfSecondParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function FractionOfSecondParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function FractionOfSecondParser_getPrototypeOf(o) {
+            return (
+              (FractionOfSecondParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              FractionOfSecondParser_getPrototypeOf(o)
+            )
+          }
+          function FractionOfSecondParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var FractionOfSecondParser = (function (_Parser) {
+            !(function FractionOfSecondParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  FractionOfSecondParser_setPrototypeOf(subClass, superClass)
+            })(FractionOfSecondParser, _Parser)
+            var _super = FractionOfSecondParser_createSuper(
+              FractionOfSecondParser
+            )
+            function FractionOfSecondParser() {
+              var _this
+              !(function FractionOfSecondParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, FractionOfSecondParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                FractionOfSecondParser_defineProperty(
+                  FractionOfSecondParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  30
+                ),
+                FractionOfSecondParser_defineProperty(
+                  FractionOfSecondParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['t', 'T']
+                ),
+                _this
+              )
+            }
+            return (
+              (function FractionOfSecondParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    FractionOfSecondParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    FractionOfSecondParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(FractionOfSecondParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token) {
+                    return mapValue(
+                      parseNDigits(token.length, dateString),
+                      function valueCallback(value) {
+                        return Math.floor(
+                          value * Math.pow(10, 3 - token.length)
+                        )
+                      }
+                    )
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, _flags, value) {
+                    return date.setUTCMilliseconds(value), date
+                  },
+                },
+              ]),
+              FractionOfSecondParser
+            )
+          })(Parser)
+          function ISOTimezoneWithZParser_typeof(obj) {
+            return (
+              (ISOTimezoneWithZParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              ISOTimezoneWithZParser_typeof(obj)
+            )
+          }
+          function ISOTimezoneWithZParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function ISOTimezoneWithZParser_setPrototypeOf(o, p) {
+            return (
+              (ISOTimezoneWithZParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              ISOTimezoneWithZParser_setPrototypeOf(o, p)
+            )
+          }
+          function ISOTimezoneWithZParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function ISOTimezoneWithZParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = ISOTimezoneWithZParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  ISOTimezoneWithZParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function ISOTimezoneWithZParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === ISOTimezoneWithZParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return ISOTimezoneWithZParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function ISOTimezoneWithZParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function ISOTimezoneWithZParser_getPrototypeOf(o) {
+            return (
+              (ISOTimezoneWithZParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              ISOTimezoneWithZParser_getPrototypeOf(o)
+            )
+          }
+          function ISOTimezoneWithZParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var ISOTimezoneWithZParser = (function (_Parser) {
+            !(function ISOTimezoneWithZParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  ISOTimezoneWithZParser_setPrototypeOf(subClass, superClass)
+            })(ISOTimezoneWithZParser, _Parser)
+            var _super = ISOTimezoneWithZParser_createSuper(
+              ISOTimezoneWithZParser
+            )
+            function ISOTimezoneWithZParser() {
+              var _this
+              !(function ISOTimezoneWithZParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, ISOTimezoneWithZParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                ISOTimezoneWithZParser_defineProperty(
+                  ISOTimezoneWithZParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  10
+                ),
+                ISOTimezoneWithZParser_defineProperty(
+                  ISOTimezoneWithZParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['t', 'T', 'x']
+                ),
+                _this
+              )
+            }
+            return (
+              (function ISOTimezoneWithZParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    ISOTimezoneWithZParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    ISOTimezoneWithZParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(ISOTimezoneWithZParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token) {
+                    switch (token) {
+                      case 'X':
+                        return parseTimezonePattern(
+                          timezonePatterns_basicOptionalMinutes,
+                          dateString
+                        )
+                      case 'XX':
+                        return parseTimezonePattern(
+                          timezonePatterns_basic,
+                          dateString
+                        )
+                      case 'XXXX':
+                        return parseTimezonePattern(
+                          timezonePatterns_basicOptionalSeconds,
+                          dateString
+                        )
+                      case 'XXXXX':
+                        return parseTimezonePattern(
+                          timezonePatterns_extendedOptionalSeconds,
+                          dateString
+                        )
+                      default:
+                        return parseTimezonePattern(
+                          timezonePatterns_extended,
+                          dateString
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, flags, value) {
+                    return flags.timestampIsSet
+                      ? date
+                      : new Date(date.getTime() - value)
+                  },
+                },
+              ]),
+              ISOTimezoneWithZParser
+            )
+          })(Parser)
+          function ISOTimezoneParser_typeof(obj) {
+            return (
+              (ISOTimezoneParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              ISOTimezoneParser_typeof(obj)
+            )
+          }
+          function ISOTimezoneParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function ISOTimezoneParser_setPrototypeOf(o, p) {
+            return (
+              (ISOTimezoneParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              ISOTimezoneParser_setPrototypeOf(o, p)
+            )
+          }
+          function ISOTimezoneParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function ISOTimezoneParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = ISOTimezoneParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  ISOTimezoneParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function ISOTimezoneParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === ISOTimezoneParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return ISOTimezoneParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function ISOTimezoneParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function ISOTimezoneParser_getPrototypeOf(o) {
+            return (
+              (ISOTimezoneParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              ISOTimezoneParser_getPrototypeOf(o)
+            )
+          }
+          function ISOTimezoneParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var ISOTimezoneParser = (function (_Parser) {
+            !(function ISOTimezoneParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  ISOTimezoneParser_setPrototypeOf(subClass, superClass)
+            })(ISOTimezoneParser, _Parser)
+            var _super = ISOTimezoneParser_createSuper(ISOTimezoneParser)
+            function ISOTimezoneParser() {
+              var _this
+              !(function ISOTimezoneParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, ISOTimezoneParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                ISOTimezoneParser_defineProperty(
+                  ISOTimezoneParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  10
+                ),
+                ISOTimezoneParser_defineProperty(
+                  ISOTimezoneParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  ['t', 'T', 'X']
+                ),
+                _this
+              )
+            }
+            return (
+              (function ISOTimezoneParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    ISOTimezoneParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    ISOTimezoneParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(ISOTimezoneParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString, token) {
+                    switch (token) {
+                      case 'x':
+                        return parseTimezonePattern(
+                          timezonePatterns_basicOptionalMinutes,
+                          dateString
+                        )
+                      case 'xx':
+                        return parseTimezonePattern(
+                          timezonePatterns_basic,
+                          dateString
+                        )
+                      case 'xxxx':
+                        return parseTimezonePattern(
+                          timezonePatterns_basicOptionalSeconds,
+                          dateString
+                        )
+                      case 'xxxxx':
+                        return parseTimezonePattern(
+                          timezonePatterns_extendedOptionalSeconds,
+                          dateString
+                        )
+                      default:
+                        return parseTimezonePattern(
+                          timezonePatterns_extended,
+                          dateString
+                        )
+                    }
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(date, flags, value) {
+                    return flags.timestampIsSet
+                      ? date
+                      : new Date(date.getTime() - value)
+                  },
+                },
+              ]),
+              ISOTimezoneParser
+            )
+          })(Parser)
+          function TimestampSecondsParser_typeof(obj) {
+            return (
+              (TimestampSecondsParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              TimestampSecondsParser_typeof(obj)
+            )
+          }
+          function TimestampSecondsParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function TimestampSecondsParser_setPrototypeOf(o, p) {
+            return (
+              (TimestampSecondsParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              TimestampSecondsParser_setPrototypeOf(o, p)
+            )
+          }
+          function TimestampSecondsParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function TimestampSecondsParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = TimestampSecondsParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  TimestampSecondsParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function TimestampSecondsParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === TimestampSecondsParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return TimestampSecondsParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function TimestampSecondsParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function TimestampSecondsParser_getPrototypeOf(o) {
+            return (
+              (TimestampSecondsParser_getPrototypeOf = Object.setPrototypeOf
+                ? Object.getPrototypeOf
+                : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o)
+                  }),
+              TimestampSecondsParser_getPrototypeOf(o)
+            )
+          }
+          function TimestampSecondsParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var TimestampSecondsParser = (function (_Parser) {
+            !(function TimestampSecondsParser_inherits(subClass, superClass) {
+              if ('function' != typeof superClass && null !== superClass)
+                throw new TypeError(
+                  'Super expression must either be null or a function'
+                )
+              ;(subClass.prototype = Object.create(
+                superClass && superClass.prototype,
+                {constructor: {value: subClass, writable: !0, configurable: !0}}
+              )),
+                superClass &&
+                  TimestampSecondsParser_setPrototypeOf(subClass, superClass)
+            })(TimestampSecondsParser, _Parser)
+            var _super = TimestampSecondsParser_createSuper(
+              TimestampSecondsParser
+            )
+            function TimestampSecondsParser() {
+              var _this
+              !(function TimestampSecondsParser_classCallCheck(
+                instance,
+                Constructor
+              ) {
+                if (!(instance instanceof Constructor))
+                  throw new TypeError('Cannot call a class as a function')
+              })(this, TimestampSecondsParser)
+              for (
+                var _len = arguments.length, args = new Array(_len), _key = 0;
+                _key < _len;
+                _key++
+              )
+                args[_key] = arguments[_key]
+              return (
+                TimestampSecondsParser_defineProperty(
+                  TimestampSecondsParser_assertThisInitialized(
+                    (_this = _super.call.apply(_super, [this].concat(args)))
+                  ),
+                  'priority',
+                  40
+                ),
+                TimestampSecondsParser_defineProperty(
+                  TimestampSecondsParser_assertThisInitialized(_this),
+                  'incompatibleTokens',
+                  '*'
+                ),
+                _this
+              )
+            }
+            return (
+              (function TimestampSecondsParser_createClass(
+                Constructor,
+                protoProps,
+                staticProps
+              ) {
+                return (
+                  protoProps &&
+                    TimestampSecondsParser_defineProperties(
+                      Constructor.prototype,
+                      protoProps
+                    ),
+                  staticProps &&
+                    TimestampSecondsParser_defineProperties(
+                      Constructor,
+                      staticProps
+                    ),
+                  Constructor
+                )
+              })(TimestampSecondsParser, [
+                {
+                  key: 'parse',
+                  value: function parse(dateString) {
+                    return parseAnyDigitsSigned(dateString)
+                  },
+                },
+                {
+                  key: 'set',
+                  value: function set(_date, _flags, value) {
+                    return [new Date(1e3 * value), {timestampIsSet: !0}]
+                  },
+                },
+              ]),
+              TimestampSecondsParser
+            )
+          })(Parser)
+          function TimestampMillisecondsParser_typeof(obj) {
+            return (
+              (TimestampMillisecondsParser_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              TimestampMillisecondsParser_typeof(obj)
+            )
+          }
+          function TimestampMillisecondsParser_defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+              var descriptor = props[i]
+              ;(descriptor.enumerable = descriptor.enumerable || !1),
+                (descriptor.configurable = !0),
+                'value' in descriptor && (descriptor.writable = !0),
+                Object.defineProperty(target, descriptor.key, descriptor)
+            }
+          }
+          function TimestampMillisecondsParser_setPrototypeOf(o, p) {
+            return (
+              (TimestampMillisecondsParser_setPrototypeOf =
+                Object.setPrototypeOf ||
+                function _setPrototypeOf(o, p) {
+                  return (o.__proto__ = p), o
+                }),
+              TimestampMillisecondsParser_setPrototypeOf(o, p)
+            )
+          }
+          function TimestampMillisecondsParser_createSuper(Derived) {
+            var hasNativeReflectConstruct =
+              (function TimestampMillisecondsParser_isNativeReflectConstruct() {
+                if ('undefined' == typeof Reflect || !Reflect.construct)
+                  return !1
+                if (Reflect.construct.sham) return !1
+                if ('function' == typeof Proxy) return !0
+                try {
+                  return (
+                    Boolean.prototype.valueOf.call(
+                      Reflect.construct(Boolean, [], function () {})
+                    ),
+                    !0
+                  )
+                } catch (e) {
+                  return !1
+                }
+              })()
+            return function _createSuperInternal() {
+              var result,
+                Super = TimestampMillisecondsParser_getPrototypeOf(Derived)
+              if (hasNativeReflectConstruct) {
+                var NewTarget =
+                  TimestampMillisecondsParser_getPrototypeOf(this).constructor
+                result = Reflect.construct(Super, arguments, NewTarget)
+              } else result = Super.apply(this, arguments)
+              return (function TimestampMillisecondsParser_possibleConstructorReturn(
+                self,
+                call
+              ) {
+                if (
+                  call &&
+                  ('object' === TimestampMillisecondsParser_typeof(call) ||
+                    'function' == typeof call)
+                )
+                  return call
+                return TimestampMillisecondsParser_assertThisInitialized(self)
+              })(this, result)
+            }
+          }
+          function TimestampMillisecondsParser_assertThisInitialized(self) {
+            if (void 0 === self)
+              throw new ReferenceError(
+                "this hasn't been initialised - super() hasn't been called"
+              )
+            return self
+          }
+          function TimestampMillisecondsParser_getPrototypeOf(o) {
+            return (
+              (TimestampMillisecondsParser_getPrototypeOf =
+                Object.setPrototypeOf
+                  ? Object.getPrototypeOf
+                  : function _getPrototypeOf(o) {
+                      return o.__proto__ || Object.getPrototypeOf(o)
+                    }),
+              TimestampMillisecondsParser_getPrototypeOf(o)
+            )
+          }
+          function TimestampMillisecondsParser_defineProperty(obj, key, value) {
+            return (
+              key in obj
+                ? Object.defineProperty(obj, key, {
+                    value,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                  })
+                : (obj[key] = value),
+              obj
+            )
+          }
+          var TimestampMillisecondsParser = (function (_Parser) {
+              !(function TimestampMillisecondsParser_inherits(
+                subClass,
+                superClass
+              ) {
+                if ('function' != typeof superClass && null !== superClass)
+                  throw new TypeError(
+                    'Super expression must either be null or a function'
+                  )
+                ;(subClass.prototype = Object.create(
+                  superClass && superClass.prototype,
+                  {
+                    constructor: {
+                      value: subClass,
+                      writable: !0,
+                      configurable: !0,
+                    },
+                  }
+                )),
+                  superClass &&
+                    TimestampMillisecondsParser_setPrototypeOf(
+                      subClass,
+                      superClass
+                    )
+              })(TimestampMillisecondsParser, _Parser)
+              var _super = TimestampMillisecondsParser_createSuper(
+                TimestampMillisecondsParser
+              )
+              function TimestampMillisecondsParser() {
+                var _this
+                !(function TimestampMillisecondsParser_classCallCheck(
+                  instance,
+                  Constructor
+                ) {
+                  if (!(instance instanceof Constructor))
+                    throw new TypeError('Cannot call a class as a function')
+                })(this, TimestampMillisecondsParser)
+                for (
+                  var _len = arguments.length, args = new Array(_len), _key = 0;
+                  _key < _len;
+                  _key++
+                )
+                  args[_key] = arguments[_key]
+                return (
+                  TimestampMillisecondsParser_defineProperty(
+                    TimestampMillisecondsParser_assertThisInitialized(
+                      (_this = _super.call.apply(_super, [this].concat(args)))
+                    ),
+                    'priority',
+                    20
+                  ),
+                  TimestampMillisecondsParser_defineProperty(
+                    TimestampMillisecondsParser_assertThisInitialized(_this),
+                    'incompatibleTokens',
+                    '*'
+                  ),
+                  _this
+                )
+              }
+              return (
+                (function TimestampMillisecondsParser_createClass(
+                  Constructor,
+                  protoProps,
+                  staticProps
+                ) {
+                  return (
+                    protoProps &&
+                      TimestampMillisecondsParser_defineProperties(
+                        Constructor.prototype,
+                        protoProps
+                      ),
+                    staticProps &&
+                      TimestampMillisecondsParser_defineProperties(
+                        Constructor,
+                        staticProps
+                      ),
+                    Constructor
+                  )
+                })(TimestampMillisecondsParser, [
+                  {
+                    key: 'parse',
+                    value: function parse(dateString) {
+                      return parseAnyDigitsSigned(dateString)
+                    },
+                  },
+                  {
+                    key: 'set',
+                    value: function set(_date, _flags, value) {
+                      return [new Date(value), {timestampIsSet: !0}]
+                    },
+                  },
+                ]),
+                TimestampMillisecondsParser
+              )
+            })(Parser),
+            parsers = {
+              G: new EraParser(),
+              y: new YearParser(),
+              Y: new LocalWeekYearParser(),
+              R: new ISOWeekYearParser(),
+              u: new ExtendedYearParser(),
+              Q: new QuarterParser(),
+              q: new StandAloneQuarterParser(),
+              M: new MonthParser(),
+              L: new StandAloneMonthParser(),
+              w: new LocalWeekParser(),
+              I: new ISOWeekParser(),
+              d: new DateParser(),
+              D: new DayOfYearParser(),
+              E: new DayParser(),
+              e: new LocalDayParser(),
+              c: new StandAloneLocalDayParser(),
+              i: new ISODayParser(),
+              a: new AMPMParser(),
+              b: new AMPMMidnightParser(),
+              B: new DayPeriodParser(),
+              h: new Hour1to12Parser(),
+              H: new Hour0to23Parser(),
+              K: new Hour0To11Parser(),
+              k: new Hour1To24Parser(),
+              m: new MinuteParser(),
+              s: new SecondParser(),
+              S: new FractionOfSecondParser(),
+              X: new ISOTimezoneWithZParser(),
+              x: new ISOTimezoneParser(),
+              t: new TimestampSecondsParser(),
+              T: new TimestampMillisecondsParser(),
+            }
+          function parse_typeof(obj) {
+            return (
+              (parse_typeof =
+                'function' == typeof Symbol &&
+                'symbol' == typeof Symbol.iterator
+                  ? function _typeof(obj) {
+                      return typeof obj
+                    }
+                  : function _typeof(obj) {
+                      return obj &&
+                        'function' == typeof Symbol &&
+                        obj.constructor === Symbol &&
+                        obj !== Symbol.prototype
+                        ? 'symbol'
+                        : typeof obj
+                    }),
+              parse_typeof(obj)
+            )
+          }
+          function _createForOfIteratorHelper(o, allowArrayLike) {
+            var it
+            if ('undefined' == typeof Symbol || null == o[Symbol.iterator]) {
+              if (
+                Array.isArray(o) ||
+                (it = (function _unsupportedIterableToArray(o, minLen) {
+                  if (!o) return
+                  if ('string' == typeof o) return _arrayLikeToArray(o, minLen)
+                  var n = Object.prototype.toString.call(o).slice(8, -1)
+                  'Object' === n && o.constructor && (n = o.constructor.name)
+                  if ('Map' === n || 'Set' === n) return Array.from(o)
+                  if (
+                    'Arguments' === n ||
+                    /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
+                  )
+                    return _arrayLikeToArray(o, minLen)
+                })(o)) ||
+                (allowArrayLike && o && 'number' == typeof o.length)
+              ) {
+                it && (o = it)
+                var i = 0,
+                  F = function F() {}
+                return {
+                  s: F,
+                  n: function n() {
+                    return i >= o.length
+                      ? {done: !0}
+                      : {done: !1, value: o[i++]}
+                  },
+                  e: function e(_e) {
+                    throw _e
+                  },
+                  f: F,
+                }
+              }
+              throw new TypeError(
+                'Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
+              )
+            }
+            var err,
+              normalCompletion = !0,
+              didErr = !1
+            return {
+              s: function s() {
+                it = o[Symbol.iterator]()
+              },
+              n: function n() {
+                var step = it.next()
+                return (normalCompletion = step.done), step
+              },
+              e: function e(_e2) {
+                ;(didErr = !0), (err = _e2)
+              },
+              f: function f() {
+                try {
+                  normalCompletion || null == it.return || it.return()
+                } finally {
+                  if (didErr) throw err
+                }
+              },
+            }
+          }
+          function _arrayLikeToArray(arr, len) {
+            ;(null == len || len > arr.length) && (len = arr.length)
+            for (var i = 0, arr2 = new Array(len); i < len; i++)
+              arr2[i] = arr[i]
+            return arr2
+          }
+          var parse_formattingTokensRegExp =
+              /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g,
+            parse_longFormattingTokensRegExp =
+              /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g,
+            parse_escapedStringRegExp = /^'([^]*?)'?$/,
+            parse_doubleQuoteRegExp = /''/g,
+            notWhitespaceRegExp = /\S/,
+            parse_unescapedLatinCharacterRegExp = /[a-zA-Z]/
+          function parse(
+            dirtyDateString,
+            dirtyFormatString,
+            dirtyReferenceDate,
+            options
+          ) {
+            var _ref,
+              _options$locale,
+              _ref2,
+              _ref3,
+              _ref4,
+              _options$firstWeekCon,
+              _options$locale2,
+              _options$locale2$opti,
+              _defaultOptions$local,
+              _defaultOptions$local2,
+              _ref5,
+              _ref6,
+              _ref7,
+              _options$weekStartsOn,
+              _options$locale3,
+              _options$locale3$opti,
+              _defaultOptions$local3,
+              _defaultOptions$local4
+            requiredArgs(3, arguments)
+            var dateString = String(dirtyDateString),
+              formatString = String(dirtyFormatString),
+              defaultOptions = getDefaultOptions(),
+              locale =
+                null !==
+                  (_ref =
+                    null !==
+                      (_options$locale =
+                        null == options ? void 0 : options.locale) &&
+                    void 0 !== _options$locale
+                      ? _options$locale
+                      : defaultOptions.locale) && void 0 !== _ref
+                  ? _ref
+                  : defaultLocale
+            if (!locale.match)
+              throw new RangeError('locale must contain match property')
+            var firstWeekContainsDate = toInteger(
               null !==
                 (_ref2 =
                   null !==
@@ -6116,3549 +14232,17 @@
                 ? _ref2
                 : 1
             )
-          if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7))
-            throw new RangeError(
-              'firstWeekContainsDate must be between 1 and 7 inclusively'
-            )
-          var weekStartsOn = toInteger(
-            null !==
-              (_ref5 =
-                null !==
-                  (_ref6 =
-                    null !==
-                      (_ref7 =
-                        null !==
-                          (_options$weekStartsOn =
-                            null == options ? void 0 : options.weekStartsOn) &&
-                        void 0 !== _options$weekStartsOn
-                          ? _options$weekStartsOn
-                          : null == options ||
-                            null === (_options$locale3 = options.locale) ||
-                            void 0 === _options$locale3 ||
-                            null ===
-                              (_options$locale3$opti =
-                                _options$locale3.options) ||
-                            void 0 === _options$locale3$opti
-                          ? void 0
-                          : _options$locale3$opti.weekStartsOn) &&
-                    void 0 !== _ref7
-                      ? _ref7
-                      : defaultOptions.weekStartsOn) && void 0 !== _ref6
-                  ? _ref6
-                  : null === (_defaultOptions$local3 = defaultOptions.locale) ||
-                    void 0 === _defaultOptions$local3 ||
-                    null ===
-                      (_defaultOptions$local4 =
-                        _defaultOptions$local3.options) ||
-                    void 0 === _defaultOptions$local4
-                  ? void 0
-                  : _defaultOptions$local4.weekStartsOn) && void 0 !== _ref5
-              ? _ref5
-              : 0
-          )
-          if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
-            throw new RangeError(
-              'weekStartsOn must be between 0 and 6 inclusively'
-            )
-          if (!locale.localize)
-            throw new RangeError('locale must contain localize property')
-          if (!locale.formatLong)
-            throw new RangeError('locale must contain formatLong property')
-          var originalDate = toDate(dirtyDate)
-          if (!isValid(originalDate)) throw new RangeError('Invalid time value')
-          var utcDate = subMilliseconds(
-              originalDate,
-              getTimezoneOffsetInMilliseconds(originalDate)
-            ),
-            formatterOptions = {
-              firstWeekContainsDate,
-              weekStartsOn,
-              locale,
-              _originalDate: originalDate,
-            }
-          return formatStr
-            .match(longFormattingTokensRegExp)
-            .map(function (substring) {
-              var firstCharacter = substring[0]
-              return 'p' === firstCharacter || 'P' === firstCharacter
-                ? (0, format_longFormatters[firstCharacter])(
-                    substring,
-                    locale.formatLong
-                  )
-                : substring
-            })
-            .join('')
-            .match(formattingTokensRegExp)
-            .map(function (substring) {
-              if ("''" === substring) return "'"
-              var firstCharacter = substring[0]
-              if ("'" === firstCharacter)
-                return (function cleanEscapedString(input) {
-                  var matched = input.match(escapedStringRegExp)
-                  if (!matched) return input
-                  return matched[1].replace(doubleQuoteRegExp, "'")
-                })(substring)
-              var formatter = format_formatters[firstCharacter]
-              if (formatter)
-                return (
-                  (null != options && options.useAdditionalWeekYearTokens) ||
-                    !isProtectedWeekYearToken(substring) ||
-                    throwProtectedError(
-                      substring,
-                      dirtyFormatStr,
-                      String(dirtyDate)
-                    ),
-                  (null != options && options.useAdditionalDayOfYearTokens) ||
-                    !isProtectedDayOfYearToken(substring) ||
-                    throwProtectedError(
-                      substring,
-                      dirtyFormatStr,
-                      String(dirtyDate)
-                    ),
-                  formatter(
-                    utcDate,
-                    substring,
-                    locale.localize,
-                    formatterOptions
-                  )
-                )
-              if (firstCharacter.match(unescapedLatinCharacterRegExp))
-                throw new RangeError(
-                  'Format string contains an unescaped latin alphabet character `' +
-                    firstCharacter +
-                    '`'
-                )
-              return substring
-            })
-            .join('')
-        }
-        function getDay(dirtyDate) {
-          return requiredArgs(1, arguments), toDate(dirtyDate).getDay()
-        }
-        function getDaysInMonth(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate),
-            year = date.getFullYear(),
-            monthIndex = date.getMonth(),
-            lastDayOfMonth = new Date(0)
-          return (
-            lastDayOfMonth.setFullYear(year, monthIndex + 1, 0),
-            lastDayOfMonth.setHours(0, 0, 0, 0),
-            lastDayOfMonth.getDate()
-          )
-        }
-        function isAfter(dirtyDate, dirtyDateToCompare) {
-          requiredArgs(2, arguments)
-          var date = toDate(dirtyDate),
-            dateToCompare = toDate(dirtyDateToCompare)
-          return date.getTime() > dateToCompare.getTime()
-        }
-        function isBefore(dirtyDate, dirtyDateToCompare) {
-          requiredArgs(2, arguments)
-          var date = toDate(dirtyDate),
-            dateToCompare = toDate(dirtyDateToCompare)
-          return date.getTime() < dateToCompare.getTime()
-        }
-        function startOfHour(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate)
-          return date.setMinutes(0, 0, 0), date
-        }
-        function assign_assign(target, object) {
-          if (null == target)
-            throw new TypeError(
-              'assign requires that input parameter not be null or undefined'
-            )
-          for (var property in object)
-            Object.prototype.hasOwnProperty.call(object, property) &&
-              (target[property] = object[property])
-          return target
-        }
-        function Setter_typeof(obj) {
-          return (
-            (Setter_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            Setter_typeof(obj)
-          )
-        }
-        function _inherits(subClass, superClass) {
-          if ('function' != typeof superClass && null !== superClass)
-            throw new TypeError(
-              'Super expression must either be null or a function'
-            )
-          ;(subClass.prototype = Object.create(
-            superClass && superClass.prototype,
-            {constructor: {value: subClass, writable: !0, configurable: !0}}
-          )),
-            superClass && _setPrototypeOf(subClass, superClass)
-        }
-        function _setPrototypeOf(o, p) {
-          return (
-            (_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            _setPrototypeOf(o, p)
-          )
-        }
-        function _createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function _isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = _getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = _getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function _possibleConstructorReturn(self, call) {
-              if (
-                call &&
-                ('object' === Setter_typeof(call) || 'function' == typeof call)
+            if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7))
+              throw new RangeError(
+                'firstWeekContainsDate must be between 1 and 7 inclusively'
               )
-                return call
-              return _assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function _assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function _getPrototypeOf(o) {
-          return (
-            (_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            _getPrototypeOf(o)
-          )
-        }
-        function _classCallCheck(instance, Constructor) {
-          if (!(instance instanceof Constructor))
-            throw new TypeError('Cannot call a class as a function')
-        }
-        function _defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function _createClass(Constructor, protoProps, staticProps) {
-          return (
-            protoProps && _defineProperties(Constructor.prototype, protoProps),
-            staticProps && _defineProperties(Constructor, staticProps),
-            Constructor
-          )
-        }
-        function _defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var Setter = (function () {
-            function Setter() {
-              _classCallCheck(this, Setter),
-                _defineProperty(this, 'subPriority', 0)
-            }
-            return (
-              _createClass(Setter, [
-                {
-                  key: 'validate',
-                  value: function validate(_utcDate, _options) {
-                    return !0
-                  },
-                },
-              ]),
-              Setter
-            )
-          })(),
-          ValueSetter = (function (_Setter) {
-            _inherits(ValueSetter, _Setter)
-            var _super = _createSuper(ValueSetter)
-            function ValueSetter(
-              value,
-              validateValue,
-              setValue,
-              priority,
-              subPriority
-            ) {
-              var _this
-              return (
-                _classCallCheck(this, ValueSetter),
-                ((_this = _super.call(this)).value = value),
-                (_this.validateValue = validateValue),
-                (_this.setValue = setValue),
-                (_this.priority = priority),
-                subPriority && (_this.subPriority = subPriority),
-                _this
-              )
-            }
-            return (
-              _createClass(ValueSetter, [
-                {
-                  key: 'validate',
-                  value: function validate(utcDate, options) {
-                    return this.validateValue(utcDate, this.value, options)
-                  },
-                },
-                {
-                  key: 'set',
-                  value: function set(utcDate, flags, options) {
-                    return this.setValue(utcDate, flags, this.value, options)
-                  },
-                },
-              ]),
-              ValueSetter
-            )
-          })(Setter),
-          DateToSystemTimezoneSetter = (function (_Setter2) {
-            _inherits(DateToSystemTimezoneSetter, _Setter2)
-            var _super2 = _createSuper(DateToSystemTimezoneSetter)
-            function DateToSystemTimezoneSetter() {
-              var _this2
-              _classCallCheck(this, DateToSystemTimezoneSetter)
-              for (
-                var _len = arguments.length, args = new Array(_len), _key = 0;
-                _key < _len;
-                _key++
-              )
-                args[_key] = arguments[_key]
-              return (
-                _defineProperty(
-                  _assertThisInitialized(
-                    (_this2 = _super2.call.apply(_super2, [this].concat(args)))
-                  ),
-                  'priority',
-                  10
-                ),
-                _defineProperty(
-                  _assertThisInitialized(_this2),
-                  'subPriority',
-                  -1
-                ),
-                _this2
-              )
-            }
-            return (
-              _createClass(DateToSystemTimezoneSetter, [
-                {
-                  key: 'set',
-                  value: function set(date, flags) {
-                    if (flags.timestampIsSet) return date
-                    var convertedDate = new Date(0)
-                    return (
-                      convertedDate.setFullYear(
-                        date.getUTCFullYear(),
-                        date.getUTCMonth(),
-                        date.getUTCDate()
-                      ),
-                      convertedDate.setHours(
-                        date.getUTCHours(),
-                        date.getUTCMinutes(),
-                        date.getUTCSeconds(),
-                        date.getUTCMilliseconds()
-                      ),
-                      convertedDate
-                    )
-                  },
-                },
-              ]),
-              DateToSystemTimezoneSetter
-            )
-          })(Setter)
-        function Parser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        var Parser = (function () {
-          function Parser() {
-            !(function Parser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, Parser)
-          }
-          return (
-            (function Parser_createClass(Constructor, protoProps, staticProps) {
-              return (
-                protoProps &&
-                  Parser_defineProperties(Constructor.prototype, protoProps),
-                staticProps &&
-                  Parser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(Parser, [
-              {
-                key: 'run',
-                value: function run(dateString, token, match, options) {
-                  var result = this.parse(dateString, token, match, options)
-                  return result
-                    ? {
-                        setter: new ValueSetter(
-                          result.value,
-                          this.validate,
-                          this.set,
-                          this.priority,
-                          this.subPriority
-                        ),
-                        rest: result.rest,
-                      }
-                    : null
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_utcDate, _value, _options) {
-                  return !0
-                },
-              },
-            ]),
-            Parser
-          )
-        })()
-        function EraParser_typeof(obj) {
-          return (
-            (EraParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            EraParser_typeof(obj)
-          )
-        }
-        function EraParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function EraParser_setPrototypeOf(o, p) {
-          return (
-            (EraParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            EraParser_setPrototypeOf(o, p)
-          )
-        }
-        function EraParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function EraParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = EraParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = EraParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function EraParser_possibleConstructorReturn(self, call) {
-              if (
-                call &&
-                ('object' === EraParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return EraParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function EraParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function EraParser_getPrototypeOf(o) {
-          return (
-            (EraParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            EraParser_getPrototypeOf(o)
-          )
-        }
-        function EraParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var EraParser = (function (_Parser) {
-            !(function EraParser_inherits(subClass, superClass) {
-              if ('function' != typeof superClass && null !== superClass)
-                throw new TypeError(
-                  'Super expression must either be null or a function'
-                )
-              ;(subClass.prototype = Object.create(
-                superClass && superClass.prototype,
-                {constructor: {value: subClass, writable: !0, configurable: !0}}
-              )),
-                superClass && EraParser_setPrototypeOf(subClass, superClass)
-            })(EraParser, _Parser)
-            var _super = EraParser_createSuper(EraParser)
-            function EraParser() {
-              var _this
-              !(function EraParser_classCallCheck(instance, Constructor) {
-                if (!(instance instanceof Constructor))
-                  throw new TypeError('Cannot call a class as a function')
-              })(this, EraParser)
-              for (
-                var _len = arguments.length, args = new Array(_len), _key = 0;
-                _key < _len;
-                _key++
-              )
-                args[_key] = arguments[_key]
-              return (
-                EraParser_defineProperty(
-                  EraParser_assertThisInitialized(
-                    (_this = _super.call.apply(_super, [this].concat(args)))
-                  ),
-                  'priority',
-                  140
-                ),
-                EraParser_defineProperty(
-                  EraParser_assertThisInitialized(_this),
-                  'incompatibleTokens',
-                  ['R', 'u', 't', 'T']
-                ),
-                _this
-              )
-            }
-            return (
-              (function EraParser_createClass(
-                Constructor,
-                protoProps,
-                staticProps
-              ) {
-                return (
-                  protoProps &&
-                    EraParser_defineProperties(
-                      Constructor.prototype,
-                      protoProps
-                    ),
-                  staticProps &&
-                    EraParser_defineProperties(Constructor, staticProps),
-                  Constructor
-                )
-              })(EraParser, [
-                {
-                  key: 'parse',
-                  value: function parse(dateString, token, match) {
-                    switch (token) {
-                      case 'G':
-                      case 'GG':
-                      case 'GGG':
-                        return (
-                          match.era(dateString, {width: 'abbreviated'}) ||
-                          match.era(dateString, {width: 'narrow'})
-                        )
-                      case 'GGGGG':
-                        return match.era(dateString, {width: 'narrow'})
-                      default:
-                        return (
-                          match.era(dateString, {width: 'wide'}) ||
-                          match.era(dateString, {width: 'abbreviated'}) ||
-                          match.era(dateString, {width: 'narrow'})
-                        )
-                    }
-                  },
-                },
-                {
-                  key: 'set',
-                  value: function set(date, flags, value) {
-                    return (
-                      (flags.era = value),
-                      date.setUTCFullYear(value, 0, 1),
-                      date.setUTCHours(0, 0, 0, 0),
-                      date
-                    )
-                  },
-                },
-              ]),
-              EraParser
-            )
-          })(Parser),
-          numericPatterns_month = /^(1[0-2]|0?\d)/,
-          numericPatterns_date = /^(3[0-1]|[0-2]?\d)/,
-          numericPatterns_dayOfYear = /^(36[0-6]|3[0-5]\d|[0-2]?\d?\d)/,
-          numericPatterns_week = /^(5[0-3]|[0-4]?\d)/,
-          numericPatterns_hour23h = /^(2[0-3]|[0-1]?\d)/,
-          numericPatterns_hour24h = /^(2[0-4]|[0-1]?\d)/,
-          numericPatterns_hour11h = /^(1[0-1]|0?\d)/,
-          numericPatterns_hour12h = /^(1[0-2]|0?\d)/,
-          numericPatterns_minute = /^[0-5]?\d/,
-          numericPatterns_second = /^[0-5]?\d/,
-          numericPatterns_singleDigit = /^\d/,
-          numericPatterns_twoDigits = /^\d{1,2}/,
-          numericPatterns_threeDigits = /^\d{1,3}/,
-          numericPatterns_fourDigits = /^\d{1,4}/,
-          numericPatterns_anyDigitsSigned = /^-?\d+/,
-          numericPatterns_singleDigitSigned = /^-?\d/,
-          numericPatterns_twoDigitsSigned = /^-?\d{1,2}/,
-          numericPatterns_threeDigitsSigned = /^-?\d{1,3}/,
-          numericPatterns_fourDigitsSigned = /^-?\d{1,4}/,
-          timezonePatterns_basicOptionalMinutes = /^([+-])(\d{2})(\d{2})?|Z/,
-          timezonePatterns_basic = /^([+-])(\d{2})(\d{2})|Z/,
-          timezonePatterns_basicOptionalSeconds =
-            /^([+-])(\d{2})(\d{2})((\d{2}))?|Z/,
-          timezonePatterns_extended = /^([+-])(\d{2}):(\d{2})|Z/,
-          timezonePatterns_extendedOptionalSeconds =
-            /^([+-])(\d{2}):(\d{2})(:(\d{2}))?|Z/
-        function mapValue(parseFnResult, mapFn) {
-          return parseFnResult
-            ? {value: mapFn(parseFnResult.value), rest: parseFnResult.rest}
-            : parseFnResult
-        }
-        function parseNumericPattern(pattern, dateString) {
-          var matchResult = dateString.match(pattern)
-          return matchResult
-            ? {
-                value: parseInt(matchResult[0], 10),
-                rest: dateString.slice(matchResult[0].length),
-              }
-            : null
-        }
-        function parseTimezonePattern(pattern, dateString) {
-          var matchResult = dateString.match(pattern)
-          if (!matchResult) return null
-          if ('Z' === matchResult[0])
-            return {value: 0, rest: dateString.slice(1)}
-          var sign = '+' === matchResult[1] ? 1 : -1,
-            hours = matchResult[2] ? parseInt(matchResult[2], 10) : 0,
-            minutes = matchResult[3] ? parseInt(matchResult[3], 10) : 0,
-            seconds = matchResult[5] ? parseInt(matchResult[5], 10) : 0
-          return {
-            value:
-              sign *
-              (hours * millisecondsInHour +
-                minutes * millisecondsInMinute +
-                1e3 * seconds),
-            rest: dateString.slice(matchResult[0].length),
-          }
-        }
-        function parseAnyDigitsSigned(dateString) {
-          return parseNumericPattern(
-            numericPatterns_anyDigitsSigned,
-            dateString
-          )
-        }
-        function parseNDigits(n, dateString) {
-          switch (n) {
-            case 1:
-              return parseNumericPattern(
-                numericPatterns_singleDigit,
-                dateString
-              )
-            case 2:
-              return parseNumericPattern(numericPatterns_twoDigits, dateString)
-            case 3:
-              return parseNumericPattern(
-                numericPatterns_threeDigits,
-                dateString
-              )
-            case 4:
-              return parseNumericPattern(numericPatterns_fourDigits, dateString)
-            default:
-              return parseNumericPattern(
-                new RegExp('^\\d{1,' + n + '}'),
-                dateString
-              )
-          }
-        }
-        function parseNDigitsSigned(n, dateString) {
-          switch (n) {
-            case 1:
-              return parseNumericPattern(
-                numericPatterns_singleDigitSigned,
-                dateString
-              )
-            case 2:
-              return parseNumericPattern(
-                numericPatterns_twoDigitsSigned,
-                dateString
-              )
-            case 3:
-              return parseNumericPattern(
-                numericPatterns_threeDigitsSigned,
-                dateString
-              )
-            case 4:
-              return parseNumericPattern(
-                numericPatterns_fourDigitsSigned,
-                dateString
-              )
-            default:
-              return parseNumericPattern(
-                new RegExp('^-?\\d{1,' + n + '}'),
-                dateString
-              )
-          }
-        }
-        function dayPeriodEnumToHours(dayPeriod) {
-          switch (dayPeriod) {
-            case 'morning':
-              return 4
-            case 'evening':
-              return 17
-            case 'pm':
-            case 'noon':
-            case 'afternoon':
-              return 12
-            default:
-              return 0
-          }
-        }
-        function normalizeTwoDigitYear(twoDigitYear, currentYear) {
-          var result,
-            isCommonEra = currentYear > 0,
-            absCurrentYear = isCommonEra ? currentYear : 1 - currentYear
-          if (absCurrentYear <= 50) result = twoDigitYear || 100
-          else {
-            var rangeEnd = absCurrentYear + 50
-            result =
-              twoDigitYear +
-              100 * Math.floor(rangeEnd / 100) -
-              (twoDigitYear >= rangeEnd % 100 ? 100 : 0)
-          }
-          return isCommonEra ? result : 1 - result
-        }
-        function isLeapYearIndex(year) {
-          return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)
-        }
-        function YearParser_typeof(obj) {
-          return (
-            (YearParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            YearParser_typeof(obj)
-          )
-        }
-        function YearParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function YearParser_setPrototypeOf(o, p) {
-          return (
-            (YearParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            YearParser_setPrototypeOf(o, p)
-          )
-        }
-        function YearParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function YearParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = YearParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = YearParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function YearParser_possibleConstructorReturn(self, call) {
-              if (
-                call &&
-                ('object' === YearParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return YearParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function YearParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function YearParser_getPrototypeOf(o) {
-          return (
-            (YearParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            YearParser_getPrototypeOf(o)
-          )
-        }
-        function YearParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var YearParser = (function (_Parser) {
-          !(function YearParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && YearParser_setPrototypeOf(subClass, superClass)
-          })(YearParser, _Parser)
-          var _super = YearParser_createSuper(YearParser)
-          function YearParser() {
-            var _this
-            !(function YearParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, YearParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              YearParser_defineProperty(
-                YearParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                130
-              ),
-              YearParser_defineProperty(
-                YearParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['Y', 'R', 'u', 'w', 'I', 'i', 'e', 'c', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function YearParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  YearParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  YearParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(YearParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  var valueCallback = function valueCallback(year) {
-                    return {year, isTwoDigitYear: 'yy' === token}
-                  }
-                  switch (token) {
-                    case 'y':
-                      return mapValue(
-                        parseNDigits(4, dateString),
-                        valueCallback
-                      )
-                    case 'yo':
-                      return mapValue(
-                        match.ordinalNumber(dateString, {unit: 'year'}),
-                        valueCallback
-                      )
-                    default:
-                      return mapValue(
-                        parseNDigits(token.length, dateString),
-                        valueCallback
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value.isTwoDigitYear || value.year > 0
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, flags, value) {
-                  var currentYear = date.getUTCFullYear()
-                  if (value.isTwoDigitYear) {
-                    var normalizedTwoDigitYear = normalizeTwoDigitYear(
-                      value.year,
-                      currentYear
-                    )
-                    return (
-                      date.setUTCFullYear(normalizedTwoDigitYear, 0, 1),
-                      date.setUTCHours(0, 0, 0, 0),
-                      date
-                    )
-                  }
-                  var year =
-                    'era' in flags && 1 !== flags.era
-                      ? 1 - value.year
-                      : value.year
-                  return (
-                    date.setUTCFullYear(year, 0, 1),
-                    date.setUTCHours(0, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            YearParser
-          )
-        })(Parser)
-        function LocalWeekYearParser_typeof(obj) {
-          return (
-            (LocalWeekYearParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            LocalWeekYearParser_typeof(obj)
-          )
-        }
-        function LocalWeekYearParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function LocalWeekYearParser_setPrototypeOf(o, p) {
-          return (
-            (LocalWeekYearParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            LocalWeekYearParser_setPrototypeOf(o, p)
-          )
-        }
-        function LocalWeekYearParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function LocalWeekYearParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = LocalWeekYearParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                LocalWeekYearParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function LocalWeekYearParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === LocalWeekYearParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return LocalWeekYearParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function LocalWeekYearParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function LocalWeekYearParser_getPrototypeOf(o) {
-          return (
-            (LocalWeekYearParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            LocalWeekYearParser_getPrototypeOf(o)
-          )
-        }
-        function LocalWeekYearParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var LocalWeekYearParser = (function (_Parser) {
-          !(function LocalWeekYearParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                LocalWeekYearParser_setPrototypeOf(subClass, superClass)
-          })(LocalWeekYearParser, _Parser)
-          var _super = LocalWeekYearParser_createSuper(LocalWeekYearParser)
-          function LocalWeekYearParser() {
-            var _this
-            !(function LocalWeekYearParser_classCallCheck(
-              instance,
-              Constructor
-            ) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, LocalWeekYearParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              LocalWeekYearParser_defineProperty(
-                LocalWeekYearParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                130
-              ),
-              LocalWeekYearParser_defineProperty(
-                LocalWeekYearParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'y',
-                  'R',
-                  'u',
-                  'Q',
-                  'q',
-                  'M',
-                  'L',
-                  'I',
-                  'd',
-                  'D',
-                  'i',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function LocalWeekYearParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  LocalWeekYearParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  LocalWeekYearParser_defineProperties(
-                    Constructor,
-                    staticProps
-                  ),
-                Constructor
-              )
-            })(LocalWeekYearParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  var valueCallback = function valueCallback(year) {
-                    return {year, isTwoDigitYear: 'YY' === token}
-                  }
-                  switch (token) {
-                    case 'Y':
-                      return mapValue(
-                        parseNDigits(4, dateString),
-                        valueCallback
-                      )
-                    case 'Yo':
-                      return mapValue(
-                        match.ordinalNumber(dateString, {unit: 'year'}),
-                        valueCallback
-                      )
-                    default:
-                      return mapValue(
-                        parseNDigits(token.length, dateString),
-                        valueCallback
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value.isTwoDigitYear || value.year > 0
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, flags, value, options) {
-                  var currentYear = getUTCWeekYear(date, options)
-                  if (value.isTwoDigitYear) {
-                    var normalizedTwoDigitYear = normalizeTwoDigitYear(
-                      value.year,
-                      currentYear
-                    )
-                    return (
-                      date.setUTCFullYear(
-                        normalizedTwoDigitYear,
-                        0,
-                        options.firstWeekContainsDate
-                      ),
-                      date.setUTCHours(0, 0, 0, 0),
-                      startOfUTCWeek(date, options)
-                    )
-                  }
-                  var year =
-                    'era' in flags && 1 !== flags.era
-                      ? 1 - value.year
-                      : value.year
-                  return (
-                    date.setUTCFullYear(year, 0, options.firstWeekContainsDate),
-                    date.setUTCHours(0, 0, 0, 0),
-                    startOfUTCWeek(date, options)
-                  )
-                },
-              },
-            ]),
-            LocalWeekYearParser
-          )
-        })(Parser)
-        function ISOWeekYearParser_typeof(obj) {
-          return (
-            (ISOWeekYearParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            ISOWeekYearParser_typeof(obj)
-          )
-        }
-        function ISOWeekYearParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function ISOWeekYearParser_setPrototypeOf(o, p) {
-          return (
-            (ISOWeekYearParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            ISOWeekYearParser_setPrototypeOf(o, p)
-          )
-        }
-        function ISOWeekYearParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function ISOWeekYearParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = ISOWeekYearParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = ISOWeekYearParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function ISOWeekYearParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === ISOWeekYearParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return ISOWeekYearParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function ISOWeekYearParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function ISOWeekYearParser_getPrototypeOf(o) {
-          return (
-            (ISOWeekYearParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            ISOWeekYearParser_getPrototypeOf(o)
-          )
-        }
-        function ISOWeekYearParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var ISOWeekYearParser = (function (_Parser) {
-          !(function ISOWeekYearParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                ISOWeekYearParser_setPrototypeOf(subClass, superClass)
-          })(ISOWeekYearParser, _Parser)
-          var _super = ISOWeekYearParser_createSuper(ISOWeekYearParser)
-          function ISOWeekYearParser() {
-            var _this
-            !(function ISOWeekYearParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, ISOWeekYearParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              ISOWeekYearParser_defineProperty(
-                ISOWeekYearParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                130
-              ),
-              ISOWeekYearParser_defineProperty(
-                ISOWeekYearParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'G',
-                  'y',
-                  'Y',
-                  'u',
-                  'Q',
-                  'q',
-                  'M',
-                  'L',
-                  'w',
-                  'd',
-                  'D',
-                  'e',
-                  'c',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function ISOWeekYearParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  ISOWeekYearParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  ISOWeekYearParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(ISOWeekYearParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token) {
-                  return parseNDigitsSigned(
-                    'R' === token ? 4 : token.length,
-                    dateString
-                  )
-                },
-              },
-              {
-                key: 'set',
-                value: function set(_date, _flags, value) {
-                  var firstWeekOfYear = new Date(0)
-                  return (
-                    firstWeekOfYear.setUTCFullYear(value, 0, 4),
-                    firstWeekOfYear.setUTCHours(0, 0, 0, 0),
-                    startOfUTCISOWeek(firstWeekOfYear)
-                  )
-                },
-              },
-            ]),
-            ISOWeekYearParser
-          )
-        })(Parser)
-        function ExtendedYearParser_typeof(obj) {
-          return (
-            (ExtendedYearParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            ExtendedYearParser_typeof(obj)
-          )
-        }
-        function ExtendedYearParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function ExtendedYearParser_setPrototypeOf(o, p) {
-          return (
-            (ExtendedYearParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            ExtendedYearParser_setPrototypeOf(o, p)
-          )
-        }
-        function ExtendedYearParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function ExtendedYearParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = ExtendedYearParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                ExtendedYearParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function ExtendedYearParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === ExtendedYearParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return ExtendedYearParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function ExtendedYearParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function ExtendedYearParser_getPrototypeOf(o) {
-          return (
-            (ExtendedYearParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            ExtendedYearParser_getPrototypeOf(o)
-          )
-        }
-        function ExtendedYearParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var ExtendedYearParser = (function (_Parser) {
-          !(function ExtendedYearParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                ExtendedYearParser_setPrototypeOf(subClass, superClass)
-          })(ExtendedYearParser, _Parser)
-          var _super = ExtendedYearParser_createSuper(ExtendedYearParser)
-          function ExtendedYearParser() {
-            var _this
-            !(function ExtendedYearParser_classCallCheck(
-              instance,
-              Constructor
-            ) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, ExtendedYearParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              ExtendedYearParser_defineProperty(
-                ExtendedYearParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                130
-              ),
-              ExtendedYearParser_defineProperty(
-                ExtendedYearParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['G', 'y', 'Y', 'R', 'w', 'I', 'i', 'e', 'c', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function ExtendedYearParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  ExtendedYearParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  ExtendedYearParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(ExtendedYearParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token) {
-                  return parseNDigitsSigned(
-                    'u' === token ? 4 : token.length,
-                    dateString
-                  )
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.setUTCFullYear(value, 0, 1),
-                    date.setUTCHours(0, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            ExtendedYearParser
-          )
-        })(Parser)
-        function QuarterParser_typeof(obj) {
-          return (
-            (QuarterParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            QuarterParser_typeof(obj)
-          )
-        }
-        function QuarterParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function QuarterParser_setPrototypeOf(o, p) {
-          return (
-            (QuarterParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            QuarterParser_setPrototypeOf(o, p)
-          )
-        }
-        function QuarterParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function QuarterParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = QuarterParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = QuarterParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function QuarterParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === QuarterParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return QuarterParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function QuarterParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function QuarterParser_getPrototypeOf(o) {
-          return (
-            (QuarterParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            QuarterParser_getPrototypeOf(o)
-          )
-        }
-        function QuarterParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var QuarterParser = (function (_Parser) {
-          !(function QuarterParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && QuarterParser_setPrototypeOf(subClass, superClass)
-          })(QuarterParser, _Parser)
-          var _super = QuarterParser_createSuper(QuarterParser)
-          function QuarterParser() {
-            var _this
-            !(function QuarterParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, QuarterParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              QuarterParser_defineProperty(
-                QuarterParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                120
-              ),
-              QuarterParser_defineProperty(
-                QuarterParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'Y',
-                  'R',
-                  'q',
-                  'M',
-                  'L',
-                  'w',
-                  'I',
-                  'd',
-                  'D',
-                  'i',
-                  'e',
-                  'c',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function QuarterParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  QuarterParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  QuarterParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(QuarterParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'Q':
-                    case 'QQ':
-                      return parseNDigits(token.length, dateString)
-                    case 'Qo':
-                      return match.ordinalNumber(dateString, {unit: 'quarter'})
-                    case 'QQQ':
-                      return (
-                        match.quarter(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.quarter(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                    case 'QQQQQ':
-                      return match.quarter(dateString, {
-                        width: 'narrow',
-                        context: 'formatting',
-                      })
-                    default:
-                      return (
-                        match.quarter(dateString, {
-                          width: 'wide',
-                          context: 'formatting',
-                        }) ||
-                        match.quarter(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.quarter(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 1 && value <= 4
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.setUTCMonth(3 * (value - 1), 1),
-                    date.setUTCHours(0, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            QuarterParser
-          )
-        })(Parser)
-        function StandAloneQuarterParser_typeof(obj) {
-          return (
-            (StandAloneQuarterParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            StandAloneQuarterParser_typeof(obj)
-          )
-        }
-        function StandAloneQuarterParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function StandAloneQuarterParser_setPrototypeOf(o, p) {
-          return (
-            (StandAloneQuarterParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            StandAloneQuarterParser_setPrototypeOf(o, p)
-          )
-        }
-        function StandAloneQuarterParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function StandAloneQuarterParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = StandAloneQuarterParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                StandAloneQuarterParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function StandAloneQuarterParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === StandAloneQuarterParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return StandAloneQuarterParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function StandAloneQuarterParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function StandAloneQuarterParser_getPrototypeOf(o) {
-          return (
-            (StandAloneQuarterParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            StandAloneQuarterParser_getPrototypeOf(o)
-          )
-        }
-        function StandAloneQuarterParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var StandAloneQuarterParser = (function (_Parser) {
-          !(function StandAloneQuarterParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                StandAloneQuarterParser_setPrototypeOf(subClass, superClass)
-          })(StandAloneQuarterParser, _Parser)
-          var _super = StandAloneQuarterParser_createSuper(
-            StandAloneQuarterParser
-          )
-          function StandAloneQuarterParser() {
-            var _this
-            !(function StandAloneQuarterParser_classCallCheck(
-              instance,
-              Constructor
-            ) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, StandAloneQuarterParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              StandAloneQuarterParser_defineProperty(
-                StandAloneQuarterParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                120
-              ),
-              StandAloneQuarterParser_defineProperty(
-                StandAloneQuarterParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'Y',
-                  'R',
-                  'Q',
-                  'M',
-                  'L',
-                  'w',
-                  'I',
-                  'd',
-                  'D',
-                  'i',
-                  'e',
-                  'c',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function StandAloneQuarterParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  StandAloneQuarterParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  StandAloneQuarterParser_defineProperties(
-                    Constructor,
-                    staticProps
-                  ),
-                Constructor
-              )
-            })(StandAloneQuarterParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'q':
-                    case 'qq':
-                      return parseNDigits(token.length, dateString)
-                    case 'qo':
-                      return match.ordinalNumber(dateString, {unit: 'quarter'})
-                    case 'qqq':
-                      return (
-                        match.quarter(dateString, {
-                          width: 'abbreviated',
-                          context: 'standalone',
-                        }) ||
-                        match.quarter(dateString, {
-                          width: 'narrow',
-                          context: 'standalone',
-                        })
-                      )
-                    case 'qqqqq':
-                      return match.quarter(dateString, {
-                        width: 'narrow',
-                        context: 'standalone',
-                      })
-                    default:
-                      return (
-                        match.quarter(dateString, {
-                          width: 'wide',
-                          context: 'standalone',
-                        }) ||
-                        match.quarter(dateString, {
-                          width: 'abbreviated',
-                          context: 'standalone',
-                        }) ||
-                        match.quarter(dateString, {
-                          width: 'narrow',
-                          context: 'standalone',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 1 && value <= 4
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.setUTCMonth(3 * (value - 1), 1),
-                    date.setUTCHours(0, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            StandAloneQuarterParser
-          )
-        })(Parser)
-        function MonthParser_typeof(obj) {
-          return (
-            (MonthParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            MonthParser_typeof(obj)
-          )
-        }
-        function MonthParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function MonthParser_setPrototypeOf(o, p) {
-          return (
-            (MonthParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            MonthParser_setPrototypeOf(o, p)
-          )
-        }
-        function MonthParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function MonthParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = MonthParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = MonthParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function MonthParser_possibleConstructorReturn(self, call) {
-              if (
-                call &&
-                ('object' === MonthParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return MonthParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function MonthParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function MonthParser_getPrototypeOf(o) {
-          return (
-            (MonthParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            MonthParser_getPrototypeOf(o)
-          )
-        }
-        function MonthParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var MonthParser = (function (_Parser) {
-          !(function MonthParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && MonthParser_setPrototypeOf(subClass, superClass)
-          })(MonthParser, _Parser)
-          var _super = MonthParser_createSuper(MonthParser)
-          function MonthParser() {
-            var _this
-            !(function MonthParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, MonthParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              MonthParser_defineProperty(
-                MonthParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'incompatibleTokens',
-                [
-                  'Y',
-                  'R',
-                  'q',
-                  'Q',
-                  'L',
-                  'w',
-                  'I',
-                  'D',
-                  'i',
-                  'e',
-                  'c',
-                  't',
-                  'T',
-                ]
-              ),
-              MonthParser_defineProperty(
-                MonthParser_assertThisInitialized(_this),
-                'priority',
-                110
-              ),
-              _this
-            )
-          }
-          return (
-            (function MonthParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  MonthParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  MonthParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(MonthParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  var valueCallback = function valueCallback(value) {
-                    return value - 1
-                  }
-                  switch (token) {
-                    case 'M':
-                      return mapValue(
-                        parseNumericPattern(numericPatterns_month, dateString),
-                        valueCallback
-                      )
-                    case 'MM':
-                      return mapValue(
-                        parseNDigits(2, dateString),
-                        valueCallback
-                      )
-                    case 'Mo':
-                      return mapValue(
-                        match.ordinalNumber(dateString, {unit: 'month'}),
-                        valueCallback
-                      )
-                    case 'MMM':
-                      return (
-                        match.month(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.month(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                    case 'MMMMM':
-                      return match.month(dateString, {
-                        width: 'narrow',
-                        context: 'formatting',
-                      })
-                    default:
-                      return (
-                        match.month(dateString, {
-                          width: 'wide',
-                          context: 'formatting',
-                        }) ||
-                        match.month(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.month(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 0 && value <= 11
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.setUTCMonth(value, 1),
-                    date.setUTCHours(0, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            MonthParser
-          )
-        })(Parser)
-        function StandAloneMonthParser_typeof(obj) {
-          return (
-            (StandAloneMonthParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            StandAloneMonthParser_typeof(obj)
-          )
-        }
-        function StandAloneMonthParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function StandAloneMonthParser_setPrototypeOf(o, p) {
-          return (
-            (StandAloneMonthParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            StandAloneMonthParser_setPrototypeOf(o, p)
-          )
-        }
-        function StandAloneMonthParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function StandAloneMonthParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = StandAloneMonthParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                StandAloneMonthParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function StandAloneMonthParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === StandAloneMonthParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return StandAloneMonthParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function StandAloneMonthParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function StandAloneMonthParser_getPrototypeOf(o) {
-          return (
-            (StandAloneMonthParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            StandAloneMonthParser_getPrototypeOf(o)
-          )
-        }
-        function StandAloneMonthParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var StandAloneMonthParser = (function (_Parser) {
-          !(function StandAloneMonthParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                StandAloneMonthParser_setPrototypeOf(subClass, superClass)
-          })(StandAloneMonthParser, _Parser)
-          var _super = StandAloneMonthParser_createSuper(StandAloneMonthParser)
-          function StandAloneMonthParser() {
-            var _this
-            !(function StandAloneMonthParser_classCallCheck(
-              instance,
-              Constructor
-            ) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, StandAloneMonthParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              StandAloneMonthParser_defineProperty(
-                StandAloneMonthParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                110
-              ),
-              StandAloneMonthParser_defineProperty(
-                StandAloneMonthParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'Y',
-                  'R',
-                  'q',
-                  'Q',
-                  'M',
-                  'w',
-                  'I',
-                  'D',
-                  'i',
-                  'e',
-                  'c',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function StandAloneMonthParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  StandAloneMonthParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  StandAloneMonthParser_defineProperties(
-                    Constructor,
-                    staticProps
-                  ),
-                Constructor
-              )
-            })(StandAloneMonthParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  var valueCallback = function valueCallback(value) {
-                    return value - 1
-                  }
-                  switch (token) {
-                    case 'L':
-                      return mapValue(
-                        parseNumericPattern(numericPatterns_month, dateString),
-                        valueCallback
-                      )
-                    case 'LL':
-                      return mapValue(
-                        parseNDigits(2, dateString),
-                        valueCallback
-                      )
-                    case 'Lo':
-                      return mapValue(
-                        match.ordinalNumber(dateString, {unit: 'month'}),
-                        valueCallback
-                      )
-                    case 'LLL':
-                      return (
-                        match.month(dateString, {
-                          width: 'abbreviated',
-                          context: 'standalone',
-                        }) ||
-                        match.month(dateString, {
-                          width: 'narrow',
-                          context: 'standalone',
-                        })
-                      )
-                    case 'LLLLL':
-                      return match.month(dateString, {
-                        width: 'narrow',
-                        context: 'standalone',
-                      })
-                    default:
-                      return (
-                        match.month(dateString, {
-                          width: 'wide',
-                          context: 'standalone',
-                        }) ||
-                        match.month(dateString, {
-                          width: 'abbreviated',
-                          context: 'standalone',
-                        }) ||
-                        match.month(dateString, {
-                          width: 'narrow',
-                          context: 'standalone',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 0 && value <= 11
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.setUTCMonth(value, 1),
-                    date.setUTCHours(0, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            StandAloneMonthParser
-          )
-        })(Parser)
-        function LocalWeekParser_typeof(obj) {
-          return (
-            (LocalWeekParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            LocalWeekParser_typeof(obj)
-          )
-        }
-        function LocalWeekParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function LocalWeekParser_setPrototypeOf(o, p) {
-          return (
-            (LocalWeekParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            LocalWeekParser_setPrototypeOf(o, p)
-          )
-        }
-        function LocalWeekParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function LocalWeekParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = LocalWeekParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = LocalWeekParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function LocalWeekParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === LocalWeekParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return LocalWeekParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function LocalWeekParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function LocalWeekParser_getPrototypeOf(o) {
-          return (
-            (LocalWeekParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            LocalWeekParser_getPrototypeOf(o)
-          )
-        }
-        function LocalWeekParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var LocalWeekParser = (function (_Parser) {
-          !(function LocalWeekParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && LocalWeekParser_setPrototypeOf(subClass, superClass)
-          })(LocalWeekParser, _Parser)
-          var _super = LocalWeekParser_createSuper(LocalWeekParser)
-          function LocalWeekParser() {
-            var _this
-            !(function LocalWeekParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, LocalWeekParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              LocalWeekParser_defineProperty(
-                LocalWeekParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                100
-              ),
-              LocalWeekParser_defineProperty(
-                LocalWeekParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'y',
-                  'R',
-                  'u',
-                  'q',
-                  'Q',
-                  'M',
-                  'L',
-                  'I',
-                  'd',
-                  'D',
-                  'i',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function LocalWeekParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  LocalWeekParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  LocalWeekParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(LocalWeekParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'w':
-                      return parseNumericPattern(
-                        numericPatterns_week,
-                        dateString
-                      )
-                    case 'wo':
-                      return match.ordinalNumber(dateString, {unit: 'week'})
-                    default:
-                      return parseNDigits(token.length, dateString)
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 1 && value <= 53
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value, options) {
-                  return startOfUTCWeek(
-                    (function setUTCWeek(dirtyDate, dirtyWeek, options) {
-                      requiredArgs(2, arguments)
-                      var date = toDate(dirtyDate),
-                        week = toInteger(dirtyWeek),
-                        diff = getUTCWeek(date, options) - week
-                      return date.setUTCDate(date.getUTCDate() - 7 * diff), date
-                    })(date, value, options),
-                    options
-                  )
-                },
-              },
-            ]),
-            LocalWeekParser
-          )
-        })(Parser)
-        function ISOWeekParser_typeof(obj) {
-          return (
-            (ISOWeekParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            ISOWeekParser_typeof(obj)
-          )
-        }
-        function ISOWeekParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function ISOWeekParser_setPrototypeOf(o, p) {
-          return (
-            (ISOWeekParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            ISOWeekParser_setPrototypeOf(o, p)
-          )
-        }
-        function ISOWeekParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function ISOWeekParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = ISOWeekParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = ISOWeekParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function ISOWeekParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === ISOWeekParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return ISOWeekParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function ISOWeekParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function ISOWeekParser_getPrototypeOf(o) {
-          return (
-            (ISOWeekParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            ISOWeekParser_getPrototypeOf(o)
-          )
-        }
-        function ISOWeekParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var ISOWeekParser = (function (_Parser) {
-          !(function ISOWeekParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && ISOWeekParser_setPrototypeOf(subClass, superClass)
-          })(ISOWeekParser, _Parser)
-          var _super = ISOWeekParser_createSuper(ISOWeekParser)
-          function ISOWeekParser() {
-            var _this
-            !(function ISOWeekParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, ISOWeekParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              ISOWeekParser_defineProperty(
-                ISOWeekParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                100
-              ),
-              ISOWeekParser_defineProperty(
-                ISOWeekParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'y',
-                  'Y',
-                  'u',
-                  'q',
-                  'Q',
-                  'M',
-                  'L',
-                  'w',
-                  'd',
-                  'D',
-                  'e',
-                  'c',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function ISOWeekParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  ISOWeekParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  ISOWeekParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(ISOWeekParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'I':
-                      return parseNumericPattern(
-                        numericPatterns_week,
-                        dateString
-                      )
-                    case 'Io':
-                      return match.ordinalNumber(dateString, {unit: 'week'})
-                    default:
-                      return parseNDigits(token.length, dateString)
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 1 && value <= 53
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return startOfUTCISOWeek(
-                    (function setUTCISOWeek(dirtyDate, dirtyISOWeek) {
-                      requiredArgs(2, arguments)
-                      var date = toDate(dirtyDate),
-                        isoWeek = toInteger(dirtyISOWeek),
-                        diff = getUTCISOWeek(date) - isoWeek
-                      return date.setUTCDate(date.getUTCDate() - 7 * diff), date
-                    })(date, value)
-                  )
-                },
-              },
-            ]),
-            ISOWeekParser
-          )
-        })(Parser)
-        function DateParser_typeof(obj) {
-          return (
-            (DateParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            DateParser_typeof(obj)
-          )
-        }
-        function DateParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function DateParser_setPrototypeOf(o, p) {
-          return (
-            (DateParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            DateParser_setPrototypeOf(o, p)
-          )
-        }
-        function DateParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function DateParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = DateParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = DateParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function DateParser_possibleConstructorReturn(self, call) {
-              if (
-                call &&
-                ('object' === DateParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return DateParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function DateParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function DateParser_getPrototypeOf(o) {
-          return (
-            (DateParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            DateParser_getPrototypeOf(o)
-          )
-        }
-        function DateParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-          DAYS_IN_MONTH_LEAP_YEAR = [
-            31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
-          ],
-          DateParser = (function (_Parser) {
-            !(function DateParser_inherits(subClass, superClass) {
-              if ('function' != typeof superClass && null !== superClass)
-                throw new TypeError(
-                  'Super expression must either be null or a function'
-                )
-              ;(subClass.prototype = Object.create(
-                superClass && superClass.prototype,
-                {constructor: {value: subClass, writable: !0, configurable: !0}}
-              )),
-                superClass && DateParser_setPrototypeOf(subClass, superClass)
-            })(DateParser, _Parser)
-            var _super = DateParser_createSuper(DateParser)
-            function DateParser() {
-              var _this
-              !(function DateParser_classCallCheck(instance, Constructor) {
-                if (!(instance instanceof Constructor))
-                  throw new TypeError('Cannot call a class as a function')
-              })(this, DateParser)
-              for (
-                var _len = arguments.length, args = new Array(_len), _key = 0;
-                _key < _len;
-                _key++
-              )
-                args[_key] = arguments[_key]
-              return (
-                DateParser_defineProperty(
-                  DateParser_assertThisInitialized(
-                    (_this = _super.call.apply(_super, [this].concat(args)))
-                  ),
-                  'priority',
-                  90
-                ),
-                DateParser_defineProperty(
-                  DateParser_assertThisInitialized(_this),
-                  'subPriority',
-                  1
-                ),
-                DateParser_defineProperty(
-                  DateParser_assertThisInitialized(_this),
-                  'incompatibleTokens',
-                  ['Y', 'R', 'q', 'Q', 'w', 'I', 'D', 'i', 'e', 'c', 't', 'T']
-                ),
-                _this
-              )
-            }
-            return (
-              (function DateParser_createClass(
-                Constructor,
-                protoProps,
-                staticProps
-              ) {
-                return (
-                  protoProps &&
-                    DateParser_defineProperties(
-                      Constructor.prototype,
-                      protoProps
-                    ),
-                  staticProps &&
-                    DateParser_defineProperties(Constructor, staticProps),
-                  Constructor
-                )
-              })(DateParser, [
-                {
-                  key: 'parse',
-                  value: function parse(dateString, token, match) {
-                    switch (token) {
-                      case 'd':
-                        return parseNumericPattern(
-                          numericPatterns_date,
-                          dateString
-                        )
-                      case 'do':
-                        return match.ordinalNumber(dateString, {unit: 'date'})
-                      default:
-                        return parseNDigits(token.length, dateString)
-                    }
-                  },
-                },
-                {
-                  key: 'validate',
-                  value: function validate(date, value) {
-                    var isLeapYear = isLeapYearIndex(date.getUTCFullYear()),
-                      month = date.getUTCMonth()
-                    return isLeapYear
-                      ? value >= 1 && value <= DAYS_IN_MONTH_LEAP_YEAR[month]
-                      : value >= 1 && value <= DAYS_IN_MONTH[month]
-                  },
-                },
-                {
-                  key: 'set',
-                  value: function set(date, _flags, value) {
-                    return (
-                      date.setUTCDate(value), date.setUTCHours(0, 0, 0, 0), date
-                    )
-                  },
-                },
-              ]),
-              DateParser
-            )
-          })(Parser)
-        function DayOfYearParser_typeof(obj) {
-          return (
-            (DayOfYearParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            DayOfYearParser_typeof(obj)
-          )
-        }
-        function DayOfYearParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function DayOfYearParser_setPrototypeOf(o, p) {
-          return (
-            (DayOfYearParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            DayOfYearParser_setPrototypeOf(o, p)
-          )
-        }
-        function DayOfYearParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function DayOfYearParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = DayOfYearParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = DayOfYearParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function DayOfYearParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === DayOfYearParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return DayOfYearParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function DayOfYearParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function DayOfYearParser_getPrototypeOf(o) {
-          return (
-            (DayOfYearParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            DayOfYearParser_getPrototypeOf(o)
-          )
-        }
-        function DayOfYearParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var DayOfYearParser = (function (_Parser) {
-          !(function DayOfYearParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && DayOfYearParser_setPrototypeOf(subClass, superClass)
-          })(DayOfYearParser, _Parser)
-          var _super = DayOfYearParser_createSuper(DayOfYearParser)
-          function DayOfYearParser() {
-            var _this
-            !(function DayOfYearParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, DayOfYearParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              DayOfYearParser_defineProperty(
-                DayOfYearParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                90
-              ),
-              DayOfYearParser_defineProperty(
-                DayOfYearParser_assertThisInitialized(_this),
-                'subpriority',
-                1
-              ),
-              DayOfYearParser_defineProperty(
-                DayOfYearParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'Y',
-                  'R',
-                  'q',
-                  'Q',
-                  'M',
-                  'L',
-                  'w',
-                  'I',
-                  'd',
-                  'E',
-                  'i',
-                  'e',
-                  'c',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function DayOfYearParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  DayOfYearParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  DayOfYearParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(DayOfYearParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'D':
-                    case 'DD':
-                      return parseNumericPattern(
-                        numericPatterns_dayOfYear,
-                        dateString
-                      )
-                    case 'Do':
-                      return match.ordinalNumber(dateString, {unit: 'date'})
-                    default:
-                      return parseNDigits(token.length, dateString)
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(date, value) {
-                  return isLeapYearIndex(date.getUTCFullYear())
-                    ? value >= 1 && value <= 366
-                    : value >= 1 && value <= 365
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.setUTCMonth(0, value),
-                    date.setUTCHours(0, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            DayOfYearParser
-          )
-        })(Parser)
-        function setUTCDay(dirtyDate, dirtyDay, options) {
-          var _ref,
-            _ref2,
-            _ref3,
-            _options$weekStartsOn,
-            _options$locale,
-            _options$locale$optio,
-            _defaultOptions$local,
-            _defaultOptions$local2
-          requiredArgs(2, arguments)
-          var defaultOptions = getDefaultOptions(),
-            weekStartsOn = toInteger(
+            var weekStartsOn = toInteger(
               null !==
-                (_ref =
+                (_ref5 =
                   null !==
-                    (_ref2 =
+                    (_ref6 =
                       null !==
-                        (_ref3 =
+                        (_ref7 =
                           null !==
                             (_options$weekStartsOn =
                               null == options
@@ -9667,5473 +14251,1025 @@
                           void 0 !== _options$weekStartsOn
                             ? _options$weekStartsOn
                             : null == options ||
-                              null === (_options$locale = options.locale) ||
-                              void 0 === _options$locale ||
+                              null === (_options$locale3 = options.locale) ||
+                              void 0 === _options$locale3 ||
                               null ===
-                                (_options$locale$optio =
-                                  _options$locale.options) ||
-                              void 0 === _options$locale$optio
+                                (_options$locale3$opti =
+                                  _options$locale3.options) ||
+                              void 0 === _options$locale3$opti
                             ? void 0
-                            : _options$locale$optio.weekStartsOn) &&
-                      void 0 !== _ref3
-                        ? _ref3
-                        : defaultOptions.weekStartsOn) && void 0 !== _ref2
-                    ? _ref2
+                            : _options$locale3$opti.weekStartsOn) &&
+                      void 0 !== _ref7
+                        ? _ref7
+                        : defaultOptions.weekStartsOn) && void 0 !== _ref6
+                    ? _ref6
                     : null ===
-                        (_defaultOptions$local = defaultOptions.locale) ||
-                      void 0 === _defaultOptions$local ||
+                        (_defaultOptions$local3 = defaultOptions.locale) ||
+                      void 0 === _defaultOptions$local3 ||
                       null ===
-                        (_defaultOptions$local2 =
-                          _defaultOptions$local.options) ||
-                      void 0 === _defaultOptions$local2
+                        (_defaultOptions$local4 =
+                          _defaultOptions$local3.options) ||
+                      void 0 === _defaultOptions$local4
                     ? void 0
-                    : _defaultOptions$local2.weekStartsOn) && void 0 !== _ref
-                ? _ref
+                    : _defaultOptions$local4.weekStartsOn) && void 0 !== _ref5
+                ? _ref5
                 : 0
             )
-          if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
-            throw new RangeError(
-              'weekStartsOn must be between 0 and 6 inclusively'
-            )
-          var date = toDate(dirtyDate),
-            day = toInteger(dirtyDay),
-            diff =
-              (((day % 7) + 7) % 7 < weekStartsOn ? 7 : 0) +
-              day -
-              date.getUTCDay()
-          return date.setUTCDate(date.getUTCDate() + diff), date
-        }
-        function DayParser_typeof(obj) {
-          return (
-            (DayParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            DayParser_typeof(obj)
-          )
-        }
-        function DayParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function DayParser_setPrototypeOf(o, p) {
-          return (
-            (DayParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            DayParser_setPrototypeOf(o, p)
-          )
-        }
-        function DayParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function DayParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = DayParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = DayParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function DayParser_possibleConstructorReturn(self, call) {
-              if (
-                call &&
-                ('object' === DayParser_typeof(call) ||
-                  'function' == typeof call)
+            if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
+              throw new RangeError(
+                'weekStartsOn must be between 0 and 6 inclusively'
               )
-                return call
-              return DayParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function DayParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function DayParser_getPrototypeOf(o) {
-          return (
-            (DayParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            DayParser_getPrototypeOf(o)
-          )
-        }
-        function DayParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
+            if ('' === formatString)
+              return '' === dateString
+                ? toDate(dirtyReferenceDate)
+                : new Date(NaN)
+            var _step,
+              subFnOptions = {firstWeekContainsDate, weekStartsOn, locale},
+              setters = [new DateToSystemTimezoneSetter()],
+              tokens = formatString
+                .match(parse_longFormattingTokensRegExp)
+                .map(function (substring) {
+                  var firstCharacter = substring[0]
+                  return firstCharacter in format_longFormatters
+                    ? (0, format_longFormatters[firstCharacter])(
+                        substring,
+                        locale.formatLong
+                      )
+                    : substring
                 })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var DayParser = (function (_Parser) {
-          !(function DayParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && DayParser_setPrototypeOf(subClass, superClass)
-          })(DayParser, _Parser)
-          var _super = DayParser_createSuper(DayParser)
-          function DayParser() {
-            var _this
-            !(function DayParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, DayParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              DayParser_defineProperty(
-                DayParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                90
-              ),
-              DayParser_defineProperty(
-                DayParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['D', 'i', 'e', 'c', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function DayParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  DayParser_defineProperties(Constructor.prototype, protoProps),
-                staticProps &&
-                  DayParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(DayParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'E':
-                    case 'EE':
-                    case 'EEE':
+                .join('')
+                .match(parse_formattingTokensRegExp),
+              usedTokens = [],
+              _iterator = _createForOfIteratorHelper(tokens)
+            try {
+              var _loop = function _loop() {
+                var token = _step.value
+                ;(null != options && options.useAdditionalWeekYearTokens) ||
+                  !isProtectedWeekYearToken(token) ||
+                  throwProtectedError(token, formatString, dirtyDateString),
+                  (null != options && options.useAdditionalDayOfYearTokens) ||
+                    !isProtectedDayOfYearToken(token) ||
+                    throwProtectedError(token, formatString, dirtyDateString)
+                var firstCharacter = token[0],
+                  parser = parsers[firstCharacter]
+                if (parser) {
+                  var incompatibleTokens = parser.incompatibleTokens
+                  if (Array.isArray(incompatibleTokens)) {
+                    var incompatibleToken = usedTokens.find(function (
+                      usedToken
+                    ) {
                       return (
-                        match.day(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
+                        incompatibleTokens.includes(usedToken.token) ||
+                        usedToken.token === firstCharacter
                       )
-                    case 'EEEEE':
-                      return match.day(dateString, {
-                        width: 'narrow',
-                        context: 'formatting',
-                      })
-                    case 'EEEEEE':
-                      return (
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
+                    })
+                    if (incompatibleToken)
+                      throw new RangeError(
+                        "The format string mustn't contain `"
+                          .concat(incompatibleToken.fullToken, '` and `')
+                          .concat(token, '` at the same time')
                       )
-                    default:
-                      return (
-                        match.day(dateString, {
-                          width: 'wide',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 0 && value <= 6
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value, options) {
-                  return (
-                    (date = setUTCDay(date, value, options)).setUTCHours(
-                      0,
-                      0,
-                      0,
-                      0
-                    ),
-                    date
+                  } else if (
+                    '*' === parser.incompatibleTokens &&
+                    usedTokens.length > 0
                   )
-                },
-              },
-            ]),
-            DayParser
-          )
-        })(Parser)
-        function LocalDayParser_typeof(obj) {
-          return (
-            (LocalDayParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            LocalDayParser_typeof(obj)
-          )
-        }
-        function LocalDayParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function LocalDayParser_setPrototypeOf(o, p) {
-          return (
-            (LocalDayParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            LocalDayParser_setPrototypeOf(o, p)
-          )
-        }
-        function LocalDayParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function LocalDayParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = LocalDayParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = LocalDayParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function LocalDayParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === LocalDayParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return LocalDayParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function LocalDayParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function LocalDayParser_getPrototypeOf(o) {
-          return (
-            (LocalDayParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            LocalDayParser_getPrototypeOf(o)
-          )
-        }
-        function LocalDayParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var LocalDayParser = (function (_Parser) {
-          !(function LocalDayParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && LocalDayParser_setPrototypeOf(subClass, superClass)
-          })(LocalDayParser, _Parser)
-          var _super = LocalDayParser_createSuper(LocalDayParser)
-          function LocalDayParser() {
-            var _this
-            !(function LocalDayParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, LocalDayParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              LocalDayParser_defineProperty(
-                LocalDayParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                90
-              ),
-              LocalDayParser_defineProperty(
-                LocalDayParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'y',
-                  'R',
-                  'u',
-                  'q',
-                  'Q',
-                  'M',
-                  'L',
-                  'I',
-                  'd',
-                  'D',
-                  'E',
-                  'i',
-                  'c',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function LocalDayParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  LocalDayParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  LocalDayParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(LocalDayParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match, options) {
-                  var valueCallback = function valueCallback(value) {
-                    var wholeWeekDays = 7 * Math.floor((value - 1) / 7)
-                    return (
-                      ((value + options.weekStartsOn + 6) % 7) + wholeWeekDays
+                    throw new RangeError(
+                      "The format string mustn't contain `".concat(
+                        token,
+                        '` and any other token at the same time'
+                      )
                     )
-                  }
-                  switch (token) {
-                    case 'e':
-                    case 'ee':
-                      return mapValue(
-                        parseNDigits(token.length, dateString),
-                        valueCallback
-                      )
-                    case 'eo':
-                      return mapValue(
-                        match.ordinalNumber(dateString, {unit: 'day'}),
-                        valueCallback
-                      )
-                    case 'eee':
-                      return (
-                        match.day(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                    case 'eeeee':
-                      return match.day(dateString, {
-                        width: 'narrow',
-                        context: 'formatting',
-                      })
-                    case 'eeeeee':
-                      return (
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                    default:
-                      return (
-                        match.day(dateString, {
-                          width: 'wide',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'formatting',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 0 && value <= 6
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value, options) {
-                  return (
-                    (date = setUTCDay(date, value, options)).setUTCHours(
-                      0,
-                      0,
-                      0,
-                      0
-                    ),
-                    date
+                  usedTokens.push({token: firstCharacter, fullToken: token})
+                  var parseResult = parser.run(
+                    dateString,
+                    token,
+                    locale.match,
+                    subFnOptions
                   )
-                },
-              },
-            ]),
-            LocalDayParser
-          )
-        })(Parser)
-        function StandAloneLocalDayParser_typeof(obj) {
-          return (
-            (StandAloneLocalDayParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            StandAloneLocalDayParser_typeof(obj)
-          )
-        }
-        function StandAloneLocalDayParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function StandAloneLocalDayParser_setPrototypeOf(o, p) {
-          return (
-            (StandAloneLocalDayParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            StandAloneLocalDayParser_setPrototypeOf(o, p)
-          )
-        }
-        function StandAloneLocalDayParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function StandAloneLocalDayParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = StandAloneLocalDayParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                StandAloneLocalDayParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function StandAloneLocalDayParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === StandAloneLocalDayParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return StandAloneLocalDayParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function StandAloneLocalDayParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function StandAloneLocalDayParser_getPrototypeOf(o) {
-          return (
-            (StandAloneLocalDayParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            StandAloneLocalDayParser_getPrototypeOf(o)
-          )
-        }
-        function StandAloneLocalDayParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var StandAloneLocalDayParser = (function (_Parser) {
-          !(function StandAloneLocalDayParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                StandAloneLocalDayParser_setPrototypeOf(subClass, superClass)
-          })(StandAloneLocalDayParser, _Parser)
-          var _super = StandAloneLocalDayParser_createSuper(
-            StandAloneLocalDayParser
-          )
-          function StandAloneLocalDayParser() {
-            var _this
-            !(function StandAloneLocalDayParser_classCallCheck(
-              instance,
-              Constructor
-            ) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, StandAloneLocalDayParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              StandAloneLocalDayParser_defineProperty(
-                StandAloneLocalDayParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                90
-              ),
-              StandAloneLocalDayParser_defineProperty(
-                StandAloneLocalDayParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'y',
-                  'R',
-                  'u',
-                  'q',
-                  'Q',
-                  'M',
-                  'L',
-                  'I',
-                  'd',
-                  'D',
-                  'E',
-                  'i',
-                  'e',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function StandAloneLocalDayParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  StandAloneLocalDayParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  StandAloneLocalDayParser_defineProperties(
-                    Constructor,
-                    staticProps
-                  ),
-                Constructor
-              )
-            })(StandAloneLocalDayParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match, options) {
-                  var valueCallback = function valueCallback(value) {
-                    var wholeWeekDays = 7 * Math.floor((value - 1) / 7)
-                    return (
-                      ((value + options.weekStartsOn + 6) % 7) + wholeWeekDays
+                  if (!parseResult) return {v: new Date(NaN)}
+                  setters.push(parseResult.setter),
+                    (dateString = parseResult.rest)
+                } else {
+                  if (firstCharacter.match(parse_unescapedLatinCharacterRegExp))
+                    throw new RangeError(
+                      'Format string contains an unescaped latin alphabet character `' +
+                        firstCharacter +
+                        '`'
                     )
-                  }
-                  switch (token) {
-                    case 'c':
-                    case 'cc':
-                      return mapValue(
-                        parseNDigits(token.length, dateString),
-                        valueCallback
-                      )
-                    case 'co':
-                      return mapValue(
-                        match.ordinalNumber(dateString, {unit: 'day'}),
-                        valueCallback
-                      )
-                    case 'ccc':
-                      return (
-                        match.day(dateString, {
-                          width: 'abbreviated',
-                          context: 'standalone',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'standalone',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'standalone',
-                        })
-                      )
-                    case 'ccccc':
-                      return match.day(dateString, {
-                        width: 'narrow',
-                        context: 'standalone',
-                      })
-                    case 'cccccc':
-                      return (
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'standalone',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'standalone',
-                        })
-                      )
-                    default:
-                      return (
-                        match.day(dateString, {
-                          width: 'wide',
-                          context: 'standalone',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'abbreviated',
-                          context: 'standalone',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'standalone',
-                        }) ||
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'standalone',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 0 && value <= 6
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value, options) {
-                  return (
-                    (date = setUTCDay(date, value, options)).setUTCHours(
-                      0,
-                      0,
-                      0,
-                      0
-                    ),
-                    date
+                  if (
+                    ("''" === token
+                      ? (token = "'")
+                      : "'" === firstCharacter &&
+                        (token = (function parse_cleanEscapedString(input) {
+                          return input
+                            .match(parse_escapedStringRegExp)[1]
+                            .replace(parse_doubleQuoteRegExp, "'")
+                        })(token)),
+                    0 !== dateString.indexOf(token))
                   )
-                },
-              },
-            ]),
-            StandAloneLocalDayParser
-          )
-        })(Parser)
-        function ISODayParser_typeof(obj) {
-          return (
-            (ISODayParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            ISODayParser_typeof(obj)
-          )
-        }
-        function ISODayParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function ISODayParser_setPrototypeOf(o, p) {
-          return (
-            (ISODayParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            ISODayParser_setPrototypeOf(o, p)
-          )
-        }
-        function ISODayParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function ISODayParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
+                    return {v: new Date(NaN)}
+                  dateString = dateString.slice(token.length)
+                }
               }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = ISODayParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = ISODayParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function ISODayParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === ISODayParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return ISODayParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function ISODayParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function ISODayParser_getPrototypeOf(o) {
-          return (
-            (ISODayParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            ISODayParser_getPrototypeOf(o)
-          )
-        }
-        function ISODayParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var ISODayParser = (function (_Parser) {
-          !(function ISODayParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && ISODayParser_setPrototypeOf(subClass, superClass)
-          })(ISODayParser, _Parser)
-          var _super = ISODayParser_createSuper(ISODayParser)
-          function ISODayParser() {
-            var _this
-            !(function ISODayParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, ISODayParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              ISODayParser_defineProperty(
-                ISODayParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                90
-              ),
-              ISODayParser_defineProperty(
-                ISODayParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                [
-                  'y',
-                  'Y',
-                  'u',
-                  'q',
-                  'Q',
-                  'M',
-                  'L',
-                  'w',
-                  'd',
-                  'D',
-                  'E',
-                  'e',
-                  'c',
-                  't',
-                  'T',
-                ]
-              ),
-              _this
-            )
-          }
-          return (
-            (function ISODayParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  ISODayParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  ISODayParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(ISODayParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  var valueCallback = function valueCallback(value) {
-                    return 0 === value ? 7 : value
-                  }
-                  switch (token) {
-                    case 'i':
-                    case 'ii':
-                      return parseNDigits(token.length, dateString)
-                    case 'io':
-                      return match.ordinalNumber(dateString, {unit: 'day'})
-                    case 'iii':
-                      return mapValue(
-                        match.day(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                          match.day(dateString, {
-                            width: 'short',
-                            context: 'formatting',
-                          }) ||
-                          match.day(dateString, {
-                            width: 'narrow',
-                            context: 'formatting',
-                          }),
-                        valueCallback
-                      )
-                    case 'iiiii':
-                      return mapValue(
-                        match.day(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        }),
-                        valueCallback
-                      )
-                    case 'iiiiii':
-                      return mapValue(
-                        match.day(dateString, {
-                          width: 'short',
-                          context: 'formatting',
-                        }) ||
-                          match.day(dateString, {
-                            width: 'narrow',
-                            context: 'formatting',
-                          }),
-                        valueCallback
-                      )
-                    default:
-                      return mapValue(
-                        match.day(dateString, {
-                          width: 'wide',
-                          context: 'formatting',
-                        }) ||
-                          match.day(dateString, {
-                            width: 'abbreviated',
-                            context: 'formatting',
-                          }) ||
-                          match.day(dateString, {
-                            width: 'short',
-                            context: 'formatting',
-                          }) ||
-                          match.day(dateString, {
-                            width: 'narrow',
-                            context: 'formatting',
-                          }),
-                        valueCallback
-                      )
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 1 && value <= 7
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    (date = (function setUTCISODay(dirtyDate, dirtyDay) {
-                      requiredArgs(2, arguments)
-                      var day = toInteger(dirtyDay)
-                      day % 7 == 0 && (day -= 7)
-                      var date = toDate(dirtyDate),
-                        diff =
-                          (((day % 7) + 7) % 7 < 1 ? 7 : 0) +
-                          day -
-                          date.getUTCDay()
-                      return date.setUTCDate(date.getUTCDate() + diff), date
-                    })(date, value)),
-                    date.setUTCHours(0, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            ISODayParser
-          )
-        })(Parser)
-        function AMPMParser_typeof(obj) {
-          return (
-            (AMPMParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            AMPMParser_typeof(obj)
-          )
-        }
-        function AMPMParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function AMPMParser_setPrototypeOf(o, p) {
-          return (
-            (AMPMParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            AMPMParser_setPrototypeOf(o, p)
-          )
-        }
-        function AMPMParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function AMPMParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
+              for (_iterator.s(); !(_step = _iterator.n()).done; ) {
+                var _ret = _loop()
+                if ('object' === parse_typeof(_ret)) return _ret.v
               }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = AMPMParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = AMPMParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function AMPMParser_possibleConstructorReturn(self, call) {
-              if (
-                call &&
-                ('object' === AMPMParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return AMPMParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function AMPMParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function AMPMParser_getPrototypeOf(o) {
-          return (
-            (AMPMParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            AMPMParser_getPrototypeOf(o)
-          )
-        }
-        function AMPMParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var AMPMParser = (function (_Parser) {
-          !(function AMPMParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && AMPMParser_setPrototypeOf(subClass, superClass)
-          })(AMPMParser, _Parser)
-          var _super = AMPMParser_createSuper(AMPMParser)
-          function AMPMParser() {
-            var _this
-            !(function AMPMParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, AMPMParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              AMPMParser_defineProperty(
-                AMPMParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                80
-              ),
-              AMPMParser_defineProperty(
-                AMPMParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['b', 'B', 'H', 'k', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function AMPMParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  AMPMParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  AMPMParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(AMPMParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'a':
-                    case 'aa':
-                    case 'aaa':
-                      return (
-                        match.dayPeriod(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.dayPeriod(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                    case 'aaaaa':
-                      return match.dayPeriod(dateString, {
-                        width: 'narrow',
-                        context: 'formatting',
-                      })
-                    default:
-                      return (
-                        match.dayPeriod(dateString, {
-                          width: 'wide',
-                          context: 'formatting',
-                        }) ||
-                        match.dayPeriod(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.dayPeriod(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.setUTCHours(dayPeriodEnumToHours(value), 0, 0, 0), date
-                  )
-                },
-              },
-            ]),
-            AMPMParser
-          )
-        })(Parser)
-        function AMPMMidnightParser_typeof(obj) {
-          return (
-            (AMPMMidnightParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            AMPMMidnightParser_typeof(obj)
-          )
-        }
-        function AMPMMidnightParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function AMPMMidnightParser_setPrototypeOf(o, p) {
-          return (
-            (AMPMMidnightParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            AMPMMidnightParser_setPrototypeOf(o, p)
-          )
-        }
-        function AMPMMidnightParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function AMPMMidnightParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = AMPMMidnightParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                AMPMMidnightParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function AMPMMidnightParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === AMPMMidnightParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return AMPMMidnightParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function AMPMMidnightParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function AMPMMidnightParser_getPrototypeOf(o) {
-          return (
-            (AMPMMidnightParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            AMPMMidnightParser_getPrototypeOf(o)
-          )
-        }
-        function AMPMMidnightParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var AMPMMidnightParser = (function (_Parser) {
-          !(function AMPMMidnightParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                AMPMMidnightParser_setPrototypeOf(subClass, superClass)
-          })(AMPMMidnightParser, _Parser)
-          var _super = AMPMMidnightParser_createSuper(AMPMMidnightParser)
-          function AMPMMidnightParser() {
-            var _this
-            !(function AMPMMidnightParser_classCallCheck(
-              instance,
-              Constructor
-            ) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, AMPMMidnightParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              AMPMMidnightParser_defineProperty(
-                AMPMMidnightParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                80
-              ),
-              AMPMMidnightParser_defineProperty(
-                AMPMMidnightParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['a', 'B', 'H', 'k', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function AMPMMidnightParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  AMPMMidnightParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  AMPMMidnightParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(AMPMMidnightParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'b':
-                    case 'bb':
-                    case 'bbb':
-                      return (
-                        match.dayPeriod(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.dayPeriod(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                    case 'bbbbb':
-                      return match.dayPeriod(dateString, {
-                        width: 'narrow',
-                        context: 'formatting',
-                      })
-                    default:
-                      return (
-                        match.dayPeriod(dateString, {
-                          width: 'wide',
-                          context: 'formatting',
-                        }) ||
-                        match.dayPeriod(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.dayPeriod(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.setUTCHours(dayPeriodEnumToHours(value), 0, 0, 0), date
-                  )
-                },
-              },
-            ]),
-            AMPMMidnightParser
-          )
-        })(Parser)
-        function DayPeriodParser_typeof(obj) {
-          return (
-            (DayPeriodParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            DayPeriodParser_typeof(obj)
-          )
-        }
-        function DayPeriodParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function DayPeriodParser_setPrototypeOf(o, p) {
-          return (
-            (DayPeriodParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            DayPeriodParser_setPrototypeOf(o, p)
-          )
-        }
-        function DayPeriodParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function DayPeriodParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = DayPeriodParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = DayPeriodParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function DayPeriodParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === DayPeriodParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return DayPeriodParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function DayPeriodParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function DayPeriodParser_getPrototypeOf(o) {
-          return (
-            (DayPeriodParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            DayPeriodParser_getPrototypeOf(o)
-          )
-        }
-        function DayPeriodParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var DayPeriodParser = (function (_Parser) {
-          !(function DayPeriodParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && DayPeriodParser_setPrototypeOf(subClass, superClass)
-          })(DayPeriodParser, _Parser)
-          var _super = DayPeriodParser_createSuper(DayPeriodParser)
-          function DayPeriodParser() {
-            var _this
-            !(function DayPeriodParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, DayPeriodParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              DayPeriodParser_defineProperty(
-                DayPeriodParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                80
-              ),
-              DayPeriodParser_defineProperty(
-                DayPeriodParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['a', 'b', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function DayPeriodParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  DayPeriodParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  DayPeriodParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(DayPeriodParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'B':
-                    case 'BB':
-                    case 'BBB':
-                      return (
-                        match.dayPeriod(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.dayPeriod(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                    case 'BBBBB':
-                      return match.dayPeriod(dateString, {
-                        width: 'narrow',
-                        context: 'formatting',
-                      })
-                    default:
-                      return (
-                        match.dayPeriod(dateString, {
-                          width: 'wide',
-                          context: 'formatting',
-                        }) ||
-                        match.dayPeriod(dateString, {
-                          width: 'abbreviated',
-                          context: 'formatting',
-                        }) ||
-                        match.dayPeriod(dateString, {
-                          width: 'narrow',
-                          context: 'formatting',
-                        })
-                      )
-                  }
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.setUTCHours(dayPeriodEnumToHours(value), 0, 0, 0), date
-                  )
-                },
-              },
-            ]),
-            DayPeriodParser
-          )
-        })(Parser)
-        function Hour1to12Parser_typeof(obj) {
-          return (
-            (Hour1to12Parser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            Hour1to12Parser_typeof(obj)
-          )
-        }
-        function Hour1to12Parser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function Hour1to12Parser_setPrototypeOf(o, p) {
-          return (
-            (Hour1to12Parser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            Hour1to12Parser_setPrototypeOf(o, p)
-          )
-        }
-        function Hour1to12Parser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function Hour1to12Parser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = Hour1to12Parser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = Hour1to12Parser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function Hour1to12Parser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === Hour1to12Parser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return Hour1to12Parser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function Hour1to12Parser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function Hour1to12Parser_getPrototypeOf(o) {
-          return (
-            (Hour1to12Parser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            Hour1to12Parser_getPrototypeOf(o)
-          )
-        }
-        function Hour1to12Parser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var Hour1to12Parser = (function (_Parser) {
-          !(function Hour1to12Parser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && Hour1to12Parser_setPrototypeOf(subClass, superClass)
-          })(Hour1to12Parser, _Parser)
-          var _super = Hour1to12Parser_createSuper(Hour1to12Parser)
-          function Hour1to12Parser() {
-            var _this
-            !(function Hour1to12Parser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, Hour1to12Parser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              Hour1to12Parser_defineProperty(
-                Hour1to12Parser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                70
-              ),
-              Hour1to12Parser_defineProperty(
-                Hour1to12Parser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['H', 'K', 'k', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function Hour1to12Parser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  Hour1to12Parser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  Hour1to12Parser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(Hour1to12Parser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'h':
-                      return parseNumericPattern(
-                        numericPatterns_hour12h,
-                        dateString
-                      )
-                    case 'ho':
-                      return match.ordinalNumber(dateString, {unit: 'hour'})
-                    default:
-                      return parseNDigits(token.length, dateString)
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 1 && value <= 12
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  var isPM = date.getUTCHours() >= 12
-                  return (
-                    isPM && value < 12
-                      ? date.setUTCHours(value + 12, 0, 0, 0)
-                      : isPM || 12 !== value
-                      ? date.setUTCHours(value, 0, 0, 0)
-                      : date.setUTCHours(0, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            Hour1to12Parser
-          )
-        })(Parser)
-        function Hour0to23Parser_typeof(obj) {
-          return (
-            (Hour0to23Parser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            Hour0to23Parser_typeof(obj)
-          )
-        }
-        function Hour0to23Parser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function Hour0to23Parser_setPrototypeOf(o, p) {
-          return (
-            (Hour0to23Parser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            Hour0to23Parser_setPrototypeOf(o, p)
-          )
-        }
-        function Hour0to23Parser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function Hour0to23Parser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = Hour0to23Parser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = Hour0to23Parser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function Hour0to23Parser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === Hour0to23Parser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return Hour0to23Parser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function Hour0to23Parser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function Hour0to23Parser_getPrototypeOf(o) {
-          return (
-            (Hour0to23Parser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            Hour0to23Parser_getPrototypeOf(o)
-          )
-        }
-        function Hour0to23Parser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var Hour0to23Parser = (function (_Parser) {
-          !(function Hour0to23Parser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && Hour0to23Parser_setPrototypeOf(subClass, superClass)
-          })(Hour0to23Parser, _Parser)
-          var _super = Hour0to23Parser_createSuper(Hour0to23Parser)
-          function Hour0to23Parser() {
-            var _this
-            !(function Hour0to23Parser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, Hour0to23Parser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              Hour0to23Parser_defineProperty(
-                Hour0to23Parser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                70
-              ),
-              Hour0to23Parser_defineProperty(
-                Hour0to23Parser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['a', 'b', 'h', 'K', 'k', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function Hour0to23Parser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  Hour0to23Parser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  Hour0to23Parser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(Hour0to23Parser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'H':
-                      return parseNumericPattern(
-                        numericPatterns_hour23h,
-                        dateString
-                      )
-                    case 'Ho':
-                      return match.ordinalNumber(dateString, {unit: 'hour'})
-                    default:
-                      return parseNDigits(token.length, dateString)
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 0 && value <= 23
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return date.setUTCHours(value, 0, 0, 0), date
-                },
-              },
-            ]),
-            Hour0to23Parser
-          )
-        })(Parser)
-        function Hour0To11Parser_typeof(obj) {
-          return (
-            (Hour0To11Parser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            Hour0To11Parser_typeof(obj)
-          )
-        }
-        function Hour0To11Parser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function Hour0To11Parser_setPrototypeOf(o, p) {
-          return (
-            (Hour0To11Parser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            Hour0To11Parser_setPrototypeOf(o, p)
-          )
-        }
-        function Hour0To11Parser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function Hour0To11Parser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = Hour0To11Parser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = Hour0To11Parser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function Hour0To11Parser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === Hour0To11Parser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return Hour0To11Parser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function Hour0To11Parser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function Hour0To11Parser_getPrototypeOf(o) {
-          return (
-            (Hour0To11Parser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            Hour0To11Parser_getPrototypeOf(o)
-          )
-        }
-        function Hour0To11Parser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var Hour0To11Parser = (function (_Parser) {
-          !(function Hour0To11Parser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && Hour0To11Parser_setPrototypeOf(subClass, superClass)
-          })(Hour0To11Parser, _Parser)
-          var _super = Hour0To11Parser_createSuper(Hour0To11Parser)
-          function Hour0To11Parser() {
-            var _this
-            !(function Hour0To11Parser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, Hour0To11Parser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              Hour0To11Parser_defineProperty(
-                Hour0To11Parser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                70
-              ),
-              Hour0To11Parser_defineProperty(
-                Hour0To11Parser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['h', 'H', 'k', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function Hour0To11Parser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  Hour0To11Parser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  Hour0To11Parser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(Hour0To11Parser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'K':
-                      return parseNumericPattern(
-                        numericPatterns_hour11h,
-                        dateString
-                      )
-                    case 'Ko':
-                      return match.ordinalNumber(dateString, {unit: 'hour'})
-                    default:
-                      return parseNDigits(token.length, dateString)
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 0 && value <= 11
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return (
-                    date.getUTCHours() >= 12 && value < 12
-                      ? date.setUTCHours(value + 12, 0, 0, 0)
-                      : date.setUTCHours(value, 0, 0, 0),
-                    date
-                  )
-                },
-              },
-            ]),
-            Hour0To11Parser
-          )
-        })(Parser)
-        function Hour1To24Parser_typeof(obj) {
-          return (
-            (Hour1To24Parser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            Hour1To24Parser_typeof(obj)
-          )
-        }
-        function Hour1To24Parser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function Hour1To24Parser_setPrototypeOf(o, p) {
-          return (
-            (Hour1To24Parser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            Hour1To24Parser_setPrototypeOf(o, p)
-          )
-        }
-        function Hour1To24Parser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function Hour1To24Parser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = Hour1To24Parser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = Hour1To24Parser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function Hour1To24Parser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === Hour1To24Parser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return Hour1To24Parser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function Hour1To24Parser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function Hour1To24Parser_getPrototypeOf(o) {
-          return (
-            (Hour1To24Parser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            Hour1To24Parser_getPrototypeOf(o)
-          )
-        }
-        function Hour1To24Parser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var Hour1To24Parser = (function (_Parser) {
-          !(function Hour1To24Parser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && Hour1To24Parser_setPrototypeOf(subClass, superClass)
-          })(Hour1To24Parser, _Parser)
-          var _super = Hour1To24Parser_createSuper(Hour1To24Parser)
-          function Hour1To24Parser() {
-            var _this
-            !(function Hour1To24Parser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, Hour1To24Parser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              Hour1To24Parser_defineProperty(
-                Hour1To24Parser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                70
-              ),
-              Hour1To24Parser_defineProperty(
-                Hour1To24Parser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['a', 'b', 'h', 'H', 'K', 't', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function Hour1To24Parser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  Hour1To24Parser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  Hour1To24Parser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(Hour1To24Parser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'k':
-                      return parseNumericPattern(
-                        numericPatterns_hour24h,
-                        dateString
-                      )
-                    case 'ko':
-                      return match.ordinalNumber(dateString, {unit: 'hour'})
-                    default:
-                      return parseNDigits(token.length, dateString)
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 1 && value <= 24
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  var hours = value <= 24 ? value % 24 : value
-                  return date.setUTCHours(hours, 0, 0, 0), date
-                },
-              },
-            ]),
-            Hour1To24Parser
-          )
-        })(Parser)
-        function MinuteParser_typeof(obj) {
-          return (
-            (MinuteParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            MinuteParser_typeof(obj)
-          )
-        }
-        function MinuteParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function MinuteParser_setPrototypeOf(o, p) {
-          return (
-            (MinuteParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            MinuteParser_setPrototypeOf(o, p)
-          )
-        }
-        function MinuteParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function MinuteParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = MinuteParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = MinuteParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function MinuteParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === MinuteParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return MinuteParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function MinuteParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function MinuteParser_getPrototypeOf(o) {
-          return (
-            (MinuteParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            MinuteParser_getPrototypeOf(o)
-          )
-        }
-        function MinuteParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var MinuteParser = (function (_Parser) {
-          !(function MinuteParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && MinuteParser_setPrototypeOf(subClass, superClass)
-          })(MinuteParser, _Parser)
-          var _super = MinuteParser_createSuper(MinuteParser)
-          function MinuteParser() {
-            var _this
-            !(function MinuteParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, MinuteParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              MinuteParser_defineProperty(
-                MinuteParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                60
-              ),
-              MinuteParser_defineProperty(
-                MinuteParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['t', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function MinuteParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  MinuteParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  MinuteParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(MinuteParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 'm':
-                      return parseNumericPattern(
-                        numericPatterns_minute,
-                        dateString
-                      )
-                    case 'mo':
-                      return match.ordinalNumber(dateString, {unit: 'minute'})
-                    default:
-                      return parseNDigits(token.length, dateString)
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 0 && value <= 59
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return date.setUTCMinutes(value, 0, 0), date
-                },
-              },
-            ]),
-            MinuteParser
-          )
-        })(Parser)
-        function SecondParser_typeof(obj) {
-          return (
-            (SecondParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            SecondParser_typeof(obj)
-          )
-        }
-        function SecondParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function SecondParser_setPrototypeOf(o, p) {
-          return (
-            (SecondParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            SecondParser_setPrototypeOf(o, p)
-          )
-        }
-        function SecondParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function SecondParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = SecondParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = SecondParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function SecondParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === SecondParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return SecondParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function SecondParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function SecondParser_getPrototypeOf(o) {
-          return (
-            (SecondParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            SecondParser_getPrototypeOf(o)
-          )
-        }
-        function SecondParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var SecondParser = (function (_Parser) {
-          !(function SecondParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass && SecondParser_setPrototypeOf(subClass, superClass)
-          })(SecondParser, _Parser)
-          var _super = SecondParser_createSuper(SecondParser)
-          function SecondParser() {
-            var _this
-            !(function SecondParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, SecondParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              SecondParser_defineProperty(
-                SecondParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                50
-              ),
-              SecondParser_defineProperty(
-                SecondParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['t', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function SecondParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  SecondParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  SecondParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(SecondParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token, match) {
-                  switch (token) {
-                    case 's':
-                      return parseNumericPattern(
-                        numericPatterns_second,
-                        dateString
-                      )
-                    case 'so':
-                      return match.ordinalNumber(dateString, {unit: 'second'})
-                    default:
-                      return parseNDigits(token.length, dateString)
-                  }
-                },
-              },
-              {
-                key: 'validate',
-                value: function validate(_date, value) {
-                  return value >= 0 && value <= 59
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return date.setUTCSeconds(value, 0), date
-                },
-              },
-            ]),
-            SecondParser
-          )
-        })(Parser)
-        function FractionOfSecondParser_typeof(obj) {
-          return (
-            (FractionOfSecondParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            FractionOfSecondParser_typeof(obj)
-          )
-        }
-        function FractionOfSecondParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function FractionOfSecondParser_setPrototypeOf(o, p) {
-          return (
-            (FractionOfSecondParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            FractionOfSecondParser_setPrototypeOf(o, p)
-          )
-        }
-        function FractionOfSecondParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function FractionOfSecondParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = FractionOfSecondParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                FractionOfSecondParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function FractionOfSecondParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === FractionOfSecondParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return FractionOfSecondParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function FractionOfSecondParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function FractionOfSecondParser_getPrototypeOf(o) {
-          return (
-            (FractionOfSecondParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            FractionOfSecondParser_getPrototypeOf(o)
-          )
-        }
-        function FractionOfSecondParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var FractionOfSecondParser = (function (_Parser) {
-          !(function FractionOfSecondParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                FractionOfSecondParser_setPrototypeOf(subClass, superClass)
-          })(FractionOfSecondParser, _Parser)
-          var _super = FractionOfSecondParser_createSuper(
-            FractionOfSecondParser
-          )
-          function FractionOfSecondParser() {
-            var _this
-            !(function FractionOfSecondParser_classCallCheck(
-              instance,
-              Constructor
-            ) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, FractionOfSecondParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              FractionOfSecondParser_defineProperty(
-                FractionOfSecondParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                30
-              ),
-              FractionOfSecondParser_defineProperty(
-                FractionOfSecondParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['t', 'T']
-              ),
-              _this
-            )
-          }
-          return (
-            (function FractionOfSecondParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  FractionOfSecondParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  FractionOfSecondParser_defineProperties(
-                    Constructor,
-                    staticProps
-                  ),
-                Constructor
-              )
-            })(FractionOfSecondParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token) {
-                  return mapValue(
-                    parseNDigits(token.length, dateString),
-                    function valueCallback(value) {
-                      return Math.floor(value * Math.pow(10, 3 - token.length))
-                    }
-                  )
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, _flags, value) {
-                  return date.setUTCMilliseconds(value), date
-                },
-              },
-            ]),
-            FractionOfSecondParser
-          )
-        })(Parser)
-        function ISOTimezoneWithZParser_typeof(obj) {
-          return (
-            (ISOTimezoneWithZParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            ISOTimezoneWithZParser_typeof(obj)
-          )
-        }
-        function ISOTimezoneWithZParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function ISOTimezoneWithZParser_setPrototypeOf(o, p) {
-          return (
-            (ISOTimezoneWithZParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            ISOTimezoneWithZParser_setPrototypeOf(o, p)
-          )
-        }
-        function ISOTimezoneWithZParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function ISOTimezoneWithZParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = ISOTimezoneWithZParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                ISOTimezoneWithZParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function ISOTimezoneWithZParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === ISOTimezoneWithZParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return ISOTimezoneWithZParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function ISOTimezoneWithZParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function ISOTimezoneWithZParser_getPrototypeOf(o) {
-          return (
-            (ISOTimezoneWithZParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            ISOTimezoneWithZParser_getPrototypeOf(o)
-          )
-        }
-        function ISOTimezoneWithZParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var ISOTimezoneWithZParser = (function (_Parser) {
-          !(function ISOTimezoneWithZParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                ISOTimezoneWithZParser_setPrototypeOf(subClass, superClass)
-          })(ISOTimezoneWithZParser, _Parser)
-          var _super = ISOTimezoneWithZParser_createSuper(
-            ISOTimezoneWithZParser
-          )
-          function ISOTimezoneWithZParser() {
-            var _this
-            !(function ISOTimezoneWithZParser_classCallCheck(
-              instance,
-              Constructor
-            ) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, ISOTimezoneWithZParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              ISOTimezoneWithZParser_defineProperty(
-                ISOTimezoneWithZParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                10
-              ),
-              ISOTimezoneWithZParser_defineProperty(
-                ISOTimezoneWithZParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['t', 'T', 'x']
-              ),
-              _this
-            )
-          }
-          return (
-            (function ISOTimezoneWithZParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  ISOTimezoneWithZParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  ISOTimezoneWithZParser_defineProperties(
-                    Constructor,
-                    staticProps
-                  ),
-                Constructor
-              )
-            })(ISOTimezoneWithZParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token) {
-                  switch (token) {
-                    case 'X':
-                      return parseTimezonePattern(
-                        timezonePatterns_basicOptionalMinutes,
-                        dateString
-                      )
-                    case 'XX':
-                      return parseTimezonePattern(
-                        timezonePatterns_basic,
-                        dateString
-                      )
-                    case 'XXXX':
-                      return parseTimezonePattern(
-                        timezonePatterns_basicOptionalSeconds,
-                        dateString
-                      )
-                    case 'XXXXX':
-                      return parseTimezonePattern(
-                        timezonePatterns_extendedOptionalSeconds,
-                        dateString
-                      )
-                    default:
-                      return parseTimezonePattern(
-                        timezonePatterns_extended,
-                        dateString
-                      )
-                  }
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, flags, value) {
-                  return flags.timestampIsSet
-                    ? date
-                    : new Date(date.getTime() - value)
-                },
-              },
-            ]),
-            ISOTimezoneWithZParser
-          )
-        })(Parser)
-        function ISOTimezoneParser_typeof(obj) {
-          return (
-            (ISOTimezoneParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            ISOTimezoneParser_typeof(obj)
-          )
-        }
-        function ISOTimezoneParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function ISOTimezoneParser_setPrototypeOf(o, p) {
-          return (
-            (ISOTimezoneParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            ISOTimezoneParser_setPrototypeOf(o, p)
-          )
-        }
-        function ISOTimezoneParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function ISOTimezoneParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = ISOTimezoneParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget = ISOTimezoneParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function ISOTimezoneParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === ISOTimezoneParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return ISOTimezoneParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function ISOTimezoneParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function ISOTimezoneParser_getPrototypeOf(o) {
-          return (
-            (ISOTimezoneParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            ISOTimezoneParser_getPrototypeOf(o)
-          )
-        }
-        function ISOTimezoneParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var ISOTimezoneParser = (function (_Parser) {
-          !(function ISOTimezoneParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                ISOTimezoneParser_setPrototypeOf(subClass, superClass)
-          })(ISOTimezoneParser, _Parser)
-          var _super = ISOTimezoneParser_createSuper(ISOTimezoneParser)
-          function ISOTimezoneParser() {
-            var _this
-            !(function ISOTimezoneParser_classCallCheck(instance, Constructor) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, ISOTimezoneParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              ISOTimezoneParser_defineProperty(
-                ISOTimezoneParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                10
-              ),
-              ISOTimezoneParser_defineProperty(
-                ISOTimezoneParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                ['t', 'T', 'X']
-              ),
-              _this
-            )
-          }
-          return (
-            (function ISOTimezoneParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  ISOTimezoneParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  ISOTimezoneParser_defineProperties(Constructor, staticProps),
-                Constructor
-              )
-            })(ISOTimezoneParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString, token) {
-                  switch (token) {
-                    case 'x':
-                      return parseTimezonePattern(
-                        timezonePatterns_basicOptionalMinutes,
-                        dateString
-                      )
-                    case 'xx':
-                      return parseTimezonePattern(
-                        timezonePatterns_basic,
-                        dateString
-                      )
-                    case 'xxxx':
-                      return parseTimezonePattern(
-                        timezonePatterns_basicOptionalSeconds,
-                        dateString
-                      )
-                    case 'xxxxx':
-                      return parseTimezonePattern(
-                        timezonePatterns_extendedOptionalSeconds,
-                        dateString
-                      )
-                    default:
-                      return parseTimezonePattern(
-                        timezonePatterns_extended,
-                        dateString
-                      )
-                  }
-                },
-              },
-              {
-                key: 'set',
-                value: function set(date, flags, value) {
-                  return flags.timestampIsSet
-                    ? date
-                    : new Date(date.getTime() - value)
-                },
-              },
-            ]),
-            ISOTimezoneParser
-          )
-        })(Parser)
-        function TimestampSecondsParser_typeof(obj) {
-          return (
-            (TimestampSecondsParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            TimestampSecondsParser_typeof(obj)
-          )
-        }
-        function TimestampSecondsParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function TimestampSecondsParser_setPrototypeOf(o, p) {
-          return (
-            (TimestampSecondsParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            TimestampSecondsParser_setPrototypeOf(o, p)
-          )
-        }
-        function TimestampSecondsParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function TimestampSecondsParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = TimestampSecondsParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                TimestampSecondsParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function TimestampSecondsParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === TimestampSecondsParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return TimestampSecondsParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function TimestampSecondsParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function TimestampSecondsParser_getPrototypeOf(o) {
-          return (
-            (TimestampSecondsParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            TimestampSecondsParser_getPrototypeOf(o)
-          )
-        }
-        function TimestampSecondsParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var TimestampSecondsParser = (function (_Parser) {
-          !(function TimestampSecondsParser_inherits(subClass, superClass) {
-            if ('function' != typeof superClass && null !== superClass)
-              throw new TypeError(
-                'Super expression must either be null or a function'
-              )
-            ;(subClass.prototype = Object.create(
-              superClass && superClass.prototype,
-              {constructor: {value: subClass, writable: !0, configurable: !0}}
-            )),
-              superClass &&
-                TimestampSecondsParser_setPrototypeOf(subClass, superClass)
-          })(TimestampSecondsParser, _Parser)
-          var _super = TimestampSecondsParser_createSuper(
-            TimestampSecondsParser
-          )
-          function TimestampSecondsParser() {
-            var _this
-            !(function TimestampSecondsParser_classCallCheck(
-              instance,
-              Constructor
-            ) {
-              if (!(instance instanceof Constructor))
-                throw new TypeError('Cannot call a class as a function')
-            })(this, TimestampSecondsParser)
-            for (
-              var _len = arguments.length, args = new Array(_len), _key = 0;
-              _key < _len;
-              _key++
-            )
-              args[_key] = arguments[_key]
-            return (
-              TimestampSecondsParser_defineProperty(
-                TimestampSecondsParser_assertThisInitialized(
-                  (_this = _super.call.apply(_super, [this].concat(args)))
-                ),
-                'priority',
-                40
-              ),
-              TimestampSecondsParser_defineProperty(
-                TimestampSecondsParser_assertThisInitialized(_this),
-                'incompatibleTokens',
-                '*'
-              ),
-              _this
-            )
-          }
-          return (
-            (function TimestampSecondsParser_createClass(
-              Constructor,
-              protoProps,
-              staticProps
-            ) {
-              return (
-                protoProps &&
-                  TimestampSecondsParser_defineProperties(
-                    Constructor.prototype,
-                    protoProps
-                  ),
-                staticProps &&
-                  TimestampSecondsParser_defineProperties(
-                    Constructor,
-                    staticProps
-                  ),
-                Constructor
-              )
-            })(TimestampSecondsParser, [
-              {
-                key: 'parse',
-                value: function parse(dateString) {
-                  return parseAnyDigitsSigned(dateString)
-                },
-              },
-              {
-                key: 'set',
-                value: function set(_date, _flags, value) {
-                  return [new Date(1e3 * value), {timestampIsSet: !0}]
-                },
-              },
-            ]),
-            TimestampSecondsParser
-          )
-        })(Parser)
-        function TimestampMillisecondsParser_typeof(obj) {
-          return (
-            (TimestampMillisecondsParser_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            TimestampMillisecondsParser_typeof(obj)
-          )
-        }
-        function TimestampMillisecondsParser_defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i]
-            ;(descriptor.enumerable = descriptor.enumerable || !1),
-              (descriptor.configurable = !0),
-              'value' in descriptor && (descriptor.writable = !0),
-              Object.defineProperty(target, descriptor.key, descriptor)
-          }
-        }
-        function TimestampMillisecondsParser_setPrototypeOf(o, p) {
-          return (
-            (TimestampMillisecondsParser_setPrototypeOf =
-              Object.setPrototypeOf ||
-              function _setPrototypeOf(o, p) {
-                return (o.__proto__ = p), o
-              }),
-            TimestampMillisecondsParser_setPrototypeOf(o, p)
-          )
-        }
-        function TimestampMillisecondsParser_createSuper(Derived) {
-          var hasNativeReflectConstruct =
-            (function TimestampMillisecondsParser_isNativeReflectConstruct() {
-              if ('undefined' == typeof Reflect || !Reflect.construct) return !1
-              if (Reflect.construct.sham) return !1
-              if ('function' == typeof Proxy) return !0
-              try {
-                return (
-                  Boolean.prototype.valueOf.call(
-                    Reflect.construct(Boolean, [], function () {})
-                  ),
-                  !0
-                )
-              } catch (e) {
-                return !1
-              }
-            })()
-          return function _createSuperInternal() {
-            var result,
-              Super = TimestampMillisecondsParser_getPrototypeOf(Derived)
-            if (hasNativeReflectConstruct) {
-              var NewTarget =
-                TimestampMillisecondsParser_getPrototypeOf(this).constructor
-              result = Reflect.construct(Super, arguments, NewTarget)
-            } else result = Super.apply(this, arguments)
-            return (function TimestampMillisecondsParser_possibleConstructorReturn(
-              self,
-              call
-            ) {
-              if (
-                call &&
-                ('object' === TimestampMillisecondsParser_typeof(call) ||
-                  'function' == typeof call)
-              )
-                return call
-              return TimestampMillisecondsParser_assertThisInitialized(self)
-            })(this, result)
-          }
-        }
-        function TimestampMillisecondsParser_assertThisInitialized(self) {
-          if (void 0 === self)
-            throw new ReferenceError(
-              "this hasn't been initialised - super() hasn't been called"
-            )
-          return self
-        }
-        function TimestampMillisecondsParser_getPrototypeOf(o) {
-          return (
-            (TimestampMillisecondsParser_getPrototypeOf = Object.setPrototypeOf
-              ? Object.getPrototypeOf
-              : function _getPrototypeOf(o) {
-                  return o.__proto__ || Object.getPrototypeOf(o)
-                }),
-            TimestampMillisecondsParser_getPrototypeOf(o)
-          )
-        }
-        function TimestampMillisecondsParser_defineProperty(obj, key, value) {
-          return (
-            key in obj
-              ? Object.defineProperty(obj, key, {
-                  value,
-                  enumerable: !0,
-                  configurable: !0,
-                  writable: !0,
-                })
-              : (obj[key] = value),
-            obj
-          )
-        }
-        var TimestampMillisecondsParser = (function (_Parser) {
-            !(function TimestampMillisecondsParser_inherits(
-              subClass,
-              superClass
-            ) {
-              if ('function' != typeof superClass && null !== superClass)
-                throw new TypeError(
-                  'Super expression must either be null or a function'
-                )
-              ;(subClass.prototype = Object.create(
-                superClass && superClass.prototype,
-                {constructor: {value: subClass, writable: !0, configurable: !0}}
-              )),
-                superClass &&
-                  TimestampMillisecondsParser_setPrototypeOf(
-                    subClass,
-                    superClass
-                  )
-            })(TimestampMillisecondsParser, _Parser)
-            var _super = TimestampMillisecondsParser_createSuper(
-              TimestampMillisecondsParser
-            )
-            function TimestampMillisecondsParser() {
-              var _this
-              !(function TimestampMillisecondsParser_classCallCheck(
-                instance,
-                Constructor
-              ) {
-                if (!(instance instanceof Constructor))
-                  throw new TypeError('Cannot call a class as a function')
-              })(this, TimestampMillisecondsParser)
-              for (
-                var _len = arguments.length, args = new Array(_len), _key = 0;
-                _key < _len;
-                _key++
-              )
-                args[_key] = arguments[_key]
-              return (
-                TimestampMillisecondsParser_defineProperty(
-                  TimestampMillisecondsParser_assertThisInitialized(
-                    (_this = _super.call.apply(_super, [this].concat(args)))
-                  ),
-                  'priority',
-                  20
-                ),
-                TimestampMillisecondsParser_defineProperty(
-                  TimestampMillisecondsParser_assertThisInitialized(_this),
-                  'incompatibleTokens',
-                  '*'
-                ),
-                _this
-              )
+            } catch (err) {
+              _iterator.e(err)
+            } finally {
+              _iterator.f()
             }
-            return (
-              (function TimestampMillisecondsParser_createClass(
-                Constructor,
-                protoProps,
-                staticProps
-              ) {
-                return (
-                  protoProps &&
-                    TimestampMillisecondsParser_defineProperties(
-                      Constructor.prototype,
-                      protoProps
-                    ),
-                  staticProps &&
-                    TimestampMillisecondsParser_defineProperties(
-                      Constructor,
-                      staticProps
-                    ),
-                  Constructor
-                )
-              })(TimestampMillisecondsParser, [
-                {
-                  key: 'parse',
-                  value: function parse(dateString) {
-                    return parseAnyDigitsSigned(dateString)
-                  },
-                },
-                {
-                  key: 'set',
-                  value: function set(_date, _flags, value) {
-                    return [new Date(value), {timestampIsSet: !0}]
-                  },
-                },
-              ]),
-              TimestampMillisecondsParser
-            )
-          })(Parser),
-          parsers = {
-            G: new EraParser(),
-            y: new YearParser(),
-            Y: new LocalWeekYearParser(),
-            R: new ISOWeekYearParser(),
-            u: new ExtendedYearParser(),
-            Q: new QuarterParser(),
-            q: new StandAloneQuarterParser(),
-            M: new MonthParser(),
-            L: new StandAloneMonthParser(),
-            w: new LocalWeekParser(),
-            I: new ISOWeekParser(),
-            d: new DateParser(),
-            D: new DayOfYearParser(),
-            E: new DayParser(),
-            e: new LocalDayParser(),
-            c: new StandAloneLocalDayParser(),
-            i: new ISODayParser(),
-            a: new AMPMParser(),
-            b: new AMPMMidnightParser(),
-            B: new DayPeriodParser(),
-            h: new Hour1to12Parser(),
-            H: new Hour0to23Parser(),
-            K: new Hour0To11Parser(),
-            k: new Hour1To24Parser(),
-            m: new MinuteParser(),
-            s: new SecondParser(),
-            S: new FractionOfSecondParser(),
-            X: new ISOTimezoneWithZParser(),
-            x: new ISOTimezoneParser(),
-            t: new TimestampSecondsParser(),
-            T: new TimestampMillisecondsParser(),
-          }
-        function parse_typeof(obj) {
-          return (
-            (parse_typeof =
-              'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
-                ? function _typeof(obj) {
-                    return typeof obj
-                  }
-                : function _typeof(obj) {
-                    return obj &&
-                      'function' == typeof Symbol &&
-                      obj.constructor === Symbol &&
-                      obj !== Symbol.prototype
-                      ? 'symbol'
-                      : typeof obj
-                  }),
-            parse_typeof(obj)
-          )
-        }
-        function _createForOfIteratorHelper(o, allowArrayLike) {
-          var it
-          if ('undefined' == typeof Symbol || null == o[Symbol.iterator]) {
-            if (
-              Array.isArray(o) ||
-              (it = (function _unsupportedIterableToArray(o, minLen) {
-                if (!o) return
-                if ('string' == typeof o) return _arrayLikeToArray(o, minLen)
-                var n = Object.prototype.toString.call(o).slice(8, -1)
-                'Object' === n && o.constructor && (n = o.constructor.name)
-                if ('Map' === n || 'Set' === n) return Array.from(o)
-                if (
-                  'Arguments' === n ||
-                  /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)
-                )
-                  return _arrayLikeToArray(o, minLen)
-              })(o)) ||
-              (allowArrayLike && o && 'number' == typeof o.length)
-            ) {
-              it && (o = it)
-              var i = 0,
-                F = function F() {}
-              return {
-                s: F,
-                n: function n() {
-                  return i >= o.length ? {done: !0} : {done: !1, value: o[i++]}
-                },
-                e: function e(_e) {
-                  throw _e
-                },
-                f: F,
+            if (dateString.length > 0 && notWhitespaceRegExp.test(dateString))
+              return new Date(NaN)
+            var uniquePrioritySetters = setters
+                .map(function (setter) {
+                  return setter.priority
+                })
+                .sort(function (a, b) {
+                  return b - a
+                })
+                .filter(function (priority, index, array) {
+                  return array.indexOf(priority) === index
+                })
+                .map(function (priority) {
+                  return setters
+                    .filter(function (setter) {
+                      return setter.priority === priority
+                    })
+                    .sort(function (a, b) {
+                      return b.subPriority - a.subPriority
+                    })
+                })
+                .map(function (setterArray) {
+                  return setterArray[0]
+                }),
+              date = toDate(dirtyReferenceDate)
+            if (isNaN(date.getTime())) return new Date(NaN)
+            var _step2,
+              utcDate = subMilliseconds(
+                date,
+                getTimezoneOffsetInMilliseconds(date)
+              ),
+              flags = {},
+              _iterator2 = _createForOfIteratorHelper(uniquePrioritySetters)
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
+                var setter = _step2.value
+                if (!setter.validate(utcDate, subFnOptions))
+                  return new Date(NaN)
+                var result = setter.set(utcDate, flags, subFnOptions)
+                Array.isArray(result)
+                  ? ((utcDate = result[0]), assign_assign(flags, result[1]))
+                  : (utcDate = result)
               }
+            } catch (err) {
+              _iterator2.e(err)
+            } finally {
+              _iterator2.f()
             }
-            throw new TypeError(
-              'Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.'
+            return utcDate
+          }
+          function startOfMonth(dirtyDate) {
+            requiredArgs(1, arguments)
+            var date = toDate(dirtyDate)
+            return date.setDate(1), date.setHours(0, 0, 0, 0), date
+          }
+          function startOfYear(dirtyDate) {
+            requiredArgs(1, arguments)
+            var cleanDate = toDate(dirtyDate),
+              date = new Date(0)
+            return (
+              date.setFullYear(cleanDate.getFullYear(), 0, 1),
+              date.setHours(0, 0, 0, 0),
+              date
             )
           }
-          var err,
-            normalCompletion = !0,
-            didErr = !1
-          return {
-            s: function s() {
-              it = o[Symbol.iterator]()
-            },
-            n: function n() {
-              var step = it.next()
-              return (normalCompletion = step.done), step
-            },
-            e: function e(_e2) {
-              ;(didErr = !0), (err = _e2)
-            },
-            f: function f() {
-              try {
-                normalCompletion || null == it.return || it.return()
-              } finally {
-                if (didErr) throw err
-              }
-            },
-          }
-        }
-        function _arrayLikeToArray(arr, len) {
-          ;(null == len || len > arr.length) && (len = arr.length)
-          for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]
-          return arr2
-        }
-        var parse_formattingTokensRegExp =
-            /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g,
-          parse_longFormattingTokensRegExp =
-            /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g,
-          parse_escapedStringRegExp = /^'([^]*?)'?$/,
-          parse_doubleQuoteRegExp = /''/g,
-          notWhitespaceRegExp = /\S/,
-          parse_unescapedLatinCharacterRegExp = /[a-zA-Z]/
-        function parse(
-          dirtyDateString,
-          dirtyFormatString,
-          dirtyReferenceDate,
-          options
-        ) {
-          var _ref,
-            _options$locale,
-            _ref2,
-            _ref3,
-            _ref4,
-            _options$firstWeekCon,
-            _options$locale2,
-            _options$locale2$opti,
-            _defaultOptions$local,
-            _defaultOptions$local2,
-            _ref5,
-            _ref6,
-            _ref7,
-            _options$weekStartsOn,
-            _options$locale3,
-            _options$locale3$opti,
-            _defaultOptions$local3,
-            _defaultOptions$local4
-          requiredArgs(3, arguments)
-          var dateString = String(dirtyDateString),
-            formatString = String(dirtyFormatString),
-            defaultOptions = getDefaultOptions(),
-            locale =
+          function parseISO(argument, options) {
+            var _options$additionalDi
+            requiredArgs(1, arguments)
+            var additionalDigits = toInteger(
               null !==
-                (_ref =
-                  null !==
-                    (_options$locale =
-                      null == options ? void 0 : options.locale) &&
-                  void 0 !== _options$locale
-                    ? _options$locale
-                    : defaultOptions.locale) && void 0 !== _ref
-                ? _ref
-                : defaultLocale
-          if (!locale.match)
-            throw new RangeError('locale must contain match property')
-          var firstWeekContainsDate = toInteger(
-            null !==
-              (_ref2 =
-                null !==
-                  (_ref3 =
-                    null !==
-                      (_ref4 =
+                (_options$additionalDi =
+                  null == options ? void 0 : options.additionalDigits) &&
+                void 0 !== _options$additionalDi
+                ? _options$additionalDi
+                : 2
+            )
+            if (
+              2 !== additionalDigits &&
+              1 !== additionalDigits &&
+              0 !== additionalDigits
+            )
+              throw new RangeError('additionalDigits must be 0, 1 or 2')
+            if (
+              'string' != typeof argument &&
+              '[object String]' !== Object.prototype.toString.call(argument)
+            )
+              return new Date(NaN)
+            var date,
+              dateStrings = (function splitDateString(dateString) {
+                var timeString,
+                  dateStrings = {},
+                  array = dateString.split(patterns.dateTimeDelimiter)
+                if (array.length > 2) return dateStrings
+                ;/:/.test(array[0])
+                  ? (timeString = array[0])
+                  : ((dateStrings.date = array[0]),
+                    (timeString = array[1]),
+                    patterns.timeZoneDelimiter.test(dateStrings.date) &&
+                      ((dateStrings.date = dateString.split(
+                        patterns.timeZoneDelimiter
+                      )[0]),
+                      (timeString = dateString.substr(
+                        dateStrings.date.length,
+                        dateString.length
+                      ))))
+                if (timeString) {
+                  var token = patterns.timezone.exec(timeString)
+                  token
+                    ? ((dateStrings.time = timeString.replace(token[1], '')),
+                      (dateStrings.timezone = token[1]))
+                    : (dateStrings.time = timeString)
+                }
+                return dateStrings
+              })(argument)
+            if (dateStrings.date) {
+              var parseYearResult = (function parseYear(
+                dateString,
+                additionalDigits
+              ) {
+                var regex = new RegExp(
+                    '^(?:(\\d{4}|[+-]\\d{' +
+                      (4 + additionalDigits) +
+                      '})|(\\d{2}|[+-]\\d{' +
+                      (2 + additionalDigits) +
+                      '})$)'
+                  ),
+                  captures = dateString.match(regex)
+                if (!captures) return {year: NaN, restDateString: ''}
+                var year = captures[1] ? parseInt(captures[1]) : null,
+                  century = captures[2] ? parseInt(captures[2]) : null
+                return {
+                  year: null === century ? year : 100 * century,
+                  restDateString: dateString.slice(
+                    (captures[1] || captures[2]).length
+                  ),
+                }
+              })(dateStrings.date, additionalDigits)
+              date = (function parseDate(dateString, year) {
+                if (null === year) return new Date(NaN)
+                var captures = dateString.match(dateRegex)
+                if (!captures) return new Date(NaN)
+                var isWeekDate = !!captures[4],
+                  dayOfYear = parseDateUnit(captures[1]),
+                  month = parseDateUnit(captures[2]) - 1,
+                  day = parseDateUnit(captures[3]),
+                  week = parseDateUnit(captures[4]),
+                  dayOfWeek = parseDateUnit(captures[5]) - 1
+                if (isWeekDate)
+                  return (function validateWeekDate(_year, week, day) {
+                    return week >= 1 && week <= 53 && day >= 0 && day <= 6
+                  })(0, week, dayOfWeek)
+                    ? (function dayOfISOWeekYear(isoWeekYear, week, day) {
+                        var date = new Date(0)
+                        date.setUTCFullYear(isoWeekYear, 0, 4)
+                        var fourthOfJanuaryDay = date.getUTCDay() || 7,
+                          diff = 7 * (week - 1) + day + 1 - fourthOfJanuaryDay
+                        return date.setUTCDate(date.getUTCDate() + diff), date
+                      })(year, week, dayOfWeek)
+                    : new Date(NaN)
+                var date = new Date(0)
+                return (function validateDate(year, month, date) {
+                  return (
+                    month >= 0 &&
+                    month <= 11 &&
+                    date >= 1 &&
+                    date <=
+                      (daysInMonths[month] ||
+                        (parseISO_isLeapYearIndex(year) ? 29 : 28))
+                  )
+                })(year, month, day) &&
+                  (function validateDayOfYearDate(year, dayOfYear) {
+                    return (
+                      dayOfYear >= 1 &&
+                      dayOfYear <= (parseISO_isLeapYearIndex(year) ? 366 : 365)
+                    )
+                  })(year, dayOfYear)
+                  ? (date.setUTCFullYear(year, month, Math.max(dayOfYear, day)),
+                    date)
+                  : new Date(NaN)
+              })(parseYearResult.restDateString, parseYearResult.year)
+            }
+            if (!date || isNaN(date.getTime())) return new Date(NaN)
+            var offset,
+              timestamp = date.getTime(),
+              time = 0
+            if (
+              dateStrings.time &&
+              ((time = (function parseTime(timeString) {
+                var captures = timeString.match(timeRegex)
+                if (!captures) return NaN
+                var hours = parseTimeUnit(captures[1]),
+                  minutes = parseTimeUnit(captures[2]),
+                  seconds = parseTimeUnit(captures[3])
+                if (
+                  !(function validateTime(hours, minutes, seconds) {
+                    if (24 === hours) return 0 === minutes && 0 === seconds
+                    return (
+                      seconds >= 0 &&
+                      seconds < 60 &&
+                      minutes >= 0 &&
+                      minutes < 60 &&
+                      hours >= 0 &&
+                      hours < 25
+                    )
+                  })(hours, minutes, seconds)
+                )
+                  return NaN
+                return (
+                  hours * millisecondsInHour +
+                  minutes * millisecondsInMinute +
+                  1e3 * seconds
+                )
+              })(dateStrings.time)),
+              isNaN(time))
+            )
+              return new Date(NaN)
+            if (!dateStrings.timezone) {
+              var dirtyDate = new Date(timestamp + time),
+                result = new Date(0)
+              return (
+                result.setFullYear(
+                  dirtyDate.getUTCFullYear(),
+                  dirtyDate.getUTCMonth(),
+                  dirtyDate.getUTCDate()
+                ),
+                result.setHours(
+                  dirtyDate.getUTCHours(),
+                  dirtyDate.getUTCMinutes(),
+                  dirtyDate.getUTCSeconds(),
+                  dirtyDate.getUTCMilliseconds()
+                ),
+                result
+              )
+            }
+            return (
+              (offset = (function parseTimezone(timezoneString) {
+                if ('Z' === timezoneString) return 0
+                var captures = timezoneString.match(timezoneRegex)
+                if (!captures) return 0
+                var sign = '+' === captures[1] ? -1 : 1,
+                  hours = parseInt(captures[2]),
+                  minutes = (captures[3] && parseInt(captures[3])) || 0
+                if (
+                  !(function validateTimezone(_hours, minutes) {
+                    return minutes >= 0 && minutes <= 59
+                  })(0, minutes)
+                )
+                  return NaN
+                return (
+                  sign *
+                  (hours * millisecondsInHour + minutes * millisecondsInMinute)
+                )
+              })(dateStrings.timezone)),
+              isNaN(offset)
+                ? new Date(NaN)
+                : new Date(timestamp + time + offset)
+            )
+          }
+          var patterns = {
+              dateTimeDelimiter: /[T ]/,
+              timeZoneDelimiter: /[Z ]/i,
+              timezone: /([Z+-].*)$/,
+            },
+            dateRegex =
+              /^-?(?:(\d{3})|(\d{2})(?:-?(\d{2}))?|W(\d{2})(?:-?(\d{1}))?|)$/,
+            timeRegex =
+              /^(\d{2}(?:[.,]\d*)?)(?::?(\d{2}(?:[.,]\d*)?))?(?::?(\d{2}(?:[.,]\d*)?))?$/,
+            timezoneRegex = /^([+-])(\d{2})(?::?(\d{2}))?$/
+          function parseDateUnit(value) {
+            return value ? parseInt(value) : 1
+          }
+          function parseTimeUnit(value) {
+            return (value && parseFloat(value.replace(',', '.'))) || 0
+          }
+          var daysInMonths = [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+          function parseISO_isLeapYearIndex(year) {
+            return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)
+          }
+          var _lib_format_longFormatters = __webpack_require__(
+              '../../node_modules/date-fns/_lib/format/longFormatters/index.js'
+            ),
+            longFormatters_default = __webpack_require__.n(
+              _lib_format_longFormatters
+            )
+          const formatTokenMap = {
+              y: {sectionType: 'year', contentType: 'digit', maxLength: 4},
+              yy: 'year',
+              yyy: {sectionType: 'year', contentType: 'digit', maxLength: 4},
+              yyyy: 'year',
+              M: {sectionType: 'month', contentType: 'digit', maxLength: 2},
+              MM: 'month',
+              MMMM: {sectionType: 'month', contentType: 'letter'},
+              MMM: {sectionType: 'month', contentType: 'letter'},
+              L: {sectionType: 'month', contentType: 'digit', maxLength: 2},
+              LL: 'month',
+              LLL: {sectionType: 'month', contentType: 'letter'},
+              LLLL: {sectionType: 'month', contentType: 'letter'},
+              d: {sectionType: 'day', contentType: 'digit', maxLength: 2},
+              dd: 'day',
+              do: {sectionType: 'day', contentType: 'digit-with-letter'},
+              E: {sectionType: 'weekDay', contentType: 'letter'},
+              EE: {sectionType: 'weekDay', contentType: 'letter'},
+              EEE: {sectionType: 'weekDay', contentType: 'letter'},
+              EEEE: {sectionType: 'weekDay', contentType: 'letter'},
+              EEEEE: {sectionType: 'weekDay', contentType: 'letter'},
+              i: {sectionType: 'weekDay', contentType: 'digit', maxLength: 1},
+              ii: 'weekDay',
+              iii: {sectionType: 'weekDay', contentType: 'letter'},
+              iiii: {sectionType: 'weekDay', contentType: 'letter'},
+              e: {sectionType: 'weekDay', contentType: 'digit', maxLength: 1},
+              ee: 'weekDay',
+              eee: {sectionType: 'weekDay', contentType: 'letter'},
+              eeee: {sectionType: 'weekDay', contentType: 'letter'},
+              eeeee: {sectionType: 'weekDay', contentType: 'letter'},
+              eeeeee: {sectionType: 'weekDay', contentType: 'letter'},
+              c: {sectionType: 'weekDay', contentType: 'digit', maxLength: 1},
+              cc: 'weekDay',
+              ccc: {sectionType: 'weekDay', contentType: 'letter'},
+              cccc: {sectionType: 'weekDay', contentType: 'letter'},
+              ccccc: {sectionType: 'weekDay', contentType: 'letter'},
+              cccccc: {sectionType: 'weekDay', contentType: 'letter'},
+              a: 'meridiem',
+              aa: 'meridiem',
+              aaa: 'meridiem',
+              H: {sectionType: 'hours', contentType: 'digit', maxLength: 2},
+              HH: 'hours',
+              h: {sectionType: 'hours', contentType: 'digit', maxLength: 2},
+              hh: 'hours',
+              m: {sectionType: 'minutes', contentType: 'digit', maxLength: 2},
+              mm: 'minutes',
+              s: {sectionType: 'seconds', contentType: 'digit', maxLength: 2},
+              ss: 'seconds',
+            },
+            defaultFormats = {
+              year: 'yyyy',
+              month: 'LLLL',
+              monthShort: 'MMM',
+              dayOfMonth: 'd',
+              weekday: 'EEEE',
+              weekdayShort: 'EEE',
+              hours24h: 'HH',
+              hours12h: 'hh',
+              meridiem: 'aa',
+              minutes: 'mm',
+              seconds: 'ss',
+              fullDate: 'PP',
+              fullDateWithWeekday: 'PPPP',
+              keyboardDate: 'P',
+              shortDate: 'MMM d',
+              normalDate: 'd MMMM',
+              normalDateWithWeekday: 'EEE, MMM d',
+              monthAndYear: 'LLLL yyyy',
+              monthAndDate: 'MMMM d',
+              fullTime: 'p',
+              fullTime12h: 'hh:mm aa',
+              fullTime24h: 'HH:mm',
+              fullDateTime: 'PP p',
+              fullDateTime12h: 'PP hh:mm aa',
+              fullDateTime24h: 'PP HH:mm',
+              keyboardDateTime: 'P p',
+              keyboardDateTime12h: 'P hh:mm aa',
+              keyboardDateTime24h: 'P HH:mm',
+            }
+          class AdapterDateFns {
+            constructor({locale: _locale, formats} = {}) {
+              ;(this.isMUIAdapter = !0),
+                (this.isTimezoneCompatible = !1),
+                (this.lib = 'date-fns'),
+                (this.locale = void 0),
+                (this.formats = void 0),
+                (this.formatTokenMap = formatTokenMap),
+                (this.escapedCharacters = {start: "'", end: "'"}),
+                (this.date = (value) =>
+                  void 0 === value
+                    ? new Date()
+                    : null === value
+                    ? null
+                    : new Date(value)),
+                (this.dateWithTimezone = (value) => this.date(value)),
+                (this.getTimezone = () => 'default'),
+                (this.setTimezone = (value) => value),
+                (this.toJsDate = (value) => value),
+                (this.parseISO = (isoString) => parseISO(isoString)),
+                (this.toISO = (value) =>
+                  (function formatISO(date, options) {
+                    var _options$format, _options$representati
+                    requiredArgs(1, arguments)
+                    var originalDate = toDate(date)
+                    if (isNaN(originalDate.getTime()))
+                      throw new RangeError('Invalid time value')
+                    var format = String(
                         null !==
-                          (_options$firstWeekCon =
+                          (_options$format =
+                            null == options ? void 0 : options.format) &&
+                          void 0 !== _options$format
+                          ? _options$format
+                          : 'extended'
+                      ),
+                      representation = String(
+                        null !==
+                          (_options$representati =
                             null == options
                               ? void 0
-                              : options.firstWeekContainsDate) &&
-                        void 0 !== _options$firstWeekCon
-                          ? _options$firstWeekCon
-                          : null == options ||
-                            null === (_options$locale2 = options.locale) ||
-                            void 0 === _options$locale2 ||
-                            null ===
-                              (_options$locale2$opti =
-                                _options$locale2.options) ||
-                            void 0 === _options$locale2$opti
-                          ? void 0
-                          : _options$locale2$opti.firstWeekContainsDate) &&
-                    void 0 !== _ref4
-                      ? _ref4
-                      : defaultOptions.firstWeekContainsDate) &&
-                void 0 !== _ref3
-                  ? _ref3
-                  : null === (_defaultOptions$local = defaultOptions.locale) ||
-                    void 0 === _defaultOptions$local ||
-                    null ===
-                      (_defaultOptions$local2 =
-                        _defaultOptions$local.options) ||
-                    void 0 === _defaultOptions$local2
-                  ? void 0
-                  : _defaultOptions$local2.firstWeekContainsDate) &&
-              void 0 !== _ref2
-              ? _ref2
-              : 1
-          )
-          if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7))
-            throw new RangeError(
-              'firstWeekContainsDate must be between 1 and 7 inclusively'
-            )
-          var weekStartsOn = toInteger(
-            null !==
-              (_ref5 =
-                null !==
-                  (_ref6 =
-                    null !==
-                      (_ref7 =
-                        null !==
-                          (_options$weekStartsOn =
-                            null == options ? void 0 : options.weekStartsOn) &&
-                        void 0 !== _options$weekStartsOn
-                          ? _options$weekStartsOn
-                          : null == options ||
-                            null === (_options$locale3 = options.locale) ||
-                            void 0 === _options$locale3 ||
-                            null ===
-                              (_options$locale3$opti =
-                                _options$locale3.options) ||
-                            void 0 === _options$locale3$opti
-                          ? void 0
-                          : _options$locale3$opti.weekStartsOn) &&
-                    void 0 !== _ref7
-                      ? _ref7
-                      : defaultOptions.weekStartsOn) && void 0 !== _ref6
-                  ? _ref6
-                  : null === (_defaultOptions$local3 = defaultOptions.locale) ||
-                    void 0 === _defaultOptions$local3 ||
-                    null ===
-                      (_defaultOptions$local4 =
-                        _defaultOptions$local3.options) ||
-                    void 0 === _defaultOptions$local4
-                  ? void 0
-                  : _defaultOptions$local4.weekStartsOn) && void 0 !== _ref5
-              ? _ref5
-              : 0
-          )
-          if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
-            throw new RangeError(
-              'weekStartsOn must be between 0 and 6 inclusively'
-            )
-          if ('' === formatString)
-            return '' === dateString
-              ? toDate(dirtyReferenceDate)
-              : new Date(NaN)
-          var _step,
-            subFnOptions = {firstWeekContainsDate, weekStartsOn, locale},
-            setters = [new DateToSystemTimezoneSetter()],
-            tokens = formatString
-              .match(parse_longFormattingTokensRegExp)
-              .map(function (substring) {
-                var firstCharacter = substring[0]
-                return firstCharacter in format_longFormatters
-                  ? (0, format_longFormatters[firstCharacter])(
-                      substring,
-                      locale.formatLong
+                              : options.representation) &&
+                          void 0 !== _options$representati
+                          ? _options$representati
+                          : 'complete'
+                      )
+                    if ('extended' !== format && 'basic' !== format)
+                      throw new RangeError(
+                        "format must be 'extended' or 'basic'"
+                      )
+                    if (
+                      'date' !== representation &&
+                      'time' !== representation &&
+                      'complete' !== representation
                     )
-                  : substring
-              })
-              .join('')
-              .match(parse_formattingTokensRegExp),
-            usedTokens = [],
-            _iterator = _createForOfIteratorHelper(tokens)
-          try {
-            var _loop = function _loop() {
-              var token = _step.value
-              ;(null != options && options.useAdditionalWeekYearTokens) ||
-                !isProtectedWeekYearToken(token) ||
-                throwProtectedError(token, formatString, dirtyDateString),
-                (null != options && options.useAdditionalDayOfYearTokens) ||
-                  !isProtectedDayOfYearToken(token) ||
-                  throwProtectedError(token, formatString, dirtyDateString)
-              var firstCharacter = token[0],
-                parser = parsers[firstCharacter]
-              if (parser) {
-                var incompatibleTokens = parser.incompatibleTokens
-                if (Array.isArray(incompatibleTokens)) {
-                  var incompatibleToken = usedTokens.find(function (usedToken) {
-                    return (
-                      incompatibleTokens.includes(usedToken.token) ||
-                      usedToken.token === firstCharacter
-                    )
-                  })
-                  if (incompatibleToken)
-                    throw new RangeError(
-                      "The format string mustn't contain `"
-                        .concat(incompatibleToken.fullToken, '` and `')
-                        .concat(token, '` at the same time')
-                    )
-                } else if (
-                  '*' === parser.incompatibleTokens &&
-                  usedTokens.length > 0
-                )
-                  throw new RangeError(
-                    "The format string mustn't contain `".concat(
-                      token,
-                      '` and any other token at the same time'
-                    )
-                  )
-                usedTokens.push({token: firstCharacter, fullToken: token})
-                var parseResult = parser.run(
-                  dateString,
-                  token,
-                  locale.match,
-                  subFnOptions
-                )
-                if (!parseResult) return {v: new Date(NaN)}
-                setters.push(parseResult.setter),
-                  (dateString = parseResult.rest)
-              } else {
-                if (firstCharacter.match(parse_unescapedLatinCharacterRegExp))
-                  throw new RangeError(
-                    'Format string contains an unescaped latin alphabet character `' +
-                      firstCharacter +
-                      '`'
-                  )
-                if (
-                  ("''" === token
-                    ? (token = "'")
-                    : "'" === firstCharacter &&
-                      (token = (function parse_cleanEscapedString(input) {
-                        return input
-                          .match(parse_escapedStringRegExp)[1]
-                          .replace(parse_doubleQuoteRegExp, "'")
-                      })(token)),
-                  0 !== dateString.indexOf(token))
-                )
-                  return {v: new Date(NaN)}
-                dateString = dateString.slice(token.length)
-              }
-            }
-            for (_iterator.s(); !(_step = _iterator.n()).done; ) {
-              var _ret = _loop()
-              if ('object' === parse_typeof(_ret)) return _ret.v
-            }
-          } catch (err) {
-            _iterator.e(err)
-          } finally {
-            _iterator.f()
-          }
-          if (dateString.length > 0 && notWhitespaceRegExp.test(dateString))
-            return new Date(NaN)
-          var uniquePrioritySetters = setters
-              .map(function (setter) {
-                return setter.priority
-              })
-              .sort(function (a, b) {
-                return b - a
-              })
-              .filter(function (priority, index, array) {
-                return array.indexOf(priority) === index
-              })
-              .map(function (priority) {
-                return setters
-                  .filter(function (setter) {
-                    return setter.priority === priority
-                  })
-                  .sort(function (a, b) {
-                    return b.subPriority - a.subPriority
-                  })
-              })
-              .map(function (setterArray) {
-                return setterArray[0]
-              }),
-            date = toDate(dirtyReferenceDate)
-          if (isNaN(date.getTime())) return new Date(NaN)
-          var _step2,
-            utcDate = subMilliseconds(
-              date,
-              getTimezoneOffsetInMilliseconds(date)
-            ),
-            flags = {},
-            _iterator2 = _createForOfIteratorHelper(uniquePrioritySetters)
-          try {
-            for (_iterator2.s(); !(_step2 = _iterator2.n()).done; ) {
-              var setter = _step2.value
-              if (!setter.validate(utcDate, subFnOptions)) return new Date(NaN)
-              var result = setter.set(utcDate, flags, subFnOptions)
-              Array.isArray(result)
-                ? ((utcDate = result[0]), assign_assign(flags, result[1]))
-                : (utcDate = result)
-            }
-          } catch (err) {
-            _iterator2.e(err)
-          } finally {
-            _iterator2.f()
-          }
-          return utcDate
-        }
-        function startOfMonth(dirtyDate) {
-          requiredArgs(1, arguments)
-          var date = toDate(dirtyDate)
-          return date.setDate(1), date.setHours(0, 0, 0, 0), date
-        }
-        function startOfWeek(dirtyDate, options) {
-          var _ref,
-            _ref2,
-            _ref3,
-            _options$weekStartsOn,
-            _options$locale,
-            _options$locale$optio,
-            _defaultOptions$local,
-            _defaultOptions$local2
-          requiredArgs(1, arguments)
-          var defaultOptions = getDefaultOptions(),
-            weekStartsOn = toInteger(
-              null !==
-                (_ref =
-                  null !==
-                    (_ref2 =
-                      null !==
-                        (_ref3 =
-                          null !==
-                            (_options$weekStartsOn =
-                              null == options
-                                ? void 0
-                                : options.weekStartsOn) &&
-                          void 0 !== _options$weekStartsOn
-                            ? _options$weekStartsOn
-                            : null == options ||
-                              null === (_options$locale = options.locale) ||
-                              void 0 === _options$locale ||
-                              null ===
-                                (_options$locale$optio =
-                                  _options$locale.options) ||
-                              void 0 === _options$locale$optio
-                            ? void 0
-                            : _options$locale$optio.weekStartsOn) &&
-                      void 0 !== _ref3
-                        ? _ref3
-                        : defaultOptions.weekStartsOn) && void 0 !== _ref2
-                    ? _ref2
-                    : null ===
-                        (_defaultOptions$local = defaultOptions.locale) ||
-                      void 0 === _defaultOptions$local ||
-                      null ===
-                        (_defaultOptions$local2 =
-                          _defaultOptions$local.options) ||
-                      void 0 === _defaultOptions$local2
-                    ? void 0
-                    : _defaultOptions$local2.weekStartsOn) && void 0 !== _ref
-                ? _ref
-                : 0
-            )
-          if (!(weekStartsOn >= 0 && weekStartsOn <= 6))
-            throw new RangeError(
-              'weekStartsOn must be between 0 and 6 inclusively'
-            )
-          var date = toDate(dirtyDate),
-            day = date.getDay(),
-            diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn
-          return (
-            date.setDate(date.getDate() - diff), date.setHours(0, 0, 0, 0), date
-          )
-        }
-        function startOfYear(dirtyDate) {
-          requiredArgs(1, arguments)
-          var cleanDate = toDate(dirtyDate),
-            date = new Date(0)
-          return (
-            date.setFullYear(cleanDate.getFullYear(), 0, 1),
-            date.setHours(0, 0, 0, 0),
-            date
-          )
-        }
-        function parseISO(argument, options) {
-          var _options$additionalDi
-          requiredArgs(1, arguments)
-          var additionalDigits = toInteger(
-            null !==
-              (_options$additionalDi =
-                null == options ? void 0 : options.additionalDigits) &&
-              void 0 !== _options$additionalDi
-              ? _options$additionalDi
-              : 2
-          )
-          if (
-            2 !== additionalDigits &&
-            1 !== additionalDigits &&
-            0 !== additionalDigits
-          )
-            throw new RangeError('additionalDigits must be 0, 1 or 2')
-          if (
-            'string' != typeof argument &&
-            '[object String]' !== Object.prototype.toString.call(argument)
-          )
-            return new Date(NaN)
-          var date,
-            dateStrings = (function splitDateString(dateString) {
-              var timeString,
-                dateStrings = {},
-                array = dateString.split(patterns.dateTimeDelimiter)
-              if (array.length > 2) return dateStrings
-              ;/:/.test(array[0])
-                ? (timeString = array[0])
-                : ((dateStrings.date = array[0]),
-                  (timeString = array[1]),
-                  patterns.timeZoneDelimiter.test(dateStrings.date) &&
-                    ((dateStrings.date = dateString.split(
-                      patterns.timeZoneDelimiter
-                    )[0]),
-                    (timeString = dateString.substr(
-                      dateStrings.date.length,
-                      dateString.length
-                    ))))
-              if (timeString) {
-                var token = patterns.timezone.exec(timeString)
-                token
-                  ? ((dateStrings.time = timeString.replace(token[1], '')),
-                    (dateStrings.timezone = token[1]))
-                  : (dateStrings.time = timeString)
-              }
-              return dateStrings
-            })(argument)
-          if (dateStrings.date) {
-            var parseYearResult = (function parseYear(
-              dateString,
-              additionalDigits
-            ) {
-              var regex = new RegExp(
-                  '^(?:(\\d{4}|[+-]\\d{' +
-                    (4 + additionalDigits) +
-                    '})|(\\d{2}|[+-]\\d{' +
-                    (2 + additionalDigits) +
-                    '})$)'
-                ),
-                captures = dateString.match(regex)
-              if (!captures) return {year: NaN, restDateString: ''}
-              var year = captures[1] ? parseInt(captures[1]) : null,
-                century = captures[2] ? parseInt(captures[2]) : null
-              return {
-                year: null === century ? year : 100 * century,
-                restDateString: dateString.slice(
-                  (captures[1] || captures[2]).length
-                ),
-              }
-            })(dateStrings.date, additionalDigits)
-            date = (function parseDate(dateString, year) {
-              if (null === year) return new Date(NaN)
-              var captures = dateString.match(dateRegex)
-              if (!captures) return new Date(NaN)
-              var isWeekDate = !!captures[4],
-                dayOfYear = parseDateUnit(captures[1]),
-                month = parseDateUnit(captures[2]) - 1,
-                day = parseDateUnit(captures[3]),
-                week = parseDateUnit(captures[4]),
-                dayOfWeek = parseDateUnit(captures[5]) - 1
-              if (isWeekDate)
-                return (function validateWeekDate(_year, week, day) {
-                  return week >= 1 && week <= 53 && day >= 0 && day <= 6
-                })(0, week, dayOfWeek)
-                  ? (function dayOfISOWeekYear(isoWeekYear, week, day) {
-                      var date = new Date(0)
-                      date.setUTCFullYear(isoWeekYear, 0, 4)
-                      var fourthOfJanuaryDay = date.getUTCDay() || 7,
-                        diff = 7 * (week - 1) + day + 1 - fourthOfJanuaryDay
-                      return date.setUTCDate(date.getUTCDate() + diff), date
-                    })(year, week, dayOfWeek)
-                  : new Date(NaN)
-              var date = new Date(0)
-              return (function validateDate(year, month, date) {
-                return (
-                  month >= 0 &&
-                  month <= 11 &&
-                  date >= 1 &&
-                  date <=
-                    (daysInMonths[month] ||
-                      (parseISO_isLeapYearIndex(year) ? 29 : 28))
-                )
-              })(year, month, day) &&
-                (function validateDayOfYearDate(year, dayOfYear) {
+                      throw new RangeError(
+                        "representation must be 'date', 'time', or 'complete'"
+                      )
+                    var result = '',
+                      tzOffset = '',
+                      dateDelimiter = 'extended' === format ? '-' : '',
+                      timeDelimiter = 'extended' === format ? ':' : ''
+                    if ('time' !== representation) {
+                      var day = addLeadingZeros(originalDate.getDate(), 2),
+                        month = addLeadingZeros(originalDate.getMonth() + 1, 2),
+                        year = addLeadingZeros(originalDate.getFullYear(), 4)
+                      result = ''
+                        .concat(year)
+                        .concat(dateDelimiter)
+                        .concat(month)
+                        .concat(dateDelimiter)
+                        .concat(day)
+                    }
+                    if ('date' !== representation) {
+                      var offset = originalDate.getTimezoneOffset()
+                      if (0 !== offset) {
+                        var absoluteOffset = Math.abs(offset),
+                          hourOffset = addLeadingZeros(
+                            Math.floor(absoluteOffset / 60),
+                            2
+                          ),
+                          minuteOffset = addLeadingZeros(absoluteOffset % 60, 2)
+                        tzOffset = ''
+                          .concat(offset < 0 ? '+' : '-')
+                          .concat(hourOffset, ':')
+                          .concat(minuteOffset)
+                      } else tzOffset = 'Z'
+                      var separator = '' === result ? '' : 'T',
+                        time = [
+                          addLeadingZeros(originalDate.getHours(), 2),
+                          addLeadingZeros(originalDate.getMinutes(), 2),
+                          addLeadingZeros(originalDate.getSeconds(), 2),
+                        ].join(timeDelimiter)
+                      result = ''
+                        .concat(result)
+                        .concat(separator)
+                        .concat(time)
+                        .concat(tzOffset)
+                    }
+                    return result
+                  })(value, {format: 'extended'})),
+                (this.parse = (value, format) =>
+                  '' === value
+                    ? null
+                    : parse(value, format, new Date(), {locale: this.locale})),
+                (this.getCurrentLocaleCode = () => {
+                  var _this$locale
                   return (
-                    dayOfYear >= 1 &&
-                    dayOfYear <= (parseISO_isLeapYearIndex(year) ? 366 : 365)
+                    (null == (_this$locale = this.locale)
+                      ? void 0
+                      : _this$locale.code) || 'en-US'
                   )
-                })(year, dayOfYear)
-                ? (date.setUTCFullYear(year, month, Math.max(dayOfYear, day)),
-                  date)
-                : new Date(NaN)
-            })(parseYearResult.restDateString, parseYearResult.year)
-          }
-          if (!date || isNaN(date.getTime())) return new Date(NaN)
-          var offset,
-            timestamp = date.getTime(),
-            time = 0
-          if (
-            dateStrings.time &&
-            ((time = (function parseTime(timeString) {
-              var captures = timeString.match(timeRegex)
-              if (!captures) return NaN
-              var hours = parseTimeUnit(captures[1]),
-                minutes = parseTimeUnit(captures[2]),
-                seconds = parseTimeUnit(captures[3])
-              if (
-                !(function validateTime(hours, minutes, seconds) {
-                  if (24 === hours) return 0 === minutes && 0 === seconds
-                  return (
-                    seconds >= 0 &&
-                    seconds < 60 &&
-                    minutes >= 0 &&
-                    minutes < 60 &&
-                    hours >= 0 &&
-                    hours < 25
-                  )
-                })(hours, minutes, seconds)
-              )
-                return NaN
-              return (
-                hours * millisecondsInHour +
-                minutes * millisecondsInMinute +
-                1e3 * seconds
-              )
-            })(dateStrings.time)),
-            isNaN(time))
-          )
-            return new Date(NaN)
-          if (!dateStrings.timezone) {
-            var dirtyDate = new Date(timestamp + time),
-              result = new Date(0)
-            return (
-              result.setFullYear(
-                dirtyDate.getUTCFullYear(),
-                dirtyDate.getUTCMonth(),
-                dirtyDate.getUTCDate()
-              ),
-              result.setHours(
-                dirtyDate.getUTCHours(),
-                dirtyDate.getUTCMinutes(),
-                dirtyDate.getUTCSeconds(),
-                dirtyDate.getUTCMilliseconds()
-              ),
-              result
-            )
-          }
-          return (
-            (offset = (function parseTimezone(timezoneString) {
-              if ('Z' === timezoneString) return 0
-              var captures = timezoneString.match(timezoneRegex)
-              if (!captures) return 0
-              var sign = '+' === captures[1] ? -1 : 1,
-                hours = parseInt(captures[2]),
-                minutes = (captures[3] && parseInt(captures[3])) || 0
-              if (
-                !(function validateTimezone(_hours, minutes) {
-                  return minutes >= 0 && minutes <= 59
-                })(0, minutes)
-              )
-                return NaN
-              return (
-                sign *
-                (hours * millisecondsInHour + minutes * millisecondsInMinute)
-              )
-            })(dateStrings.timezone)),
-            isNaN(offset) ? new Date(NaN) : new Date(timestamp + time + offset)
-          )
-        }
-        var patterns = {
-            dateTimeDelimiter: /[T ]/,
-            timeZoneDelimiter: /[Z ]/i,
-            timezone: /([Z+-].*)$/,
-          },
-          dateRegex =
-            /^-?(?:(\d{3})|(\d{2})(?:-?(\d{2}))?|W(\d{2})(?:-?(\d{1}))?|)$/,
-          timeRegex =
-            /^(\d{2}(?:[.,]\d*)?)(?::?(\d{2}(?:[.,]\d*)?))?(?::?(\d{2}(?:[.,]\d*)?))?$/,
-          timezoneRegex = /^([+-])(\d{2})(?::?(\d{2}))?$/
-        function parseDateUnit(value) {
-          return value ? parseInt(value) : 1
-        }
-        function parseTimeUnit(value) {
-          return (value && parseFloat(value.replace(',', '.'))) || 0
-        }
-        var daysInMonths = [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        function parseISO_isLeapYearIndex(year) {
-          return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)
-        }
-        var _lib_format_longFormatters = __webpack_require__(
-            '../../node_modules/date-fns/_lib/format/longFormatters/index.js'
-          ),
-          longFormatters_default = __webpack_require__.n(
-            _lib_format_longFormatters
-          ),
-          defaultFormats = {
-            dayOfMonth: 'd',
-            fullDate: 'PP',
-            fullDateWithWeekday: 'PPPP',
-            fullDateTime: 'PP p',
-            fullDateTime12h: 'PP hh:mm aaa',
-            fullDateTime24h: 'PP HH:mm',
-            fullTime: 'p',
-            fullTime12h: 'hh:mm aaa',
-            fullTime24h: 'HH:mm',
-            hours12h: 'hh',
-            hours24h: 'HH',
-            keyboardDate: 'P',
-            keyboardDateTime: 'P p',
-            keyboardDateTime12h: 'P hh:mm aaa',
-            keyboardDateTime24h: 'P HH:mm',
-            minutes: 'mm',
-            month: 'LLLL',
-            monthAndDate: 'MMMM d',
-            monthAndYear: 'LLLL yyyy',
-            monthShort: 'MMM',
-            weekday: 'EEEE',
-            weekdayShort: 'EEE',
-            normalDate: 'd MMMM',
-            normalDateWithWeekday: 'EEE, MMM d',
-            seconds: 'ss',
-            shortDate: 'MMM d',
-            year: 'yyyy',
-          },
-          DateFnsUtils = function DateFnsUtils(_a) {
-            var _this = this,
-              _b = void 0 === _a ? {} : _a,
-              locale = _b.locale,
-              formats = _b.formats
-            ;(this.lib = 'date-fns'),
-              (this.is12HourCycleInCurrentLocale = function () {
-                return !_this.locale || /a/.test(_this.locale.formatLong.time())
-              }),
-              (this.getFormatHelperText = function (format) {
-                var locale = _this.locale || en_US
-                return format
-                  .match(/P+p+|P+|p+|''|'(''|[^'])+('|$)|./g)
-                  .map(function (token) {
-                    var firstCharacter = token[0]
-                    return 'p' === firstCharacter || 'P' === firstCharacter
-                      ? (0, longFormatters_default()[firstCharacter])(
+                }),
+                (this.is12HourCycleInCurrentLocale = () =>
+                  !this.locale || /a/.test(this.locale.formatLong.time())),
+                (this.expandFormat = (format) =>
+                  format
+                    .match(/P+p+|P+|p+|''|'(''|[^'])+('|$)|./g)
+                    .map((token) => {
+                      const firstCharacter = token[0]
+                      if ('p' === firstCharacter || 'P' === firstCharacter) {
+                        return (0, longFormatters_default()[firstCharacter])(
                           token,
-                          locale.formatLong,
+                          (this.locale || en_US).formatLong,
                           {}
                         )
-                      : token
-                  })
-                  .join('')
-                  .replace(/(aaa|aa|a)/g, '(a|p)m')
-                  .toLocaleLowerCase()
-              }),
-              (this.parseISO = function (isoString) {
-                return parseISO(isoString)
-              }),
-              (this.toISO = function (value) {
-                return (function formatISO(date, options) {
-                  var _options$format, _options$representati
-                  requiredArgs(1, arguments)
-                  var originalDate = toDate(date)
-                  if (isNaN(originalDate.getTime()))
-                    throw new RangeError('Invalid time value')
-                  var format = String(
-                      null !==
-                        (_options$format =
-                          null == options ? void 0 : options.format) &&
-                        void 0 !== _options$format
-                        ? _options$format
-                        : 'extended'
-                    ),
-                    representation = String(
-                      null !==
-                        (_options$representati =
-                          null == options ? void 0 : options.representation) &&
-                        void 0 !== _options$representati
-                        ? _options$representati
-                        : 'complete'
-                    )
-                  if ('extended' !== format && 'basic' !== format)
-                    throw new RangeError("format must be 'extended' or 'basic'")
-                  if (
-                    'date' !== representation &&
-                    'time' !== representation &&
-                    'complete' !== representation
-                  )
-                    throw new RangeError(
-                      "representation must be 'date', 'time', or 'complete'"
-                    )
-                  var result = '',
-                    tzOffset = '',
-                    dateDelimiter = 'extended' === format ? '-' : '',
-                    timeDelimiter = 'extended' === format ? ':' : ''
-                  if ('time' !== representation) {
-                    var day = addLeadingZeros(originalDate.getDate(), 2),
-                      month = addLeadingZeros(originalDate.getMonth() + 1, 2),
-                      year = addLeadingZeros(originalDate.getFullYear(), 4)
-                    result = ''
-                      .concat(year)
-                      .concat(dateDelimiter)
-                      .concat(month)
-                      .concat(dateDelimiter)
-                      .concat(day)
-                  }
-                  if ('date' !== representation) {
-                    var offset = originalDate.getTimezoneOffset()
-                    if (0 !== offset) {
-                      var absoluteOffset = Math.abs(offset),
-                        hourOffset = addLeadingZeros(
-                          Math.floor(absoluteOffset / 60),
-                          2
-                        ),
-                        minuteOffset = addLeadingZeros(absoluteOffset % 60, 2)
-                      tzOffset = ''
-                        .concat(offset < 0 ? '+' : '-')
-                        .concat(hourOffset, ':')
-                        .concat(minuteOffset)
-                    } else tzOffset = 'Z'
-                    var separator = '' === result ? '' : 'T',
-                      time = [
-                        addLeadingZeros(originalDate.getHours(), 2),
-                        addLeadingZeros(originalDate.getMinutes(), 2),
-                        addLeadingZeros(originalDate.getSeconds(), 2),
-                      ].join(timeDelimiter)
-                    result = ''
-                      .concat(result)
-                      .concat(separator)
-                      .concat(time)
-                      .concat(tzOffset)
-                  }
-                  return result
-                })(value, {format: 'extended'})
-              }),
-              (this.getCurrentLocaleCode = function () {
-                var _a
-                return (
-                  (null === (_a = _this.locale) || void 0 === _a
-                    ? void 0
-                    : _a.code) || 'en-US'
-                )
-              }),
-              (this.addSeconds = function (value, count) {
-                return (function addSeconds(dirtyDate, dirtyAmount) {
-                  return (
-                    requiredArgs(2, arguments),
-                    addMilliseconds(dirtyDate, 1e3 * toInteger(dirtyAmount))
-                  )
-                })(value, count)
-              }),
-              (this.addMinutes = function (value, count) {
-                return (function addMinutes(dirtyDate, dirtyAmount) {
-                  return (
-                    requiredArgs(2, arguments),
-                    addMilliseconds(dirtyDate, 6e4 * toInteger(dirtyAmount))
-                  )
-                })(value, count)
-              }),
-              (this.addHours = function (value, count) {
-                return (function addHours(dirtyDate, dirtyAmount) {
-                  return (
-                    requiredArgs(2, arguments),
-                    addMilliseconds(dirtyDate, 36e5 * toInteger(dirtyAmount))
-                  )
-                })(value, count)
-              }),
-              (this.addDays = function (value, count) {
-                return addDays(value, count)
-              }),
-              (this.addWeeks = function (value, count) {
-                return (function addWeeks(dirtyDate, dirtyAmount) {
-                  return (
-                    requiredArgs(2, arguments),
-                    addDays(dirtyDate, 7 * toInteger(dirtyAmount))
-                  )
-                })(value, count)
-              }),
-              (this.addMonths = function (value, count) {
-                return addMonths(value, count)
-              }),
-              (this.addYears = function (value, count) {
-                return addYears(value, count)
-              }),
-              (this.isValid = function (value) {
-                return isValid(_this.date(value))
-              }),
-              (this.getDiff = function (value, comparing, unit) {
-                switch (unit) {
-                  case 'years':
-                    return differenceInYears(value, _this.date(comparing))
-                  case 'quarters':
-                    return (function differenceInQuarters(
-                      dateLeft,
-                      dateRight,
-                      options
-                    ) {
-                      requiredArgs(2, arguments)
-                      var diff = differenceInMonths(dateLeft, dateRight) / 3
-                      return getRoundingMethod(
-                        null == options ? void 0 : options.roundingMethod
-                      )(diff)
-                    })(value, _this.date(comparing))
-                  case 'months':
-                    return differenceInMonths(value, _this.date(comparing))
-                  case 'weeks':
-                    return (function differenceInWeeks(
-                      dateLeft,
-                      dateRight,
-                      options
-                    ) {
-                      requiredArgs(2, arguments)
-                      var diff = differenceInDays(dateLeft, dateRight) / 7
-                      return getRoundingMethod(
-                        null == options ? void 0 : options.roundingMethod
-                      )(diff)
-                    })(value, _this.date(comparing))
-                  case 'days':
-                    return differenceInDays(value, _this.date(comparing))
-                  case 'hours':
-                    return (function differenceInHours(
-                      dateLeft,
-                      dateRight,
-                      options
-                    ) {
-                      requiredArgs(2, arguments)
-                      var diff =
-                        differenceInMilliseconds(dateLeft, dateRight) /
-                        millisecondsInHour
-                      return getRoundingMethod(
-                        null == options ? void 0 : options.roundingMethod
-                      )(diff)
-                    })(value, _this.date(comparing))
-                  case 'minutes':
-                    return (function differenceInMinutes(
-                      dateLeft,
-                      dateRight,
-                      options
-                    ) {
-                      requiredArgs(2, arguments)
-                      var diff =
-                        differenceInMilliseconds(dateLeft, dateRight) /
-                        millisecondsInMinute
-                      return getRoundingMethod(
-                        null == options ? void 0 : options.roundingMethod
-                      )(diff)
-                    })(value, _this.date(comparing))
-                  case 'seconds':
-                    return (function differenceInSeconds(
-                      dateLeft,
-                      dateRight,
-                      options
-                    ) {
-                      requiredArgs(2, arguments)
-                      var diff =
-                        differenceInMilliseconds(dateLeft, dateRight) / 1e3
-                      return getRoundingMethod(
-                        null == options ? void 0 : options.roundingMethod
-                      )(diff)
-                    })(value, _this.date(comparing))
-                  default:
-                    return differenceInMilliseconds(
-                      value,
-                      _this.date(comparing)
-                    )
-                }
-              }),
-              (this.isAfter = function (value, comparing) {
-                return isAfter(value, comparing)
-              }),
-              (this.isBefore = function (value, comparing) {
-                return isBefore(value, comparing)
-              }),
-              (this.startOfDay = function (value) {
-                return startOfDay(value)
-              }),
-              (this.endOfDay = function (value) {
-                return endOfDay(value)
-              }),
-              (this.getHours = function (value) {
-                return (function getHours(dirtyDate) {
-                  return (
-                    requiredArgs(1, arguments), toDate(dirtyDate).getHours()
-                  )
-                })(value)
-              }),
-              (this.setHours = function (value, count) {
-                return (function setHours(dirtyDate, dirtyHours) {
-                  requiredArgs(2, arguments)
-                  var date = toDate(dirtyDate),
-                    hours = toInteger(dirtyHours)
-                  return date.setHours(hours), date
-                })(value, count)
-              }),
-              (this.setMinutes = function (value, count) {
-                return (function setMinutes(dirtyDate, dirtyMinutes) {
-                  requiredArgs(2, arguments)
-                  var date = toDate(dirtyDate),
-                    minutes = toInteger(dirtyMinutes)
-                  return date.setMinutes(minutes), date
-                })(value, count)
-              }),
-              (this.getSeconds = function (value) {
-                return (function getSeconds(dirtyDate) {
-                  return (
-                    requiredArgs(1, arguments), toDate(dirtyDate).getSeconds()
-                  )
-                })(value)
-              }),
-              (this.setSeconds = function (value, count) {
-                return (function setSeconds(dirtyDate, dirtySeconds) {
-                  requiredArgs(2, arguments)
-                  var date = toDate(dirtyDate),
-                    seconds = toInteger(dirtySeconds)
-                  return date.setSeconds(seconds), date
-                })(value, count)
-              }),
-              (this.isSameDay = function (value, comparing) {
-                return (function isSameDay(dirtyDateLeft, dirtyDateRight) {
-                  requiredArgs(2, arguments)
-                  var dateLeftStartOfDay = startOfDay(dirtyDateLeft),
-                    dateRightStartOfDay = startOfDay(dirtyDateRight)
-                  return (
-                    dateLeftStartOfDay.getTime() ===
-                    dateRightStartOfDay.getTime()
-                  )
-                })(value, comparing)
-              }),
-              (this.isSameMonth = function (value, comparing) {
-                return (function isSameMonth(dirtyDateLeft, dirtyDateRight) {
-                  requiredArgs(2, arguments)
-                  var dateLeft = toDate(dirtyDateLeft),
-                    dateRight = toDate(dirtyDateRight)
-                  return (
-                    dateLeft.getFullYear() === dateRight.getFullYear() &&
-                    dateLeft.getMonth() === dateRight.getMonth()
-                  )
-                })(value, comparing)
-              }),
-              (this.isSameYear = function (value, comparing) {
-                return (function isSameYear(dirtyDateLeft, dirtyDateRight) {
-                  requiredArgs(2, arguments)
-                  var dateLeft = toDate(dirtyDateLeft),
-                    dateRight = toDate(dirtyDateRight)
-                  return dateLeft.getFullYear() === dateRight.getFullYear()
-                })(value, comparing)
-              }),
-              (this.isSameHour = function (value, comparing) {
-                return (function isSameHour(dirtyDateLeft, dirtyDateRight) {
-                  requiredArgs(2, arguments)
-                  var dateLeftStartOfHour = startOfHour(dirtyDateLeft),
-                    dateRightStartOfHour = startOfHour(dirtyDateRight)
-                  return (
-                    dateLeftStartOfHour.getTime() ===
-                    dateRightStartOfHour.getTime()
-                  )
-                })(value, comparing)
-              }),
-              (this.startOfYear = function (value) {
-                return startOfYear(value)
-              }),
-              (this.endOfYear = function (value) {
-                return endOfYear(value)
-              }),
-              (this.startOfMonth = function (value) {
-                return startOfMonth(value)
-              }),
-              (this.endOfMonth = function (value) {
-                return endOfMonth(value)
-              }),
-              (this.startOfWeek = function (value) {
-                return startOfWeek(value, {locale: _this.locale})
-              }),
-              (this.endOfWeek = function (value) {
-                return endOfWeek(value, {locale: _this.locale})
-              }),
-              (this.getYear = function (value) {
-                return (function getYear(dirtyDate) {
-                  return (
-                    requiredArgs(1, arguments), toDate(dirtyDate).getFullYear()
-                  )
-                })(value)
-              }),
-              (this.setYear = function (value, count) {
-                return (function setYear(dirtyDate, dirtyYear) {
-                  requiredArgs(2, arguments)
-                  var date = toDate(dirtyDate),
-                    year = toInteger(dirtyYear)
-                  return isNaN(date.getTime())
-                    ? new Date(NaN)
-                    : (date.setFullYear(year), date)
-                })(value, count)
-              }),
-              (this.date = function (value) {
-                return void 0 === value
-                  ? new Date()
-                  : null === value
-                  ? null
-                  : new Date(value)
-              }),
-              (this.toJsDate = function (value) {
-                return value
-              }),
-              (this.parse = function (value, formatString) {
-                return '' === value
-                  ? null
-                  : parse(value, formatString, new Date(), {
-                      locale: _this.locale,
+                      }
+                      return token
                     })
-              }),
-              (this.format = function (date, formatKey) {
-                return _this.formatByString(date, _this.formats[formatKey])
-              }),
-              (this.formatByString = function (date, formatString) {
-                return format(date, formatString, {locale: _this.locale})
-              }),
-              (this.isEqual = function (date, comparing) {
-                return (
-                  (null === date && null === comparing) ||
+                    .join('')),
+                (this.getFormatHelperText = (format) =>
+                  this.expandFormat(format)
+                    .replace(/(aaa|aa|a)/g, '(a|p)m')
+                    .toLocaleLowerCase()),
+                (this.isNull = (value) => null === value),
+                (this.isValid = (value) => isValid(this.date(value))),
+                (this.format = (value, formatKey) =>
+                  this.formatByString(value, this.formats[formatKey])),
+                (this.formatByString = (value, formatString) =>
+                  format(value, formatString, {locale: this.locale})),
+                (this.formatNumber = (numberToFormat) => numberToFormat),
+                (this.getDiff = (value, comparing, unit) => {
+                  switch (unit) {
+                    case 'years':
+                      return differenceInYears(value, this.date(comparing))
+                    case 'quarters':
+                      return (function differenceInQuarters(
+                        dateLeft,
+                        dateRight,
+                        options
+                      ) {
+                        requiredArgs(2, arguments)
+                        var diff = differenceInMonths(dateLeft, dateRight) / 3
+                        return getRoundingMethod(
+                          null == options ? void 0 : options.roundingMethod
+                        )(diff)
+                      })(value, this.date(comparing))
+                    case 'months':
+                      return differenceInMonths(value, this.date(comparing))
+                    case 'weeks':
+                      return (function differenceInWeeks(
+                        dateLeft,
+                        dateRight,
+                        options
+                      ) {
+                        requiredArgs(2, arguments)
+                        var diff = differenceInDays(dateLeft, dateRight) / 7
+                        return getRoundingMethod(
+                          null == options ? void 0 : options.roundingMethod
+                        )(diff)
+                      })(value, this.date(comparing))
+                    case 'days':
+                      return differenceInDays(value, this.date(comparing))
+                    case 'hours':
+                      return (function differenceInHours(
+                        dateLeft,
+                        dateRight,
+                        options
+                      ) {
+                        requiredArgs(2, arguments)
+                        var diff =
+                          differenceInMilliseconds(dateLeft, dateRight) /
+                          millisecondsInHour
+                        return getRoundingMethod(
+                          null == options ? void 0 : options.roundingMethod
+                        )(diff)
+                      })(value, this.date(comparing))
+                    case 'minutes':
+                      return (function differenceInMinutes(
+                        dateLeft,
+                        dateRight,
+                        options
+                      ) {
+                        requiredArgs(2, arguments)
+                        var diff =
+                          differenceInMilliseconds(dateLeft, dateRight) /
+                          millisecondsInMinute
+                        return getRoundingMethod(
+                          null == options ? void 0 : options.roundingMethod
+                        )(diff)
+                      })(value, this.date(comparing))
+                    case 'seconds':
+                      return (function differenceInSeconds(
+                        dateLeft,
+                        dateRight,
+                        options
+                      ) {
+                        requiredArgs(2, arguments)
+                        var diff =
+                          differenceInMilliseconds(dateLeft, dateRight) / 1e3
+                        return getRoundingMethod(
+                          null == options ? void 0 : options.roundingMethod
+                        )(diff)
+                      })(value, this.date(comparing))
+                    default:
+                      return differenceInMilliseconds(
+                        value,
+                        this.date(comparing)
+                      )
+                  }
+                }),
+                (this.isEqual = (value, comparing) =>
+                  (null === value && null === comparing) ||
                   (function isEqual(dirtyLeftDate, dirtyRightDate) {
                     requiredArgs(2, arguments)
                     var dateLeft = toDate(dirtyLeftDate),
                       dateRight = toDate(dirtyRightDate)
                     return dateLeft.getTime() === dateRight.getTime()
-                  })(date, comparing)
-                )
-              }),
-              (this.isNull = function (date) {
-                return null === date
-              }),
-              (this.isAfterDay = function (date, value) {
-                return isAfter(date, endOfDay(value))
-              }),
-              (this.isBeforeDay = function (date, value) {
-                return isBefore(date, startOfDay(value))
-              }),
-              (this.isBeforeYear = function (date, value) {
-                return isBefore(date, startOfYear(value))
-              }),
-              (this.isAfterYear = function (date, value) {
-                return isAfter(date, endOfYear(value))
-              }),
-              (this.isWithinRange = function (date, _a) {
-                return (function isWithinInterval(dirtyDate, interval) {
-                  requiredArgs(2, arguments)
-                  var time = toDate(dirtyDate).getTime(),
-                    startTime = toDate(interval.start).getTime(),
-                    endTime = toDate(interval.end).getTime()
-                  if (!(startTime <= endTime))
-                    throw new RangeError('Invalid interval')
-                  return time >= startTime && time <= endTime
-                })(date, {start: _a[0], end: _a[1]})
-              }),
-              (this.formatNumber = function (numberToFormat) {
-                return numberToFormat
-              }),
-              (this.getMinutes = function (date) {
-                return (function getMinutes(dirtyDate) {
-                  return (
-                    requiredArgs(1, arguments), toDate(dirtyDate).getMinutes()
-                  )
-                })(date)
-              }),
-              (this.getDate = function (date) {
-                return (function getDate(dirtyDate) {
-                  return requiredArgs(1, arguments), toDate(dirtyDate).getDate()
-                })(date)
-              }),
-              (this.setDate = function (date, count) {
-                return (function setDate(dirtyDate, dirtyDayOfMonth) {
-                  requiredArgs(2, arguments)
-                  var date = toDate(dirtyDate),
-                    dayOfMonth = toInteger(dirtyDayOfMonth)
-                  return date.setDate(dayOfMonth), date
-                })(date, count)
-              }),
-              (this.getMonth = function (date) {
-                return (function getMonth(dirtyDate) {
-                  return (
-                    requiredArgs(1, arguments), toDate(dirtyDate).getMonth()
-                  )
-                })(date)
-              }),
-              (this.getDaysInMonth = function (date) {
-                return getDaysInMonth(date)
-              }),
-              (this.setMonth = function (date, count) {
-                return (function setMonth(dirtyDate, dirtyMonth) {
-                  requiredArgs(2, arguments)
-                  var date = toDate(dirtyDate),
-                    month = toInteger(dirtyMonth),
-                    year = date.getFullYear(),
-                    day = date.getDate(),
-                    dateWithDesiredMonth = new Date(0)
-                  dateWithDesiredMonth.setFullYear(year, month, 15),
-                    dateWithDesiredMonth.setHours(0, 0, 0, 0)
-                  var daysInMonth = getDaysInMonth(dateWithDesiredMonth)
-                  return date.setMonth(month, Math.min(day, daysInMonth)), date
-                })(date, count)
-              }),
-              (this.getMeridiemText = function (ampm) {
-                return 'am' === ampm ? 'AM' : 'PM'
-              }),
-              (this.getNextMonth = function (date) {
-                return addMonths(date, 1)
-              }),
-              (this.getPreviousMonth = function (date) {
-                return addMonths(date, -1)
-              }),
-              (this.getMonthArray = function (date) {
-                for (
-                  var monthArray = [startOfYear(date)];
-                  monthArray.length < 12;
-
-                ) {
-                  var prevMonth = monthArray[monthArray.length - 1]
-                  monthArray.push(_this.getNextMonth(prevMonth))
-                }
-                return monthArray
-              }),
-              (this.mergeDateAndTime = function (date, time) {
-                return _this.setSeconds(
-                  _this.setMinutes(
-                    _this.setHours(date, _this.getHours(time)),
-                    _this.getMinutes(time)
-                  ),
-                  _this.getSeconds(time)
-                )
-              }),
-              (this.getWeekdays = function () {
-                var now = new Date()
-                return (function eachDayOfInterval(dirtyInterval, options) {
-                  var _options$step
-                  requiredArgs(1, arguments)
-                  var interval = dirtyInterval || {},
-                    startDate = toDate(interval.start),
-                    endTime = toDate(interval.end).getTime()
-                  if (!(startDate.getTime() <= endTime))
-                    throw new RangeError('Invalid interval')
-                  var dates = [],
-                    currentDate = startDate
-                  currentDate.setHours(0, 0, 0, 0)
-                  var step = Number(
-                    null !==
-                      (_options$step =
-                        null == options ? void 0 : options.step) &&
-                      void 0 !== _options$step
-                      ? _options$step
-                      : 1
-                  )
-                  if (step < 1 || isNaN(step))
-                    throw new RangeError(
-                      '`options.step` must be a number greater than 1'
+                  })(value, comparing)),
+                (this.isSameYear = (value, comparing) =>
+                  (function isSameYear(dirtyDateLeft, dirtyDateRight) {
+                    requiredArgs(2, arguments)
+                    var dateLeft = toDate(dirtyDateLeft),
+                      dateRight = toDate(dirtyDateRight)
+                    return dateLeft.getFullYear() === dateRight.getFullYear()
+                  })(value, comparing)),
+                (this.isSameMonth = (value, comparing) =>
+                  (function isSameMonth(dirtyDateLeft, dirtyDateRight) {
+                    requiredArgs(2, arguments)
+                    var dateLeft = toDate(dirtyDateLeft),
+                      dateRight = toDate(dirtyDateRight)
+                    return (
+                      dateLeft.getFullYear() === dateRight.getFullYear() &&
+                      dateLeft.getMonth() === dateRight.getMonth()
                     )
-                  for (; currentDate.getTime() <= endTime; )
-                    dates.push(toDate(currentDate)),
-                      currentDate.setDate(currentDate.getDate() + step),
-                      currentDate.setHours(0, 0, 0, 0)
-                  return dates
-                })({
-                  start: startOfWeek(now, {locale: _this.locale}),
-                  end: endOfWeek(now, {locale: _this.locale}),
-                }).map(function (day) {
-                  return _this.formatByString(day, 'EEEEEE')
-                })
-              }),
-              (this.getWeekArray = function (date) {
-                for (
-                  var start = startOfWeek(startOfMonth(date), {
-                      locale: _this.locale,
-                    }),
-                    end = endOfWeek(endOfMonth(date), {locale: _this.locale}),
-                    count = 0,
-                    current = start,
-                    nestedWeeks = [],
-                    lastDay = null;
-                  isBefore(current, end);
-
-                ) {
-                  var weekNumber = Math.floor(count / 7)
-                  nestedWeeks[weekNumber] = nestedWeeks[weekNumber] || []
-                  var day = getDay(current)
-                  lastDay !== day &&
-                    ((lastDay = day),
-                    nestedWeeks[weekNumber].push(current),
-                    (count += 1)),
-                    (current = addDays(current, 1))
-                }
-                return nestedWeeks
-              }),
-              (this.getYearRange = function (start, end) {
-                for (
-                  var startDate = startOfYear(start),
-                    endDate = endOfYear(end),
-                    years = [],
-                    current = startDate;
-                  isBefore(current, endDate);
-
-                )
-                  years.push(current), (current = addYears(current, 1))
-                return years
-              }),
-              (this.locale = locale),
-              (this.formats = Object.assign({}, defaultFormats, formats))
-          }
-        function startOfWeekYear(dirtyDate, options) {
-          var _ref,
-            _ref2,
-            _ref3,
-            _options$firstWeekCon,
-            _options$locale,
-            _options$locale$optio,
-            _defaultOptions$local,
-            _defaultOptions$local2
-          requiredArgs(1, arguments)
-          var defaultOptions = getDefaultOptions(),
-            firstWeekContainsDate = toInteger(
-              null !==
-                (_ref =
-                  null !==
-                    (_ref2 =
+                  })(value, comparing)),
+                (this.isSameDay = (value, comparing) =>
+                  (function isSameDay(dirtyDateLeft, dirtyDateRight) {
+                    requiredArgs(2, arguments)
+                    var dateLeftStartOfDay = startOfDay(dirtyDateLeft),
+                      dateRightStartOfDay = startOfDay(dirtyDateRight)
+                    return (
+                      dateLeftStartOfDay.getTime() ===
+                      dateRightStartOfDay.getTime()
+                    )
+                  })(value, comparing)),
+                (this.isSameHour = (value, comparing) =>
+                  (function isSameHour(dirtyDateLeft, dirtyDateRight) {
+                    requiredArgs(2, arguments)
+                    var dateLeftStartOfHour = startOfHour(dirtyDateLeft),
+                      dateRightStartOfHour = startOfHour(dirtyDateRight)
+                    return (
+                      dateLeftStartOfHour.getTime() ===
+                      dateRightStartOfHour.getTime()
+                    )
+                  })(value, comparing)),
+                (this.isAfter = (value, comparing) =>
+                  isAfter(value, comparing)),
+                (this.isAfterYear = (value, comparing) =>
+                  isAfter(value, endOfYear(comparing))),
+                (this.isAfterDay = (value, comparing) =>
+                  isAfter(value, endOfDay(comparing))),
+                (this.isBefore = (value, comparing) =>
+                  isBefore(value, comparing)),
+                (this.isBeforeYear = (value, comparing) =>
+                  isBefore(value, startOfYear(comparing))),
+                (this.isBeforeDay = (value, comparing) =>
+                  isBefore(value, startOfDay(comparing))),
+                (this.isWithinRange = (value, [start, end]) =>
+                  (function isWithinInterval(dirtyDate, interval) {
+                    requiredArgs(2, arguments)
+                    var time = toDate(dirtyDate).getTime(),
+                      startTime = toDate(interval.start).getTime(),
+                      endTime = toDate(interval.end).getTime()
+                    if (!(startTime <= endTime))
+                      throw new RangeError('Invalid interval')
+                    return time >= startTime && time <= endTime
+                  })(value, {start, end})),
+                (this.startOfYear = (value) => startOfYear(value)),
+                (this.startOfMonth = (value) => startOfMonth(value)),
+                (this.startOfWeek = (value) =>
+                  startOfWeek(value, {locale: this.locale})),
+                (this.startOfDay = (value) => startOfDay(value)),
+                (this.endOfYear = (value) => endOfYear(value)),
+                (this.endOfMonth = (value) => endOfMonth(value)),
+                (this.endOfWeek = (value) =>
+                  endOfWeek(value, {locale: this.locale})),
+                (this.endOfDay = (value) => endOfDay(value)),
+                (this.addYears = (value, amount) => addYears(value, amount)),
+                (this.addMonths = (value, amount) => addMonths(value, amount)),
+                (this.addWeeks = (value, amount) =>
+                  (function addWeeks(dirtyDate, dirtyAmount) {
+                    return (
+                      requiredArgs(2, arguments),
+                      addDays(dirtyDate, 7 * toInteger(dirtyAmount))
+                    )
+                  })(value, amount)),
+                (this.addDays = (value, amount) => addDays(value, amount)),
+                (this.addHours = (value, amount) =>
+                  (function addHours(dirtyDate, dirtyAmount) {
+                    return (
+                      requiredArgs(2, arguments),
+                      addMilliseconds(dirtyDate, 36e5 * toInteger(dirtyAmount))
+                    )
+                  })(value, amount)),
+                (this.addMinutes = (value, amount) =>
+                  (function addMinutes(dirtyDate, dirtyAmount) {
+                    return (
+                      requiredArgs(2, arguments),
+                      addMilliseconds(dirtyDate, 6e4 * toInteger(dirtyAmount))
+                    )
+                  })(value, amount)),
+                (this.addSeconds = (value, amount) =>
+                  (function addSeconds(dirtyDate, dirtyAmount) {
+                    return (
+                      requiredArgs(2, arguments),
+                      addMilliseconds(dirtyDate, 1e3 * toInteger(dirtyAmount))
+                    )
+                  })(value, amount)),
+                (this.getYear = (value) =>
+                  (function getYear(dirtyDate) {
+                    return (
+                      requiredArgs(1, arguments),
+                      toDate(dirtyDate).getFullYear()
+                    )
+                  })(value)),
+                (this.getMonth = (value) =>
+                  (function getMonth(dirtyDate) {
+                    return (
+                      requiredArgs(1, arguments), toDate(dirtyDate).getMonth()
+                    )
+                  })(value)),
+                (this.getDate = (value) =>
+                  (function getDate(dirtyDate) {
+                    return (
+                      requiredArgs(1, arguments), toDate(dirtyDate).getDate()
+                    )
+                  })(value)),
+                (this.getHours = (value) =>
+                  (function getHours(dirtyDate) {
+                    return (
+                      requiredArgs(1, arguments), toDate(dirtyDate).getHours()
+                    )
+                  })(value)),
+                (this.getMinutes = (value) =>
+                  (function getMinutes(dirtyDate) {
+                    return (
+                      requiredArgs(1, arguments), toDate(dirtyDate).getMinutes()
+                    )
+                  })(value)),
+                (this.getSeconds = (value) =>
+                  (function getSeconds(dirtyDate) {
+                    return (
+                      requiredArgs(1, arguments), toDate(dirtyDate).getSeconds()
+                    )
+                  })(value)),
+                (this.getMilliseconds = (value) =>
+                  (function getMilliseconds(dirtyDate) {
+                    return (
+                      requiredArgs(1, arguments),
+                      toDate(dirtyDate).getMilliseconds()
+                    )
+                  })(value)),
+                (this.setYear = (value, year) =>
+                  (function setYear(dirtyDate, dirtyYear) {
+                    requiredArgs(2, arguments)
+                    var date = toDate(dirtyDate),
+                      year = toInteger(dirtyYear)
+                    return isNaN(date.getTime())
+                      ? new Date(NaN)
+                      : (date.setFullYear(year), date)
+                  })(value, year)),
+                (this.setMonth = (value, month) =>
+                  (function setMonth(dirtyDate, dirtyMonth) {
+                    requiredArgs(2, arguments)
+                    var date = toDate(dirtyDate),
+                      month = toInteger(dirtyMonth),
+                      year = date.getFullYear(),
+                      day = date.getDate(),
+                      dateWithDesiredMonth = new Date(0)
+                    dateWithDesiredMonth.setFullYear(year, month, 15),
+                      dateWithDesiredMonth.setHours(0, 0, 0, 0)
+                    var daysInMonth = getDaysInMonth(dateWithDesiredMonth)
+                    return (
+                      date.setMonth(month, Math.min(day, daysInMonth)), date
+                    )
+                  })(value, month)),
+                (this.setDate = (value, date) =>
+                  (function setDate(dirtyDate, dirtyDayOfMonth) {
+                    requiredArgs(2, arguments)
+                    var date = toDate(dirtyDate),
+                      dayOfMonth = toInteger(dirtyDayOfMonth)
+                    return date.setDate(dayOfMonth), date
+                  })(value, date)),
+                (this.setHours = (value, hours) =>
+                  (function setHours(dirtyDate, dirtyHours) {
+                    requiredArgs(2, arguments)
+                    var date = toDate(dirtyDate),
+                      hours = toInteger(dirtyHours)
+                    return date.setHours(hours), date
+                  })(value, hours)),
+                (this.setMinutes = (value, minutes) =>
+                  (function setMinutes(dirtyDate, dirtyMinutes) {
+                    requiredArgs(2, arguments)
+                    var date = toDate(dirtyDate),
+                      minutes = toInteger(dirtyMinutes)
+                    return date.setMinutes(minutes), date
+                  })(value, minutes)),
+                (this.setSeconds = (value, seconds) =>
+                  (function setSeconds(dirtyDate, dirtySeconds) {
+                    requiredArgs(2, arguments)
+                    var date = toDate(dirtyDate),
+                      seconds = toInteger(dirtySeconds)
+                    return date.setSeconds(seconds), date
+                  })(value, seconds)),
+                (this.setMilliseconds = (value, milliseconds) =>
+                  (function setMilliseconds(dirtyDate, dirtyMilliseconds) {
+                    requiredArgs(2, arguments)
+                    var date = toDate(dirtyDate),
+                      milliseconds = toInteger(dirtyMilliseconds)
+                    return date.setMilliseconds(milliseconds), date
+                  })(value, milliseconds)),
+                (this.getDaysInMonth = (value) => getDaysInMonth(value)),
+                (this.getNextMonth = (value) => addMonths(value, 1)),
+                (this.getPreviousMonth = (value) => addMonths(value, -1)),
+                (this.getMonthArray = (value) => {
+                  const monthArray = [startOfYear(value)]
+                  for (; monthArray.length < 12; ) {
+                    const prevMonth = monthArray[monthArray.length - 1]
+                    monthArray.push(this.getNextMonth(prevMonth))
+                  }
+                  return monthArray
+                }),
+                (this.mergeDateAndTime = (dateParam, timeParam) =>
+                  this.setSeconds(
+                    this.setMinutes(
+                      this.setHours(dateParam, this.getHours(timeParam)),
+                      this.getMinutes(timeParam)
+                    ),
+                    this.getSeconds(timeParam)
+                  )),
+                (this.getWeekdays = () => {
+                  const now = new Date()
+                  return (function eachDayOfInterval(dirtyInterval, options) {
+                    var _options$step
+                    requiredArgs(1, arguments)
+                    var interval = dirtyInterval || {},
+                      startDate = toDate(interval.start),
+                      endTime = toDate(interval.end).getTime()
+                    if (!(startDate.getTime() <= endTime))
+                      throw new RangeError('Invalid interval')
+                    var dates = [],
+                      currentDate = startDate
+                    currentDate.setHours(0, 0, 0, 0)
+                    var step = Number(
                       null !==
-                        (_ref3 =
-                          null !==
-                            (_options$firstWeekCon =
-                              null == options
-                                ? void 0
-                                : options.firstWeekContainsDate) &&
-                          void 0 !== _options$firstWeekCon
-                            ? _options$firstWeekCon
-                            : null == options ||
-                              null === (_options$locale = options.locale) ||
-                              void 0 === _options$locale ||
-                              null ===
-                                (_options$locale$optio =
-                                  _options$locale.options) ||
-                              void 0 === _options$locale$optio
-                            ? void 0
-                            : _options$locale$optio.firstWeekContainsDate) &&
-                      void 0 !== _ref3
-                        ? _ref3
-                        : defaultOptions.firstWeekContainsDate) &&
-                  void 0 !== _ref2
-                    ? _ref2
-                    : null ===
-                        (_defaultOptions$local = defaultOptions.locale) ||
-                      void 0 === _defaultOptions$local ||
-                      null ===
-                        (_defaultOptions$local2 =
-                          _defaultOptions$local.options) ||
-                      void 0 === _defaultOptions$local2
-                    ? void 0
-                    : _defaultOptions$local2.firstWeekContainsDate) &&
-                void 0 !== _ref
-                ? _ref
-                : 1
-            ),
-            year = (function getWeekYear(dirtyDate, options) {
-              var _ref,
-                _ref2,
-                _ref3,
-                _options$firstWeekCon,
-                _options$locale,
-                _options$locale$optio,
-                _defaultOptions$local,
-                _defaultOptions$local2
-              requiredArgs(1, arguments)
-              var date = toDate(dirtyDate),
-                year = date.getFullYear(),
-                defaultOptions = getDefaultOptions(),
-                firstWeekContainsDate = toInteger(
-                  null !==
-                    (_ref =
-                      null !==
-                        (_ref2 =
-                          null !==
-                            (_ref3 =
-                              null !==
-                                (_options$firstWeekCon =
-                                  null == options
-                                    ? void 0
-                                    : options.firstWeekContainsDate) &&
-                              void 0 !== _options$firstWeekCon
-                                ? _options$firstWeekCon
-                                : null == options ||
-                                  null === (_options$locale = options.locale) ||
-                                  void 0 === _options$locale ||
-                                  null ===
-                                    (_options$locale$optio =
-                                      _options$locale.options) ||
-                                  void 0 === _options$locale$optio
-                                ? void 0
-                                : _options$locale$optio.firstWeekContainsDate) &&
-                          void 0 !== _ref3
-                            ? _ref3
-                            : defaultOptions.firstWeekContainsDate) &&
-                      void 0 !== _ref2
-                        ? _ref2
-                        : null ===
-                            (_defaultOptions$local = defaultOptions.locale) ||
-                          void 0 === _defaultOptions$local ||
-                          null ===
-                            (_defaultOptions$local2 =
-                              _defaultOptions$local.options) ||
-                          void 0 === _defaultOptions$local2
-                        ? void 0
-                        : _defaultOptions$local2.firstWeekContainsDate) &&
-                    void 0 !== _ref
-                    ? _ref
-                    : 1
-                )
-              if (!(firstWeekContainsDate >= 1 && firstWeekContainsDate <= 7))
-                throw new RangeError(
-                  'firstWeekContainsDate must be between 1 and 7 inclusively'
-                )
-              var firstWeekOfNextYear = new Date(0)
-              firstWeekOfNextYear.setFullYear(
-                year + 1,
-                0,
-                firstWeekContainsDate
-              ),
-                firstWeekOfNextYear.setHours(0, 0, 0, 0)
-              var startOfNextYear = startOfWeek(firstWeekOfNextYear, options),
-                firstWeekOfThisYear = new Date(0)
-              firstWeekOfThisYear.setFullYear(year, 0, firstWeekContainsDate),
-                firstWeekOfThisYear.setHours(0, 0, 0, 0)
-              var startOfThisYear = startOfWeek(firstWeekOfThisYear, options)
-              return date.getTime() >= startOfNextYear.getTime()
-                ? year + 1
-                : date.getTime() >= startOfThisYear.getTime()
-                ? year
-                : year - 1
-            })(dirtyDate, options),
-            firstWeek = new Date(0)
-          return (
-            firstWeek.setFullYear(year, 0, firstWeekContainsDate),
-            firstWeek.setHours(0, 0, 0, 0),
-            startOfWeek(firstWeek, options)
-          )
-        }
-        const formatTokenMap = {
-          y: 'year',
-          yy: 'year',
-          yyy: 'year',
-          yyyy: 'year',
-          M: 'month',
-          MM: 'month',
-          MMMM: {sectionType: 'month', contentType: 'letter'},
-          MMM: {sectionType: 'month', contentType: 'letter'},
-          LLL: {sectionType: 'month', contentType: 'letter'},
-          LLLL: {sectionType: 'month', contentType: 'letter'},
-          d: 'day',
-          dd: 'day',
-          do: 'day',
-          E: {sectionType: 'weekDay', contentType: 'letter'},
-          EE: {sectionType: 'weekDay', contentType: 'letter'},
-          EEE: {sectionType: 'weekDay', contentType: 'letter'},
-          EEEE: {sectionType: 'weekDay', contentType: 'letter'},
-          EEEEE: {sectionType: 'weekDay', contentType: 'letter'},
-          i: 'weekDay',
-          ii: 'weekDay',
-          iii: {sectionType: 'weekDay', contentType: 'letter'},
-          iiii: {sectionType: 'weekDay', contentType: 'letter'},
-          e: 'weekDay',
-          ee: 'weekDay',
-          eee: {sectionType: 'weekDay', contentType: 'letter'},
-          eeee: {sectionType: 'weekDay', contentType: 'letter'},
-          eeeee: {sectionType: 'weekDay', contentType: 'letter'},
-          eeeeee: {sectionType: 'weekDay', contentType: 'letter'},
-          c: 'weekDay',
-          cc: 'weekDay',
-          ccc: {sectionType: 'weekDay', contentType: 'letter'},
-          cccc: {sectionType: 'weekDay', contentType: 'letter'},
-          ccccc: {sectionType: 'weekDay', contentType: 'letter'},
-          cccccc: {sectionType: 'weekDay', contentType: 'letter'},
-          a: 'meridiem',
-          aa: 'meridiem',
-          aaa: 'meridiem',
-          H: 'hours',
-          HH: 'hours',
-          h: 'hours',
-          hh: 'hours',
-          mm: 'minutes',
-          ss: 'seconds',
-        }
-        class AdapterDateFns extends DateFnsUtils {
-          constructor(...args) {
-            super(...args),
-              (this.isMUIAdapter = !0),
-              (this.formatTokenMap = formatTokenMap),
-              (this.escapedCharacters = {start: "'", end: "'"}),
-              (this.expandFormat = (format) =>
-                format
-                  .match(/P+p+|P+|p+|''|'(''|[^'])+('|$)|./g)
-                  .map((token) => {
-                    const firstCharacter = token[0]
-                    if ('p' === firstCharacter || 'P' === firstCharacter) {
-                      return (0, longFormatters_default()[firstCharacter])(
-                        token,
-                        (this.locale || en_US).formatLong,
-                        {}
+                        (_options$step =
+                          null == options ? void 0 : options.step) &&
+                        void 0 !== _options$step
+                        ? _options$step
+                        : 1
+                    )
+                    if (step < 1 || isNaN(step))
+                      throw new RangeError(
+                        '`options.step` must be a number greater than 1'
                       )
-                    }
-                    return token
-                  })
-                  .join('')),
-              (this.getFormatHelperText = (format) =>
-                this.expandFormat(format)
-                  .replace(/(aaa|aa|a)/g, '(a|p)m')
-                  .toLocaleLowerCase()),
-              (this.getWeekNumber = (date) =>
-                (function getWeek(dirtyDate, options) {
-                  requiredArgs(1, arguments)
-                  var date = toDate(dirtyDate),
-                    diff =
-                      startOfWeek(date, options).getTime() -
-                      startOfWeekYear(date, options).getTime()
-                  return Math.round(diff / 6048e5) + 1
-                })(date, {locale: this.locale}))
+                    for (; currentDate.getTime() <= endTime; )
+                      dates.push(toDate(currentDate)),
+                        currentDate.setDate(currentDate.getDate() + step),
+                        currentDate.setHours(0, 0, 0, 0)
+                    return dates
+                  })({
+                    start: startOfWeek(now, {locale: this.locale}),
+                    end: endOfWeek(now, {locale: this.locale}),
+                  }).map((day) => this.formatByString(day, 'EEEEEE'))
+                }),
+                (this.getWeekArray = (value) => {
+                  const start = startOfWeek(startOfMonth(value), {
+                      locale: this.locale,
+                    }),
+                    end = endOfWeek(endOfMonth(value), {locale: this.locale})
+                  let count = 0,
+                    current = start
+                  const nestedWeeks = []
+                  for (; isBefore(current, end); ) {
+                    const weekNumber = Math.floor(count / 7)
+                    ;(nestedWeeks[weekNumber] = nestedWeeks[weekNumber] || []),
+                      nestedWeeks[weekNumber].push(current),
+                      (current = addDays(current, 1)),
+                      (count += 1)
+                  }
+                  return nestedWeeks
+                }),
+                (this.getWeekNumber = (value) =>
+                  (function getWeek(dirtyDate, options) {
+                    requiredArgs(1, arguments)
+                    var date = toDate(dirtyDate),
+                      diff =
+                        startOfWeek(date, options).getTime() -
+                        startOfWeekYear(date, options).getTime()
+                    return Math.round(diff / 6048e5) + 1
+                  })(value, {locale: this.locale})),
+                (this.getYearRange = (start, end) => {
+                  const startDate = startOfYear(start),
+                    endDate = endOfYear(end),
+                    years = []
+                  let current = startDate
+                  for (; isBefore(current, endDate); )
+                    years.push(current), (current = addYears(current, 1))
+                  return years
+                }),
+                (this.getMeridiemText = (ampm) =>
+                  'am' === ampm ? 'AM' : 'PM'),
+                (this.locale = _locale),
+                (this.formats = (0, esm_extends.Z)({}, defaultFormats, formats))
+            }
           }
-        }
-      },
+        },
       '../../node_modules/@mui/x-date-pickers/LocalizationProvider/LocalizationProvider.js':
         (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
           'use strict'
@@ -15161,7 +15297,7 @@
           const _excluded = ['localeText'],
             MuiPickersAdapterContext =
               react__WEBPACK_IMPORTED_MODULE_0__.createContext(null)
-          function LocalizationProvider(inProps) {
+          const LocalizationProvider = function LocalizationProvider(inProps) {
             var _React$useContext
             const {localeText: inLocaleText} = inProps,
               otherInProps = (0,
@@ -56170,4 +56306,4 @@
     },
   ]
 )
-//# sourceMappingURL=587.10b930bb.iframe.bundle.js.map
+//# sourceMappingURL=979.3b9176c5.iframe.bundle.js.map

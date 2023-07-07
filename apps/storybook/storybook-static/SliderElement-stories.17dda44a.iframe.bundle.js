@@ -1,7 +1,7 @@
 'use strict'
 ;(self.webpackChunkrhfm_storybook = self.webpackChunkrhfm_storybook || []).push(
   [
-    [763],
+    [657],
     {
       './node_modules/@mui/material/esm/Box/Box.js': (
         __unused_webpack_module,
@@ -10,10 +10,10 @@
       ) => {
         __webpack_require__.d(__webpack_exports__, {Z: () => Box_Box})
         var esm_extends = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+            './node_modules/@babel/runtime/helpers/esm/extends.js'
           ),
           objectWithoutPropertiesLoose = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+            './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
           ),
           react = __webpack_require__('../../node_modules/react/index.js'),
           clsx_m = __webpack_require__(
@@ -36,7 +36,7 @@
           )
         const _excluded = ['className', 'component']
         var ClassNameGenerator = __webpack_require__(
-          './node_modules/@mui/material/node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
+          './node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
         )
         const Box = (function createBox(options = {}) {
             const {
@@ -80,11 +80,11 @@
         })
         var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_9__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             '../../node_modules/react/index.js'
@@ -99,7 +99,7 @@
             './node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js'
           ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-            './node_modules/@mui/material/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _styles_styled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
             './node_modules/@mui/material/esm/styles/styled.js'
@@ -281,14 +281,14 @@
         __webpack_require__.d(__webpack_exports__, {Z: () => extendSxProp})
         var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _getThemeValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             './node_modules/@mui/system/esm/getThemeValue.js'
@@ -441,7 +441,7 @@
               })
         } catch (__react_docgen_typescript_loader_error) {}
       },
-      './stories/MultiSelectElement.stories.tsx': (
+      './stories/SliderElement.stories.tsx': (
         __unused_webpack_module,
         __webpack_exports__,
         __webpack_require__
@@ -449,59 +449,23 @@
         __webpack_require__.r(__webpack_exports__),
           __webpack_require__.d(__webpack_exports__, {
             Basic: () => Basic,
-            Filled: () => Filled,
-            MonthPicker: () => MonthPicker,
-            MonthPickerSmall: () => MonthPickerSmall,
-            OverwriteRenderValue: () => OverwriteRenderValue,
+            Label: () => Label,
             Required: () => Required,
-            WithCheckbox: () => WithCheckbox,
-            WithChips: () => WithChips,
-            WithChipsPreserveOrder: () => WithChipsPreserveOrder,
-            WithLabel: () => WithLabel,
-            WithLabelSmall: () => WithLabelSmall,
-            WithObjectArray: () => WithObjectArray,
-            WithObjectArrayChips: () => WithObjectArrayChips,
+            WithOptions: () => WithOptions,
             default: () => __WEBPACK_DEFAULT_EXPORT__,
           })
         var _Basic$parameters,
           _Basic$parameters2,
           _Basic$parameters2$do,
-          _Filled$parameters,
-          _Filled$parameters2,
-          _Filled$parameters2$d,
-          _WithLabel$parameters,
-          _WithLabel$parameters2,
-          _WithLabel$parameters3,
-          _WithLabelSmall$param,
-          _WithLabelSmall$param2,
-          _WithLabelSmall$param3,
+          _Label$parameters,
+          _Label$parameters2,
+          _Label$parameters2$do,
           _Required$parameters,
           _Required$parameters2,
           _Required$parameters3,
-          _WithChips$parameters,
-          _WithChips$parameters2,
-          _WithChips$parameters3,
-          _WithChipsPreserveOrd,
-          _WithChipsPreserveOrd2,
-          _WithChipsPreserveOrd3,
-          _WithCheckbox$paramet,
-          _WithCheckbox$paramet2,
-          _WithCheckbox$paramet3,
-          _WithObjectArray$para,
-          _WithObjectArray$para2,
-          _WithObjectArray$para3,
-          _WithObjectArrayChips,
-          _WithObjectArrayChips2,
-          _WithObjectArrayChips3,
-          _OverwriteRenderValue,
-          _OverwriteRenderValue2,
-          _OverwriteRenderValue3,
-          _MonthPicker$paramete,
-          _MonthPicker$paramete2,
-          _MonthPicker$paramete3,
-          _MonthPickerSmall$par,
-          _MonthPickerSmall$par2,
-          _MonthPickerSmall$par3,
+          _WithOptions$paramete,
+          _WithOptions$paramete2,
+          _WithOptions$paramete3,
           _Users_dominicgarms_Documents_Coding_react_react_hook_form_mui_node_modules_storybook_nextjs_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
               '../../node_modules/@storybook/nextjs/node_modules/@babel/runtime/helpers/esm/defineProperty.js'
@@ -554,8 +518,8 @@
           return target
         }
         const __WEBPACK_DEFAULT_EXPORT__ = {
-          title: 'MultiSelectElement',
-          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.Q5,
+          title: 'Slider Element',
+          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.gc,
         }
         var Template = function Template(args) {
           return __jsx(
@@ -568,7 +532,7 @@
               ),
             },
             __jsx(
-              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.Q5,
+              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.gc,
               args
             ),
             __jsx('br', null),
@@ -576,169 +540,27 @@
           )
         }
         Template.displayName = 'Template'
-        var names = [
-            'Oliver Hansen',
-            'Van Henry',
-            'April Tucker',
-            'Ralph Hubbard',
-            'Omar Alexander',
-            'Carlos Abbott',
-            'Miriam Wagner',
-            'Bradley Wilkerson',
-            'Virginia Andrews',
-            'Kelly Snyder',
-          ],
-          months = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December',
-          ],
-          Basic = {render: Template, args: {name: 'basic', options: names}},
-          Filled = {
+        var Basic = {render: Template, args: {name: 'slider'}},
+          Label = {
             render: Template,
-            args: {name: 'filled', options: names, variant: 'filled'},
-          },
-          WithLabel = {
-            render: Template,
-            args: {name: 'basic', label: 'Select Field', options: names},
-          },
-          WithLabelSmall = {
-            render: Template,
-            args: {
-              name: 'basic_small',
-              size: 'small',
-              label: 'Select Field',
-              options: names,
-            },
+            args: {name: 'slider', label: 'Slider Label'},
           },
           Required = {
             render: Template,
             args: {
-              name: 'required',
-              label: 'Required Field',
-              options: names,
+              name: 'slider_required',
+              label: 'Required Label',
               required: !0,
             },
           },
-          WithChips = {
+          WithOptions = {
             render: Template,
             args: {
-              name: 'chips',
-              label: 'Required Field',
-              options: names,
-              showChips: !0,
-            },
-          },
-          WithChipsPreserveOrder = {
-            render: Template,
-            args: {
-              name: 'chips',
-              label: 'Required Field',
-              options: names,
-              showChips: !0,
-              preserveOrder: !0,
-            },
-          },
-          WithCheckbox = {
-            render: Template,
-            args: {
-              name: 'checkbox',
-              label: 'Checkbox Field',
-              options: names,
-              showCheckbox: !0,
-            },
-          },
-          objectVals = [
-            {id: 1, name: 'Alpha'},
-            {id: 2, name: 'Beta'},
-            {id: 3, name: 'Celsius'},
-            {id: 4, name: 'Delta'},
-          ],
-          WithObjectArray = {
-            render: Template,
-            args: {
-              name: 'object',
-              label: 'Object Field',
-              options: objectVals,
-              itemKey: 'id',
-              itemLabel: 'name',
-            },
-          },
-          WithObjectArrayChips = {
-            render: Template,
-            args: {
-              name: 'object',
-              label: 'Object Field',
-              options: objectVals,
-              itemKey: 'id',
-              itemLabel: 'name',
-              showChips: !0,
-            },
-          },
-          OverwriteRenderValue = {
-            render: Template,
-            args: {
-              name: 'object',
-              label: 'Object Field',
-              options: objectVals,
-              itemKey: 'id',
-              itemLabel: 'name',
-              renderValue: function renderValue(selected) {
-                var _ref
-                return 'You selected: '.concat(
-                  null === (_ref = selected || []) || void 0 === _ref
-                    ? void 0
-                    : _ref.length
-                )
-              },
-            },
-          },
-          MonthPicker = {
-            render: Template,
-            args: {
-              name: 'month',
-              options: months,
-              label: 'Months',
-              MenuProps: {
-                PaperProps: {
-                  sx: {
-                    '& .MuiList-root': {
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(3, 1fr)',
-                      gap: '4px',
-                    },
-                  },
-                },
-              },
-            },
-          },
-          MonthPickerSmall = {
-            render: Template,
-            args: {
-              name: 'months_small',
-              options: months,
-              label: 'Months',
-              size: 'small',
-              MenuProps: {
-                PaperProps: {
-                  sx: {
-                    '& .MuiList-root': {
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(3, 1fr)',
-                      gap: '4px',
-                    },
-                  },
-                },
-              },
+              name: 'slider',
+              label: 'Slider With Options',
+              min: 0,
+              max: 10,
+              marks: !0,
             },
           }
         ;(Basic.parameters = _objectSpread(
@@ -758,7 +580,7 @@
                 source: _objectSpread(
                   {
                     originalSource:
-                      "{\n  render: Template,\n  args: {\n    name: 'basic',\n    options: names\n  }\n}",
+                      "{\n  render: Template,\n  args: {\n    name: 'slider'\n  }\n}",
                   },
                   null === (_Basic$parameters2 = Basic.parameters) ||
                     void 0 === _Basic$parameters2 ||
@@ -772,98 +594,32 @@
             ),
           }
         )),
-          (Filled.parameters = _objectSpread(
-            _objectSpread({}, Filled.parameters),
+          (Label.parameters = _objectSpread(
+            _objectSpread({}, Label.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
-                  null === (_Filled$parameters = Filled.parameters) ||
-                    void 0 === _Filled$parameters
+                  null === (_Label$parameters = Label.parameters) ||
+                    void 0 === _Label$parameters
                     ? void 0
-                    : _Filled$parameters.docs
+                    : _Label$parameters.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'filled',\n    options: names,\n    variant: 'filled'\n  }\n}",
+                        "{\n  render: Template,\n  args: {\n    name: 'slider',\n    label: 'Slider Label'\n  }\n}",
                     },
-                    null === (_Filled$parameters2 = Filled.parameters) ||
-                      void 0 === _Filled$parameters2 ||
+                    null === (_Label$parameters2 = Label.parameters) ||
+                      void 0 === _Label$parameters2 ||
                       null ===
-                        (_Filled$parameters2$d = _Filled$parameters2.docs) ||
-                      void 0 === _Filled$parameters2$d
+                        (_Label$parameters2$do = _Label$parameters2.docs) ||
+                      void 0 === _Label$parameters2$do
                       ? void 0
-                      : _Filled$parameters2$d.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithLabel.parameters = _objectSpread(
-            _objectSpread({}, WithLabel.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null === (_WithLabel$parameters = WithLabel.parameters) ||
-                    void 0 === _WithLabel$parameters
-                    ? void 0
-                    : _WithLabel$parameters.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'basic',\n    label: 'Select Field',\n    options: names\n  }\n}",
-                    },
-                    null === (_WithLabel$parameters2 = WithLabel.parameters) ||
-                      void 0 === _WithLabel$parameters2 ||
-                      null ===
-                        (_WithLabel$parameters3 =
-                          _WithLabel$parameters2.docs) ||
-                      void 0 === _WithLabel$parameters3
-                      ? void 0
-                      : _WithLabel$parameters3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithLabelSmall.parameters = _objectSpread(
-            _objectSpread({}, WithLabelSmall.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null ===
-                    (_WithLabelSmall$param = WithLabelSmall.parameters) ||
-                    void 0 === _WithLabelSmall$param
-                    ? void 0
-                    : _WithLabelSmall$param.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'basic_small',\n    size: 'small',\n    label: 'Select Field',\n    options: names\n  }\n}",
-                    },
-                    null ===
-                      (_WithLabelSmall$param2 = WithLabelSmall.parameters) ||
-                      void 0 === _WithLabelSmall$param2 ||
-                      null ===
-                        (_WithLabelSmall$param3 =
-                          _WithLabelSmall$param2.docs) ||
-                      void 0 === _WithLabelSmall$param3
-                      ? void 0
-                      : _WithLabelSmall$param3.source
+                      : _Label$parameters2$do.source
                   ),
                 }
               ),
@@ -886,7 +642,7 @@
                   source: _objectSpread(
                     {
                       originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'required',\n    label: 'Required Field',\n    options: names,\n    required: true\n  }\n}",
+                        "{\n  render: Template,\n  args: {\n    name: 'slider_required',\n    label: 'Required Label',\n    required: true\n  }\n}",
                     },
                     null === (_Required$parameters2 = Required.parameters) ||
                       void 0 === _Required$parameters2 ||
@@ -900,273 +656,34 @@
               ),
             }
           )),
-          (WithChips.parameters = _objectSpread(
-            _objectSpread({}, WithChips.parameters),
+          (WithOptions.parameters = _objectSpread(
+            _objectSpread({}, WithOptions.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
-                  null === (_WithChips$parameters = WithChips.parameters) ||
-                    void 0 === _WithChips$parameters
+                  null === (_WithOptions$paramete = WithOptions.parameters) ||
+                    void 0 === _WithOptions$paramete
                     ? void 0
-                    : _WithChips$parameters.docs
+                    : _WithOptions$paramete.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'chips',\n    label: 'Required Field',\n    options: names,\n    showChips: true\n  }\n}",
-                    },
-                    null === (_WithChips$parameters2 = WithChips.parameters) ||
-                      void 0 === _WithChips$parameters2 ||
-                      null ===
-                        (_WithChips$parameters3 =
-                          _WithChips$parameters2.docs) ||
-                      void 0 === _WithChips$parameters3
-                      ? void 0
-                      : _WithChips$parameters3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithChipsPreserveOrder.parameters = _objectSpread(
-            _objectSpread({}, WithChipsPreserveOrder.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null ===
-                    (_WithChipsPreserveOrd =
-                      WithChipsPreserveOrder.parameters) ||
-                    void 0 === _WithChipsPreserveOrd
-                    ? void 0
-                    : _WithChipsPreserveOrd.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'chips',\n    label: 'Required Field',\n    options: names,\n    showChips: true,\n    preserveOrder: true\n  }\n}",
+                        "{\n  render: Template,\n  args: {\n    name: 'slider',\n    label: 'Slider With Options',\n    min: 0,\n    max: 10,\n    marks: true\n  }\n}",
                     },
                     null ===
-                      (_WithChipsPreserveOrd2 =
-                        WithChipsPreserveOrder.parameters) ||
-                      void 0 === _WithChipsPreserveOrd2 ||
+                      (_WithOptions$paramete2 = WithOptions.parameters) ||
+                      void 0 === _WithOptions$paramete2 ||
                       null ===
-                        (_WithChipsPreserveOrd3 =
-                          _WithChipsPreserveOrd2.docs) ||
-                      void 0 === _WithChipsPreserveOrd3
+                        (_WithOptions$paramete3 =
+                          _WithOptions$paramete2.docs) ||
+                      void 0 === _WithOptions$paramete3
                       ? void 0
-                      : _WithChipsPreserveOrd3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithCheckbox.parameters = _objectSpread(
-            _objectSpread({}, WithCheckbox.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null === (_WithCheckbox$paramet = WithCheckbox.parameters) ||
-                    void 0 === _WithCheckbox$paramet
-                    ? void 0
-                    : _WithCheckbox$paramet.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'checkbox',\n    label: 'Checkbox Field',\n    options: names,\n    showCheckbox: true\n  }\n}",
-                    },
-                    null ===
-                      (_WithCheckbox$paramet2 = WithCheckbox.parameters) ||
-                      void 0 === _WithCheckbox$paramet2 ||
-                      null ===
-                        (_WithCheckbox$paramet3 =
-                          _WithCheckbox$paramet2.docs) ||
-                      void 0 === _WithCheckbox$paramet3
-                      ? void 0
-                      : _WithCheckbox$paramet3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithObjectArray.parameters = _objectSpread(
-            _objectSpread({}, WithObjectArray.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null ===
-                    (_WithObjectArray$para = WithObjectArray.parameters) ||
-                    void 0 === _WithObjectArray$para
-                    ? void 0
-                    : _WithObjectArray$para.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'object',\n    label: 'Object Field',\n    options: objectVals,\n    itemKey: 'id',\n    itemLabel: 'name'\n  }\n}",
-                    },
-                    null ===
-                      (_WithObjectArray$para2 = WithObjectArray.parameters) ||
-                      void 0 === _WithObjectArray$para2 ||
-                      null ===
-                        (_WithObjectArray$para3 =
-                          _WithObjectArray$para2.docs) ||
-                      void 0 === _WithObjectArray$para3
-                      ? void 0
-                      : _WithObjectArray$para3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithObjectArrayChips.parameters = _objectSpread(
-            _objectSpread({}, WithObjectArrayChips.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null ===
-                    (_WithObjectArrayChips = WithObjectArrayChips.parameters) ||
-                    void 0 === _WithObjectArrayChips
-                    ? void 0
-                    : _WithObjectArrayChips.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'object',\n    label: 'Object Field',\n    options: objectVals,\n    itemKey: 'id',\n    itemLabel: 'name',\n    showChips: true\n  }\n}",
-                    },
-                    null ===
-                      (_WithObjectArrayChips2 =
-                        WithObjectArrayChips.parameters) ||
-                      void 0 === _WithObjectArrayChips2 ||
-                      null ===
-                        (_WithObjectArrayChips3 =
-                          _WithObjectArrayChips2.docs) ||
-                      void 0 === _WithObjectArrayChips3
-                      ? void 0
-                      : _WithObjectArrayChips3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (OverwriteRenderValue.parameters = _objectSpread(
-            _objectSpread({}, OverwriteRenderValue.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null ===
-                    (_OverwriteRenderValue = OverwriteRenderValue.parameters) ||
-                    void 0 === _OverwriteRenderValue
-                    ? void 0
-                    : _OverwriteRenderValue.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'object',\n    label: 'Object Field',\n    options: objectVals,\n    itemKey: 'id',\n    itemLabel: 'name',\n    renderValue: (selected: any) => `You selected: ${(selected || [])?.length}`\n  }\n}",
-                    },
-                    null ===
-                      (_OverwriteRenderValue2 =
-                        OverwriteRenderValue.parameters) ||
-                      void 0 === _OverwriteRenderValue2 ||
-                      null ===
-                        (_OverwriteRenderValue3 =
-                          _OverwriteRenderValue2.docs) ||
-                      void 0 === _OverwriteRenderValue3
-                      ? void 0
-                      : _OverwriteRenderValue3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (MonthPicker.parameters = _objectSpread(
-            _objectSpread({}, MonthPicker.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null === (_MonthPicker$paramete = MonthPicker.parameters) ||
-                    void 0 === _MonthPicker$paramete
-                    ? void 0
-                    : _MonthPicker$paramete.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'month',\n    options: months,\n    label: 'Months',\n    MenuProps: {\n      PaperProps: {\n        sx: {\n          '& .MuiList-root': {\n            display: 'grid',\n            gridTemplateColumns: 'repeat(3, 1fr)',\n            gap: '4px'\n          }\n        }\n      }\n    }\n  }\n}",
-                    },
-                    null ===
-                      (_MonthPicker$paramete2 = MonthPicker.parameters) ||
-                      void 0 === _MonthPicker$paramete2 ||
-                      null ===
-                        (_MonthPicker$paramete3 =
-                          _MonthPicker$paramete2.docs) ||
-                      void 0 === _MonthPicker$paramete3
-                      ? void 0
-                      : _MonthPicker$paramete3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (MonthPickerSmall.parameters = _objectSpread(
-            _objectSpread({}, MonthPickerSmall.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null ===
-                    (_MonthPickerSmall$par = MonthPickerSmall.parameters) ||
-                    void 0 === _MonthPickerSmall$par
-                    ? void 0
-                    : _MonthPickerSmall$par.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'months_small',\n    options: months,\n    label: 'Months',\n    size: 'small',\n    MenuProps: {\n      PaperProps: {\n        sx: {\n          '& .MuiList-root': {\n            display: 'grid',\n            gridTemplateColumns: 'repeat(3, 1fr)',\n            gap: '4px'\n          }\n        }\n      }\n    }\n  }\n}",
-                    },
-                    null ===
-                      (_MonthPickerSmall$par2 = MonthPickerSmall.parameters) ||
-                      void 0 === _MonthPickerSmall$par2 ||
-                      null ===
-                        (_MonthPickerSmall$par3 =
-                          _MonthPickerSmall$par2.docs) ||
-                      void 0 === _MonthPickerSmall$par3
-                      ? void 0
-                      : _MonthPickerSmall$par3.source
+                      : _WithOptions$paramete3.source
                   ),
                 }
               ),

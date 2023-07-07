@@ -1,7 +1,7 @@
 'use strict'
 ;(self.webpackChunkrhfm_storybook = self.webpackChunkrhfm_storybook || []).push(
   [
-    [878],
+    [191],
     {
       './node_modules/@mui/material/esm/Box/Box.js': (
         __unused_webpack_module,
@@ -10,10 +10,10 @@
       ) => {
         __webpack_require__.d(__webpack_exports__, {Z: () => Box_Box})
         var esm_extends = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+            './node_modules/@babel/runtime/helpers/esm/extends.js'
           ),
           objectWithoutPropertiesLoose = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+            './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
           ),
           react = __webpack_require__('../../node_modules/react/index.js'),
           clsx_m = __webpack_require__(
@@ -36,7 +36,7 @@
           )
         const _excluded = ['className', 'component']
         var ClassNameGenerator = __webpack_require__(
-          './node_modules/@mui/material/node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
+          './node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
         )
         const Box = (function createBox(options = {}) {
             const {
@@ -80,11 +80,11 @@
         })
         var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_9__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             '../../node_modules/react/index.js'
@@ -99,7 +99,7 @@
             './node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js'
           ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-            './node_modules/@mui/material/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _styles_styled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
             './node_modules/@mui/material/esm/styles/styled.js'
@@ -281,14 +281,14 @@
         __webpack_require__.d(__webpack_exports__, {Z: () => extendSxProp})
         var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _getThemeValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             './node_modules/@mui/system/esm/getThemeValue.js'
@@ -441,7 +441,7 @@
               })
         } catch (__react_docgen_typescript_loader_error) {}
       },
-      './stories/Checkbox.stories.tsx': (
+      './stories/CheckboxButtonGroup.stories.tsx': (
         __unused_webpack_module,
         __webpack_exports__,
         __webpack_require__
@@ -449,15 +449,27 @@
         __webpack_require__.r(__webpack_exports__),
           __webpack_require__.d(__webpack_exports__, {
             Basic: () => Basic,
-            LabelPosition: () => LabelPosition,
+            Disabled: () => Disabled,
+            Inline: () => Inline,
+            Required: () => Required,
+            ReturnObject: () => ReturnObject,
             default: () => __WEBPACK_DEFAULT_EXPORT__,
           })
         var _Basic$parameters,
           _Basic$parameters2,
           _Basic$parameters2$do,
-          _LabelPosition$parame,
-          _LabelPosition$parame2,
-          _LabelPosition$parame3,
+          _Inline$parameters,
+          _Inline$parameters2,
+          _Inline$parameters2$d,
+          _ReturnObject$paramet,
+          _ReturnObject$paramet2,
+          _ReturnObject$paramet3,
+          _Required$parameters,
+          _Required$parameters2,
+          _Required$parameters3,
+          _Disabled$parameters,
+          _Disabled$parameters2,
+          _Disabled$parameters3,
           _Users_dominicgarms_Documents_Coding_react_react_hook_form_mui_node_modules_storybook_nextjs_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
               '../../node_modules/@storybook/nextjs/node_modules/@babel/runtime/helpers/esm/defineProperty.js'
@@ -510,8 +522,8 @@
           return target
         }
         const __WEBPACK_DEFAULT_EXPORT__ = {
-          title: 'Checkbox',
-          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Zo,
+          title: 'CheckboxButtonGroup',
+          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.CI,
         }
         var Template = function Template(args) {
           return __jsx(
@@ -524,7 +536,7 @@
               ),
             },
             __jsx(
-              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Zo,
+              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.CI,
               args
             ),
             __jsx('br', null),
@@ -532,13 +544,63 @@
           )
         }
         Template.displayName = 'Template'
-        var Basic = {render: Template, args: {label: 'Label', name: 'basic'}},
-          LabelPosition = {
+        var Basic = {
             render: Template,
             args: {
               label: 'Label',
-              name: 'basic',
-              labelProps: {labelPlacement: 'top'},
+              name: 'basic-checkbox-button-group',
+              options: [
+                {id: '1', label: 'Label 1'},
+                {id: '2', label: 'label 2'},
+              ],
+            },
+          },
+          Inline = {
+            render: Template,
+            args: {
+              label: 'Inline',
+              row: !0,
+              name: 'basic-checkbox-inline',
+              options: [
+                {id: '1', label: 'Label 1'},
+                {id: '2', label: 'label 2'},
+              ],
+            },
+          },
+          ReturnObject = {
+            render: Template,
+            args: {
+              label: 'Object',
+              returnObject: !0,
+              name: 'basic-checkbox-object',
+              options: [
+                {id: '1', label: 'Label 1'},
+                {id: '2', label: 'label 2'},
+              ],
+            },
+          },
+          Required = {
+            render: Template,
+            args: {
+              label: 'Required',
+              required: !0,
+              name: 'basic-checkbox-required',
+              options: [
+                {id: '1', label: 'Label 1'},
+                {id: '2', label: 'label 2'},
+              ],
+            },
+          },
+          Disabled = {
+            render: Template,
+            args: {
+              label: 'Disabled',
+              disabled: !0,
+              name: 'basic-checkbox-disabled',
+              options: [
+                {id: '1', label: 'Label 1'},
+                {id: '2', label: 'label 2'},
+              ],
             },
           }
         ;(Basic.parameters = _objectSpread(
@@ -558,7 +620,7 @@
                 source: _objectSpread(
                   {
                     originalSource:
-                      "{\n  render: Template,\n  args: {\n    label: 'Label',\n    name: 'basic'\n  }\n}",
+                      "{\n  render: Template,\n  args: {\n    label: 'Label',\n    name: 'basic-checkbox-button-group',\n    options: [{\n      id: '1',\n      label: 'Label 1'\n    }, {\n      id: '2',\n      label: 'label 2'\n    }]\n  }\n}",
                   },
                   null === (_Basic$parameters2 = Basic.parameters) ||
                     void 0 === _Basic$parameters2 ||
@@ -572,34 +634,127 @@
             ),
           }
         )),
-          (LabelPosition.parameters = _objectSpread(
-            _objectSpread({}, LabelPosition.parameters),
+          (Inline.parameters = _objectSpread(
+            _objectSpread({}, Inline.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
-                  null === (_LabelPosition$parame = LabelPosition.parameters) ||
-                    void 0 === _LabelPosition$parame
+                  null === (_Inline$parameters = Inline.parameters) ||
+                    void 0 === _Inline$parameters
                     ? void 0
-                    : _LabelPosition$parame.docs
+                    : _Inline$parameters.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "{\n  render: Template,\n  args: {\n    label: 'Label',\n    name: 'basic',\n    labelProps: {\n      labelPlacement: 'top'\n    }\n  }\n}",
+                        "{\n  render: Template,\n  args: {\n    label: 'Inline',\n    row: true,\n    name: 'basic-checkbox-inline',\n    options: [{\n      id: '1',\n      label: 'Label 1'\n    }, {\n      id: '2',\n      label: 'label 2'\n    }]\n  }\n}",
+                    },
+                    null === (_Inline$parameters2 = Inline.parameters) ||
+                      void 0 === _Inline$parameters2 ||
+                      null ===
+                        (_Inline$parameters2$d = _Inline$parameters2.docs) ||
+                      void 0 === _Inline$parameters2$d
+                      ? void 0
+                      : _Inline$parameters2$d.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (ReturnObject.parameters = _objectSpread(
+            _objectSpread({}, ReturnObject.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null === (_ReturnObject$paramet = ReturnObject.parameters) ||
+                    void 0 === _ReturnObject$paramet
+                    ? void 0
+                    : _ReturnObject$paramet.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    label: 'Object',\n    returnObject: true,\n    name: 'basic-checkbox-object',\n    options: [{\n      id: '1',\n      label: 'Label 1'\n    }, {\n      id: '2',\n      label: 'label 2'\n    }]\n  }\n}",
                     },
                     null ===
-                      (_LabelPosition$parame2 = LabelPosition.parameters) ||
-                      void 0 === _LabelPosition$parame2 ||
+                      (_ReturnObject$paramet2 = ReturnObject.parameters) ||
+                      void 0 === _ReturnObject$paramet2 ||
                       null ===
-                        (_LabelPosition$parame3 =
-                          _LabelPosition$parame2.docs) ||
-                      void 0 === _LabelPosition$parame3
+                        (_ReturnObject$paramet3 =
+                          _ReturnObject$paramet2.docs) ||
+                      void 0 === _ReturnObject$paramet3
                       ? void 0
-                      : _LabelPosition$parame3.source
+                      : _ReturnObject$paramet3.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (Required.parameters = _objectSpread(
+            _objectSpread({}, Required.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null === (_Required$parameters = Required.parameters) ||
+                    void 0 === _Required$parameters
+                    ? void 0
+                    : _Required$parameters.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    label: 'Required',\n    required: true,\n    name: 'basic-checkbox-required',\n    options: [{\n      id: '1',\n      label: 'Label 1'\n    }, {\n      id: '2',\n      label: 'label 2'\n    }]\n  }\n}",
+                    },
+                    null === (_Required$parameters2 = Required.parameters) ||
+                      void 0 === _Required$parameters2 ||
+                      null ===
+                        (_Required$parameters3 = _Required$parameters2.docs) ||
+                      void 0 === _Required$parameters3
+                      ? void 0
+                      : _Required$parameters3.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (Disabled.parameters = _objectSpread(
+            _objectSpread({}, Disabled.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null === (_Disabled$parameters = Disabled.parameters) ||
+                    void 0 === _Disabled$parameters
+                    ? void 0
+                    : _Disabled$parameters.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    label: 'Disabled',\n    disabled: true,\n    name: 'basic-checkbox-disabled',\n    options: [{\n      id: '1',\n      label: 'Label 1'\n    }, {\n      id: '2',\n      label: 'label 2'\n    }]\n  }\n}",
+                    },
+                    null === (_Disabled$parameters2 = Disabled.parameters) ||
+                      void 0 === _Disabled$parameters2 ||
+                      null ===
+                        (_Disabled$parameters3 = _Disabled$parameters2.docs) ||
+                      void 0 === _Disabled$parameters3
+                      ? void 0
+                      : _Disabled$parameters3.source
                   ),
                 }
               ),

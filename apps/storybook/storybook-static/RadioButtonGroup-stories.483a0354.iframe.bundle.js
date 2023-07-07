@@ -10,10 +10,10 @@
       ) => {
         __webpack_require__.d(__webpack_exports__, {Z: () => Box_Box})
         var esm_extends = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+            './node_modules/@babel/runtime/helpers/esm/extends.js'
           ),
           objectWithoutPropertiesLoose = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+            './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
           ),
           react = __webpack_require__('../../node_modules/react/index.js'),
           clsx_m = __webpack_require__(
@@ -36,7 +36,7 @@
           )
         const _excluded = ['className', 'component']
         var ClassNameGenerator = __webpack_require__(
-          './node_modules/@mui/material/node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
+          './node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
         )
         const Box = (function createBox(options = {}) {
             const {
@@ -80,11 +80,11 @@
         })
         var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_9__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             '../../node_modules/react/index.js'
@@ -99,7 +99,7 @@
             './node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js'
           ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-            './node_modules/@mui/material/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _styles_styled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
             './node_modules/@mui/material/esm/styles/styled.js'
@@ -281,14 +281,14 @@
         __webpack_require__.d(__webpack_exports__, {Z: () => extendSxProp})
         var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _getThemeValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             './node_modules/@mui/system/esm/getThemeValue.js'

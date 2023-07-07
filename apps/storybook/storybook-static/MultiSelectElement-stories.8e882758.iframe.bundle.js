@@ -1,7 +1,7 @@
 'use strict'
 ;(self.webpackChunkrhfm_storybook = self.webpackChunkrhfm_storybook || []).push(
   [
-    [167],
+    [763],
     {
       './node_modules/@mui/material/esm/Box/Box.js': (
         __unused_webpack_module,
@@ -10,10 +10,10 @@
       ) => {
         __webpack_require__.d(__webpack_exports__, {Z: () => Box_Box})
         var esm_extends = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+            './node_modules/@babel/runtime/helpers/esm/extends.js'
           ),
           objectWithoutPropertiesLoose = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+            './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
           ),
           react = __webpack_require__('../../node_modules/react/index.js'),
           clsx_m = __webpack_require__(
@@ -36,7 +36,7 @@
           )
         const _excluded = ['className', 'component']
         var ClassNameGenerator = __webpack_require__(
-          './node_modules/@mui/material/node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
+          './node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
         )
         const Box = (function createBox(options = {}) {
             const {
@@ -80,11 +80,11 @@
         })
         var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_9__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             '../../node_modules/react/index.js'
@@ -99,7 +99,7 @@
             './node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js'
           ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-            './node_modules/@mui/material/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _styles_styled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
             './node_modules/@mui/material/esm/styles/styled.js'
@@ -281,14 +281,14 @@
         __webpack_require__.d(__webpack_exports__, {Z: () => extendSxProp})
         var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
-              './node_modules/@mui/system/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-            './node_modules/@mui/system/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _getThemeValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             './node_modules/@mui/system/esm/getThemeValue.js'
@@ -441,7 +441,7 @@
               })
         } catch (__react_docgen_typescript_loader_error) {}
       },
-      './stories/TextFieldElement.stories.tsx': (
+      './stories/MultiSelectElement.stories.tsx': (
         __unused_webpack_module,
         __webpack_exports__,
         __webpack_require__
@@ -449,31 +449,59 @@
         __webpack_require__.r(__webpack_exports__),
           __webpack_require__.d(__webpack_exports__, {
             Basic: () => Basic,
-            Core: () => Core,
-            PreDefined: () => PreDefined,
-            PreDefinedNested: () => PreDefinedNested,
-            WithFormContext: () => WithFormContext,
-            WithFormErrorProvider: () => WithFormErrorProvider,
+            Filled: () => Filled,
+            MonthPicker: () => MonthPicker,
+            MonthPickerSmall: () => MonthPickerSmall,
+            OverwriteRenderValue: () => OverwriteRenderValue,
+            Required: () => Required,
+            WithCheckbox: () => WithCheckbox,
+            WithChips: () => WithChips,
+            WithChipsPreserveOrder: () => WithChipsPreserveOrder,
+            WithLabel: () => WithLabel,
+            WithLabelSmall: () => WithLabelSmall,
+            WithObjectArray: () => WithObjectArray,
+            WithObjectArrayChips: () => WithObjectArrayChips,
             default: () => __WEBPACK_DEFAULT_EXPORT__,
           })
-        var _Core$parameters,
-          _Core$parameters2,
-          _Core$parameters2$doc,
-          _Basic$parameters,
+        var _Basic$parameters,
           _Basic$parameters2,
           _Basic$parameters2$do,
-          _PreDefined$parameter,
-          _PreDefined$parameter2,
-          _PreDefined$parameter3,
-          _PreDefinedNested$par,
-          _PreDefinedNested$par2,
-          _PreDefinedNested$par3,
-          _WithFormContext$para,
-          _WithFormContext$para2,
-          _WithFormContext$para3,
-          _WithFormErrorProvide,
-          _WithFormErrorProvide2,
-          _WithFormErrorProvide3,
+          _Filled$parameters,
+          _Filled$parameters2,
+          _Filled$parameters2$d,
+          _WithLabel$parameters,
+          _WithLabel$parameters2,
+          _WithLabel$parameters3,
+          _WithLabelSmall$param,
+          _WithLabelSmall$param2,
+          _WithLabelSmall$param3,
+          _Required$parameters,
+          _Required$parameters2,
+          _Required$parameters3,
+          _WithChips$parameters,
+          _WithChips$parameters2,
+          _WithChips$parameters3,
+          _WithChipsPreserveOrd,
+          _WithChipsPreserveOrd2,
+          _WithChipsPreserveOrd3,
+          _WithCheckbox$paramet,
+          _WithCheckbox$paramet2,
+          _WithCheckbox$paramet3,
+          _WithObjectArray$para,
+          _WithObjectArray$para2,
+          _WithObjectArray$para3,
+          _WithObjectArrayChips,
+          _WithObjectArrayChips2,
+          _WithObjectArrayChips3,
+          _OverwriteRenderValue,
+          _OverwriteRenderValue2,
+          _OverwriteRenderValue3,
+          _MonthPicker$paramete,
+          _MonthPicker$paramete2,
+          _MonthPicker$paramete3,
+          _MonthPickerSmall$par,
+          _MonthPickerSmall$par2,
+          _MonthPickerSmall$par3,
           _Users_dominicgarms_Documents_Coding_react_react_hook_form_mui_node_modules_storybook_nextjs_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
               '../../node_modules/@storybook/nextjs/node_modules/@babel/runtime/helpers/esm/defineProperty.js'
@@ -481,21 +509,12 @@
           react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             '../../node_modules/react/index.js'
           ),
-          _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_2__ =
+          react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__ =
+            __webpack_require__('../../packages/rhf-mui/src/index.ts'),
+          _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_3__ =
             __webpack_require__(
               '../../node_modules/@storybook/addon-actions/dist/index.mjs'
             ),
-          _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-            './node_modules/@mui/material/esm/Button/Button.js'
-          ),
-          _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-            './node_modules/@mui/material/esm/Stack/Stack.js'
-          ),
-          react_hook_form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-            '../../node_modules/react-hook-form/dist/index.esm.mjs'
-          ),
-          react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__ =
-            __webpack_require__('../../packages/rhf-mui/src/index.ts'),
           _src_Shared__WEBPACK_IMPORTED_MODULE_4__ =
             __webpack_require__('./src/Shared.tsx'),
           __jsx = react__WEBPACK_IMPORTED_MODULE_0__.createElement
@@ -535,21 +554,21 @@
           return target
         }
         const __WEBPACK_DEFAULT_EXPORT__ = {
-          title: 'TextFieldElement',
-          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF,
+          title: 'MultiSelectElement',
+          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.Q5,
         }
         var Template = function Template(args) {
           return __jsx(
-            react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Yb,
+            react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.Yb,
             {
               defaultValues: {},
               onSuccess: (0,
-              _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_2__.aD)(
+              _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_3__.aD)(
                 'submit'
               ),
             },
             __jsx(
-              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF,
+              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.Q5,
               args
             ),
             __jsx('br', null),
@@ -557,515 +576,602 @@
           )
         }
         Template.displayName = 'Template'
-        var Core = {render: Template, args: {name: 'core', label: 'Label'}},
-          parseError = function parseError(error) {
-            return 'pattern' === error.type
-              ? 'Enter an email'
-              : 'This field is required'
+        var names = [
+            'Oliver Hansen',
+            'Van Henry',
+            'April Tucker',
+            'Ralph Hubbard',
+            'Omar Alexander',
+            'Carlos Abbott',
+            'Miriam Wagner',
+            'Bradley Wilkerson',
+            'Virginia Andrews',
+            'Kelly Snyder',
+          ],
+          months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
+          ],
+          Basic = {render: Template, args: {name: 'basic', options: names}},
+          Filled = {
+            render: Template,
+            args: {name: 'filled', options: names, variant: 'filled'},
           },
-          Basic = function Basic() {
-            return __jsx(
-              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Yb,
-              {
-                defaultValues: {agree: !1},
-                onSuccess: (0,
-                _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_2__.aD)(
-                  'submit'
-                ),
-                FormProps: {
-                  'aria-autocomplete': 'none',
-                  autoComplete: 'new-password',
+          WithLabel = {
+            render: Template,
+            args: {name: 'basic', label: 'Select Field', options: names},
+          },
+          WithLabelSmall = {
+            render: Template,
+            args: {
+              name: 'basic_small',
+              size: 'small',
+              label: 'Select Field',
+              options: names,
+            },
+          },
+          Required = {
+            render: Template,
+            args: {
+              name: 'required',
+              label: 'Required Field',
+              options: names,
+              required: !0,
+            },
+          },
+          WithChips = {
+            render: Template,
+            args: {
+              name: 'chips',
+              label: 'Required Field',
+              options: names,
+              showChips: !0,
+            },
+          },
+          WithChipsPreserveOrder = {
+            render: Template,
+            args: {
+              name: 'chips',
+              label: 'Required Field',
+              options: names,
+              showChips: !0,
+              preserveOrder: !0,
+            },
+          },
+          WithCheckbox = {
+            render: Template,
+            args: {
+              name: 'checkbox',
+              label: 'Checkbox Field',
+              options: names,
+              showCheckbox: !0,
+            },
+          },
+          objectVals = [
+            {id: 1, name: 'Alpha'},
+            {id: 2, name: 'Beta'},
+            {id: 3, name: 'Celsius'},
+            {id: 4, name: 'Delta'},
+          ],
+          WithObjectArray = {
+            render: Template,
+            args: {
+              name: 'object',
+              label: 'Object Field',
+              options: objectVals,
+              itemKey: 'id',
+              itemLabel: 'name',
+            },
+          },
+          WithObjectArrayChips = {
+            render: Template,
+            args: {
+              name: 'object',
+              label: 'Object Field',
+              options: objectVals,
+              itemKey: 'id',
+              itemLabel: 'name',
+              showChips: !0,
+            },
+          },
+          OverwriteRenderValue = {
+            render: Template,
+            args: {
+              name: 'object',
+              label: 'Object Field',
+              options: objectVals,
+              itemKey: 'id',
+              itemLabel: 'name',
+              renderValue: function renderValue(selected) {
+                var _ref
+                return 'You selected: '.concat(
+                  null === (_ref = selected || []) || void 0 === _ref
+                    ? void 0
+                    : _ref.length
+                )
+              },
+            },
+          },
+          MonthPicker = {
+            render: Template,
+            args: {
+              name: 'month',
+              options: months,
+              label: 'Months',
+              MenuProps: {
+                PaperProps: {
+                  sx: {
+                    '& .MuiList-root': {
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(3, 1fr)',
+                      gap: '4px',
+                    },
+                  },
                 },
               },
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-                required: !0,
-                autoComplete: 'new-password',
-                margin: 'dense',
-                label: 'Name',
-                name: 'default-text-field',
-              }),
-              __jsx('br', null),
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-                required: !0,
-                type: 'email',
-                margin: 'dense',
-                label: 'Email',
-                name: 'default-email-field',
-              }),
-              __jsx('br', null),
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-                required: !0,
-                parseError,
-                type: 'email',
-                margin: 'dense',
-                label: 'Email with ParseError',
-                name: 'default-email-field-with-parsed',
-              }),
-              __jsx('br', null),
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-                margin: 'dense',
-                label: 'Number',
-                name: 'number-text-field',
-                required: !0,
-                type: 'number',
-              }),
-              __jsx('br', null),
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.OZ, {
-                margin: 'dense',
-                label: 'Password',
-                required: !0,
-                name: 'password',
-              }),
-              __jsx('br', null),
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Iv, {
-                passwordFieldName: 'password',
-                name: 'password-repeat',
-                margin: 'dense',
-                label: 'Repeat Password',
-                required: !0,
-              }),
-              __jsx('br', null),
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-                name: 'textarea',
-                multiline: !0,
-              }),
-              __jsx('br', null),
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Zo, {
-                name: 'agree',
-                label: 'Agree',
-                required: !0,
-                onChange: function onChange(ev, checked) {
-                  return console.log(ev, checked)
+            },
+          },
+          MonthPickerSmall = {
+            render: Template,
+            args: {
+              name: 'months_small',
+              options: months,
+              label: 'Months',
+              size: 'small',
+              MenuProps: {
+                PaperProps: {
+                  sx: {
+                    '& .MuiList-root': {
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(3, 1fr)',
+                      gap: '4px',
+                    },
+                  },
                 },
-              }),
-              __jsx('br', null),
-              __jsx(
-                _mui_material__WEBPACK_IMPORTED_MODULE_5__.Z,
-                {type: 'submit', color: 'primary', variant: 'contained'},
-                'Submit'
-              )
-            )
+              },
+            },
           }
-        Basic.displayName = 'Basic'
-        var PreDefined = function PreDefined() {
-          return __jsx(
-            react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Yb,
-            {
-              defaultValues: {
-                'default-text-field': 'Test Data',
-                'default-email-field': 'info@nextjs.com',
-                'number-text-field': 6,
-              },
-              onSuccess: (0,
-              _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_2__.aD)(
-                'submit'
+        ;(Basic.parameters = _objectSpread(
+          _objectSpread({}, Basic.parameters),
+          {},
+          {
+            docs: _objectSpread(
+              _objectSpread(
+                {},
+                null === (_Basic$parameters = Basic.parameters) ||
+                  void 0 === _Basic$parameters
+                  ? void 0
+                  : _Basic$parameters.docs
               ),
-            },
-            __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-              required: !0,
-              margin: 'dense',
-              label: 'Name',
-              name: 'default-text-field',
-            }),
-            __jsx('br', null),
-            __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-              required: !0,
-              parseError,
-              type: 'email',
-              margin: 'dense',
-              label: 'Email',
-              name: 'default-email-field',
-            }),
-            __jsx('br', null),
-            __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-              margin: 'dense',
-              label: 'Number',
-              name: 'number-text-field',
-              required: !0,
-              type: 'number',
-            }),
-            __jsx('br', null),
-            __jsx(
-              _mui_material__WEBPACK_IMPORTED_MODULE_5__.Z,
-              {type: 'submit', color: 'primary', variant: 'contained'},
-              'Submit'
-            )
-          )
-        }
-        PreDefined.displayName = 'PreDefined'
-        var PreDefinedNested = function PreDefinedNested() {
-          return __jsx(
-            react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Yb,
-            {
-              defaultValues: {
-                a: {'default-text-field': 'Test Data'},
-                b: {
-                  'default-email-field': 'info@nextjs.com',
-                  'number-text-field': 6,
-                },
-              },
-              onSuccess: (0,
-              _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_2__.aD)(
-                'submit'
-              ),
-            },
-            __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-              required: !0,
-              margin: 'dense',
-              label: 'Name',
-              name: 'a.default-text-field',
-            }),
-            __jsx('br', null),
-            __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-              required: !0,
-              parseError,
-              type: 'email',
-              margin: 'dense',
-              label: 'Email',
-              name: 'b.default-email-field',
-            }),
-            __jsx('br', null),
-            __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-              margin: 'dense',
-              label: 'Number',
-              name: 'b.number-text-field',
-              required: !0,
-              type: 'number',
-            }),
-            __jsx('br', null),
-            __jsx(
-              _mui_material__WEBPACK_IMPORTED_MODULE_5__.Z,
-              {type: 'submit', color: 'primary', variant: 'contained'},
-              'Submit'
-            )
-          )
-        }
-        PreDefinedNested.displayName = 'PreDefinedNested'
-        var WithFormContext = function WithFormContext() {
-          var formContext = (0,
-            react_hook_form__WEBPACK_IMPORTED_MODULE_6__.cI)({
-              defaultValues: {email: '', name: ''},
-            }),
-            emailValue = (0, formContext.watch)('email')
-          return (
-            (0, react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(
-              function () {
-                console.log('email changed', emailValue)
-              },
-              [emailValue]
+              {},
+              {
+                source: _objectSpread(
+                  {
+                    originalSource:
+                      "{\n  render: Template,\n  args: {\n    name: 'basic',\n    options: names\n  }\n}",
+                  },
+                  null === (_Basic$parameters2 = Basic.parameters) ||
+                    void 0 === _Basic$parameters2 ||
+                    null ===
+                      (_Basic$parameters2$do = _Basic$parameters2.docs) ||
+                    void 0 === _Basic$parameters2$do
+                    ? void 0
+                    : _Basic$parameters2$do.source
+                ),
+              }
             ),
-            __jsx(
-              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Yb,
-              {
-                onSuccess: (0,
-                _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_2__.aD)(
-                  'submit'
-                ),
-                formContext,
-              },
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-                name: 'name',
-                label: 'Name',
-                parseError,
-                required: !0,
-                variant: 'outlined',
-                margin: 'dense',
-              }),
-              __jsx('br', null),
-              __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-                name: 'email',
-                type: 'email',
-                label: 'Email',
-                required: !0,
-                parseError,
-                variant: 'outlined',
-                margin: 'dense',
-              }),
-              __jsx('br', null),
-              __jsx('br', null),
-              __jsx(
-                _mui_material__WEBPACK_IMPORTED_MODULE_5__.Z,
-                {type: 'submit', color: 'primary', variant: 'contained'},
-                'Submit'
-              )
-            )
-          )
-        }
-        WithFormContext.displayName = 'WithFormContext'
-        var WithFormErrorProvider = function WithFormErrorProvider() {
-          return __jsx(
-            react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.mE,
-            {
-              onError: function onError(error) {
-                return (
-                  console.log('you can hook your own error message', error),
-                  'required' === error.type
-                    ? 'Overwritten Error Message'
-                    : null == error
-                    ? void 0
-                    : error.message
-                )
-              },
-            },
-            __jsx(
-              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.Yb,
-              {
-                onSuccess: (0,
-                _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_2__.aD)(
-                  'submit'
-                ),
-              },
-              __jsx(
-                _mui_material__WEBPACK_IMPORTED_MODULE_7__.Z,
-                {spacing: 3},
-                __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-                  name: 'name',
-                  label: 'Name',
-                  required: !0,
-                  variant: 'outlined',
-                  margin: 'dense',
-                }),
-                __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_3__.SF, {
-                  name: 'email',
-                  type: 'email',
-                  label: 'Email',
-                  required: !0,
-                  variant: 'outlined',
-                  margin: 'dense',
-                }),
-                __jsx(
-                  _mui_material__WEBPACK_IMPORTED_MODULE_5__.Z,
-                  {type: 'submit', color: 'primary', variant: 'contained'},
-                  'Submit'
-                )
-              )
-            )
-          )
-        }
-        ;(WithFormErrorProvider.displayName = 'WithFormErrorProvider'),
-          (Core.parameters = _objectSpread(
-            _objectSpread({}, Core.parameters),
+          }
+        )),
+          (Filled.parameters = _objectSpread(
+            _objectSpread({}, Filled.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
-                  null === (_Core$parameters = Core.parameters) ||
-                    void 0 === _Core$parameters
+                  null === (_Filled$parameters = Filled.parameters) ||
+                    void 0 === _Filled$parameters
                     ? void 0
-                    : _Core$parameters.docs
+                    : _Filled$parameters.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'core',\n    label: 'Label'\n  }\n}",
+                        "{\n  render: Template,\n  args: {\n    name: 'filled',\n    options: names,\n    variant: 'filled'\n  }\n}",
                     },
-                    null === (_Core$parameters2 = Core.parameters) ||
-                      void 0 === _Core$parameters2 ||
+                    null === (_Filled$parameters2 = Filled.parameters) ||
+                      void 0 === _Filled$parameters2 ||
                       null ===
-                        (_Core$parameters2$doc = _Core$parameters2.docs) ||
-                      void 0 === _Core$parameters2$doc
+                        (_Filled$parameters2$d = _Filled$parameters2.docs) ||
+                      void 0 === _Filled$parameters2$d
                       ? void 0
-                      : _Core$parameters2$doc.source
+                      : _Filled$parameters2$d.source
                   ),
                 }
               ),
             }
           )),
-          (Basic.parameters = _objectSpread(
-            _objectSpread({}, Basic.parameters),
+          (WithLabel.parameters = _objectSpread(
+            _objectSpread({}, WithLabel.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
-                  null === (_Basic$parameters = Basic.parameters) ||
-                    void 0 === _Basic$parameters
+                  null === (_WithLabel$parameters = WithLabel.parameters) ||
+                    void 0 === _WithLabel$parameters
                     ? void 0
-                    : _Basic$parameters.docs
+                    : _WithLabel$parameters.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "() => {\n  const form = {\n    agree: false\n  };\n  return <FormContainer defaultValues={form} onSuccess={action('submit')} FormProps={{\n    'aria-autocomplete': 'none',\n    autoComplete: 'new-password'\n  }}>\n      <TextFieldElement required autoComplete={'new-password'} margin={'dense'} label={'Name'} name={'default-text-field'} />\n      <br />\n      <TextFieldElement required type={'email'} margin={'dense'} label={'Email'} name={'default-email-field'} />\n      <br />\n      <TextFieldElement required parseError={parseError} type={'email'} margin={'dense'} label={'Email with ParseError'} name={'default-email-field-with-parsed'} />\n      <br />\n      <TextFieldElement margin={'dense'} label={'Number'} name={'number-text-field'} required type={'number'} />\n      <br />\n      <PasswordElement margin={'dense'} label={'Password'} required name={'password'} />\n      <br />\n      <PasswordRepeatElement passwordFieldName={'password'} name={'password-repeat'} margin={'dense'} label={'Repeat Password'} required />\n      <br />\n      <TextFieldElement name={'textarea'} multiline />\n      <br />\n      <CheckboxElement name={'agree'} label={'Agree'} required onChange={(ev, checked) => console.log(ev, checked)} />\n      <br />\n      <Button type={'submit'} color={'primary'} variant={'contained'}>\n        Submit\n      </Button>\n    </FormContainer>;\n}",
+                        "{\n  render: Template,\n  args: {\n    name: 'basic',\n    label: 'Select Field',\n    options: names\n  }\n}",
                     },
-                    null === (_Basic$parameters2 = Basic.parameters) ||
-                      void 0 === _Basic$parameters2 ||
+                    null === (_WithLabel$parameters2 = WithLabel.parameters) ||
+                      void 0 === _WithLabel$parameters2 ||
                       null ===
-                        (_Basic$parameters2$do = _Basic$parameters2.docs) ||
-                      void 0 === _Basic$parameters2$do
+                        (_WithLabel$parameters3 =
+                          _WithLabel$parameters2.docs) ||
+                      void 0 === _WithLabel$parameters3
                       ? void 0
-                      : _Basic$parameters2$do.source
+                      : _WithLabel$parameters3.source
                   ),
                 }
               ),
             }
           )),
-          (PreDefined.parameters = _objectSpread(
-            _objectSpread({}, PreDefined.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null === (_PreDefined$parameter = PreDefined.parameters) ||
-                    void 0 === _PreDefined$parameter
-                    ? void 0
-                    : _PreDefined$parameter.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "() => <FormContainer defaultValues={{\n  'default-text-field': 'Test Data',\n  'default-email-field': 'info@nextjs.com',\n  'number-text-field': 6\n}} onSuccess={action('submit')}>\n    <TextFieldElement required margin={'dense'} label={'Name'} name={'default-text-field'} />\n    <br />\n    <TextFieldElement required parseError={parseError} type={'email'} margin={'dense'} label={'Email'} name={'default-email-field'} />\n    <br />\n    <TextFieldElement margin={'dense'} label={'Number'} name={'number-text-field'} required type={'number'} />\n    <br />\n    <Button type={'submit'} color={'primary'} variant={'contained'}>\n      Submit\n    </Button>\n  </FormContainer>",
-                    },
-                    null === (_PreDefined$parameter2 = PreDefined.parameters) ||
-                      void 0 === _PreDefined$parameter2 ||
-                      null ===
-                        (_PreDefined$parameter3 =
-                          _PreDefined$parameter2.docs) ||
-                      void 0 === _PreDefined$parameter3
-                      ? void 0
-                      : _PreDefined$parameter3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (PreDefinedNested.parameters = _objectSpread(
-            _objectSpread({}, PreDefinedNested.parameters),
+          (WithLabelSmall.parameters = _objectSpread(
+            _objectSpread({}, WithLabelSmall.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
                   null ===
-                    (_PreDefinedNested$par = PreDefinedNested.parameters) ||
-                    void 0 === _PreDefinedNested$par
+                    (_WithLabelSmall$param = WithLabelSmall.parameters) ||
+                    void 0 === _WithLabelSmall$param
                     ? void 0
-                    : _PreDefinedNested$par.docs
+                    : _WithLabelSmall$param.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "() => <FormContainer defaultValues={{\n  a: {\n    'default-text-field': 'Test Data'\n  },\n  b: {\n    'default-email-field': 'info@nextjs.com',\n    'number-text-field': 6\n  }\n}} onSuccess={action('submit')}>\n    <TextFieldElement required margin={'dense'} label={'Name'} name={'a.default-text-field'} />\n    <br />\n    <TextFieldElement required parseError={parseError} type={'email'} margin={'dense'} label={'Email'} name={'b.default-email-field'} />\n    <br />\n    <TextFieldElement margin={'dense'} label={'Number'} name={'b.number-text-field'} required type={'number'} />\n    <br />\n    <Button type={'submit'} color={'primary'} variant={'contained'}>\n      Submit\n    </Button>\n  </FormContainer>",
+                        "{\n  render: Template,\n  args: {\n    name: 'basic_small',\n    size: 'small',\n    label: 'Select Field',\n    options: names\n  }\n}",
                     },
                     null ===
-                      (_PreDefinedNested$par2 = PreDefinedNested.parameters) ||
-                      void 0 === _PreDefinedNested$par2 ||
+                      (_WithLabelSmall$param2 = WithLabelSmall.parameters) ||
+                      void 0 === _WithLabelSmall$param2 ||
                       null ===
-                        (_PreDefinedNested$par3 =
-                          _PreDefinedNested$par2.docs) ||
-                      void 0 === _PreDefinedNested$par3
+                        (_WithLabelSmall$param3 =
+                          _WithLabelSmall$param2.docs) ||
+                      void 0 === _WithLabelSmall$param3
                       ? void 0
-                      : _PreDefinedNested$par3.source
+                      : _WithLabelSmall$param3.source
                   ),
                 }
               ),
             }
           )),
-          (WithFormContext.parameters = _objectSpread(
-            _objectSpread({}, WithFormContext.parameters),
+          (Required.parameters = _objectSpread(
+            _objectSpread({}, Required.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null === (_Required$parameters = Required.parameters) ||
+                    void 0 === _Required$parameters
+                    ? void 0
+                    : _Required$parameters.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    name: 'required',\n    label: 'Required Field',\n    options: names,\n    required: true\n  }\n}",
+                    },
+                    null === (_Required$parameters2 = Required.parameters) ||
+                      void 0 === _Required$parameters2 ||
+                      null ===
+                        (_Required$parameters3 = _Required$parameters2.docs) ||
+                      void 0 === _Required$parameters3
+                      ? void 0
+                      : _Required$parameters3.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (WithChips.parameters = _objectSpread(
+            _objectSpread({}, WithChips.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null === (_WithChips$parameters = WithChips.parameters) ||
+                    void 0 === _WithChips$parameters
+                    ? void 0
+                    : _WithChips$parameters.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    name: 'chips',\n    label: 'Required Field',\n    options: names,\n    showChips: true\n  }\n}",
+                    },
+                    null === (_WithChips$parameters2 = WithChips.parameters) ||
+                      void 0 === _WithChips$parameters2 ||
+                      null ===
+                        (_WithChips$parameters3 =
+                          _WithChips$parameters2.docs) ||
+                      void 0 === _WithChips$parameters3
+                      ? void 0
+                      : _WithChips$parameters3.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (WithChipsPreserveOrder.parameters = _objectSpread(
+            _objectSpread({}, WithChipsPreserveOrder.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
                   null ===
-                    (_WithFormContext$para = WithFormContext.parameters) ||
-                    void 0 === _WithFormContext$para
+                    (_WithChipsPreserveOrd =
+                      WithChipsPreserveOrder.parameters) ||
+                    void 0 === _WithChipsPreserveOrd
                     ? void 0
-                    : _WithFormContext$para.docs
+                    : _WithChipsPreserveOrd.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "() => {\n  const formContext = useForm<{\n    email: string;\n    name: string;\n  }>({\n    defaultValues: {\n      email: '',\n      name: ''\n    }\n  });\n  const {\n    watch\n  } = formContext;\n  const emailValue = watch('email');\n  useEffect(() => {\n    console.log('email changed', emailValue);\n  }, [emailValue]);\n  return <FormContainer onSuccess={action('submit')} formContext={formContext}>\n      <TextFieldElement name={'name'} label={'Name'} parseError={parseError} required variant={'outlined'} margin={'dense'} />\n      <br />\n      <TextFieldElement name={'email'} type=\"email\" label={'Email'} required parseError={parseError} variant={'outlined'} margin={'dense'} />\n      <br />\n      <br />\n      <Button type={'submit'} color={'primary'} variant={'contained'}>\n        Submit\n      </Button>\n    </FormContainer>;\n}",
+                        "{\n  render: Template,\n  args: {\n    name: 'chips',\n    label: 'Required Field',\n    options: names,\n    showChips: true,\n    preserveOrder: true\n  }\n}",
                     },
                     null ===
-                      (_WithFormContext$para2 = WithFormContext.parameters) ||
-                      void 0 === _WithFormContext$para2 ||
+                      (_WithChipsPreserveOrd2 =
+                        WithChipsPreserveOrder.parameters) ||
+                      void 0 === _WithChipsPreserveOrd2 ||
                       null ===
-                        (_WithFormContext$para3 =
-                          _WithFormContext$para2.docs) ||
-                      void 0 === _WithFormContext$para3
+                        (_WithChipsPreserveOrd3 =
+                          _WithChipsPreserveOrd2.docs) ||
+                      void 0 === _WithChipsPreserveOrd3
                       ? void 0
-                      : _WithFormContext$para3.source
+                      : _WithChipsPreserveOrd3.source
                   ),
                 }
               ),
             }
           )),
-          (WithFormErrorProvider.parameters = _objectSpread(
-            _objectSpread({}, WithFormErrorProvider.parameters),
+          (WithCheckbox.parameters = _objectSpread(
+            _objectSpread({}, WithCheckbox.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null === (_WithCheckbox$paramet = WithCheckbox.parameters) ||
+                    void 0 === _WithCheckbox$paramet
+                    ? void 0
+                    : _WithCheckbox$paramet.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    name: 'checkbox',\n    label: 'Checkbox Field',\n    options: names,\n    showCheckbox: true\n  }\n}",
+                    },
+                    null ===
+                      (_WithCheckbox$paramet2 = WithCheckbox.parameters) ||
+                      void 0 === _WithCheckbox$paramet2 ||
+                      null ===
+                        (_WithCheckbox$paramet3 =
+                          _WithCheckbox$paramet2.docs) ||
+                      void 0 === _WithCheckbox$paramet3
+                      ? void 0
+                      : _WithCheckbox$paramet3.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (WithObjectArray.parameters = _objectSpread(
+            _objectSpread({}, WithObjectArray.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
                   null ===
-                    (_WithFormErrorProvide =
-                      WithFormErrorProvider.parameters) ||
-                    void 0 === _WithFormErrorProvide
+                    (_WithObjectArray$para = WithObjectArray.parameters) ||
+                    void 0 === _WithObjectArray$para
                     ? void 0
-                    : _WithFormErrorProvide.docs
+                    : _WithObjectArray$para.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "() => <FormErrorProvider onError={error => {\n  console.log('you can hook your own error message', error);\n  if (error.type === 'required') {\n    return 'Overwritten Error Message';\n  }\n  return error?.message;\n}}>\n    <FormContainer onSuccess={action('submit')}>\n      <Stack spacing={3}>\n        <TextFieldElement name={'name'} label={'Name'} required variant={'outlined'} margin={'dense'} />\n        <TextFieldElement name={'email'} type=\"email\" label={'Email'} required variant={'outlined'} margin={'dense'} />\n        <Button type={'submit'} color={'primary'} variant={'contained'}>\n          Submit\n        </Button>\n      </Stack>\n    </FormContainer>\n  </FormErrorProvider>",
+                        "{\n  render: Template,\n  args: {\n    name: 'object',\n    label: 'Object Field',\n    options: objectVals,\n    itemKey: 'id',\n    itemLabel: 'name'\n  }\n}",
                     },
                     null ===
-                      (_WithFormErrorProvide2 =
-                        WithFormErrorProvider.parameters) ||
-                      void 0 === _WithFormErrorProvide2 ||
+                      (_WithObjectArray$para2 = WithObjectArray.parameters) ||
+                      void 0 === _WithObjectArray$para2 ||
                       null ===
-                        (_WithFormErrorProvide3 =
-                          _WithFormErrorProvide2.docs) ||
-                      void 0 === _WithFormErrorProvide3
+                        (_WithObjectArray$para3 =
+                          _WithObjectArray$para2.docs) ||
+                      void 0 === _WithObjectArray$para3
                       ? void 0
-                      : _WithFormErrorProvide3.source
+                      : _WithObjectArray$para3.source
                   ),
                 }
               ),
             }
           )),
-          (Basic.__docgenInfo = {
-            description: '',
-            methods: [],
-            displayName: 'Basic',
-          }),
-          (PreDefined.__docgenInfo = {
-            description: '',
-            methods: [],
-            displayName: 'PreDefined',
-          }),
-          (PreDefinedNested.__docgenInfo = {
-            description: '',
-            methods: [],
-            displayName: 'PreDefinedNested',
-          }),
-          (WithFormContext.__docgenInfo = {
-            description: '',
-            methods: [],
-            displayName: 'WithFormContext',
-          }),
-          (WithFormErrorProvider.__docgenInfo = {
-            description: '',
-            methods: [],
-            displayName: 'WithFormErrorProvider',
-          })
+          (WithObjectArrayChips.parameters = _objectSpread(
+            _objectSpread({}, WithObjectArrayChips.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null ===
+                    (_WithObjectArrayChips = WithObjectArrayChips.parameters) ||
+                    void 0 === _WithObjectArrayChips
+                    ? void 0
+                    : _WithObjectArrayChips.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    name: 'object',\n    label: 'Object Field',\n    options: objectVals,\n    itemKey: 'id',\n    itemLabel: 'name',\n    showChips: true\n  }\n}",
+                    },
+                    null ===
+                      (_WithObjectArrayChips2 =
+                        WithObjectArrayChips.parameters) ||
+                      void 0 === _WithObjectArrayChips2 ||
+                      null ===
+                        (_WithObjectArrayChips3 =
+                          _WithObjectArrayChips2.docs) ||
+                      void 0 === _WithObjectArrayChips3
+                      ? void 0
+                      : _WithObjectArrayChips3.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (OverwriteRenderValue.parameters = _objectSpread(
+            _objectSpread({}, OverwriteRenderValue.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null ===
+                    (_OverwriteRenderValue = OverwriteRenderValue.parameters) ||
+                    void 0 === _OverwriteRenderValue
+                    ? void 0
+                    : _OverwriteRenderValue.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    name: 'object',\n    label: 'Object Field',\n    options: objectVals,\n    itemKey: 'id',\n    itemLabel: 'name',\n    renderValue: (selected: any) => `You selected: ${(selected || [])?.length}`\n  }\n}",
+                    },
+                    null ===
+                      (_OverwriteRenderValue2 =
+                        OverwriteRenderValue.parameters) ||
+                      void 0 === _OverwriteRenderValue2 ||
+                      null ===
+                        (_OverwriteRenderValue3 =
+                          _OverwriteRenderValue2.docs) ||
+                      void 0 === _OverwriteRenderValue3
+                      ? void 0
+                      : _OverwriteRenderValue3.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (MonthPicker.parameters = _objectSpread(
+            _objectSpread({}, MonthPicker.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null === (_MonthPicker$paramete = MonthPicker.parameters) ||
+                    void 0 === _MonthPicker$paramete
+                    ? void 0
+                    : _MonthPicker$paramete.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    name: 'month',\n    options: months,\n    label: 'Months',\n    MenuProps: {\n      PaperProps: {\n        sx: {\n          '& .MuiList-root': {\n            display: 'grid',\n            gridTemplateColumns: 'repeat(3, 1fr)',\n            gap: '4px'\n          }\n        }\n      }\n    }\n  }\n}",
+                    },
+                    null ===
+                      (_MonthPicker$paramete2 = MonthPicker.parameters) ||
+                      void 0 === _MonthPicker$paramete2 ||
+                      null ===
+                        (_MonthPicker$paramete3 =
+                          _MonthPicker$paramete2.docs) ||
+                      void 0 === _MonthPicker$paramete3
+                      ? void 0
+                      : _MonthPicker$paramete3.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (MonthPickerSmall.parameters = _objectSpread(
+            _objectSpread({}, MonthPickerSmall.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null ===
+                    (_MonthPickerSmall$par = MonthPickerSmall.parameters) ||
+                    void 0 === _MonthPickerSmall$par
+                    ? void 0
+                    : _MonthPickerSmall$par.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    name: 'months_small',\n    options: months,\n    label: 'Months',\n    size: 'small',\n    MenuProps: {\n      PaperProps: {\n        sx: {\n          '& .MuiList-root': {\n            display: 'grid',\n            gridTemplateColumns: 'repeat(3, 1fr)',\n            gap: '4px'\n          }\n        }\n      }\n    }\n  }\n}",
+                    },
+                    null ===
+                      (_MonthPickerSmall$par2 = MonthPickerSmall.parameters) ||
+                      void 0 === _MonthPickerSmall$par2 ||
+                      null ===
+                        (_MonthPickerSmall$par3 =
+                          _MonthPickerSmall$par2.docs) ||
+                      void 0 === _MonthPickerSmall$par3
+                      ? void 0
+                      : _MonthPickerSmall$par3.source
+                  ),
+                }
+              ),
+            }
+          ))
       },
     },
   ]

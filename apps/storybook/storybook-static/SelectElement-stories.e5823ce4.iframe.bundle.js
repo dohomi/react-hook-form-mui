@@ -1,107 +1,74 @@
 'use strict'
 ;(self.webpackChunkrhfm_storybook = self.webpackChunkrhfm_storybook || []).push(
   [
-    [183],
+    [423],
     {
-      './node_modules/@mui/icons-material/FormatAlignCenter.js': (
+      './node_modules/@mui/material/esm/Box/Box.js': (
         __unused_webpack_module,
-        exports,
+        __webpack_exports__,
         __webpack_require__
       ) => {
-        var _interopRequireDefault = __webpack_require__(
-          './node_modules/@mui/icons-material/node_modules/@babel/runtime/helpers/interopRequireDefault.js'
-        )
-        exports.Z = void 0
-        var _createSvgIcon = _interopRequireDefault(
-            __webpack_require__(
-              './node_modules/@mui/icons-material/utils/createSvgIcon.js'
-            )
+        __webpack_require__.d(__webpack_exports__, {Z: () => Box_Box})
+        var esm_extends = __webpack_require__(
+            './node_modules/@babel/runtime/helpers/esm/extends.js'
           ),
-          _jsxRuntime = __webpack_require__(
+          objectWithoutPropertiesLoose = __webpack_require__(
+            './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+          ),
+          react = __webpack_require__('../../node_modules/react/index.js'),
+          clsx_m = __webpack_require__(
+            '../../node_modules/clsx/dist/clsx.m.js'
+          ),
+          styled_engine = __webpack_require__(
+            './node_modules/@mui/styled-engine/index.js'
+          ),
+          styleFunctionSx_styleFunctionSx = __webpack_require__(
+            './node_modules/@mui/system/esm/styleFunctionSx/styleFunctionSx.js'
+          ),
+          extendSxProp = __webpack_require__(
+            './node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js'
+          ),
+          useTheme = __webpack_require__(
+            './node_modules/@mui/system/esm/useTheme.js'
+          ),
+          jsx_runtime = __webpack_require__(
             '../../node_modules/react/jsx-runtime.js'
-          ),
-          _default = (0, _createSvgIcon.default)(
-            (0, _jsxRuntime.jsx)('path', {
-              d: 'M7 15v2h10v-2H7zm-4 6h18v-2H3v2zm0-8h18v-2H3v2zm4-6v2h10V7H7zM3 3v2h18V3H3z',
-            }),
-            'FormatAlignCenter'
           )
-        exports.Z = _default
-      },
-      './node_modules/@mui/icons-material/FormatAlignJustify.js': (
-        __unused_webpack_module,
-        exports,
-        __webpack_require__
-      ) => {
-        var _interopRequireDefault = __webpack_require__(
-          './node_modules/@mui/icons-material/node_modules/@babel/runtime/helpers/interopRequireDefault.js'
+        const _excluded = ['className', 'component']
+        var ClassNameGenerator = __webpack_require__(
+          './node_modules/@mui/utils/esm/ClassNameGenerator/ClassNameGenerator.js'
         )
-        exports.Z = void 0
-        var _createSvgIcon = _interopRequireDefault(
+        const Box = (function createBox(options = {}) {
+            const {
+                defaultTheme,
+                defaultClassName = 'MuiBox-root',
+                generateClassName,
+                styleFunctionSx = styleFunctionSx_styleFunctionSx.Z,
+              } = options,
+              BoxRoot = (0, styled_engine.ZP)('div', {
+                shouldForwardProp: (prop) =>
+                  'theme' !== prop && 'sx' !== prop && 'as' !== prop,
+              })(styleFunctionSx)
+            return react.forwardRef(function Box(inProps, ref) {
+              const theme = (0, useTheme.Z)(defaultTheme),
+                _extendSxProp = (0, extendSxProp.Z)(inProps),
+                {className, component = 'div'} = _extendSxProp,
+                other = (0, objectWithoutPropertiesLoose.Z)(
+                  _extendSxProp,
+                  _excluded
+                )
+              return (0,
+              jsx_runtime.jsx)(BoxRoot, (0, esm_extends.Z)({as: component, ref, className: (0, clsx_m.Z)(className, generateClassName ? generateClassName(defaultClassName) : defaultClassName), theme}, other))
+            })
+          })({
+            defaultTheme: (0,
             __webpack_require__(
-              './node_modules/@mui/icons-material/utils/createSvgIcon.js'
-            )
-          ),
-          _jsxRuntime = __webpack_require__(
-            '../../node_modules/react/jsx-runtime.js'
-          ),
-          _default = (0, _createSvgIcon.default)(
-            (0, _jsxRuntime.jsx)('path', {
-              d: 'M3 21h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18v-2H3v2zm0-4h18V7H3v2zm0-6v2h18V3H3z',
-            }),
-            'FormatAlignJustify'
-          )
-        exports.Z = _default
-      },
-      './node_modules/@mui/icons-material/FormatAlignLeft.js': (
-        __unused_webpack_module,
-        exports,
-        __webpack_require__
-      ) => {
-        var _interopRequireDefault = __webpack_require__(
-          './node_modules/@mui/icons-material/node_modules/@babel/runtime/helpers/interopRequireDefault.js'
-        )
-        exports.Z = void 0
-        var _createSvgIcon = _interopRequireDefault(
-            __webpack_require__(
-              './node_modules/@mui/icons-material/utils/createSvgIcon.js'
-            )
-          ),
-          _jsxRuntime = __webpack_require__(
-            '../../node_modules/react/jsx-runtime.js'
-          ),
-          _default = (0, _createSvgIcon.default)(
-            (0, _jsxRuntime.jsx)('path', {
-              d: 'M15 15H3v2h12v-2zm0-8H3v2h12V7zM3 13h18v-2H3v2zm0 8h18v-2H3v2zM3 3v2h18V3H3z',
-            }),
-            'FormatAlignLeft'
-          )
-        exports.Z = _default
-      },
-      './node_modules/@mui/icons-material/FormatAlignRight.js': (
-        __unused_webpack_module,
-        exports,
-        __webpack_require__
-      ) => {
-        var _interopRequireDefault = __webpack_require__(
-          './node_modules/@mui/icons-material/node_modules/@babel/runtime/helpers/interopRequireDefault.js'
-        )
-        exports.Z = void 0
-        var _createSvgIcon = _interopRequireDefault(
-            __webpack_require__(
-              './node_modules/@mui/icons-material/utils/createSvgIcon.js'
-            )
-          ),
-          _jsxRuntime = __webpack_require__(
-            '../../node_modules/react/jsx-runtime.js'
-          ),
-          _default = (0, _createSvgIcon.default)(
-            (0, _jsxRuntime.jsx)('path', {
-              d: 'M3 21h18v-2H3v2zm6-4h12v-2H9v2zm-6-4h18v-2H3v2zm6-4h12V7H9v2zM3 3v2h18V3H3z',
-            }),
-            'FormatAlignRight'
-          )
-        exports.Z = _default
+              './node_modules/@mui/material/esm/styles/createTheme.js'
+            ).Z)(),
+            defaultClassName: 'MuiBox-root',
+            generateClassName: ClassNameGenerator.Z.generate,
+          }),
+          Box_Box = Box
       },
       './node_modules/@mui/material/esm/Stack/Stack.js': (
         __unused_webpack_module,
@@ -113,11 +80,11 @@
         })
         var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_9__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
             ),
           _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ =
             __webpack_require__(
-              './node_modules/@mui/material/node_modules/@babel/runtime/helpers/esm/extends.js'
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
             ),
           react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
             '../../node_modules/react/index.js'
@@ -132,7 +99,7 @@
             './node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js'
           ),
           _mui_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-            './node_modules/@mui/material/node_modules/@mui/utils/esm/deepmerge.js'
+            './node_modules/@mui/utils/esm/deepmerge.js'
           ),
           _styles_styled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
             './node_modules/@mui/material/esm/styles/styled.js'
@@ -306,6 +273,77 @@
               )
             })
       },
+      './node_modules/@mui/system/esm/styleFunctionSx/extendSxProp.js': (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        __webpack_require__.d(__webpack_exports__, {Z: () => extendSxProp})
+        var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__ =
+            __webpack_require__(
+              './node_modules/@babel/runtime/helpers/esm/extends.js'
+            ),
+          _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ =
+            __webpack_require__(
+              './node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js'
+            ),
+          _mui_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+            './node_modules/@mui/utils/esm/deepmerge.js'
+          ),
+          _getThemeValue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+            './node_modules/@mui/system/esm/getThemeValue.js'
+          )
+        const _excluded = ['sx'],
+          splitProps = (props) => {
+            const result = {systemProps: {}, otherProps: {}}
+            return (
+              Object.keys(props).forEach((prop) => {
+                _getThemeValue__WEBPACK_IMPORTED_MODULE_0__.Gc[prop]
+                  ? (result.systemProps[prop] = props[prop])
+                  : (result.otherProps[prop] = props[prop])
+              }),
+              result
+            )
+          }
+        function extendSxProp(props) {
+          const {sx: inSx} = props,
+            other = (0,
+            _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__.Z)(
+              props,
+              _excluded
+            ),
+            {systemProps, otherProps} = splitProps(other)
+          let finalSx
+          return (
+            (finalSx = Array.isArray(inSx)
+              ? [systemProps, ...inSx]
+              : 'function' == typeof inSx
+              ? (...args) => {
+                  const result = inSx(...args)
+                  return (0, _mui_utils__WEBPACK_IMPORTED_MODULE_2__.P)(result)
+                    ? (0,
+                      _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__.Z)(
+                        {},
+                        systemProps,
+                        result
+                      )
+                    : systemProps
+                }
+              : (0,
+                _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__.Z)(
+                  {},
+                  systemProps,
+                  inSx
+                )),
+            (0,
+            _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_3__.Z)(
+              {},
+              otherProps,
+              {sx: finalSx}
+            )
+          )
+        }
+      },
       './src/Shared.tsx': (
         __unused_webpack_module,
         __webpack_exports__,
@@ -403,7 +441,7 @@
               })
         } catch (__react_docgen_typescript_loader_error) {}
       },
-      './stories/ToggleButtonGroupElement.stories.tsx': (
+      './stories/SelectElement.stories.tsx': (
         __unused_webpack_module,
         __webpack_exports__,
         __webpack_require__
@@ -411,35 +449,19 @@
         __webpack_require__.r(__webpack_exports__),
           __webpack_require__.d(__webpack_exports__, {
             Basic: () => Basic,
-            EnforceOne: () => EnforceOne,
-            Exclusive: () => Exclusive,
-            WithCustomHelperText: () => WithCustomHelperText,
-            WithIcons: () => WithIcons,
-            WithLabel: () => WithLabel,
-            WithLabelRequired: () => WithLabelRequired,
+            MonthPicker: () => MonthPicker,
+            Required: () => Required,
             default: () => __WEBPACK_DEFAULT_EXPORT__,
           })
         var _Basic$parameters,
           _Basic$parameters2,
           _Basic$parameters2$do,
-          _Exclusive$parameters,
-          _Exclusive$parameters2,
-          _Exclusive$parameters3,
-          _EnforceOne$parameter,
-          _EnforceOne$parameter2,
-          _EnforceOne$parameter3,
-          _WithIcons$parameters,
-          _WithIcons$parameters2,
-          _WithIcons$parameters3,
-          _WithLabel$parameters,
-          _WithLabel$parameters2,
-          _WithLabel$parameters3,
-          _WithLabelRequired$pa,
-          _WithLabelRequired$pa2,
-          _WithLabelRequired$pa3,
-          _WithCustomHelperText,
-          _WithCustomHelperText2,
-          _WithCustomHelperText3,
+          _Required$parameters,
+          _Required$parameters2,
+          _Required$parameters3,
+          _MonthPicker$paramete,
+          _MonthPicker$paramete2,
+          _MonthPicker$paramete3,
           _Users_dominicgarms_Documents_Coding_react_react_hook_form_mui_node_modules_storybook_nextjs_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__ =
             __webpack_require__(
               '../../node_modules/@storybook/nextjs/node_modules/@babel/runtime/helpers/esm/defineProperty.js'
@@ -455,22 +477,6 @@
             ),
           _src_Shared__WEBPACK_IMPORTED_MODULE_4__ =
             __webpack_require__('./src/Shared.tsx'),
-          _mui_icons_material_FormatAlignLeft__WEBPACK_IMPORTED_MODULE_5__ =
-            __webpack_require__(
-              './node_modules/@mui/icons-material/FormatAlignLeft.js'
-            ),
-          _mui_icons_material_FormatAlignCenter__WEBPACK_IMPORTED_MODULE_6__ =
-            __webpack_require__(
-              './node_modules/@mui/icons-material/FormatAlignCenter.js'
-            ),
-          _mui_icons_material_FormatAlignRight__WEBPACK_IMPORTED_MODULE_7__ =
-            __webpack_require__(
-              './node_modules/@mui/icons-material/FormatAlignRight.js'
-            ),
-          _mui_icons_material_FormatAlignJustify__WEBPACK_IMPORTED_MODULE_8__ =
-            __webpack_require__(
-              './node_modules/@mui/icons-material/FormatAlignJustify.js'
-            ),
           __jsx = react__WEBPACK_IMPORTED_MODULE_0__.createElement
         function ownKeys(object, enumerableOnly) {
           var keys = Object.keys(object)
@@ -508,106 +514,76 @@
           return target
         }
         const __WEBPACK_DEFAULT_EXPORT__ = {
-          title: 'ToggleButtonGroupElement',
-          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.qN,
+          title: 'SelectElement',
+          component: react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.nj,
         }
-        var Template = function Template(args) {
-          return __jsx(
-            react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.Yb,
-            {
-              defaultValues: {},
-              onSuccess: (0,
-              _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_3__.aD)(
-                'submit'
+        var months = [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
+          ].map(function (i) {
+            return {id: i, label: i}
+          }),
+          Template = function Template(args) {
+            return __jsx(
+              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.Yb,
+              {
+                defaultValues: {},
+                onSuccess: (0,
+                _storybook_addon_actions__WEBPACK_IMPORTED_MODULE_3__.aD)(
+                  'submit'
+                ),
+              },
+              __jsx(
+                react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.nj,
+                args
               ),
-            },
-            __jsx(
-              react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.qN,
-              args
-            ),
-            __jsx('br', null),
-            __jsx(_src_Shared__WEBPACK_IMPORTED_MODULE_4__.M, null)
-          )
-        }
+              __jsx('br', null),
+              __jsx(_src_Shared__WEBPACK_IMPORTED_MODULE_4__.M, null)
+            )
+          }
         Template.displayName = 'Template'
         var options = [
-            {id: 'first', label: 'First'},
-            {id: 'second', label: 'Second'},
-            {id: 'third', label: 'Third'},
+            {id: '1', label: 'Label 1'},
+            {id: '2', label: 'label 2'},
           ],
-          optionIcons = [
-            {
-              id: 'left',
-              label: __jsx(
-                _mui_icons_material_FormatAlignLeft__WEBPACK_IMPORTED_MODULE_5__.Z,
-                null
-              ),
-            },
-            {
-              id: 'center',
-              label: __jsx(
-                _mui_icons_material_FormatAlignCenter__WEBPACK_IMPORTED_MODULE_6__.Z,
-                null
-              ),
-            },
-            {
-              id: 'right',
-              label: __jsx(
-                _mui_icons_material_FormatAlignRight__WEBPACK_IMPORTED_MODULE_7__.Z,
-                null
-              ),
-            },
-            {
-              id: 'justify',
-              label: __jsx(
-                _mui_icons_material_FormatAlignJustify__WEBPACK_IMPORTED_MODULE_8__.Z,
-                null
-              ),
-            },
-          ],
-          Basic = {render: Template, args: {name: 'basic', options}},
-          Exclusive = {
+          Basic = {
             render: Template,
-            args: {name: 'exclusive', options, exclusive: !0},
+            args: {name: 'basic', label: 'Basic', options},
           },
-          EnforceOne = {
+          Required = {
+            render: Template,
+            args: {name: 'required', label: 'Required', required: !0, options},
+          },
+          MonthPicker = {
             render: Template,
             args: {
-              name: 'exclusive',
-              options,
-              exclusive: !0,
-              enforceAtLeastOneSelected: !0,
-            },
-          },
-          WithIcons = {
-            render: Template,
-            args: {name: 'exclusive', options: optionIcons},
-          },
-          WithLabel = {
-            render: Template,
-            args: {
-              name: 'exclusive',
-              options: optionIcons,
-              label: 'Please Select',
-            },
-          },
-          WithLabelRequired = {
-            render: Template,
-            args: {
-              name: 'exclusive',
-              options: optionIcons,
-              label: 'Please Select',
-              required: !0,
-            },
-          },
-          WithCustomHelperText = {
-            render: Template,
-            args: {
-              name: 'exclusive',
-              options: optionIcons,
-              label: 'Please Select',
-              required: !0,
-              helperText: 'Some helper text',
+              name: 'month',
+              options: months,
+              label: 'Pick a month',
+              sx: {minWidth: '150px'},
+              SelectProps: {
+                MenuProps: {
+                  PaperProps: {
+                    sx: {
+                      '& .MuiList-root': {
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gap: '4px',
+                      },
+                    },
+                  },
+                },
+              },
             },
           }
         ;(Basic.parameters = _objectSpread(
@@ -627,7 +603,7 @@
                 source: _objectSpread(
                   {
                     originalSource:
-                      "{\n  render: Template,\n  args: {\n    name: 'basic',\n    options\n  }\n}",
+                      "{\n  render: Template,\n  args: {\n    name: 'basic',\n    label: 'Basic',\n    options\n  }\n}",
                   },
                   null === (_Basic$parameters2 = Basic.parameters) ||
                     void 0 === _Basic$parameters2 ||
@@ -641,198 +617,65 @@
             ),
           }
         )),
-          (Exclusive.parameters = _objectSpread(
-            _objectSpread({}, Exclusive.parameters),
+          (Required.parameters = _objectSpread(
+            _objectSpread({}, Required.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
-                  null === (_Exclusive$parameters = Exclusive.parameters) ||
-                    void 0 === _Exclusive$parameters
+                  null === (_Required$parameters = Required.parameters) ||
+                    void 0 === _Required$parameters
                     ? void 0
-                    : _Exclusive$parameters.docs
+                    : _Required$parameters.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'exclusive',\n    options,\n    exclusive: true\n  }\n}",
+                        "{\n  render: Template,\n  args: {\n    name: 'required',\n    label: 'Required',\n    required: true,\n    options\n  }\n}",
                     },
-                    null === (_Exclusive$parameters2 = Exclusive.parameters) ||
-                      void 0 === _Exclusive$parameters2 ||
+                    null === (_Required$parameters2 = Required.parameters) ||
+                      void 0 === _Required$parameters2 ||
                       null ===
-                        (_Exclusive$parameters3 =
-                          _Exclusive$parameters2.docs) ||
-                      void 0 === _Exclusive$parameters3
+                        (_Required$parameters3 = _Required$parameters2.docs) ||
+                      void 0 === _Required$parameters3
                       ? void 0
-                      : _Exclusive$parameters3.source
+                      : _Required$parameters3.source
                   ),
                 }
               ),
             }
           )),
-          (EnforceOne.parameters = _objectSpread(
-            _objectSpread({}, EnforceOne.parameters),
+          (MonthPicker.parameters = _objectSpread(
+            _objectSpread({}, MonthPicker.parameters),
             {},
             {
               docs: _objectSpread(
                 _objectSpread(
                   {},
-                  null === (_EnforceOne$parameter = EnforceOne.parameters) ||
-                    void 0 === _EnforceOne$parameter
+                  null === (_MonthPicker$paramete = MonthPicker.parameters) ||
+                    void 0 === _MonthPicker$paramete
                     ? void 0
-                    : _EnforceOne$parameter.docs
+                    : _MonthPicker$paramete.docs
                 ),
                 {},
                 {
                   source: _objectSpread(
                     {
                       originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'exclusive',\n    options,\n    exclusive: true,\n    enforceAtLeastOneSelected: true\n  }\n}",
-                    },
-                    null === (_EnforceOne$parameter2 = EnforceOne.parameters) ||
-                      void 0 === _EnforceOne$parameter2 ||
-                      null ===
-                        (_EnforceOne$parameter3 =
-                          _EnforceOne$parameter2.docs) ||
-                      void 0 === _EnforceOne$parameter3
-                      ? void 0
-                      : _EnforceOne$parameter3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithIcons.parameters = _objectSpread(
-            _objectSpread({}, WithIcons.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null === (_WithIcons$parameters = WithIcons.parameters) ||
-                    void 0 === _WithIcons$parameters
-                    ? void 0
-                    : _WithIcons$parameters.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'exclusive',\n    options: optionIcons\n  }\n}",
-                    },
-                    null === (_WithIcons$parameters2 = WithIcons.parameters) ||
-                      void 0 === _WithIcons$parameters2 ||
-                      null ===
-                        (_WithIcons$parameters3 =
-                          _WithIcons$parameters2.docs) ||
-                      void 0 === _WithIcons$parameters3
-                      ? void 0
-                      : _WithIcons$parameters3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithLabel.parameters = _objectSpread(
-            _objectSpread({}, WithLabel.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null === (_WithLabel$parameters = WithLabel.parameters) ||
-                    void 0 === _WithLabel$parameters
-                    ? void 0
-                    : _WithLabel$parameters.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'exclusive',\n    options: optionIcons,\n    label: 'Please Select'\n  }\n}",
-                    },
-                    null === (_WithLabel$parameters2 = WithLabel.parameters) ||
-                      void 0 === _WithLabel$parameters2 ||
-                      null ===
-                        (_WithLabel$parameters3 =
-                          _WithLabel$parameters2.docs) ||
-                      void 0 === _WithLabel$parameters3
-                      ? void 0
-                      : _WithLabel$parameters3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithLabelRequired.parameters = _objectSpread(
-            _objectSpread({}, WithLabelRequired.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null ===
-                    (_WithLabelRequired$pa = WithLabelRequired.parameters) ||
-                    void 0 === _WithLabelRequired$pa
-                    ? void 0
-                    : _WithLabelRequired$pa.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'exclusive',\n    options: optionIcons,\n    label: 'Please Select',\n    required: true\n  }\n}",
+                        "{\n  render: Template,\n  args: {\n    name: 'month',\n    options: months,\n    label: 'Pick a month',\n    sx: {\n      minWidth: '150px'\n    },\n    SelectProps: {\n      MenuProps: {\n        PaperProps: {\n          sx: {\n            '& .MuiList-root': {\n              display: 'grid',\n              gridTemplateColumns: 'repeat(3, 1fr)',\n              gap: '4px'\n            }\n          }\n        }\n      }\n    }\n  }\n}",
                     },
                     null ===
-                      (_WithLabelRequired$pa2 = WithLabelRequired.parameters) ||
-                      void 0 === _WithLabelRequired$pa2 ||
+                      (_MonthPicker$paramete2 = MonthPicker.parameters) ||
+                      void 0 === _MonthPicker$paramete2 ||
                       null ===
-                        (_WithLabelRequired$pa3 =
-                          _WithLabelRequired$pa2.docs) ||
-                      void 0 === _WithLabelRequired$pa3
+                        (_MonthPicker$paramete3 =
+                          _MonthPicker$paramete2.docs) ||
+                      void 0 === _MonthPicker$paramete3
                       ? void 0
-                      : _WithLabelRequired$pa3.source
-                  ),
-                }
-              ),
-            }
-          )),
-          (WithCustomHelperText.parameters = _objectSpread(
-            _objectSpread({}, WithCustomHelperText.parameters),
-            {},
-            {
-              docs: _objectSpread(
-                _objectSpread(
-                  {},
-                  null ===
-                    (_WithCustomHelperText = WithCustomHelperText.parameters) ||
-                    void 0 === _WithCustomHelperText
-                    ? void 0
-                    : _WithCustomHelperText.docs
-                ),
-                {},
-                {
-                  source: _objectSpread(
-                    {
-                      originalSource:
-                        "{\n  render: Template,\n  args: {\n    name: 'exclusive',\n    options: optionIcons,\n    label: 'Please Select',\n    required: true,\n    helperText: 'Some helper text'\n  }\n}",
-                    },
-                    null ===
-                      (_WithCustomHelperText2 =
-                        WithCustomHelperText.parameters) ||
-                      void 0 === _WithCustomHelperText2 ||
-                      null ===
-                        (_WithCustomHelperText3 =
-                          _WithCustomHelperText2.docs) ||
-                      void 0 === _WithCustomHelperText3
-                      ? void 0
-                      : _WithCustomHelperText3.source
+                      : _MonthPicker$paramete3.source
                   ),
                 }
               ),
