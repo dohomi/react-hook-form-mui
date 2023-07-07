@@ -16,7 +16,7 @@ import {useFormError} from './FormErrorProvider'
 
 export type RadioButtonGroupProps<T extends FieldValues> = {
   options: {label: string; id: string | number}[] | any[]
-  helperText?: string
+  helperText?: ReactNode
   name: Path<T>
   required?: boolean
   parseError?: (error: FieldError) => ReactNode

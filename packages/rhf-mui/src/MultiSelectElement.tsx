@@ -32,7 +32,7 @@ export type MultiSelectElementProps<T extends FieldValues> = Omit<
   minWidth?: number
   menuMaxHeight?: number
   menuMaxWidth?: number
-  helperText?: string
+  helperText?: ReactNode
   showChips?: boolean
   preserveOrder?: boolean
   control?: Control<T>

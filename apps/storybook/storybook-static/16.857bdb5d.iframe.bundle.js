@@ -198,10 +198,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -284,7 +284,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 control: {
                   defaultValue: null,
@@ -753,10 +753,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -838,7 +838,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 validation: {
                   defaultValue: {value: '{}'},
@@ -1061,10 +1061,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -1141,7 +1141,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 validation: {
                   defaultValue: {value: '{}'},
@@ -1362,10 +1362,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -1447,7 +1447,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 validation: {
                   defaultValue: {value: '{}'},
@@ -1675,10 +1675,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -1760,7 +1760,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 validation: {
                   defaultValue: {value: '{}'},
@@ -1941,10 +1941,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -2099,7 +2099,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 label: {
                   defaultValue: null,
@@ -2315,10 +2315,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -2452,7 +2452,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 objectOnChange: {
                   defaultValue: null,
@@ -2683,7 +2683,7 @@
               },
               helperText: {
                 required: !1,
-                tsType: {name: 'string'},
+                tsType: {name: 'ReactNode'},
                 description: '',
               },
               name: {
@@ -2701,10 +2701,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -2800,7 +2800,7 @@
                   description: '',
                   name: 'helperText',
                   required: !1,
-                  type: {name: 'string'},
+                  type: {name: 'ReactNode'},
                 },
                 name: {
                   defaultValue: null,
@@ -2821,7 +2821,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 label: {
                   defaultValue: null,
@@ -3357,17 +3357,17 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
               },
               helperText: {
                 required: !1,
-                tsType: {name: 'string'},
+                tsType: {name: 'ReactNode'},
                 description: '',
               },
               showChips: {
@@ -3472,7 +3472,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 minWidth: {
                   defaultValue: {value: '120'},
@@ -3500,7 +3500,7 @@
                   description: '',
                   name: 'helperText',
                   required: !1,
-                  type: {name: 'string'},
+                  type: {name: 'ReactNode'},
                 },
                 showChips: {
                   defaultValue: null,
@@ -3711,7 +3711,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 control: {
                   defaultValue: null,
@@ -3969,7 +3969,7 @@
               },
               helperText: {
                 required: !1,
-                tsType: {name: 'string'},
+                tsType: {name: 'ReactNode'},
                 description: '',
               },
               name: {
@@ -3987,10 +3987,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -4107,7 +4107,7 @@
                   description: '',
                   name: 'helperText',
                   required: !1,
-                  type: {name: 'string'},
+                  type: {name: 'ReactNode'},
                 },
                 name: {
                   defaultValue: null,
@@ -4128,7 +4128,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 label: {
                   defaultValue: null,
@@ -4415,7 +4415,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 control: {
                   defaultValue: null,
@@ -4821,10 +4821,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -4961,7 +4961,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 required: {
                   defaultValue: null,
@@ -5127,10 +5127,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -5248,7 +5248,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 required: {
                   defaultValue: null,
@@ -5533,10 +5533,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -5610,7 +5610,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 control: {
                   defaultValue: null,
@@ -5758,10 +5758,10 @@
                 tsType: {
                   name: 'signature',
                   type: 'function',
-                  raw: '(error: FieldError) => string',
+                  raw: '(error: FieldError) => ReactNode',
                   signature: {
                     arguments: [{name: 'error', type: {name: 'FieldError'}}],
-                    return: {name: 'string'},
+                    return: {name: 'ReactNode'},
                   },
                 },
                 description: '',
@@ -5852,7 +5852,7 @@
                   description: '',
                   name: 'parseError',
                   required: !1,
-                  type: {name: '((error: FieldError) => string)'},
+                  type: {name: '((error: FieldError) => ReactNode)'},
                 },
                 control: {
                   defaultValue: null,
