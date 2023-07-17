@@ -16,11 +16,15 @@ export default function PasswordRepeatElement<
   return (
     <PasswordElement
       {...rest}
-      validation={{
-        validate: (value: string) => {
-          return value === pwValue || 'Password should match'
-        },
-      }}
+      validation={
+        rest.validation
+          ? rest.validation
+          : {
+              validate: (value: string) => {
+                return value === pwValue || 'Password should match'
+              },
+            }
+      }
     />
   )
 }
