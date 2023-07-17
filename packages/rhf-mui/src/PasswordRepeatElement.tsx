@@ -9,12 +9,17 @@ export type PasswordRepeatElementProps<T extends FieldValues> =
   }
 export default function PasswordRepeatElement<
   TFieldValues extends FieldValues
->({passwordFieldName, customInvalidFieldMessage, ...rest}: PasswordRepeatElementProps<TFieldValues>) {
+>({
+  passwordFieldName,
+  customInvalidFieldMessage,
+  ...rest
+}: PasswordRepeatElementProps<TFieldValues>) {
   const pwValue = useWatch({
     name: passwordFieldName,
     control: rest.control,
   })
-  const invalidFieldMessage = customInvalidFieldMessage ?? 'Password should match'
+  const invalidFieldMessage =
+    customInvalidFieldMessage ?? 'Password should match'
   return (
     <PasswordElement
       {...rest}
