@@ -5,26 +5,24 @@ import {FieldValues} from 'react-hook-form/dist/types/fields'
 export type PasswordRepeatElementProps<T extends FieldValues> =
   PasswordElementProps<T> & {
     passwordFieldName: Path<T>
+    customInvalidFieldMessage?: string
   }
 export default function PasswordRepeatElement<
   TFieldValues extends FieldValues
->({passwordFieldName, ...rest}: PasswordRepeatElementProps<TFieldValues>) {
+>({passwordFieldName, customInvalidFieldMessage, ...rest}: PasswordRepeatElementProps<TFieldValues>) {
   const pwValue = useWatch({
     name: passwordFieldName,
     control: rest.control,
   })
+  const invalidFieldMessage = customInvalidFieldMessage ?? 'Password should match'
   return (
     <PasswordElement
       {...rest}
-      validation={
-        rest.validation
-          ? rest.validation
-          : {
-              validate: (value: string) => {
-                return value === pwValue || 'Password should match'
-              },
-            }
-      }
+      validation={{
+        validate: (value: string) => {
+          return value === pwValue || invalidFieldMessage
+        },
+      }}
     />
   )
 }
