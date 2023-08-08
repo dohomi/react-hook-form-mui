@@ -34,7 +34,7 @@ export type CheckboxButtonGroupProps<T extends FieldValues> = {
   disabled?: boolean
   row?: boolean
   control?: Control<T>
-  rules?: ControllerProps['rules']
+  rules?: ControllerProps<T>['rules']
   checkboxColor?: CheckboxProps['color']
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control'>
 }

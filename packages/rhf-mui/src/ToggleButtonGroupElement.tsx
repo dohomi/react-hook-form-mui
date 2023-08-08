@@ -28,7 +28,7 @@ export type ToggleButtonGroupElementProps<T extends FieldValues> =
   ToggleButtonGroupProps & {
     required?: boolean
     label?: string
-    validation?: ControllerProps['rules']
+    validation?: ControllerProps<T>['rules']
     name: Path<T>
     parseError?: (error: FieldError) => ReactNode
     control?: Control<T>

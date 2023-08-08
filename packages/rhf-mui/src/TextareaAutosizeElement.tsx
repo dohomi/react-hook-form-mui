@@ -12,7 +12,7 @@ import {useFormError} from './FormErrorProvider'
 
 export type TextareaAutosizeElementProps<T extends FieldValues = FieldValues> =
   Omit<TextFieldProps, 'name' | 'type'> & {
-    validation?: ControllerProps['rules']
+    validation?: ControllerProps<T>['rules']
     name: Path<T>
     parseError?: (error: FieldError) => ReactNode
     control?: Control<T>
