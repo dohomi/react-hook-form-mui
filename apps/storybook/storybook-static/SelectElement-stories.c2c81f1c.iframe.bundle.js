@@ -451,6 +451,7 @@
             Basic: () => Basic,
             MonthPicker: () => MonthPicker,
             Required: () => Required,
+            WithDisabledOption: () => WithDisabledOption,
             default: () => __WEBPACK_DEFAULT_EXPORT__,
           })
         var _Basic$parameters,
@@ -459,6 +460,9 @@
           _Required$parameters,
           _Required$parameters2,
           _Required$parameters3,
+          _WithDisabledOption$p,
+          _WithDisabledOption$p2,
+          _WithDisabledOption$p3,
           _MonthPicker$paramete,
           _MonthPicker$paramete2,
           _MonthPicker$paramete3,
@@ -556,6 +560,9 @@
             {id: '1', label: 'Label 1'},
             {id: '2', label: 'label 2'},
           ],
+          withDisabledOptions = [].concat(options, [
+            {id: '3', label: 'label 2', disabled: !0},
+          ]),
           Basic = {
             render: Template,
             args: {name: 'basic', label: 'Basic', options},
@@ -563,6 +570,14 @@
           Required = {
             render: Template,
             args: {name: 'required', label: 'Required', required: !0, options},
+          },
+          WithDisabledOption = {
+            render: Template,
+            args: {
+              name: 'disabled',
+              required: !0,
+              options: withDisabledOptions,
+            },
           },
           MonthPicker = {
             render: Template,
@@ -643,6 +658,41 @@
                       void 0 === _Required$parameters3
                       ? void 0
                       : _Required$parameters3.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (WithDisabledOption.parameters = _objectSpread(
+            _objectSpread({}, WithDisabledOption.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null ===
+                    (_WithDisabledOption$p = WithDisabledOption.parameters) ||
+                    void 0 === _WithDisabledOption$p
+                    ? void 0
+                    : _WithDisabledOption$p.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    name: 'disabled',\n    required: true,\n    options: withDisabledOptions\n  }\n}",
+                    },
+                    null ===
+                      (_WithDisabledOption$p2 =
+                        WithDisabledOption.parameters) ||
+                      void 0 === _WithDisabledOption$p2 ||
+                      null ===
+                        (_WithDisabledOption$p3 =
+                          _WithDisabledOption$p2.docs) ||
+                      void 0 === _WithDisabledOption$p3
+                      ? void 0
+                      : _WithDisabledOption$p3.source
                   ),
                 }
               ),

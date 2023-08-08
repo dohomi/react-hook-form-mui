@@ -2246,9 +2246,9 @@
                     }),
                     isNativeSelect && SelectElement_jsx('option', null),
                     options.map(function (item) {
-                      var _item$valueKey
+                      var _item$valueKey, _item$disabled
                       return (0,
-                      react.createElement)(ChildComponent, {key: ''.concat(name, '_').concat(item[valueKey]), value: null !== (_item$valueKey = null == item ? void 0 : item[valueKey]) && void 0 !== _item$valueKey ? _item$valueKey : item}, item[labelKey])
+                      react.createElement)(ChildComponent, {key: ''.concat(name, '_').concat(item[valueKey]), value: null !== (_item$valueKey = null == item ? void 0 : item[valueKey]) && void 0 !== _item$valueKey ? _item$valueKey : item, disabled: null !== (_item$disabled = null == item ? void 0 : item.disabled) && void 0 !== _item$disabled && _item$disabled}, item[labelKey])
                     })
                   )
                 )
@@ -2279,7 +2279,7 @@
                 required: !1,
                 tsType: {
                   name: 'union',
-                  raw: '| readonly {id: string | number; label: string | number}[]\n| readonly any[]',
+                  raw: '| readonly {\n    id: string | number\n    label: string | number\n    disabled?: boolean\n  }[]\n| readonly any[]',
                   elements: [{name: 'unknown'}, {name: 'unknown'}],
                 },
                 description: '',
@@ -2420,7 +2420,7 @@
                   name: 'options',
                   required: !1,
                   type: {
-                    name: 'readonly any[] | readonly { id: string | number; label: string | number; }[]',
+                    name: 'readonly any[] | readonly { id: string | number; label: string | number; disabled?: boolean; }[]',
                   },
                 },
                 valueKey: {
@@ -4312,10 +4312,14 @@
                 path: '../../packages/rhf-mui/src/SwitchElement.tsx#SwitchElement',
               })
         } catch (__react_docgen_typescript_loader_error) {}
-        var PasswordRepeatElement_excluded = ['passwordFieldName'],
+        var PasswordRepeatElement_excluded = [
+            'passwordFieldName',
+            'customInvalidFieldMessage',
+          ],
           PasswordRepeatElement_jsx = react.createElement
         function PasswordRepeatElement(_ref) {
           var passwordFieldName = _ref.passwordFieldName,
+            customInvalidFieldMessage = _ref.customInvalidFieldMessage,
             rest = (0, objectWithoutProperties.Z)(
               _ref,
               PasswordRepeatElement_excluded
@@ -4323,13 +4327,17 @@
             pwValue = (0, index_esm.qo)({
               name: passwordFieldName,
               control: rest.control,
-            })
+            }),
+            invalidFieldMessage =
+              null != customInvalidFieldMessage
+                ? customInvalidFieldMessage
+                : 'Password should match'
           return PasswordRepeatElement_jsx(
             PasswordElement,
             (0, esm_extends.Z)({}, rest, {
               validation: {
                 validate: function validate(value) {
-                  return value === pwValue || 'Password should match'
+                  return value === pwValue || invalidFieldMessage
                 },
               },
             })
@@ -4344,6 +4352,11 @@
               passwordFieldName: {
                 required: !0,
                 tsType: {name: 'Path', elements: [{name: 'T'}], raw: 'Path<T>'},
+                description: '',
+              },
+              customInvalidFieldMessage: {
+                required: !1,
+                tsType: {name: 'string'},
                 description: '',
               },
             },
@@ -4463,6 +4476,13 @@
                   description: '',
                   name: 'passwordFieldName',
                   required: !0,
+                  type: {name: 'string'},
+                },
+                customInvalidFieldMessage: {
+                  defaultValue: null,
+                  description: '',
+                  name: 'customInvalidFieldMessage',
+                  required: !1,
                   type: {name: 'string'},
                 },
               },
