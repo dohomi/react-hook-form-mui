@@ -17,7 +17,11 @@ export type SelectElementProps<T extends FieldValues> = Omit<
   validation?: ControllerProps['rules']
   name: Path<T>
   options?:
-    | readonly {id: string | number; label: string | number}[]
+    | readonly {
+        id: string | number
+        label: string | number
+        disabled?: boolean
+      }[]
     | readonly any[]
   valueKey?: string
   labelKey?: string
@@ -105,6 +109,7 @@ export default function SelectElement<TFieldValues extends FieldValues>({
                 {
                   key: `${name}_${item[valueKey]}`,
                   value: item?.[valueKey] ?? item,
+                  disabled: item?.disabled ?? false,
                 },
                 item[labelKey]
               )

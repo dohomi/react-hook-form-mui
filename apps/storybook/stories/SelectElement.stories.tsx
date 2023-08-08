@@ -39,6 +39,11 @@ const options = [
   {id: '2', label: 'label 2'},
 ]
 
+const withDisabledOptions = [
+  ...options,
+  {id: '3', label: 'label 2', disabled: true},
+]
+
 export const Basic = {
   render: Template,
 
@@ -57,6 +62,15 @@ export const Required = {
     label: 'Required',
     required: true,
     options,
+  },
+}
+export const WithDisabledOption = {
+  render: Template,
+
+  args: {
+    name: 'disabled',
+    required: true,
+    options: withDisabledOptions,
   },
 }
 
