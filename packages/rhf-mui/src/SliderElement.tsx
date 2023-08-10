@@ -24,7 +24,7 @@ export type SliderElementProps<T extends FieldValues> = Omit<
   name: Path<T>
   control?: Control<T>
   label?: string
-  rules?: ControllerProps['rules']
+  rules?: ControllerProps<T>['rules']
   parseError?: (error: FieldError) => ReactNode
   required?: boolean
   formControlProps?: FormControlProps

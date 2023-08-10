@@ -24,7 +24,7 @@ export type DateTimePickerElementProps<
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => ReactNode
-  validation?: ControllerProps['rules']
+  validation?: ControllerProps<T>['rules']
   control?: Control<T>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']

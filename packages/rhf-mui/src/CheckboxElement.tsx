@@ -22,7 +22,7 @@ export type CheckboxElementProps<T extends FieldValues> = Omit<
   CheckboxProps,
   'name'
 > & {
-  validation?: ControllerProps['rules']
+  validation?: ControllerProps<T>['rules']
   name: Path<T>
   parseError?: (error: FieldError) => ReactNode
   label?: FormControlLabelProps['label']

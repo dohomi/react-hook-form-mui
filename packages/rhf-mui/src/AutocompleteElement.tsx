@@ -29,7 +29,7 @@ export type AutocompleteElementProps<
   loading?: boolean
   multiple?: M
   matchId?: boolean
-  rules?: ControllerProps['rules']
+  rules?: ControllerProps<F>['rules']
   parseError?: (error: FieldError) => ReactNode
   required?: boolean
   label?: TextFieldProps['label']
@@ -68,7 +68,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
 >) {
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
-  const validationRules: ControllerProps['rules'] = {
+  const validationRules: ControllerProps<TFieldValues>['rules'] = {
     ...rules,
     ...(required && {
       required: rules?.required || 'This field is required',
