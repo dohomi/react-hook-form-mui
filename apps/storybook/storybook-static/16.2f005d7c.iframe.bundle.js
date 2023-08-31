@@ -177,7 +177,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -729,7 +729,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -1037,7 +1037,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -1338,7 +1338,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -1651,7 +1651,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -1927,7 +1927,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -2289,7 +2289,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -2747,7 +2747,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -4832,7 +4832,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<F>['rules']",
                 },
                 description: '',
               },
@@ -5123,7 +5123,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -5470,7 +5470,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
@@ -5764,7 +5764,7 @@
                 required: !1,
                 tsType: {
                   name: "ControllerProps['rules']",
-                  raw: "ControllerProps['rules']",
+                  raw: "ControllerProps<T>['rules']",
                 },
                 description: '',
               },
