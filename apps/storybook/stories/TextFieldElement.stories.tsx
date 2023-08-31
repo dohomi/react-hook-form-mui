@@ -1,7 +1,6 @@
-import {useEffect} from 'react'
 import {action} from '@storybook/addon-actions'
-import {Button, Stack} from '@mui/material'
-import {FieldError, useForm} from 'react-hook-form'
+import {InputAdornment, Stack} from '@mui/material'
+import {FieldError} from 'react-hook-form'
 import {
   CheckboxElement,
   FormContainer,
@@ -10,25 +9,48 @@ import {
   PasswordRepeatElement,
   TextFieldElement,
 } from 'react-hook-form-mui/src'
-import {Meta, StoryFn} from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react'
 import {SubmitButton} from '../src/Shared'
+import {AccountCircle} from '@mui/icons-material'
 
-export default {
+const meta = {
   title: 'TextFieldElement',
   component: TextFieldElement,
-} as Meta<typeof TextFieldElement>
+  decorators: [FormWrap],
+} satisfies Meta<typeof TextFieldElement>
+export default meta
 
-const Template: StoryFn<typeof TextFieldElement> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-    <TextFieldElement {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
+type Story = StoryObj<typeof meta>
 
-export const Core = {
-  render: Template,
+function FormWrap(Story) {
+  return (
+    <FormContainer
+      defaultValues={{
+        'default-text-field': 'Test Data',
+        'default-email-field': 'info@nextjs.com',
+        'number-text-field': 6,
+        a: {
+          'default-text-field': 'Test Data',
+        },
+        b: {
+          'default-email-field': 'info@nextjs.com',
+          'number-text-field': 6,
+        },
+      }}
+      onSuccess={action('submit')}
+      FormProps={{
+        'aria-autocomplete': 'none',
+        autoComplete: 'new-password',
+      }}
+    >
+      <Story />
+      <br />
+      <SubmitButton />
+    </FormContainer>
+  )
+}
 
+export const Core: Story = {
   args: {
     name: 'core',
     label: 'Label',
@@ -48,20 +70,13 @@ export const Basic = () => {
   }
 
   return (
-    <FormContainer
-      defaultValues={form}
-      onSuccess={action('submit')}
-      FormProps={{
-        'aria-autocomplete': 'none',
-        autoComplete: 'new-password',
-      }}
-    >
+    <div>
       <TextFieldElement
         required
         autoComplete={'new-password'}
         margin={'dense'}
         label={'Name'}
-        name={'default-text-field'}
+        name={'default-text'}
       />
       <br />
       <TextFieldElement
@@ -69,7 +84,14 @@ export const Basic = () => {
         type={'email'}
         margin={'dense'}
         label={'Email'}
-        name={'default-email-field'}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <AccountCircle />
+            </InputAdornment>
+          ),
+        }}
+        name={'default-email'}
       />
       <br />
       <TextFieldElement
@@ -84,7 +106,7 @@ export const Basic = () => {
       <TextFieldElement
         margin={'dense'}
         label={'Number'}
-        name={'number-text-field'}
+        name={'number-text'}
         required
         type={'number'}
       />
@@ -112,23 +134,12 @@ export const Basic = () => {
         required
         onChange={(ev, checked) => console.log(ev, checked)}
       />
-      <br />
-      <Button type={'submit'} color={'primary'} variant={'contained'}>
-        Submit
-      </Button>
-    </FormContainer>
+    </div>
   )
 }
 
 export const PreDefined = () => (
-  <FormContainer
-    defaultValues={{
-      'default-text-field': 'Test Data',
-      'default-email-field': 'info@nextjs.com',
-      'number-text-field': 6,
-    }}
-    onSuccess={action('submit')}
-  >
+  <div>
     <TextFieldElement
       required
       margin={'dense'}
@@ -152,26 +163,11 @@ export const PreDefined = () => (
       required
       type={'number'}
     />
-    <br />
-    <Button type={'submit'} color={'primary'} variant={'contained'}>
-      Submit
-    </Button>
-  </FormContainer>
+  </div>
 )
 
 export const PreDefinedNested = () => (
-  <FormContainer
-    defaultValues={{
-      a: {
-        'default-text-field': 'Test Data',
-      },
-      b: {
-        'default-email-field': 'info@nextjs.com',
-        'number-text-field': 6,
-      },
-    }}
-    onSuccess={action('submit')}
-  >
+  <div>
     <TextFieldElement
       required
       margin={'dense'}
@@ -195,54 +191,8 @@ export const PreDefinedNested = () => (
       required
       type={'number'}
     />
-    <br />
-    <Button type={'submit'} color={'primary'} variant={'contained'}>
-      Submit
-    </Button>
-  </FormContainer>
+  </div>
 )
-
-export const WithFormContext = () => {
-  const formContext = useForm<{email: string; name: string}>({
-    defaultValues: {
-      email: '',
-      name: '',
-    },
-  })
-  const {watch} = formContext
-  const emailValue = watch('email')
-
-  useEffect(() => {
-    console.log('email changed', emailValue)
-  }, [emailValue])
-  return (
-    <FormContainer onSuccess={action('submit')} formContext={formContext}>
-      <TextFieldElement
-        name={'name'}
-        label={'Name'}
-        parseError={parseError}
-        required
-        variant={'outlined'}
-        margin={'dense'}
-      />
-      <br />
-      <TextFieldElement
-        name={'email'}
-        type="email"
-        label={'Email'}
-        required
-        parseError={parseError}
-        variant={'outlined'}
-        margin={'dense'}
-      />
-      <br />
-      <br />
-      <Button type={'submit'} color={'primary'} variant={'contained'}>
-        Submit
-      </Button>
-    </FormContainer>
-  )
-}
 
 export const WithFormErrorProvider = () => (
   <FormErrorProvider
@@ -254,27 +204,22 @@ export const WithFormErrorProvider = () => (
       return error?.message
     }}
   >
-    <FormContainer onSuccess={action('submit')}>
-      <Stack spacing={3}>
-        <TextFieldElement
-          name={'name'}
-          label={'Name'}
-          required
-          variant={'outlined'}
-          margin={'dense'}
-        />
-        <TextFieldElement
-          name={'email'}
-          type="email"
-          label={'Email'}
-          required
-          variant={'outlined'}
-          margin={'dense'}
-        />
-        <Button type={'submit'} color={'primary'} variant={'contained'}>
-          Submit
-        </Button>
-      </Stack>
-    </FormContainer>
+    <Stack spacing={3}>
+      <TextFieldElement
+        name={'name'}
+        label={'Name'}
+        required
+        variant={'outlined'}
+        margin={'dense'}
+      />
+      <TextFieldElement
+        name={'email'}
+        type="email"
+        label={'Email'}
+        required
+        variant={'outlined'}
+        margin={'dense'}
+      />
+    </Stack>
   </FormErrorProvider>
 )
