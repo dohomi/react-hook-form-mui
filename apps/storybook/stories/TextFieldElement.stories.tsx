@@ -65,10 +65,6 @@ const parseError = (error: FieldError) => {
 }
 
 export const Basic = () => {
-  const form = {
-    agree: false,
-  }
-
   return (
     <div>
       <TextFieldElement
