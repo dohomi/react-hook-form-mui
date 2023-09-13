@@ -19,6 +19,18 @@ export const Basic: Story = {
   },
 }
 
+export const Clearable: Story = {
+  args: {
+    label: 'Date Picker',
+    name: 'basic',
+    slotProps: {
+      actionBar: {
+        actions: ['clear'],
+      },
+    },
+  },
+}
+
 export const Required: Story = {
   args: {
     label: 'Required Picker',

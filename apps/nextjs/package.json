@@ -17,6 +17,7 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "@mui/x-date-pickers": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",

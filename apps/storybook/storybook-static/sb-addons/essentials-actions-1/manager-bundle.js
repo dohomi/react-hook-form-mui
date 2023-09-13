@@ -1,128 +1,201 @@
 try {
-  var Ae = 'actions',
-    z = 'storybook/actions',
-    Ce = `${z}/panel`,
-    j = `${z}/action-event`,
-    Y = `${z}/action-clear`
+  var Se = 'actions',
+    L = 'storybook/actions',
+    Ce = `${L}/panel`,
+    V = `${L}/action-event`,
+    te = `${L}/action-clear`
   var a = __REACT__,
     {
-      Children: xe,
-      Component: we,
+      Children: we,
+      Component: xe,
       Fragment: Ne,
-      Profiler: Wr,
-      PureComponent: Yr,
-      StrictMode: Jr,
-      Suspense: qr,
-      __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Xr,
-      cloneElement: Zr,
-      createContext: J,
-      createElement: Kr,
-      createFactory: Qr,
-      createRef: en,
-      forwardRef: tn,
-      isValidElement: rn,
-      lazy: nn,
+      Profiler: qr,
+      PureComponent: Xr,
+      StrictMode: Zr,
+      Suspense: Kr,
+      __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: Qr,
+      cloneElement: en,
+      createContext: $,
+      createElement: tn,
+      createFactory: rn,
+      createRef: nn,
+      forwardRef: an,
+      isValidElement: on,
+      lazy: sn,
       memo: H,
-      useCallback: A,
-      useContext: q,
-      useDebugValue: an,
-      useEffect: on,
-      useImperativeHandle: sn,
+      useCallback: S,
+      useContext: Y,
+      useDebugValue: ln,
+      useEffect: un,
+      useImperativeHandle: cn,
       useLayoutEffect: Le,
       useMemo: Ie,
-      useReducer: ln,
-      useRef: un,
-      useState: C,
-      version: cn,
+      useReducer: pn,
+      useRef: fn,
+      useState: I,
+      version: dn,
     } = __REACT__
-  var bn = __STORYBOOKAPI__,
+  var En = __STORYBOOKAPI__,
     {
-      ActiveTabs: gn,
-      Consumer: hn,
-      ManagerContext: En,
-      Provider: yn,
+      ActiveTabs: yn,
+      Consumer: On,
+      ManagerContext: vn,
+      Provider: Tn,
       addons: re,
-      combineParameters: On,
-      controlOrMetaKey: vn,
-      controlOrMetaSymbol: Tn,
-      eventMatchesShortcut: _n,
-      eventToShortcut: Rn,
-      isMacLike: Sn,
-      isShortcutTaken: An,
-      keyToSymbol: Cn,
-      merge: xn,
-      mockChannel: wn,
-      optionOrAltSymbol: Nn,
-      shortcutMatchesShortcut: Ln,
-      shortcutToHumanString: In,
+      combineParameters: _n,
+      controlOrMetaKey: An,
+      controlOrMetaSymbol: Rn,
+      eventMatchesShortcut: Sn,
+      eventToShortcut: Cn,
+      isMacLike: wn,
+      isShortcutTaken: xn,
+      keyToSymbol: Nn,
+      merge: Ln,
+      mockChannel: In,
+      optionOrAltSymbol: Dn,
+      shortcutMatchesShortcut: Mn,
+      shortcutToHumanString: Pn,
       types: De,
-      useAddonState: Dn,
-      useArgTypes: Mn,
-      useArgs: Pn,
-      useChannel: Me,
-      useGlobalTypes: Bn,
-      useGlobals: Fn,
-      useParameter: zn,
-      useSharedState: jn,
-      useStoryPrepared: Hn,
-      useStorybookApi: Un,
-      useStorybookState: kn,
+      useAddonState: Me,
+      useArgTypes: Bn,
+      useArgs: Fn,
+      useChannel: Pe,
+      useGlobalTypes: zn,
+      useGlobals: Hn,
+      useParameter: jn,
+      useSharedState: Un,
+      useStoryPrepared: kn,
+      useStorybookApi: Gn,
+      useStorybookState: Wn,
     } = __STORYBOOKAPI__
-  var Yn = __STORYBOOKCOREEVENTS__,
+  var qn = __STORYBOOKCOREEVENTS__,
     {
-      CHANNEL_CREATED: Jn,
-      CONFIG_ERROR: qn,
-      CURRENT_STORY_WAS_SET: Xn,
-      DOCS_PREPARED: Zn,
-      DOCS_RENDERED: Kn,
-      FORCE_REMOUNT: Qn,
-      FORCE_RE_RENDER: ea,
-      GLOBALS_UPDATED: ta,
-      IGNORED_EXCEPTION: ra,
-      NAVIGATE_URL: na,
-      PLAY_FUNCTION_THREW_EXCEPTION: aa,
-      PRELOAD_ENTRIES: oa,
-      PREVIEW_BUILDER_PROGRESS: ia,
-      PREVIEW_KEYDOWN: sa,
-      REGISTER_SUBSCRIPTION: la,
-      RESET_STORY_ARGS: ua,
-      SELECT_STORY: ca,
-      SET_CONFIG: fa,
-      SET_CURRENT_STORY: pa,
-      SET_GLOBALS: da,
-      SET_INDEX: ma,
-      SET_STORIES: ba,
-      SHARED_STATE_CHANGED: ga,
-      SHARED_STATE_SET: ha,
-      STORIES_COLLAPSE_ALL: Ea,
-      STORIES_EXPAND_ALL: ya,
-      STORY_ARGS_UPDATED: Oa,
-      STORY_CHANGED: U,
-      STORY_ERRORED: va,
-      STORY_INDEX_INVALIDATED: Ta,
-      STORY_MISSING: _a,
-      STORY_PREPARED: Ra,
-      STORY_RENDERED: Sa,
-      STORY_RENDER_PHASE_CHANGED: Aa,
-      STORY_SPECIFIED: Ca,
-      STORY_THREW_EXCEPTION: xa,
-      STORY_UNCHANGED: wa,
-      UPDATE_GLOBALS: Na,
-      UPDATE_QUERY_PARAMS: La,
-      UPDATE_STORY_ARGS: Ia,
+      CHANNEL_CREATED: Xn,
+      CONFIG_ERROR: Zn,
+      CURRENT_STORY_WAS_SET: Kn,
+      DOCS_PREPARED: Qn,
+      DOCS_RENDERED: ea,
+      FORCE_REMOUNT: ta,
+      FORCE_RE_RENDER: ra,
+      GLOBALS_UPDATED: na,
+      IGNORED_EXCEPTION: aa,
+      NAVIGATE_URL: oa,
+      PLAY_FUNCTION_THREW_EXCEPTION: ia,
+      PRELOAD_ENTRIES: sa,
+      PREVIEW_BUILDER_PROGRESS: la,
+      PREVIEW_KEYDOWN: ua,
+      REGISTER_SUBSCRIPTION: ca,
+      REQUEST_WHATS_NEW_DATA: pa,
+      RESET_STORY_ARGS: fa,
+      RESULT_WHATS_NEW_DATA: da,
+      SELECT_STORY: ma,
+      SET_CONFIG: ba,
+      SET_CURRENT_STORY: ga,
+      SET_GLOBALS: ha,
+      SET_INDEX: Ea,
+      SET_STORIES: ya,
+      SET_WHATS_NEW_CACHE: Oa,
+      SHARED_STATE_CHANGED: va,
+      SHARED_STATE_SET: Ta,
+      STORIES_COLLAPSE_ALL: _a,
+      STORIES_EXPAND_ALL: Aa,
+      STORY_ARGS_UPDATED: Ra,
+      STORY_CHANGED: J,
+      STORY_ERRORED: Sa,
+      STORY_INDEX_INVALIDATED: Ca,
+      STORY_MISSING: wa,
+      STORY_PREPARED: xa,
+      STORY_RENDERED: Na,
+      STORY_RENDER_PHASE_CHANGED: La,
+      STORY_SPECIFIED: Ia,
+      STORY_THREW_EXCEPTION: Da,
+      STORY_UNCHANGED: Ma,
+      TOGGLE_WHATS_NEW_NOTIFICATIONS: Pa,
+      UPDATE_GLOBALS: Ba,
+      UPDATE_QUERY_PARAMS: Fa,
+      UPDATE_STORY_ARGS: za,
     } = __STORYBOOKCOREEVENTS__
-  var Pe = Object.prototype.hasOwnProperty
-  function Be(e, t, r) {
-    for (r of e.keys()) if (I(r, t)) return r
+  var Ga = __STORYBOOKCOMPONENTS__,
+    {
+      A: Wa,
+      ActionBar: Be,
+      AddonPanel: Va,
+      Badge: Fe,
+      Bar: $a,
+      Blockquote: Ya,
+      Button: Ja,
+      ClipboardCode: qa,
+      Code: Xa,
+      DL: Za,
+      Div: Ka,
+      DocumentWrapper: Qa,
+      ErrorFormatter: eo,
+      FlexBar: to,
+      Form: ro,
+      H1: no,
+      H2: ao,
+      H3: oo,
+      H4: io,
+      H5: so,
+      H6: lo,
+      HR: uo,
+      IconButton: co,
+      IconButtonSkeleton: po,
+      Icons: fo,
+      Img: mo,
+      LI: bo,
+      Link: go,
+      ListItem: ho,
+      Loader: Eo,
+      OL: yo,
+      P: Oo,
+      Placeholder: vo,
+      Pre: To,
+      ResetWrapper: _o,
+      ScrollArea: ze,
+      Separator: Ao,
+      Spaced: He,
+      Span: Ro,
+      StorybookIcon: So,
+      StorybookLogo: Co,
+      Symbols: wo,
+      SyntaxHighlighter: xo,
+      TT: No,
+      TabBar: Lo,
+      TabButton: Io,
+      TabWrapper: Do,
+      Table: Mo,
+      Tabs: Po,
+      TabsState: Bo,
+      TooltipLinkList: Fo,
+      TooltipMessage: zo,
+      TooltipNote: Ho,
+      UL: jo,
+      WithTooltip: Uo,
+      WithTooltipPure: ko,
+      Zoom: Go,
+      codeCommon: Wo,
+      components: Vo,
+      createCopyToClipboardFunction: $o,
+      getStoryHref: Yo,
+      icons: Jo,
+      interleaveSeparators: qo,
+      nameSpaceClassNames: Xo,
+      resetComponents: Zo,
+      withReset: Ko,
+    } = __STORYBOOKCOMPONENTS__
+  var je = Object.prototype.hasOwnProperty
+  function Ue(e, t, r) {
+    for (r of e.keys()) if (D(r, t)) return r
   }
-  function I(e, t) {
+  function D(e, t) {
     var r, n, o
     if (e === t) return !0
     if (e && t && (r = e.constructor) === t.constructor) {
       if (r === Date) return e.getTime() === t.getTime()
       if (r === RegExp) return e.toString() === t.toString()
       if (r === Array) {
-        if ((n = e.length) === t.length) for (; n-- && I(e[n], t[n]); );
+        if ((n = e.length) === t.length) for (; n-- && D(e[n], t[n]); );
         return n === -1
       }
       if (r === Set) {
@@ -130,7 +203,7 @@ try {
         for (n of e)
           if (
             ((o = n),
-            (o && typeof o == 'object' && ((o = Be(t, o)), !o)) || !t.has(o))
+            (o && typeof o == 'object' && ((o = Ue(t, o)), !o)) || !t.has(o))
           )
             return !1
         return !0
@@ -140,8 +213,8 @@ try {
         for (n of e)
           if (
             ((o = n[0]),
-            (o && typeof o == 'object' && ((o = Be(t, o)), !o)) ||
-              !I(n[1], t.get(o)))
+            (o && typeof o == 'object' && ((o = Ue(t, o)), !o)) ||
+              !D(n[1], t.get(o)))
           )
             return !1
         return !0
@@ -160,9 +233,9 @@ try {
         n = 0
         for (r in e)
           if (
-            (Pe.call(e, r) && ++n && !Pe.call(t, r)) ||
+            (je.call(e, r) && ++n && !je.call(t, r)) ||
             !(r in t) ||
-            !I(e[r], t[r])
+            !D(e[r], t[r])
           )
             return !1
         return Object.keys(t).length === n
@@ -170,67 +243,67 @@ try {
     }
     return e !== e && t !== t
   }
-  var Ua = __STORYBOOKTHEMING__,
+  var si = __STORYBOOKTHEMING__,
     {
-      CacheProvider: ka,
-      ClassNames: Ga,
-      Global: Va,
-      ThemeProvider: $a,
-      background: Wa,
-      color: Ya,
-      convert: Ja,
-      create: qa,
-      createCache: Xa,
-      createGlobal: Za,
-      createReset: Ka,
-      css: Qa,
-      darken: eo,
-      ensure: to,
-      ignoreSsrWarning: ro,
-      isPropValid: no,
-      jsx: ao,
-      keyframes: oo,
-      lighten: io,
-      styled: k,
-      themes: so,
-      typography: lo,
-      useTheme: uo,
-      withTheme: Fe,
+      CacheProvider: li,
+      ClassNames: ui,
+      Global: ci,
+      ThemeProvider: pi,
+      background: fi,
+      color: di,
+      convert: mi,
+      create: bi,
+      createCache: gi,
+      createGlobal: hi,
+      createReset: Ei,
+      css: yi,
+      darken: Oi,
+      ensure: vi,
+      ignoreSsrWarning: Ti,
+      isPropValid: _i,
+      jsx: Ai,
+      keyframes: Ri,
+      lighten: Si,
+      styled: j,
+      themes: Ci,
+      typography: wi,
+      useTheme: xi,
+      withTheme: ke,
     } = __STORYBOOKTHEMING__
-  var st = Object.create,
+  var ct = Object.create,
     se = Object.defineProperty,
-    lt = Object.getOwnPropertyDescriptor,
-    ke = Object.getOwnPropertyNames,
-    ut = Object.getPrototypeOf,
-    ct = Object.prototype.hasOwnProperty,
+    pt = Object.getOwnPropertyDescriptor,
+    Ye = Object.getOwnPropertyNames,
+    ft = Object.getPrototypeOf,
+    dt = Object.prototype.hasOwnProperty,
     le = (e, t) =>
       function () {
-        return t || (0, e[ke(e)[0]])((t = {exports: {}}).exports, t), t.exports
+        return t || (0, e[Ye(e)[0]])((t = {exports: {}}).exports, t), t.exports
       },
-    ft = (e, t) => {
+    mt = (e, t) => {
       for (var r in t) se(e, r, {get: t[r], enumerable: !0})
     },
-    pt = (e, t, r, n) => {
+    bt = (e, t, r, n) => {
       if ((t && typeof t == 'object') || typeof t == 'function')
-        for (let o of ke(t))
-          !ct.call(e, o) &&
+        for (let o of Ye(t))
+          !dt.call(e, o) &&
             o !== r &&
             se(e, o, {
               get: () => t[o],
-              enumerable: !(n = lt(t, o)) || n.enumerable,
+              enumerable: !(n = pt(t, o)) || n.enumerable,
             })
       return e
     },
-    dt = (e, t, r) => (
-      (r = e != null ? st(ut(e)) : {}),
-      pt(
+    gt = (e, t, r) => (
+      (r = e != null ? ct(ft(e)) : {}),
+      bt(
         t || !e || !e.__esModule
           ? se(r, 'default', {value: e, enumerable: !0})
           : r,
         e
       )
     ),
-    mt = le({
+    ht = le({
       'node_modules/is-object/index.js'(e, t) {
         'use strict'
         t.exports = function (n) {
@@ -238,7 +311,7 @@ try {
         }
       },
     }),
-    bt = le({
+    Et = le({
       'node_modules/is-window/index.js'(e, t) {
         'use strict'
         t.exports = function (r) {
@@ -248,10 +321,10 @@ try {
         }
       },
     }),
-    gt = le({
+    yt = le({
       'node_modules/is-dom/index.js'(e, t) {
-        var r = mt(),
-          n = bt()
+        var r = ht(),
+          n = Et()
         function o(i) {
           return !r(i) || !n(window) || typeof window.Node != 'function'
             ? !1
@@ -260,9 +333,9 @@ try {
         t.exports = o
       },
     }),
-    K = {}
-  ft(K, {chromeDark: () => ht, chromeLight: () => Et})
-  var ht = {
+    Z = {}
+  mt(Z, {chromeDark: () => Ot, chromeLight: () => vt})
+  var Ot = {
       BASE_FONT_FAMILY: 'Menlo, monospace',
       BASE_FONT_SIZE: '11px',
       BASE_LINE_HEIGHT: 1.2,
@@ -302,7 +375,7 @@ try {
         'linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(51, 139, 255, 0.0980392) 50%, rgba(51, 139, 255, 0.0980392))',
       TABLE_DATA_BACKGROUND_SIZE: '128px 32px',
     },
-    Et = {
+    vt = {
       BASE_FONT_FAMILY: 'Menlo, monospace',
       BASE_FONT_SIZE: '11px',
       BASE_LINE_HEIGHT: 1.2,
@@ -342,7 +415,7 @@ try {
         'linear-gradient(to bottom, white, white 50%, rgb(234, 243, 255) 50%, rgb(234, 243, 255))',
       TABLE_DATA_BACKGROUND_SIZE: '128px 32px',
     },
-    Ge = J([{}, () => {}]),
+    Je = $([{}, () => {}]),
     ne = {
       WebkitTouchCallout: 'none',
       WebkitUserSelect: 'none',
@@ -352,7 +425,7 @@ try {
       OUserSelect: 'none',
       userSelect: 'none',
     },
-    X = (e) => ({
+    q = (e) => ({
       DOMNodePreview: {
         htmlOpenTag: {
           base: {color: e.HTML_TAG_COLOR},
@@ -548,37 +621,37 @@ try {
       },
     }),
     ae = 'chromeLight',
-    Ve = J(X(K[ae])),
-    _ = (e) => q(Ve)[e],
+    qe = $(q(Z[ae])),
+    _ = (e) => Y(qe)[e],
     ue =
       (e) =>
       ({theme: r = ae, ...n}) => {
         let o = Ie(() => {
           switch (Object.prototype.toString.call(r)) {
             case '[object String]':
-              return X(K[r])
+              return q(Z[r])
             case '[object Object]':
-              return X(r)
+              return q(r)
             default:
-              return X(K[ae])
+              return q(Z[ae])
           }
         }, [r])
         return a.createElement(
-          Ve.Provider,
+          qe.Provider,
           {value: o},
           a.createElement(e, {...n})
         )
       },
-    yt = ({expanded: e, styles: t}) =>
+    Tt = ({expanded: e, styles: t}) =>
       a.createElement(
         'span',
         {style: {...t.base, ...(e ? t.expanded : t.collapsed)}},
         '\u25B6'
       ),
-    Ot = H((e) => {
+    _t = H((e) => {
       e = {
         expanded: !0,
-        nodeRenderer: ({name: f}) => a.createElement('span', null, f),
+        nodeRenderer: ({name: p}) => a.createElement('span', null, p),
         onClick: () => {},
         shouldShowArrow: !1,
         shouldShowPlaceholder: !0,
@@ -601,8 +674,8 @@ try {
         a.createElement(
           'div',
           {style: l.treeNodePreviewContainer, onClick: r},
-          u || xe.count(n) > 0
-            ? a.createElement(yt, {expanded: t, styles: l.treeNodeArrow})
+          u || we.count(n) > 0
+            ? a.createElement(Tt, {expanded: t, styles: l.treeNodeArrow})
             : s &&
                 a.createElement('span', {style: l.treeNodePlaceholder}, '\xA0'),
           a.createElement(c, {...e})
@@ -614,37 +687,37 @@ try {
         )
       )
     }),
-    Q = '$',
-    ze = '*'
-  function Z(e, t) {
+    K = '$',
+    Ge = '*'
+  function X(e, t) {
     return !t(e).next().done
   }
-  var vt = (e) =>
+  var At = (e) =>
       Array.from({length: e}, (t, r) =>
-        [Q].concat(Array.from({length: r}, () => '*')).join('.')
+        [K].concat(Array.from({length: r}, () => '*')).join('.')
       ),
-    Tt = (e, t, r, n, o) => {
+    Rt = (e, t, r, n, o) => {
       let i = []
-          .concat(vt(n))
+          .concat(At(n))
           .concat(r)
           .filter((s) => typeof s == 'string'),
         u = []
       return (
         i.forEach((s) => {
           let l = s.split('.'),
-            c = (f, d, p) => {
-              if (p === l.length) {
+            c = (p, d, f) => {
+              if (f === l.length) {
                 u.push(d)
                 return
               }
-              let E = l[p]
-              if (p === 0) Z(f, t) && (E === Q || E === ze) && c(f, Q, p + 1)
-              else if (E === ze)
-                for (let {name: h, data: y} of t(f))
-                  Z(y, t) && c(y, `${d}.${h}`, p + 1)
+              let E = l[f]
+              if (f === 0) X(p, t) && (E === K || E === Ge) && c(p, K, f + 1)
+              else if (E === Ge)
+                for (let {name: h, data: y} of t(p))
+                  X(y, t) && c(y, `${d}.${h}`, f + 1)
               else {
-                let h = f[E]
-                Z(h, t) && c(h, `${d}.${E}`, p + 1)
+                let h = p[E]
+                X(h, t) && c(h, `${d}.${E}`, f + 1)
               }
             }
           c(e, '', 0)
@@ -652,27 +725,27 @@ try {
         u.reduce((s, l) => ((s[l] = !0), s), {...o})
       )
     },
-    $e = H((e) => {
+    Xe = H((e) => {
       let {data: t, dataIterator: r, path: n, depth: o, nodeRenderer: i} = e,
-        [u, s] = q(Ge),
-        l = Z(t, r),
+        [u, s] = Y(Je),
+        l = X(t, r),
         c = !!u[n],
-        f = A(() => l && s((d) => ({...d, [n]: !c})), [l, s, n, c])
+        p = S(() => l && s((d) => ({...d, [n]: !c})), [l, s, n, c])
       return a.createElement(
-        Ot,
+        _t,
         {
           expanded: c,
-          onClick: f,
+          onClick: p,
           shouldShowArrow: l,
           shouldShowPlaceholder: o > 0,
           nodeRenderer: i,
           ...e,
         },
         c
-          ? [...r(t)].map(({name: d, data: p, ...E}) =>
-              a.createElement($e, {
+          ? [...r(t)].map(({name: d, data: f, ...E}) =>
+              a.createElement(Xe, {
                 name: d,
-                data: p,
+                data: f,
                 depth: o + 1,
                 path: `${n}.${d}`,
                 key: d,
@@ -684,7 +757,7 @@ try {
           : null
       )
     }),
-    We = H(
+    Ze = H(
       ({
         name: e,
         data: t,
@@ -694,22 +767,22 @@ try {
         expandLevel: i,
       }) => {
         let u = _('TreeView'),
-          s = C({}),
+          s = I({}),
           [, l] = s
         return (
-          Le(() => l((c) => Tt(t, r, o, i, c)), [t, r, o, i]),
+          Le(() => l((c) => Rt(t, r, o, i, c)), [t, r, o, i]),
           a.createElement(
-            Ge.Provider,
+            Je.Provider,
             {value: s},
             a.createElement(
               'ol',
               {role: 'tree', style: u.treeViewOutline},
-              a.createElement($e, {
+              a.createElement(Xe, {
                 name: e,
                 data: t,
                 dataIterator: r,
                 depth: 0,
-                path: Q,
+                path: K,
                 nodeRenderer: n,
               })
             )
@@ -722,7 +795,7 @@ try {
         o = {...n.base, ...(t ? n.dimmed : {}), ...r}
       return a.createElement('span', {style: o}, e)
     },
-    G = ({object: e, styles: t}) => {
+    U = ({object: e, styles: t}) => {
       let r = _('ObjectValue'),
         n = (o) => ({...r[o], ...t})
       switch (typeof e) {
@@ -804,8 +877,8 @@ try {
           return a.createElement('span', null)
       }
     },
-    Ye = Object.prototype.hasOwnProperty,
-    _t = Object.prototype.propertyIsEnumerable
+    Ke = Object.prototype.hasOwnProperty,
+    St = Object.prototype.propertyIsEnumerable
   function oe(e, t) {
     let r = Object.getOwnPropertyDescriptor(e, t)
     if (r.get)
@@ -816,7 +889,7 @@ try {
       }
     return e[t]
   }
-  function je(e, t) {
+  function We(e, t) {
     return e.length === 0
       ? []
       : e.slice(1).reduce((r, n) => r.concat([t, n]), [e[0]])
@@ -830,12 +903,12 @@ try {
         r instanceof Date ||
         r instanceof RegExp
       )
-        return a.createElement(G, {object: r})
+        return a.createElement(U, {object: r})
       if (Array.isArray(r)) {
         let n = t.arrayMaxProperties,
           o = r
             .slice(0, n)
-            .map((u, s) => a.createElement(G, {key: s, object: u}))
+            .map((u, s) => a.createElement(U, {key: s, object: u}))
         r.length > n &&
           o.push(a.createElement('span', {key: 'ellipsis'}, '\u2026'))
         let i = r.length
@@ -847,13 +920,13 @@ try {
             {style: t.objectDescription},
             i === 0 ? '' : `(${i})\xA0`
           ),
-          a.createElement('span', {style: t.preview}, '[', je(o, ', '), ']')
+          a.createElement('span', {style: t.preview}, '[', We(o, ', '), ']')
         )
       } else {
         let n = t.objectMaxProperties,
           o = []
         for (let u in r)
-          if (Ye.call(r, u)) {
+          if (Ke.call(r, u)) {
             let s
             o.length === n - 1 &&
               Object.keys(r).length > n &&
@@ -866,7 +939,7 @@ try {
                   {key: u},
                   a.createElement(ce, {name: u || '""'}),
                   ':\xA0',
-                  a.createElement(G, {object: l}),
+                  a.createElement(U, {object: l}),
                   s
                 )
               ),
@@ -883,11 +956,11 @@ try {
             {style: t.objectDescription},
             i === 'Object' ? '' : `${i} `
           ),
-          a.createElement('span', {style: t.preview}, '{', je(o, ', '), '}')
+          a.createElement('span', {style: t.preview}, '{', We(o, ', '), '}')
         )
       }
     },
-    Rt = ({name: e, data: t}) =>
+    Ct = ({name: e, data: t}) =>
       typeof e == 'string'
         ? a.createElement(
             'span',
@@ -897,7 +970,7 @@ try {
             a.createElement(ie, {data: t})
           )
         : a.createElement(ie, {data: t}),
-    St = ({name: e, data: t, isNonenumerable: r = !1}) => {
+    wt = ({name: e, data: t, isNonenumerable: r = !1}) => {
       let n = t
       return a.createElement(
         'span',
@@ -906,10 +979,10 @@ try {
           ? a.createElement(ce, {name: e, dimmed: r})
           : a.createElement(ie, {data: e}),
         a.createElement('span', null, ': '),
-        a.createElement(G, {object: n})
+        a.createElement(U, {object: n})
       )
     },
-    At = (e, t) =>
+    xt = (e, t) =>
       function* (n) {
         if (!((typeof n == 'object' && n !== null) || typeof n == 'function'))
           return
@@ -927,7 +1000,7 @@ try {
           let u = Object.getOwnPropertyNames(n)
           t === !0 && !i ? u.sort() : typeof t == 'function' && u.sort(t)
           for (let s of u)
-            if (_t.call(n, s)) {
+            if (St.call(n, s)) {
               let l = oe(n, s)
               yield {name: s || '""', data: l}
             } else if (e) {
@@ -946,22 +1019,22 @@ try {
             })
         }
       },
-    Ct = ({depth: e, name: t, data: r, isNonenumerable: n}) =>
+    Nt = ({depth: e, name: t, data: r, isNonenumerable: n}) =>
       e === 0
-        ? a.createElement(Rt, {name: t, data: r})
-        : a.createElement(St, {name: t, data: r, isNonenumerable: n}),
-    xt = ({
+        ? a.createElement(Ct, {name: t, data: r})
+        : a.createElement(wt, {name: t, data: r, isNonenumerable: n}),
+    Lt = ({
       showNonenumerable: e = !1,
       sortObjectKeys: t,
       nodeRenderer: r,
       ...n
     }) => {
-      let o = At(e, t),
-        i = r || Ct
-      return a.createElement(We, {nodeRenderer: i, dataIterator: o, ...n})
+      let o = xt(e, t),
+        i = r || Nt
+      return a.createElement(Ze, {nodeRenderer: i, dataIterator: o, ...n})
     },
-    wt = ue(xt)
-  function Nt(e) {
+    It = ue(Lt)
+  function Dt(e) {
     if (typeof e == 'object') {
       let t = []
       if (Array.isArray(e)) {
@@ -980,7 +1053,7 @@ try {
       return {rowHeaders: t, colHeaders: r}
     }
   }
-  var Lt = ({rows: e, columns: t, rowsData: r}) => {
+  var Mt = ({rows: e, columns: t, rowsData: r}) => {
       let n = _('TableInspectorDataContainer'),
         o = _('TableInspectorLeftBorder')
       return a.createElement(
@@ -1000,11 +1073,11 @@ try {
                 a.createElement('td', {style: {...n.td, ...o.none}}, i),
                 t.map((s) => {
                   let l = r[u]
-                  return typeof l == 'object' && l !== null && Ye.call(l, s)
+                  return typeof l == 'object' && l !== null && Ke.call(l, s)
                     ? a.createElement(
                         'td',
                         {key: s, style: {...n.td, ...o.solid}},
-                        a.createElement(G, {object: l[s]})
+                        a.createElement(U, {object: l[s]})
                       )
                     : a.createElement('td', {
                         key: s,
@@ -1017,7 +1090,7 @@ try {
         )
       )
     },
-    It = (e) =>
+    Pt = (e) =>
       a.createElement(
         'div',
         {
@@ -1032,12 +1105,12 @@ try {
         },
         e.children
       ),
-    Dt = ({sortAscending: e}) => {
+    Bt = ({sortAscending: e}) => {
       let t = _('TableInspectorSortIcon'),
         r = e ? '\u25B2' : '\u25BC'
       return a.createElement('div', {style: t}, r)
     },
-    He = ({
+    Ve = ({
       sortAscending: e = !1,
       sorted: t = !1,
       onClick: r = void 0,
@@ -1046,23 +1119,23 @@ try {
       ...i
     }) => {
       let u = _('TableInspectorTH'),
-        [s, l] = C(!1),
-        c = A(() => l(!0), []),
-        f = A(() => l(!1), [])
+        [s, l] = I(!1),
+        c = S(() => l(!0), []),
+        p = S(() => l(!1), [])
       return a.createElement(
         'th',
         {
           ...i,
           style: {...u.base, ...n, ...(s ? u.base[':hover'] : {})},
           onMouseEnter: c,
-          onMouseLeave: f,
+          onMouseLeave: p,
           onClick: r,
         },
         a.createElement('div', {style: u.div}, o),
-        t && a.createElement(It, null, a.createElement(Dt, {sortAscending: e}))
+        t && a.createElement(Pt, null, a.createElement(Bt, {sortAscending: e}))
       )
     },
-    Mt = ({
+    Ft = ({
       indexColumnText: e = '(index)',
       columns: t = [],
       sorted: r,
@@ -1087,7 +1160,7 @@ try {
               'tr',
               null,
               a.createElement(
-                He,
+                Ve,
                 {
                   borderStyle: c.none,
                   sorted: r && n,
@@ -1096,17 +1169,17 @@ try {
                 },
                 e
               ),
-              t.map((f) =>
+              t.map((p) =>
                 a.createElement(
-                  He,
+                  Ve,
                   {
                     borderStyle: c.solid,
-                    key: f,
-                    sorted: r && o === f,
+                    key: p,
+                    sorted: r && o === p,
                     sortAscending: i,
-                    onClick: u.bind(null, f),
+                    onClick: u.bind(null, p),
                   },
-                  f
+                  p
                 )
               )
             )
@@ -1114,16 +1187,16 @@ try {
         )
       )
     },
-    Pt = ({data: e, columns: t}) => {
+    zt = ({data: e, columns: t}) => {
       let r = _('TableInspector'),
         [{sorted: n, sortIndexColumn: o, sortColumn: i, sortAscending: u}, s] =
-          C({
+          I({
             sorted: !1,
             sortIndexColumn: !1,
             sortColumn: void 0,
             sortAscending: !1,
           }),
-        l = A(() => {
+        l = S(() => {
           s(({sortIndexColumn: h, sortAscending: y}) => ({
             sorted: !0,
             sortIndexColumn: !0,
@@ -1131,7 +1204,7 @@ try {
             sortAscending: h ? !y : !0,
           }))
         }, []),
-        c = A((h) => {
+        c = S((h) => {
           s(({sortColumn: y, sortAscending: O}) => ({
             sorted: !0,
             sortIndexColumn: !1,
@@ -1141,28 +1214,28 @@ try {
         }, [])
       if (typeof e != 'object' || e === null)
         return a.createElement('div', null)
-      let {rowHeaders: f, colHeaders: d} = Nt(e)
+      let {rowHeaders: p, colHeaders: d} = Dt(e)
       t !== void 0 && (d = t)
-      let p = f.map((h) => e[h]),
+      let f = p.map((h) => e[h]),
         E
       if (
         (i !== void 0
-          ? (E = p.map((h, y) =>
+          ? (E = f.map((h, y) =>
               typeof h == 'object' && h !== null ? [h[i], y] : [void 0, y]
             ))
-          : o && (E = f.map((h, y) => [f[y], y])),
+          : o && (E = p.map((h, y) => [p[y], y])),
         E !== void 0)
       ) {
-        let h = (O, L) => (ot, it) => {
-            let Oe = O(ot),
-              ve = O(it),
+        let h = (O, N) => (lt, ut) => {
+            let Oe = O(lt),
+              ve = O(ut),
               Te = typeof Oe,
               _e = typeof ve,
-              Re = (F, Se) => (F < Se ? -1 : F > Se ? 1 : 0),
-              B
-            if (Te === _e) B = Re(Oe, ve)
+              Ae = (z, Re) => (z < Re ? -1 : z > Re ? 1 : 0),
+              F
+            if (Te === _e) F = Ae(Oe, ve)
             else {
-              let F = {
+              let z = {
                 string: 0,
                 number: 1,
                 object: 2,
@@ -1171,17 +1244,17 @@ try {
                 undefined: 5,
                 function: 6,
               }
-              B = Re(F[Te], F[_e])
+              F = Ae(z[Te], z[_e])
             }
-            return L || (B = -B), B
+            return N || (F = -F), F
           },
           y = E.sort(h((O) => O[0], u)).map((O) => O[1])
-        ;(f = y.map((O) => f[O])), (p = y.map((O) => p[O]))
+        ;(p = y.map((O) => p[O])), (f = y.map((O) => f[O]))
       }
       return a.createElement(
         'div',
         {style: r.base},
-        a.createElement(Mt, {
+        a.createElement(Ft, {
           columns: d,
           sorted: n,
           sortIndexColumn: o,
@@ -1190,17 +1263,17 @@ try {
           onTHClick: c,
           onIndexTHClick: l,
         }),
-        a.createElement(Lt, {rows: f, columns: d, rowsData: p})
+        a.createElement(Mt, {rows: p, columns: d, rowsData: f})
       )
     },
-    Bt = ue(Pt),
-    Ft = 80,
-    Je = (e) =>
+    Ht = ue(zt),
+    jt = 80,
+    Qe = (e) =>
       e.childNodes.length === 0 ||
       (e.childNodes.length === 1 &&
         e.childNodes[0].nodeType === Node.TEXT_NODE &&
-        e.textContent.length < Ft),
-    zt = ({tagName: e, attributes: t, styles: r}) =>
+        e.textContent.length < jt),
+    Ut = ({tagName: e, attributes: t, styles: r}) =>
       a.createElement(
         'span',
         {style: r.base},
@@ -1232,7 +1305,7 @@ try {
         })(),
         '>'
       ),
-    Ue = ({tagName: e, isChildNode: t = !1, styles: r}) =>
+    $e = ({tagName: e, isChildNode: t = !1, styles: r}) =>
       a.createElement(
         'span',
         {style: Object.assign({}, r.base, t && r.offsetLeft)},
@@ -1240,7 +1313,7 @@ try {
         a.createElement('span', {style: r.tagName}, e),
         '>'
       ),
-    jt = {
+    kt = {
       1: 'ELEMENT_NODE',
       3: 'TEXT_NODE',
       7: 'PROCESSING_INSTRUCTION_NODE',
@@ -1249,10 +1322,10 @@ try {
       10: 'DOCUMENT_TYPE_NODE',
       11: 'DOCUMENT_FRAGMENT_NODE',
     },
-    Ht = ({isCloseTag: e, data: t, expanded: r}) => {
+    Gt = ({isCloseTag: e, data: t, expanded: r}) => {
       let n = _('DOMNodePreview')
       if (e)
-        return a.createElement(Ue, {
+        return a.createElement($e, {
           styles: n.htmlCloseTag,
           isChildNode: !0,
           tagName: t.tagName,
@@ -1262,14 +1335,14 @@ try {
           return a.createElement(
             'span',
             null,
-            a.createElement(zt, {
+            a.createElement(Ut, {
               tagName: t.tagName,
               attributes: t.attributes,
               styles: n.htmlOpenTag,
             }),
-            Je(t) ? t.textContent : !r && '\u2026',
+            Qe(t) ? t.textContent : !r && '\u2026',
             !r &&
-              a.createElement(Ue, {tagName: t.tagName, styles: n.htmlCloseTag})
+              a.createElement($e, {tagName: t.tagName, styles: n.htmlCloseTag})
           )
         case Node.TEXT_NODE:
           return a.createElement('span', null, t.textContent)
@@ -1305,12 +1378,12 @@ try {
         case Node.DOCUMENT_FRAGMENT_NODE:
           return a.createElement('span', null, t.nodeName)
         default:
-          return a.createElement('span', null, jt[t.nodeType])
+          return a.createElement('span', null, kt[t.nodeType])
       }
     },
-    Ut = function* (e) {
+    Wt = function* (e) {
       if (e && e.childNodes) {
-        if (Je(e)) return
+        if (Qe(e)) return
         for (let r = 0; r < e.childNodes.length; r++) {
           let n = e.childNodes[r]
           ;(n.nodeType === Node.TEXT_NODE &&
@@ -1325,83 +1398,15 @@ try {
           })
       }
     },
-    kt = (e) => a.createElement(We, {nodeRenderer: Ht, dataIterator: Ut, ...e}),
-    Gt = ue(kt),
-    Vt = dt(gt()),
-    qe = ({table: e = !1, data: t, ...r}) =>
+    Vt = (e) => a.createElement(Ze, {nodeRenderer: Gt, dataIterator: Wt, ...e}),
+    $t = ue(Vt),
+    Yt = gt(yt()),
+    et = ({table: e = !1, data: t, ...r}) =>
       e
-        ? a.createElement(Bt, {data: t, ...r})
-        : (0, Vt.default)(t)
-        ? a.createElement(Gt, {data: t, ...r})
-        : a.createElement(wt, {data: t, ...r})
-  var Bo = __STORYBOOKCOMPONENTS__,
-    {
-      A: Fo,
-      ActionBar: Xe,
-      AddonPanel: zo,
-      Badge: jo,
-      Bar: Ho,
-      Blockquote: Uo,
-      Button: ko,
-      Code: Go,
-      DL: Vo,
-      Div: $o,
-      DocumentWrapper: Wo,
-      ErrorFormatter: Yo,
-      FlexBar: Jo,
-      Form: qo,
-      H1: Xo,
-      H2: Zo,
-      H3: Ko,
-      H4: Qo,
-      H5: ei,
-      H6: ti,
-      HR: ri,
-      IconButton: ni,
-      IconButtonSkeleton: ai,
-      Icons: oi,
-      Img: ii,
-      LI: si,
-      Link: li,
-      ListItem: ui,
-      Loader: ci,
-      OL: fi,
-      P: pi,
-      Placeholder: di,
-      Pre: mi,
-      ResetWrapper: bi,
-      ScrollArea: Ze,
-      Separator: gi,
-      Spaced: hi,
-      Span: Ei,
-      StorybookIcon: yi,
-      StorybookLogo: Oi,
-      Symbols: vi,
-      SyntaxHighlighter: Ti,
-      TT: _i,
-      TabBar: Ri,
-      TabButton: Si,
-      TabWrapper: Ai,
-      Table: Ci,
-      Tabs: xi,
-      TabsState: wi,
-      TooltipLinkList: Ni,
-      TooltipMessage: Li,
-      TooltipNote: Ii,
-      UL: Di,
-      WithTooltip: Mi,
-      WithTooltipPure: Pi,
-      Zoom: Bi,
-      codeCommon: Fi,
-      components: zi,
-      createCopyToClipboardFunction: ji,
-      getStoryHref: Hi,
-      icons: Ui,
-      interleaveSeparators: ki,
-      nameSpaceClassNames: Gi,
-      resetComponents: Vi,
-      withReset: $i,
-    } = __STORYBOOKCOMPONENTS__
+        ? a.createElement(Ht, {data: t, ...r})
+        : (0, Yt.default)(t)
+        ? a.createElement($t, {data: t, ...r})
+        : a.createElement(It, {data: t, ...r})
   function v() {
     return (
       (v = Object.assign
@@ -1417,36 +1422,36 @@ try {
       v.apply(this, arguments)
     )
   }
-  function fe(e) {
+  function pe(e) {
     if (e === void 0)
       throw new ReferenceError(
         "this hasn't been initialised - super() hasn't been called"
       )
     return e
   }
-  function S(e, t) {
+  function R(e, t) {
     return (
-      (S = Object.setPrototypeOf
+      (R = Object.setPrototypeOf
         ? Object.setPrototypeOf.bind()
         : function (n, o) {
             return (n.__proto__ = o), n
           }),
-      S(e, t)
+      R(e, t)
     )
   }
-  function pe(e, t) {
+  function fe(e, t) {
     ;(e.prototype = Object.create(t.prototype)),
       (e.prototype.constructor = e),
-      S(e, t)
+      R(e, t)
   }
-  function V(e) {
+  function k(e) {
     return (
-      (V = Object.setPrototypeOf
+      (k = Object.setPrototypeOf
         ? Object.getPrototypeOf.bind()
         : function (r) {
             return r.__proto__ || Object.getPrototypeOf(r)
           }),
-      V(e)
+      k(e)
     )
   }
   function de(e) {
@@ -1467,24 +1472,24 @@ try {
       return !1
     }
   }
-  function D(e, t, r) {
+  function M(e, t, r) {
     return (
       me()
-        ? (D = Reflect.construct.bind())
-        : (D = function (o, i, u) {
+        ? (M = Reflect.construct.bind())
+        : (M = function (o, i, u) {
             var s = [null]
             s.push.apply(s, i)
             var l = Function.bind.apply(o, s),
               c = new l()
-            return u && S(c, u.prototype), c
+            return u && R(c, u.prototype), c
           }),
-      D.apply(null, arguments)
+      M.apply(null, arguments)
     )
   }
-  function $(e) {
+  function G(e) {
     var t = typeof Map == 'function' ? new Map() : void 0
     return (
-      ($ = function (n) {
+      (G = function (n) {
         if (n === null || !de(n)) return n
         if (typeof n != 'function')
           throw new TypeError(
@@ -1495,7 +1500,7 @@ try {
           t.set(n, o)
         }
         function o() {
-          return D(n, arguments, V(this).constructor)
+          return M(n, arguments, k(this).constructor)
         }
         return (
           (o.prototype = Object.create(n.prototype, {
@@ -1506,14 +1511,14 @@ try {
               configurable: !0,
             },
           })),
-          S(o, n)
+          R(o, n)
         )
       }),
-      $(e)
+      G(e)
     )
   }
   var T = (function (e) {
-    pe(t, e)
+    fe(t, e)
     function t(r) {
       var n
       if (!0)
@@ -1525,48 +1530,48 @@ try {
               ' for more information.'
           ) || this
       else for (var o, i, u; u < o; u++);
-      return fe(n)
+      return pe(n)
     }
     return t
-  })($(Error))
-  function Ke(e, t) {
+  })(G(Error))
+  function tt(e, t) {
     return e.substr(-t.length) === t
   }
-  var $t = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
-  function Qe(e) {
+  var Jt = /^([+-]?(?:\d+|\d*\.\d+))([a-z]*|%)$/
+  function rt(e) {
     if (typeof e != 'string') return e
-    var t = e.match($t)
+    var t = e.match(Jt)
     return t ? parseFloat(e) : e
   }
-  var Wt = function (t) {
+  var qt = function (t) {
       return function (r, n) {
         n === void 0 && (n = '16px')
         var o = r,
           i = n
         if (typeof r == 'string') {
-          if (!Ke(r, 'px')) throw new T(69, t, r)
-          o = Qe(r)
+          if (!tt(r, 'px')) throw new T(69, t, r)
+          o = rt(r)
         }
         if (typeof n == 'string') {
-          if (!Ke(n, 'px')) throw new T(70, t, n)
-          i = Qe(n)
+          if (!tt(n, 'px')) throw new T(70, t, n)
+          i = rt(n)
         }
         if (typeof o == 'string') throw new T(71, r, t)
         if (typeof i == 'string') throw new T(72, n, t)
         return '' + o / i + t
       }
     },
-    tt = Wt,
-    qs = tt('em')
-  var Xs = tt('rem')
+    at = qt,
+    el = at('em')
+  var tl = at('rem')
   function be(e) {
     return Math.round(e * 255)
   }
-  function Yt(e, t, r) {
+  function Xt(e, t, r) {
     return be(e) + ',' + be(t) + ',' + be(r)
   }
   function W(e, t, r, n) {
-    if ((n === void 0 && (n = Yt), t === 0)) return n(r, r, r)
+    if ((n === void 0 && (n = Xt), t === 0)) return n(r, r, r)
     var o = (((e % 360) + 360) % 360) / 60,
       i = (1 - Math.abs(2 * r - 1)) * t,
       u = i * (1 - Math.abs((o % 2) - 1)),
@@ -1584,13 +1589,13 @@ try {
       : o >= 4 && o < 5
       ? ((s = u), (c = i))
       : o >= 5 && o < 6 && ((s = i), (c = u))
-    var f = r - i / 2,
-      d = s + f,
-      p = l + f,
-      E = c + f
-    return n(d, p, E)
+    var p = r - i / 2,
+      d = s + p,
+      f = l + p,
+      E = c + p
+    return n(d, f, E)
   }
-  var et = {
+  var nt = {
     aliceblue: 'f0f8ff',
     antiquewhite: 'faebd7',
     aqua: '00ffff',
@@ -1740,32 +1745,32 @@ try {
     yellow: 'ff0',
     yellowgreen: '9acd32',
   }
-  function Jt(e) {
+  function Zt(e) {
     if (typeof e != 'string') return e
     var t = e.toLowerCase()
-    return et[t] ? '#' + et[t] : e
+    return nt[t] ? '#' + nt[t] : e
   }
-  var qt = /^#[a-fA-F0-9]{6}$/,
-    Xt = /^#[a-fA-F0-9]{8}$/,
-    Zt = /^#[a-fA-F0-9]{3}$/,
-    Kt = /^#[a-fA-F0-9]{4}$/,
+  var Kt = /^#[a-fA-F0-9]{6}$/,
+    Qt = /^#[a-fA-F0-9]{8}$/,
+    er = /^#[a-fA-F0-9]{3}$/,
+    tr = /^#[a-fA-F0-9]{4}$/,
     ge = /^rgb\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*\)$/i,
-    Qt =
+    rr =
       /^rgb(?:a)?\(\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,)?\s*(\d{1,3})\s*(?:,|\/)\s*([-+]?\d*[.]?\d+[%]?)\s*\)$/i,
-    er =
+    nr =
       /^hsl\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*\)$/i,
-    tr =
+    ar =
       /^hsl(?:a)?\(\s*(\d{0,3}[.]?[0-9]+(?:deg)?)\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,)?\s*(\d{1,3}[.]?[0-9]?)%\s*(?:,|\/)\s*([-+]?\d*[.]?\d+[%]?)\s*\)$/i
-  function M(e) {
+  function P(e) {
     if (typeof e != 'string') throw new T(3)
-    var t = Jt(e)
-    if (t.match(qt))
+    var t = Zt(e)
+    if (t.match(Kt))
       return {
         red: parseInt('' + t[1] + t[2], 16),
         green: parseInt('' + t[3] + t[4], 16),
         blue: parseInt('' + t[5] + t[6], 16),
       }
-    if (t.match(Xt)) {
+    if (t.match(Qt)) {
       var r = parseFloat((parseInt('' + t[7] + t[8], 16) / 255).toFixed(2))
       return {
         red: parseInt('' + t[1] + t[2], 16),
@@ -1774,13 +1779,13 @@ try {
         alpha: r,
       }
     }
-    if (t.match(Zt))
+    if (t.match(er))
       return {
         red: parseInt('' + t[1] + t[1], 16),
         green: parseInt('' + t[2] + t[2], 16),
         blue: parseInt('' + t[3] + t[3], 16),
       }
-    if (t.match(Kt)) {
+    if (t.match(tr)) {
       var n = parseFloat((parseInt('' + t[4] + t[4], 16) / 255).toFixed(2))
       return {
         red: parseInt('' + t[1] + t[1], 16),
@@ -1796,7 +1801,7 @@ try {
         green: parseInt('' + o[2], 10),
         blue: parseInt('' + o[3], 10),
       }
-    var i = Qt.exec(t.substring(0, 50))
+    var i = rr.exec(t.substring(0, 50))
     if (i)
       return {
         red: parseInt('' + i[1], 10),
@@ -1807,41 +1812,41 @@ try {
             ? parseFloat('' + i[4]) / 100
             : parseFloat('' + i[4]),
       }
-    var u = er.exec(t)
+    var u = nr.exec(t)
     if (u) {
       var s = parseInt('' + u[1], 10),
         l = parseInt('' + u[2], 10) / 100,
         c = parseInt('' + u[3], 10) / 100,
-        f = 'rgb(' + W(s, l, c) + ')',
-        d = ge.exec(f)
-      if (!d) throw new T(4, t, f)
+        p = 'rgb(' + W(s, l, c) + ')',
+        d = ge.exec(p)
+      if (!d) throw new T(4, t, p)
       return {
         red: parseInt('' + d[1], 10),
         green: parseInt('' + d[2], 10),
         blue: parseInt('' + d[3], 10),
       }
     }
-    var p = tr.exec(t.substring(0, 50))
-    if (p) {
-      var E = parseInt('' + p[1], 10),
-        h = parseInt('' + p[2], 10) / 100,
-        y = parseInt('' + p[3], 10) / 100,
+    var f = ar.exec(t.substring(0, 50))
+    if (f) {
+      var E = parseInt('' + f[1], 10),
+        h = parseInt('' + f[2], 10) / 100,
+        y = parseInt('' + f[3], 10) / 100,
         O = 'rgb(' + W(E, h, y) + ')',
-        L = ge.exec(O)
-      if (!L) throw new T(4, t, O)
+        N = ge.exec(O)
+      if (!N) throw new T(4, t, O)
       return {
-        red: parseInt('' + L[1], 10),
-        green: parseInt('' + L[2], 10),
-        blue: parseInt('' + L[3], 10),
+        red: parseInt('' + N[1], 10),
+        green: parseInt('' + N[2], 10),
+        blue: parseInt('' + N[3], 10),
         alpha:
-          parseFloat('' + p[4]) > 1
-            ? parseFloat('' + p[4]) / 100
-            : parseFloat('' + p[4]),
+          parseFloat('' + f[4]) > 1
+            ? parseFloat('' + f[4]) / 100
+            : parseFloat('' + f[4]),
       }
     }
     throw new T(5)
   }
-  function rr(e) {
+  function or(e) {
     var t = e.red / 255,
       r = e.green / 255,
       n = e.blue / 255,
@@ -1873,59 +1878,59 @@ try {
         : {hue: s, saturation: c, lightness: u}
     )
   }
-  function x(e) {
-    return rr(M(e))
+  function C(e) {
+    return or(P(e))
   }
-  var nr = function (t) {
+  var ir = function (t) {
       return t.length === 7 && t[1] === t[2] && t[3] === t[4] && t[5] === t[6]
         ? '#' + t[1] + t[3] + t[5]
         : t
     },
-    Ee = nr
-  function N(e) {
+    Ee = ir
+  function x(e) {
     var t = e.toString(16)
     return t.length === 1 ? '0' + t : t
   }
   function he(e) {
-    return N(Math.round(e * 255))
+    return x(Math.round(e * 255))
   }
-  function ar(e, t, r) {
+  function sr(e, t, r) {
     return Ee('#' + he(e) + he(t) + he(r))
   }
-  function ee(e, t, r) {
-    return W(e, t, r, ar)
+  function Q(e, t, r) {
+    return W(e, t, r, sr)
   }
-  function or(e, t, r) {
+  function lr(e, t, r) {
     if (typeof e == 'number' && typeof t == 'number' && typeof r == 'number')
-      return ee(e, t, r)
+      return Q(e, t, r)
     if (typeof e == 'object' && t === void 0 && r === void 0)
-      return ee(e.hue, e.saturation, e.lightness)
+      return Q(e.hue, e.saturation, e.lightness)
     throw new T(1)
   }
-  function ir(e, t, r, n) {
+  function ur(e, t, r, n) {
     if (
       typeof e == 'number' &&
       typeof t == 'number' &&
       typeof r == 'number' &&
       typeof n == 'number'
     )
-      return n >= 1 ? ee(e, t, r) : 'rgba(' + W(e, t, r) + ',' + n + ')'
+      return n >= 1 ? Q(e, t, r) : 'rgba(' + W(e, t, r) + ',' + n + ')'
     if (typeof e == 'object' && t === void 0 && r === void 0 && n === void 0)
       return e.alpha >= 1
-        ? ee(e.hue, e.saturation, e.lightness)
+        ? Q(e.hue, e.saturation, e.lightness)
         : 'rgba(' + W(e.hue, e.saturation, e.lightness) + ',' + e.alpha + ')'
     throw new T(2)
   }
   function ye(e, t, r) {
     if (typeof e == 'number' && typeof t == 'number' && typeof r == 'number')
-      return Ee('#' + N(e) + N(t) + N(r))
+      return Ee('#' + x(e) + x(t) + x(r))
     if (typeof e == 'object' && t === void 0 && r === void 0)
-      return Ee('#' + N(e.red) + N(e.green) + N(e.blue))
+      return Ee('#' + x(e.red) + x(e.green) + x(e.blue))
     throw new T(6)
   }
-  function te(e, t, r, n) {
+  function ee(e, t, r, n) {
     if (typeof e == 'string' && typeof t == 'number') {
-      var o = M(e)
+      var o = P(e)
       return 'rgba(' + o.red + ',' + o.green + ',' + o.blue + ',' + t + ')'
     } else {
       if (
@@ -1944,7 +1949,7 @@ try {
     }
     throw new T(7)
   }
-  var sr = function (t) {
+  var cr = function (t) {
       return (
         typeof t.red == 'number' &&
         typeof t.green == 'number' &&
@@ -1952,7 +1957,7 @@ try {
         (typeof t.alpha != 'number' || typeof t.alpha > 'u')
       )
     },
-    lr = function (t) {
+    pr = function (t) {
       return (
         typeof t.red == 'number' &&
         typeof t.green == 'number' &&
@@ -1960,7 +1965,7 @@ try {
         typeof t.alpha == 'number'
       )
     },
-    ur = function (t) {
+    fr = function (t) {
       return (
         typeof t.hue == 'number' &&
         typeof t.saturation == 'number' &&
@@ -1968,7 +1973,7 @@ try {
         (typeof t.alpha != 'number' || typeof t.alpha > 'u')
       )
     },
-    cr = function (t) {
+    dr = function (t) {
       return (
         typeof t.hue == 'number' &&
         typeof t.saturation == 'number' &&
@@ -1978,118 +1983,118 @@ try {
     }
   function w(e) {
     if (typeof e != 'object') throw new T(8)
-    if (lr(e)) return te(e)
-    if (sr(e)) return ye(e)
-    if (cr(e)) return ir(e)
-    if (ur(e)) return or(e)
+    if (pr(e)) return ee(e)
+    if (cr(e)) return ye(e)
+    if (dr(e)) return ur(e)
+    if (fr(e)) return lr(e)
     throw new T(8)
   }
-  function rt(e, t, r) {
+  function ot(e, t, r) {
     return function () {
       var o = r.concat(Array.prototype.slice.call(arguments))
-      return o.length >= t ? e.apply(this, o) : rt(e, t, o)
+      return o.length >= t ? e.apply(this, o) : ot(e, t, o)
     }
   }
-  function R(e) {
-    return rt(e, e.length, [])
+  function A(e) {
+    return ot(e, e.length, [])
   }
-  function fr(e, t) {
-    if (t === 'transparent') return t
-    var r = x(t)
-    return w(v({}, r, {hue: r.hue + parseFloat(e)}))
-  }
-  var Zs = R(fr)
-  function P(e, t, r) {
-    return Math.max(e, Math.min(t, r))
-  }
-  function pr(e, t) {
-    if (t === 'transparent') return t
-    var r = x(t)
-    return w(v({}, r, {lightness: P(0, 1, r.lightness - parseFloat(e))}))
-  }
-  var Ks = R(pr)
-  function dr(e, t) {
-    if (t === 'transparent') return t
-    var r = x(t)
-    return w(v({}, r, {saturation: P(0, 1, r.saturation - parseFloat(e))}))
-  }
-  var Qs = R(dr)
   function mr(e, t) {
     if (t === 'transparent') return t
-    var r = x(t)
-    return w(v({}, r, {lightness: P(0, 1, r.lightness + parseFloat(e))}))
+    var r = C(t)
+    return w(v({}, r, {hue: r.hue + parseFloat(e)}))
   }
-  var el = R(mr)
-  function br(e, t, r) {
+  var rl = A(mr)
+  function B(e, t, r) {
+    return Math.max(e, Math.min(t, r))
+  }
+  function br(e, t) {
+    if (t === 'transparent') return t
+    var r = C(t)
+    return w(v({}, r, {lightness: B(0, 1, r.lightness - parseFloat(e))}))
+  }
+  var nl = A(br)
+  function gr(e, t) {
+    if (t === 'transparent') return t
+    var r = C(t)
+    return w(v({}, r, {saturation: B(0, 1, r.saturation - parseFloat(e))}))
+  }
+  var al = A(gr)
+  function hr(e, t) {
+    if (t === 'transparent') return t
+    var r = C(t)
+    return w(v({}, r, {lightness: B(0, 1, r.lightness + parseFloat(e))}))
+  }
+  var ol = A(hr)
+  function Er(e, t, r) {
     if (t === 'transparent') return r
     if (r === 'transparent') return t
     if (e === 0) return r
-    var n = M(t),
+    var n = P(t),
       o = v({}, n, {alpha: typeof n.alpha == 'number' ? n.alpha : 1}),
-      i = M(r),
+      i = P(r),
       u = v({}, i, {alpha: typeof i.alpha == 'number' ? i.alpha : 1}),
       s = o.alpha - u.alpha,
       l = parseFloat(e) * 2 - 1,
       c = l * s === -1 ? l : l + s,
-      f = 1 + l * s,
-      d = (c / f + 1) / 2,
-      p = 1 - d,
+      p = 1 + l * s,
+      d = (c / p + 1) / 2,
+      f = 1 - d,
       E = {
-        red: Math.floor(o.red * d + u.red * p),
-        green: Math.floor(o.green * d + u.green * p),
-        blue: Math.floor(o.blue * d + u.blue * p),
+        red: Math.floor(o.red * d + u.red * f),
+        green: Math.floor(o.green * d + u.green * f),
+        blue: Math.floor(o.blue * d + u.blue * f),
         alpha: o.alpha * parseFloat(e) + u.alpha * (1 - parseFloat(e)),
       }
-    return te(E)
+    return ee(E)
   }
-  var gr = R(br),
-    nt = gr
-  function hr(e, t) {
-    if (t === 'transparent') return t
-    var r = M(t),
-      n = typeof r.alpha == 'number' ? r.alpha : 1,
-      o = v({}, r, {alpha: P(0, 1, (n * 100 + parseFloat(e) * 100) / 100)})
-    return te(o)
-  }
-  var Er = R(hr),
-    at = Er
-  function yr(e, t) {
-    if (t === 'transparent') return t
-    var r = x(t)
-    return w(v({}, r, {saturation: P(0, 1, r.saturation + parseFloat(e))}))
-  }
-  var tl = R(yr)
+  var yr = A(Er),
+    it = yr
   function Or(e, t) {
-    return t === 'transparent' ? t : w(v({}, x(t), {hue: parseFloat(e)}))
-  }
-  var rl = R(Or)
-  function vr(e, t) {
-    return t === 'transparent' ? t : w(v({}, x(t), {lightness: parseFloat(e)}))
-  }
-  var nl = R(vr)
-  function Tr(e, t) {
-    return t === 'transparent' ? t : w(v({}, x(t), {saturation: parseFloat(e)}))
-  }
-  var al = R(Tr)
-  function _r(e, t) {
-    return t === 'transparent' ? t : nt(parseFloat(e), 'rgb(0, 0, 0)', t)
-  }
-  var ol = R(_r)
-  function Rr(e, t) {
-    return t === 'transparent' ? t : nt(parseFloat(e), 'rgb(255, 255, 255)', t)
-  }
-  var il = R(Rr)
-  function Sr(e, t) {
     if (t === 'transparent') return t
-    var r = M(t),
+    var r = P(t),
+      n = typeof r.alpha == 'number' ? r.alpha : 1,
+      o = v({}, r, {alpha: B(0, 1, (n * 100 + parseFloat(e) * 100) / 100)})
+    return ee(o)
+  }
+  var vr = A(Or),
+    st = vr
+  function Tr(e, t) {
+    if (t === 'transparent') return t
+    var r = C(t)
+    return w(v({}, r, {saturation: B(0, 1, r.saturation + parseFloat(e))}))
+  }
+  var il = A(Tr)
+  function _r(e, t) {
+    return t === 'transparent' ? t : w(v({}, C(t), {hue: parseFloat(e)}))
+  }
+  var sl = A(_r)
+  function Ar(e, t) {
+    return t === 'transparent' ? t : w(v({}, C(t), {lightness: parseFloat(e)}))
+  }
+  var ll = A(Ar)
+  function Rr(e, t) {
+    return t === 'transparent' ? t : w(v({}, C(t), {saturation: parseFloat(e)}))
+  }
+  var ul = A(Rr)
+  function Sr(e, t) {
+    return t === 'transparent' ? t : it(parseFloat(e), 'rgb(0, 0, 0)', t)
+  }
+  var cl = A(Sr)
+  function Cr(e, t) {
+    return t === 'transparent' ? t : it(parseFloat(e), 'rgb(255, 255, 255)', t)
+  }
+  var pl = A(Cr)
+  function wr(e, t) {
+    if (t === 'transparent') return t
+    var r = P(t),
       n = typeof r.alpha == 'number' ? r.alpha : 1,
       o = v({}, r, {
-        alpha: P(0, 1, +(n * 100 - parseFloat(e) * 100).toFixed(2) / 100),
+        alpha: B(0, 1, +(n * 100 - parseFloat(e) * 100).toFixed(2) / 100),
       })
-    return te(o)
+    return ee(o)
   }
-  var sl = R(Sr)
-  var Ar = k.div({
+  var fl = A(wr)
+  var xr = j.div({
       display: 'flex',
       padding: 0,
       borderLeft: '5px solid transparent',
@@ -2098,8 +2103,8 @@ try {
       alignItems: 'flex-start',
       whiteSpace: 'pre',
     }),
-    Cr = k.div(({theme: e}) => ({
-      backgroundColor: at(0.5, e.appBorderColor),
+    Nr = j.div(({theme: e}) => ({
+      backgroundColor: st(0.5, e.appBorderColor),
       color: e.color.inverseText,
       fontSize: e.typography.size.s1,
       fontWeight: e.typography.weight.bold,
@@ -2108,33 +2113,33 @@ try {
       borderRadius: 20,
       margin: '2px 0px',
     })),
-    xr = k.div({flex: 1, padding: '0 0 0 5px'}),
-    wr = ({children: e, className: t}) =>
-      a.createElement(Ze, {horizontal: !0, vertical: !0, className: t}, e),
-    Nr = k(wr)({margin: 0, padding: '10px 5px 20px'}),
-    Lr = Fe(({theme: e, ...t}) =>
-      a.createElement(qe, {
+    Lr = j.div({flex: 1, padding: '0 0 0 5px'}),
+    Ir = ({children: e, className: t}) =>
+      a.createElement(ze, {horizontal: !0, vertical: !0, className: t}, e),
+    Dr = j(Ir)({margin: 0, padding: '10px 5px 20px'}),
+    Mr = ke(({theme: e, ...t}) =>
+      a.createElement(et, {
         theme: e.addonActionsTheme || 'chromeLight',
         table: !1,
         ...t,
       })
     ),
-    Ir = ({actions: e, onClear: t}) =>
+    Pr = ({actions: e, onClear: t}) =>
       a.createElement(
         Ne,
         null,
         a.createElement(
-          Nr,
+          Dr,
           null,
           e.map((r) =>
             a.createElement(
-              Ar,
+              xr,
               {key: r.id},
-              r.count > 1 && a.createElement(Cr, null, r.count),
+              r.count > 1 && a.createElement(Nr, null, r.count),
               a.createElement(
-                xr,
+                Lr,
                 null,
-                a.createElement(Lr, {
+                a.createElement(Mr, {
                   sortObjectKeys: !0,
                   showNonenumerable: !1,
                   name: r.data.name,
@@ -2144,16 +2149,16 @@ try {
             )
           )
         ),
-        a.createElement(Xe, {actionItems: [{title: 'Clear', onClick: t}]})
+        a.createElement(Be, {actionItems: [{title: 'Clear', onClick: t}]})
       ),
-    Dr = (e, t) => {
+    Br = (e, t) => {
       try {
-        return I(e, t)
+        return D(e, t)
       } catch {
         return !1
       }
     },
-    Mr = class extends we {
+    Fr = class extends xe {
       constructor(e) {
         super(e),
           (this.handleStoryChange = () => {
@@ -2167,7 +2172,7 @@ try {
               let n = [...r.actions],
                 o = n.length && n[0]
               return (
-                o && Dr(o.data, t.data)
+                o && Br(o.data, t.data)
                   ? o.count++
                   : ((t.count = 1), n.unshift(t)),
                 {actions: n.slice(0, t.options.limit)}
@@ -2176,7 +2181,7 @@ try {
           }),
           (this.clearActions = () => {
             let {api: t} = this.props
-            t.emit(Y), this.setState({actions: []})
+            t.emit(te), this.setState({actions: []})
           }),
           (this.mounted = !1),
           (this.state = {actions: []})
@@ -2184,55 +2189,57 @@ try {
       componentDidMount() {
         this.mounted = !0
         let {api: e} = this.props
-        e.on(j, this.addAction), e.on(U, this.handleStoryChange)
+        e.on(V, this.addAction), e.on(J, this.handleStoryChange)
       }
       componentWillUnmount() {
         this.mounted = !1
         let {api: e} = this.props
-        e.off(U, this.handleStoryChange), e.off(j, this.addAction)
+        e.off(J, this.handleStoryChange), e.off(V, this.addAction)
       }
       render() {
         let {actions: e = []} = this.state,
           {active: t} = this.props,
           r = {actions: e, onClear: this.clearActions}
-        return t ? a.createElement(Ir, {...r}) : null
+        return t ? a.createElement(Pr, {...r}) : null
       }
     }
-  function Pr({count: e}) {
-    let [t, r] = C(!1)
-    Me({
-      [j]: () => {
-        r((o) => !o)
-      },
-      [U]: () => {
-        r((o) => !o)
-      },
-      [Y]: () => {
-        r((o) => !o)
-      },
-    })
-    let n = e.current === 0 ? '' : ` (${e.current})`
-    return a.createElement(a.Fragment, null, 'Actions', n)
+  function zr() {
+    let [{count: e}, t] = Me(L, {count: 0})
+    return (
+      Pe({
+        [V]: () => {
+          t((r) => ({...r, count: r.count + 1}))
+        },
+        [J]: () => {
+          t((r) => ({...r, count: 0}))
+        },
+        [te]: () => {
+          t((r) => ({...r, count: 0}))
+        },
+      }),
+      a.createElement(
+        'div',
+        null,
+        a.createElement(
+          He,
+          {col: 1},
+          a.createElement(
+            'span',
+            {style: {display: 'inline-block', verticalAlign: 'middle'}},
+            'Actions'
+          ),
+          e === 0 ? '' : a.createElement(Fe, {status: 'neutral'}, e)
+        )
+      )
+    )
   }
-  re.register(z, (e) => {
-    let t = {current: 0}
-    e.on(U, (r) => {
-      t.current = 0
-    }),
-      e.on(j, () => {
-        t.current += 1
-      }),
-      e.on(Y, () => {
-        t.current = 0
-      }),
-      re.addPanel(Ce, {
-        title: a.createElement(Pr, {count: t}),
-        id: 'actions',
-        type: De.PANEL,
-        render: ({active: r, key: n}) =>
-          a.createElement(Mr, {key: n, api: e, active: !!r}),
-        paramKey: Ae,
-      })
+  re.register(L, (e) => {
+    re.add(Ce, {
+      title: zr,
+      type: De.PANEL,
+      render: ({active: t}) => a.createElement(Fr, {api: e, active: !!t}),
+      paramKey: Se,
+    })
   })
 } catch (e) {
   console.error(

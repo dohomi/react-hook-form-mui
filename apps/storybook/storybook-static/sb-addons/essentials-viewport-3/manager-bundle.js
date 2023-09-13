@@ -12,7 +12,7 @@ try {
       ? new Proxy(e, {get: (t, o) => (typeof require < 'u' ? require : t)[o]})
       : e)(function (e) {
     if (typeof require < 'u') return require.apply(this, arguments)
-    throw new Error('Dynamic require of "' + e + '" is not supported')
+    throw Error('Dynamic require of "' + e + '" is not supported')
   })
   var M = (e, t) => () => (e && (t = e((e = 0))), t)
   var de = (e, t) => () => (t || e((t = {exports: {}}).exports, t), t.exports)
@@ -36,13 +36,13 @@ try {
       e
     )
   )
-  var m = M(() => {})
   var c = M(() => {})
   var f = M(() => {})
+  var g = M(() => {})
   var te = de((ee, V) => {
-    m()
     c()
     f()
+    g()
     ;(function (e) {
       if (typeof ee == 'object' && typeof V < 'u') V.exports = e()
       else if (typeof define == 'function' && define.amd) define([], e)
@@ -57,9 +57,9 @@ try {
       }
     })(function () {
       var e, t, o
-      return (function n(p, g, h) {
+      return (function n(p, m, h) {
         function r(s, y) {
-          if (!g[s]) {
+          if (!m[s]) {
             if (!p[s]) {
               var u = typeof R == 'function' && R
               if (!y && u) return u(s, !0)
@@ -67,7 +67,7 @@ try {
               var b = new Error("Cannot find module '" + s + "'")
               throw ((b.code = 'MODULE_NOT_FOUND'), b)
             }
-            var l = (g[s] = {exports: {}})
+            var l = (m[s] = {exports: {}})
             p[s][0].call(
               l.exports,
               function (a) {
@@ -78,11 +78,11 @@ try {
               l.exports,
               n,
               p,
-              g,
+              m,
               h
             )
           }
-          return g[s].exports
+          return m[s].exports
         }
         for (var i = typeof R == 'function' && R, x = 0; x < h.length; x++)
           r(h[x])
@@ -90,7 +90,7 @@ try {
       })(
         {
           1: [
-            function (n, p, g) {
+            function (n, p, m) {
               p.exports = function (h) {
                 if (typeof Map != 'function' || h) {
                   var r = n('./similar')
@@ -101,7 +101,7 @@ try {
             {'./similar': 2},
           ],
           2: [
-            function (n, p, g) {
+            function (n, p, m) {
               function h() {
                 return (
                   (this.list = []),
@@ -168,7 +168,7 @@ try {
             {},
           ],
           3: [
-            function (n, p, g) {
+            function (n, p, m) {
               var h = n('map-or-similar')
               p.exports = function (s) {
                 var y = new h(!1),
@@ -177,7 +177,7 @@ try {
                   var l = function () {
                     var a = y,
                       d,
-                      C,
+                      A,
                       I = arguments.length - 1,
                       k = Array(I + 1),
                       E = !0,
@@ -202,18 +202,18 @@ try {
                     return (
                       E &&
                         (a.has(arguments[I])
-                          ? (C = a.get(arguments[I]))
+                          ? (A = a.get(arguments[I]))
                           : (E = !1)),
                       E ||
-                        ((C = b.apply(null, arguments)),
-                        a.set(arguments[I], C)),
+                        ((A = b.apply(null, arguments)),
+                        a.set(arguments[I], A)),
                       s > 0 &&
                         ((k[I] = {cacheItem: a, arg: arguments[I]}),
                         E ? r(u, k) : u.push(k),
                         u.length > s && i(u.shift())),
                       (l.wasMemoized = E),
                       (l.numArgs = I + 1),
-                      C
+                      A
                     )
                   }
                   return (
@@ -266,18 +266,18 @@ try {
       )(3)
     })
   })
-  m()
   c()
   f()
-  m()
+  g()
   c()
   f()
-  m()
+  g()
   c()
   f()
-  m()
+  g()
   c()
   f()
+  g()
   var w = 'storybook/viewport',
     q = 'viewport',
     Ne = `${w}/update`,
@@ -322,9 +322,9 @@ try {
           },
         })
     }
-  m()
   c()
   f()
+  g()
   var G = {
     mobile1: {
       name: 'Small mobile',
@@ -342,9 +342,9 @@ try {
       type: 'tablet',
     },
   }
-  m()
   c()
   f()
+  g()
   var S = __REACT__,
     {
       Children: $e,
@@ -376,9 +376,9 @@ try {
       useState: X,
       version: ct,
     } = __REACT__
-  m()
   c()
   f()
+  g()
   var yt = __STORYBOOKAPI__,
     {
       ActiveTabs: bt,
@@ -387,14 +387,14 @@ try {
       Provider: It,
       addons: N,
       combineParameters: Tt,
-      controlOrMetaKey: vt,
-      controlOrMetaSymbol: _t,
+      controlOrMetaKey: _t,
+      controlOrMetaSymbol: vt,
       eventMatchesShortcut: Ot,
       eventToShortcut: Et,
       isMacLike: Pt,
       isShortcutTaken: Rt,
-      keyToSymbol: At,
-      merge: Ct,
+      keyToSymbol: Ct,
+      merge: At,
       mockChannel: kt,
       optionOrAltSymbol: Lt,
       shortcutMatchesShortcut: Mt,
@@ -413,9 +413,9 @@ try {
       useStorybookState: Ft,
     } = __STORYBOOKAPI__
   var D = ce(te(), 1)
-  m()
   c()
   f()
+  g()
   var Jt = __STORYBOOKTHEMING__,
     {
       CacheProvider: Qt,
@@ -437,82 +437,83 @@ try {
       jsx: ci,
       keyframes: fi,
       lighten: gi,
-      styled: A,
+      styled: C,
       themes: xi,
       typography: yi,
       useTheme: bi,
       withTheme: re,
     } = __STORYBOOKTHEMING__
-  m()
   c()
   f()
-  var vi = __STORYBOOKCOMPONENTS__,
+  g()
+  var _i = __STORYBOOKCOMPONENTS__,
     {
-      A: _i,
+      A: vi,
       ActionBar: Oi,
       AddonPanel: Ei,
       Badge: Pi,
       Bar: Ri,
-      Blockquote: Ai,
-      Button: Ci,
-      Code: ki,
-      DL: Li,
-      Div: Mi,
-      DocumentWrapper: Ni,
-      ErrorFormatter: Vi,
-      FlexBar: Bi,
-      Form: zi,
-      H1: Di,
-      H2: Hi,
-      H3: qi,
-      H4: Wi,
-      H5: Fi,
-      H6: Gi,
-      HR: Yi,
+      Blockquote: Ci,
+      Button: Ai,
+      ClipboardCode: ki,
+      Code: Li,
+      DL: Mi,
+      Div: Ni,
+      DocumentWrapper: Vi,
+      ErrorFormatter: Bi,
+      FlexBar: zi,
+      Form: Di,
+      H1: Hi,
+      H2: qi,
+      H3: Wi,
+      H4: Fi,
+      H5: Gi,
+      H6: Yi,
+      HR: Ui,
       IconButton: B,
-      IconButtonSkeleton: Ui,
+      IconButtonSkeleton: $i,
       Icons: z,
-      Img: $i,
-      LI: ji,
-      Link: Xi,
-      ListItem: Ki,
-      Loader: Zi,
-      OL: Ji,
-      P: Qi,
-      Placeholder: er,
-      Pre: tr,
-      ResetWrapper: ir,
-      ScrollArea: rr,
-      Separator: or,
-      Spaced: nr,
-      Span: sr,
-      StorybookIcon: ar,
-      StorybookLogo: lr,
-      Symbols: pr,
-      SyntaxHighlighter: hr,
-      TT: ur,
-      TabBar: dr,
-      TabButton: mr,
-      TabWrapper: cr,
-      Table: fr,
-      Tabs: gr,
-      TabsState: xr,
+      Img: ji,
+      LI: Xi,
+      Link: Ki,
+      ListItem: Zi,
+      Loader: Ji,
+      OL: Qi,
+      P: er,
+      Placeholder: tr,
+      Pre: ir,
+      ResetWrapper: rr,
+      ScrollArea: or,
+      Separator: nr,
+      Spaced: sr,
+      Span: ar,
+      StorybookIcon: lr,
+      StorybookLogo: pr,
+      Symbols: hr,
+      SyntaxHighlighter: ur,
+      TT: dr,
+      TabBar: mr,
+      TabButton: cr,
+      TabWrapper: fr,
+      Table: gr,
+      Tabs: xr,
+      TabsState: yr,
       TooltipLinkList: oe,
-      TooltipMessage: yr,
-      TooltipNote: br,
-      UL: wr,
+      TooltipMessage: br,
+      TooltipNote: wr,
+      UL: Sr,
       WithTooltip: ne,
-      WithTooltipPure: Sr,
-      Zoom: Ir,
-      codeCommon: Tr,
+      WithTooltipPure: Ir,
+      Zoom: Tr,
+      codeCommon: _r,
       components: vr,
-      createCopyToClipboardFunction: _r,
-      getStoryHref: Or,
-      icons: Er,
-      interleaveSeparators: Pr,
-      nameSpaceClassNames: Rr,
+      createCopyToClipboardFunction: Or,
+      getStoryHref: Er,
+      icons: Pr,
+      interleaveSeparators: Rr,
+      nameSpaceClassNames: Cr,
       resetComponents: Ar,
-      withReset: Cr,
+      withReset: kr,
     } = __STORYBOOKCOMPONENTS__
   var ye = (0, D.default)(50)((e) => [
       ...be,
@@ -526,25 +527,18 @@ try {
     be = [P],
     we = (0, D.default)(50)((e, t, o, n, p) =>
       e
-        .map((g) => {
-          switch (g.id) {
-            case P.id:
-              if (t.id === g.id) return null
-            default:
-              return {
-                ...g,
-                onClick: () => {
-                  o({...n, selected: g.id}), p()
-                },
-              }
-          }
-        })
-        .filter(Boolean)
+        .filter((m) => m.id !== P.id || t.id !== m.id)
+        .map((m) => ({
+          ...m,
+          onClick: () => {
+            o({...n, selected: m.id}), p()
+          },
+        }))
     ),
     Se = 'storybook-preview-wrapper',
     Ie = ({width: e, height: t, ...o}) => ({...o, height: e, width: t}),
-    Te = A.div(() => ({display: 'inline-flex'})),
-    se = A.div(({theme: e}) => ({
+    Te = C.div(() => ({display: 'inline-flex'})),
+    se = C.div(({theme: e}) => ({
       display: 'inline-block',
       textDecoration: 'none',
       padding: 10,
@@ -557,13 +551,13 @@ try {
       borderBottom: '3px solid transparent',
       background: 'transparent',
     })),
-    ve = A(B)(() => ({display: 'inline-flex', alignItems: 'center'})),
-    _e = A.div(({theme: e}) => ({
+    _e = C(B)(() => ({display: 'inline-flex', alignItems: 'center'})),
+    ve = C.div(({theme: e}) => ({
       fontSize: e.typography.size.s2 - 1,
       marginLeft: 10,
     })),
     Oe = (e, t, o) => {
-      if (t === null) return null
+      if (t === null) return
       let n = typeof t == 'function' ? t(e) : t
       return o ? Ie(n) : n
     },
@@ -575,7 +569,7 @@ try {
             defaultViewport: n = P.id,
             disable: p,
           } = J(q, {}),
-          [g, h] = Z(w, {selected: n, isRotated: o === 'landscape'}),
+          [m, h] = Z(w, {selected: n, isRotated: o === 'landscape'}),
           r = ye(t),
           i = Q(),
           [x, s] = X(!1)
@@ -588,11 +582,11 @@ try {
           }, [t]),
           L(() => {
             h({
-              selected: n || (t[g.selected] ? g.selected : P.id),
+              selected: n || (m.selected && t[m.selected] ? m.selected : P.id),
               isRotated: o === 'landscape',
             })
           }, [o, n])
-        let {selected: y, isRotated: u} = g,
+        let {selected: y, isRotated: u} = m,
           b =
             r.find((d) => d.id === y) ||
             r.find((d) => d.id === n) ||
@@ -614,24 +608,24 @@ try {
                   {
                     placement: 'top',
                     tooltip: ({onHide: d}) =>
-                      S.createElement(oe, {links: we(r, b, h, g, d)}),
+                      S.createElement(oe, {links: we(r, b, h, m, d)}),
                     closeOnOutsideClick: !0,
                     onVisibleChange: s,
                   },
                   S.createElement(
-                    ve,
+                    _e,
                     {
                       key: 'viewport',
                       title: 'Change the size of the preview',
                       active: x || !!a,
                       onDoubleClick: () => {
-                        h({...g, selected: P.id})
+                        h({...m, selected: P.id})
                       },
                     },
                     S.createElement(z, {icon: 'grow'}),
                     a
                       ? S.createElement(
-                          _e,
+                          ve,
                           null,
                           u ? `${b.title} (L)` : `${b.title} (P)`
                         )
@@ -644,7 +638,7 @@ try {
                       null,
                       S.createElement(ie, {
                         styles: {
-                          ['iframe[data-is-storybook="true"]']: {
+                          'iframe[data-is-storybook="true"]': {
                             margin: 'auto',
                             transition: 'none',
                             position: 'relative',
@@ -676,7 +670,7 @@ try {
                           key: 'viewport-rotate',
                           title: 'Rotate viewport',
                           onClick: () => {
-                            h({...g, isRotated: !u})
+                            h({...m, isRotated: !u})
                           },
                         },
                         S.createElement(z, {icon: 'transfer'})
@@ -695,7 +689,6 @@ try {
   N.register(w, () => {
     N.add(w, {
       title: 'viewport / media-queries',
-      id: 'viewport',
       type: K.TOOL,
       match: ({viewMode: e}) => e === 'story',
       render: () => U(Ee, null),

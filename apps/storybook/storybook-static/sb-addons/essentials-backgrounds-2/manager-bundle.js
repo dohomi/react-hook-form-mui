@@ -5,14 +5,14 @@ try {
   var ie = Object.getOwnPropertyNames
   var ae = Object.getPrototypeOf,
     se = Object.prototype.hasOwnProperty
-  var C = ((e) =>
+  var x = ((e) =>
     typeof require < 'u'
       ? require
       : typeof Proxy < 'u'
       ? new Proxy(e, {get: (t, s) => (typeof require < 'u' ? require : t)[s]})
       : e)(function (e) {
     if (typeof require < 'u') return require.apply(this, arguments)
-    throw new Error('Dynamic require of "' + e + '" is not supported')
+    throw Error('Dynamic require of "' + e + '" is not supported')
   })
   var L = (e, t) => () => (e && (t = e((e = 0))), t)
   var le = (e, t) => () => (t || e((t = {exports: {}}).exports, t), t.exports)
@@ -61,7 +61,7 @@ try {
         function n(a, h) {
           if (!g[a]) {
             if (!i[a]) {
-              var d = typeof C == 'function' && C
+              var d = typeof x == 'function' && x
               if (!h && d) return d(a, !0)
               if (r) return r(a, !0)
               var b = new Error("Cannot find module '" + a + "'")
@@ -84,7 +84,7 @@ try {
           }
           return g[a].exports
         }
-        for (var r = typeof C == 'function' && C, u = 0; u < l.length; u++)
+        for (var r = typeof x == 'function' && x, u = 0; u < l.length; u++)
           n(l[u])
         return n
       })(
@@ -180,38 +180,38 @@ try {
                       A,
                       O = arguments.length - 1,
                       B = Array(O + 1),
-                      x = !0,
-                      I
+                      C = !0,
+                      k
                     if ((p.numArgs || p.numArgs === 0) && p.numArgs !== O + 1)
                       throw new Error(
                         'Memoizerific functions should always be called with the same number of arguments'
                       )
-                    for (I = 0; I < O; I++) {
+                    for (k = 0; k < O; k++) {
                       if (
-                        ((B[I] = {cacheItem: y, arg: arguments[I]}),
-                        y.has(arguments[I]))
+                        ((B[k] = {cacheItem: y, arg: arguments[k]}),
+                        y.has(arguments[k]))
                       ) {
-                        y = y.get(arguments[I])
+                        y = y.get(arguments[k])
                         continue
                       }
-                      ;(x = !1),
+                      ;(C = !1),
                         (S = new l(!1)),
-                        y.set(arguments[I], S),
+                        y.set(arguments[k], S),
                         (y = S)
                     }
                     return (
-                      x &&
+                      C &&
                         (y.has(arguments[O])
                           ? (A = y.get(arguments[O]))
-                          : (x = !1)),
-                      x ||
+                          : (C = !1)),
+                      C ||
                         ((A = b.apply(null, arguments)),
                         y.set(arguments[O], A)),
                       a > 0 &&
                         ((B[O] = {cacheItem: y, arg: arguments[O]}),
-                        x ? n(d, B) : d.push(B),
+                        C ? n(d, B) : d.push(B),
                         d.length > a && r(d.shift())),
-                      (p.wasMemoized = x),
+                      (p.wasMemoized = C),
                       (p.numArgs = O + 1),
                       A
                     )
@@ -365,7 +365,7 @@ try {
   var Me = __STORYBOOKCLIENTLOGGER__,
     {deprecate: Le, logger: M, once: Re, pretty: we} = __STORYBOOKCLIENTLOGGER__
   var R = 'storybook/background',
-    k = 'backgrounds',
+    I = 'backgrounds',
     {document: Ke, window: Fe} = Y
   var $ = (e, t = [], s) => {
     if (e === 'transparent') return 'transparent'
@@ -424,11 +424,11 @@ try {
       ActiveTabs: Et,
       Consumer: vt,
       ManagerContext: Ot,
-      Provider: kt,
+      Provider: It,
       addons: N,
-      combineParameters: It,
-      controlOrMetaKey: xt,
-      controlOrMetaSymbol: Ct,
+      combineParameters: kt,
+      controlOrMetaKey: Ct,
+      controlOrMetaSymbol: xt,
       eventMatchesShortcut: At,
       eventToShortcut: Bt,
       isMacLike: Mt,
@@ -465,94 +465,95 @@ try {
       Bar: sr,
       Blockquote: lr,
       Button: ur,
-      Code: dr,
-      DL: cr,
-      Div: fr,
-      DocumentWrapper: mr,
-      ErrorFormatter: pr,
-      FlexBar: hr,
-      Form: gr,
-      H1: yr,
-      H2: br,
-      H3: Sr,
-      H4: Tr,
-      H5: _r,
-      H6: Er,
-      HR: vr,
+      ClipboardCode: dr,
+      Code: cr,
+      DL: fr,
+      Div: mr,
+      DocumentWrapper: pr,
+      ErrorFormatter: hr,
+      FlexBar: gr,
+      Form: yr,
+      H1: br,
+      H2: Sr,
+      H3: Tr,
+      H4: _r,
+      H5: Er,
+      H6: vr,
+      HR: Or,
       IconButton: z,
-      IconButtonSkeleton: Or,
+      IconButtonSkeleton: Ir,
       Icons: q,
       Img: kr,
-      LI: Ir,
+      LI: Cr,
       Link: xr,
-      ListItem: Cr,
-      Loader: Ar,
-      OL: Br,
-      P: Mr,
-      Placeholder: Lr,
-      Pre: Rr,
-      ResetWrapper: wr,
-      ScrollArea: Pr,
-      Separator: Nr,
-      Spaced: Gr,
-      Span: Hr,
-      StorybookIcon: Dr,
-      StorybookLogo: zr,
-      Symbols: qr,
-      SyntaxHighlighter: Kr,
-      TT: Fr,
-      TabBar: Yr,
-      TabButton: Wr,
-      TabWrapper: $r,
-      Table: Ur,
-      Tabs: jr,
-      TabsState: Vr,
+      ListItem: Ar,
+      Loader: Br,
+      OL: Mr,
+      P: Lr,
+      Placeholder: Rr,
+      Pre: wr,
+      ResetWrapper: Pr,
+      ScrollArea: Nr,
+      Separator: Gr,
+      Spaced: Hr,
+      Span: Dr,
+      StorybookIcon: zr,
+      StorybookLogo: qr,
+      Symbols: Kr,
+      SyntaxHighlighter: Fr,
+      TT: Yr,
+      TabBar: Wr,
+      TabButton: $r,
+      TabWrapper: Ur,
+      Table: jr,
+      Tabs: Vr,
+      TabsState: Zr,
       TooltipLinkList: X,
-      TooltipMessage: Zr,
-      TooltipNote: Jr,
-      UL: Qr,
+      TooltipMessage: Jr,
+      TooltipNote: Qr,
+      UL: Xr,
       WithTooltip: ee,
-      WithTooltipPure: Xr,
-      Zoom: en,
-      codeCommon: tn,
-      components: rn,
-      createCopyToClipboardFunction: nn,
-      getStoryHref: on,
-      icons: an,
-      interleaveSeparators: sn,
-      nameSpaceClassNames: ln,
-      resetComponents: un,
-      withReset: dn,
+      WithTooltipPure: en,
+      Zoom: tn,
+      codeCommon: rn,
+      components: nn,
+      createCopyToClipboardFunction: on,
+      getStoryHref: an,
+      icons: sn,
+      interleaveSeparators: ln,
+      nameSpaceClassNames: un,
+      resetComponents: dn,
+      withReset: cn,
     } = __STORYBOOKCOMPONENTS__
   c()
   f()
   m()
-  var hn = __STORYBOOKTHEMING__,
+  var gn = __STORYBOOKTHEMING__,
     {
-      CacheProvider: gn,
-      ClassNames: yn,
-      Global: bn,
-      ThemeProvider: Sn,
-      background: Tn,
-      color: _n,
-      convert: En,
-      create: vn,
-      createCache: On,
+      CacheProvider: yn,
+      ClassNames: bn,
+      Global: Sn,
+      ThemeProvider: Tn,
+      background: _n,
+      color: En,
+      convert: vn,
+      create: On,
+      createCache: In,
       createGlobal: kn,
-      createReset: In,
+      createReset: Cn,
       css: xn,
-      darken: Cn,
-      ensure: An,
-      ignoreSsrWarning: Bn,
-      isPropValid: Mn,
-      jsx: Ln,
-      keyframes: Rn,
-      lighten: wn,
+      darken: An,
+      ensure: Bn,
+      ignoreSsrWarning: Mn,
+      isPropValid: Ln,
+      jsx: Rn,
+      keyframes: wn,
+      lighten: Pn,
       styled: te,
-      themes: Pn,
-      typography: Nn,
-      useTheme: Gn,
-      withTheme: Hn,
+      themes: Nn,
+      typography: Gn,
+      useTheme: Hn,
+      withTheme: Dn,
     } = __STORYBOOKTHEMING__
   var ce = te.span(
       ({background: e}) => ({
@@ -582,10 +583,10 @@ try {
     }),
     me = {default: null, disable: !0, values: []},
     pe = P(function () {
-      let e = H(k, me),
+      let e = H(I, me),
         [t, s] = V(!1),
         [o, i] = G(),
-        g = o[k]?.value,
+        g = o[I]?.value,
         l = j(() => $(g, e.values, e.default), [e, g])
       Array.isArray(e) &&
         M.warn(
@@ -593,7 +594,7 @@ try {
         )
       let n = U(
         (r) => {
-          i({[k]: {...o[k], value: r}})
+          i({[I]: {...o[I], value: r}})
         },
         [e, o, i]
       )
@@ -629,16 +630,16 @@ try {
     }),
     he = P(function () {
       let [e, t] = G(),
-        {grid: s} = H(k, {grid: {disable: !1}})
+        {grid: s} = H(I, {grid: {disable: !1}})
       if (s?.disable) return null
-      let o = e[k]?.grid || !1
+      let o = e[I]?.grid || !1
       return T.createElement(
         z,
         {
           key: 'background',
           active: o,
           title: 'Apply a grid to the preview',
-          onClick: () => t({[k]: {...e[k], grid: !o}}),
+          onClick: () => t({[I]: {...e[I], grid: !o}}),
         },
         T.createElement(q, {icon: 'grid'})
       )
@@ -646,7 +647,6 @@ try {
   N.register(R, () => {
     N.add(R, {
       title: 'Backgrounds',
-      id: 'backgrounds',
       type: Z.TOOL,
       match: ({viewMode: e}) => !!(e && e.match(/^(story|docs)$/)),
       render: () =>
