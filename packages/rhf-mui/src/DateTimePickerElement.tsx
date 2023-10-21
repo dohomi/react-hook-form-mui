@@ -56,7 +56,7 @@ export default function DateTimePickerElement<
       name={name}
       rules={validation}
       control={control}
-      defaultValue={'' as any}
+      defaultValue={null as any}
       render={({field, fieldState: {error}}) => {
         if (field?.value && typeof field?.value === 'string') {
           field.value = new Date(field.value) as any // need to see if this works for all localization adaptors
