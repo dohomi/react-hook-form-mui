@@ -82,7 +82,7 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
       rules={validation}
       control={control}
       render={({field: {value, onChange, onBlur}, fieldState: {error}}) => {
-        helperText = error
+        const parsedHelperText = error
           ? typeof customErrorFn === 'function'
             ? customErrorFn(error)
             : error.message
@@ -192,7 +192,7 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                 )
               })}
             </Select>
-            {helperText && <FormHelperText>{helperText}</FormHelperText>}
+            {parsedHelperText && <FormHelperText error={!!error}>{parsedHelperText}</FormHelperText>}
           </FormControl>
         )
       }}
