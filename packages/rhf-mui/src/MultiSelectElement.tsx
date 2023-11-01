@@ -192,7 +192,11 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                 )
               })}
             </Select>
-            {parsedHelperText && <FormHelperText error={!!error}>{parsedHelperText}</FormHelperText>}
+            {parsedHelperText && (
+              <FormHelperText error={!!error}>
+                {parsedHelperText}
+              </FormHelperText>
+            )}
           </FormControl>
         )
       }}

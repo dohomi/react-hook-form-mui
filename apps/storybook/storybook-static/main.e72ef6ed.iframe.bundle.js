@@ -8,14 +8,14 @@
             './AutocompleteElement.stories': [
               './stories/AutocompleteElement.stories.tsx',
               211,
-              456,
+              334,
               263,
               695,
             ],
             './AutocompleteElement.stories.tsx': [
               './stories/AutocompleteElement.stories.tsx',
               211,
-              456,
+              334,
               263,
               695,
             ],

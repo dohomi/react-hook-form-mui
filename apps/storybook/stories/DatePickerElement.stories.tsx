@@ -24,6 +24,9 @@ export const Clearable: Story = {
     label: 'Date Picker',
     name: 'basic',
     slotProps: {
+      textField: {
+        // clearable: true
+      },
       actionBar: {
         actions: ['clear'],
       },

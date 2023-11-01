@@ -319,7 +319,7 @@
             args: {
               label: 'Date Picker',
               name: 'basic',
-              slotProps: {actionBar: {actions: ['clear']}},
+              slotProps: {textField: {}, actionBar: {actions: ['clear']}},
             },
           },
           Required = {
@@ -406,7 +406,7 @@
                   source: _objectSpread(
                     {
                       originalSource:
-                        "{\n  args: {\n    label: 'Date Picker',\n    name: 'basic',\n    slotProps: {\n      actionBar: {\n        actions: ['clear']\n      }\n    }\n  }\n}",
+                        "{\n  args: {\n    label: 'Date Picker',\n    name: 'basic',\n    slotProps: {\n      textField: {\n        // clearable: true\n      },\n      actionBar: {\n        actions: ['clear']\n      }\n    }\n  }\n}",
                     },
                     null === (_Clearable$parameters2 = Clearable.parameters) ||
                       void 0 === _Clearable$parameters2 ||

@@ -1268,7 +1268,7 @@
               name,
               rules: validation,
               control,
-              defaultValue: '',
+              defaultValue: null,
               render: function render(_ref2) {
                 var field = _ref2.field,
                   error = _ref2.fieldState.error
@@ -2990,166 +2990,162 @@
                   value = _ref2$field.value,
                   onChange = _ref2$field.onChange,
                   onBlur = _ref2$field.onBlur,
-                  error = _ref2.fieldState.error
-                return (
-                  (helperText = error
+                  error = _ref2.fieldState.error,
+                  parsedHelperText = error
                     ? 'function' == typeof customErrorFn
                       ? customErrorFn(error)
                       : error.message
-                    : helperText),
-                  MultiSelectElement_jsx(
-                    FormControl.Z,
-                    (0, esm_extends.Z)({}, formControlProps, {
-                      style: MultiSelectElement_objectSpread(
-                        MultiSelectElement_objectSpread(
-                          {},
-                          null == formControlProps
-                            ? void 0
-                            : formControlProps.style
-                        ),
+                    : helperText
+                return MultiSelectElement_jsx(
+                  FormControl.Z,
+                  (0, esm_extends.Z)({}, formControlProps, {
+                    style: MultiSelectElement_objectSpread(
+                      MultiSelectElement_objectSpread(
                         {},
-                        {minWidth}
+                        null == formControlProps
+                          ? void 0
+                          : formControlProps.style
                       ),
-                      variant: rest.variant,
-                      fullWidth: rest.fullWidth,
-                      error: !!error,
-                      size: rest.size,
-                    }),
-                    label &&
-                      MultiSelectElement_jsx(
-                        InputLabel.Z,
-                        {
-                          size: 'small' === rest.size ? 'small' : void 0,
-                          error: !!error,
-                          htmlFor:
-                            rest.id || 'select-multi-select-'.concat(name),
-                          required,
-                        },
-                        label
-                      ),
+                      {},
+                      {minWidth}
+                    ),
+                    variant: rest.variant,
+                    fullWidth: rest.fullWidth,
+                    error: !!error,
+                    size: rest.size,
+                  }),
+                  label &&
                     MultiSelectElement_jsx(
-                      Select.Z,
-                      (0, esm_extends.Z)({}, rest, {
-                        id: rest.id || 'select-multi-select-'.concat(name),
-                        multiple: !0,
-                        label: label || void 0,
+                      InputLabel.Z,
+                      {
+                        size: 'small' === rest.size ? 'small' : void 0,
                         error: !!error,
-                        value: value || [],
+                        htmlFor: rest.id || 'select-multi-select-'.concat(name),
                         required,
-                        onChange,
-                        onBlur,
-                        MenuProps: MultiSelectElement_objectSpread(
-                          MultiSelectElement_objectSpread({}, rest.MenuProps),
-                          {},
-                          {
-                            PaperProps: MultiSelectElement_objectSpread(
-                              {},
-                              null !==
-                                (_rest$MenuProps$Paper =
-                                  null === (_rest$MenuProps = rest.MenuProps) ||
-                                  void 0 === _rest$MenuProps
-                                    ? void 0
-                                    : _rest$MenuProps.PaperProps) &&
-                                void 0 !== _rest$MenuProps$Paper
-                                ? _rest$MenuProps$Paper
-                                : {
-                                    style: MultiSelectElement_objectSpread(
-                                      {
-                                        maxHeight: menuMaxHeight,
-                                        width: menuMaxWidth,
-                                      },
+                      },
+                      label
+                    ),
+                  MultiSelectElement_jsx(
+                    Select.Z,
+                    (0, esm_extends.Z)({}, rest, {
+                      id: rest.id || 'select-multi-select-'.concat(name),
+                      multiple: !0,
+                      label: label || void 0,
+                      error: !!error,
+                      value: value || [],
+                      required,
+                      onChange,
+                      onBlur,
+                      MenuProps: MultiSelectElement_objectSpread(
+                        MultiSelectElement_objectSpread({}, rest.MenuProps),
+                        {},
+                        {
+                          PaperProps: MultiSelectElement_objectSpread(
+                            {},
+                            null !==
+                              (_rest$MenuProps$Paper =
+                                null === (_rest$MenuProps = rest.MenuProps) ||
+                                void 0 === _rest$MenuProps
+                                  ? void 0
+                                  : _rest$MenuProps.PaperProps) &&
+                              void 0 !== _rest$MenuProps$Paper
+                              ? _rest$MenuProps$Paper
+                              : {
+                                  style: MultiSelectElement_objectSpread(
+                                    {
+                                      maxHeight: menuMaxHeight,
+                                      width: menuMaxWidth,
+                                    },
+                                    null ===
+                                      (_rest$MenuProps2 = rest.MenuProps) ||
+                                      void 0 === _rest$MenuProps2 ||
                                       null ===
-                                        (_rest$MenuProps2 = rest.MenuProps) ||
-                                        void 0 === _rest$MenuProps2 ||
-                                        null ===
-                                          (_rest$MenuProps2 =
-                                            _rest$MenuProps2.PaperProps) ||
-                                        void 0 === _rest$MenuProps2
-                                        ? void 0
-                                        : _rest$MenuProps2.style
-                                    ),
-                                  }
-                            ),
-                          }
-                        ),
-                        renderValue:
-                          'function' == typeof rest.renderValue
-                            ? rest.renderValue
-                            : showChips
-                            ? function (selected) {
-                                return MultiSelectElement_jsx(
-                                  'div',
-                                  {style: {display: 'flex', flexWrap: 'wrap'}},
-                                  (preserveOrder
-                                    ? options.filter(function (option) {
-                                        return selected.includes(option)
-                                      })
-                                    : selected || []
-                                  ).map(function (selectedValue) {
-                                    return MultiSelectElement_jsx(Chip.Z, {
-                                      key: selectedValue,
-                                      label: renderLabel(selectedValue),
-                                      style: {
-                                        display: 'flex',
-                                        flexWrap: 'wrap',
-                                      },
-                                      onDelete: function onDelete() {
-                                        onChange(
-                                          value.filter(function (i) {
-                                            return i !== selectedValue
-                                          })
-                                        )
-                                      },
-                                      deleteIcon: MultiSelectElement_jsx(
-                                        Cancel.Z,
-                                        {
-                                          onMouseDown: function onMouseDown(
-                                            ev
-                                          ) {
-                                            ev.stopPropagation()
-                                          },
-                                        }
-                                      ),
+                                        (_rest$MenuProps2 =
+                                          _rest$MenuProps2.PaperProps) ||
+                                      void 0 === _rest$MenuProps2
+                                      ? void 0
+                                      : _rest$MenuProps2.style
+                                  ),
+                                }
+                          ),
+                        }
+                      ),
+                      renderValue:
+                        'function' == typeof rest.renderValue
+                          ? rest.renderValue
+                          : showChips
+                          ? function (selected) {
+                              return MultiSelectElement_jsx(
+                                'div',
+                                {style: {display: 'flex', flexWrap: 'wrap'}},
+                                (preserveOrder
+                                  ? options.filter(function (option) {
+                                      return selected.includes(option)
                                     })
+                                  : selected || []
+                                ).map(function (selectedValue) {
+                                  return MultiSelectElement_jsx(Chip.Z, {
+                                    key: selectedValue,
+                                    label: renderLabel(selectedValue),
+                                    style: {display: 'flex', flexWrap: 'wrap'},
+                                    onDelete: function onDelete() {
+                                      onChange(
+                                        value.filter(function (i) {
+                                          return i !== selectedValue
+                                        })
+                                      )
+                                    },
+                                    deleteIcon: MultiSelectElement_jsx(
+                                      Cancel.Z,
+                                      {
+                                        onMouseDown: function onMouseDown(ev) {
+                                          ev.stopPropagation()
+                                        },
+                                      }
+                                    ),
                                   })
-                                )
-                              }
-                            : function (selected) {
-                                return Array.isArray(selected)
-                                  ? selected.map(renderLabel).join(', ')
-                                  : ''
-                              },
-                      }),
-                      options.map(function (item) {
-                        var val = item[itemValue || itemKey] || item,
-                          isChecked =
-                            !!Array.isArray(value) && value.includes(val)
-                        return MultiSelectElement_jsx(
-                          MenuItem.Z,
-                          {
-                            key: val,
-                            value: val,
-                            sx: {
-                              fontWeight: function fontWeight(theme) {
-                                return isChecked
-                                  ? theme.typography.fontWeightBold
-                                  : theme.typography.fontWeightRegular
-                              },
+                                })
+                              )
+                            }
+                          : function (selected) {
+                              return Array.isArray(selected)
+                                ? selected.map(renderLabel).join(', ')
+                                : ''
+                            },
+                    }),
+                    options.map(function (item) {
+                      var val = item[itemValue || itemKey] || item,
+                        isChecked =
+                          !!Array.isArray(value) && value.includes(val)
+                      return MultiSelectElement_jsx(
+                        MenuItem.Z,
+                        {
+                          key: val,
+                          value: val,
+                          sx: {
+                            fontWeight: function fontWeight(theme) {
+                              return isChecked
+                                ? theme.typography.fontWeightBold
+                                : theme.typography.fontWeightRegular
                             },
                           },
-                          showCheckbox &&
-                            MultiSelectElement_jsx(Checkbox.Z, {
-                              checked: isChecked,
-                            }),
-                          MultiSelectElement_jsx(ListItemText.Z, {
-                            primary: item[itemLabel] || item,
-                          })
-                        )
-                      })
-                    ),
-                    helperText &&
-                      MultiSelectElement_jsx(FormHelperText.Z, null, helperText)
-                  )
+                        },
+                        showCheckbox &&
+                          MultiSelectElement_jsx(Checkbox.Z, {
+                            checked: isChecked,
+                          }),
+                        MultiSelectElement_jsx(ListItemText.Z, {
+                          primary: item[itemLabel] || item,
+                        })
+                      )
+                    })
+                  ),
+                  parsedHelperText &&
+                    MultiSelectElement_jsx(
+                      FormHelperText.Z,
+                      {error: !!error},
+                      parsedHelperText
+                    )
                 )
               },
             })
@@ -4423,6 +4419,7 @@
             loading = _ref.loading,
             showCheckbox = _ref.showCheckbox,
             rules = _ref.rules,
+            loadingIndicator = _ref.loadingIndicator,
             required = _ref.required,
             multiple = _ref.multiple,
             matchId = _ref.matchId,
@@ -4437,7 +4434,13 @@
                   (null == rules ? void 0 : rules.required) ||
                   'This field is required',
               }
-            )
+            ),
+            loadingElement =
+              loadingIndicator ||
+              AutocompleteElement_jsx(CircularProgress.Z, {
+                color: 'inherit',
+                size: 20,
+              })
           return AutocompleteElement_jsx(index_esm.Qr, {
             name,
             control,
@@ -4627,12 +4630,7 @@
                               endAdornment: AutocompleteElement_jsx(
                                 react.Fragment,
                                 null,
-                                loading
-                                  ? AutocompleteElement_jsx(
-                                      CircularProgress.Z,
-                                      {color: 'inherit', size: 20}
-                                    )
-                                  : null,
+                                loading ? loadingElement : null,
                                 params.InputProps.endAdornment
                               ),
                             },
@@ -4699,6 +4697,11 @@
               matchId: {
                 required: !1,
                 tsType: {name: 'boolean'},
+                description: '',
+              },
+              loadingIndicator: {
+                required: !1,
+                tsType: {name: 'ReactNode'},
                 description: '',
               },
               rules: {
@@ -4839,6 +4842,13 @@
                   name: 'matchId',
                   required: !1,
                   type: {name: 'boolean'},
+                },
+                loadingIndicator: {
+                  defaultValue: null,
+                  description: '',
+                  name: 'loadingIndicator',
+                  required: !1,
+                  type: {name: 'ReactNode'},
                 },
                 rules: {
                   defaultValue: null,

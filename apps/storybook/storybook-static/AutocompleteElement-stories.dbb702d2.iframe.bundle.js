@@ -21,6 +21,7 @@
             MultiSelectPredefined: () => MultiSelectPredefined,
             MultiSelectRequired: () => MultiSelectRequired,
             MultiSelectRequiredCustom: () => MultiSelectRequiredCustom,
+            WithCustomLoading: () => WithCustomLoading,
             WithTooltip: () => WithTooltip,
             default: () => __WEBPACK_DEFAULT_EXPORT__,
           })
@@ -40,6 +41,8 @@
           _MultiSelectCheckbox$2,
           _Loading$parameters,
           _Loading$parameters2,
+          _WithCustomLoading$pa,
+          _WithCustomLoading$pa2,
           _MatchId$parameters,
           _MatchId$parameters2,
           _MatchIdMulti$paramet,
@@ -67,12 +70,16 @@
           _mui_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
             '../../node_modules/@mui/material/Button/Button.js'
           ),
-          _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+          _mui_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
             '../../node_modules/@mui/material/Tooltip/Tooltip.js'
           ),
-          _mui_icons_material_LocationOn__WEBPACK_IMPORTED_MODULE_6__ =
+          _mui_icons_material_LocationOn__WEBPACK_IMPORTED_MODULE_7__ =
             __webpack_require__(
               './node_modules/@mui/icons-material/LocationOn.js'
+            ),
+          _mui_icons_material_AutoMode__WEBPACK_IMPORTED_MODULE_6__ =
+            __webpack_require__(
+              './node_modules/@mui/icons-material/AutoMode.js'
             ),
           __jsx = react__WEBPACK_IMPORTED_MODULE_0__.createElement
         function ownKeys(object, enumerableOnly) {
@@ -186,6 +193,20 @@
               loading: !0,
             },
           },
+          WithCustomLoading = {
+            args: {
+              label: 'Loading State',
+              name: 'loading',
+              options: [],
+              multiple: !0,
+              showCheckbox: !0,
+              loading: !0,
+              loadingIndicator: __jsx(
+                _mui_icons_material_AutoMode__WEBPACK_IMPORTED_MODULE_6__.Z,
+                null
+              ),
+            },
+          },
           MatchId = {
             args: {label: 'Match ID', name: 'match-id', options, matchId: !0},
           },
@@ -206,7 +227,7 @@
                 placeholder: 'Some placeholder',
                 InputProps: {
                   startAdornment: __jsx(
-                    _mui_icons_material_LocationOn__WEBPACK_IMPORTED_MODULE_6__.Z,
+                    _mui_icons_material_LocationOn__WEBPACK_IMPORTED_MODULE_7__.Z,
                     null
                   ),
                   endAdornment: null,
@@ -219,7 +240,7 @@
               FormWrap,
               null,
               __jsx(
-                _mui_material__WEBPACK_IMPORTED_MODULE_7__.Z,
+                _mui_material__WEBPACK_IMPORTED_MODULE_8__.Z,
                 {title: 'Some Tooltip'},
                 __jsx(
                   'div',
@@ -498,6 +519,40 @@
                       void 0 === _Loading$parameters2
                       ? void 0
                       : _Loading$parameters2.source
+                  ),
+                }
+              ),
+            }
+          )),
+          (WithCustomLoading.parameters = _objectSpread(
+            _objectSpread({}, WithCustomLoading.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null ===
+                    (_WithCustomLoading$pa = WithCustomLoading.parameters) ||
+                    void 0 === _WithCustomLoading$pa
+                    ? void 0
+                    : _WithCustomLoading$pa.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  args: {\n    label: 'Loading State',\n    name: 'loading',\n    options: [],\n    multiple: true,\n    showCheckbox: true,\n    loading: true,\n    loadingIndicator: <AutoModeIcon />\n  }\n}",
+                    },
+                    null ===
+                      (_WithCustomLoading$pa2 = WithCustomLoading.parameters) ||
+                      void 0 === _WithCustomLoading$pa2 ||
+                      null ===
+                        (_WithCustomLoading$pa2 =
+                          _WithCustomLoading$pa2.docs) ||
+                      void 0 === _WithCustomLoading$pa2
+                      ? void 0
+                      : _WithCustomLoading$pa2.source
                   ),
                 }
               ),
