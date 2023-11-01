@@ -4,7 +4,7 @@ import {Meta, StoryObj} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {Box, Button, Tooltip} from '@mui/material'
 import LocationIcon from '@mui/icons-material/LocationOn'
-
+import AutoModeIcon from '@mui/icons-material/AutoMode'
 const meta = {
   title: 'Autocomplete',
   component: AutocompleteElement,
@@ -113,6 +113,18 @@ export const Loading = {
     multiple: true,
     showCheckbox: true,
     loading: true,
+  },
+}
+
+export const WithCustomLoading = {
+  args: {
+    label: 'Loading State',
+    name: 'loading',
+    options: [],
+    multiple: true,
+    showCheckbox: true,
+    loading: true,
+    loadingIndicator: <AutoModeIcon />,
   },
 }
 

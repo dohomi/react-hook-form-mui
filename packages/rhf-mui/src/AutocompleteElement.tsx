@@ -29,6 +29,7 @@ export type AutocompleteElementProps<
   loading?: boolean
   multiple?: M
   matchId?: boolean
+  loadingIndicator?: ReactNode
   rules?: ControllerProps<F>['rules']
   parseError?: (error: FieldError) => ReactNode
   required?: boolean
@@ -55,6 +56,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
   loading,
   showCheckbox,
   rules,
+  loadingIndicator,
   required,
   multiple,
   matchId,
@@ -74,6 +76,11 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
       required: rules?.required || 'This field is required',
     }),
   }
+
+  const loadingElement = loadingIndicator || (
+    <CircularProgress color="inherit" size={20} />
+  )
+
   return (
     <Controller
       name={name}
@@ -161,9 +168,7 @@ export default function AutocompleteElement<TFieldValues extends FieldValues>({
                   ...params.InputProps,
                   endAdornment: (
                     <>
-                      {loading ? (
-                        <CircularProgress color="inherit" size={20} />
-                      ) : null}
+                      {loading ? loadingElement : null}
                       {params.InputProps.endAdornment}
                     </>
                   ),
