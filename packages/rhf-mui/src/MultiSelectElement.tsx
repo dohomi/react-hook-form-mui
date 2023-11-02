@@ -81,7 +81,10 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({field: {value, onChange, onBlur}, fieldState: {error}}) => {
+      render={({
+        field: {value, onChange, onBlur, ref},
+        fieldState: {error},
+      }) => {
         const parsedHelperText = error
           ? typeof customErrorFn === 'function'
             ? customErrorFn(error)
@@ -169,6 +172,7 @@ export default function MultiSelectElement<TFieldValues extends FieldValues>({
                         ? selected.map(renderLabel).join(', ')
                         : ''
               }
+              inputRef={ref}
             >
               {options.map((item) => {
                 const val: string | number = item[itemValue || itemKey] || item
