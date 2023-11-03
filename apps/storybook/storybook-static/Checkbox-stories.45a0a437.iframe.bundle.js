@@ -179,10 +179,13 @@
           __webpack_require__.d(__webpack_exports__, {
             Basic: () => Basic,
             LabelPosition: () => LabelPosition,
+            Required: () => Required,
             default: () => __WEBPACK_DEFAULT_EXPORT__,
           })
         var _Basic$parameters,
           _Basic$parameters2,
+          _Required$parameters,
+          _Required$parameters2,
           _LabelPosition$parame,
           _LabelPosition$parame2,
           _Users_dominicgarms_Documents_Coding_react_react_hook_form_mui_node_modules_babel_runtime_helpers_esm_defineProperty_js__WEBPACK_IMPORTED_MODULE_1__ =
@@ -260,6 +263,10 @@
         }
         Template.displayName = 'Template'
         var Basic = {render: Template, args: {label: 'Label', name: 'basic'}},
+          Required = {
+            render: Template,
+            args: {label: 'Label', name: 'basic', required: !0},
+          },
           LabelPosition = {
             render: Template,
             args: {
@@ -298,6 +305,37 @@
             ),
           }
         )),
+          (Required.parameters = _objectSpread(
+            _objectSpread({}, Required.parameters),
+            {},
+            {
+              docs: _objectSpread(
+                _objectSpread(
+                  {},
+                  null === (_Required$parameters = Required.parameters) ||
+                    void 0 === _Required$parameters
+                    ? void 0
+                    : _Required$parameters.docs
+                ),
+                {},
+                {
+                  source: _objectSpread(
+                    {
+                      originalSource:
+                        "{\n  render: Template,\n  args: {\n    label: 'Label',\n    name: 'basic',\n    required: true\n  }\n}",
+                    },
+                    null === (_Required$parameters2 = Required.parameters) ||
+                      void 0 === _Required$parameters2 ||
+                      null ===
+                        (_Required$parameters2 = _Required$parameters2.docs) ||
+                      void 0 === _Required$parameters2
+                      ? void 0
+                      : _Required$parameters2.source
+                  ),
+                }
+              ),
+            }
+          )),
           (LabelPosition.parameters = _objectSpread(
             _objectSpread({}, LabelPosition.parameters),
             {},

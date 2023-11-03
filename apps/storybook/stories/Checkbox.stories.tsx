@@ -27,6 +27,16 @@ export const Basic = {
   },
 }
 
+export const Required = {
+  render: Template,
+
+  args: {
+    label: 'Label',
+    name: 'basic',
+    required: true,
+  },
+}
+
 export const LabelPosition = {
   render: Template,
 

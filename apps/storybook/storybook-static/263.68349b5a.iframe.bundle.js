@@ -1866,6 +1866,7 @@
                 var _ref2$field = _ref2.field,
                   value = _ref2$field.value,
                   _onChange = _ref2$field.onChange,
+                  ref = _ref2$field.ref,
                   error = _ref2.fieldState.error,
                   parsedHelperText = error
                     ? 'function' == typeof customErrorFn
@@ -1899,6 +1900,7 @@
                                 'function' == typeof rest.onChange &&
                                   rest.onChange(ev, !value)
                             },
+                            inputRef: ref,
                           })
                         ),
                       })
@@ -2990,6 +2992,7 @@
                   value = _ref2$field.value,
                   onChange = _ref2$field.onChange,
                   onBlur = _ref2$field.onBlur,
+                  ref = _ref2$field.ref,
                   error = _ref2.fieldState.error,
                   parsedHelperText = error
                     ? 'function' == typeof customErrorFn
@@ -3112,6 +3115,7 @@
                                 ? selected.map(renderLabel).join(', ')
                                 : ''
                             },
+                      inputRef: ref,
                     }),
                     options.map(function (item) {
                       var val = item[itemValue || itemKey] || item,
@@ -4452,6 +4456,7 @@
                 _onChange = _ref2$field.onChange,
                 _onBlur = _ref2$field.onBlur,
                 value = _ref2$field.value,
+                ref = _ref2$field.ref,
                 error = _ref2.fieldState.error,
                 currentValue = multiple
                   ? value || []
@@ -4654,6 +4659,7 @@
                             : null == textFieldProps
                             ? void 0
                             : textFieldProps.helperText,
+                          inputRef: ref,
                         }
                       )
                     )
