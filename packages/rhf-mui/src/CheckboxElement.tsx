@@ -53,7 +53,7 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
       name={name}
       rules={validation}
       control={control}
-      render={({field: {value, onChange}, fieldState: {error}}) => {
+      render={({field: {value, onChange, ref}, fieldState: {error}}) => {
         const parsedHelperText = error
           ? typeof customErrorFn === 'function'
             ? customErrorFn(error)
@@ -83,6 +83,7 @@ export default function CheckboxElement<TFieldValues extends FieldValues>({
                         rest.onChange(ev, !value)
                       }
                     }}
+                    inputRef={ref}
                   />
                 }
               />
