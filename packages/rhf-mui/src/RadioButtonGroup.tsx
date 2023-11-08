@@ -119,7 +119,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
               option
             )
           }
-          let val = returnObject ? value[valueKey] : value
+          let val = returnObject ? value?.[valueKey] : value
           if (type === 'number') {
             val = Number(val)
           }
