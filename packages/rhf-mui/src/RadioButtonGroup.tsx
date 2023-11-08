@@ -9,6 +9,7 @@ import {
   FormLabelProps,
   Radio,
   RadioGroup,
+  RadioProps,
   useTheme,
 } from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
@@ -32,6 +33,7 @@ export type RadioButtonGroupProps<T extends FieldValues> = {
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control' | 'value'>
   formLabelProps?: Omit<FormLabelProps, 'required' | 'error'>
   disabled?: boolean
+  size?: RadioProps['size']
 }
 
 export default function RadioButtonGroup<TFieldValues extends FieldValues>({
@@ -51,6 +53,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
   labelProps,
   disabled,
   formLabelProps,
+  size = 'medium',
   ...rest
 }: RadioButtonGroupProps<TFieldValues>): JSX.Element {
   const theme = useTheme()
@@ -105,6 +108,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
                   color: error ? theme.palette.error.main : undefined,
                 }}
                 checked={!value}
+                size={size}
               />
             }
             label={emptyOptionLabel}
@@ -134,6 +138,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
                   }}
                   disabled={disabled}
                   checked={isChecked}
+                  size={size}
                 />
               }
               value={optionKey}

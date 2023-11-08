@@ -52,6 +52,17 @@ export const Required = {
   },
 }
 
+export const Size = {
+  render: Template,
+
+  args: {
+    label: 'Size',
+    name: 'size',
+    size: 'medium',
+    options,
+  },
+}
+
 export const ValueAsNumber = {
   render: Template,
 
