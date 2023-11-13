@@ -596,6 +596,12 @@
             shouldDisableMonth: 'Month is not allowed',
             shouldDisableYear: 'Year is not allowed',
           },
+          useUtils = __webpack_require__(
+            '../../node_modules/@mui/x-date-pickers/internals/hooks/useUtils.js'
+          ),
+          validateDate = __webpack_require__(
+            '../../node_modules/@mui/x-date-pickers/internals/utils/validation/validateDate.js'
+          ),
           DatePickerElement_excluded = [
             'parseError',
             'name',
@@ -656,39 +662,71 @@
             control = _ref.control,
             textReadOnly = _ref.textReadOnly,
             slotProps = _ref.slotProps,
-            _ref$overwriteErrorMe = _ref.overwriteErrorMessages,
-            overwriteErrorMessages =
-              void 0 === _ref$overwriteErrorMe
-                ? defaultErrorMessages
-                : _ref$overwriteErrorMe,
+            overwriteErrorMessages = _ref.overwriteErrorMessages,
             rest = (0, objectWithoutProperties.Z)(
               _ref,
               DatePickerElement_excluded
             ),
+            errorMessages = DatePickerElement_objectSpread(
+              DatePickerElement_objectSpread({}, defaultErrorMessages),
+              overwriteErrorMessages
+            ),
             errorMsgFn = useFormError(),
-            _useState = (0, react.useState)(null),
-            internalError = _useState[0],
-            setInternalError = _useState[1],
+            adapter = (0, useUtils.Do)(),
             customErrorFn = parseError || errorMsgFn
           return (
             required &&
               !validation.required &&
               (validation.required = 'This field is required'),
+            (validation.validate = DatePickerElement_objectSpread(
+              {
+                internal: function internal(value) {
+                  var _ref2,
+                    _rest$timezone,
+                    inputTimezone =
+                      null != value && adapter.utils.isValid(value)
+                        ? adapter.utils.getTimezone(value)
+                        : null,
+                    internalError = (0, validateDate.q)({
+                      props: {
+                        shouldDisableDate: rest.shouldDisableDate,
+                        shouldDisableMonth: rest.shouldDisableMonth,
+                        shouldDisableYear: rest.shouldDisableYear,
+                        disablePast: Boolean(rest.disablePast),
+                        disableFuture: Boolean(rest.disableFuture),
+                        minDate: rest.minDate,
+                        maxDate: rest.maxDate,
+                        timezone:
+                          null !==
+                            (_ref2 =
+                              null !== (_rest$timezone = rest.timezone) &&
+                              void 0 !== _rest$timezone
+                                ? _rest$timezone
+                                : inputTimezone) && void 0 !== _ref2
+                            ? _ref2
+                            : 'default',
+                      },
+                      value,
+                      adapter,
+                    })
+                  return null == internalError || errorMessages[internalError]
+                },
+              },
+              validation.validate
+            )),
             DatePickerElement_jsx(index_esm.Qr, {
               name,
               rules: validation,
               control,
               defaultValue: null,
-              render: function render(_ref2) {
-                var field = _ref2.field,
-                  error = _ref2.fieldState.error
+              render: function render(_ref3) {
+                var field = _ref3.field,
+                  error = _ref3.fieldState.error
                 null != field &&
                   field.value &&
                   'string' == typeof (null == field ? void 0 : field.value) &&
                   (field.value = new Date(field.value))
-                var errorMessage = internalError
-                  ? overwriteErrorMessages[internalError]
-                  : error
+                var errorMessage = error
                   ? 'function' == typeof customErrorFn
                     ? customErrorFn(error)
                     : error.message
@@ -696,9 +734,6 @@
                 return DatePickerElement_jsx(
                   DatePicker.M,
                   (0, esm_extends.Z)({}, rest, field, {
-                    onError: function onError(iError) {
-                      return setInternalError(iError)
-                    },
                     ref: function ref(r) {
                       field.ref(null == r ? void 0 : r.querySelector('input'))
                     },
@@ -720,6 +755,14 @@
                           {},
                           {
                             required,
+                            onBlur: function onBlur(event) {
+                              field.onBlur(),
+                                'function' ==
+                                  typeof (null == inputProps
+                                    ? void 0
+                                    : inputProps.onBlur) &&
+                                  inputProps.onBlur(event)
+                            },
                             error: !!errorMessage,
                             helperText:
                               errorMessage ||
@@ -756,12 +799,6 @@
                   name: "ControllerProps['rules']",
                   raw: "ControllerProps<T>['rules']",
                 },
-                description: '',
-              },
-              overwriteErrorMessages: {
-                defaultValue: {value: 'defaultErrorMessages', computed: !0},
-                required: !1,
-                tsType: {name: 'defaultErrorMessages'},
                 description: '',
               },
               name: {
@@ -845,6 +882,11 @@
                   ],
                   raw: "Omit<DatePickerSlotsComponentsProps<TDate>, 'textField'>",
                 },
+                description: '',
+              },
+              overwriteErrorMessages: {
+                required: !1,
+                tsType: {name: 'defaultErrorMessages'},
                 description: '',
               },
             },
@@ -932,10 +974,7 @@
                   },
                 },
                 overwriteErrorMessages: {
-                  defaultValue: {
-                    value:
-                      "{\n  disableFuture: 'Date must be in the past',\n  maxDate: 'Date is later than the maximum allowed date',\n  disablePast: 'Past date is not allowed',\n  invalidDate: 'Date is invalid',\n  minDate: 'Date is earlier than the minimum allowed date',\n  shouldDisableDate: 'Date is not allowed',\n  shouldDisableMonth: 'Month is not allowed',\n  shouldDisableYear: 'Year is not allowed',\n}",
-                  },
+                  defaultValue: null,
                   description: '',
                   name: 'overwriteErrorMessages',
                   required: !1,
@@ -3830,7 +3869,11 @@
                     ),
                     option
                   )
-                var val = returnObject ? value[valueKey] : value
+                var val = returnObject
+                  ? null == value
+                    ? void 0
+                    : value[valueKey]
+                  : value
                 'number' === type && (val = Number(val))
                 var isChecked = val === optionKey
                 return RadioButtonGroup_jsx(
