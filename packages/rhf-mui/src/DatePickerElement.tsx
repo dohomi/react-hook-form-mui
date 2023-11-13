@@ -13,9 +13,13 @@ import {
 import {TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, useState} from 'react'
+import {ReactNode} from 'react'
 import {DateValidationError} from '@mui/x-date-pickers'
 import {defaultErrorMessages} from './dateErrorHelper'
+import {
+  useLocalizationContext,
+  validateDate,
+} from '@mui/x-date-pickers/internals'
 
 export type DatePickerElementProps<
   T extends FieldValues,
@@ -44,15 +48,45 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
   control,
   textReadOnly,
   slotProps,
-  overwriteErrorMessages = defaultErrorMessages,
+  overwriteErrorMessages,
   ...rest
 }: DatePickerElementProps<TFieldValues, any, any>): JSX.Element {
+  const errorMessages = {
+    ...defaultErrorMessages,
+    ...overwriteErrorMessages,
+  }
   const errorMsgFn = useFormError()
-  const [internalError, setInternalError] =
-    useState<DateValidationError | null>(null)
+  const adapter = useLocalizationContext()
+
   const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
+  }
+
+  validation.validate = {
+    internal: (value) => {
+      const inputTimezone =
+        value == null || !adapter.utils.isValid(value)
+          ? null
+          : adapter.utils.getTimezone(value)
+
+      const internalError = validateDate({
+        props: {
+          shouldDisableDate: rest.shouldDisableDate,
+          shouldDisableMonth: rest.shouldDisableMonth,
+          shouldDisableYear: rest.shouldDisableYear,
+          disablePast: Boolean(rest.disablePast),
+          disableFuture: Boolean(rest.disableFuture),
+          minDate: rest.minDate,
+          maxDate: rest.maxDate,
+          timezone: rest.timezone ?? inputTimezone ?? 'default',
+        },
+        value,
+        adapter,
+      })
+      return internalError == null || errorMessages[internalError]
+    },
+    ...validation.validate,
   }
 
   return (
@@ -66,9 +100,7 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
           field.value = new Date(field.value) as any // need to see if this works for all localization adaptors
         }
 
-        const errorMessage = internalError
-          ? overwriteErrorMessages[internalError]
-          : error
+        const errorMessage = error
           ? typeof customErrorFn === 'function'
             ? customErrorFn(error)
             : error.message
@@ -77,7 +109,6 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
           <DatePicker
             {...rest}
             {...field}
-            onError={(iError) => setInternalError(iError)}
             ref={(r) => {
               field.ref(r?.querySelector('input'))
             }}
@@ -88,7 +119,6 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
               }
             }}
             onChange={(v, keyboardInputValue) => {
-              // console.log(v, keyboardInputValue)
               field.onChange(v, keyboardInputValue)
               if (typeof rest.onChange === 'function') {
                 rest.onChange(v, keyboardInputValue)
@@ -99,6 +129,12 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
               textField: {
                 ...inputProps,
                 required,
+                onBlur: (event) => {
+                  field.onBlur()
+                  if (typeof inputProps?.onBlur === 'function') {
+                    inputProps.onBlur(event)
+                  }
+                },
                 error: !!errorMessage,
                 helperText: errorMessage
                   ? errorMessage
