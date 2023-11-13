@@ -24,9 +24,6 @@ export const Clearable: Story = {
     label: 'Date Picker',
     name: 'basic',
     slotProps: {
-      textField: {
-        // clearable: true
-      },
       actionBar: {
         actions: ['clear'],
       },
@@ -48,6 +45,13 @@ export const RequiredCustomMessage: Story = {
     name: 'requiredCustomMessage',
     required: true,
     validation: {required: 'Custom required message'},
+  },
+}
+
+export const WrongValidatedDate: Story = {
+  args: {
+    label: 'Datetime Picker',
+    name: 'wrong_date',
   },
 }
 

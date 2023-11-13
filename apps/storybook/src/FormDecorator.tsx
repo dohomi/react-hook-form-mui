@@ -10,6 +10,7 @@ export function FormContainerDecorator(Story) {
         defaultValues={{
           preset: '2023-02-01',
           datetime: null,
+          wrong_date: '2023-13-199',
         }}
         onSuccess={action('submit')}
       >

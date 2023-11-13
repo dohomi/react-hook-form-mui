@@ -13,7 +13,9 @@ import {
 import {TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode} from 'react'
+import {ReactNode, useState} from 'react'
+import {DateValidationError} from '@mui/x-date-pickers'
+import {defaultErrorMessages} from './dateErrorHelper'
 
 export type DatePickerElementProps<
   T extends FieldValues,
@@ -23,13 +25,14 @@ export type DatePickerElementProps<
   name: Path<T>
   required?: boolean
   isDate?: boolean
-  parseError?: (error: FieldError) => ReactNode
+  parseError?: (error: FieldError | DateValidationError) => ReactNode
   validation?: ControllerProps<T>['rules']
   control?: Control<T>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
   slotProps?: Omit<DatePickerSlotsComponentsProps<TDate>, 'textField'>
+  overwriteErrorMessages?: typeof defaultErrorMessages
 }
 
 export default function DatePickerElement<TFieldValues extends FieldValues>({
@@ -41,9 +44,12 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
   control,
   textReadOnly,
   slotProps,
+  overwriteErrorMessages = defaultErrorMessages,
   ...rest
 }: DatePickerElementProps<TFieldValues, any, any>): JSX.Element {
   const errorMsgFn = useFormError()
+  const [internalError, setInternalError] =
+    useState<DateValidationError | null>(null)
   const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
@@ -60,10 +66,18 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
           field.value = new Date(field.value) as any // need to see if this works for all localization adaptors
         }
 
+        const errorMessage = internalError
+          ? overwriteErrorMessages[internalError]
+          : error
+          ? typeof customErrorFn === 'function'
+            ? customErrorFn(error)
+            : error.message
+          : null
         return (
           <DatePicker
             {...rest}
             {...field}
+            onError={(iError) => setInternalError(iError)}
             ref={(r) => {
               field.ref(r?.querySelector('input'))
             }}
@@ -85,11 +99,9 @@ export default function DatePickerElement<TFieldValues extends FieldValues>({
               textField: {
                 ...inputProps,
                 required,
-                error: !!error,
-                helperText: error
-                  ? typeof customErrorFn === 'function'
-                    ? customErrorFn(error)
-                    : error.message
+                error: !!errorMessage,
+                helperText: errorMessage
+                  ? errorMessage
                   : inputProps?.helperText || rest.helperText,
                 inputProps: {
                   readOnly: !!textReadOnly,
