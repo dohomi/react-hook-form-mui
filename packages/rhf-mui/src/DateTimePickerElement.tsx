@@ -14,6 +14,11 @@ import {TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
 import {ReactNode} from 'react'
+import {defaultErrorMessages} from './messages/DateTimePicker'
+import {
+  useLocalizationContext,
+  validateDateTime,
+} from '@mui/x-date-pickers/internals'
 
 export type DateTimePickerElementProps<
   T extends FieldValues,
@@ -30,6 +35,7 @@ export type DateTimePickerElementProps<
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
   slotProps?: Omit<DateTimePickerSlotsComponentsProps<TDate>, 'textField'>
+  overwriteErrorMessages?: typeof defaultErrorMessages
 }
 
 export default function DateTimePickerElement<
@@ -43,12 +49,52 @@ export default function DateTimePickerElement<
   control,
   textReadOnly,
   slotProps,
+  overwriteErrorMessages,
   ...rest
 }: DateTimePickerElementProps<TFieldValues, any, any>): JSX.Element {
+  const errorMessages = {
+    ...defaultErrorMessages,
+    ...overwriteErrorMessages,
+  }
   const errorMsgFn = useFormError()
+  const adapter = useLocalizationContext()
+
   const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
+  }
+
+  validation.validate = {
+    internal: (value) => {
+      const inputTimezone =
+        value == null || !adapter.utils.isValid(value)
+          ? null
+          : adapter.utils.getTimezone(value)
+
+      const internalError = validateDateTime({
+        props: {
+          shouldDisableDate: rest.shouldDisableDate,
+          shouldDisableMonth: rest.shouldDisableMonth,
+          shouldDisableYear: rest.shouldDisableYear,
+          disablePast: Boolean(rest.disablePast),
+          disableFuture: Boolean(rest.disableFuture),
+          minDate: rest.minDate,
+          maxDate: rest.maxDate,
+          timezone: rest.timezone ?? inputTimezone ?? 'default',
+          disableIgnoringDatePartForTimeValidation:
+            rest.disableIgnoringDatePartForTimeValidation,
+          maxTime: rest.maxTime,
+          minTime: rest.minTime,
+          minutesStep: rest.minutesStep,
+          shouldDisableTime: rest.shouldDisableTime,
+        },
+        value,
+        adapter,
+      })
+
+      return internalError == null || errorMessages[internalError]
+    },
+    ...validation.validate,
   }
 
   return (
