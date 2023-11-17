@@ -14,6 +14,11 @@ import {TextFieldProps} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
 import {ReactNode} from 'react'
+import {
+  useLocalizationContext,
+  validateTime,
+} from '@mui/x-date-pickers/internals'
+import {defaultErrorMessages} from './messages/TimePicker'
 
 export type TimePickerElementProps<
   T extends FieldValues,
@@ -30,6 +35,7 @@ export type TimePickerElementProps<
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
   slotProps?: Omit<TimePickerSlotsComponentsProps<TDate>, 'textField'>
+  overwriteErrorMessages?: typeof defaultErrorMessages
 }
 
 export default function TimePickerElement<TFieldValues extends FieldValues>({
@@ -41,12 +47,47 @@ export default function TimePickerElement<TFieldValues extends FieldValues>({
   control,
   textReadOnly,
   slotProps,
+  overwriteErrorMessages,
   ...rest
 }: TimePickerElementProps<TFieldValues, string | null>): JSX.Element {
+  const errorMessages = {
+    ...defaultErrorMessages,
+    ...overwriteErrorMessages,
+  }
   const errorMsgFn = useFormError()
+  const adapter = useLocalizationContext()
+
   const customErrorFn = parseError || errorMsgFn
   if (required && !validation.required) {
     validation.required = 'This field is required'
+  }
+
+  validation.validate = {
+    internal: (value) => {
+      const inputTimezone =
+        value == null || !adapter.utils.isValid(value)
+          ? null
+          : adapter.utils.getTimezone(value)
+
+      const internalError = validateTime({
+        props: {
+          minTime: rest.minTime,
+          maxTime: rest.maxTime,
+          minutesStep: rest.minutesStep,
+          shouldDisableClock: rest.shouldDisableClock,
+          shouldDisableTime: rest.shouldDisableTime,
+          disableIgnoringDatePartForTimeValidation:
+            rest.disableIgnoringDatePartForTimeValidation,
+          disablePast: Boolean(rest.disablePast),
+          disableFuture: Boolean(rest.disableFuture),
+          timezone: rest.timezone ?? inputTimezone ?? 'default',
+        },
+        value,
+        adapter,
+      })
+      return internalError == null || errorMessages[internalError]
+    },
+    ...validation.validate,
   }
 
   return (

@@ -15,7 +15,7 @@ import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
 import {ReactNode} from 'react'
 import {DateValidationError} from '@mui/x-date-pickers'
-import {defaultErrorMessages} from './dateErrorHelper'
+import {defaultErrorMessages} from './messages/DatePicker'
 import {
   useLocalizationContext,
   validateDate,
