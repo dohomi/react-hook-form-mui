@@ -35,7 +35,7 @@ const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
     TPasswordName
   >,
   ref: Ref<HTMLDivElement>
-) {
+): JSX.Element {
   const {passwordFieldName, customInvalidFieldMessage, control, ...rest} = props
 
   const pwValue = useWatch({
