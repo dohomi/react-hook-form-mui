@@ -14,7 +14,7 @@ export type TextFieldElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = Omit<TextFieldProps, 'name'> & {
-  validation: UseControllerProps<TFieldValues, TName>['rules']
+  validation?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   parseError?: (error: FieldError) => ReactNode
   control?: Control<TFieldValues>
