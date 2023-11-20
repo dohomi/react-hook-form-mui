@@ -10,9 +10,9 @@ import {
   FieldPath,
   UseControllerProps,
   PathValue,
+  FieldValues,
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
 import {ReactNode, forwardRef, Ref, RefAttributes} from 'react'
 import {DateValidationError} from '@mui/x-date-pickers'
