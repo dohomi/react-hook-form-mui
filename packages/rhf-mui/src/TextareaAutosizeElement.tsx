@@ -1,84 +1,113 @@
-import {TextareaAutosize, TextField, TextFieldProps} from '@mui/material'
+import {
+  TextareaAutosize,
+  TextField,
+  TextFieldProps,
+  useForkRef,
+} from '@mui/material'
 import {
   Control,
-  Controller,
-  ControllerProps,
   FieldError,
-  Path,
+  FieldPath,
+  UseControllerProps,
+  useController,
+  FieldValues,
 } from 'react-hook-form'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
-import {CSSProperties, ReactNode} from 'react'
+import {CSSProperties, ReactNode, RefAttributes, forwardRef, Ref} from 'react'
 import {useFormError} from './FormErrorProvider'
 
-export type TextareaAutosizeElementProps<T extends FieldValues = FieldValues> =
-  Omit<TextFieldProps, 'name' | 'type'> & {
-    validation?: ControllerProps<T>['rules']
-    name: Path<T>
-    parseError?: (error: FieldError) => ReactNode
-    control?: Control<T>
-    resizeStyle?: CSSProperties['resize']
-  }
+export type TextareaAutosizeElementProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = Omit<TextFieldProps, 'name' | 'type'> & {
+  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  name: TName
+  parseError?: (error: FieldError) => ReactNode
+  control?: Control<TFieldValues>
+  resizeStyle?: CSSProperties['resize']
+}
 
-export default function TextareaAutosizeElement<
-  TFieldValues extends FieldValues = FieldValues
->({
-  validation = {},
-  parseError,
-  required,
-  name,
-  control,
-  rows,
-  resizeStyle,
-  ...rest
-}: TextareaAutosizeElementProps<TFieldValues>): JSX.Element {
+type TextareaAutosizeElementComponent = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: TextareaAutosizeElementProps<TFieldValues, TName> &
+    RefAttributes<HTMLDivElement>
+) => JSX.Element
+
+const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: TextareaAutosizeElementProps<TFieldValues, TName>,
+  ref: Ref<HTMLDivElement>
+): JSX.Element {
+  const {
+    validation = {},
+    parseError,
+    required,
+    name,
+    control,
+    rows,
+    resizeStyle,
+    inputRef,
+    ...rest
+  } = props
+
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
-  if (required && !validation.required) {
-    validation.required = 'This field is required'
+
+  const rules = {
+    ...validation,
+    ...(required &&
+      !validation.required && {required: 'This field is required'}),
   }
 
+  const {
+    field,
+    fieldState: {error},
+  } = useController({
+    name,
+    control,
+    rules,
+  })
+
+  const handleInputRef = useForkRef(field.ref, inputRef)
+
   return (
-    <Controller
+    <TextField
+      {...rest}
       name={name}
-      control={control}
-      rules={validation}
-      render={({
-        field: {value, onChange, onBlur, ref},
-        fieldState: {error},
-      }) => (
-        <TextField
-          {...rest}
-          name={name}
-          value={value ?? ''}
-          onChange={(ev) => {
-            onChange(ev.target.value)
-            if (typeof rest.onChange === 'function') {
-              rest.onChange(ev)
-            }
-          }}
-          onBlur={onBlur}
-          required={required}
-          error={!!error}
-          helperText={
-            error
-              ? typeof customErrorFn === 'function'
-                ? customErrorFn(error)
-                : error.message
-              : rest.helperText
-          }
-          inputRef={ref}
-          multiline
-          InputProps={{
-            inputComponent: TextareaAutosize,
-            inputProps: {
-              minRows: rows,
-              style: {
-                resize: resizeStyle || 'both',
-              },
-            },
-          }}
-        />
-      )}
+      value={field.value ?? ''}
+      onChange={(ev) => {
+        field.onChange(ev.target.value)
+        if (typeof rest.onChange === 'function') {
+          rest.onChange(ev)
+        }
+      }}
+      onBlur={field.onBlur}
+      required={required}
+      error={!!error}
+      helperText={
+        error
+          ? typeof customErrorFn === 'function'
+            ? customErrorFn(error)
+            : error.message
+          : rest.helperText
+      }
+      inputRef={handleInputRef}
+      multiline
+      InputProps={{
+        inputComponent: TextareaAutosize,
+        inputProps: {
+          minRows: rows,
+          style: {
+            resize: resizeStyle || 'both',
+          },
+        },
+      }}
+      ref={ref}
     />
   )
-}
+}) as TextareaAutosizeElementComponent
+
+export default TextareaAutosizeElement
