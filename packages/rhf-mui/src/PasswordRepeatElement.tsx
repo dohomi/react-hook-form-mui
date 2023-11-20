@@ -1,28 +1,53 @@
 import PasswordElement, {PasswordElementProps} from './PasswordElement'
-import {Path, useWatch} from 'react-hook-form'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {FieldPath, useWatch, FieldValues} from 'react-hook-form'
+import {forwardRef, Ref, RefAttributes} from 'react'
 
-export type PasswordRepeatElementProps<T extends FieldValues> =
-  PasswordElementProps<T> & {
-    passwordFieldName: Path<T>
-    customInvalidFieldMessage?: string
-  }
-export default function PasswordRepeatElement<
-  TFieldValues extends FieldValues
->({
-  passwordFieldName,
-  customInvalidFieldMessage,
-  ...rest
-}: PasswordRepeatElementProps<TFieldValues>) {
+export type PasswordRepeatElementProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = PasswordElementProps<TFieldValues, TConfirmPasswordName> & {
+  passwordFieldName: TPasswordName
+  customInvalidFieldMessage?: string
+}
+
+type PasswordRepeatElementComponent = <
+  TFieldValues extends FieldValues = FieldValues,
+  TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: PasswordRepeatElementProps<
+    TFieldValues,
+    TConfirmPasswordName,
+    TPasswordName
+  > &
+    RefAttributes<HTMLDivElement>
+) => JSX.Element
+
+const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
+  TFieldValues extends FieldValues = FieldValues,
+  TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: PasswordRepeatElementProps<
+    TFieldValues,
+    TConfirmPasswordName,
+    TPasswordName
+  >,
+  ref: Ref<HTMLDivElement>
+) {
+  const {passwordFieldName, customInvalidFieldMessage, control, ...rest} = props
+
   const pwValue = useWatch({
     name: passwordFieldName,
-    control: rest.control,
+    control,
   })
   const invalidFieldMessage =
     customInvalidFieldMessage ?? 'Password should match'
   return (
     <PasswordElement
       {...rest}
+      ref={ref}
       validation={{
         validate: (value: string) => {
           return value === pwValue || invalidFieldMessage
@@ -30,4 +55,6 @@ export default function PasswordRepeatElement<
       }}
     />
   )
-}
+}) as PasswordRepeatElementComponent
+
+export default PasswordRepeatElement
