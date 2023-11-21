@@ -45,7 +45,8 @@
   "packageManager": "yarn@1.22.19",
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "prettier --write"
+      "prettier --write",
+      "eslint --fix"
     ]
   },
   "simple-git-hooks": {

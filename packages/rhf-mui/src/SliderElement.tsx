@@ -1,9 +1,10 @@
 import {
   Control,
-  Controller,
-  ControllerProps,
   FieldError,
-  Path,
+  FieldValues,
+  FieldPath,
+  UseControllerProps,
+  useController,
 } from 'react-hook-form'
 import {
   FormControl,
@@ -13,75 +14,97 @@ import {
   Slider,
   SliderProps,
 } from '@mui/material'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode} from 'react'
+import {ReactNode, forwardRef, RefAttributes, Ref} from 'react'
 
-export type SliderElementProps<T extends FieldValues> = Omit<
-  SliderProps,
-  'control'
-> & {
-  name: Path<T>
-  control?: Control<T>
+export type SliderElementProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = Omit<SliderProps, 'control'> & {
+  name: TName
+  control?: Control<TFieldValues>
   label?: string
-  rules?: ControllerProps<T>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   parseError?: (error: FieldError) => ReactNode
   required?: boolean
   formControlProps?: FormControlProps
 }
 
-export default function SliderElement<TFieldValues extends FieldValues>({
-  name,
-  control,
-  label,
-  rules = {},
-  parseError,
-  required,
-  formControlProps,
-  ...other
-}: SliderElementProps<TFieldValues>) {
+type SliderElementComponent = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: SliderElementProps<TFieldValues, TName> & RefAttributes<HTMLDivElement>
+) => JSX.Element
+
+const SliderElement = forwardRef(function SliderElement<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: SliderElementProps<TFieldValues, TName>,
+  ref: Ref<HTMLDivElement>
+): JSX.Element {
+  const {
+    name,
+    control,
+    label,
+    rules = {},
+    parseError,
+    required,
+    formControlProps,
+    ...other
+  } = props
+
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
-  if (required && !rules.required) {
-    rules.required = 'This field is required'
+
+  const validationRules = {
+    ...rules,
+    ...(required &&
+      !rules.required && {
+      required: 'This field is required',
+    }),
   }
+
+  const {
+    field,
+    fieldState: {error, invalid},
+  } = useController({
+    name,
+    control,
+    rules: validationRules,
+  })
+
+  const parsedHelperText = error
+    ? typeof customErrorFn === 'function'
+      ? customErrorFn(error)
+      : error.message
+    : null
+
   return (
-    <Controller
-      name={name}
-      control={control}
-      rules={rules}
-      render={({field: {onChange, value}, fieldState: {invalid, error}}) => {
-        const parsedHelperText = error
-          ? typeof customErrorFn === 'function'
-            ? customErrorFn(error)
-            : error.message
-          : null
-        return (
-          <FormControl
-            error={invalid}
-            required={required}
-            fullWidth
-            {...formControlProps}
-          >
-            {label && (
-              <FormLabel component="legend" error={invalid}>
-                {label}
-              </FormLabel>
-            )}
-            <Slider
-              {...other}
-              value={value}
-              onChange={onChange}
-              valueLabelDisplay={other.valueLabelDisplay || 'auto'}
-            />
-            {parsedHelperText && (
-              <FormHelperText error={invalid}>
-                {parsedHelperText}
-              </FormHelperText>
-            )}
-          </FormControl>
-        )
-      }}
-    />
+    <FormControl
+      error={invalid}
+      required={required}
+      fullWidth
+      {...formControlProps}
+      ref={ref}
+    >
+      {label && (
+        <FormLabel component="legend" error={invalid}>
+          {label}
+        </FormLabel>
+      )}
+      <Slider
+        {...other}
+        value={field.value}
+        onChange={field.onChange}
+        valueLabelDisplay={other.valueLabelDisplay || 'auto'}
+      />
+      {parsedHelperText && (
+        <FormHelperText error={invalid}>{parsedHelperText}</FormHelperText>
+      )}
+    </FormControl>
   )
-}
+}) as SliderElementComponent
+
+export default SliderElement

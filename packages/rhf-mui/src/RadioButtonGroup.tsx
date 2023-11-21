@@ -1,5 +1,11 @@
-import {ChangeEvent, ReactNode} from 'react'
-import {Control, FieldError, Path, useController} from 'react-hook-form'
+import {ChangeEvent, ReactNode, forwardRef, Ref, RefAttributes} from 'react'
+import {
+  Control,
+  FieldError,
+  useController,
+  FieldValues,
+  FieldPath,
+} from 'react-hook-form'
 import {
   FormControl,
   FormControlLabel,
@@ -11,13 +17,15 @@ import {
   RadioGroup,
   useTheme,
 } from '@mui/material'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
 
-export type RadioButtonGroupProps<T extends FieldValues> = {
+export type RadioButtonGroupProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
   options: {label: string; id: string | number}[] | any[]
   helperText?: ReactNode
-  name: Path<T>
+  name: TName
   required?: boolean
   parseError?: (error: FieldError) => ReactNode
   label?: string
@@ -28,36 +36,53 @@ export type RadioButtonGroupProps<T extends FieldValues> = {
   onChange?: (value: any) => void
   returnObject?: boolean
   row?: boolean
-  control?: Control<T>
+  control?: Control<TFieldValues>
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control' | 'value'>
   formLabelProps?: Omit<FormLabelProps, 'required' | 'error'>
   disabled?: boolean
 }
 
-export default function RadioButtonGroup<TFieldValues extends FieldValues>({
-  helperText,
-  options,
-  label,
-  name,
-  parseError,
-  labelKey = 'label',
-  valueKey = 'id',
-  required,
-  emptyOptionLabel,
-  returnObject,
-  row,
-  control,
-  type,
-  labelProps,
-  disabled,
-  formLabelProps,
-  ...rest
-}: RadioButtonGroupProps<TFieldValues>): JSX.Element {
+type RadioButtonGroupComponent = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: RadioButtonGroupProps<TFieldValues, TName> &
+    RefAttributes<HTMLDivElement>
+) => JSX.Element
+
+const RadioButtonGroup = forwardRef(function RadioButtonGroup<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: RadioButtonGroupProps<TFieldValues, TName>,
+  ref: Ref<HTMLDivElement>
+): JSX.Element {
+  const {
+    helperText,
+    options,
+    label,
+    name,
+    parseError,
+    labelKey = 'label',
+    valueKey = 'id',
+    required,
+    emptyOptionLabel,
+    returnObject,
+    row,
+    control,
+    type,
+    labelProps,
+    disabled,
+    formLabelProps,
+    ...rest
+  } = props
   const theme = useTheme()
+
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
+
   const {
-    field: {value, onChange},
+    field,
     fieldState: {error},
   } = useController({
     name,
@@ -65,7 +90,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
     control,
   })
 
-  helperText = error
+  const renderHelperText = error
     ? typeof customErrorFn === 'function'
       ? customErrorFn(error)
       : error.message
@@ -76,15 +101,14 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
     const returnValue = returnObject
       ? options.find((items) => items[valueKey] === radioValue)
       : radioValue
-    // setValue(name, returnValue, { shouldValidate: true })
-    onChange(returnValue)
+    field.onChange(returnValue)
     if (typeof rest.onChange === 'function') {
       rest.onChange(returnValue)
     }
   }
 
   return (
-    <FormControl error={!!error}>
+    <FormControl error={!!error} ref={ref}>
       {label && (
         <FormLabel {...formLabelProps} required={required} error={!!error}>
           {label}
@@ -94,7 +118,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
         onChange={onRadioChange}
         name={name}
         row={row}
-        value={value || ''}
+        value={field.value || ''}
       >
         {emptyOptionLabel && (
           <FormControlLabel
@@ -104,7 +128,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
                 sx={{
                   color: error ? theme.palette.error.main : undefined,
                 }}
-                checked={!value}
+                checked={!field.value}
               />
             }
             label={emptyOptionLabel}
@@ -119,7 +143,7 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
               option
             )
           }
-          let val = returnObject ? value?.[valueKey] : value
+          let val = returnObject ? field.value?.[valueKey] : field.value
           if (type === 'number') {
             val = Number(val)
           }
@@ -143,7 +167,9 @@ export default function RadioButtonGroup<TFieldValues extends FieldValues>({
           )
         })}
       </RadioGroup>
-      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+      {renderHelperText && <FormHelperText>{renderHelperText}</FormHelperText>}
     </FormControl>
   )
-}
+}) as RadioButtonGroupComponent
+
+export default RadioButtonGroup

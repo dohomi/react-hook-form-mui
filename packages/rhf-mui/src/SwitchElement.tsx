@@ -1,38 +1,73 @@
-import {Control, Controller, Path} from 'react-hook-form'
+import {Control, FieldValues, FieldPath, useController} from 'react-hook-form'
 import {
   FormControlLabel,
   FormControlLabelProps,
   Switch,
   SwitchProps,
+  useForkRef,
 } from '@mui/material'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
+import {forwardRef, RefAttributes, Ref} from 'react'
 
-type IProps = Omit<FormControlLabelProps, 'control'>
-
-export type SwitchElementProps<T extends FieldValues> = IProps & {
-  name: Path<T>
-  control?: Control<T>
+export type SwitchElementProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = Omit<FormControlLabelProps, 'control'> & {
+  name: TName
+  control?: Control<TFieldValues>
   switchProps?: SwitchProps
 }
 
-export default function SwitchElement<TFieldValues extends FieldValues>({
-  name,
-  control,
-  switchProps,
-  ...other
-}: SwitchElementProps<TFieldValues>) {
+type SwitchElementComponent = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: SwitchElementProps<TFieldValues, TName> &
+    RefAttributes<HTMLLabelElement>
+) => JSX.Element
+
+const SwitchElement = forwardRef(function SwitchElement<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: SwitchElementProps<TFieldValues, TName>,
+  ref: Ref<HTMLLabelElement>
+): JSX.Element {
+  const {name, control, switchProps, ...rest} = props
+
+  const {field} = useController({
+    name,
+    control,
+  })
+
+  const handleSwitchRef = useForkRef(field.ref, switchProps?.ref)
+
   return (
-    <Controller
-      name={name}
-      control={control}
-      render={({field}) => (
-        <FormControlLabel
-          control={
-            <Switch {...switchProps} {...field} checked={!!field.value} />
-          }
-          {...other}
+    <FormControlLabel
+      ref={ref}
+      control={
+        <Switch
+          {...switchProps}
+          name={field.name}
+          value={field.value}
+          onChange={(event, checked) => {
+            field.onChange(event, checked)
+            if (typeof switchProps?.onChange === 'function') {
+              switchProps.onChange(event, checked)
+            }
+          }}
+          onBlur={(event) => {
+            field.onBlur()
+            if (typeof switchProps?.onBlur === 'function') {
+              switchProps?.onBlur(event)
+            }
+          }}
+          ref={handleSwitchRef}
+          checked={!!field.value}
         />
-      )}
+      }
+      {...rest}
     />
   )
-}
+}) as SwitchElementComponent
+
+export default SwitchElement

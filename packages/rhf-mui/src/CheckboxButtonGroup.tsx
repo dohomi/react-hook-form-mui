@@ -11,19 +11,22 @@ import {
 } from '@mui/material'
 import {
   Control,
-  ControllerProps,
   FieldError,
-  Path,
+  FieldPath,
+  UseControllerProps,
   useController,
+  FieldValues,
 } from 'react-hook-form'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode} from 'react'
+import {ReactNode, forwardRef, Ref, RefAttributes} from 'react'
 
-export type CheckboxButtonGroupProps<T extends FieldValues> = {
+export type CheckboxButtonGroupProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
   options: {id: string | number; label: string}[] | any[]
   helperText?: ReactNode
-  name: Path<T>
+  name: TName
   required?: boolean
   parseError?: (error: FieldError) => ReactNode
   label?: string
@@ -33,33 +36,50 @@ export type CheckboxButtonGroupProps<T extends FieldValues> = {
   returnObject?: boolean
   disabled?: boolean
   row?: boolean
-  control?: Control<T>
-  rules?: ControllerProps<T>['rules']
+  control?: Control<TFieldValues>
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   checkboxColor?: CheckboxProps['color']
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control'>
 }
 
-export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
-  helperText,
-  options,
-  label,
-  name,
-  parseError,
-  required,
-  labelKey = 'label',
-  valueKey = 'id',
-  returnObject,
-  disabled,
-  row,
-  control,
-  checkboxColor,
-  rules,
-  labelProps,
-  ...rest
-}: CheckboxButtonGroupProps<TFieldValues>): JSX.Element {
+type CheckboxButtonGroupComponent = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: CheckboxButtonGroupProps<TFieldValues, TName> &
+    RefAttributes<HTMLDivElement>
+) => JSX.Element
+
+const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: CheckboxButtonGroupProps<TFieldValues, TName>,
+  ref: Ref<HTMLDivElement>
+): JSX.Element {
+  const {
+    helperText,
+    options,
+    label,
+    name,
+    parseError,
+    required,
+    labelKey = 'label',
+    valueKey = 'id',
+    returnObject,
+    disabled,
+    row,
+    control,
+    checkboxColor,
+    rules,
+    labelProps,
+    ...rest
+  } = props
+
+  const theme = useTheme()
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
-  const theme = useTheme()
+
   const {
     field: {value = [], onChange},
     fieldState: {error},
@@ -69,7 +89,7 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
     control,
   })
 
-  helperText = error
+  const renderHelperText = error
     ? typeof customErrorFn === 'function'
       ? customErrorFn(error)
       : error.message
@@ -101,7 +121,7 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
   }
 
   return (
-    <FormControl error={!!error} required={required}>
+    <FormControl error={!!error} required={required} ref={ref}>
       {label && <FormLabel error={!!error}>{label}</FormLabel>}
       <FormGroup row={row}>
         {options.map((option: any) => {
@@ -137,7 +157,9 @@ export default function CheckboxButtonGroup<TFieldValues extends FieldValues>({
           )
         })}
       </FormGroup>
-      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+      {renderHelperText && <FormHelperText>{renderHelperText}</FormHelperText>}
     </FormControl>
   )
-}
+}) as CheckboxButtonGroupComponent
+
+export default CheckboxButtonGroup

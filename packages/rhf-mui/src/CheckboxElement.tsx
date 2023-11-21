@@ -1,9 +1,10 @@
 import {
   Control,
-  Controller,
-  ControllerProps,
   FieldError,
-  Path,
+  FieldPath,
+  FieldValues,
+  UseControllerProps,
+  useController,
 } from 'react-hook-form'
 import {
   Checkbox,
@@ -13,89 +14,114 @@ import {
   FormControlLabelProps,
   FormGroup,
   FormHelperText,
+  useForkRef,
 } from '@mui/material'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode} from 'react'
+import {ReactNode, Ref, forwardRef, RefAttributes} from 'react'
 
-export type CheckboxElementProps<T extends FieldValues> = Omit<
-  CheckboxProps,
-  'name'
-> & {
-  validation?: ControllerProps<T>['rules']
-  name: Path<T>
+export type CheckboxElementProps<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = Omit<CheckboxProps, 'name'> & {
+  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  name: TName
   parseError?: (error: FieldError) => ReactNode
   label?: FormControlLabelProps['label']
   helperText?: string
-  control?: Control<T>
+  control?: Control<TFieldValues>
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control'>
 }
 
-export default function CheckboxElement<TFieldValues extends FieldValues>({
-  name,
-  validation = {},
-  required,
-  parseError,
-  label,
-  control,
-  helperText,
-  labelProps,
-  ...rest
-}: CheckboxElementProps<TFieldValues>): JSX.Element {
+type CheckboxElementComponent = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: CheckboxElementProps<TFieldValues, TName> &
+    RefAttributes<HTMLDivElement>
+) => JSX.Element
+
+const CheckboxElement = forwardRef(function CheckboxElement<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>(
+  props: CheckboxElementProps<TFieldValues, TName>,
+  ref: Ref<HTMLDivElement>
+): JSX.Element {
+  const {
+    name,
+    validation = {},
+    required,
+    parseError,
+    label,
+    control,
+    helperText,
+    labelProps,
+    inputRef,
+    ...rest
+  } = props
+
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
-  if (required && !validation.required) {
-    validation.required = 'This field is required'
+
+  const rules = {
+    ...validation,
+    ...(required &&
+      !validation.required && {
+      required: 'This field is required',
+    }),
   }
 
+  const {
+    field,
+    fieldState: {error},
+  } = useController({
+    name,
+    control,
+    rules,
+  })
+
+  const handleInputRef = useForkRef(field.ref, inputRef)
+
+  const renderHelperText = error
+    ? typeof customErrorFn === 'function'
+      ? customErrorFn(error)
+      : error.message
+    : helperText
+
   return (
-    <Controller
-      name={name}
-      rules={validation}
-      control={control}
-      render={({field: {value, onChange, ref}, fieldState: {error}}) => {
-        const parsedHelperText = error
-          ? typeof customErrorFn === 'function'
-            ? customErrorFn(error)
-            : error.message
-          : helperText
-        return (
-          <FormControl required={required} error={!!error}>
-            <FormGroup row>
-              <FormControlLabel
-                {...labelProps}
-                label={label || ''}
-                control={
-                  <Checkbox
-                    {...rest}
-                    color={rest.color || 'primary'}
-                    sx={[
-                      ...(Array.isArray(rest.sx) ? rest.sx : [rest.sx]),
-                      {
-                        color: error ? 'error.main' : undefined,
-                      },
-                    ]}
-                    value={value}
-                    checked={!!value}
-                    onChange={(ev) => {
-                      onChange(!value)
-                      if (typeof rest.onChange === 'function') {
-                        rest.onChange(ev, !value)
-                      }
-                    }}
-                    inputRef={ref}
-                  />
+    <FormControl required={required} error={!!error} ref={ref}>
+      <FormGroup row>
+        <FormControlLabel
+          {...labelProps}
+          label={label || ''}
+          control={
+            <Checkbox
+              {...rest}
+              color={rest.color || 'primary'}
+              sx={[
+                ...(Array.isArray(rest.sx) ? rest.sx : [rest.sx]),
+                {
+                  color: error ? 'error.main' : undefined,
+                },
+              ]}
+              value={field.value}
+              checked={!!field.value}
+              onChange={(ev) => {
+                field.onChange(!field.value)
+                if (typeof rest.onChange === 'function') {
+                  rest.onChange(ev, !field.value)
                 }
-              />
-            </FormGroup>
-            {parsedHelperText && (
-              <FormHelperText error={!!error}>
-                {parsedHelperText}
-              </FormHelperText>
-            )}
-          </FormControl>
-        )
-      }}
-    />
+              }}
+              inputRef={handleInputRef}
+            />
+          }
+        />
+      </FormGroup>
+      {renderHelperText && (
+        <FormHelperText error={!!error}>{renderHelperText}</FormHelperText>
+      )}
+    </FormControl>
   )
-}
+}) as CheckboxElementComponent
+
+export default CheckboxElement
