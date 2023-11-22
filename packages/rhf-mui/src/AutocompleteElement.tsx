@@ -126,8 +126,8 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
   if (matchId) {
     currentValue = multiple
       ? (field.value || []).map((i: any) =>
-        options.find((j) => (j.id ?? j) === i)
-      )
+          options.find((j) => (j.id ?? j) === i)
+        )
       : options.find((i) => (i.id ?? i) === field.value) ?? null
   }
 
@@ -147,15 +147,15 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
         autocompleteProps?.isOptionEqualToValue
           ? autocompleteProps.isOptionEqualToValue
           : (option, value) => {
-            return value ? option.id === (value?.id ?? value) : false
-          }
+              return value ? option.id === (value?.id ?? value) : false
+            }
       }
       getOptionLabel={
         autocompleteProps?.getOptionLabel
           ? autocompleteProps.getOptionLabel
           : (option) => {
-            return `${option?.label ?? option}`
-          }
+              return `${option?.label ?? option}`
+            }
       }
       onChange={(event, value, reason, details) => {
         let changedVal = value
@@ -174,13 +174,13 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
         autocompleteProps?.renderOption ??
         (showCheckbox
           ? (props, option, {selected}) => (
-            <li {...props}>
-              <Checkbox sx={{marginRight: 1}} checked={selected} />
-              {autocompleteProps?.getOptionLabel?.(option) ||
+              <li {...props}>
+                <Checkbox sx={{marginRight: 1}} checked={selected} />
+                {autocompleteProps?.getOptionLabel?.(option) ||
                   option.label ||
                   option}
-            </li>
-          )
+              </li>
+            )
           : undefined)
       }
       onBlur={(event) => {

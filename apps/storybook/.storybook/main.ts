@@ -1,8 +1,8 @@
-// import {StorybookViteConfig} from '@storybook/builder-vite'
+import {StorybookConfig} from '@storybook/react-vite'
 
 // const {mergeConfig} = require('vite');
 
-import {StorybookConfig} from '@storybook/nextjs'
+// import {StorybookConfig} from '@storybook/nextjs'
 
 const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
@@ -11,8 +11,11 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
   ],
+  // core: {
+  //     builder: '@storybook/react-vite'
+  // },
   framework: {
-    name: '@storybook/nextjs',
+    name: '@storybook/react-vite',
     options: {},
   },
   docs: {

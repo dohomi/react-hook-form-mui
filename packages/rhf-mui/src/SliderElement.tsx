@@ -62,8 +62,8 @@ const SliderElement = forwardRef(function SliderElement<
     ...rules,
     ...(required &&
       !rules.required && {
-      required: 'This field is required',
-    }),
+        required: 'This field is required',
+      }),
   }
 
   const {

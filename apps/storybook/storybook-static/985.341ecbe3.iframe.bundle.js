@@ -1,4 +1,4 @@
-/*! For license information please see 985.179f5e3b.iframe.bundle.js.LICENSE.txt */
+/*! For license information please see 985.341ecbe3.iframe.bundle.js.LICENSE.txt */
 ;(self.webpackChunkrhfm_storybook = self.webpackChunkrhfm_storybook || []).push(
   [
     [985],
@@ -38656,7 +38656,6 @@
         'use strict'
         __webpack_require__.d(__webpack_exports__, {
           Gc: () => useFormContext,
-          Qr: () => Controller,
           RV: () => FormProvider,
           bc: () => useController,
           cI: () => useForm,
@@ -39071,7 +39070,6 @@
             }
           )
         }
-        const Controller = (props) => props.render(useController(props))
         var appendErrors = (
           name,
           validateAllFieldCriteria,
@@ -41270,4 +41268,4 @@
     },
   ]
 )
-//# sourceMappingURL=985.179f5e3b.iframe.bundle.js.map
+//# sourceMappingURL=985.341ecbe3.iframe.bundle.js.map

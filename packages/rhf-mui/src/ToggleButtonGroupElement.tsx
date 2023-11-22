@@ -65,8 +65,8 @@ export default function ToggleButtonGroupElement<
     ...validation,
     ...(required &&
       !validation.required && {
-      validation: 'This field is required',
-    }),
+        validation: 'This field is required',
+      }),
   }
 
   const isRequired = required || !!validation?.required

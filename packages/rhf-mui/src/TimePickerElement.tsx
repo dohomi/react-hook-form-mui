@@ -81,8 +81,8 @@ const TimePickerElement = forwardRef(function TimePickerElement<
     ...validation,
     ...(required &&
       !validation.required && {
-      required: 'This field is required',
-    }),
+        required: 'This field is required',
+      }),
     validate: {
       internal: (value) => {
         const inputTimezone =

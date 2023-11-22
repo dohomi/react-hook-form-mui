@@ -5,6 +5,7 @@ import {action} from '@storybook/addon-actions'
 import {Box, Button, Tooltip} from '@mui/material'
 import LocationIcon from '@mui/icons-material/LocationOn'
 import AutoModeIcon from '@mui/icons-material/AutoMode'
+
 const meta = {
   title: 'Autocomplete',
   component: AutocompleteElement,
@@ -159,15 +160,13 @@ export const CustomInput = {
 }
 
 export const WithTooltip = () => (
-  <FormWrap>
-    <Tooltip title={'Some Tooltip'}>
-      <div>
-        <AutocompleteElement
-          options={options}
-          name={'tooltip'}
-          label={'With Tooltip'}
-        />
-      </div>
-    </Tooltip>
-  </FormWrap>
+  <Tooltip title={'Some Tooltip'}>
+    <div>
+      <AutocompleteElement
+        options={options}
+        name={'tooltip'}
+        label={'With Tooltip'}
+      />
+    </div>
+  </Tooltip>
 )

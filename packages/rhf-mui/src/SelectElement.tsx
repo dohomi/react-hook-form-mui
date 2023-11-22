@@ -70,8 +70,8 @@ const SelectElement = forwardRef(function SelectElement<
     ...validation,
     ...(required &&
       !validation.required && {
-      required: 'This field is required',
-    }),
+        required: 'This field is required',
+      }),
   }
 
   const {

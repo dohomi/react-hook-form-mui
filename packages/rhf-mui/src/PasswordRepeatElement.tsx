@@ -1,5 +1,5 @@
 import PasswordElement, {PasswordElementProps} from './PasswordElement'
-import {FieldPath, useWatch, FieldValues} from 'react-hook-form'
+import {FieldPath, FieldValues, useWatch} from 'react-hook-form'
 import {forwardRef, Ref, RefAttributes} from 'react'
 
 export type PasswordRepeatElementProps<
@@ -46,6 +46,7 @@ const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
     customInvalidFieldMessage ?? 'Password should match'
   return (
     <PasswordElement
+      control={control}
       {...rest}
       ref={ref}
       validation={{

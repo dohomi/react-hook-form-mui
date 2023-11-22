@@ -13,7 +13,7 @@ import {
   TextFieldElement,
 } from 'react-hook-form-mui/src'
 import {useForm, useWatch} from 'react-hook-form'
-import {Button} from '@mui/material'
+import {Button, Stack} from '@mui/material'
 import {action} from '@storybook/addon-actions'
 import DateFnsProvider from 'react-hook-form-mui/src/DateFnsProvider'
 
@@ -152,85 +152,73 @@ export const StrictTypingForm = () => {
   ]
   return (
     <DateFnsProvider>
-      <form onSubmit={handleSubmit(action('submit'))} noValidate>
-        <TextFieldElement
-          name={'name'}
-          label={'Name'}
-          control={control}
-          fullWidth
-        />
-        <br />
-        <br />
-        <AutocompleteElement
-          name={'auto'}
-          label={'Autocomplete'}
-          control={control}
-          options={options}
-        />
-        <br />
-        <AutocompleteElement
-          name={'auto_multi'}
-          label={'Autocomplete Multiple'}
-          multiple
-          control={control}
-          options={options}
-        />
-        <br />
-        <SelectElement
-          name={'select'}
-          label={'Select'}
-          control={control}
-          options={options}
-          fullWidth
-        />
-        <br />
-        <br />
-        <MultiSelectElement
-          showCheckbox
-          name={'multi_select'}
-          label={'Multi Select'}
-          control={control}
-          options={options}
-          fullWidth
-        />
-        <br />
-        <br />
-        <DatePickerElement name={'date'} control={control} /> <br />
-        <RadioButtonGroup
-          name={'radio'}
-          label={'Radio'}
-          control={control}
-          options={options}
-        />
-        <br />
-        <CheckboxButtonGroup
-          name={'checkbox'}
-          label={'Radio'}
-          control={control}
-          options={options}
-        />
-        <br />
-        <PasswordElement
-          name={'password'}
-          label={'Password'}
-          control={control}
-        />
-        <br />
-        <br />
-        <PasswordRepeatElement
-          name={'password_repeat'}
-          label={'Password Repeat'}
-          passwordFieldName={'password'}
-          control={control}
-        />
-        <br />
-        <SwitchElement name={'switch'} label={'Switch'} control={control} />
-        <br />
-        <CheckboxElement name={'check'} label={'Check'} control={control} />
-        <br />
-        <Button type={'submit'} color={'primary'}>
-          Submit
-        </Button>
+      <form onSubmit={handleSubmit(() => action('submit'))} noValidate>
+        <Stack spacing={2}>
+          <TextFieldElement
+            name={'name'}
+            label={'Name'}
+            control={control}
+            required
+            fullWidth
+          />
+          <AutocompleteElement
+            name={'auto'}
+            label={'Autocomplete'}
+            control={control}
+            options={options}
+          />
+          <AutocompleteElement
+            name={'auto_multi'}
+            label={'Autocomplete Multiple'}
+            multiple
+            control={control}
+            options={options}
+          />
+          <SelectElement
+            name={'select'}
+            label={'Select'}
+            control={control}
+            options={options}
+            fullWidth
+          />
+          <MultiSelectElement
+            showCheckbox
+            name={'multi_select'}
+            label={'Multi Select'}
+            control={control}
+            options={options}
+            fullWidth
+          />
+          <DatePickerElement name={'date'} control={control} /> <br />
+          <RadioButtonGroup
+            name={'radio'}
+            label={'Radio'}
+            control={control}
+            options={options}
+          />
+          <CheckboxButtonGroup
+            name={'checkbox'}
+            label={'Radio'}
+            control={control}
+            options={options}
+          />
+          <PasswordElement
+            name={'password'}
+            label={'Password'}
+            control={control}
+          />
+          <PasswordRepeatElement
+            name={'password_repeat'}
+            label={'Password Repeat'}
+            passwordFieldName={'password'}
+            control={control}
+          />
+          <SwitchElement name={'switch'} label={'Switch'} control={control} />
+          <CheckboxElement name={'check'} label={'Check'} control={control} />
+          <Button type={'submit'} color={'primary'}>
+            Submit
+          </Button>
+        </Stack>
       </form>
     </DateFnsProvider>
   )

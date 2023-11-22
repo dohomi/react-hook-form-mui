@@ -6619,14 +6619,12 @@ function processLines(
               ),
             }
           if (i === 0) {
-            var _children = tree
-                .slice(lastLineBreakIndex + 1, index)
-                .concat(
-                  createLineElement({
-                    children: [newChild],
-                    className: node.properties.className,
-                  })
-                ),
+            var _children = tree.slice(lastLineBreakIndex + 1, index).concat(
+                createLineElement({
+                  children: [newChild],
+                  className: node.properties.className,
+                })
+              ),
               _line = createLine(_children, lineNumber2)
             newTree.push(_line)
           } else if (i === splitValue.length - 1) {

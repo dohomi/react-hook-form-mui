@@ -33762,13 +33762,11 @@ var getTools = (getFn) => Object.values(getFn(Addon_TypesEnum.TOOL)),
     return import_react37.default.createElement(
       import_react37.default.Fragment,
       null,
-      list
-        .filter(Boolean)
-        .map(({render: Render, id, ...t3}, index2) =>
-          import_react37.default.createElement(Render, {
-            key: id || t3.key || `f-${index2}`,
-          })
-        )
+      list.filter(Boolean).map(({render: Render, id, ...t3}, index2) =>
+        import_react37.default.createElement(Render, {
+          key: id || t3.key || `f-${index2}`,
+        })
+      )
     )
   })
 function toolbarItemHasBeenExcluded(item, entry) {

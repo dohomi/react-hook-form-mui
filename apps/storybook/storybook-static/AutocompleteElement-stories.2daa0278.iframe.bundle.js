@@ -237,19 +237,16 @@
           },
           WithTooltip = function WithTooltip() {
             return __jsx(
-              FormWrap,
-              null,
+              _mui_material__WEBPACK_IMPORTED_MODULE_8__.Z,
+              {title: 'Some Tooltip'},
               __jsx(
-                _mui_material__WEBPACK_IMPORTED_MODULE_8__.Z,
-                {title: 'Some Tooltip'},
-                __jsx(
-                  'div',
-                  null,
-                  __jsx(
-                    react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.OC,
-                    {options, name: 'tooltip', label: 'With Tooltip'}
-                  )
-                )
+                'div',
+                null,
+                __jsx(react_hook_form_mui_src__WEBPACK_IMPORTED_MODULE_2__.OC, {
+                  options,
+                  name: 'tooltip',
+                  label: 'With Tooltip',
+                })
               )
             )
           }
@@ -672,7 +669,7 @@
                   source: _objectSpread(
                     {
                       originalSource:
-                        "() => <FormWrap>\n    <Tooltip title={'Some Tooltip'}>\n      <div>\n        <AutocompleteElement options={options} name={'tooltip'} label={'With Tooltip'} />\n      </div>\n    </Tooltip>\n  </FormWrap>",
+                        "() => <Tooltip title={'Some Tooltip'}>\n    <div>\n      <AutocompleteElement options={options} name={'tooltip'} label={'With Tooltip'} />\n    </div>\n  </Tooltip>",
                     },
                     null ===
                       (_WithTooltip$paramete2 = WithTooltip.parameters) ||

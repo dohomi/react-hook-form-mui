@@ -101,8 +101,8 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
     ...validation,
     ...(required &&
       !validation.required && {
-      required: 'This field is required',
-    }),
+        required: 'This field is required',
+      }),
   }
 
   const {
@@ -171,12 +171,12 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
           typeof rest.renderValue === 'function'
             ? rest.renderValue
             : showChips
-              ? (selected) => (
+            ? (selected) => (
                 <div style={{display: 'flex', flexWrap: 'wrap'}}>
                   {(preserveOrder
                     ? options.filter((option) =>
-                      (selected as any[]).includes(option)
-                    )
+                        (selected as any[]).includes(option)
+                      )
                     : (selected as any[]) || []
                   ).map((selectedValue) => (
                     <Chip
@@ -199,7 +199,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
                   ))}
                 </div>
               )
-              : (selected) =>
+            : (selected) =>
                 Array.isArray(selected)
                   ? selected.map(renderLabel).join(', ')
                   : ''
