@@ -119,7 +119,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
     defaultValue: null as any,
   })
 
-  const handleInputRef = useForkRef(field.value, inputRef)
+  const handleInputRef = useForkRef(field.ref, inputRef)
 
   if (field?.value && typeof field?.value === 'string') {
     field.value = new Date(field.value) as any // need to see if this works for all localization adaptors
