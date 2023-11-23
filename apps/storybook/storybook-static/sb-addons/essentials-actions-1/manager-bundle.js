@@ -43,8 +43,8 @@ try {
       Provider: Tn,
       addons: re,
       combineParameters: _n,
-      controlOrMetaKey: An,
-      controlOrMetaSymbol: Rn,
+      controlOrMetaKey: Rn,
+      controlOrMetaSymbol: An,
       eventMatchesShortcut: Sn,
       eventToShortcut: Cn,
       isMacLike: wn,
@@ -98,8 +98,8 @@ try {
       SHARED_STATE_CHANGED: va,
       SHARED_STATE_SET: Ta,
       STORIES_COLLAPSE_ALL: _a,
-      STORIES_EXPAND_ALL: Aa,
-      STORY_ARGS_UPDATED: Ra,
+      STORIES_EXPAND_ALL: Ra,
+      STORY_ARGS_UPDATED: Aa,
       STORY_CHANGED: J,
       STORY_ERRORED: Sa,
       STORY_INDEX_INVALIDATED: Ca,
@@ -110,79 +110,80 @@ try {
       STORY_SPECIFIED: Ia,
       STORY_THREW_EXCEPTION: Da,
       STORY_UNCHANGED: Ma,
-      TOGGLE_WHATS_NEW_NOTIFICATIONS: Pa,
-      UPDATE_GLOBALS: Ba,
-      UPDATE_QUERY_PARAMS: Fa,
-      UPDATE_STORY_ARGS: za,
+      TELEMETRY_ERROR: Pa,
+      TOGGLE_WHATS_NEW_NOTIFICATIONS: Ba,
+      UPDATE_GLOBALS: Fa,
+      UPDATE_QUERY_PARAMS: za,
+      UPDATE_STORY_ARGS: Ha,
     } = __STORYBOOKCOREEVENTS__
-  var Ga = __STORYBOOKCOMPONENTS__,
+  var Wa = __STORYBOOKCOMPONENTS__,
     {
-      A: Wa,
+      A: Va,
       ActionBar: Be,
-      AddonPanel: Va,
+      AddonPanel: $a,
       Badge: Fe,
-      Bar: $a,
-      Blockquote: Ya,
-      Button: Ja,
-      ClipboardCode: qa,
-      Code: Xa,
-      DL: Za,
-      Div: Ka,
-      DocumentWrapper: Qa,
-      ErrorFormatter: eo,
-      FlexBar: to,
-      Form: ro,
-      H1: no,
-      H2: ao,
-      H3: oo,
-      H4: io,
-      H5: so,
-      H6: lo,
-      HR: uo,
-      IconButton: co,
-      IconButtonSkeleton: po,
-      Icons: fo,
-      Img: mo,
-      LI: bo,
-      Link: go,
-      ListItem: ho,
-      Loader: Eo,
-      OL: yo,
-      P: Oo,
-      Placeholder: vo,
-      Pre: To,
-      ResetWrapper: _o,
+      Bar: Ya,
+      Blockquote: Ja,
+      Button: qa,
+      ClipboardCode: Xa,
+      Code: Za,
+      DL: Ka,
+      Div: Qa,
+      DocumentWrapper: eo,
+      ErrorFormatter: to,
+      FlexBar: ro,
+      Form: no,
+      H1: ao,
+      H2: oo,
+      H3: io,
+      H4: so,
+      H5: lo,
+      H6: uo,
+      HR: co,
+      IconButton: po,
+      IconButtonSkeleton: fo,
+      Icons: mo,
+      Img: bo,
+      LI: go,
+      Link: ho,
+      ListItem: Eo,
+      Loader: yo,
+      OL: Oo,
+      P: vo,
+      Placeholder: To,
+      Pre: _o,
+      ResetWrapper: Ro,
       ScrollArea: ze,
       Separator: Ao,
       Spaced: He,
-      Span: Ro,
-      StorybookIcon: So,
-      StorybookLogo: Co,
-      Symbols: wo,
-      SyntaxHighlighter: xo,
-      TT: No,
-      TabBar: Lo,
-      TabButton: Io,
-      TabWrapper: Do,
-      Table: Mo,
-      Tabs: Po,
-      TabsState: Bo,
-      TooltipLinkList: Fo,
-      TooltipMessage: zo,
-      TooltipNote: Ho,
-      UL: jo,
-      WithTooltip: Uo,
-      WithTooltipPure: ko,
-      Zoom: Go,
-      codeCommon: Wo,
-      components: Vo,
-      createCopyToClipboardFunction: $o,
-      getStoryHref: Yo,
-      icons: Jo,
-      interleaveSeparators: qo,
-      nameSpaceClassNames: Xo,
-      resetComponents: Zo,
-      withReset: Ko,
+      Span: So,
+      StorybookIcon: Co,
+      StorybookLogo: wo,
+      Symbols: xo,
+      SyntaxHighlighter: No,
+      TT: Lo,
+      TabBar: Io,
+      TabButton: Do,
+      TabWrapper: Mo,
+      Table: Po,
+      Tabs: Bo,
+      TabsState: Fo,
+      TooltipLinkList: zo,
+      TooltipMessage: Ho,
+      TooltipNote: jo,
+      UL: Uo,
+      WithTooltip: ko,
+      WithTooltipPure: Go,
+      Zoom: Wo,
+      codeCommon: Vo,
+      components: $o,
+      createCopyToClipboardFunction: Yo,
+      getStoryHref: Jo,
+      icons: qo,
+      interleaveSeparators: Xo,
+      nameSpaceClassNames: Zo,
+      resetComponents: Ko,
+      withReset: Qo,
     } = __STORYBOOKCOMPONENTS__
   var je = Object.prototype.hasOwnProperty
   function Ue(e, t, r) {
@@ -243,31 +244,31 @@ try {
     }
     return e !== e && t !== t
   }
-  var si = __STORYBOOKTHEMING__,
+  var li = __STORYBOOKTHEMING__,
     {
-      CacheProvider: li,
-      ClassNames: ui,
-      Global: ci,
-      ThemeProvider: pi,
-      background: fi,
-      color: di,
-      convert: mi,
-      create: bi,
-      createCache: gi,
-      createGlobal: hi,
-      createReset: Ei,
-      css: yi,
-      darken: Oi,
-      ensure: vi,
-      ignoreSsrWarning: Ti,
-      isPropValid: _i,
+      CacheProvider: ui,
+      ClassNames: ci,
+      Global: pi,
+      ThemeProvider: fi,
+      background: di,
+      color: mi,
+      convert: bi,
+      create: gi,
+      createCache: hi,
+      createGlobal: Ei,
+      createReset: yi,
+      css: Oi,
+      darken: vi,
+      ensure: Ti,
+      ignoreSsrWarning: _i,
+      isPropValid: Ri,
       jsx: Ai,
-      keyframes: Ri,
-      lighten: Si,
+      keyframes: Si,
+      lighten: Ci,
       styled: j,
-      themes: Ci,
-      typography: wi,
-      useTheme: xi,
+      themes: wi,
+      typography: xi,
+      useTheme: Ni,
       withTheme: ke,
     } = __STORYBOOKTHEMING__
   var ct = Object.create,
@@ -692,13 +693,13 @@ try {
   function X(e, t) {
     return !t(e).next().done
   }
-  var At = (e) =>
+  var Rt = (e) =>
       Array.from({length: e}, (t, r) =>
         [K].concat(Array.from({length: r}, () => '*')).join('.')
       ),
-    Rt = (e, t, r, n, o) => {
+    At = (e, t, r, n, o) => {
       let i = []
-          .concat(At(n))
+          .concat(Rt(n))
           .concat(r)
           .filter((s) => typeof s == 'string'),
         u = []
@@ -770,7 +771,7 @@ try {
           s = I({}),
           [, l] = s
         return (
-          Le(() => l((c) => Rt(t, r, o, i, c)), [t, r, o, i]),
+          Le(() => l((c) => At(t, r, o, i, c)), [t, r, o, i]),
           a.createElement(
             Je.Provider,
             {value: s},
@@ -1231,9 +1232,9 @@ try {
               ve = O(ut),
               Te = typeof Oe,
               _e = typeof ve,
-              Ae = (z, Re) => (z < Re ? -1 : z > Re ? 1 : 0),
+              Re = (z, Ae) => (z < Ae ? -1 : z > Ae ? 1 : 0),
               F
-            if (Te === _e) F = Ae(Oe, ve)
+            if (Te === _e) F = Re(Oe, ve)
             else {
               let z = {
                 string: 0,
@@ -1244,7 +1245,7 @@ try {
                 undefined: 5,
                 function: 6,
               }
-              F = Ae(z[Te], z[_e])
+              F = Re(z[Te], z[_e])
             }
             return N || (F = -F), F
           },
@@ -1429,20 +1430,20 @@ try {
       )
     return e
   }
-  function R(e, t) {
+  function A(e, t) {
     return (
-      (R = Object.setPrototypeOf
+      (A = Object.setPrototypeOf
         ? Object.setPrototypeOf.bind()
         : function (n, o) {
             return (n.__proto__ = o), n
           }),
-      R(e, t)
+      A(e, t)
     )
   }
   function fe(e, t) {
     ;(e.prototype = Object.create(t.prototype)),
       (e.prototype.constructor = e),
-      R(e, t)
+      A(e, t)
   }
   function k(e) {
     return (
@@ -1481,7 +1482,7 @@ try {
             s.push.apply(s, i)
             var l = Function.bind.apply(o, s),
               c = new l()
-            return u && R(c, u.prototype), c
+            return u && A(c, u.prototype), c
           }),
       M.apply(null, arguments)
     )
@@ -1511,7 +1512,7 @@ try {
               configurable: !0,
             },
           })),
-          R(o, n)
+          A(o, n)
         )
       }),
       G(e)
@@ -1562,8 +1563,8 @@ try {
       }
     },
     at = qt,
-    el = at('em')
-  var tl = at('rem')
+    tl = at('em')
+  var rl = at('rem')
   function be(e) {
     return Math.round(e * 255)
   }
@@ -1995,7 +1996,7 @@ try {
       return o.length >= t ? e.apply(this, o) : ot(e, t, o)
     }
   }
-  function A(e) {
+  function R(e) {
     return ot(e, e.length, [])
   }
   function mr(e, t) {
@@ -2003,7 +2004,7 @@ try {
     var r = C(t)
     return w(v({}, r, {hue: r.hue + parseFloat(e)}))
   }
-  var rl = A(mr)
+  var nl = R(mr)
   function B(e, t, r) {
     return Math.max(e, Math.min(t, r))
   }
@@ -2012,19 +2013,19 @@ try {
     var r = C(t)
     return w(v({}, r, {lightness: B(0, 1, r.lightness - parseFloat(e))}))
   }
-  var nl = A(br)
+  var al = R(br)
   function gr(e, t) {
     if (t === 'transparent') return t
     var r = C(t)
     return w(v({}, r, {saturation: B(0, 1, r.saturation - parseFloat(e))}))
   }
-  var al = A(gr)
+  var ol = R(gr)
   function hr(e, t) {
     if (t === 'transparent') return t
     var r = C(t)
     return w(v({}, r, {lightness: B(0, 1, r.lightness + parseFloat(e))}))
   }
-  var ol = A(hr)
+  var il = R(hr)
   function Er(e, t, r) {
     if (t === 'transparent') return r
     if (r === 'transparent') return t
@@ -2047,7 +2048,7 @@ try {
       }
     return ee(E)
   }
-  var yr = A(Er),
+  var yr = R(Er),
     it = yr
   function Or(e, t) {
     if (t === 'transparent') return t
@@ -2056,34 +2057,34 @@ try {
       o = v({}, r, {alpha: B(0, 1, (n * 100 + parseFloat(e) * 100) / 100)})
     return ee(o)
   }
-  var vr = A(Or),
+  var vr = R(Or),
     st = vr
   function Tr(e, t) {
     if (t === 'transparent') return t
     var r = C(t)
     return w(v({}, r, {saturation: B(0, 1, r.saturation + parseFloat(e))}))
   }
-  var il = A(Tr)
+  var sl = R(Tr)
   function _r(e, t) {
     return t === 'transparent' ? t : w(v({}, C(t), {hue: parseFloat(e)}))
   }
-  var sl = A(_r)
-  function Ar(e, t) {
+  var ll = R(_r)
+  function Rr(e, t) {
     return t === 'transparent' ? t : w(v({}, C(t), {lightness: parseFloat(e)}))
   }
-  var ll = A(Ar)
-  function Rr(e, t) {
+  var ul = R(Rr)
+  function Ar(e, t) {
     return t === 'transparent' ? t : w(v({}, C(t), {saturation: parseFloat(e)}))
   }
-  var ul = A(Rr)
+  var cl = R(Ar)
   function Sr(e, t) {
     return t === 'transparent' ? t : it(parseFloat(e), 'rgb(0, 0, 0)', t)
   }
-  var cl = A(Sr)
+  var pl = R(Sr)
   function Cr(e, t) {
     return t === 'transparent' ? t : it(parseFloat(e), 'rgb(255, 255, 255)', t)
   }
-  var pl = A(Cr)
+  var fl = R(Cr)
   function wr(e, t) {
     if (t === 'transparent') return t
     var r = P(t),
@@ -2093,7 +2094,7 @@ try {
       })
     return ee(o)
   }
-  var fl = A(wr)
+  var dl = R(wr)
   var xr = j.div({
       display: 'flex',
       padding: 0,
@@ -2247,4 +2248,3 @@ try {
     e
   )
 }
-//# sourceMappingURL=manager-bundle.js.map

@@ -1,5 +1,6 @@
 import {Suspense} from 'react'
 import {Preview} from '@storybook/react'
+
 // @ts-ignore
 import createEmotionCache from '../../nextjs/src/createEmotionCache'
 import {CacheProvider} from '@emotion/react'
