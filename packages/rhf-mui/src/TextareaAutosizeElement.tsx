@@ -50,6 +50,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     rows,
     resizeStyle,
     inputRef,
+    inputProps,
     ...rest
   } = props
 
@@ -103,6 +104,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
           style: {
             resize: resizeStyle || 'both',
           },
+          ...(inputProps || {}),
         },
       }}
       ref={ref}
