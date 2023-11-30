@@ -1,12 +1,12 @@
-import {ReactNode, createElement, forwardRef, Ref, RefAttributes} from 'react'
+import {createElement, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {MenuItem, TextField, TextFieldProps, useForkRef} from '@mui/material'
 import {
   Control,
   FieldError,
-  FieldValues,
   FieldPath,
-  UseControllerProps,
+  FieldValues,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
 
@@ -139,6 +139,7 @@ const SelectElement = forwardRef(function SelectElement<
       )}
     </TextField>
   )
-}) as SelectElementComponent
+})
+SelectElement.displayName = 'SelectElement'
 
-export default SelectElement
+export default SelectElement as SelectElementComponent

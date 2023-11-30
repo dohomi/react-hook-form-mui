@@ -8,13 +8,13 @@ import {
   FieldError,
   FieldPath,
   PathValue,
-  UseControllerProps,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, forwardRef, RefAttributes, Ref} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {defaultErrorMessages} from './messages/DateTimePicker'
 import {
   useLocalizationContext,
@@ -169,6 +169,6 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
       }}
     />
   )
-}) as DateTimePickerElementComponent
-
-export default DateTimePickerElement
+})
+DateTimePickerElement.displayName = 'DateTimePickerElement'
+export default DateTimePickerElement as DateTimePickerElementComponent

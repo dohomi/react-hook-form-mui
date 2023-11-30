@@ -1,10 +1,10 @@
 import {
   Control,
   FieldError,
-  FieldValues,
   FieldPath,
-  UseControllerProps,
+  FieldValues,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {
   FormControl,
@@ -15,7 +15,7 @@ import {
   SliderProps,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, forwardRef, RefAttributes, Ref} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 
 export type SliderElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -105,6 +105,7 @@ const SliderElement = forwardRef(function SliderElement<
       )}
     </FormControl>
   )
-}) as SliderElementComponent
+})
+SliderElement.displayName = 'SliderElement'
 
-export default SliderElement
+export default SliderElement as SliderElementComponent

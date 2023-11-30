@@ -6,15 +6,15 @@ import {
 import {
   Control,
   FieldError,
-  FieldValues,
   FieldPath,
+  FieldValues,
   PathValue,
-  UseControllerProps,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, forwardRef, RefAttributes, Ref} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {defaultErrorMessages} from './messages/DatePicker'
 import {
   useLocalizationContext,
@@ -158,6 +158,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
       }}
     />
   )
-}) as MobileDatePickerElementComponent
+})
+MobileDatePickerElement.displayName = 'MobileDatePickerElement'
 
-export default MobileDatePickerElement
+export default MobileDatePickerElement as MobileDatePickerElementComponent

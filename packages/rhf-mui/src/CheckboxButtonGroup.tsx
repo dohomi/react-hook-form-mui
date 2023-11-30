@@ -13,12 +13,12 @@ import {
   Control,
   FieldError,
   FieldPath,
-  UseControllerProps,
-  useController,
   FieldValues,
+  useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, forwardRef, Ref, RefAttributes} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 
 export type CheckboxButtonGroupProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -160,6 +160,6 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
       {renderHelperText && <FormHelperText>{renderHelperText}</FormHelperText>}
     </FormControl>
   )
-}) as CheckboxButtonGroupComponent
-
-export default CheckboxButtonGroup
+})
+CheckboxButtonGroup.displayName = 'CheckboxButtonGroup'
+export default CheckboxButtonGroup as CheckboxButtonGroupComponent

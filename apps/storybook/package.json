@@ -28,6 +28,7 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "start-storybook": "npx serve storybook-static",
     "chromatic": "npx chromatic --project-token=chpt_68f87dfefc47179",
     "check-types": "tsc --noemit",
     "deploy": "yarn run build && cd storybook-static && vercel --name react-hook-form-material-ui --prod"

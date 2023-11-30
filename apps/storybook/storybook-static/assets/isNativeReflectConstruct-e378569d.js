@@ -24,4 +24,3 @@ function n() {
   }
 }
 export {n as _, o as a}
-//# sourceMappingURL=isNativeReflectConstruct-e378569d.js.map

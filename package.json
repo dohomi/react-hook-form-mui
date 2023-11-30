@@ -21,6 +21,7 @@
     "storybook": "turbo run storybook",
     "next": "cd apps/nextjs && yarn dev",
     "build-storybook": "cd apps/storybook && yarn build-storybook",
+    "sb-start": "cd apps/storybook && yarn build-storybook && yarn start-storybook",
     "check-types": "cd packages/rhf-mui && tsc --noemit",
     "lint": "eslint apps/nextjs/src/** packages/rhf-mui/src/** apps/storybook/stories/** apps/storybook/src/**",
     "lint:fix": "npm run lint -- --fix",

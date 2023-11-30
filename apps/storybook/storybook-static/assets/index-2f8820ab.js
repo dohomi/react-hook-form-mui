@@ -25,4 +25,3 @@ export {
   i as useMDXComponents,
   l as withMDXComponents,
 }
-//# sourceMappingURL=index-2f8820ab.js.map

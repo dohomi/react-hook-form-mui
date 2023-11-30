@@ -1,4 +1,4 @@
-import {Control, FieldValues, FieldPath, useController} from 'react-hook-form'
+import {Control, FieldPath, FieldValues, useController} from 'react-hook-form'
 import {
   FormControlLabel,
   FormControlLabelProps,
@@ -6,7 +6,7 @@ import {
   SwitchProps,
   useForkRef,
 } from '@mui/material'
-import {forwardRef, RefAttributes, Ref} from 'react'
+import {forwardRef, Ref, RefAttributes} from 'react'
 
 export type SwitchElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -68,6 +68,7 @@ const SwitchElement = forwardRef(function SwitchElement<
       {...rest}
     />
   )
-}) as SwitchElementComponent
+})
+SwitchElement.displayName = 'SwitchElement'
 
-export default SwitchElement
+export default SwitchElement as SwitchElementComponent

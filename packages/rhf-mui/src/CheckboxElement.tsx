@@ -3,8 +3,8 @@ import {
   FieldError,
   FieldPath,
   FieldValues,
-  UseControllerProps,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {
   Checkbox,
@@ -17,7 +17,7 @@ import {
   useForkRef,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, Ref, forwardRef, RefAttributes} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 
 export type CheckboxElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -122,6 +122,7 @@ const CheckboxElement = forwardRef(function CheckboxElement<
       )}
     </FormControl>
   )
-}) as CheckboxElementComponent
+})
+CheckboxElement.displayName = 'CheckboxElement'
 
-export default CheckboxElement
+export default CheckboxElement as CheckboxElementComponent

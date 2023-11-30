@@ -8,11 +8,11 @@ import {
   Control,
   FieldError,
   FieldPath,
-  UseControllerProps,
-  useController,
   FieldValues,
+  useController,
+  UseControllerProps,
 } from 'react-hook-form'
-import {CSSProperties, ReactNode, RefAttributes, forwardRef, Ref} from 'react'
+import {CSSProperties, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {useFormError} from './FormErrorProvider'
 
 export type TextareaAutosizeElementProps<
@@ -110,6 +110,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
       ref={ref}
     />
   )
-}) as TextareaAutosizeElementComponent
+})
+TextareaAutosizeElement.displayName = 'TextareaAutosizeElement'
 
-export default TextareaAutosizeElement
+export default TextareaAutosizeElement as TextareaAutosizeElementComponent

@@ -1,33 +1,35 @@
 import {FormContainer, TextareaAutosizeElement} from 'react-hook-form-mui/src'
-import {Meta, StoryFn} from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {SubmitButton} from '../src/Shared'
 
-export default {
+const meta = {
   title: 'TextareaAutosizeElement',
   component: TextareaAutosizeElement,
-} as Meta<typeof TextareaAutosizeElement>
+  decorators: [FormWrap],
+} satisfies Meta<typeof TextareaAutosizeElement>
 
-const Template: StoryFn<typeof TextareaAutosizeElement> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-    <TextareaAutosizeElement {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Basic = {
-  render: Template,
+function FormWrap(Story) {
+  return (
+    <FormContainer defaultValues={{}} onSuccess={action('submit')}>
+      <Story />
+      <br />
+      <SubmitButton />
+    </FormContainer>
+  )
+}
 
+export const Basic: Story = {
   args: {
     label: 'Simple Textarea',
     name: 'textarea',
   },
 }
 
-export const Required = {
-  render: Template,
-
+export const Required: Story = {
   args: {
     label: 'Required Textarea',
     name: 'textarea-req',
@@ -35,9 +37,7 @@ export const Required = {
   },
 }
 
-export const Rows = {
-  render: Template,
-
+export const Rows: Story = {
   args: {
     label: 'Simple Textarea',
     name: 'textarea-rows',
@@ -45,9 +45,7 @@ export const Rows = {
   },
 }
 
-export const ResizeStyle = {
-  render: Template,
-
+export const ResizeStyle: Story = {
   args: {
     label: 'Vertical Resize',
     name: 'textarea-vertical',

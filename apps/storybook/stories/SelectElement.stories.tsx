@@ -1,13 +1,14 @@
-import {FormContainer, SelectElement} from 'react-hook-form-mui/src'
-import {action} from '@storybook/addon-actions'
-import {Meta, StoryFn} from '@storybook/react'
-import {SubmitButton} from '../src/Shared'
+import {SelectElement} from 'react-hook-form-mui/src'
+import {Meta, StoryObj} from '@storybook/react'
+import {FormContainerDecorator} from '../src/FormDecorator'
 
-export default {
+const meta = {
   title: 'SelectElement',
   component: SelectElement,
-} as Meta<typeof SelectElement>
-
+  decorators: [FormContainerDecorator],
+} satisfies Meta<typeof SelectElement>
+export default meta
+type Story = StoryObj<typeof meta>
 const months = [
   'January',
   'February',
@@ -26,14 +27,6 @@ const months = [
   label: i,
 }))
 
-const Template: StoryFn<typeof SelectElement> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-    <SelectElement {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
-
 const options = [
   {id: '1', label: 'Label 1'},
   {id: '2', label: 'label 2'},
@@ -44,9 +37,7 @@ const withDisabledOptions = [
   {id: '3', label: 'label 2', disabled: true},
 ]
 
-export const Basic = {
-  render: Template,
-
+export const Basic: Story = {
   args: {
     name: 'basic',
     label: 'Basic',
@@ -54,9 +45,7 @@ export const Basic = {
   },
 }
 
-export const Required = {
-  render: Template,
-
+export const Required: Story = {
   args: {
     name: 'required',
     label: 'Required',
@@ -64,9 +53,7 @@ export const Required = {
     options,
   },
 }
-export const WithDisabledOption = {
-  render: Template,
-
+export const WithDisabledOption: Story = {
   args: {
     name: 'disabled',
     required: true,
@@ -74,9 +61,7 @@ export const WithDisabledOption = {
   },
 }
 
-export const MonthPicker = {
-  render: Template,
-
+export const MonthPicker: Story = {
   args: {
     name: 'month',
     options: months,

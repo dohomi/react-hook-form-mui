@@ -1,41 +1,41 @@
 import {FormContainer, SliderElement} from 'react-hook-form-mui/src'
-import {Meta, StoryFn} from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {SubmitButton} from '../src/Shared'
 
-export default {
+const meta = {
   title: 'Slider Element',
   component: SliderElement,
-} as Meta<typeof SliderElement>
+  decorators: [FormWrap],
+} satisfies Meta<typeof SliderElement>
 
-const Template: StoryFn<typeof SliderElement> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-    <SliderElement {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Basic = {
-  render: Template,
+function FormWrap(Story) {
+  return (
+    <FormContainer defaultValues={{}} onSuccess={action('submit')}>
+      <Story />
+      <br />
+      <SubmitButton />
+    </FormContainer>
+  )
+}
 
+export const Basic: Story = {
   args: {
     name: 'slider',
   },
 }
 
-export const Label = {
-  render: Template,
-
+export const Label: Story = {
   args: {
     name: 'slider',
     label: 'Slider Label',
   },
 }
 
-export const Required = {
-  render: Template,
-
+export const Required: Story = {
   args: {
     name: 'slider_required',
     label: 'Required Label',
@@ -43,9 +43,7 @@ export const Required = {
   },
 }
 
-export const WithOptions = {
-  render: Template,
-
+export const WithOptions: Story = {
   args: {
     name: 'slider',
     label: 'Slider With Options',

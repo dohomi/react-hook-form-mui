@@ -1,14 +1,14 @@
-import {TextField, useForkRef, TextFieldProps} from '@mui/material'
+import {TextField, TextFieldProps, useForkRef} from '@mui/material'
 import {
   Control,
   FieldError,
   FieldPath,
-  UseControllerProps,
   FieldValues,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, RefAttributes, Ref} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 
 export type TextFieldElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -112,6 +112,7 @@ const TextFieldElement = forwardRef(function TextFieldElement<
       inputRef={handleInputRef}
     />
   )
-}) as TextFieldElementComponent
+})
+TextFieldElement.displayName = 'TextFieldElement'
 
-export default TextFieldElement
+export default TextFieldElement as TextFieldElementComponent

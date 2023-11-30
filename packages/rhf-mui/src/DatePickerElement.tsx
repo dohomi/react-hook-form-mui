@@ -6,15 +6,15 @@ import {
 import {
   Control,
   FieldError,
-  useController,
   FieldPath,
-  UseControllerProps,
-  PathValue,
   FieldValues,
+  PathValue,
+  useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, forwardRef, Ref, RefAttributes} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {DateValidationError} from '@mui/x-date-pickers'
 import {defaultErrorMessages} from './messages/DatePicker'
 import {
@@ -175,6 +175,6 @@ const DatePickerElement = forwardRef(function DatePickerElement<
       }}
     />
   )
-}) as DatePickerElementComponent
-
-export default DatePickerElement
+})
+DatePickerElement.displayName = 'DatePickerElement'
+export default DatePickerElement as DatePickerElementComponent

@@ -2,10 +2,10 @@ import CloseIcon from '@mui/icons-material/Cancel'
 import {
   Control,
   FieldError,
-  FieldValues,
   FieldPath,
-  UseControllerProps,
+  FieldValues,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {
   Checkbox,
@@ -21,7 +21,7 @@ import {
   useForkRef,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, forwardRef, RefAttributes, Ref} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 
 export type MultiSelectElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -233,6 +233,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
       )}
     </FormControl>
   )
-}) as MultiSelectElementComponent
+})
+MultiSelectElement.displayName = 'MultiSelectElement'
 
-export default MultiSelectElement
+export default MultiSelectElement as MultiSelectElementComponent

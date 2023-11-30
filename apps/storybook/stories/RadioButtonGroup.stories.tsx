@@ -1,28 +1,21 @@
-import {FormContainer, RadioButtonGroup} from 'react-hook-form-mui/src'
-import {action} from '@storybook/addon-actions'
-import {Meta, StoryFn} from '@storybook/react'
-import {SubmitButton} from '../src/Shared'
+import {RadioButtonGroup} from 'react-hook-form-mui/src'
+import {Meta, StoryObj} from '@storybook/react'
+import {FormContainerDecorator} from '../src/FormDecorator'
 
-export default {
+const meta = {
   title: 'RadioButtonGroup',
   component: RadioButtonGroup,
-} as Meta<typeof RadioButtonGroup>
+  decorators: [FormContainerDecorator],
+} satisfies Meta<typeof RadioButtonGroup>
+export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: StoryFn<typeof RadioButtonGroup> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-    <RadioButtonGroup {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
 const options = [
   {id: '1', label: 'Label 1'},
   {id: '2', label: 'label 2'},
 ]
 
-export const Basic = {
-  render: Template,
-
+export const Basic: Story = {
   args: {
     label: 'Basic',
     name: 'basic',
@@ -30,9 +23,7 @@ export const Basic = {
   },
 }
 
-export const Inline = {
-  render: Template,
-
+export const Inline: Story = {
   args: {
     label: 'Inline',
     name: 'inline',
@@ -41,9 +32,7 @@ export const Inline = {
   },
 }
 
-export const Required = {
-  render: Template,
-
+export const Required: Story = {
   args: {
     label: 'Required',
     name: 'inline',
@@ -52,9 +41,7 @@ export const Required = {
   },
 }
 
-export const ValueAsNumber = {
-  render: Template,
-
+export const ValueAsNumber: Story = {
   args: {
     label: 'Required',
     name: 'number_value',
@@ -64,9 +51,7 @@ export const ValueAsNumber = {
   },
 }
 
-export const Disabled = {
-  render: Template,
-
+export const Disabled: Story = {
   args: {
     label: 'Disabled',
     name: 'disabled',

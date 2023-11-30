@@ -1,10 +1,10 @@
 import {
+  forwardRef,
   MouseEvent,
   ReactNode,
-  useState,
-  RefAttributes,
-  forwardRef,
   Ref,
+  RefAttributes,
+  useState,
 } from 'react'
 import TextFieldElement, {TextFieldElementProps} from './TextFieldElement'
 import {IconButton, IconButtonProps, InputAdornment} from '@mui/material'
@@ -64,6 +64,7 @@ const PasswordElement = forwardRef(function PasswordElement<
       type={password ? 'password' : 'text'}
     />
   )
-}) as PasswordElementComponent
+})
+PasswordElement.displayName = 'PasswordElement'
 
-export default PasswordElement
+export default PasswordElement as PasswordElementComponent

@@ -1848,8 +1848,8 @@ var require_stringify = __commonJS({
           }
           return [formatter(prefix2) + '=' + formatter(String(obj))]
         }
-        var values2 = []
-        if (typeof obj > 'u') return values2
+        var values = []
+        if (typeof obj > 'u') return values
         var objKeys
         if (generateArrayPrefix === 'comma' && isArray2(obj))
           encodeValuesOnly && encoder && (obj = utils.maybeMap(obj, encoder)),
@@ -1885,7 +1885,7 @@ var require_stringify = __commonJS({
             var valueSideChannel = getSideChannel()
             valueSideChannel.set(sentinel, sideChannel),
               pushToArray(
-                values2,
+                values,
                 stringify3(
                   value2,
                   keyPrefix,
@@ -1911,7 +1911,7 @@ var require_stringify = __commonJS({
               )
           }
         }
-        return values2
+        return values
       },
       normalizeStringifyOptions = function (opts) {
         if (!opts) return defaults
@@ -3414,11 +3414,11 @@ var require_SetCache = __commonJS({
     var MapCache2 = require_MapCache(),
       setCacheAdd = require_setCacheAdd(),
       setCacheHas = require_setCacheHas()
-    function SetCache(values2) {
+    function SetCache(values) {
       var index = -1,
-        length = values2 == null ? 0 : values2.length
+        length = values == null ? 0 : values.length
       for (this.__data__ = new MapCache2(); ++index < length; )
-        this.add(values2[index])
+        this.add(values[index])
     }
     SetCache.prototype.add = SetCache.prototype.push = setCacheAdd
     SetCache.prototype.has = setCacheHas
@@ -3643,13 +3643,13 @@ var require_equalByTag = __commonJS({
 var require_arrayPush = __commonJS({
   '../../node_modules/lodash/_arrayPush.js'(exports, module) {
     'use strict'
-    function arrayPush(array, values2) {
+    function arrayPush(array, values) {
       for (
-        var index = -1, length = values2.length, offset = array.length;
+        var index = -1, length = values.length, offset = array.length;
         ++index < length;
 
       )
-        array[offset + index] = values2[index]
+        array[offset + index] = values[index]
       return array
     }
     module.exports = arrayPush
@@ -5701,13 +5701,32 @@ var scope = (() => {
     win
   )
 })()
-var postmessage_exports = {}
-__export(postmessage_exports, {
-  KEY: () => KEY,
+var globalsNameReferenceMap = {
+    '@storybook/addons': '__STORYBOOK_MODULE_ADDONS__',
+    '@storybook/global': '__STORYBOOK_MODULE_GLOBAL__',
+    '@storybook/channel-postmessage':
+      '__STORYBOOK_MODULE_CHANNEL_POSTMESSAGE__',
+    '@storybook/channel-websocket': '__STORYBOOK_MODULE_CHANNEL_WEBSOCKET__',
+    '@storybook/channels': '__STORYBOOK_MODULE_CHANNELS__',
+    '@storybook/client-api': '__STORYBOOK_MODULE_CLIENT_API__',
+    '@storybook/client-logger': '__STORYBOOK_MODULE_CLIENT_LOGGER__',
+    '@storybook/core-client': '__STORYBOOK_MODULE_CORE_CLIENT__',
+    '@storybook/core-events': '__STORYBOOK_MODULE_CORE_EVENTS__',
+    '@storybook/preview-web': '__STORYBOOK_MODULE_PREVIEW_WEB__',
+    '@storybook/preview-api': '__STORYBOOK_MODULE_PREVIEW_API__',
+    '@storybook/store': '__STORYBOOK_MODULE_STORE__',
+    '@storybook/types': '__STORYBOOK_MODULE_TYPES__',
+  },
+  globalPackages = Object.keys(globalsNameReferenceMap)
+var dist_exports4 = {}
+__export(dist_exports4, {
+  Channel: () => Channel,
   PostMessageTransport: () => PostMessageTransport,
-  PostmsgTransport: () => PostmsgTransport,
-  createChannel: () => createChannel,
-  default: () => postmessage_default,
+  WebsocketTransport: () => WebsocketTransport,
+  createBrowserChannel: () => createBrowserChannel,
+  createPostMessageChannel: () => createChannel,
+  createWebSocketChannel: () => createChannel2,
+  default: () => src_default2,
 })
 var isMulti = (args2) => args2.transports !== void 0,
   generateRandomId = () => Math.random().toString(16).slice(2),
@@ -7425,7 +7444,7 @@ var getEventSourceUrl = (event) => {
           ...eventOptions,
         },
         frames = this.getFrames(target),
-        query = import_qs.default.parse(location.search, {
+        query = import_qs.default.parse(location?.search || '', {
           ignoreQueryPrefix: !0,
         }),
         data = stringify(
@@ -7546,12 +7565,6 @@ function createChannel({page}) {
   return new Channel({transport})
 }
 var postmessage_default = createChannel
-var websocket_exports = {}
-__export(websocket_exports, {
-  WebsocketTransport: () => WebsocketTransport,
-  createChannel: () => createChannel2,
-  default: () => websocket_default,
-})
 var {WebSocket} = scope,
   WebsocketTransport = class {
     constructor({url, onError}) {
@@ -7604,16 +7617,6 @@ function createChannel2({
   return new Channel({transport, async})
 }
 var websocket_default = createChannel2
-var dist_exports4 = {}
-__export(dist_exports4, {
-  Channel: () => Channel,
-  PostMessageTransport: () => PostMessageTransport,
-  WebsocketTransport: () => WebsocketTransport,
-  createBrowserChannel: () => createBrowserChannel,
-  createPostMessageChannel: () => createChannel,
-  createWebSocketChannel: () => createChannel2,
-  default: () => src_default2,
-})
 var {CONFIG_TYPE} = scope,
   src_default2 = Channel
 function createBrowserChannel({page, extraTransports = []}) {
@@ -8051,12 +8054,12 @@ function useArgs() {
 }
 function useGlobals() {
   let channel = addons.getChannel(),
-    {globals: globals2} = useStoryContext(),
+    {globals} = useStoryContext(),
     updateGlobals = useCallback(
       (newGlobals) => channel.emit(UPDATE_GLOBALS, {globals: newGlobals}),
       [channel]
     )
-  return [globals2, updateGlobals]
+  return [globals, updateGlobals]
 }
 var import_memoizerific2 = __toESM(require_memoizerific(), 1),
   import_mapValues = __toESM(require_mapValues(), 1),
@@ -8100,8 +8103,8 @@ More info: ${page}
   }
 }
 function dedent(templ) {
-  for (var values2 = [], _i = 1; _i < arguments.length; _i++)
-    values2[_i - 1] = arguments[_i]
+  for (var values = [], _i = 1; _i < arguments.length; _i++)
+    values[_i - 1] = arguments[_i]
   var strings = Array.from(typeof templ == 'string' ? [templ] : templ)
   strings[strings.length - 1] = strings[strings.length - 1].replace(
     /\r?\n([\t ]*)$/,
@@ -8142,7 +8145,7 @@ function dedent(templ) {
   strings[0] = strings[0].replace(/^\r?\n/, '')
   var string = strings[0]
   return (
-    values2.forEach(function (value2, i) {
+    values.forEach(function (value2, i) {
       var endentations = string.match(/(?:^|\n)( *)$/),
         endentation = endentations ? endentations[1] : '',
         indentedValue = value2
@@ -8271,20 +8274,20 @@ var B = Object.create,
   h = Object.getPrototypeOf,
   w = Object.prototype.hasOwnProperty,
   I = (r, e) => () => (e || r((e = {exports: {}}).exports, e), e.exports),
-  E = (r, e, t, n) => {
+  E = (r, e, n, t) => {
     if ((e && typeof e == 'object') || typeof e == 'function')
       for (let a of C(e))
         !w.call(r, a) &&
-          a !== t &&
-          R(r, a, {get: () => e[a], enumerable: !(n = b(e, a)) || n.enumerable})
+          a !== n &&
+          R(r, a, {get: () => e[a], enumerable: !(t = b(e, a)) || t.enumerable})
     return r
   },
-  P = (r, e, t) => (
-    (t = r != null ? B(h(r)) : {}),
+  v = (r, e, n) => (
+    (n = r != null ? B(h(r)) : {}),
     E(
       e || !r || !r.__esModule
-        ? R(t, 'default', {value: r, enumerable: !0})
-        : t,
+        ? R(n, 'default', {value: r, enumerable: !0})
+        : n,
       r
     )
   ),
@@ -8293,29 +8296,29 @@ var B = Object.create,
       (T.isEqual = (function () {
         var r = Object.prototype.toString,
           e = Object.getPrototypeOf,
-          t = Object.getOwnPropertySymbols
-            ? function (n) {
-                return Object.keys(n).concat(Object.getOwnPropertySymbols(n))
+          n = Object.getOwnPropertySymbols
+            ? function (t) {
+                return Object.keys(t).concat(Object.getOwnPropertySymbols(t))
               }
             : Object.keys
-        return function (n, a) {
-          return (function i(o, s, d) {
+        return function (t, a) {
+          return (function i(o, s, p) {
             var y,
               g,
-              p,
+              d,
               A = r.call(o),
               F = r.call(s)
             if (o === s) return !0
             if (o == null || s == null) return !1
-            if (d.indexOf(o) > -1 && d.indexOf(s) > -1) return !0
+            if (p.indexOf(o) > -1 && p.indexOf(s) > -1) return !0
             if (
-              (d.push(o, s),
+              (p.push(o, s),
               A != F ||
-                ((y = t(o)),
-                (g = t(s)),
+                ((y = n(o)),
+                (g = n(s)),
                 y.length != g.length ||
                   y.some(function (l) {
-                    return !i(o[l], s[l], d)
+                    return !i(o[l], s[l], p)
                   })))
             )
               return !1
@@ -8333,8 +8336,8 @@ var B = Object.create,
               case 'Set':
               case 'Map':
                 ;(y = o.entries()), (g = s.entries())
-                do if (!i((p = y.next()).value, g.next().value, d)) return !1
-                while (!p.done)
+                do if (!i((d = y.next()).value, g.next().value, p)) return !1
+                while (!d.done)
                 return !0
               case 'ArrayBuffer':
                 ;(o = new Uint8Array(o)), (s = new Uint8Array(s))
@@ -8352,19 +8355,19 @@ var B = Object.create,
               case 'Arguments':
               case 'Array':
                 if (o.length != s.length) return !1
-                for (p = 0; p < o.length; p++)
+                for (d = 0; d < o.length; d++)
                   if (
-                    (p in o || p in s) &&
-                    (p in o != p in s || !i(o[p], s[p], d))
+                    (d in o || d in s) &&
+                    (d in o != d in s || !i(o[d], s[d], p))
                   )
                     return !1
                 return !0
               case 'Object':
-                return i(e(o), e(s), d)
+                return i(e(o), e(s), p)
               default:
                 return !1
             }
-          })(n, a, [])
+          })(t, a, [])
         }
       })())
   })
@@ -8373,39 +8376,39 @@ function u(r) {
     .replace(/_/g, ' ')
     .replace(/-/g, ' ')
     .replace(/\./g, ' ')
-    .replace(/([^\n])([A-Z])([a-z])/g, (e, t, n, a) => `${t} ${n}${a}`)
-    .replace(/([a-z])([A-Z])/g, (e, t, n) => `${t} ${n}`)
-    .replace(/([a-z])([0-9])/gi, (e, t, n) => `${t} ${n}`)
-    .replace(/([0-9])([a-z])/gi, (e, t, n) => `${t} ${n}`)
-    .replace(/(\s|^)(\w)/g, (e, t, n) => `${t}${n.toUpperCase()}`)
+    .replace(/([^\n])([A-Z])([a-z])/g, (e, n, t, a) => `${n} ${t}${a}`)
+    .replace(/([a-z])([A-Z])/g, (e, n, t) => `${n} ${t}`)
+    .replace(/([a-z])([0-9])/gi, (e, n, t) => `${n} ${t}`)
+    .replace(/([0-9])([a-z])/gi, (e, n, t) => `${n} ${t}`)
+    .replace(/(\s|^)(\w)/g, (e, n, t) => `${n}${t.toUpperCase()}`)
     .replace(/ +/g, ' ')
     .trim()
 }
-var c = P(x()),
+var c = v(x()),
   S = (r) => r.map((e) => typeof e < 'u').filter(Boolean).length,
-  O = (r, e) => {
-    let {exists: t, eq: n, neq: a, truthy: i} = r
-    if (S([t, n, a, i]) > 1)
+  P = (r, e) => {
+    let {exists: n, eq: t, neq: a, truthy: i} = r
+    if (S([n, t, a, i]) > 1)
       throw new Error(
-        `Invalid conditional test ${JSON.stringify({exists: t, eq: n, neq: a})}`
+        `Invalid conditional test ${JSON.stringify({exists: n, eq: t, neq: a})}`
       )
-    if (typeof n < 'u') return (0, c.isEqual)(e, n)
+    if (typeof t < 'u') return (0, c.isEqual)(e, t)
     if (typeof a < 'u') return !(0, c.isEqual)(e, a)
-    if (typeof t < 'u') {
+    if (typeof n < 'u') {
       let s = typeof e < 'u'
-      return t ? s : !s
+      return n ? s : !s
     }
     return typeof i > 'u' || i ? !!e : !e
   },
-  v = (r, e, t) => {
+  O = (r, e, n) => {
     if (!r.if) return !0
-    let {arg: n, global: a} = r.if
-    if (S([n, a]) !== 1)
+    let {arg: t, global: a} = r.if
+    if (S([t, a]) !== 1)
       throw new Error(
-        `Invalid conditional value ${JSON.stringify({arg: n, global: a})}`
+        `Invalid conditional value ${JSON.stringify({arg: t, global: a})}`
       )
-    let i = n ? e[n] : t[a]
-    return O(r.if, i)
+    let i = t ? e[t] : n[a]
+    return P(r.if, i)
   },
   L = (r) =>
     r
@@ -8414,21 +8417,21 @@ var c = P(x()),
       .replace(/-+/g, '-')
       .replace(/^-+/, '')
       .replace(/-+$/, ''),
-  m = (r, e) => {
-    let t = L(r)
-    if (t === '')
+  f2 = (r, e) => {
+    let n = L(r)
+    if (n === '')
       throw new Error(
         `Invalid ${e} '${r}', must include alphanumeric characters`
       )
-    return t
+    return n
   },
-  N = (r, e) => `${m(r, 'kind')}${e ? `--${m(e, 'name')}` : ''}`,
+  N = (r, e) => `${f2(r, 'kind')}${e ? `--${f2(e, 'name')}` : ''}`,
   M = (r) => u(r)
-function f2(r, e) {
+function m(r, e) {
   return Array.isArray(e) ? e.includes(r) : r.match(e)
 }
-function G(r, {includeStories: e, excludeStories: t}) {
-  return r !== '__esModule' && (!e || f2(r, e)) && (!t || !f2(r, t))
+function G(r, {includeStories: e, excludeStories: n}) {
+  return r !== '__esModule' && (!e || m(r, e)) && (!n || !m(r, n))
 }
 var import_util_deprecate = __toESM(require_browser(), 1)
 var import_pickBy = __toESM(require_pickBy(), 1)
@@ -8678,23 +8681,23 @@ var ArgsStore = class {
       {}
     ),
   GlobalsStore = class {
-    constructor({globals: globals2 = {}, globalTypes = {}}) {
-      this.set({globals: globals2, globalTypes})
+    constructor({globals = {}, globalTypes = {}}) {
+      this.set({globals, globalTypes})
     }
-    set({globals: globals2 = {}, globalTypes = {}}) {
+    set({globals = {}, globalTypes = {}}) {
       let delta =
         this.initialGlobals && deepDiff(this.initialGlobals, this.globals)
       this.allowedGlobalNames = new Set([
-        ...Object.keys(globals2),
+        ...Object.keys(globals),
         ...Object.keys(globalTypes),
       ])
       let defaultGlobals = getValuesFromArgTypes(globalTypes)
-      ;(this.initialGlobals = {...defaultGlobals, ...globals2}),
+      ;(this.initialGlobals = {...defaultGlobals, ...globals}),
         (this.globals = this.initialGlobals),
         delta && delta !== DEEPLY_EQUAL && this.updateFromPersisted(delta)
     }
-    filterAllowedGlobals(globals2) {
-      return Object.entries(globals2).reduce(
+    filterAllowedGlobals(globals) {
+      return Object.entries(globals).reduce(
         (acc, [key2, value2]) => (
           this.allowedGlobalNames.has(key2)
             ? (acc[key2] = value2)
@@ -8733,6 +8736,8 @@ var ArgsStore = class {
   },
   normalizeInputTypes = (inputTypes) =>
     (0, import_mapValues.default)(inputTypes, normalizeInputType),
+  normalizeArrays = (array) =>
+    Array.isArray(array) ? array : array ? [array] : [],
   deprecatedStoryAnnotation = dedent`
 CSF .story annotations deprecated; annotate story functions directly:
 - StoryFn.story.name => StoryFn.storyName
@@ -8758,13 +8763,16 @@ function normalizeStory(key2, storyAnnotations, meta) {
       story?.name ||
       exportName,
     decorators = [
-      ...(storyObject.decorators || []),
-      ...(story?.decorators || []),
+      ...normalizeArrays(storyObject.decorators),
+      ...normalizeArrays(story?.decorators),
     ],
     parameters = {...story?.parameters, ...storyObject.parameters},
     args2 = {...story?.args, ...storyObject.args},
     argTypes = {...story?.argTypes, ...storyObject.argTypes},
-    loaders = [...(storyObject.loaders || []), ...(story?.loaders || [])],
+    loaders = [
+      ...normalizeArrays(storyObject.loaders),
+      ...normalizeArrays(story?.loaders),
+    ],
     {render, play, tags = []} = storyObject,
     id = parameters.__id || N(meta.id, exportName)
   return {
@@ -8797,11 +8805,11 @@ function normalizeComponentAnnotations(
   }
 }
 var checkGlobals = (parameters) => {
-    let {globals: globals2, globalTypes} = parameters
-    ;(globals2 || globalTypes) &&
+    let {globals, globalTypes} = parameters
+    ;(globals || globalTypes) &&
       logger.error(
         'Global args/argTypes can only be set globally',
-        JSON.stringify({globals: globals2, globalTypes})
+        JSON.stringify({globals, globalTypes})
       )
   },
   checkStorySort = (parameters) => {
@@ -8920,17 +8928,27 @@ function prepareStory(
       componentAnnotations,
       projectAnnotations
     ),
-    loaders = [
-      ...(projectAnnotations.loaders || []),
-      ...(componentAnnotations.loaders || []),
-      ...(storyAnnotations?.loaders || []),
-    ],
     applyLoaders = async (context) => {
-      let loadResults = await Promise.all(
-          loaders.map((loader) => loader(context))
-        ),
-        loaded = Object.assign({}, ...loadResults)
-      return {...context, loaded}
+      let updatedContext = {...context, loaded: {}}
+      for (let loaders of [
+        ...('__STORYBOOK_TEST_LOADERS__' in scope &&
+        Array.isArray(scope.__STORYBOOK_TEST_LOADERS__)
+          ? [scope.__STORYBOOK_TEST_LOADERS__]
+          : []),
+        normalizeArrays(projectAnnotations.loaders),
+        normalizeArrays(componentAnnotations.loaders),
+        normalizeArrays(storyAnnotations.loaders),
+      ]) {
+        let loadResults = await Promise.all(
+            loaders.map((loader) => loader(updatedContext))
+          ),
+          loaded = Object.assign({}, ...loadResults)
+        updatedContext = {
+          ...updatedContext,
+          loaded: {...updatedContext.loaded, ...loaded},
+        }
+      }
+      return updatedContext
     },
     undecoratedStoryFn = (context) => {
       let {passArgsFirst: renderTimePassArgsFirst = !0} = context.parameters
@@ -8940,9 +8958,9 @@ function prepareStory(
     },
     {applyDecorators = defaultDecorateStory, runStep} = projectAnnotations,
     decorators = [
-      ...(storyAnnotations?.decorators || []),
-      ...(componentAnnotations.decorators || []),
-      ...(projectAnnotations.decorators || []),
+      ...normalizeArrays(storyAnnotations?.decorators),
+      ...normalizeArrays(componentAnnotations?.decorators),
+      ...normalizeArrays(projectAnnotations?.decorators),
     ],
     render =
       storyAnnotations?.userStoryFn ||
@@ -9084,7 +9102,7 @@ function prepareContext(context) {
     includedArgs = Object.entries(mappedArgs).reduce((acc, [key2, val]) => {
       let argType = targetedContext.argTypes[key2] || {}
       return (
-        v(argType, mappedArgs, targetedContext.globals) && (acc[key2] = val),
+        O(argType, mappedArgs, targetedContext.globals) && (acc[key2] = val),
         acc
       )
     }, {})
@@ -9214,11 +9232,15 @@ function normalizeProjectAnnotations({
   argTypes,
   globalTypes,
   argTypesEnhancers,
+  decorators,
+  loaders,
   ...annotations
 }) {
   return {
     ...(argTypes && {argTypes: normalizeInputTypes(argTypes)}),
     ...(globalTypes && {globalTypes: normalizeInputTypes(globalTypes)}),
+    decorators: normalizeArrays(decorators),
+    loaders: normalizeArrays(loaders),
     argTypesEnhancers: [
       ...(argTypesEnhancers || []),
       inferArgTypes,
@@ -9417,10 +9439,10 @@ var CSF_CACHE_SIZE = 1e3,
     }
     setProjectAnnotations(projectAnnotations) {
       this.projectAnnotations = normalizeProjectAnnotations(projectAnnotations)
-      let {globals: globals2, globalTypes} = projectAnnotations
+      let {globals, globalTypes} = projectAnnotations
       this.globals
-        ? this.globals.set({globals: globals2, globalTypes})
-        : (this.globals = new GlobalsStore({globals: globals2, globalTypes}))
+        ? this.globals.set({globals, globalTypes})
+        : (this.globals = new GlobalsStore({globals, globalTypes}))
     }
     initialize({storyIndex, importFn, cache = !1}) {
       return (
@@ -10110,19 +10132,15 @@ var import_synchronous_promise2 = __toESM(require_synchronous_promise(), 1),
         (this.addDecorator = (decorator) => {
           this.facade.projectAnnotations.decorators?.push(decorator)
         }),
-        (this.addParameters = ({
-          globals: globals2,
-          globalTypes,
-          ...parameters
-        }) => {
+        (this.addParameters = ({globals, globalTypes, ...parameters}) => {
           ;(this.facade.projectAnnotations.parameters = combineParameters(
             this.facade.projectAnnotations.parameters,
             parameters
           )),
-            globals2 &&
+            globals &&
               (this.facade.projectAnnotations.globals = {
                 ...this.facade.projectAnnotations.globals,
-                ...globals2,
+                ...globals,
               }),
             globalTypes &&
               (this.facade.projectAnnotations.globalTypes = {
@@ -13782,10 +13800,10 @@ var StoryRender = class {
     async onStoriesChanged({importFn, storyIndex}) {
       await this.storyStore.onStoriesChanged({importFn, storyIndex})
     }
-    async onUpdateGlobals({globals: globals2}) {
+    async onUpdateGlobals({globals}) {
       if (!this.storyStore.globals)
         throw new Error('Cannot call onUpdateGlobals before initialization')
-      this.storyStore.globals.update(globals2),
+      this.storyStore.globals.update(globals),
         await Promise.all(this.storyRenders.map((r) => r.rerender())),
         this.channel.emit(GLOBALS_UPDATED, {
           globals: this.storyStore.globals.get(),
@@ -14214,8 +14232,8 @@ var PreviewWithSelection = class extends Preview {
     async setInitialGlobals() {
       if (!this.storyStore.globals)
         throw new Error('Cannot call setInitialGlobals before initialization')
-      let {globals: globals2} = this.selectionStore.selectionSpecifier || {}
-      globals2 && this.storyStore.globals.updateFromPersisted(globals2),
+      let {globals} = this.selectionStore.selectionSpecifier || {}
+      globals && this.storyStore.globals.updateFromPersisted(globals),
         this.emitGlobals()
     }
     initializeWithStoryIndex(storyIndex) {
@@ -14318,8 +14336,8 @@ var PreviewWithSelection = class extends Preview {
     onUpdateQueryParams(queryParams) {
       this.selectionStore.setQueryParams(queryParams)
     }
-    async onUpdateGlobals({globals: globals2}) {
-      super.onUpdateGlobals({globals: globals2}),
+    async onUpdateGlobals({globals}) {
+      super.onUpdateGlobals({globals}),
         (this.currentRender instanceof MdxDocsRender ||
           this.currentRender instanceof CsfDocsRender) &&
           (await this.currentRender.rerender?.())
@@ -14636,7 +14654,7 @@ var getQueryString = ({selection, extraParams}) => {
       }),
       args2 =
         typeof query.args == 'string' ? parseArgsParam(query.args) : void 0,
-      globals2 =
+      globals =
         typeof query.globals == 'string'
           ? parseArgsParam(query.globals)
           : void 0,
@@ -14646,7 +14664,7 @@ var getQueryString = ({selection, extraParams}) => {
     let path = getFirstString(query.path),
       storyId = path ? pathToId(path) : getFirstString(query.id)
     return storyId
-      ? {storySpecifier: storyId, args: args2, globals: globals2, viewMode}
+      ? {storySpecifier: storyId, args: args2, globals, viewMode}
       : null
   },
   UrlStore = class {
@@ -15061,6 +15079,20 @@ var makeDecorator = ({
         instead use addDecorator(${name2}) and pass options with the '${parameterName}' parameter`)
         }
 }
+var dist_exports6 = {}
+__export(dist_exports6, {Addon_TypesEnum: () => Addon_TypesEnum})
+var Addon_TypesEnum = ((Addon_TypesEnum2) => (
+  (Addon_TypesEnum2.TAB = 'tab'),
+  (Addon_TypesEnum2.PANEL = 'panel'),
+  (Addon_TypesEnum2.TOOL = 'tool'),
+  (Addon_TypesEnum2.TOOLEXTRA = 'toolextra'),
+  (Addon_TypesEnum2.PREVIEW = 'preview'),
+  (Addon_TypesEnum2.experimental_PAGE = 'page'),
+  (Addon_TypesEnum2.experimental_SIDEBAR_BOTTOM = 'sidebar-bottom'),
+  (Addon_TypesEnum2.experimental_SIDEBAR_TOP = 'sidebar-top'),
+  (Addon_TypesEnum2.NOTES_ELEMENT = 'notes-element'),
+  Addon_TypesEnum2
+))(Addon_TypesEnum || {})
 var addons_exports = {}
 __export(addons_exports, {
   AddonStore: () => AddonStore,
@@ -15221,33 +15253,34 @@ __export(store_exports, {
   userOrAutoTitleFromSpecifier: () => userOrAutoTitleFromSpecifier,
   validateOptions: () => validateOptions,
 })
-var values = {
-  '@storybook/channel-postmessage': postmessage_exports,
-  '@storybook/channel-websocket': websocket_exports,
+var postmessage_exports = {}
+__export(postmessage_exports, {
+  KEY: () => KEY,
+  PostMessageTransport: () => PostMessageTransport,
+  PostmsgTransport: () => PostmsgTransport,
+  createChannel: () => createChannel,
+  default: () => postmessage_default,
+})
+var websocket_exports = {}
+__export(websocket_exports, {
+  WebsocketTransport: () => WebsocketTransport,
+  createChannel: () => createChannel2,
+  default: () => websocket_default,
+})
+var globalsNameValueMap = {
   '@storybook/channels': dist_exports4,
   '@storybook/client-logger': dist_exports3,
   '@storybook/core-events': dist_exports,
   '@storybook/preview-api': dist_exports5,
   '@storybook/global': dist_exports2,
+  '@storybook/types': dist_exports6,
+  '@storybook/channel-postmessage': postmessage_exports,
+  '@storybook/channel-websocket': websocket_exports,
   '@storybook/addons': addons_exports,
   '@storybook/client-api': client_api_exports,
   '@storybook/core-client': core_client_exports,
   '@storybook/preview-web': preview_web_exports,
   '@storybook/store': store_exports,
-}
-var globals = {
-  '@storybook/addons': '__STORYBOOK_MODULE_ADDONS__',
-  '@storybook/global': '__STORYBOOK_MODULE_GLOBAL__',
-  '@storybook/channel-postmessage': '__STORYBOOK_MODULE_CHANNEL_POSTMESSAGE__',
-  '@storybook/channel-websocket': '__STORYBOOK_MODULE_CHANNEL_WEBSOCKET__',
-  '@storybook/channels': '__STORYBOOK_MODULE_CHANNELS__',
-  '@storybook/client-api': '__STORYBOOK_MODULE_CLIENT_API__',
-  '@storybook/client-logger': '__STORYBOOK_MODULE_CLIENT_LOGGER__',
-  '@storybook/core-client': '__STORYBOOK_MODULE_CORE_CLIENT__',
-  '@storybook/core-events': '__STORYBOOK_MODULE_CORE_EVENTS__',
-  '@storybook/preview-web': '__STORYBOOK_MODULE_PREVIEW_WEB__',
-  '@storybook/preview-api': '__STORYBOOK_MODULE_PREVIEW_API__',
-  '@storybook/store': '__STORYBOOK_MODULE_STORE__',
 }
 var import_browser_dtector = __toESM(require_browser_dtector_umd_min()),
   browserInfo
@@ -15263,9 +15296,8 @@ function getBrowserInfo() {
 function prepareForTelemetry(error) {
   return (error.browserInfo = getBrowserInfo()), error
 }
-var getKeys = Object.keys
-getKeys(globals).forEach((key2) => {
-  scope[globals[key2]] = values[key2]
+globalPackages.forEach((key2) => {
+  scope[globalsNameReferenceMap[key2]] = globalsNameValueMap[key2]
 })
 scope.sendTelemetryError = (error) => {
   scope.__STORYBOOK_ADDONS_CHANNEL__.emit(

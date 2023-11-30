@@ -1,10 +1,10 @@
-import {ChangeEvent, ReactNode, forwardRef, Ref, RefAttributes} from 'react'
+import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {
   Control,
   FieldError,
-  useController,
-  FieldValues,
   FieldPath,
+  FieldValues,
+  useController,
 } from 'react-hook-form'
 import {
   FormControl,
@@ -170,6 +170,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
       {renderHelperText && <FormHelperText>{renderHelperText}</FormHelperText>}
     </FormControl>
   )
-}) as RadioButtonGroupComponent
+})
+RadioButtonGroup.displayName = 'RadioButtonGroup'
 
-export default RadioButtonGroup
+export default RadioButtonGroup as RadioButtonGroupComponent

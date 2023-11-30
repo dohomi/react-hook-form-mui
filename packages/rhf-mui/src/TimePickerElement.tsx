@@ -6,15 +6,15 @@ import {
 import {
   Control,
   FieldError,
-  FieldValues,
   FieldPath,
+  FieldValues,
   PathValue,
-  UseControllerProps,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, forwardRef, RefAttributes, Ref} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {
   useLocalizationContext,
   validateTime,
@@ -165,6 +165,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
       }}
     />
   )
-}) as TimePickerElementComponent
+})
+TimePickerElement.displayName = 'TimePickerElement'
 
-export default TimePickerElement
+export default TimePickerElement as TimePickerElementComponent

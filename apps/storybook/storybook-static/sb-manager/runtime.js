@@ -1,5 +1,4 @@
 import {
-  Addon_TypesEnum,
   CHANNEL_CREATED,
   Provider,
   TELEMETRY_ERROR,
@@ -10,19 +9,21 @@ import {
   dist_exports2 as dist_exports3,
   dist_exports3 as dist_exports4,
   dist_exports4 as dist_exports5,
-  dist_exports5 as dist_exports7,
+  dist_exports5 as dist_exports6,
+  dist_exports6 as dist_exports8,
   mockChannel,
   renderStorybookUI,
-} from './chunk-DAJ4OSDJ.js'
-import './chunk-SZNM6KS3.js'
-import './chunk-FWZ33S65.js'
+  typesX,
+} from './chunk-DSMMRWXC.js'
+import './chunk-2IXBUOFS.js'
+import './chunk-NGTUFCUO.js'
 import {
   dist_exports,
-  dist_exports2 as dist_exports6,
+  dist_exports2 as dist_exports7,
   require_react,
   require_react_dom,
   scope,
-} from './chunk-NFZCBIX3.js'
+} from './chunk-INSKDKQB.js'
 import {__commonJS, __toESM} from './chunk-ZEU7PDD3.js'
 var require_browser_dtector_umd_min = __commonJS({
   '../../node_modules/browser-dtector/browser-dtector.umd.min.js'(
@@ -274,34 +275,36 @@ var require_browser_dtector_umd_min = __commonJS({
   },
 })
 var REACT = __toESM(require_react()),
-  REACTDOM = __toESM(require_react_dom())
-var values = {
+  REACT_DOM = __toESM(require_react_dom())
+var globalsNameValueMap = {
   react: REACT,
-  'react-dom': REACTDOM,
-  '@storybook/components': dist_exports7,
-  '@storybook/channels': dist_exports4,
+  'react-dom': REACT_DOM,
+  '@storybook/components': dist_exports8,
+  '@storybook/channels': dist_exports5,
   '@storybook/core-events': dist_exports3,
   '@storybook/router': dist_exports2,
-  '@storybook/theming': dist_exports6,
-  '@storybook/api': dist_exports5,
-  '@storybook/manager-api': dist_exports5,
-  '@storybook/addons': {addons, types: Addon_TypesEnum, mockChannel},
+  '@storybook/theming': dist_exports7,
+  '@storybook/api': dist_exports6,
+  '@storybook/manager-api': dist_exports6,
+  '@storybook/addons': {addons, types: typesX, mockChannel},
   '@storybook/client-logger': dist_exports,
+  '@storybook/types': dist_exports4,
 }
-var Keys = ((Keys2) => (
-  (Keys2.react = '__REACT__'),
-  (Keys2['react-dom'] = '__REACTDOM__'),
-  (Keys2['@storybook/components'] = '__STORYBOOKCOMPONENTS__'),
-  (Keys2['@storybook/channels'] = '__STORYBOOKCHANNELS__'),
-  (Keys2['@storybook/core-events'] = '__STORYBOOKCOREEVENTS__'),
-  (Keys2['@storybook/router'] = '__STORYBOOKROUTER__'),
-  (Keys2['@storybook/theming'] = '__STORYBOOKTHEMING__'),
-  (Keys2['@storybook/api'] = '__STORYBOOKAPI__'),
-  (Keys2['@storybook/manager-api'] = '__STORYBOOKAPI__'),
-  (Keys2['@storybook/addons'] = '__STORYBOOKADDONS__'),
-  (Keys2['@storybook/client-logger'] = '__STORYBOOKCLIENTLOGGER__'),
-  Keys2
-))(Keys || {})
+var globalsNameReferenceMap = {
+    react: '__REACT__',
+    'react-dom': '__REACT_DOM__',
+    '@storybook/components': '__STORYBOOK_COMPONENTS__',
+    '@storybook/channels': '__STORYBOOK_CHANNELS__',
+    '@storybook/core-events': '__STORYBOOK_CORE_EVENTS__',
+    '@storybook/router': '__STORYBOOK_ROUTER__',
+    '@storybook/theming': '__STORYBOOK_THEMING__',
+    '@storybook/api': '__STORYBOOK_API__',
+    '@storybook/manager-api': '__STORYBOOK_API__',
+    '@storybook/addons': '__STORYBOOK_ADDONS__',
+    '@storybook/client-logger': '__STORYBOOK_CLIENT_LOGGER__',
+    '@storybook/types': '__STORYBOOK_TYPES__',
+  },
+  globalPackages = Object.keys(globalsNameReferenceMap)
 var import_browser_dtector = __toESM(require_browser_dtector_umd_min()),
   browserInfo
 function getBrowserInfo() {
@@ -357,8 +360,8 @@ var {FEATURES, CONFIG_TYPE} = scope,
       this.addons.loadAddons(api)
     }
   }
-Object.keys(Keys).forEach((key) => {
-  scope[Keys[key]] = values[key]
+globalPackages.forEach((key) => {
+  scope[globalsNameReferenceMap[key]] = globalsNameValueMap[key]
 })
 scope.sendTelemetryError = (error) => {
   shouldSkipError(error) ||

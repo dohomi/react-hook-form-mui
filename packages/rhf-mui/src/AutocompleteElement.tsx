@@ -1,10 +1,10 @@
 import {
   Control,
   FieldError,
-  FieldValues,
   FieldPath,
-  UseControllerProps,
+  FieldValues,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {
   Autocomplete,
@@ -16,7 +16,7 @@ import {
 } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, RefAttributes, forwardRef, Ref} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 
 type AutoDefault = {
   id: string | number // must keep id in case of keepObject
@@ -227,6 +227,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
       )}
     />
   )
-}) as AutocompleteElementComponent
+})
+AutocompleteElement.displayName = 'AutocompleteElement'
 
-export default AutocompleteElement
+export default AutocompleteElement as AutocompleteElementComponent

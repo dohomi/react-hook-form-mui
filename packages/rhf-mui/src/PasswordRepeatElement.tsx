@@ -56,6 +56,7 @@ const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
       }}
     />
   )
-}) as PasswordRepeatElementComponent
+})
+PasswordRepeatElement.displayName = 'PasswordRepeatElement'
 
-export default PasswordRepeatElement
+export default PasswordRepeatElement as PasswordRepeatElementComponent
