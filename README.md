@@ -119,3 +119,6 @@ const MySubmit = () => {
 ### Bundle
 
 This project uses `tsup` to wrap the package for `npm`.
+
+If you find this package useful consider to sponsor it with a small contribution:
+[Buy Me A Coffee](https://www.buymeacoffee.com/dohomi)
