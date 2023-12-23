@@ -9,6 +9,7 @@ import {
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import useTransform, {UseTransformOptions} from './useTransform'
 
 export type TextFieldElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -24,6 +25,7 @@ export type TextFieldElementProps<
    * This is especially useful when you want to use a customized version of TextField.
    */
   component?: typeof TextField
+  transform?: UseTransformOptions<TFieldValues, TName>['transform']
 }
 
 type TextFieldElementComponent = <
@@ -50,6 +52,7 @@ const TextFieldElement = forwardRef(function TextFieldElement<
     control,
     component: TextFieldComponent = TextField,
     inputRef,
+    transform,
     ...rest
   } = props
 
@@ -79,6 +82,11 @@ const TextFieldElement = forwardRef(function TextFieldElement<
     control,
     rules,
   })
+  const {value, onChange} = useTransform({
+    value: field.value,
+    onChange: field.onChange,
+    transform,
+  })
 
   const handleInputRef = useForkRef(field.ref, inputRef)
 
@@ -86,9 +94,9 @@ const TextFieldElement = forwardRef(function TextFieldElement<
     <TextFieldComponent
       {...rest}
       name={field.name}
-      value={field.value ?? ''}
+      value={value ?? ''}
       onChange={(ev) => {
-        field.onChange(
+        onChange(
           type === 'number' && ev.target.value
             ? +ev.target.value
             : ev.target.value
