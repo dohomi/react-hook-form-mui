@@ -30,7 +30,9 @@ export type UseTransformReturn<
 export default function useTransform<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
->(options: UseTransformOptions<TFieldValues, TName>): UseTransformReturn {
+>(
+  options: UseTransformOptions<TFieldValues, TName>
+): UseTransformReturn<TFieldValues, TName> {
   const value =
     typeof options.transform?.input === 'function'
       ? options.transform.input(options.value)
