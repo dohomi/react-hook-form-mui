@@ -111,6 +111,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
   } = useController({
     name,
     rules,
+    disabled: rest.disabled,
     control,
   })
 

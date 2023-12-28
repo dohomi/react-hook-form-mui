@@ -86,6 +86,7 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
   } = useController({
     name,
     rules: required ? {required: 'This field is required'} : rules,
+    disabled,
     control,
   })
 

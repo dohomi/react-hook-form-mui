@@ -80,6 +80,7 @@ const TextFieldElement = forwardRef(function TextFieldElement<
   } = useController({
     name,
     control,
+    disabled: rest.disabled,
     rules,
   })
   const {value, onChange} = useTransform({

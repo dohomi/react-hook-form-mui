@@ -119,6 +119,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
     name,
     control,
     rules,
+    disabled: rest.disabled,
     defaultValue: null as any,
   })
 

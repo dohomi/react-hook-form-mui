@@ -37,6 +37,7 @@ const SwitchElement = forwardRef(function SwitchElement<
   const {field} = useController({
     name,
     control,
+    disabled: rest.disabled,
   })
 
   const handleSwitchRef = useForkRef(field.ref, switchProps?.ref)

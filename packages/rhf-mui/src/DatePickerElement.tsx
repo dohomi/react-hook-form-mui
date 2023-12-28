@@ -119,6 +119,7 @@ const DatePickerElement = forwardRef(function DatePickerElement<
     name,
     control,
     rules,
+    disabled: rest.disabled,
     defaultValue: null as any,
   })
 
