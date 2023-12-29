@@ -52,6 +52,16 @@ export const Basic: Story = {
   },
 }
 
+export const Disabled: Story = {
+  args: {
+    name: 'basic',
+    options,
+    autocompleteProps: {
+      disabled: true,
+    },
+  },
+}
+
 export const BasicPreSelect = {
   args: {
     name: 'preselect',

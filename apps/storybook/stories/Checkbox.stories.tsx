@@ -26,6 +26,14 @@ export const Required: Story = {
   },
 }
 
+export const Disabled: Story = {
+  args: {
+    label: 'Label',
+    name: 'basic',
+    disabled: true,
+  },
+}
+
 export const LabelPosition: Story = {
   args: {
     label: 'Label',

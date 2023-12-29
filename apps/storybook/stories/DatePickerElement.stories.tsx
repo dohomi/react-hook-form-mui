@@ -91,3 +91,11 @@ export const PresetValue: Story = {
     },
   },
 }
+
+export const Disabled: Story = {
+  args: {
+    label: 'Disabled',
+    name: 'preset',
+    disabled: true,
+  },
+}
