@@ -87,6 +87,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
   } = useController({
     name,
     rules: required ? {required: 'This field is required'} : undefined,
+    disabled,
     control,
   })
 

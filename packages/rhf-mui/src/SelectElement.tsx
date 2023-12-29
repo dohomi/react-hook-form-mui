@@ -80,6 +80,7 @@ const SelectElement = forwardRef(function SelectElement<
   } = useController({
     name,
     rules,
+    disabled: rest.disabled,
     control,
   })
 

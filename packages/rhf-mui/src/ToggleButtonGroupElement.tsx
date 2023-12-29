@@ -78,6 +78,7 @@ export default function ToggleButtonGroupElement<
     name,
     control,
     rules,
+    disabled: toggleButtonGroupProps.disabled,
   })
 
   const renderHelperText = error

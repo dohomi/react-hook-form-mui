@@ -70,6 +70,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     name,
     control,
     rules,
+    disabled: rest.disabled,
   })
 
   const handleInputRef = useForkRef(field.ref, inputRef)

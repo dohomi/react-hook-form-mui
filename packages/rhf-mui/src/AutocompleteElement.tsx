@@ -116,6 +116,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
   } = useController({
     name,
     control,
+    disabled: autocompleteProps?.disabled,
     rules: validationRules,
   })
 

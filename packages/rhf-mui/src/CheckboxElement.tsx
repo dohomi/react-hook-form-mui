@@ -77,6 +77,7 @@ const CheckboxElement = forwardRef(function CheckboxElement<
   } = useController({
     name,
     control,
+    disabled: rest.disabled,
     rules,
   })
 

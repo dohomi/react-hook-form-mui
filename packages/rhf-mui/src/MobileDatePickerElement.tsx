@@ -116,6 +116,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
     name,
     control,
     rules,
+    disabled: rest.disabled,
     defaultValue: null as any,
   })
 

@@ -124,6 +124,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
     name,
     rules,
     control,
+    disabled: rest.disabled,
     defaultValue: null as any,
   })
 

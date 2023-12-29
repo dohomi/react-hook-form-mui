@@ -72,6 +72,7 @@ const SliderElement = forwardRef(function SliderElement<
   } = useController({
     name,
     control,
+    disabled: other.disabled,
     rules: validationRules,
   })
 
