@@ -51,7 +51,7 @@ export type MultiSelectElementProps<
   showCheckbox?: boolean
   formControlProps?: Omit<FormControlProps, 'fullWidth' | 'variant'>
   transform?: {
-    input?: (value: PathValue<TFieldValues, TName>) => TValue
+    input?: (value: PathValue<TFieldValues, TName>) => TValue[]
     output?: (
       event: SelectChangeEvent<unknown>,
       child: ReactNode
@@ -130,7 +130,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
     control,
   })
 
-  const {value, onChange} = useTransform<TFieldValues, TName, TValue>({
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue[]>({
     value: field.value,
     onChange: field.onChange,
     transform: {
@@ -252,7 +252,9 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
       >
         {options.map((item) => {
           const val: string | number = item[itemValue || itemKey] || item
-          const isChecked = Array.isArray(value) ? value.includes(val) : false
+          const isChecked = Array.isArray(value)
+            ? value.some((v) => v === val)
+            : false
           return (
             <MenuItem
               key={val}
