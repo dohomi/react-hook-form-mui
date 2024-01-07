@@ -20,12 +20,17 @@ import {
   useLocalizationContext,
   validateDate,
 } from '@mui/x-date-pickers/internals'
+import useTransform from './useTransform'
+import {
+  DateValidationError,
+  PickerChangeHandlerContext,
+} from '@mui/x-date-pickers'
 
 export type MobileDatePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TDate = PathValue<TFieldValues, TName>
-> = Omit<MobileDatePickerProps<TDate>, 'value' | 'slotProps'> & {
+  TValue = unknown
+> = Omit<MobileDatePickerProps<TValue>, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
   isDate?: boolean
@@ -34,23 +39,32 @@ export type MobileDatePickerElementProps<
   control?: Control<TFieldValues>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
-  slotProps?: Omit<MobileDatePickerSlotsComponentsProps<TDate>, 'textField'>
+  slotProps?: Omit<MobileDatePickerSlotsComponentsProps<TValue>, 'textField'>
   overwriteErrorMessages?: typeof defaultErrorMessages
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue | null
+    output?: (
+      value: TValue | null,
+      context: PickerChangeHandlerContext<DateValidationError>
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type MobileDatePickerElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: MobileDatePickerElementProps<TFieldValues, TName> &
+  props: MobileDatePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: MobileDatePickerElementProps<TFieldValues, TName>,
+  props: MobileDatePickerElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
 ): JSX.Element {
   const {
@@ -63,6 +77,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
     slotProps,
     overwriteErrorMessages,
     inputRef,
+    transform,
     ...rest
   } = props
 
@@ -83,7 +98,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
         required: 'This field is required',
       }),
     validate: {
-      internal: (value) => {
+      internal: (value: TValue | null) => {
         const inputTimezone =
           value == null || !adapter.utils.isValid(value)
             ? null
@@ -117,19 +132,35 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
     control,
     rules,
     disabled: rest.disabled,
-    defaultValue: null as any,
+    defaultValue: null as PathValue<TFieldValues, TName>,
+  })
+
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue | null>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (newValue) => {
+              return newValue && typeof newValue === 'string'
+                ? (new Date(newValue) as TValue) // need to see if this works for all localization adaptors
+                : newValue
+            },
+      output:
+        typeof transform?.output === 'function'
+          ? transform.output
+          : (newValue) => newValue,
+    },
   })
 
   const handleInputRef = useForkRef(field.ref, inputRef)
-
-  if (field?.value && typeof field?.value === 'string') {
-    field.value = new Date(field.value) as any // need to see if this works for all localization adaptors
-  }
 
   return (
     <MobileDatePicker
       {...rest}
       {...field}
+      value={value}
       ref={ref}
       inputRef={handleInputRef}
       onClose={(...args) => {
@@ -138,10 +169,10 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
           rest.onClose(...args)
         }
       }}
-      onChange={(v, keyboardInputValue) => {
-        field.onChange(v, keyboardInputValue)
+      onChange={(newValue, context) => {
+        onChange(newValue, context)
         if (typeof rest.onChange === 'function') {
-          rest.onChange(v, keyboardInputValue)
+          rest.onChange(newValue, context)
         }
       }}
       slotProps={{

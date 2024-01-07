@@ -4,16 +4,18 @@ import {
   FieldError,
   FieldPath,
   FieldValues,
+  PathValue,
   useController,
   UseControllerProps,
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
-import useTransform, {UseTransformOptions} from './useTransform'
+import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import useTransform from './useTransform'
 
 export type TextFieldElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 > = Omit<TextFieldProps, 'name'> & {
   validation?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
@@ -25,22 +27,29 @@ export type TextFieldElementProps<
    * This is especially useful when you want to use a customized version of TextField.
    */
   component?: typeof TextField
-  transform?: UseTransformOptions<TFieldValues, TName>['transform']
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue
+    output?: (
+      event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type TextFieldElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: TextFieldElementProps<TFieldValues, TName> &
+  props: TextFieldElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const TextFieldElement = forwardRef(function TextFieldElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: TextFieldElementProps<TFieldValues, TName>,
+  props: TextFieldElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
 ): JSX.Element {
   const {
@@ -83,10 +92,28 @@ const TextFieldElement = forwardRef(function TextFieldElement<
     disabled: rest.disabled,
     rules,
   })
-  const {value, onChange} = useTransform({
+
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue>({
     value: field.value,
     onChange: field.onChange,
-    transform,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (value) => {
+              return value || ('' as TValue)
+            },
+      output:
+        typeof transform?.output === 'function'
+          ? transform.output
+          : (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+              const value = event.target.value
+              return (type === 'number' && value ? +value : value) as PathValue<
+                TFieldValues,
+                TName
+              >
+            },
+    },
   })
 
   const handleInputRef = useForkRef(field.ref, inputRef)
@@ -95,15 +122,13 @@ const TextFieldElement = forwardRef(function TextFieldElement<
     <TextFieldComponent
       {...rest}
       name={field.name}
-      value={value ?? ''}
-      onChange={(ev) => {
-        onChange(
-          type === 'number' && ev.target.value
-            ? +ev.target.value
-            : ev.target.value
-        )
+      value={value}
+      onChange={(event) => {
+        // this will be a breaking change for anyone using transform.output
+        // because now we are passing event instead of event.target.value or +event.target.value
+        onChange(event)
         if (typeof rest.onChange === 'function') {
-          rest.onChange(ev)
+          rest.onChange(event)
         }
       }}
       onBlur={field.onBlur}

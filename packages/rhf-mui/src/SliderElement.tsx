@@ -3,6 +3,7 @@ import {
   FieldError,
   FieldPath,
   FieldValues,
+  PathValue,
   useController,
   UseControllerProps,
 } from 'react-hook-form'
@@ -16,6 +17,7 @@ import {
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import useTransform from './useTransform'
 
 export type SliderElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -28,6 +30,16 @@ export type SliderElementProps<
   parseError?: (error: FieldError) => ReactNode
   required?: boolean
   formControlProps?: FormControlProps
+  transform?: {
+    input?: (
+      value: PathValue<TFieldValues, TName>
+    ) => number | number[] | undefined
+    output?: (
+      event: Event,
+      value: number | number[] | undefined,
+      activeThumb: number
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type SliderElementComponent = <
@@ -52,6 +64,7 @@ const SliderElement = forwardRef(function SliderElement<
     parseError,
     required,
     formControlProps,
+    transform,
     ...other
   } = props
 
@@ -76,6 +89,16 @@ const SliderElement = forwardRef(function SliderElement<
     rules: validationRules,
   })
 
+  const {value, onChange} = useTransform<
+    TFieldValues,
+    TName,
+    number | number[] | undefined
+  >({
+    value: field.value,
+    onChange: field.onChange,
+    transform,
+  })
+
   const parsedHelperText = error
     ? typeof customErrorFn === 'function'
       ? customErrorFn(error)
@@ -97,8 +120,8 @@ const SliderElement = forwardRef(function SliderElement<
       )}
       <Slider
         {...other}
-        value={field.value}
-        onChange={field.onChange}
+        value={value}
+        onChange={onChange}
         valueLabelDisplay={other.valueLabelDisplay || 'auto'}
       />
       {parsedHelperText && (

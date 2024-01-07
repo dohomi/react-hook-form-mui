@@ -56,4 +56,7 @@ export {default as FormErrorProvider} from './FormErrorProvider'
 export type {FormErrorProviderProps} from './FormErrorProvider'
 export {useFormError} from './FormErrorProvider'
 
+export {default as useTransform} from './useTransform'
+export type {UseTransformOptions, UseTransformReturn} from './useTransform'
+
 export * from 'react-hook-form'

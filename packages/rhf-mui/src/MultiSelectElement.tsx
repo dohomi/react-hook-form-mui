@@ -4,6 +4,7 @@ import {
   FieldError,
   FieldPath,
   FieldValues,
+  PathValue,
   useController,
   UseControllerProps,
 } from 'react-hook-form'
@@ -17,17 +18,21 @@ import {
   ListItemText,
   MenuItem,
   Select,
+  SelectChangeEvent,
   SelectProps,
   useForkRef,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import useTransform from './useTransform'
+import {hasOwnProperty} from './utils'
 
 export type MultiSelectElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 > = Omit<SelectProps, 'value'> & {
-  options: {id: string | number; label: string}[] | any[]
+  options: TValue[]
   label?: string
   itemKey?: string
   itemValue?: string
@@ -45,13 +50,21 @@ export type MultiSelectElementProps<
   control?: Control<TFieldValues>
   showCheckbox?: boolean
   formControlProps?: Omit<FormControlProps, 'fullWidth' | 'variant'>
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue
+    output?: (
+      event: SelectChangeEvent<unknown>,
+      child: ReactNode
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type MultiSelectElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: MultiSelectElementProps<TFieldValues, TName> &
+  props: MultiSelectElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
@@ -60,9 +73,10 @@ const ITEM_PADDING_TOP = 8
 
 const MultiSelectElement = forwardRef(function MultiSelectElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: MultiSelectElementProps<TFieldValues, TName>,
+  props: MultiSelectElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
 ): JSX.Element {
   const {
@@ -85,6 +99,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
     showCheckbox,
     formControlProps,
     inputRef,
+    transform,
     ...rest
   } = props
 
@@ -115,6 +130,22 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
     control,
   })
 
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (value) => {
+              return Array.isArray(value)
+                ? value
+                : ([] as PathValue<TFieldValues, TName>)
+            },
+      output: transform?.output,
+    },
+  })
+
   const handleInputRef = useForkRef(field.ref, inputRef)
 
   const renderHelperText = error
@@ -127,8 +158,8 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
     <FormControl
       {...formControlProps}
       style={{
-        ...formControlProps?.style,
         minWidth,
+        ...formControlProps?.style,
       }}
       variant={rest.variant}
       fullWidth={rest.fullWidth}
@@ -152,20 +183,30 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
         multiple
         label={label || undefined}
         error={!!error}
-        value={field.value || []}
+        value={value}
         required={required}
-        onChange={field.onChange}
+        onChange={onChange}
         onBlur={field.onBlur}
         MenuProps={{
           ...rest.MenuProps,
-          PaperProps: {
-            ...(rest.MenuProps?.PaperProps ?? {
-              style: {
-                maxHeight: menuMaxHeight,
-                width: menuMaxWidth,
-                ...rest.MenuProps?.PaperProps?.style,
-              },
-            }),
+          slotProps: {
+            ...rest.MenuProps?.slotProps,
+            paper: {
+              ...(rest.MenuProps?.slotProps?.paper ?? {
+                style: {
+                  maxHeight: menuMaxHeight,
+                  width: menuMaxWidth,
+                  ...(hasOwnProperty(
+                    rest.MenuProps?.slotProps?.paper,
+                    'style'
+                  ) &&
+                    typeof rest.MenuProps.slotProps.paper.style ===
+                      'object' && {
+                      ...rest.MenuProps.slotProps.paper.style,
+                    }),
+                },
+              }),
+            },
           },
         }}
         renderValue={
@@ -185,8 +226,10 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
                       label={renderLabel(selectedValue)}
                       style={{display: 'flex', flexWrap: 'wrap'}}
                       onDelete={() => {
-                        field.onChange(
-                          field.value.filter((i: any) => i !== selectedValue)
+                        onChange(
+                          (Array.isArray(value) ? value : []).filter(
+                            (i: any) => i !== selectedValue
+                          )
                         )
                       }}
                       deleteIcon={
@@ -209,9 +252,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
       >
         {options.map((item) => {
           const val: string | number = item[itemValue || itemKey] || item
-          const isChecked = Array.isArray(field.value)
-            ? field.value.includes(val)
-            : false
+          const isChecked = Array.isArray(value) ? value.includes(val) : false
           return (
             <MenuItem
               key={val}
