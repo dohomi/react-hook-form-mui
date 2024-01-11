@@ -135,13 +135,6 @@ var exports_default = {
     'resetComponents',
     'withReset',
   ],
-  '@storybook/components/experimental': [
-    'Button',
-    'Icon',
-    'Input',
-    'Link',
-    'Select',
-  ],
   '@storybook/channels': [
     'Channel',
     'PostMessageTransport',
@@ -191,6 +184,7 @@ var exports_default = {
     'STORY_SPECIFIED',
     'STORY_THREW_EXCEPTION',
     'STORY_UNCHANGED',
+    'TELEMETRY_ERROR',
     'TOGGLE_WHATS_NEW_NOTIFICATIONS',
     'UPDATE_GLOBALS',
     'UPDATE_QUERY_PARAMS',
@@ -310,8 +304,6 @@ var Keys = ((Keys2) => (
   (Keys2.react = '__REACT__'),
   (Keys2['react-dom'] = '__REACTDOM__'),
   (Keys2['@storybook/components'] = '__STORYBOOKCOMPONENTS__'),
-  (Keys2['@storybook/components/experimental'] =
-    '__STORYBOOKCOMPONENTSEXPERIMENTAL__'),
   (Keys2['@storybook/channels'] = '__STORYBOOKCHANNELS__'),
   (Keys2['@storybook/core-events'] = '__STORYBOOKCOREEVENTS__'),
   (Keys2['@storybook/router'] = '__STORYBOOKROUTER__'),

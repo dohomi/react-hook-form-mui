@@ -26,6 +26,7 @@ __export(globals_exports, {globals: () => globals})
 module.exports = __toCommonJS(globals_exports)
 var globals = {
   '@storybook/addons': '__STORYBOOK_MODULE_ADDONS__',
+  '@storybook/global': '__STORYBOOK_MODULE_GLOBAL__',
   '@storybook/channel-postmessage': '__STORYBOOK_MODULE_CHANNEL_POSTMESSAGE__',
   '@storybook/channel-websocket': '__STORYBOOK_MODULE_CHANNEL_WEBSOCKET__',
   '@storybook/channels': '__STORYBOOK_MODULE_CHANNELS__',

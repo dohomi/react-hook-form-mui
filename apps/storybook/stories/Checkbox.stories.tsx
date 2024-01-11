@@ -1,35 +1,24 @@
-import {action} from '@storybook/addon-actions'
-import {CheckboxElement, FormContainer} from 'react-hook-form-mui/src'
-import {Meta, StoryFn} from '@storybook/react'
-import {SubmitButton} from '../src/Shared'
+import {CheckboxElement} from 'react-hook-form-mui/src'
+import {Meta, StoryObj} from '@storybook/react'
+import {FormContainerDecorator} from '../src/FormDecorator'
 
 const meta = {
   title: 'Checkbox',
   component: CheckboxElement,
+  decorators: [FormContainerDecorator],
 } satisfies Meta<typeof CheckboxElement>
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-const Template: StoryFn<typeof CheckboxElement> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-    <CheckboxElement {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
-
-export const Basic = {
-  render: Template,
-
+export const Basic: Story = {
   args: {
     label: 'Label',
     name: 'basic',
   },
 }
 
-export const Required = {
-  render: Template,
-
+export const Required: Story = {
   args: {
     label: 'Label',
     name: 'basic',
@@ -37,9 +26,15 @@ export const Required = {
   },
 }
 
-export const LabelPosition = {
-  render: Template,
+export const Disabled: Story = {
+  args: {
+    label: 'Label',
+    name: 'basic',
+    disabled: true,
+  },
+}
 
+export const LabelPosition: Story = {
   args: {
     label: 'Label',
     name: 'basic',

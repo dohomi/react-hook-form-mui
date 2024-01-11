@@ -1,20 +1,14 @@
-import {FormContainer, MultiSelectElement} from 'react-hook-form-mui/src'
-import {action} from '@storybook/addon-actions'
-import {Meta, StoryFn} from '@storybook/react'
-import {SubmitButton} from '../src/Shared'
+import {MultiSelectElement} from 'react-hook-form-mui/src'
+import {Meta, StoryObj} from '@storybook/react'
+import {FormContainerDecorator} from '../src/FormDecorator'
 
-export default {
+const meta = {
   title: 'MultiSelectElement',
   component: MultiSelectElement,
-} as Meta<typeof MultiSelectElement>
-
-const Template: StoryFn<typeof MultiSelectElement> = (args) => (
-  <FormContainer defaultValues={{}} onSuccess={action('submit')}>
-    <MultiSelectElement {...args} />
-    <br />
-    <SubmitButton />
-  </FormContainer>
-)
+  decorators: [FormContainerDecorator],
+} satisfies Meta<typeof MultiSelectElement>
+export default meta
+type Story = StoryObj<typeof meta>
 
 const names = [
   'Oliver Hansen',
@@ -44,18 +38,14 @@ const months = [
   'December',
 ]
 
-export const Basic = {
-  render: Template,
-
+export const Basic: Story = {
   args: {
     name: 'basic',
     options: names,
   },
 }
 
-export const Filled = {
-  render: Template,
-
+export const Filled: Story = {
   args: {
     name: 'filled',
     options: names,
@@ -63,9 +53,7 @@ export const Filled = {
   },
 }
 
-export const WithLabel = {
-  render: Template,
-
+export const WithLabel: Story = {
   args: {
     name: 'basic',
     label: 'Select Field',
@@ -73,9 +61,7 @@ export const WithLabel = {
   },
 }
 
-export const WithLabelSmall = {
-  render: Template,
-
+export const WithLabelSmall: Story = {
   args: {
     name: 'basic_small',
     size: 'small',
@@ -84,9 +70,7 @@ export const WithLabelSmall = {
   },
 }
 
-export const Required = {
-  render: Template,
-
+export const Required: Story = {
   args: {
     name: 'required',
     label: 'Required Field',
@@ -95,9 +79,7 @@ export const Required = {
   },
 }
 
-export const WithChips = {
-  render: Template,
-
+export const WithChips: Story = {
   args: {
     name: 'chips',
     label: 'Required Field',
@@ -106,9 +88,7 @@ export const WithChips = {
   },
 }
 
-export const WithChipsPreserveOrder = {
-  render: Template,
-
+export const WithChipsPreserveOrder: Story = {
   args: {
     name: 'chips',
     label: 'Required Field',
@@ -118,9 +98,7 @@ export const WithChipsPreserveOrder = {
   },
 }
 
-export const WithCheckbox = {
-  render: Template,
-
+export const WithCheckbox: Story = {
   args: {
     name: 'checkbox',
     label: 'Checkbox Field',
@@ -136,9 +114,7 @@ const objectVals = [
   {id: 4, name: 'Delta'},
 ]
 
-export const WithObjectArray = {
-  render: Template,
-
+export const WithObjectArray: Story = {
   args: {
     name: 'object',
     label: 'Object Field',
@@ -148,9 +124,7 @@ export const WithObjectArray = {
   },
 }
 
-export const WithObjectArrayChips = {
-  render: Template,
-
+export const WithObjectArrayChips: Story = {
   args: {
     name: 'object',
     label: 'Object Field',
@@ -161,9 +135,7 @@ export const WithObjectArrayChips = {
   },
 }
 
-export const OverwriteRenderValue = {
-  render: Template,
-
+export const OverwriteRenderValue: Story = {
   args: {
     name: 'object',
     label: 'Object Field',
@@ -174,9 +146,7 @@ export const OverwriteRenderValue = {
   },
 }
 
-export const MonthPicker = {
-  render: Template,
-
+export const MonthPicker: Story = {
   args: {
     name: 'month',
     options: months,
@@ -195,9 +165,7 @@ export const MonthPicker = {
   },
 }
 
-export const MonthPickerSmall = {
-  render: Template,
-
+export const MonthPickerSmall: Story = {
   args: {
     name: 'months_small',
     options: months,

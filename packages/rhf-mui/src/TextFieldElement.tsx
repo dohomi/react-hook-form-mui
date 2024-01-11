@@ -1,18 +1,21 @@
-import {TextField, useForkRef, TextFieldProps} from '@mui/material'
+import {TextField, TextFieldProps, useForkRef} from '@mui/material'
 import {
   Control,
   FieldError,
   FieldPath,
-  UseControllerProps,
   FieldValues,
+  PathValue,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, RefAttributes, Ref} from 'react'
+import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import useTransform from './useTransform'
 
 export type TextFieldElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 > = Omit<TextFieldProps, 'name'> & {
   validation?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
@@ -24,21 +27,29 @@ export type TextFieldElementProps<
    * This is especially useful when you want to use a customized version of TextField.
    */
   component?: typeof TextField
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue
+    output?: (
+      event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type TextFieldElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: TextFieldElementProps<TFieldValues, TName> &
+  props: TextFieldElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const TextFieldElement = forwardRef(function TextFieldElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: TextFieldElementProps<TFieldValues, TName>,
+  props: TextFieldElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
 ): JSX.Element {
   const {
@@ -50,6 +61,7 @@ const TextFieldElement = forwardRef(function TextFieldElement<
     control,
     component: TextFieldComponent = TextField,
     inputRef,
+    transform,
     ...rest
   } = props
 
@@ -62,13 +74,13 @@ const TextFieldElement = forwardRef(function TextFieldElement<
       !validation.required && {required: 'This field is required'}),
     ...(type === 'email' &&
       !validation.pattern && {
-      pattern: {
-        value:
+        pattern: {
+          value:
             // eslint-disable-next-line no-useless-escape
             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        message: 'Please enter a valid email address',
-      },
-    }),
+          message: 'Please enter a valid email address',
+        },
+      }),
   }
 
   const {
@@ -77,7 +89,31 @@ const TextFieldElement = forwardRef(function TextFieldElement<
   } = useController({
     name,
     control,
+    disabled: rest.disabled,
     rules,
+  })
+
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (value) => {
+              return value || ('' as TValue)
+            },
+      output:
+        typeof transform?.output === 'function'
+          ? transform.output
+          : (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+              const value = event.target.value
+              return (type === 'number' && value ? +value : value) as PathValue<
+                TFieldValues,
+                TName
+              >
+            },
+    },
   })
 
   const handleInputRef = useForkRef(field.ref, inputRef)
@@ -86,15 +122,13 @@ const TextFieldElement = forwardRef(function TextFieldElement<
     <TextFieldComponent
       {...rest}
       name={field.name}
-      value={field.value ?? ''}
-      onChange={(ev) => {
-        field.onChange(
-          type === 'number' && ev.target.value
-            ? +ev.target.value
-            : ev.target.value
-        )
+      value={value}
+      onChange={(event) => {
+        // this will be a breaking change for anyone using transform.output
+        // because now we are passing event instead of event.target.value or +event.target.value
+        onChange(event)
         if (typeof rest.onChange === 'function') {
-          rest.onChange(ev)
+          rest.onChange(event)
         }
       }}
       onBlur={field.onBlur}
@@ -112,6 +146,7 @@ const TextFieldElement = forwardRef(function TextFieldElement<
       inputRef={handleInputRef}
     />
   )
-}) as TextFieldElementComponent
+})
+TextFieldElement.displayName = 'TextFieldElement'
 
-export default TextFieldElement
+export default TextFieldElement as TextFieldElementComponent

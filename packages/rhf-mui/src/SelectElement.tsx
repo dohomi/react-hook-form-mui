@@ -1,28 +1,26 @@
-import {ReactNode, createElement, forwardRef, Ref, RefAttributes} from 'react'
+import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {MenuItem, TextField, TextFieldProps, useForkRef} from '@mui/material'
 import {
   Control,
   FieldError,
-  FieldValues,
   FieldPath,
-  UseControllerProps,
+  FieldValues,
+  PathValue,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
+import useTransform from './useTransform'
+import {hasOwnProperty} from './utils'
 
 export type SelectElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 > = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
   validation?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
-  options?:
-    | readonly {
-        id: string | number
-        label: string | number
-        disabled?: boolean
-      }[]
-    | readonly any[]
+  options?: TValue[]
   valueKey?: string
   labelKey?: string
   type?: 'string' | 'number'
@@ -30,20 +28,29 @@ export type SelectElementProps<
   objectOnChange?: boolean
   onChange?: (value: any) => void
   control?: Control<TFieldValues>
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue
+    output?: (
+      event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type SelectElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: SelectElementProps<TFieldValues, TName> & RefAttributes<HTMLDivElement>
+  props: SelectElementProps<TFieldValues, TName, TValue> &
+    RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const SelectElement = forwardRef(function SelectElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: SelectElementProps<TFieldValues, TName>,
+  props: SelectElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
 ): JSX.Element {
   const {
@@ -58,20 +65,20 @@ const SelectElement = forwardRef(function SelectElement<
     validation = {},
     control,
     inputRef,
+    transform,
     ...rest
   } = props
 
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
   const isNativeSelect = !!rest.SelectProps?.native
-  const ChildComponent = isNativeSelect ? 'option' : MenuItem
 
   const rules = {
     ...validation,
     ...(required &&
       !validation.required && {
-      required: 'This field is required',
-    }),
+        required: 'This field is required',
+      }),
   }
 
   const {
@@ -80,37 +87,61 @@ const SelectElement = forwardRef(function SelectElement<
   } = useController({
     name,
     rules,
+    disabled: rest.disabled,
     control,
+  })
+
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (value) => {
+              return value?.[valueKey] ?? value ?? ('' as TValue)
+            },
+      output:
+        typeof transform?.output === 'function'
+          ? transform.output
+          : (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+              let value: string | number = event.target.value
+              if (type === 'number' && value) {
+                value = Number(value)
+              }
+              return value as PathValue<TFieldValues, TName>
+            },
+    },
   })
 
   const handleInputRef = useForkRef(field.ref, inputRef)
 
   // handle shrink on number input fields
-  if (type === 'number' && typeof field.value !== 'undefined') {
+  if (type === 'number' && typeof value !== 'undefined') {
     rest.InputLabelProps = rest.InputLabelProps || {}
     rest.InputLabelProps.shrink = true
   }
-
-  const currentValue = field.value?.[valueKey] ?? field.value // try fetch key value
 
   return (
     <TextField
       {...rest}
       name={name}
-      value={currentValue ?? ''}
+      value={value}
       onBlur={field.onBlur}
       ref={ref}
       onChange={(event) => {
-        let item: number | string = event.target.value
-        if (type === 'number' && item) {
-          item = Number(item)
-        }
-        field.onChange(item)
+        onChange(event)
         if (typeof rest.onChange === 'function') {
-          if (objectOnChange) {
-            item = options.find((i) => i[valueKey] === item)
+          let value: string | number | TValue | undefined = event.target.value
+          if (type === 'number' && value) {
+            value = Number(value)
           }
-          rest.onChange(item)
+          if (objectOnChange) {
+            value = options.find((i) => i[valueKey] === value)
+          }
+          // It would be better if we expose event object here, instead of value
+          // This will be a breaking change for user.
+          rest.onChange(value)
         }
       }}
       select
@@ -126,19 +157,22 @@ const SelectElement = forwardRef(function SelectElement<
       inputRef={handleInputRef}
     >
       {isNativeSelect && <option />}
-      {options.map((item: any) =>
-        createElement(
-          ChildComponent,
-          {
-            key: `${name}_${item[valueKey]}`,
-            value: item?.[valueKey] ?? item,
-            disabled: item?.disabled ?? false,
-          },
-          item[labelKey]
+      {options.map((item) => {
+        const optionProps = {
+          key: `${name}_${item[valueKey]}`,
+          value: item?.[valueKey] ?? item,
+          disabled: hasOwnProperty(item, 'disabled') ? !!item.disabled : false,
+          children: item[labelKey],
+        }
+        return isNativeSelect ? (
+          <option {...optionProps} />
+        ) : (
+          <MenuItem {...optionProps} />
         )
-      )}
+      })}
     </TextField>
   )
-}) as SelectElementComponent
+})
+SelectElement.displayName = 'SelectElement'
 
-export default SelectElement
+export default SelectElement as SelectElementComponent

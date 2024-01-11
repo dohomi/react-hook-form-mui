@@ -8,37 +8,55 @@ import {
   Control,
   FieldError,
   FieldPath,
-  UseControllerProps,
-  useController,
   FieldValues,
+  PathValue,
+  useController,
+  UseControllerProps,
 } from 'react-hook-form'
-import {CSSProperties, ReactNode, RefAttributes, forwardRef, Ref} from 'react'
+import {
+  ChangeEvent,
+  CSSProperties,
+  forwardRef,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {useFormError} from './FormErrorProvider'
+import useTransform from './useTransform'
 
 export type TextareaAutosizeElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 > = Omit<TextFieldProps, 'name' | 'type'> & {
   validation?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   parseError?: (error: FieldError) => ReactNode
   control?: Control<TFieldValues>
   resizeStyle?: CSSProperties['resize']
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue
+    output?: (
+      event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type TextareaAutosizeElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: TextareaAutosizeElementProps<TFieldValues, TName> &
+  props: TextareaAutosizeElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: TextareaAutosizeElementProps<TFieldValues, TName>,
+  props: TextareaAutosizeElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
 ): JSX.Element {
   const {
@@ -50,6 +68,8 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     rows,
     resizeStyle,
     inputRef,
+    inputProps,
+    transform,
     ...rest
   } = props
 
@@ -69,6 +89,26 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     name,
     control,
     rules,
+    disabled: rest.disabled,
+  })
+
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (value) => {
+              return value ?? ('' as TValue)
+            },
+      output:
+        typeof transform?.output === 'function'
+          ? transform.output
+          : (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+              return event.target.value as PathValue<TFieldValues, TName>
+            },
+    },
   })
 
   const handleInputRef = useForkRef(field.ref, inputRef)
@@ -77,11 +117,11 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     <TextField
       {...rest}
       name={name}
-      value={field.value ?? ''}
-      onChange={(ev) => {
-        field.onChange(ev.target.value)
+      value={value}
+      onChange={(event) => {
+        onChange(event)
         if (typeof rest.onChange === 'function') {
-          rest.onChange(ev)
+          rest.onChange(event)
         }
       }}
       onBlur={field.onBlur}
@@ -103,11 +143,13 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
           style: {
             resize: resizeStyle || 'both',
           },
+          ...(inputProps || {}),
         },
       }}
       ref={ref}
     />
   )
-}) as TextareaAutosizeElementComponent
+})
+TextareaAutosizeElement.displayName = 'TextareaAutosizeElement'
 
-export default TextareaAutosizeElement
+export default TextareaAutosizeElement as TextareaAutosizeElementComponent

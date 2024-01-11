@@ -6,26 +6,31 @@ import {
 import {
   Control,
   FieldError,
-  FieldValues,
   FieldPath,
+  FieldValues,
   PathValue,
-  UseControllerProps,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {ReactNode, forwardRef, RefAttributes, Ref} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {defaultErrorMessages} from './messages/DatePicker'
 import {
   useLocalizationContext,
   validateDate,
 } from '@mui/x-date-pickers/internals'
+import useTransform from './useTransform'
+import {
+  DateValidationError,
+  PickerChangeHandlerContext,
+} from '@mui/x-date-pickers'
 
 export type MobileDatePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TDate = PathValue<TFieldValues, TName>
-> = Omit<MobileDatePickerProps<TDate>, 'value' | 'slotProps'> & {
+  TValue = unknown
+> = Omit<MobileDatePickerProps<TValue>, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
   isDate?: boolean
@@ -34,23 +39,32 @@ export type MobileDatePickerElementProps<
   control?: Control<TFieldValues>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
-  slotProps?: Omit<MobileDatePickerSlotsComponentsProps<TDate>, 'textField'>
+  slotProps?: Omit<MobileDatePickerSlotsComponentsProps<TValue>, 'textField'>
   overwriteErrorMessages?: typeof defaultErrorMessages
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue | null
+    output?: (
+      value: TValue | null,
+      context: PickerChangeHandlerContext<DateValidationError>
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type MobileDatePickerElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: MobileDatePickerElementProps<TFieldValues, TName> &
+  props: MobileDatePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: MobileDatePickerElementProps<TFieldValues, TName>,
+  props: MobileDatePickerElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
 ): JSX.Element {
   const {
@@ -63,6 +77,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
     slotProps,
     overwriteErrorMessages,
     inputRef,
+    transform,
     ...rest
   } = props
 
@@ -80,10 +95,10 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
     ...validation,
     ...(required &&
       !validation.required && {
-      required: 'This field is required',
-    }),
+        required: 'This field is required',
+      }),
     validate: {
-      internal: (value) => {
+      internal: (value: TValue | null) => {
         const inputTimezone =
           value == null || !adapter.utils.isValid(value)
             ? null
@@ -116,19 +131,36 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
     name,
     control,
     rules,
-    defaultValue: null as any,
+    disabled: rest.disabled,
+    defaultValue: null as PathValue<TFieldValues, TName>,
   })
 
-  const handleInputRef = useForkRef(field.value, inputRef)
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue | null>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (newValue) => {
+              return newValue && typeof newValue === 'string'
+                ? (new Date(newValue) as TValue) // need to see if this works for all localization adaptors
+                : newValue
+            },
+      output:
+        typeof transform?.output === 'function'
+          ? transform.output
+          : (newValue) => newValue,
+    },
+  })
 
-  if (field?.value && typeof field?.value === 'string') {
-    field.value = new Date(field.value) as any // need to see if this works for all localization adaptors
-  }
+  const handleInputRef = useForkRef(field.ref, inputRef)
 
   return (
     <MobileDatePicker
       {...rest}
       {...field}
+      value={value}
       ref={ref}
       inputRef={handleInputRef}
       onClose={(...args) => {
@@ -137,10 +169,10 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
           rest.onClose(...args)
         }
       }}
-      onChange={(v, keyboardInputValue) => {
-        field.onChange(v, keyboardInputValue)
+      onChange={(newValue, context) => {
+        onChange(newValue, context)
         if (typeof rest.onChange === 'function') {
-          rest.onChange(v, keyboardInputValue)
+          rest.onChange(newValue, context)
         }
       }}
       slotProps={{
@@ -158,6 +190,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
       }}
     />
   )
-}) as MobileDatePickerElementComponent
+})
+MobileDatePickerElement.displayName = 'MobileDatePickerElement'
 
-export default MobileDatePickerElement
+export default MobileDatePickerElement as MobileDatePickerElementComponent

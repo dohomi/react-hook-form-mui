@@ -15,13 +15,13 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
-    "@mui/icons-material": "latest",
-    "@mui/material": "latest",
-    "@mui/x-date-pickers": "latest",
+    "@mui/icons-material": "5.14.18",
+    "@mui/material": "5.14.18",
+    "@mui/x-date-pickers": "6.18.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-hook-form": "latest",
+    "react-hook-form": "7.48.2",
     "react-hook-form-mui": "*"
   },
   "devDependencies": {

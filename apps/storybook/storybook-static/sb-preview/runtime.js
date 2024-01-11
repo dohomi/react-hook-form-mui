@@ -439,8 +439,13 @@ var require_function_bind2 = __commonJS({
 var require_src2 = __commonJS({
   '../../node_modules/has/src/index.js'(exports, module) {
     'use strict'
-    var bind = require_function_bind2()
-    module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty)
+    var hasOwnProperty5 = {}.hasOwnProperty,
+      call = Function.prototype.call
+    module.exports = call.bind
+      ? call.bind(hasOwnProperty5)
+      : function (O2, P2) {
+          return call.call(hasOwnProperty5, O2, P2)
+        }
   },
 })
 var require_get_intrinsic2 = __commonJS({
@@ -5284,6 +5289,418 @@ var require_pickBy = __commonJS({
     module.exports = pickBy2
   },
 })
+var require_browser_dtector_umd_min = __commonJS({
+  '../../node_modules/browser-dtector/browser-dtector.umd.min.js'(
+    exports,
+    module
+  ) {
+    'use strict'
+    ;(function (e, o) {
+      typeof exports == 'object' && typeof module < 'u'
+        ? (module.exports = o())
+        : typeof define == 'function' && define.amd
+        ? define(o)
+        : ((e =
+            typeof globalThis < 'u' ? globalThis : e || self).BrowserDetector =
+            o())
+    })(exports, function () {
+      'use strict'
+      function e(e2, o2) {
+        for (var r2 = 0; r2 < o2.length; r2++) {
+          var n2 = o2[r2]
+          ;(n2.enumerable = n2.enumerable || !1),
+            (n2.configurable = !0),
+            'value' in n2 && (n2.writable = !0),
+            Object.defineProperty(
+              e2,
+              ((i2 = n2.key),
+              (t2 = void 0),
+              typeof (t2 = (function (e3, o3) {
+                if (typeof e3 != 'object' || e3 === null) return e3
+                var r3 = e3[Symbol.toPrimitive]
+                if (r3 !== void 0) {
+                  var n3 = r3.call(e3, o3 || 'default')
+                  if (typeof n3 != 'object') return n3
+                  throw new TypeError(
+                    '@@toPrimitive must return a primitive value.'
+                  )
+                }
+                return (o3 === 'string' ? String : Number)(e3)
+              })(i2, 'string')) == 'symbol'
+                ? t2
+                : String(t2)),
+              n2
+            )
+        }
+        var i2, t2
+      }
+      var o = {
+          chrome: 'Google Chrome',
+          brave: 'Brave',
+          crios: 'Google Chrome',
+          edge: 'Microsoft Edge',
+          edg: 'Microsoft Edge',
+          edgios: 'Microsoft Edge',
+          fennec: 'Mozilla Firefox',
+          jsdom: 'JsDOM',
+          mozilla: 'Mozilla Firefox',
+          fxios: 'Mozilla Firefox',
+          msie: 'Microsoft Internet Explorer',
+          opera: 'Opera',
+          opios: 'Opera',
+          opr: 'Opera',
+          opt: 'Opera',
+          rv: 'Microsoft Internet Explorer',
+          safari: 'Safari',
+          samsungbrowser: 'Samsung Browser',
+          electron: 'Electron',
+        },
+        r = {
+          android: 'Android',
+          androidTablet: 'Android Tablet',
+          cros: 'Chrome OS',
+          fennec: 'Android Tablet',
+          ipad: 'IPad',
+          iphone: 'IPhone',
+          jsdom: 'JsDOM',
+          linux: 'Linux',
+          mac: 'Macintosh',
+          tablet: 'Android Tablet',
+          win: 'Windows',
+          'windows phone': 'Windows Phone',
+          xbox: 'Microsoft Xbox',
+        },
+        n = function (e2) {
+          var o2 = new RegExp(
+              '^-?\\d+(?:.\\d{0,'.concat(
+                arguments.length > 1 && arguments[1] !== void 0
+                  ? arguments[1]
+                  : -1,
+                '})?'
+              )
+            ),
+            r2 = Number(e2).toString().match(o2)
+          return r2 ? r2[0] : null
+        },
+        i = function () {
+          return typeof window < 'u' ? window.navigator : null
+        },
+        t = (function () {
+          function t2(e2) {
+            var o2
+            ;(function (e3, o3) {
+              if (!(e3 instanceof o3))
+                throw new TypeError('Cannot call a class as a function')
+            })(this, t2),
+              (this.userAgent =
+                e2 ||
+                ((o2 = i()) === null || o2 === void 0
+                  ? void 0
+                  : o2.userAgent) ||
+                null)
+          }
+          var a, l, s
+          return (
+            (a = t2),
+            (l = [
+              {
+                key: 'parseUserAgent',
+                value: function (e2) {
+                  var t3,
+                    a2,
+                    l2,
+                    s2 = {},
+                    c2 = e2 || this.userAgent || '',
+                    d = c2.toLowerCase().replace(/\s\s+/g, ' '),
+                    u2 =
+                      /(edge)\/([\w.]+)/.exec(d) ||
+                      /(edg)[/]([\w.]+)/.exec(d) ||
+                      /(opr)[/]([\w.]+)/.exec(d) ||
+                      /(opt)[/]([\w.]+)/.exec(d) ||
+                      /(fxios)[/]([\w.]+)/.exec(d) ||
+                      /(edgios)[/]([\w.]+)/.exec(d) ||
+                      /(jsdom)[/]([\w.]+)/.exec(d) ||
+                      /(samsungbrowser)[/]([\w.]+)/.exec(d) ||
+                      /(electron)[/]([\w.]+)/.exec(d) ||
+                      /(chrome)[/]([\w.]+)/.exec(d) ||
+                      /(crios)[/]([\w.]+)/.exec(d) ||
+                      /(opios)[/]([\w.]+)/.exec(d) ||
+                      /(version)(applewebkit)[/]([\w.]+).*(safari)[/]([\w.]+)/.exec(
+                        d
+                      ) ||
+                      /(webkit)[/]([\w.]+).*(version)[/]([\w.]+).*(safari)[/]([\w.]+)/.exec(
+                        d
+                      ) ||
+                      /(applewebkit)[/]([\w.]+).*(safari)[/]([\w.]+)/.exec(d) ||
+                      /(webkit)[/]([\w.]+)/.exec(d) ||
+                      /(opera)(?:.*version|)[/]([\w.]+)/.exec(d) ||
+                      /(msie) ([\w.]+)/.exec(d) ||
+                      /(fennec)[/]([\w.]+)/.exec(d) ||
+                      (d.indexOf('trident') >= 0 &&
+                        /(rv)(?::| )([\w.]+)/.exec(d)) ||
+                      (d.indexOf('compatible') < 0 &&
+                        /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(d)) ||
+                      [],
+                    f3 =
+                      /(ipad)/.exec(d) ||
+                      /(ipod)/.exec(d) ||
+                      /(iphone)/.exec(d) ||
+                      /(jsdom)/.exec(d) ||
+                      /(windows phone)/.exec(d) ||
+                      /(xbox)/.exec(d) ||
+                      /(win)/.exec(d) ||
+                      /(tablet)/.exec(d) ||
+                      (/(android)/.test(d) &&
+                        /(mobile)/.test(d) === !1 && ['androidTablet']) ||
+                      /(android)/.exec(d) ||
+                      /(mac)/.exec(d) ||
+                      /(linux)/.exec(d) ||
+                      /(cros)/.exec(d) ||
+                      [],
+                    p = u2[5] || u2[3] || u2[1] || null,
+                    w2 = f3[0] || null,
+                    x2 = u2[4] || u2[2] || null,
+                    b2 = i()
+                  p === 'chrome' &&
+                    typeof (b2 == null ||
+                    (t3 = b2.brave) === null ||
+                    t3 === void 0
+                      ? void 0
+                      : t3.isBrave) == 'function' &&
+                    (p = 'brave'),
+                    p && (s2[p] = !0),
+                    w2 && (s2[w2] = !0)
+                  var v2 = !!(s2.tablet || s2.android || s2.androidTablet),
+                    m2 = !!(s2.ipad || s2.tablet || s2.androidTablet),
+                    g = !!(
+                      s2.android ||
+                      s2.androidTablet ||
+                      s2.tablet ||
+                      s2.ipad ||
+                      s2.ipod ||
+                      s2.iphone ||
+                      s2['windows phone']
+                    ),
+                    h2 = !!(s2.cros || s2.mac || s2.linux || s2.win),
+                    y = !!(
+                      s2.brave ||
+                      s2.chrome ||
+                      s2.crios ||
+                      s2.opr ||
+                      s2.safari ||
+                      s2.edg ||
+                      s2.electron
+                    ),
+                    A = !!(s2.msie || s2.rv)
+                  return {
+                    name: (a2 = o[p]) !== null && a2 !== void 0 ? a2 : null,
+                    platform:
+                      (l2 = r[w2]) !== null && l2 !== void 0 ? l2 : null,
+                    userAgent: c2,
+                    version: x2,
+                    shortVersion: x2 ? n(parseFloat(x2), 2) : null,
+                    isAndroid: v2,
+                    isTablet: m2,
+                    isMobile: g,
+                    isDesktop: h2,
+                    isWebkit: y,
+                    isIE: A,
+                  }
+                },
+              },
+              {
+                key: 'getBrowserInfo',
+                value: function () {
+                  var e2 = this.parseUserAgent()
+                  return {
+                    name: e2.name,
+                    platform: e2.platform,
+                    userAgent: e2.userAgent,
+                    version: e2.version,
+                    shortVersion: e2.shortVersion,
+                  }
+                },
+              },
+            ]),
+            (s = [
+              {
+                key: 'VERSION',
+                get: function () {
+                  return '3.4.0'
+                },
+              },
+            ]),
+            l && e(a.prototype, l),
+            s && e(a, s),
+            Object.defineProperty(a, 'prototype', {writable: !1}),
+            t2
+          )
+        })()
+      return t
+    })
+  },
+})
+var dist_exports = {}
+__export(dist_exports, {
+  CHANNEL_CREATED: () => CHANNEL_CREATED,
+  CONFIG_ERROR: () => CONFIG_ERROR,
+  CURRENT_STORY_WAS_SET: () => CURRENT_STORY_WAS_SET,
+  DOCS_PREPARED: () => DOCS_PREPARED,
+  DOCS_RENDERED: () => DOCS_RENDERED,
+  FORCE_REMOUNT: () => FORCE_REMOUNT,
+  FORCE_RE_RENDER: () => FORCE_RE_RENDER,
+  GLOBALS_UPDATED: () => GLOBALS_UPDATED,
+  IGNORED_EXCEPTION: () => IGNORED_EXCEPTION,
+  NAVIGATE_URL: () => NAVIGATE_URL,
+  PLAY_FUNCTION_THREW_EXCEPTION: () => PLAY_FUNCTION_THREW_EXCEPTION,
+  PRELOAD_ENTRIES: () => PRELOAD_ENTRIES,
+  PREVIEW_BUILDER_PROGRESS: () => PREVIEW_BUILDER_PROGRESS,
+  PREVIEW_KEYDOWN: () => PREVIEW_KEYDOWN,
+  REGISTER_SUBSCRIPTION: () => REGISTER_SUBSCRIPTION,
+  REQUEST_WHATS_NEW_DATA: () => REQUEST_WHATS_NEW_DATA,
+  RESET_STORY_ARGS: () => RESET_STORY_ARGS,
+  RESULT_WHATS_NEW_DATA: () => RESULT_WHATS_NEW_DATA,
+  SELECT_STORY: () => SELECT_STORY,
+  SET_CONFIG: () => SET_CONFIG,
+  SET_CURRENT_STORY: () => SET_CURRENT_STORY,
+  SET_GLOBALS: () => SET_GLOBALS,
+  SET_INDEX: () => SET_INDEX,
+  SET_STORIES: () => SET_STORIES,
+  SET_WHATS_NEW_CACHE: () => SET_WHATS_NEW_CACHE,
+  SHARED_STATE_CHANGED: () => SHARED_STATE_CHANGED,
+  SHARED_STATE_SET: () => SHARED_STATE_SET,
+  STORIES_COLLAPSE_ALL: () => STORIES_COLLAPSE_ALL,
+  STORIES_EXPAND_ALL: () => STORIES_EXPAND_ALL,
+  STORY_ARGS_UPDATED: () => STORY_ARGS_UPDATED,
+  STORY_CHANGED: () => STORY_CHANGED,
+  STORY_ERRORED: () => STORY_ERRORED,
+  STORY_INDEX_INVALIDATED: () => STORY_INDEX_INVALIDATED,
+  STORY_MISSING: () => STORY_MISSING,
+  STORY_PREPARED: () => STORY_PREPARED,
+  STORY_RENDERED: () => STORY_RENDERED,
+  STORY_RENDER_PHASE_CHANGED: () => STORY_RENDER_PHASE_CHANGED,
+  STORY_SPECIFIED: () => STORY_SPECIFIED,
+  STORY_THREW_EXCEPTION: () => STORY_THREW_EXCEPTION,
+  STORY_UNCHANGED: () => STORY_UNCHANGED,
+  TELEMETRY_ERROR: () => TELEMETRY_ERROR,
+  TOGGLE_WHATS_NEW_NOTIFICATIONS: () => TOGGLE_WHATS_NEW_NOTIFICATIONS,
+  UPDATE_GLOBALS: () => UPDATE_GLOBALS,
+  UPDATE_QUERY_PARAMS: () => UPDATE_QUERY_PARAMS,
+  UPDATE_STORY_ARGS: () => UPDATE_STORY_ARGS,
+  default: () => src_default,
+})
+var events = ((events2) => (
+    (events2.CHANNEL_CREATED = 'channelCreated'),
+    (events2.CONFIG_ERROR = 'configError'),
+    (events2.STORY_INDEX_INVALIDATED = 'storyIndexInvalidated'),
+    (events2.STORY_SPECIFIED = 'storySpecified'),
+    (events2.SET_CONFIG = 'setConfig'),
+    (events2.SET_STORIES = 'setStories'),
+    (events2.SET_INDEX = 'setIndex'),
+    (events2.SET_CURRENT_STORY = 'setCurrentStory'),
+    (events2.CURRENT_STORY_WAS_SET = 'currentStoryWasSet'),
+    (events2.FORCE_RE_RENDER = 'forceReRender'),
+    (events2.FORCE_REMOUNT = 'forceRemount'),
+    (events2.PRELOAD_ENTRIES = 'preloadStories'),
+    (events2.STORY_PREPARED = 'storyPrepared'),
+    (events2.DOCS_PREPARED = 'docsPrepared'),
+    (events2.STORY_CHANGED = 'storyChanged'),
+    (events2.STORY_UNCHANGED = 'storyUnchanged'),
+    (events2.STORY_RENDERED = 'storyRendered'),
+    (events2.STORY_MISSING = 'storyMissing'),
+    (events2.STORY_ERRORED = 'storyErrored'),
+    (events2.STORY_THREW_EXCEPTION = 'storyThrewException'),
+    (events2.STORY_RENDER_PHASE_CHANGED = 'storyRenderPhaseChanged'),
+    (events2.PLAY_FUNCTION_THREW_EXCEPTION = 'playFunctionThrewException'),
+    (events2.UPDATE_STORY_ARGS = 'updateStoryArgs'),
+    (events2.STORY_ARGS_UPDATED = 'storyArgsUpdated'),
+    (events2.RESET_STORY_ARGS = 'resetStoryArgs'),
+    (events2.SET_GLOBALS = 'setGlobals'),
+    (events2.UPDATE_GLOBALS = 'updateGlobals'),
+    (events2.GLOBALS_UPDATED = 'globalsUpdated'),
+    (events2.REGISTER_SUBSCRIPTION = 'registerSubscription'),
+    (events2.PREVIEW_KEYDOWN = 'previewKeydown'),
+    (events2.PREVIEW_BUILDER_PROGRESS = 'preview_builder_progress'),
+    (events2.SELECT_STORY = 'selectStory'),
+    (events2.STORIES_COLLAPSE_ALL = 'storiesCollapseAll'),
+    (events2.STORIES_EXPAND_ALL = 'storiesExpandAll'),
+    (events2.DOCS_RENDERED = 'docsRendered'),
+    (events2.SHARED_STATE_CHANGED = 'sharedStateChanged'),
+    (events2.SHARED_STATE_SET = 'sharedStateSet'),
+    (events2.NAVIGATE_URL = 'navigateUrl'),
+    (events2.UPDATE_QUERY_PARAMS = 'updateQueryParams'),
+    (events2.REQUEST_WHATS_NEW_DATA = 'requestWhatsNewData'),
+    (events2.RESULT_WHATS_NEW_DATA = 'resultWhatsNewData'),
+    (events2.SET_WHATS_NEW_CACHE = 'setWhatsNewCache'),
+    (events2.TOGGLE_WHATS_NEW_NOTIFICATIONS = 'toggleWhatsNewNotifications'),
+    (events2.TELEMETRY_ERROR = 'telemetryError'),
+    events2
+  ))(events || {}),
+  src_default = events,
+  {
+    CHANNEL_CREATED,
+    CONFIG_ERROR,
+    CURRENT_STORY_WAS_SET,
+    DOCS_PREPARED,
+    DOCS_RENDERED,
+    FORCE_RE_RENDER,
+    FORCE_REMOUNT,
+    GLOBALS_UPDATED,
+    NAVIGATE_URL,
+    PLAY_FUNCTION_THREW_EXCEPTION,
+    PRELOAD_ENTRIES,
+    PREVIEW_BUILDER_PROGRESS,
+    PREVIEW_KEYDOWN,
+    REGISTER_SUBSCRIPTION,
+    RESET_STORY_ARGS,
+    SELECT_STORY,
+    SET_CONFIG,
+    SET_CURRENT_STORY,
+    SET_GLOBALS,
+    SET_INDEX,
+    SET_STORIES,
+    SHARED_STATE_CHANGED,
+    SHARED_STATE_SET,
+    STORIES_COLLAPSE_ALL,
+    STORIES_EXPAND_ALL,
+    STORY_ARGS_UPDATED,
+    STORY_CHANGED,
+    STORY_ERRORED,
+    STORY_INDEX_INVALIDATED,
+    STORY_MISSING,
+    STORY_PREPARED,
+    STORY_RENDER_PHASE_CHANGED,
+    STORY_RENDERED,
+    STORY_SPECIFIED,
+    STORY_THREW_EXCEPTION,
+    STORY_UNCHANGED,
+    UPDATE_GLOBALS,
+    UPDATE_QUERY_PARAMS,
+    UPDATE_STORY_ARGS,
+    REQUEST_WHATS_NEW_DATA,
+    RESULT_WHATS_NEW_DATA,
+    SET_WHATS_NEW_CACHE,
+    TOGGLE_WHATS_NEW_NOTIFICATIONS,
+    TELEMETRY_ERROR,
+  } = events,
+  IGNORED_EXCEPTION = new Error('ignoredException')
+var dist_exports2 = {}
+__export(dist_exports2, {global: () => scope})
+var scope = (() => {
+  let win
+  return (
+    typeof window < 'u'
+      ? (win = window)
+      : typeof globalThis < 'u'
+      ? (win = globalThis)
+      : typeof global < 'u'
+      ? (win = global)
+      : typeof self < 'u'
+      ? (win = self)
+      : (win = {}),
+    win
+  )
+})()
 var postmessage_exports = {}
 __export(postmessage_exports, {
   KEY: () => KEY,
@@ -5382,164 +5799,8 @@ var isMulti = (args2) => args2.transports !== void 0,
       return onceListener
     }
   }
-var scope = (() => {
-  let win
-  return (
-    typeof window < 'u'
-      ? (win = window)
-      : typeof globalThis < 'u'
-      ? (win = globalThis)
-      : typeof global < 'u'
-      ? (win = global)
-      : typeof self < 'u'
-      ? (win = self)
-      : (win = {}),
-    win
-  )
-})()
-var dist_exports = {}
-__export(dist_exports, {
-  CHANNEL_CREATED: () => CHANNEL_CREATED,
-  CONFIG_ERROR: () => CONFIG_ERROR,
-  CURRENT_STORY_WAS_SET: () => CURRENT_STORY_WAS_SET,
-  DOCS_PREPARED: () => DOCS_PREPARED,
-  DOCS_RENDERED: () => DOCS_RENDERED,
-  FORCE_REMOUNT: () => FORCE_REMOUNT,
-  FORCE_RE_RENDER: () => FORCE_RE_RENDER,
-  GLOBALS_UPDATED: () => GLOBALS_UPDATED,
-  IGNORED_EXCEPTION: () => IGNORED_EXCEPTION,
-  NAVIGATE_URL: () => NAVIGATE_URL,
-  PLAY_FUNCTION_THREW_EXCEPTION: () => PLAY_FUNCTION_THREW_EXCEPTION,
-  PRELOAD_ENTRIES: () => PRELOAD_ENTRIES,
-  PREVIEW_BUILDER_PROGRESS: () => PREVIEW_BUILDER_PROGRESS,
-  PREVIEW_KEYDOWN: () => PREVIEW_KEYDOWN,
-  REGISTER_SUBSCRIPTION: () => REGISTER_SUBSCRIPTION,
-  REQUEST_WHATS_NEW_DATA: () => REQUEST_WHATS_NEW_DATA,
-  RESET_STORY_ARGS: () => RESET_STORY_ARGS,
-  RESULT_WHATS_NEW_DATA: () => RESULT_WHATS_NEW_DATA,
-  SELECT_STORY: () => SELECT_STORY,
-  SET_CONFIG: () => SET_CONFIG,
-  SET_CURRENT_STORY: () => SET_CURRENT_STORY,
-  SET_GLOBALS: () => SET_GLOBALS,
-  SET_INDEX: () => SET_INDEX,
-  SET_STORIES: () => SET_STORIES,
-  SET_WHATS_NEW_CACHE: () => SET_WHATS_NEW_CACHE,
-  SHARED_STATE_CHANGED: () => SHARED_STATE_CHANGED,
-  SHARED_STATE_SET: () => SHARED_STATE_SET,
-  STORIES_COLLAPSE_ALL: () => STORIES_COLLAPSE_ALL,
-  STORIES_EXPAND_ALL: () => STORIES_EXPAND_ALL,
-  STORY_ARGS_UPDATED: () => STORY_ARGS_UPDATED,
-  STORY_CHANGED: () => STORY_CHANGED,
-  STORY_ERRORED: () => STORY_ERRORED,
-  STORY_INDEX_INVALIDATED: () => STORY_INDEX_INVALIDATED,
-  STORY_MISSING: () => STORY_MISSING,
-  STORY_PREPARED: () => STORY_PREPARED,
-  STORY_RENDERED: () => STORY_RENDERED,
-  STORY_RENDER_PHASE_CHANGED: () => STORY_RENDER_PHASE_CHANGED,
-  STORY_SPECIFIED: () => STORY_SPECIFIED,
-  STORY_THREW_EXCEPTION: () => STORY_THREW_EXCEPTION,
-  STORY_UNCHANGED: () => STORY_UNCHANGED,
-  TOGGLE_WHATS_NEW_NOTIFICATIONS: () => TOGGLE_WHATS_NEW_NOTIFICATIONS,
-  UPDATE_GLOBALS: () => UPDATE_GLOBALS,
-  UPDATE_QUERY_PARAMS: () => UPDATE_QUERY_PARAMS,
-  UPDATE_STORY_ARGS: () => UPDATE_STORY_ARGS,
-  default: () => src_default,
-})
-var events = ((events2) => (
-    (events2.CHANNEL_CREATED = 'channelCreated'),
-    (events2.CONFIG_ERROR = 'configError'),
-    (events2.STORY_INDEX_INVALIDATED = 'storyIndexInvalidated'),
-    (events2.STORY_SPECIFIED = 'storySpecified'),
-    (events2.SET_CONFIG = 'setConfig'),
-    (events2.SET_STORIES = 'setStories'),
-    (events2.SET_INDEX = 'setIndex'),
-    (events2.SET_CURRENT_STORY = 'setCurrentStory'),
-    (events2.CURRENT_STORY_WAS_SET = 'currentStoryWasSet'),
-    (events2.FORCE_RE_RENDER = 'forceReRender'),
-    (events2.FORCE_REMOUNT = 'forceRemount'),
-    (events2.PRELOAD_ENTRIES = 'preloadStories'),
-    (events2.STORY_PREPARED = 'storyPrepared'),
-    (events2.DOCS_PREPARED = 'docsPrepared'),
-    (events2.STORY_CHANGED = 'storyChanged'),
-    (events2.STORY_UNCHANGED = 'storyUnchanged'),
-    (events2.STORY_RENDERED = 'storyRendered'),
-    (events2.STORY_MISSING = 'storyMissing'),
-    (events2.STORY_ERRORED = 'storyErrored'),
-    (events2.STORY_THREW_EXCEPTION = 'storyThrewException'),
-    (events2.STORY_RENDER_PHASE_CHANGED = 'storyRenderPhaseChanged'),
-    (events2.PLAY_FUNCTION_THREW_EXCEPTION = 'playFunctionThrewException'),
-    (events2.UPDATE_STORY_ARGS = 'updateStoryArgs'),
-    (events2.STORY_ARGS_UPDATED = 'storyArgsUpdated'),
-    (events2.RESET_STORY_ARGS = 'resetStoryArgs'),
-    (events2.SET_GLOBALS = 'setGlobals'),
-    (events2.UPDATE_GLOBALS = 'updateGlobals'),
-    (events2.GLOBALS_UPDATED = 'globalsUpdated'),
-    (events2.REGISTER_SUBSCRIPTION = 'registerSubscription'),
-    (events2.PREVIEW_KEYDOWN = 'previewKeydown'),
-    (events2.PREVIEW_BUILDER_PROGRESS = 'preview_builder_progress'),
-    (events2.SELECT_STORY = 'selectStory'),
-    (events2.STORIES_COLLAPSE_ALL = 'storiesCollapseAll'),
-    (events2.STORIES_EXPAND_ALL = 'storiesExpandAll'),
-    (events2.DOCS_RENDERED = 'docsRendered'),
-    (events2.SHARED_STATE_CHANGED = 'sharedStateChanged'),
-    (events2.SHARED_STATE_SET = 'sharedStateSet'),
-    (events2.NAVIGATE_URL = 'navigateUrl'),
-    (events2.UPDATE_QUERY_PARAMS = 'updateQueryParams'),
-    (events2.REQUEST_WHATS_NEW_DATA = 'requestWhatsNewData'),
-    (events2.RESULT_WHATS_NEW_DATA = 'resultWhatsNewData'),
-    (events2.SET_WHATS_NEW_CACHE = 'setWhatsNewCache'),
-    (events2.TOGGLE_WHATS_NEW_NOTIFICATIONS = 'toggleWhatsNewNotifications'),
-    events2
-  ))(events || {}),
-  src_default = events,
-  {
-    CHANNEL_CREATED,
-    CONFIG_ERROR,
-    CURRENT_STORY_WAS_SET,
-    DOCS_PREPARED,
-    DOCS_RENDERED,
-    FORCE_RE_RENDER,
-    FORCE_REMOUNT,
-    GLOBALS_UPDATED,
-    NAVIGATE_URL,
-    PLAY_FUNCTION_THREW_EXCEPTION,
-    PRELOAD_ENTRIES,
-    PREVIEW_BUILDER_PROGRESS,
-    PREVIEW_KEYDOWN,
-    REGISTER_SUBSCRIPTION,
-    RESET_STORY_ARGS,
-    SELECT_STORY,
-    SET_CONFIG,
-    SET_CURRENT_STORY,
-    SET_GLOBALS,
-    SET_INDEX,
-    SET_STORIES,
-    SHARED_STATE_CHANGED,
-    SHARED_STATE_SET,
-    STORIES_COLLAPSE_ALL,
-    STORIES_EXPAND_ALL,
-    STORY_ARGS_UPDATED,
-    STORY_CHANGED,
-    STORY_ERRORED,
-    STORY_INDEX_INVALIDATED,
-    STORY_MISSING,
-    STORY_PREPARED,
-    STORY_RENDER_PHASE_CHANGED,
-    STORY_RENDERED,
-    STORY_SPECIFIED,
-    STORY_THREW_EXCEPTION,
-    STORY_UNCHANGED,
-    UPDATE_GLOBALS,
-    UPDATE_QUERY_PARAMS,
-    UPDATE_STORY_ARGS,
-    REQUEST_WHATS_NEW_DATA,
-    RESULT_WHATS_NEW_DATA,
-    SET_WHATS_NEW_CACHE,
-    TOGGLE_WHATS_NEW_NOTIFICATIONS,
-  } = events,
-  IGNORED_EXCEPTION = new Error('ignoredException')
-var dist_exports2 = {}
-__export(dist_exports2, {
+var dist_exports3 = {}
+__export(dist_exports3, {
   deprecate: () => deprecate,
   logger: () => logger,
   once: () => once,
@@ -6872,6 +7133,18 @@ var replacer = function (options2) {
             ? `[Array(${value2.length})]`
             : '[Object]'
         if (value2 === this) return `_duplicate_${JSON.stringify(keys)}`
+        if (value2 instanceof Error && options2.allowError)
+          return {
+            __isConvertedError__: !0,
+            errorProperties: {
+              ...(value2.cause ? {cause: value2.cause} : {}),
+              ...value2,
+              name: value2.name,
+              message: value2.message,
+              stack: value2.stack,
+              '_constructor-name_': value2.constructor.name,
+            },
+          }
         if (
           value2.constructor &&
           value2.constructor.name &&
@@ -6929,6 +7202,11 @@ var replacer = function (options2) {
         key === '_constructor-name_')
       )
         return value
+      if (isObject3(value) && value.__isConvertedError__) {
+        let {message, ...properties} = value.errorProperties,
+          error = new Error(message)
+        return Object.assign(error, properties), error
+      }
       if (
         isObject3(value) &&
         value['_constructor-name_'] &&
@@ -7010,6 +7288,7 @@ var replacer = function (options2) {
     allowRegExp: !0,
     allowDate: !0,
     allowClass: !0,
+    allowError: !0,
     allowUndefined: !0,
     allowSymbol: !0,
     lazyEval: !0,
@@ -7119,6 +7398,7 @@ var getEventSourceUrl = (event) => {
           allowFunction,
           allowSymbol,
           allowDate,
+          allowError,
           allowUndefined,
           allowClass,
           maxDepth,
@@ -7131,6 +7411,7 @@ var getEventSourceUrl = (event) => {
             allowFunction,
             allowSymbol,
             allowDate,
+            allowError,
             allowUndefined,
             allowClass,
             maxDepth,
@@ -7323,8 +7604,8 @@ function createChannel2({
   return new Channel({transport, async})
 }
 var websocket_default = createChannel2
-var dist_exports3 = {}
-__export(dist_exports3, {
+var dist_exports4 = {}
+__export(dist_exports4, {
   Channel: () => Channel,
   PostMessageTransport: () => PostMessageTransport,
   WebsocketTransport: () => WebsocketTransport,
@@ -7347,8 +7628,8 @@ function createBrowserChannel({page, extraTransports = []}) {
   }
   return new Channel({transports})
 }
-var dist_exports4 = {}
-__export(dist_exports4, {
+var dist_exports5 = {}
+__export(dist_exports5, {
   ClientApi: () => ClientApi,
   DocsContext: () => DocsContext,
   HooksContext: () => HooksContext,
@@ -7781,6 +8062,43 @@ var import_memoizerific2 = __toESM(require_memoizerific(), 1),
   import_mapValues = __toESM(require_mapValues(), 1),
   import_pick = __toESM(require_pick(), 1),
   import_synchronous_promise = __toESM(require_synchronous_promise(), 1)
+var StorybookError = class extends Error {
+  constructor() {
+    super(...arguments),
+      (this.data = {}),
+      (this.documentation = !1),
+      (this.fromStorybook = !0)
+  }
+  get fullErrorCode() {
+    let paddedCode = String(this.code).padStart(4, '0')
+    return `SB_${this.category}_${paddedCode}`
+  }
+  get name() {
+    let errorName = this.constructor.name
+    return `${this.fullErrorCode} (${errorName})`
+  }
+  get message() {
+    let page
+    return (
+      this.documentation === !0
+        ? (page = `https://storybook.js.org/error/${this.fullErrorCode}`)
+        : typeof this.documentation == 'string'
+        ? (page = this.documentation)
+        : Array.isArray(this.documentation) &&
+          (page = `
+${this.documentation.map((doc) => `	- ${doc}`).join(`
+`)}`),
+      `${this.template()}${
+        page != null
+          ? `
+
+More info: ${page}
+`
+          : ''
+      }`
+    )
+  }
+}
 function dedent(templ) {
   for (var values2 = [], _i = 1; _i < arguments.length; _i++)
     values2[_i - 1] = arguments[_i]
@@ -7846,6 +8164,42 @@ function dedent(templ) {
   )
 }
 var esm_default = dedent
+var Category = ((Category2) => (
+    (Category2.PREVIEW_CLIENT_LOGGER = 'PREVIEW_CLIENT-LOGGER'),
+    (Category2.PREVIEW_CHANNELS = 'PREVIEW_CHANNELS'),
+    (Category2.PREVIEW_CORE_EVENTS = 'PREVIEW_CORE-EVENTS'),
+    (Category2.PREVIEW_INSTRUMENTER = 'PREVIEW_INSTRUMENTER'),
+    (Category2.PREVIEW_API = 'PREVIEW_API'),
+    (Category2.PREVIEW_REACT_DOM_SHIM = 'PREVIEW_REACT-DOM-SHIM'),
+    (Category2.PREVIEW_ROUTER = 'PREVIEW_ROUTER'),
+    (Category2.PREVIEW_THEMING = 'PREVIEW_THEMING'),
+    (Category2.RENDERER_HTML = 'RENDERER_HTML'),
+    (Category2.RENDERER_PREACT = 'RENDERER_PREACT'),
+    (Category2.RENDERER_REACT = 'RENDERER_REACT'),
+    (Category2.RENDERER_SERVER = 'RENDERER_SERVER'),
+    (Category2.RENDERER_SVELTE = 'RENDERER_SVELTE'),
+    (Category2.RENDERER_VUE = 'RENDERER_VUE'),
+    (Category2.RENDERER_VUE3 = 'RENDERER_VUE3'),
+    (Category2.RENDERER_WEB_COMPONENTS = 'RENDERER_WEB-COMPONENTS'),
+    Category2
+  ))(Category || {}),
+  MissingStoryAfterHmrError = class extends StorybookError {
+    constructor(data) {
+      super(),
+        (this.data = data),
+        (this.category = 'PREVIEW_API'),
+        (this.code = 1)
+    }
+    template() {
+      return esm_default`
+    Couldn't find story matching id '${this.data.storyId}' after HMR.
+    - Did you just rename a story?
+    - Did you remove it from your CSF file?
+    - Are you sure a story with the id '${this.data.storyId}' exists?
+    - Please check the values in the stories field of your main.js config and see if they would match your CSF File.
+    - Also check the browser console and terminal for potential error messages.`
+    }
+  }
 var has = Object.prototype.hasOwnProperty
 function find(iter, tar, key2) {
   for (key2 of iter.keys()) if (dequal(key2, tar)) return key2
@@ -8104,12 +8458,7 @@ var getImportPathMap = (0, import_memoizerific2.default)(1)((entries) =>
     }
     storyIdToEntry(storyId) {
       let storyEntry = this.entries[storyId]
-      if (!storyEntry)
-        throw new Error(dedent`Couldn't find story matching '${storyId}' after HMR.
-      - Did you remove it from your CSF file?
-      - Are you sure a story with that id exists?
-      - Please check your entries field of your main.js config.
-      - Also check the browser console and terminal for error messages.`)
+      if (!storyEntry) throw new MissingStoryAfterHmrError({storyId})
       return storyEntry
     }
     importPathToEntry(importPath) {
@@ -8971,8 +9320,9 @@ function composeStory(
       normalizedComponentAnnotations,
       normalizedProjectAnnotations
     ),
-    defaultGlobals = getValuesFromArgTypes(projectAnnotations.globalTypes),
-    composedStory = (extraArgs) => {
+    defaultGlobals = getValuesFromArgTypes(projectAnnotations.globalTypes)
+  return Object.assign(
+    (extraArgs) => {
       let context = {
         ...story,
         hooks: new HooksContext(),
@@ -8980,14 +9330,14 @@ function composeStory(
         args: {...story.initialArgs, ...extraArgs},
       }
       return story.unboundStoryFn(prepareContext(context))
+    },
+    {
+      storyName,
+      args: story.initialArgs,
+      play: story.playFunction,
+      parameters: story.parameters,
+      id: story.id,
     }
-  return (
-    (composedStory.storyName = storyName),
-    (composedStory.args = story.initialArgs),
-    (composedStory.play = story.playFunction),
-    (composedStory.parameters = story.parameters),
-    (composedStory.id = story.id),
-    composedStory
   )
 }
 function composeStories(storiesImport, globalConfig, composeStoryFn) {
@@ -13826,7 +14176,7 @@ var StoryRender = class {
   },
   globalWindow = globalThis
 function focusInInput(event) {
-  let target = event.target
+  let target = (event.composedPath && event.composedPath()[0]) || event.target
   return (
     /input|textarea/i.test(target.tagName) ||
     target.getAttribute('contenteditable') !== null
@@ -14874,10 +15224,11 @@ __export(store_exports, {
 var values = {
   '@storybook/channel-postmessage': postmessage_exports,
   '@storybook/channel-websocket': websocket_exports,
-  '@storybook/channels': dist_exports3,
-  '@storybook/client-logger': dist_exports2,
+  '@storybook/channels': dist_exports4,
+  '@storybook/client-logger': dist_exports3,
   '@storybook/core-events': dist_exports,
-  '@storybook/preview-api': dist_exports4,
+  '@storybook/preview-api': dist_exports5,
+  '@storybook/global': dist_exports2,
   '@storybook/addons': addons_exports,
   '@storybook/client-api': client_api_exports,
   '@storybook/core-client': core_client_exports,
@@ -14886,6 +15237,7 @@ var values = {
 }
 var globals = {
   '@storybook/addons': '__STORYBOOK_MODULE_ADDONS__',
+  '@storybook/global': '__STORYBOOK_MODULE_GLOBAL__',
   '@storybook/channel-postmessage': '__STORYBOOK_MODULE_CHANNEL_POSTMESSAGE__',
   '@storybook/channel-websocket': '__STORYBOOK_MODULE_CHANNEL_WEBSOCKET__',
   '@storybook/channels': '__STORYBOOK_MODULE_CHANNELS__',
@@ -14897,7 +15249,34 @@ var globals = {
   '@storybook/preview-api': '__STORYBOOK_MODULE_PREVIEW_API__',
   '@storybook/store': '__STORYBOOK_MODULE_STORE__',
 }
+var import_browser_dtector = __toESM(require_browser_dtector_umd_min()),
+  browserInfo
+function getBrowserInfo() {
+  return (
+    browserInfo ||
+      (browserInfo = new import_browser_dtector.default(
+        scope.navigator?.userAgent
+      ).getBrowserInfo()),
+    browserInfo
+  )
+}
+function prepareForTelemetry(error) {
+  return (error.browserInfo = getBrowserInfo()), error
+}
 var getKeys = Object.keys
 getKeys(globals).forEach((key2) => {
-  globalThis[globals[key2]] = values[key2]
+  scope[globals[key2]] = values[key2]
+})
+scope.sendTelemetryError = (error) => {
+  scope.__STORYBOOK_ADDONS_CHANNEL__.emit(
+    TELEMETRY_ERROR,
+    prepareForTelemetry(error)
+  )
+}
+scope.addEventListener('error', (args2) => {
+  let error = args2.error || args2
+  error.fromStorybook && scope.sendTelemetryError(error)
+})
+scope.addEventListener('unhandledrejection', ({reason}) => {
+  reason.fromStorybook && scope.sendTelemetryError(reason)
 })

@@ -1,12 +1,17 @@
 import PasswordElement, {PasswordElementProps} from './PasswordElement'
-import {FieldPath, useWatch, FieldValues} from 'react-hook-form'
+import {FieldPath, FieldValues, useWatch} from 'react-hook-form'
 import {forwardRef, Ref, RefAttributes} from 'react'
 
 export type PasswordRepeatElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> = PasswordElementProps<TFieldValues, TConfirmPasswordName> & {
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TConfirmPasswordValue = unknown
+> = PasswordElementProps<
+  TFieldValues,
+  TConfirmPasswordName,
+  TConfirmPasswordValue
+> & {
   passwordFieldName: TPasswordName
   customInvalidFieldMessage?: string
 }
@@ -14,12 +19,14 @@ export type PasswordRepeatElementProps<
 type PasswordRepeatElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TConfirmPasswordValue = unknown
 >(
   props: PasswordRepeatElementProps<
     TFieldValues,
     TConfirmPasswordName,
-    TPasswordName
+    TPasswordName,
+    TConfirmPasswordValue
   > &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
@@ -27,12 +34,14 @@ type PasswordRepeatElementComponent = <
 const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
   TFieldValues extends FieldValues = FieldValues,
   TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TConfirmPasswordValue = unknown
 >(
   props: PasswordRepeatElementProps<
     TFieldValues,
     TConfirmPasswordName,
-    TPasswordName
+    TPasswordName,
+    TConfirmPasswordValue
   >,
   ref: Ref<HTMLDivElement>
 ): JSX.Element {
@@ -42,19 +51,23 @@ const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
     name: passwordFieldName,
     control,
   })
-  const invalidFieldMessage =
-    customInvalidFieldMessage ?? 'Password should match'
+
   return (
     <PasswordElement
+      control={control}
       {...rest}
       ref={ref}
       validation={{
         validate: (value: string) => {
-          return value === pwValue || invalidFieldMessage
+          return (
+            value === pwValue ||
+            (customInvalidFieldMessage ?? 'Password should match')
+          )
         },
       }}
     />
   )
-}) as PasswordRepeatElementComponent
+})
+PasswordRepeatElement.displayName = 'PasswordRepeatElement'
 
-export default PasswordRepeatElement
+export default PasswordRepeatElement as PasswordRepeatElementComponent
