@@ -98,8 +98,8 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
     : helperText
 
   const onRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const target = event.target as HTMLInputElement
-    const radioValue = type === 'number' ? Number(target.value) : target.value
+    const radioValue =
+      type === 'number' ? Number(event.target.value) : event.target.value
     const returnValue = returnObject
       ? options.find((items) => items[valueKey] === radioValue)
       : radioValue
