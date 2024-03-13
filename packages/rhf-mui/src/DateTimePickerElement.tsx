@@ -25,6 +25,7 @@ import {
   DateTimeValidationError,
   PickerChangeHandlerContext,
 } from '@mui/x-date-pickers'
+import {getTimezone} from './utils'
 
 export type DateTimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -100,11 +101,6 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
       }),
     validate: {
       internal: (value: TValue | null) => {
-        const inputTimezone =
-          value == null || !adapter.utils.isValid(value)
-            ? null
-            : adapter.utils.getTimezone(value)
-
         const internalError = validateDateTime({
           props: {
             shouldDisableDate: rest.shouldDisableDate,
@@ -114,7 +110,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
             disableFuture: Boolean(rest.disableFuture),
             minDate: rest.minDate,
             maxDate: rest.maxDate,
-            timezone: rest.timezone ?? inputTimezone ?? 'default',
+            timezone: rest.timezone ?? getTimezone(adapter, value) ?? 'default',
             disableIgnoringDatePartForTimeValidation:
               rest.disableIgnoringDatePartForTimeValidation,
             maxTime: rest.maxTime,
@@ -151,8 +147,8 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
         typeof transform?.input === 'function'
           ? transform.input
           : (newValue) => {
-              return newValue && newValue === 'string'
-                ? (new Date(newValue) as TValue) // need to see if this works for all localization adaptors
+              return newValue && typeof newValue === 'string'
+                ? (adapter.utils.date(newValue) as TValue) // need to see if this works for all localization adaptors
                 : newValue
             },
       output:

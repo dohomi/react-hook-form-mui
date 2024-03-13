@@ -1,3 +1,5 @@
+import {useLocalizationContext} from '@mui/x-date-pickers/internals'
+
 export function hasOwnProperty<X, Y extends PropertyKey>(
   obj: X,
   prop: Y
@@ -5,6 +7,15 @@ export function hasOwnProperty<X, Y extends PropertyKey>(
   return (
     typeof obj === 'object' &&
     obj !== null &&
-    Object.hasOwnProperty.call(obj, prop)
+    Object.prototype.hasOwnProperty.call(obj, prop)
   )
+}
+
+export function getTimezone<TDate>(
+  adapter: ReturnType<typeof useLocalizationContext>,
+  value: TDate | null
+): string | null {
+  return value == null || !adapter.utils.isValid(value)
+    ? null
+    : adapter.utils.getTimezone(value)
 }
