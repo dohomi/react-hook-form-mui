@@ -138,9 +138,9 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
         )}
         {options.map((option: any) => {
           const optionKey = option[valueKey]
-          if (!optionKey) {
+          if (optionKey === undefined) {
             console.error(
-              `CheckboxButtonGroup: valueKey ${valueKey} does not exist on option`,
+              `RadioButtonGroup: valueKey ${valueKey} does not exist on option`,
               option
             )
           }
