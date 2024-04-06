@@ -6,6 +6,7 @@ import {
   FieldValues,
   PathValue,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {
   FormControl,
@@ -27,6 +28,7 @@ export type RadioButtonGroupProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown
 > = {
+  validation?: UseControllerProps<TFieldValues, TName>['rules']
   options: TValue[]
   helperText?: ReactNode
   name: TName
@@ -87,6 +89,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
     disabled,
     formLabelProps,
     transform,
+    validation = {},
     ...rest
   } = props
   const theme = useTheme()
@@ -94,12 +97,18 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
 
+  const rules = {
+    ...validation,
+    ...(required &&
+      !validation.required && {required: 'This field is required'}),
+  }
+
   const {
     field,
     fieldState: {error},
   } = useController({
     name,
-    rules: required ? {required: 'This field is required'} : undefined,
+    rules,
     disabled,
     control,
   })
