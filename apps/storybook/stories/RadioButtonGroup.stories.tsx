@@ -68,7 +68,7 @@ export const Disabled: Story = {
 export const IndividuallyDisabled: Story = {
   args: {
     label: 'Individually Disabled Options',
-    name: 'disabled',
+    name: 'individuallydisabled',
     options: withDisabledOptions,
   },
 }
