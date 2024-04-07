@@ -15,6 +15,11 @@ const options = [
   {id: '2', label: 'label 2'},
 ]
 
+const withDisabledOptions = [
+  ...options,
+  {id: '3', label: 'label 3', disabled: true},
+]
+
 export const Basic: Story = {
   args: {
     label: 'Basic',
@@ -57,5 +62,13 @@ export const Disabled: Story = {
     name: 'disabled',
     options,
     disabled: true,
+  },
+}
+
+export const IndividuallyDisabled: Story = {
+  args: {
+    label: 'Individually Disabled Options',
+    name: 'disabled',
+    options: withDisabledOptions,
   },
 }
