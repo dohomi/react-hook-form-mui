@@ -63,7 +63,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "7.48.2",
     "storybook": "8.0.6",
-    "typescript": "latest",
+    "typescript": "5.4.4",
     "vite": "^5.2.8"
   }
 }

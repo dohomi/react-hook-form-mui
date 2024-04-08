@@ -13,9 +13,9 @@ export function hasOwnProperty<X, Y extends PropertyKey>(
 
 export function getTimezone<TDate>(
   adapter: ReturnType<typeof useLocalizationContext>,
-  value: TDate | null
+  value: TDate
 ): string | null {
-  return value == null || !adapter.utils.isValid(value)
+  return value == null || !adapter.utils.isValid(value as unknown as Date)
     ? null
-    : adapter.utils.getTimezone(value)
+    : adapter.utils.getTimezone(value as unknown as Date)
 }

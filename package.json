@@ -24,13 +24,13 @@
     "sb-start": "cd apps/storybook && yarn build-storybook && yarn start-storybook",
     "check-types": "cd packages/rhf-mui && tsc --noemit",
     "lint": "eslint apps/nextjs/src/** packages/rhf-mui/src/** apps/storybook/stories/** apps/storybook/src/**",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "yarn run lint -- --fix",
     "prettier": "npx prettier apps/nextjs/src/** packages/rhf-mui/src/** apps/storybook/stories/** apps/storybook/src/** --check",
     "prettier:fix": "prettier --write \"**/*.{js,ts,tsx}\"",
     "deploy": "yarm build && cd apps/storybook/storybook-static && vercel --name react-hook-form-material-ui --prod",
     "build": "yarn lint:fix && yarn prettier:fix && cd packages/rhf-mui && yarn build",
     "upgrade:sb": "yarn up '@storybook/*' storybook -E",
-    "upgrade:typescript": "yarn up typescript@latest",
+    "upgrade:typescript": "yarn up typescript -E",
     "upgrade:rhf": "yarn up react-hook-form -E",
     "upgrade:mui": "yarn up '@mui/*' date-fns '@emotion/*' -E",
     "test": "cd apps/storybook && yarn chromatic"
@@ -44,7 +44,7 @@
     "release": "^6.3.1",
     "simple-git-hooks": "^2.8.1",
     "turbo": "^1.6.3",
-    "typescript": "latest"
+    "typescript": "5.4.4"
   },
   "packageManager": "yarn@1.22.19",
   "lint-staged": {
