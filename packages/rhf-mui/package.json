@@ -22,6 +22,24 @@
   "files": [
     "dist/**"
   ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    },
+    "./date-fns": {
+      "types": "./dist/date-fns.d.ts",
+      "import": "./dist/esm/date-fns.js",
+      "require": "./dist/date-fns.js"
+    },
+    "./date-pickers": {
+      "types": "./dist/date-pickers.d.ts",
+      "import": "./dist/esm/date-pickers.js",
+      "require": "./dist/date-pickers.js"
+    }
+  },
   "engines": {
     "node": ">=14"
   },

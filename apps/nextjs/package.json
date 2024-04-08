@@ -22,7 +22,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "7.48.2",
-    "react-hook-form-mui": "*"
+    "react-hook-form-mui": "7.0.0-beta.2"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "latest",
