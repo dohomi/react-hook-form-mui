@@ -31,6 +31,7 @@ export type RadioButtonGroupProps<
   label?: string
   labelKey?: string
   valueKey?: string
+  disabledKey?: string
   type?: 'number' | 'string'
   emptyOptionLabel?: string
   onChange?: (value: any) => void
@@ -65,6 +66,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
     parseError,
     labelKey = 'label',
     valueKey = 'id',
+    disabledKey = 'disabled',
     required,
     emptyOptionLabel,
     returnObject,
@@ -139,6 +141,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
         )}
         {options.map((option: any) => {
           const optionKey = option[valueKey]
+          const optionDisabled = option[disabledKey] || false
           if (optionKey === undefined) {
             console.error(
               `RadioButtonGroup: valueKey ${valueKey} does not exist on option`,
@@ -158,7 +161,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
                   sx={{
                     color: error ? theme.palette.error.main : undefined,
                   }}
-                  disabled={disabled}
+                  disabled={disabled || optionDisabled}
                   checked={isChecked}
                 />
               }
