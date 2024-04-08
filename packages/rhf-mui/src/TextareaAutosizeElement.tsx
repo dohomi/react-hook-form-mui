@@ -22,7 +22,7 @@ import {
   RefAttributes,
 } from 'react'
 import {useFormError} from './FormErrorProvider'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 
 export type TextareaAutosizeElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -151,5 +151,4 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
   )
 })
 TextareaAutosizeElement.displayName = 'TextareaAutosizeElement'
-
 export default TextareaAutosizeElement as TextareaAutosizeElementComponent

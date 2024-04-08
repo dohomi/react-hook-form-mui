@@ -19,7 +19,7 @@ import {
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
 import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 
 export type CheckboxElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -150,5 +150,4 @@ const CheckboxElement = forwardRef(function CheckboxElement<
   )
 })
 CheckboxElement.displayName = 'CheckboxElement'
-
 export default CheckboxElement as CheckboxElementComponent

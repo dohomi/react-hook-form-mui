@@ -10,7 +10,7 @@ import {
   UseControllerProps,
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 import {hasOwnProperty} from './utils'
 
 export type SelectElementProps<
@@ -174,5 +174,4 @@ const SelectElement = forwardRef(function SelectElement<
   )
 })
 SelectElement.displayName = 'SelectElement'
-
 export default SelectElement as SelectElementComponent

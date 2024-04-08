@@ -24,7 +24,7 @@ import {
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 import {hasOwnProperty} from './utils'
 
 export type MultiSelectElementProps<
@@ -279,5 +279,4 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
   )
 })
 MultiSelectElement.displayName = 'MultiSelectElement'
-
 export default MultiSelectElement as MultiSelectElementComponent

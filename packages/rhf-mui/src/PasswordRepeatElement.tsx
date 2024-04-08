@@ -19,14 +19,12 @@ export type PasswordRepeatElementProps<
 type PasswordRepeatElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TConfirmPasswordValue = unknown
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 >(
   props: PasswordRepeatElementProps<
     TFieldValues,
     TConfirmPasswordName,
-    TPasswordName,
-    TConfirmPasswordValue
+    TPasswordName
   > &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
@@ -69,5 +67,4 @@ const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
   )
 })
 PasswordRepeatElement.displayName = 'PasswordRepeatElement'
-
 export default PasswordRepeatElement as PasswordRepeatElementComponent

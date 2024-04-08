@@ -30,7 +30,7 @@ import {
   RefAttributes,
   SyntheticEvent,
 } from 'react'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 import {hasOwnProperty} from './utils'
 
 type AutoDefault = {
@@ -336,5 +336,4 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
   )
 })
 AutocompleteElement.displayName = 'AutocompleteElement'
-
 export default AutocompleteElement as AutocompleteElementComponent

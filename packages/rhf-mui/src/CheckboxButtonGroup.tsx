@@ -20,7 +20,7 @@ import {
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 import {hasOwnProperty} from './utils'
 
 export type CheckboxButtonGroupProps<

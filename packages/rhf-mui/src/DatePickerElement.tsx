@@ -24,7 +24,7 @@ import {
   useLocalizationContext,
   validateDate,
 } from '@mui/x-date-pickers/internals'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 import {getTimezone} from './utils'
 import {PickerValidDate} from '@mui/x-date-pickers/models'
 

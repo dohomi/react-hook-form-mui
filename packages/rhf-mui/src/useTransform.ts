@@ -27,7 +27,7 @@ export type UseTransformReturn<
   onChange: UseControllerReturn<TFieldValues, TName>['field']['onChange']
 }
 
-export default function useTransform<
+export function useTransform<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown

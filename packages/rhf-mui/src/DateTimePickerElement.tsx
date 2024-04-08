@@ -20,7 +20,7 @@ import {
   useLocalizationContext,
   validateDateTime,
 } from '@mui/x-date-pickers/internals'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 import {
   DateTimeValidationError,
   PickerChangeHandlerContext,

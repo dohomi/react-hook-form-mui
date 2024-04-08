@@ -20,7 +20,7 @@ import {
   useLocalizationContext,
   validateDate,
 } from '@mui/x-date-pickers/internals'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 import {
   DateValidationError,
   PickerChangeHandlerContext,
@@ -193,5 +193,4 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
   )
 })
 MobileDatePickerElement.displayName = 'MobileDatePickerElement'
-
 export default MobileDatePickerElement as MobileDatePickerElementComponent

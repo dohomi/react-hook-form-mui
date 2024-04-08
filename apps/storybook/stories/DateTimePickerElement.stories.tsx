@@ -1,4 +1,4 @@
-import {DateTimePickerElement} from 'react-hook-form-mui/src'
+import {DateTimePickerElement} from 'react-hook-form-mui/src/date-pickers'
 import {Meta, StoryObj} from '@storybook/react'
 import {FormContainerDecorator} from '../src/FormDecorator'
 

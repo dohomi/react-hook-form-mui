@@ -17,7 +17,7 @@ import {
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 
 export type SliderElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -128,5 +128,4 @@ const SliderElement = forwardRef(function SliderElement<
   )
 })
 SliderElement.displayName = 'SliderElement'
-
 export default SliderElement as SliderElementComponent

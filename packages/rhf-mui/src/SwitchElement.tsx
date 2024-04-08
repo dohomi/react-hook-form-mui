@@ -13,7 +13,7 @@ import {
   useForkRef,
 } from '@mui/material'
 import {ChangeEvent, forwardRef, Ref, RefAttributes} from 'react'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 
 export type SwitchElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -48,7 +48,7 @@ const SwitchElement = forwardRef(function SwitchElement<
 >(
   props: SwitchElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLLabelElement>
-): JSX.Element {
+) {
   const {name, control, switchProps, transform, ...rest} = props
 
   const {field} = useController({
@@ -102,5 +102,4 @@ const SwitchElement = forwardRef(function SwitchElement<
   )
 })
 SwitchElement.displayName = 'SwitchElement'
-
 export default SwitchElement as SwitchElementComponent

@@ -20,7 +20,7 @@ import {
   validateTime,
 } from '@mui/x-date-pickers/internals'
 import {defaultErrorMessages} from './messages/TimePicker'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 import {
   PickerChangeHandlerContext,
   TimeValidationError,
@@ -199,5 +199,4 @@ const TimePickerElement = forwardRef(function TimePickerElement<
   )
 })
 TimePickerElement.displayName = 'TimePickerElement'
-
 export default TimePickerElement as TimePickerElementComponent

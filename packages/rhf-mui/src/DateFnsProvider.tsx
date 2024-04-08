@@ -12,7 +12,7 @@ export type DateFnsProviderProps<TDate extends Date> = Omit<
   dateAdapter?: new (...args: any) => MuiPickersAdapter<TDate>
 }
 
-export default function DateFnsProvider({
+export function DateFnsProvider({
   children,
   ...props
 }: DateFnsProviderProps<Date>) {

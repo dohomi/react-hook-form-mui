@@ -1,4 +1,4 @@
-import {MobileDatePickerElement} from 'react-hook-form-mui/src'
+import {MobileDatePickerElement} from 'react-hook-form-mui/src/date-pickers'
 import {Meta, StoryObj} from '@storybook/react'
 import {FormContainerDecorator} from '../src/FormDecorator'
 
@@ -41,6 +41,5 @@ export const DisableTextInput: Story = {
     label: 'Required Picker',
     name: 'requiredCustomMessage',
     required: true,
-    textReadOnly: true,
   },
 }

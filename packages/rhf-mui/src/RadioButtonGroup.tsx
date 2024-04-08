@@ -21,7 +21,7 @@ import {
   useTheme,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import useTransform from './useTransform'
+import {useTransform} from './useTransform'
 
 export type RadioButtonGroupProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -209,5 +209,4 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
   )
 })
 RadioButtonGroup.displayName = 'RadioButtonGroup'
-
 export default RadioButtonGroup as RadioButtonGroupComponent

@@ -20,17 +20,14 @@ export type PasswordElementProps<
   iconColor?: IconButtonProps['color']
   renderIcon?: (password: boolean) => ReactNode
 }
-
 type PasswordElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 >(
-  props: PasswordElementProps<TFieldValues, TName, TValue> &
+  props: PasswordElementProps<TFieldValues, TName> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
-
-const PasswordElement = forwardRef(function PasswordElement<
+const PasswordElement = forwardRef(function PasswordEl<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown
@@ -46,7 +43,7 @@ const PasswordElement = forwardRef(function PasswordElement<
   const [password, setPassword] = useState<boolean>(true)
   return (
     <TextFieldElement
-      {...rest}
+      {...(rest as TextFieldElementProps)}
       ref={ref}
       InputProps={{
         endAdornment: (
@@ -69,5 +66,4 @@ const PasswordElement = forwardRef(function PasswordElement<
   )
 })
 PasswordElement.displayName = 'PasswordElement'
-
 export default PasswordElement as PasswordElementComponent
