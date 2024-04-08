@@ -29,7 +29,7 @@ export type TextareaAutosizeElementProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown
 > = Omit<TextFieldProps, 'name' | 'type'> & {
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   parseError?: (error: FieldError) => ReactNode
   control?: Control<TFieldValues>
@@ -60,7 +60,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
   ref: Ref<HTMLDivElement>
 ) {
   const {
-    validation = {},
+    rules = {},
     parseError,
     required,
     name,
@@ -76,10 +76,9 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
 
-  const rules = {
-    ...validation,
-    ...(required &&
-      !validation.required && {required: 'This field is required'}),
+  const rulesTmp = {
+    ...rules,
+    ...(required && !rules.required && {required: 'This field is required'}),
   }
 
   const {
@@ -88,7 +87,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
   } = useController({
     name,
     control,
-    rules,
+    rules: rulesTmp,
     disabled: rest.disabled,
   })
 

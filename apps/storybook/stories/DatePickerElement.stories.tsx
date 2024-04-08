@@ -44,7 +44,7 @@ export const RequiredCustomMessage: Story = {
     label: 'Required Picker',
     name: 'requiredCustomMessage',
     required: true,
-    validation: {required: 'Custom required message'},
+    rules: {required: 'Custom required message'},
   },
 }
 

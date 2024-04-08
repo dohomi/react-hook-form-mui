@@ -26,7 +26,7 @@ export type CheckboxElementProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown
 > = Omit<CheckboxProps, 'name'> & {
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   parseError?: (error: FieldError) => ReactNode
   label?: FormControlLabelProps['label']
@@ -61,7 +61,7 @@ const CheckboxElement = forwardRef(function CheckboxElement<
 ) {
   const {
     name,
-    validation = {},
+    rules = {},
     required,
     parseError,
     label,
@@ -76,10 +76,10 @@ const CheckboxElement = forwardRef(function CheckboxElement<
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
 
-  const rules = {
-    ...validation,
+  const rulesTmp = {
+    ...rules,
     ...(required &&
-      !validation.required && {
+      !rules.required && {
         required: 'This field is required',
       }),
   }
@@ -91,7 +91,7 @@ const CheckboxElement = forwardRef(function CheckboxElement<
     name,
     control,
     disabled: rest.disabled,
-    rules,
+    rules: rulesTmp,
   })
 
   const {value, onChange} = useTransform<TFieldValues, TName, TValue>({

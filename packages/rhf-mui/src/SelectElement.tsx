@@ -18,7 +18,7 @@ export type SelectElementProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown
 > = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   options?: TValue[]
   valueKey?: string
@@ -62,7 +62,7 @@ const SelectElement = forwardRef(function SelectElement<
     parseError,
     type,
     objectOnChange,
-    validation = {},
+    rules = {},
     control,
     inputRef,
     transform,
@@ -73,10 +73,10 @@ const SelectElement = forwardRef(function SelectElement<
   const customErrorFn = parseError || errorMsgFn
   const isNativeSelect = !!rest.SelectProps?.native
 
-  const rules = {
-    ...validation,
+  const rulesTmp = {
+    ...rules,
     ...(required &&
-      !validation.required && {
+      !rules.required && {
         required: 'This field is required',
       }),
   }
@@ -86,7 +86,7 @@ const SelectElement = forwardRef(function SelectElement<
     fieldState: {error},
   } = useController({
     name,
-    rules,
+    rules: rulesTmp,
     disabled: rest.disabled,
     control,
   })

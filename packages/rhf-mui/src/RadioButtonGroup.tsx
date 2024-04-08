@@ -28,7 +28,7 @@ export type RadioButtonGroupProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown
 > = {
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   options: TValue[]
   helperText?: ReactNode
   name: TName
@@ -91,7 +91,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
     disabled,
     formLabelProps,
     transform,
-    validation = {},
+    rules = {},
     ...rest
   } = props
   const theme = useTheme()
@@ -99,10 +99,9 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
 
-  const rules = {
-    ...validation,
-    ...(required &&
-      !validation.required && {required: 'This field is required'}),
+  const rulesTmp = {
+    ...rules,
+    ...(required && !rules.required && {required: 'This field is required'}),
   }
 
   const {
@@ -110,7 +109,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
     fieldState: {error},
   } = useController({
     name,
-    rules,
+    rules: rulesTmp,
     disabled,
     control,
   })

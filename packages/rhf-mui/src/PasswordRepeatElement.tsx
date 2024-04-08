@@ -55,7 +55,7 @@ const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
       control={control}
       {...rest}
       ref={ref}
-      validation={{
+      rules={{
         validate: (value: string) => {
           return (
             value === pwValue ||

@@ -38,7 +38,7 @@ export type MultiSelectElementProps<
   itemValue?: string
   itemLabel?: string
   required?: boolean
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   parseError?: (error: FieldError) => ReactNode
   minWidth?: number
@@ -86,7 +86,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
     itemValue = '',
     itemLabel = 'label',
     required = false,
-    validation = {},
+    rules = {},
     parseError,
     name,
     menuMaxHeight = ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
@@ -112,10 +112,10 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
       return optionVal === item
     })?.[itemLabel] ?? item
 
-  const rules = {
-    ...validation,
+  const rulesTmp = {
+    ...rules,
     ...(required &&
-      !validation.required && {
+      !rules.required && {
         required: 'This field is required',
       }),
   }
@@ -125,7 +125,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
     fieldState: {error},
   } = useController({
     name,
-    rules,
+    rules: rulesTmp,
     disabled: rest.disabled,
     control,
   })

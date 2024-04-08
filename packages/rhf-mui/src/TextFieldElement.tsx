@@ -17,7 +17,7 @@ export type TextFieldElementProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue = unknown
 > = Omit<TextFieldProps, 'name'> & {
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   parseError?: (error: FieldError) => ReactNode
   control?: Control<TFieldValues>
@@ -53,7 +53,7 @@ const TextFieldElement = forwardRef(function TextFieldElement<
   ref: Ref<HTMLDivElement>
 ) {
   const {
-    validation = {},
+    rules = {},
     parseError,
     type,
     required,
@@ -68,12 +68,11 @@ const TextFieldElement = forwardRef(function TextFieldElement<
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
 
-  const rules = {
-    ...validation,
-    ...(required &&
-      !validation.required && {required: 'This field is required'}),
+  const rulesTmp = {
+    ...rules,
+    ...(required && !rules.required && {required: 'This field is required'}),
     ...(type === 'email' &&
-      !validation.pattern && {
+      !rules.pattern && {
         pattern: {
           value:
             // eslint-disable-next-line no-useless-escape
@@ -90,7 +89,7 @@ const TextFieldElement = forwardRef(function TextFieldElement<
     name,
     control,
     disabled: rest.disabled,
-    rules,
+    rules: rulesTmp,
   })
 
   const {value, onChange} = useTransform<TFieldValues, TName, TValue>({

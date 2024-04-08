@@ -33,7 +33,7 @@ export type ToggleButtonGroupElementProps<
 > = ToggleButtonGroupProps & {
   required?: boolean
   label?: string
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   parseError?: (error: FieldError) => ReactNode
   control?: Control<TFieldValues>
@@ -56,7 +56,7 @@ export default function ToggleButtonGroupElement<
     name,
     control,
     label,
-    validation = {},
+    rules = {},
     required,
     options = [],
     parseError,
@@ -70,15 +70,15 @@ export default function ToggleButtonGroupElement<
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
 
-  const rules = {
-    ...validation,
+  const rulesTmp = {
+    ...rules,
     ...(required &&
-      !validation.required && {
+      !rules.required && {
         required: 'This field is required',
       }),
   }
 
-  const isRequired = required || !!validation?.required
+  const isRequired = required || !!rules?.required
 
   const {
     field,
@@ -86,7 +86,7 @@ export default function ToggleButtonGroupElement<
   } = useController({
     name,
     control,
-    rules,
+    rules: rulesTmp,
     disabled: toggleButtonGroupProps.disabled,
   })
 

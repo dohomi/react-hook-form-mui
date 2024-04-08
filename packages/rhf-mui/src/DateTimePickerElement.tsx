@@ -38,7 +38,7 @@ export type DateTimePickerElementProps<
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => ReactNode
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   control?: Control<TFieldValues>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
@@ -78,7 +78,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
     parseError,
     name,
     required,
-    validation = {},
+    rules = {},
     inputProps,
     control,
     textReadOnly,
@@ -98,10 +98,10 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
     ...overwriteErrorMessages,
   }
 
-  const rules = {
-    ...validation,
+  const rulesTmp = {
+    ...rules,
     ...(required &&
-      !validation.required && {
+      !rules.required && {
         required: 'This field is required',
       }),
     validate: {
@@ -129,7 +129,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
 
         return internalError == null || errorMessages[internalError]
       },
-      ...validation.validate,
+      ...rules.validate,
     },
   }
 
@@ -138,7 +138,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
     fieldState: {error},
   } = useController({
     name,
-    rules,
+    rules: rulesTmp,
     control,
     disabled: rest.disabled,
     defaultValue: null as PathValue<TFieldValues, TName>,

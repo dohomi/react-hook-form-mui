@@ -38,7 +38,7 @@ export type TimePickerElementProps<
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError) => ReactNode
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   control?: Control<TFieldValues>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
@@ -78,7 +78,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
     parseError,
     name,
     required,
-    validation = {},
+    rules = {},
     inputProps,
     control,
     textReadOnly,
@@ -98,10 +98,10 @@ const TimePickerElement = forwardRef(function TimePickerElement<
     ...overwriteErrorMessages,
   }
 
-  const rules = {
-    ...validation,
+  const rulesTmp = {
+    ...rules,
     ...(required &&
-      !validation.required && {
+      !rules.required && {
         required: 'This field is required',
       }),
     validate: {
@@ -123,7 +123,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
         })
         return internalError == null || errorMessages[internalError]
       },
-      ...validation.validate,
+      ...rules.validate,
     },
   }
 
@@ -133,7 +133,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
   } = useController({
     name,
     control,
-    rules,
+    rules: rulesTmp,
     disabled: rest.disabled,
     defaultValue: null as PathValue<TFieldValues, TName>,
   })

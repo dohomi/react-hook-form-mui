@@ -25,7 +25,7 @@ export const RequiredPickerCustom: Story = {
     label: 'Time Picker',
     name: 'required_picker_custom',
     required: true,
-    validation: {required: 'Custom required message'},
+    rules: {required: 'Custom required message'},
   },
 }
 
