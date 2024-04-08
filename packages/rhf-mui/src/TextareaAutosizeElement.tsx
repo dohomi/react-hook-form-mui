@@ -58,7 +58,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
 >(
   props: TextareaAutosizeElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     validation = {},
     parseError,

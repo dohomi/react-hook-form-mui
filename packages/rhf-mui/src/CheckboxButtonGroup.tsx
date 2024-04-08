@@ -67,7 +67,7 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
 >(
   props: CheckboxButtonGroupProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     helperText,
     options,
@@ -172,6 +172,7 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
               : selectedOption
             return selectedOptionValue === optionValue
           })
+
           return (
             <FormControlLabel
               {...labelProps}

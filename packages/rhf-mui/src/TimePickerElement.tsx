@@ -1,7 +1,7 @@
 import {
   TimePicker,
   TimePickerProps,
-  TimePickerSlotsComponentsProps,
+  TimePickerSlotProps,
 } from '@mui/x-date-pickers/TimePicker'
 import {
   Control,
@@ -26,11 +26,13 @@ import {
   TimeValidationError,
 } from '@mui/x-date-pickers'
 import {getTimezone} from './utils'
+import {PickerValidDate} from '@mui/x-date-pickers/models'
 
 export type TimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue extends PickerValidDate = PickerValidDate,
+  TEnableAccessibleFieldDOMStructure extends boolean = false
 > = Omit<TimePickerProps<TValue>, 'value' | 'renderInput'> & {
   name: TName
   required?: boolean
@@ -41,7 +43,10 @@ export type TimePickerElementProps<
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
-  slotProps?: Omit<TimePickerSlotsComponentsProps<TValue>, 'textField'>
+  slotProps?: Omit<
+    TimePickerSlotProps<TValue, TEnableAccessibleFieldDOMStructure>,
+    'textField'
+  >
   overwriteErrorMessages?: typeof defaultErrorMessages
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue | null
@@ -55,7 +60,7 @@ export type TimePickerElementProps<
 type TimePickerElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue extends PickerValidDate = PickerValidDate
 >(
   props: TimePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -64,11 +69,11 @@ type TimePickerElementComponent = <
 const TimePickerElement = forwardRef(function TimePickerElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue extends PickerValidDate = PickerValidDate
 >(
   props: TimePickerElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     parseError,
     name,
@@ -106,7 +111,6 @@ const TimePickerElement = forwardRef(function TimePickerElement<
             minTime: rest.minTime,
             maxTime: rest.maxTime,
             minutesStep: rest.minutesStep,
-            shouldDisableClock: rest.shouldDisableClock,
             shouldDisableTime: rest.shouldDisableTime,
             disableIgnoringDatePartForTimeValidation:
               rest.disableIgnoringDatePartForTimeValidation,
@@ -143,7 +147,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
           ? transform.input
           : (newValue) => {
               return newValue && typeof newValue === 'string'
-                ? (adapter.utils.date(newValue) as TValue) // need to see if this works for all localization adaptors
+                ? (adapter.utils.date(newValue) as unknown as TValue) // need to see if this works for all localization adaptors
                 : newValue
             },
       output:

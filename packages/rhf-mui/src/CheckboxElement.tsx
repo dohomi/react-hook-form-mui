@@ -58,7 +58,7 @@ const CheckboxElement = forwardRef(function CheckboxElement<
 >(
   props: CheckboxElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     name,
     validation = {},

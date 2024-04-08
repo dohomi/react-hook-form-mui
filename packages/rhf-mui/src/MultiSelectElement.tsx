@@ -78,7 +78,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
 >(
   props: MultiSelectElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     options,
     label = '',

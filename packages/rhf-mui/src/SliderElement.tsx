@@ -52,10 +52,7 @@ type SliderElementComponent = <
 const SliderElement = forwardRef(function SliderElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
->(
-  props: SliderElementProps<TFieldValues, TName>,
-  ref: Ref<HTMLDivElement>
-): JSX.Element {
+>(props: SliderElementProps<TFieldValues, TName>, ref: Ref<HTMLDivElement>) {
   const {
     name,
     control,

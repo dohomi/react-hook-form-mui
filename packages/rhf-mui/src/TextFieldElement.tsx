@@ -51,7 +51,7 @@ const TextFieldElement = forwardRef(function TextFieldElement<
 >(
   props: TextFieldElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     validation = {},
     parseError,

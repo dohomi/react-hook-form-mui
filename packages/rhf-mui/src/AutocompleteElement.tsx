@@ -123,7 +123,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
     ChipComponent
   >,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     textFieldProps,
     autocompleteProps,

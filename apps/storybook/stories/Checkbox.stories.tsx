@@ -1,15 +1,36 @@
-import {CheckboxElement} from 'react-hook-form-mui/src'
+import {CheckboxElement, FormContainer} from 'react-hook-form-mui/src'
 import {Meta, StoryObj} from '@storybook/react'
-import {FormContainerDecorator} from '../src/FormDecorator'
+import {action} from '@storybook/addon-actions'
+import {Box, Button} from '@mui/material'
+import React from 'react'
 
 const meta = {
   title: 'Checkbox',
   component: CheckboxElement,
-  decorators: [FormContainerDecorator],
+  decorators: [FormWrap],
 } satisfies Meta<typeof CheckboxElement>
 
 export default meta
 type Story = StoryObj<typeof meta>
+
+function FormWrap(Story) {
+  return (
+    <FormContainer
+      onSuccess={action('form-submit')}
+      defaultValues={{
+        preselect: {id: 2, label: 'Second'},
+        'multi-preselect': [{id: 2, label: 'Second'}],
+        'match-id': 2,
+        'match-id-multi': [2, 3],
+      }}
+    >
+      <Story />
+      <Box marginTop={2}>
+        <Button type={'submit'}>Submit</Button>
+      </Box>
+    </FormContainer>
+  )
+}
 
 export const Basic: Story = {
   args: {

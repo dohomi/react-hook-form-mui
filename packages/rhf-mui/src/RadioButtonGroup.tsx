@@ -35,6 +35,7 @@ export type RadioButtonGroupProps<
   label?: string
   labelKey?: string
   valueKey?: string
+  disabledKey?: string
   type?: 'number' | 'string'
   emptyOptionLabel?: string
   onChange?: (value: TValue | string | undefined) => void
@@ -68,7 +69,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
 >(
   props: RadioButtonGroupProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     helperText,
     options,
@@ -77,6 +78,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
     parseError,
     labelKey = 'label',
     valueKey = 'id',
+    disabledKey = 'disabled',
     required,
     emptyOptionLabel,
     returnObject,
@@ -162,9 +164,10 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
         )}
         {options.map((option: any) => {
           const optionKey = option[valueKey]
-          if (!optionKey) {
+          const optionDisabled = option[disabledKey] || false
+          if (optionKey === undefined) {
             console.error(
-              `CheckboxButtonGroup: valueKey ${valueKey} does not exist on option`,
+              `RadioButtonGroup: valueKey ${valueKey} does not exist on option`,
               option
             )
           }
@@ -181,7 +184,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
                   sx={{
                     color: error ? theme.palette.error.main : undefined,
                   }}
-                  disabled={disabled}
+                  disabled={disabled || optionDisabled}
                   checked={isChecked}
                 />
               }

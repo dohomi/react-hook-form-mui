@@ -1,7 +1,7 @@
 import {
   DatePicker,
   DatePickerProps,
-  DatePickerSlotsComponentsProps,
+  DatePickerSlotProps,
 } from '@mui/x-date-pickers/DatePicker'
 import {
   Control,
@@ -26,11 +26,13 @@ import {
 } from '@mui/x-date-pickers/internals'
 import useTransform from './useTransform'
 import {getTimezone} from './utils'
+import {PickerValidDate} from '@mui/x-date-pickers/models'
 
 export type DatePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue extends PickerValidDate = PickerValidDate,
+  TEnableAccessibleFieldDOMStructure extends boolean = false
 > = Omit<DatePickerProps<TValue>, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
@@ -41,7 +43,10 @@ export type DatePickerElementProps<
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
-  slotProps?: Omit<DatePickerSlotsComponentsProps<TValue>, 'textField'>
+  slotProps?: Omit<
+    DatePickerSlotProps<TValue, TEnableAccessibleFieldDOMStructure>,
+    'textField'
+  >
   overwriteErrorMessages?: typeof defaultErrorMessages
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue | null
@@ -55,7 +60,7 @@ export type DatePickerElementProps<
 type DatePickerElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue extends PickerValidDate = PickerValidDate
 >(
   props: DatePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -64,11 +69,11 @@ type DatePickerElementComponent = <
 const DatePickerElement = forwardRef(function DatePickerElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue extends PickerValidDate = PickerValidDate
 >(
   props: DatePickerElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     parseError,
     name,
@@ -142,7 +147,7 @@ const DatePickerElement = forwardRef(function DatePickerElement<
           ? transform.input
           : (newValue) => {
               return newValue && typeof newValue === 'string'
-                ? (adapter.utils.date(newValue) as TValue) // need to see if this works for all localization adaptors
+                ? (adapter.utils.date(newValue) as unknown as TValue) // need to see if this works for all localization adaptors
                 : newValue
             },
       output:

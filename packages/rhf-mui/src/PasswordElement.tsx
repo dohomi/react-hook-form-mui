@@ -37,7 +37,7 @@ const PasswordElement = forwardRef(function PasswordElement<
 >(
   props: PasswordElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     iconColor,
     renderIcon = (password) => (password ? <Visibility /> : <VisibilityOff />),

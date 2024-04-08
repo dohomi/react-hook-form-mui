@@ -52,7 +52,7 @@ const SelectElement = forwardRef(function SelectElement<
 >(
   props: SelectElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     name,
     required,

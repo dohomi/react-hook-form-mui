@@ -32,7 +32,7 @@
     "upgrade:sb": "yarn up '@storybook/*' storybook -E",
     "upgrade:typescript": "yarn up typescript@latest",
     "upgrade:rhf": "yarn up react-hook-form -E",
-    "upgrade:mui": "yarn up '@mui/*' -E",
+    "upgrade:mui": "yarn up '@mui/*' date-fns '@emotion/*' -E",
     "test": "cd apps/storybook && yarn chromatic"
   },
   "devDependencies": {
