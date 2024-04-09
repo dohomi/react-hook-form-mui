@@ -127,7 +127,12 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
       output:
         typeof transform?.output === 'function'
           ? transform?.output
-          : (_event, value) => value,
+          : (_event, value) => {
+              if (value && type === 'number') {
+                return Number(value)
+              }
+              return value
+            },
     },
   })
 

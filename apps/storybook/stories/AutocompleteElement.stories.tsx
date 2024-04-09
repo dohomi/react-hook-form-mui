@@ -1,4 +1,4 @@
-import {AutocompleteElement, FormContainer} from 'react-hook-form-mui/src'
+import {AutocompleteElement, FormContainer} from 'react-hook-form-mui'
 import React from 'react'
 import {Meta, StoryObj} from '@storybook/react'
 import {action} from '@storybook/addon-actions'

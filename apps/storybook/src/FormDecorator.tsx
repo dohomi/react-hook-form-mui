@@ -1,7 +1,7 @@
 import {action} from '@storybook/addon-actions'
 import {SubmitButton} from './Shared'
-import {FormContainer} from 'react-hook-form-mui/src'
-import {DateFnsProvider} from 'react-hook-form-mui/src/date-fns'
+import {FormContainer} from 'react-hook-form-mui'
+import {DateFnsProvider} from 'react-hook-form-mui/date-fns'
 
 export function FormContainerDecorator(Story) {
   return (

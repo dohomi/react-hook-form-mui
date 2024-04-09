@@ -10,13 +10,13 @@ import {
   SelectElement,
   SwitchElement,
   TextFieldElement,
-} from 'react-hook-form-mui/src'
+} from 'react-hook-form-mui'
 import {useForm, useWatch} from 'react-hook-form'
 import {Button, Stack} from '@mui/material'
 import {action} from '@storybook/addon-actions'
 import {Meta, StoryObj} from '@storybook/react'
-import {DateFnsProvider} from 'react-hook-form-mui/src/date-fns'
-import {DatePickerElement} from 'react-hook-form-mui/src/date-pickers'
+import {DateFnsProvider} from 'react-hook-form-mui/date-fns'
+import {DatePickerElement} from 'react-hook-form-mui/date-pickers'
 
 const meta = {
   title: 'FormContainer',

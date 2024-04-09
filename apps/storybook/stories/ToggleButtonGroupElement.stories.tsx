@@ -2,7 +2,7 @@ import {
   FormContainer,
   ToggleButtonGroupElement,
   ToggleButtonGroupElementProps,
-} from 'react-hook-form-mui/src'
+} from 'react-hook-form-mui'
 import {Meta, StoryObj} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {SubmitButton} from '../src/Shared'

@@ -1,4 +1,4 @@
-import {FormContainer, SliderElement} from 'react-hook-form-mui/src'
+import {FormContainer, SliderElement} from 'react-hook-form-mui'
 import {Meta, StoryObj} from '@storybook/react'
 import {action} from '@storybook/addon-actions'
 import {SubmitButton} from '../src/Shared'

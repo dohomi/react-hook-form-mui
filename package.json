@@ -20,6 +20,7 @@
     "prepare": "cd packages/rhf-mui && yarn run build && simple-git-hooks",
     "storybook": "turbo run storybook",
     "next": "cd apps/nextjs && yarn dev",
+    "watch": "cd packages/rhf-mui && yarn run watch",
     "build-storybook": "cd apps/storybook && yarn build-storybook",
     "sb-start": "cd apps/storybook && yarn build-storybook && yarn start-storybook",
     "check-types": "cd packages/rhf-mui && tsc --noemit",
@@ -33,6 +34,7 @@
     "upgrade:typescript": "yarn up typescript -E",
     "upgrade:rhf": "yarn up react-hook-form -E",
     "upgrade:mui": "yarn up '@mui/*' date-fns '@emotion/*' -E",
+    "upgrade:next": "yarn up next eslint-config-next -E",
     "test": "cd apps/storybook && yarn chromatic"
   },
   "devDependencies": {

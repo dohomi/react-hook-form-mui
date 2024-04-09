@@ -1,4 +1,4 @@
-import {MultiSelectElement} from 'react-hook-form-mui/src'
+import {MultiSelectElement} from 'react-hook-form-mui'
 import {Meta, StoryObj} from '@storybook/react'
 import {FormContainerDecorator} from '../src/FormDecorator'
 
