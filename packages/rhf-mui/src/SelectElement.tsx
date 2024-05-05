@@ -158,16 +158,17 @@ const SelectElement = forwardRef(function SelectElement<
     >
       {isNativeSelect && <option />}
       {options.map((item) => {
+        // Need to clearly apply key because of https://github.com/vercel/next.js/issues/55642
+        const key = `${name}_${item[valueKey]}`;
         const optionProps = {
-          key: `${name}_${item[valueKey]}`,
           value: item?.[valueKey] ?? item,
           disabled: hasOwnProperty(item, 'disabled') ? !!item.disabled : false,
           children: item[labelKey],
         }
         return isNativeSelect ? (
-          <option {...optionProps} />
+          <option key={key} {...optionProps} />
         ) : (
-          <MenuItem {...optionProps} />
+          <MenuItem key={key} {...optionProps} />
         )
       })}
     </TextField>
