@@ -9,7 +9,7 @@ const FormErrorProviderContext = createContext<FormErrorProviderProps>({
   onError: (error) => error?.message,
 })
 
-export default function FormErrorProvider({
+export function FormErrorProvider({
   onError,
   children,
 }: PropsWithChildren<FormErrorProviderProps>) {

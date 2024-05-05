@@ -1,10 +1,12 @@
-import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {
   Control,
   FieldError,
   FieldPath,
   FieldValues,
+  PathValue,
   useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {
   FormControl,
@@ -15,15 +17,19 @@ import {
   FormLabelProps,
   Radio,
   RadioGroup,
+  RadioGroupProps,
   useTheme,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
+import {useTransform} from './useTransform'
 
 export type RadioButtonGroupProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 > = {
-  options: {label: string; id: string | number}[] | any[]
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
+  options: TValue[]
   helperText?: ReactNode
   name: TName
   required?: boolean
@@ -34,30 +40,38 @@ export type RadioButtonGroupProps<
   disabledKey?: string
   type?: 'number' | 'string'
   emptyOptionLabel?: string
-  onChange?: (value: any) => void
+  onChange?: (value: TValue | string | undefined) => void
   returnObject?: boolean
   row?: boolean
   control?: Control<TFieldValues>
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control' | 'value'>
   formLabelProps?: Omit<FormLabelProps, 'required' | 'error'>
   disabled?: boolean
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue
+    output?: (
+      value: TValue | string | undefined
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type RadioButtonGroupComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: RadioButtonGroupProps<TFieldValues, TName> &
+  props: RadioButtonGroupProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const RadioButtonGroup = forwardRef(function RadioButtonGroup<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: RadioButtonGroupProps<TFieldValues, TName>,
+  props: RadioButtonGroupProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     helperText,
     options,
@@ -76,6 +90,8 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
     labelProps,
     disabled,
     formLabelProps,
+    transform,
+    rules = {},
     ...rest
   } = props
   const theme = useTheme()
@@ -83,14 +99,41 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
 
+  const rulesTmp = {
+    ...rules,
+    ...(required && !rules.required && {required: 'This field is required'}),
+  }
+
   const {
     field,
     fieldState: {error},
   } = useController({
     name,
-    rules: required ? {required: 'This field is required'} : undefined,
+    rules: rulesTmp,
     disabled,
     control,
+  })
+
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue | string>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (value) => {
+              return value || ('' as TValue)
+            },
+      output:
+        typeof transform?.output === 'function'
+          ? transform?.output
+          : (_event, value) => {
+              if (value && type === 'number') {
+                return Number(value)
+              }
+              return value
+            },
+    },
   })
 
   const renderHelperText = error
@@ -99,13 +142,11 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
       : error.message
     : helperText
 
-  const onRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const radioValue =
-      type === 'number' ? Number(event.target.value) : event.target.value
+  const onRadioChange: RadioGroupProps['onChange'] = (event, radioValue) => {
     const returnValue = returnObject
       ? options.find((items) => items[valueKey] === radioValue)
       : radioValue
-    field.onChange(returnValue)
+    onChange(event, returnValue)
     if (typeof rest.onChange === 'function') {
       rest.onChange(returnValue)
     }
@@ -118,12 +159,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
           {label}
         </FormLabel>
       )}
-      <RadioGroup
-        onChange={onRadioChange}
-        name={name}
-        row={row}
-        value={field.value || ''}
-      >
+      <RadioGroup onChange={onRadioChange} name={name} row={row} value={value}>
         {emptyOptionLabel && (
           <FormControlLabel
             {...labelProps}
@@ -132,7 +168,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
                 sx={{
                   color: error ? theme.palette.error.main : undefined,
                 }}
-                checked={!field.value}
+                checked={!value}
               />
             }
             label={emptyOptionLabel}
@@ -148,7 +184,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
               option
             )
           }
-          let val = returnObject ? field.value?.[valueKey] : field.value
+          let val = returnObject ? value?.[valueKey] : value
           if (type === 'number') {
             val = Number(val)
           }
@@ -177,5 +213,4 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
   )
 })
 RadioButtonGroup.displayName = 'RadioButtonGroup'
-
 export default RadioButtonGroup as RadioButtonGroupComponent

@@ -1,7 +1,7 @@
 import {
   DatePicker,
   DatePickerProps,
-  DatePickerSlotsComponentsProps,
+  DatePickerSlotProps,
 } from '@mui/x-date-pickers/DatePicker'
 import {
   Control,
@@ -15,57 +15,77 @@ import {
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
-import {DateValidationError} from '@mui/x-date-pickers'
+import {
+  DateValidationError,
+  PickerChangeHandlerContext,
+} from '@mui/x-date-pickers'
 import {defaultErrorMessages} from './messages/DatePicker'
 import {
   useLocalizationContext,
   validateDate,
 } from '@mui/x-date-pickers/internals'
+import {useTransform} from './useTransform'
+import {getTimezone} from './utils'
+import {PickerValidDate} from '@mui/x-date-pickers/models'
 
 export type DatePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TDate = PathValue<TFieldValues, TName>
-> = Omit<DatePickerProps<TDate>, 'value' | 'slotProps'> & {
+  TValue extends PickerValidDate = PickerValidDate,
+  TEnableAccessibleFieldDOMStructure extends boolean = false
+> = Omit<DatePickerProps<TValue>, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
   isDate?: boolean
   parseError?: (error: FieldError | DateValidationError) => ReactNode
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   control?: Control<TFieldValues>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
-  slotProps?: Omit<DatePickerSlotsComponentsProps<TDate>, 'textField'>
+  slotProps?: Omit<
+    DatePickerSlotProps<TValue, TEnableAccessibleFieldDOMStructure>,
+    'textField'
+  >
   overwriteErrorMessages?: typeof defaultErrorMessages
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue | null
+    output?: (
+      value: TValue | null,
+      context: PickerChangeHandlerContext<DateValidationError>
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type DatePickerElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue extends PickerValidDate = PickerValidDate
 >(
-  props: DatePickerElementProps<TFieldValues, TName> &
+  props: DatePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const DatePickerElement = forwardRef(function DatePickerElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue extends PickerValidDate = PickerValidDate
 >(
-  props: DatePickerElementProps<TFieldValues, TName>,
+  props: DatePickerElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     parseError,
     name,
     required,
-    validation = {},
+    rules = {},
     inputProps,
     control,
     textReadOnly,
     slotProps,
     overwriteErrorMessages,
     inputRef,
+    transform,
     ...rest
   } = props
 
@@ -79,19 +99,14 @@ const DatePickerElement = forwardRef(function DatePickerElement<
     ...overwriteErrorMessages,
   }
 
-  const rules = {
-    ...validation,
+  const rulesTmp = {
+    ...rules,
     ...(required &&
-      !validation.required && {
+      !rules.required && {
         required: 'This field is required',
       }),
     validate: {
-      internal: (value) => {
-        const inputTimezone =
-          value == null || !adapter.utils.isValid(value)
-            ? null
-            : adapter.utils.getTimezone(value)
-
+      internal: (value: TValue | null) => {
         const internalError = validateDate({
           props: {
             shouldDisableDate: rest.shouldDisableDate,
@@ -101,14 +116,14 @@ const DatePickerElement = forwardRef(function DatePickerElement<
             disableFuture: Boolean(rest.disableFuture),
             minDate: rest.minDate,
             maxDate: rest.maxDate,
-            timezone: rest.timezone ?? inputTimezone ?? 'default',
+            timezone: rest.timezone ?? getTimezone(adapter, value) ?? 'default',
           },
           value,
           adapter,
         })
         return internalError == null || errorMessages[internalError]
       },
-      ...validation.validate,
+      ...rules.validate,
     },
   }
 
@@ -118,16 +133,31 @@ const DatePickerElement = forwardRef(function DatePickerElement<
   } = useController({
     name,
     control,
-    rules,
+    rules: rulesTmp,
     disabled: rest.disabled,
-    defaultValue: null as any,
+    defaultValue: null as PathValue<TFieldValues, TName>,
+  })
+
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue | null>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (newValue) => {
+              return newValue && typeof newValue === 'string'
+                ? (adapter.utils.date(newValue) as unknown as TValue) // need to see if this works for all localization adaptors
+                : newValue
+            },
+      output:
+        typeof transform?.output === 'function'
+          ? transform.output
+          : (newValue) => newValue,
+    },
   })
 
   const handleInputRef = useForkRef(field.ref, inputRef)
-
-  if (field?.value && typeof field?.value === 'string') {
-    field.value = new Date(field.value) as any // need to see if this works for all localization adaptors
-  }
 
   const errorMessage = error
     ? typeof customErrorFn === 'function'
@@ -139,6 +169,7 @@ const DatePickerElement = forwardRef(function DatePickerElement<
     <DatePicker
       {...rest}
       {...field}
+      value={value}
       ref={ref}
       inputRef={handleInputRef}
       onClose={(...args) => {
@@ -147,10 +178,10 @@ const DatePickerElement = forwardRef(function DatePickerElement<
           rest.onClose(...args)
         }
       }}
-      onChange={(v, keyboardInputValue) => {
-        field.onChange(v, keyboardInputValue)
+      onChange={(newValue, context) => {
+        onChange(newValue, context)
         if (typeof rest.onChange === 'function') {
-          rest.onChange(v, keyboardInputValue)
+          rest.onChange(newValue, context)
         }
       }}
       slotProps={{

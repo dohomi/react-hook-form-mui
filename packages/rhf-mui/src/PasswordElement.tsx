@@ -14,12 +14,12 @@ import {FieldPath, FieldValues} from 'react-hook-form'
 
 export type PasswordElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> = TextFieldElementProps<TFieldValues, TName> & {
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
+> = TextFieldElementProps<TFieldValues, TName, TValue> & {
   iconColor?: IconButtonProps['color']
   renderIcon?: (password: boolean) => ReactNode
 }
-
 type PasswordElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
@@ -27,14 +27,14 @@ type PasswordElementComponent = <
   props: PasswordElementProps<TFieldValues, TName> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
-
-const PasswordElement = forwardRef(function PasswordElement<
+const PasswordElement = forwardRef(function PasswordEl<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: PasswordElementProps<TFieldValues, TName>,
+  props: PasswordElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     iconColor,
     renderIcon = (password) => (password ? <Visibility /> : <VisibilityOff />),
@@ -43,7 +43,7 @@ const PasswordElement = forwardRef(function PasswordElement<
   const [password, setPassword] = useState<boolean>(true)
   return (
     <TextFieldElement
-      {...rest}
+      {...(rest as TextFieldElementProps)}
       ref={ref}
       InputProps={{
         endAdornment: (
@@ -66,5 +66,4 @@ const PasswordElement = forwardRef(function PasswordElement<
   )
 })
 PasswordElement.displayName = 'PasswordElement'
-
 export default PasswordElement as PasswordElementComponent

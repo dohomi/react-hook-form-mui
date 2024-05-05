@@ -3,20 +3,35 @@ import {
   FieldError,
   FieldPath,
   FieldValues,
+  PathValue,
   useController,
   UseControllerProps,
 } from 'react-hook-form'
 import {
   Autocomplete,
+  AutocompleteChangeDetails,
+  AutocompleteChangeReason,
+  AutocompleteFreeSoloValueMapping,
   AutocompleteProps,
+  AutocompleteValue,
   Checkbox,
+  ChipTypeMap,
   TextField,
   TextFieldProps,
   useForkRef,
 } from '@mui/material'
 import CircularProgress from '@mui/material/CircularProgress'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  ElementType,
+  forwardRef,
+  ReactNode,
+  Ref,
+  RefAttributes,
+  SyntheticEvent,
+} from 'react'
+import {useTransform} from './useTransform'
+import {hasOwnProperty} from './utils'
 
 type AutoDefault = {
   id: string | number // must keep id in case of keepObject
@@ -26,56 +41,86 @@ type AutoDefault = {
 export type AutocompleteElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  Value = AutoDefault | string | any,
-  Multiple extends boolean | undefined = boolean | undefined,
-  DisableClearable extends boolean | undefined = boolean | undefined,
-  FreeSolo extends boolean | undefined = boolean | undefined
+  TValue = AutoDefault | string | any,
+  Multiple extends boolean | undefined = false,
+  DisableClearable extends boolean | undefined = false,
+  FreeSolo extends boolean | undefined = false,
+  ChipComponent extends ElementType = ChipTypeMap['defaultComponent']
 > = {
   name: TName
   control?: Control<TFieldValues>
-  options: Value[]
+  options: TValue[]
   loading?: boolean
   multiple?: Multiple
-  matchId?: boolean
   loadingIndicator?: ReactNode
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   parseError?: (error: FieldError) => ReactNode
   required?: boolean
   label?: TextFieldProps['label']
   showCheckbox?: boolean
+  matchId?: boolean
   autocompleteProps?: Omit<
-    AutocompleteProps<Value, Multiple, DisableClearable, FreeSolo>,
+    AutocompleteProps<
+      TValue,
+      Multiple,
+      DisableClearable,
+      FreeSolo,
+      ChipComponent
+    >,
     'name' | 'options' | 'loading' | 'renderInput'
   >
   textFieldProps?: Omit<TextFieldProps, 'name' | 'required' | 'label'>
+  transform?: {
+    input?: (
+      value: PathValue<TFieldValues, TName>
+    ) => AutocompleteValue<TValue, Multiple, DisableClearable, FreeSolo>
+    output?: (
+      event: SyntheticEvent,
+      value: AutocompleteValue<TValue, Multiple, DisableClearable, FreeSolo>,
+      reason: AutocompleteChangeReason,
+      details?: AutocompleteChangeDetails<TValue>
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type AutocompleteElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = AutoDefault | string | any, // Maybe we can change it to 'unknown' type for more strict type checking
+  Multiple extends boolean | undefined = false,
+  DisableClearable extends boolean | undefined = false,
+  FreeSolo extends boolean | undefined = false,
+  ChipComponent extends ElementType = ChipTypeMap['defaultComponent']
 >(
   props: AutocompleteElementProps<
     TFieldValues,
     TName,
-    AutoDefault | string | any,
-    boolean | undefined,
-    boolean | undefined,
-    boolean | undefined
+    TValue,
+    Multiple,
+    DisableClearable,
+    FreeSolo,
+    ChipComponent
   > &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const AutocompleteElement = forwardRef(function AutocompleteElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = AutoDefault | string | any,
+  Multiple extends boolean | undefined = false,
+  DisableClearable extends boolean | undefined = false,
+  FreeSolo extends boolean | undefined = false,
+  ChipComponent extends ElementType = ChipTypeMap['defaultComponent']
 >(
   props: AutocompleteElementProps<
     TFieldValues,
     TName,
-    AutoDefault | string | any,
-    boolean | undefined,
-    boolean | undefined,
-    boolean | undefined
+    TValue,
+    Multiple,
+    DisableClearable,
+    FreeSolo,
+    ChipComponent
   >,
   ref: Ref<HTMLDivElement>
 ) {
@@ -91,9 +136,10 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
     loadingIndicator,
     required,
     multiple,
-    matchId,
     label,
     parseError,
+    transform,
+    matchId,
   } = props
 
   const errorMsgFn = useFormError()
@@ -106,10 +152,6 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
     }),
   }
 
-  const loadingElement = loadingIndicator || (
-    <CircularProgress color="inherit" size={20} />
-  )
-
   const {
     field,
     fieldState: {error},
@@ -120,22 +162,104 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
     rules: validationRules,
   })
 
+  const getOptionLabel = (
+    option: TValue | AutocompleteFreeSoloValueMapping<FreeSolo>
+  ): string => {
+    if (typeof autocompleteProps?.getOptionLabel === 'function') {
+      return autocompleteProps.getOptionLabel(option)
+    }
+    if (hasOwnProperty(option, 'label')) {
+      return `${option?.label}`
+    }
+    return `${option}`
+  }
+
+  const isOptionEqualToValue = (option: TValue, value: TValue): boolean => {
+    if (typeof autocompleteProps?.isOptionEqualToValue == 'function') {
+      return autocompleteProps.isOptionEqualToValue(option, value)
+    }
+    const optionKey = hasOwnProperty(option, 'id') ? option.id : option
+    const valueKey = hasOwnProperty(value, 'id') ? value.id : value
+    return optionKey === valueKey
+  }
+
+  const matchOptionByValue = (currentValue: TValue) => {
+    return options.find((option) => {
+      if (matchId && hasOwnProperty(option, 'id')) {
+        return option.id === currentValue
+      }
+      return isOptionEqualToValue(option, currentValue)
+    })
+  }
+
+  const {value, onChange} = useTransform<
+    TFieldValues,
+    TName,
+    AutocompleteValue<TValue, Multiple, DisableClearable, FreeSolo>
+  >({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input:
+        typeof transform?.input === 'function'
+          ? transform.input
+          : (newValue) => {
+              return (
+                multiple
+                  ? (Array.isArray(newValue) ? newValue : []).map(
+                      matchOptionByValue
+                    )
+                  : matchOptionByValue(newValue) ?? null
+              ) as AutocompleteValue<
+                TValue,
+                Multiple,
+                DisableClearable,
+                FreeSolo
+              >
+            },
+      output:
+        typeof transform?.output === 'function'
+          ? transform.output
+          : (
+              _event: SyntheticEvent,
+              newValue: AutocompleteValue<
+                TValue,
+                Multiple,
+                DisableClearable,
+                FreeSolo
+              >
+            ) => {
+              if (multiple) {
+                const newValues = Array.isArray(newValue) ? newValue : []
+                return (
+                  matchId
+                    ? newValues.map((currentValue) =>
+                        hasOwnProperty(currentValue, 'id')
+                          ? currentValue.id
+                          : currentValue
+                      )
+                    : newValues
+                ) as PathValue<TFieldValues, TName>
+              }
+              return (
+                matchId && hasOwnProperty(newValue, 'id')
+                  ? newValue.id
+                  : newValue
+              ) as PathValue<TFieldValues, TName>
+            },
+    },
+  })
+
   const handleInputRef = useForkRef(field.ref, textFieldProps?.inputRef)
 
-  let currentValue = multiple ? field.value || [] : field.value ?? null
-
-  if (matchId) {
-    currentValue = multiple
-      ? (field.value || []).map((i: any) =>
-          options.find((j) => (j.id ?? j) === i)
-        )
-      : options.find((i) => (i.id ?? i) === field.value) ?? null
-  }
+  const loadingElement = loadingIndicator || (
+    <CircularProgress color="inherit" size={20} />
+  )
 
   return (
     <Autocomplete
       {...autocompleteProps}
-      value={currentValue}
+      value={value}
       loading={loading}
       multiple={multiple}
       options={options}
@@ -144,44 +268,26 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
           ? autocompleteProps.disableCloseOnSelect
           : !!multiple
       }
-      isOptionEqualToValue={
-        autocompleteProps?.isOptionEqualToValue
-          ? autocompleteProps.isOptionEqualToValue
-          : (option, value) => {
-              return value ? option.id === (value?.id ?? value) : false
-            }
-      }
-      getOptionLabel={
-        autocompleteProps?.getOptionLabel
-          ? autocompleteProps.getOptionLabel
-          : (option) => {
-              return `${option?.label ?? option}`
-            }
-      }
-      onChange={(event, value, reason, details) => {
-        let changedVal = value
-        if (matchId) {
-          changedVal = Array.isArray(value)
-            ? value.map((i: any) => i?.id ?? i)
-            : value?.id ?? value
-        }
-        field.onChange(changedVal)
+      isOptionEqualToValue={isOptionEqualToValue}
+      getOptionLabel={getOptionLabel}
+      onChange={(event, newValue, reason, details) => {
+        onChange(event, newValue, reason, details)
         if (autocompleteProps?.onChange) {
-          autocompleteProps.onChange(event, value, reason, details)
+          autocompleteProps.onChange(event, newValue, reason, details)
         }
       }}
       ref={ref}
       renderOption={
         autocompleteProps?.renderOption ??
         (showCheckbox
-          ? (props, option, {selected}) => (
-              <li {...props}>
-                <Checkbox sx={{marginRight: 1}} checked={selected} />
-                {autocompleteProps?.getOptionLabel?.(option) ||
-                  option.label ||
-                  option}
-              </li>
-            )
+          ? (props, option, {selected}) => {
+              return (
+                <li {...props}>
+                  <Checkbox sx={{marginRight: 1}} checked={selected} />
+                  {getOptionLabel(option)}
+                </li>
+              )
+            }
           : undefined)
       }
       onBlur={(event) => {
@@ -230,5 +336,4 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
   )
 })
 AutocompleteElement.displayName = 'AutocompleteElement'
-
 export default AutocompleteElement as AutocompleteElementComponent

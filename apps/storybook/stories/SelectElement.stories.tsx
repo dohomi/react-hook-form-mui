@@ -1,11 +1,11 @@
-import {SelectElement} from 'react-hook-form-mui/src'
+import {SelectElement} from 'react-hook-form-mui'
 import {Meta, StoryObj} from '@storybook/react'
-import {FormContainerDecorator} from '../src/FormDecorator'
+import {FormContainerDecoratorBasic} from '../src/FormDecorator'
 
 const meta = {
   title: 'SelectElement',
   component: SelectElement,
-  decorators: [FormContainerDecorator],
+  decorators: [FormContainerDecoratorBasic],
 } satisfies Meta<typeof SelectElement>
 export default meta
 type Story = StoryObj<typeof meta>

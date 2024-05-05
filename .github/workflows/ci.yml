@@ -1,6 +1,6 @@
 name: Main CI Workflow
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   run-ci:
@@ -17,9 +17,9 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: 20/*
 
       - name: Install dependencies (with cache)
         uses: bahmutov/npm-install@v1

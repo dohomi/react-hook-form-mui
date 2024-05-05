@@ -2,9 +2,10 @@ import {
   Control,
   FieldError,
   FieldPath,
-  UseControllerProps,
-  useController,
   FieldValues,
+  PathValue,
+  useController,
+  UseControllerProps,
 } from 'react-hook-form'
 import {
   FormControl,
@@ -16,8 +17,9 @@ import {
   ToggleButtonGroupProps,
   ToggleButtonProps,
 } from '@mui/material'
-import {ReactNode} from 'react'
+import {MouseEvent, ReactNode} from 'react'
 import {useFormError} from './FormErrorProvider'
+import {useTransform} from './useTransform'
 
 type SingleToggleButtonProps = Omit<ToggleButtonProps, 'value' | 'children'> & {
   id: number | string
@@ -26,11 +28,12 @@ type SingleToggleButtonProps = Omit<ToggleButtonProps, 'value' | 'children'> & {
 
 export type ToggleButtonGroupElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 > = ToggleButtonGroupProps & {
   required?: boolean
   label?: string
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   parseError?: (error: FieldError) => ReactNode
   control?: Control<TFieldValues>
@@ -38,17 +41,22 @@ export type ToggleButtonGroupElementProps<
   formLabelProps?: FormLabelProps
   helperText?: string
   enforceAtLeastOneSelected?: boolean
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue
+    output?: (...event: any[]) => PathValue<TFieldValues, TName>
+  }
 }
 
 export default function ToggleButtonGroupElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
->(props: ToggleButtonGroupElementProps<TFieldValues, TName>) {
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
+>(props: ToggleButtonGroupElementProps<TFieldValues, TName, TValue>) {
   const {
     name,
     control,
     label,
-    validation = {},
+    rules = {},
     required,
     options = [],
     parseError,
@@ -56,20 +64,21 @@ export default function ToggleButtonGroupElement<
     formLabelProps,
     enforceAtLeastOneSelected = false,
     exclusive,
+    transform,
     ...toggleButtonGroupProps
   } = props
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
 
-  const rules = {
-    ...validation,
+  const rulesTmp = {
+    ...rules,
     ...(required &&
-      !validation.required && {
-        validation: 'This field is required',
+      !rules.required && {
+        required: 'This field is required',
       }),
   }
 
-  const isRequired = required || !!validation?.required
+  const isRequired = required || !!rules?.required
 
   const {
     field,
@@ -77,8 +86,22 @@ export default function ToggleButtonGroupElement<
   } = useController({
     name,
     control,
-    rules,
+    rules: rulesTmp,
     disabled: toggleButtonGroupProps.disabled,
+  })
+
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input: transform?.input,
+      output:
+        typeof transform?.output === 'function'
+          ? transform.output
+          : (_event: MouseEvent<HTMLElement, MouseEvent>, value: any) => {
+              return value
+            },
+    },
   })
 
   const renderHelperText = error
@@ -106,17 +129,17 @@ export default function ToggleButtonGroupElement<
       <ToggleButtonGroup
         {...toggleButtonGroupProps}
         exclusive={exclusive}
-        value={field.value}
+        value={value}
         onBlur={field.onBlur}
-        onChange={(event, val) => {
+        onChange={(event, value) => {
           if (enforceAtLeastOneSelected) {
             // don't allow unselecting the last item
-            if (exclusive && val === null) return
-            if (!exclusive && val.length === 0) return
+            if (exclusive && value === null) return
+            if (!exclusive && value?.length === 0) return
           }
-          field.onChange(val)
+          onChange(event, value)
           if (typeof toggleButtonGroupProps.onChange === 'function') {
-            toggleButtonGroupProps.onChange(event, val)
+            toggleButtonGroupProps.onChange(event, value)
           }
         }}
       >

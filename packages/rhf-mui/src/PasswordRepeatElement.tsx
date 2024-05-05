@@ -5,8 +5,13 @@ import {forwardRef, Ref, RefAttributes} from 'react'
 export type PasswordRepeatElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> = PasswordElementProps<TFieldValues, TConfirmPasswordName> & {
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TConfirmPasswordValue = unknown
+> = PasswordElementProps<
+  TFieldValues,
+  TConfirmPasswordName,
+  TConfirmPasswordValue
+> & {
   passwordFieldName: TPasswordName
   customInvalidFieldMessage?: string
 }
@@ -27,36 +32,39 @@ type PasswordRepeatElementComponent = <
 const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
   TFieldValues extends FieldValues = FieldValues,
   TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TConfirmPasswordValue = unknown
 >(
   props: PasswordRepeatElementProps<
     TFieldValues,
     TConfirmPasswordName,
-    TPasswordName
+    TPasswordName,
+    TConfirmPasswordValue
   >,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {passwordFieldName, customInvalidFieldMessage, control, ...rest} = props
 
   const pwValue = useWatch({
     name: passwordFieldName,
     control,
   })
-  const invalidFieldMessage =
-    customInvalidFieldMessage ?? 'Password should match'
+
   return (
     <PasswordElement
       control={control}
       {...rest}
       ref={ref}
-      validation={{
+      rules={{
         validate: (value: string) => {
-          return value === pwValue || invalidFieldMessage
+          return (
+            value === pwValue ||
+            (customInvalidFieldMessage ?? 'Password should match')
+          )
         },
       }}
     />
   )
 })
 PasswordRepeatElement.displayName = 'PasswordRepeatElement'
-
 export default PasswordRepeatElement as PasswordRepeatElementComponent

@@ -3,6 +3,7 @@ import {
   FieldError,
   FieldPath,
   FieldValues,
+  PathValue,
   useController,
   UseControllerProps,
 } from 'react-hook-form'
@@ -17,39 +18,50 @@ import {
   useForkRef,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {useTransform} from './useTransform'
 
 export type CheckboxElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 > = Omit<CheckboxProps, 'name'> & {
-  validation?: UseControllerProps<TFieldValues, TName>['rules']
+  rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
   parseError?: (error: FieldError) => ReactNode
   label?: FormControlLabelProps['label']
   helperText?: string
   control?: Control<TFieldValues>
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control'>
+  transform?: {
+    input?: (value: PathValue<TFieldValues, TName>) => TValue
+    output?: (
+      event: ChangeEvent<HTMLInputElement>,
+      value: TValue
+    ) => PathValue<TFieldValues, TName>
+  }
 }
 
 type CheckboxElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: CheckboxElementProps<TFieldValues, TName> &
+  props: CheckboxElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const CheckboxElement = forwardRef(function CheckboxElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TValue = unknown
 >(
-  props: CheckboxElementProps<TFieldValues, TName>,
+  props: CheckboxElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
-): JSX.Element {
+) {
   const {
     name,
-    validation = {},
+    rules = {},
     required,
     parseError,
     label,
@@ -57,16 +69,17 @@ const CheckboxElement = forwardRef(function CheckboxElement<
     helperText,
     labelProps,
     inputRef,
+    transform,
     ...rest
   } = props
 
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
 
-  const rules = {
-    ...validation,
+  const rulesTmp = {
+    ...rules,
     ...(required &&
-      !validation.required && {
+      !rules.required && {
         required: 'This field is required',
       }),
   }
@@ -78,7 +91,19 @@ const CheckboxElement = forwardRef(function CheckboxElement<
     name,
     control,
     disabled: rest.disabled,
-    rules,
+    rules: rulesTmp,
+  })
+
+  const {value, onChange} = useTransform<TFieldValues, TName, TValue>({
+    value: field.value,
+    onChange: field.onChange,
+    transform: {
+      input: transform?.input,
+      output:
+        typeof transform?.output === 'function'
+          ? transform?.output
+          : (_event, newValue) => newValue,
+    },
   })
 
   const handleInputRef = useForkRef(field.ref, inputRef)
@@ -105,12 +130,12 @@ const CheckboxElement = forwardRef(function CheckboxElement<
                   color: error ? 'error.main' : undefined,
                 },
               ]}
-              value={field.value}
-              checked={!!field.value}
-              onChange={(ev) => {
-                field.onChange(!field.value)
+              value={value}
+              checked={!!value}
+              onChange={(event, newValue) => {
+                onChange(event, newValue)
                 if (typeof rest.onChange === 'function') {
-                  rest.onChange(ev, !field.value)
+                  rest.onChange(event, newValue)
                 }
               }}
               inputRef={handleInputRef}
@@ -125,5 +150,4 @@ const CheckboxElement = forwardRef(function CheckboxElement<
   )
 })
 CheckboxElement.displayName = 'CheckboxElement'
-
 export default CheckboxElement as CheckboxElementComponent

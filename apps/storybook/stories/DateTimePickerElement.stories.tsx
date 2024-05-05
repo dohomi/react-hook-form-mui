@@ -1,4 +1,4 @@
-import {DateTimePickerElement} from 'react-hook-form-mui/src'
+import {DateTimePickerElement} from 'react-hook-form-mui/date-pickers'
 import {Meta, StoryObj} from '@storybook/react'
 import {FormContainerDecorator} from '../src/FormDecorator'
 
@@ -30,7 +30,7 @@ export const RequiredPickerCustom: Story = {
     label: 'Datetime Picker',
     name: 'required_picker_custom',
     required: true,
-    validation: {required: 'Custom required message'},
+    rules: {required: 'Custom required message'},
   },
 }
 

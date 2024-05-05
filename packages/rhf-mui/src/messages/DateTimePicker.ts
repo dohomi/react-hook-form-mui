@@ -16,8 +16,5 @@ export const defaultErrorMessages: {
   'shouldDisableTime-hours': 'Specified hour is disabled',
   'shouldDisableTime-minutes': 'Specified minute is disabled',
   'shouldDisableTime-seconds': 'Specified second is disabled',
-  'shouldDisableClock-hours': 'Specified hour on the clock is disabled',
-  'shouldDisableClock-minutes': 'Specified minute on the clock is disabled',
-  'shouldDisableClock-seconds': 'Specified second on the clock is disabled',
   minutesStep: 'Invalid minutes step',
 }
