@@ -44,7 +44,7 @@
     "@mui/x-date-pickers": "7.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form-mui": "file:../../packages/rhf-mui"
+    "react-hook-form-mui": "*"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "8.0.6",
@@ -64,6 +64,6 @@
     "react-hook-form": "7.48.2",
     "storybook": "8.0.6",
     "typescript": "5.4.4",
-    "vite": "^5.2.8"
+    "vite": "^5.2.11"
   }
 }
