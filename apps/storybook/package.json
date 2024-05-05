@@ -37,7 +37,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form-mui": "*",
-    "vite": "^4.4.12"
+    "vite": "^4.5.3"
   },
   "devDependencies": {
     "@date-io/date-fns": "^2.16.0",
