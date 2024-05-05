@@ -32,7 +32,7 @@ export type DateTimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false
+  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<DateTimePickerProps<TValue>, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
@@ -60,7 +60,7 @@ export type DateTimePickerElementProps<
 type DateTimePickerElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue extends PickerValidDate = PickerValidDate
+  TValue extends PickerValidDate = PickerValidDate,
 >(
   props: DateTimePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -69,7 +69,7 @@ type DateTimePickerElementComponent = <
 const DateTimePickerElement = forwardRef(function DateTimePickerElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue extends PickerValidDate = PickerValidDate
+  TValue extends PickerValidDate = PickerValidDate,
 >(
   props: DateTimePickerElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>

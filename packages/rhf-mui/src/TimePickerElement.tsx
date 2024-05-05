@@ -32,7 +32,7 @@ export type TimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false
+  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<TimePickerProps<TValue>, 'value' | 'renderInput'> & {
   name: TName
   required?: boolean
@@ -60,7 +60,7 @@ export type TimePickerElementProps<
 type TimePickerElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue extends PickerValidDate = PickerValidDate
+  TValue extends PickerValidDate = PickerValidDate,
 >(
   props: TimePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -69,7 +69,7 @@ type TimePickerElementComponent = <
 const TimePickerElement = forwardRef(function TimePickerElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue extends PickerValidDate = PickerValidDate
+  TValue extends PickerValidDate = PickerValidDate,
 >(
   props: TimePickerElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>

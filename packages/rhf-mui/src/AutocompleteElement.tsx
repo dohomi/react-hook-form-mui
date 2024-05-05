@@ -31,7 +31,7 @@ import {
   SyntheticEvent,
 } from 'react'
 import {useTransform} from './useTransform'
-import {hasOwnProperty} from './utils'
+import {propertyExists} from './utils'
 
 type AutoDefault = {
   id: string | number // must keep id in case of keepObject
@@ -45,7 +45,7 @@ export type AutocompleteElementProps<
   Multiple extends boolean | undefined = false,
   DisableClearable extends boolean | undefined = false,
   FreeSolo extends boolean | undefined = false,
-  ChipComponent extends ElementType = ChipTypeMap['defaultComponent']
+  ChipComponent extends ElementType = ChipTypeMap['defaultComponent'],
 > = {
   name: TName
   control?: Control<TFieldValues>
@@ -90,7 +90,7 @@ type AutocompleteElementComponent = <
   Multiple extends boolean | undefined = false,
   DisableClearable extends boolean | undefined = false,
   FreeSolo extends boolean | undefined = false,
-  ChipComponent extends ElementType = ChipTypeMap['defaultComponent']
+  ChipComponent extends ElementType = ChipTypeMap['defaultComponent'],
 >(
   props: AutocompleteElementProps<
     TFieldValues,
@@ -111,7 +111,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
   Multiple extends boolean | undefined = false,
   DisableClearable extends boolean | undefined = false,
   FreeSolo extends boolean | undefined = false,
-  ChipComponent extends ElementType = ChipTypeMap['defaultComponent']
+  ChipComponent extends ElementType = ChipTypeMap['defaultComponent'],
 >(
   props: AutocompleteElementProps<
     TFieldValues,
@@ -168,7 +168,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
     if (typeof autocompleteProps?.getOptionLabel === 'function') {
       return autocompleteProps.getOptionLabel(option)
     }
-    if (hasOwnProperty(option, 'label')) {
+    if (propertyExists(option, 'label')) {
       return `${option?.label}`
     }
     return `${option}`
@@ -178,14 +178,14 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
     if (typeof autocompleteProps?.isOptionEqualToValue == 'function') {
       return autocompleteProps.isOptionEqualToValue(option, value)
     }
-    const optionKey = hasOwnProperty(option, 'id') ? option.id : option
-    const valueKey = hasOwnProperty(value, 'id') ? value.id : value
+    const optionKey = propertyExists(option, 'id') ? option.id : option
+    const valueKey = propertyExists(value, 'id') ? value.id : value
     return optionKey === valueKey
   }
 
   const matchOptionByValue = (currentValue: TValue) => {
     return options.find((option) => {
-      if (matchId && hasOwnProperty(option, 'id')) {
+      if (matchId && propertyExists(option, 'id')) {
         return option.id === currentValue
       }
       return isOptionEqualToValue(option, currentValue)
@@ -234,7 +234,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
                 return (
                   matchId
                     ? newValues.map((currentValue) =>
-                        hasOwnProperty(currentValue, 'id')
+                        propertyExists(currentValue, 'id')
                           ? currentValue.id
                           : currentValue
                       )
@@ -242,7 +242,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
                 ) as PathValue<TFieldValues, TName>
               }
               return (
-                matchId && hasOwnProperty(newValue, 'id')
+                matchId && propertyExists(newValue, 'id')
                   ? newValue.id
                   : newValue
               ) as PathValue<TFieldValues, TName>

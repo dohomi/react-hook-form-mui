@@ -21,7 +21,7 @@ import {useTransform} from './useTransform'
 
 export type SliderElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = Omit<SliderProps, 'control'> & {
   name: TName
   control?: Control<TFieldValues>
@@ -44,14 +44,14 @@ export type SliderElementProps<
 
 type SliderElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >(
   props: SliderElementProps<TFieldValues, TName> & RefAttributes<HTMLDivElement>
 ) => JSX.Element
 
 const SliderElement = forwardRef(function SliderElement<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >(props: SliderElementProps<TFieldValues, TName>, ref: Ref<HTMLDivElement>) {
   const {
     name,

@@ -18,7 +18,7 @@ import {useTransform} from './useTransform'
 export type SwitchElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = Omit<FormControlLabelProps, 'control'> & {
   name: TName
   control?: Control<TFieldValues>
@@ -35,7 +35,7 @@ export type SwitchElementProps<
 type SwitchElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: SwitchElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLLabelElement>
@@ -44,7 +44,7 @@ type SwitchElementComponent = <
 const SwitchElement = forwardRef(function SwitchElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: SwitchElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLLabelElement>

@@ -24,7 +24,7 @@ import {useTransform} from './useTransform'
 export type CheckboxElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = Omit<CheckboxProps, 'name'> & {
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
@@ -45,7 +45,7 @@ export type CheckboxElementProps<
 type CheckboxElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: CheckboxElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -54,7 +54,7 @@ type CheckboxElementComponent = <
 const CheckboxElement = forwardRef(function CheckboxElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: CheckboxElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>

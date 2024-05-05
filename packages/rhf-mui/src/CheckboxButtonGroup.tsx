@@ -21,12 +21,12 @@ import {
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {useTransform} from './useTransform'
-import {hasOwnProperty} from './utils'
+import {propertyExists} from './utils'
 
 export type CheckboxButtonGroupProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = {
   options: (TValue | unknown)[]
   helperText?: ReactNode
@@ -54,7 +54,7 @@ export type CheckboxButtonGroupProps<
 type CheckboxButtonGroupComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: CheckboxButtonGroupProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -63,7 +63,7 @@ type CheckboxButtonGroupComponent = <
 const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: CheckboxButtonGroupProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
@@ -123,11 +123,11 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
   })
 
   const handleChange = (option: unknown) => {
-    const optionValue = hasOwnProperty(option, valueKey)
+    const optionValue = propertyExists(option, valueKey)
       ? option[valueKey]
       : option
     const existsAtIndex = selectedOptions.findIndex((selectedOption) => {
-      const selectedOptionValue = hasOwnProperty(selectedOption, valueKey)
+      const selectedOptionValue = propertyExists(selectedOption, valueKey)
         ? selectedOption[valueKey]
         : selectedOption
       return optionValue === selectedOptionValue
@@ -138,7 +138,7 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
         ? [...selectedOptions, option]
         : selectedOptions.filter((_, index) => existsAtIndex !== index)
     ).map((selectedOption) =>
-      returnObject || !hasOwnProperty(selectedOption, valueKey)
+      returnObject || !propertyExists(selectedOption, valueKey)
         ? selectedOption
         : selectedOption[valueKey]
     ) as TValue[]
@@ -159,15 +159,15 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
       {label ? <FormLabel>{label}</FormLabel> : null}
       <FormGroup row={row}>
         {options.map((option) => {
-          const optionValue = hasOwnProperty(option, valueKey)
+          const optionValue = propertyExists(option, valueKey)
             ? option[valueKey]
             : option
-          const optionLabel = hasOwnProperty(option, labelKey)
+          const optionLabel = propertyExists(option, labelKey)
             ? option[labelKey]
             : option
 
           const isChecked = selectedOptions.some((selectedOption) => {
-            const selectedOptionValue = hasOwnProperty(selectedOption, valueKey)
+            const selectedOptionValue = propertyExists(selectedOption, valueKey)
               ? selectedOption[valueKey]
               : selectedOption
             return selectedOptionValue === optionValue

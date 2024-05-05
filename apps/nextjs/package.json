@@ -19,8 +19,8 @@
     "@mui/material": "5.15.15",
     "@mui/x-date-pickers": "7.1.1",
     "next": "14.1.4",
-    "react": "latest",
-    "react-dom": "latest",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-hook-form": "7.48.2",
     "react-hook-form-mui": "file:../../packages/rhf-mui"
   },

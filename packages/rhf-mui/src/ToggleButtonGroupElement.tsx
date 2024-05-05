@@ -29,7 +29,7 @@ type SingleToggleButtonProps = Omit<ToggleButtonProps, 'value' | 'children'> & {
 export type ToggleButtonGroupElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = ToggleButtonGroupProps & {
   required?: boolean
   label?: string
@@ -50,7 +50,7 @@ export type ToggleButtonGroupElementProps<
 export default function ToggleButtonGroupElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(props: ToggleButtonGroupElementProps<TFieldValues, TName, TValue>) {
   const {
     name,

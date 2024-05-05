@@ -26,7 +26,7 @@ import {useTransform} from './useTransform'
 export type RadioButtonGroupProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = {
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   options: TValue[]
@@ -58,7 +58,7 @@ export type RadioButtonGroupProps<
 type RadioButtonGroupComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: RadioButtonGroupProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -67,7 +67,7 @@ type RadioButtonGroupComponent = <
 const RadioButtonGroup = forwardRef(function RadioButtonGroup<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: RadioButtonGroupProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>

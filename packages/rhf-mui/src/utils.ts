@@ -1,6 +1,6 @@
 import {useLocalizationContext} from '@mui/x-date-pickers/internals'
 
-export function hasOwnProperty<X, Y extends PropertyKey>(
+export function propertyExists<X, Y extends PropertyKey>(
   obj: X,
   prop: Y
 ): obj is X & Record<Y, unknown> {

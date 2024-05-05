@@ -11,12 +11,12 @@ import {
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
 import {useTransform} from './useTransform'
-import {hasOwnProperty} from './utils'
+import {propertyExists} from './utils'
 
 export type SelectElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = Omit<TextFieldProps, 'name' | 'type' | 'onChange'> & {
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
@@ -39,7 +39,7 @@ export type SelectElementProps<
 type SelectElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: SelectElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -48,7 +48,7 @@ type SelectElementComponent = <
 const SelectElement = forwardRef(function SelectElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: SelectElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
@@ -159,12 +159,13 @@ const SelectElement = forwardRef(function SelectElement<
       {isNativeSelect && <option />}
       {options.map((item) => {
         // Need to clearly apply key because of https://github.com/vercel/next.js/issues/55642
-        const key = `${name}_${item[valueKey]}`;
+        const key = `${name}_${item[valueKey]}`
         const optionProps = {
           value: item?.[valueKey] ?? item,
-          disabled: hasOwnProperty(item, 'disabled') ? !!item.disabled : false,
+          disabled: propertyExists(item, 'disabled') ? !!item.disabled : false,
           children: item[labelKey],
         }
+        // biome-ignore lint/correctness/useJsxKeyInIterable: <explanation>
         return isNativeSelect ? (
           <option key={key} {...optionProps} />
         ) : (

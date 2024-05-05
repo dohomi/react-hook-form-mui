@@ -4,9 +4,10 @@ import {forwardRef, Ref, RefAttributes} from 'react'
 
 export type PasswordRepeatElementProps<
   TFieldValues extends FieldValues = FieldValues,
-  TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TConfirmPasswordName extends
+    FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TConfirmPasswordValue = unknown
+  TConfirmPasswordValue = unknown,
 > = PasswordElementProps<
   TFieldValues,
   TConfirmPasswordName,
@@ -18,8 +19,9 @@ export type PasswordRepeatElementProps<
 
 type PasswordRepeatElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TConfirmPasswordName extends
+    FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >(
   props: PasswordRepeatElementProps<
     TFieldValues,
@@ -31,9 +33,10 @@ type PasswordRepeatElementComponent = <
 
 const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
   TFieldValues extends FieldValues = FieldValues,
-  TConfirmPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TConfirmPasswordName extends
+    FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TPasswordName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TConfirmPasswordValue = unknown
+  TConfirmPasswordValue = unknown,
 >(
   props: PasswordRepeatElementProps<
     TFieldValues,

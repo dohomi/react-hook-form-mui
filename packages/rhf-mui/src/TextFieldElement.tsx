@@ -15,7 +15,7 @@ import {useTransform} from './useTransform'
 export type TextFieldElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = Omit<TextFieldProps, 'name'> & {
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
@@ -38,7 +38,7 @@ export type TextFieldElementProps<
 type TextFieldElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: TextFieldElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -47,7 +47,7 @@ type TextFieldElementComponent = <
 const TextFieldElement = forwardRef(function TextFieldElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: TextFieldElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>

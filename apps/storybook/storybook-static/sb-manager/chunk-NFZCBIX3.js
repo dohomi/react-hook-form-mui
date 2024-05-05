@@ -1,9 +1,5 @@
-import {
-  __commonJS,
-  __export,
-  __toESM,
-  require_memoizerific,
-} from './chunk-ZEU7PDD3.js'
+import {__commonJS, __export, __toESM, require_memoizerific,} from './chunk-ZEU7PDD3.js'
+
 var require_object_assign = __commonJS({
   '../../node_modules/object-assign/index.js'(exports, module) {
     'use strict'
@@ -2524,7 +2520,7 @@ var require_react_dom_development = __commonJS({
             function callCallback2() {
               fakeNode.removeEventListener(evtType, callCallback2, !1),
                 typeof window.event < 'u' &&
-                  window.hasOwnProperty('event') &&
+                  window.propertyExists('event') &&
                   (window.event = windowEvent),
                 func.apply(context, funcArgs),
                 (didError = !1)

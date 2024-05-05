@@ -9,7 +9,7 @@ export type DateFnsProviderProps<TDate extends Date> = Omit<
   LocalizationProviderProps<TDate, any>,
   'dateAdapter'
 > & {
-  dateAdapter?: new (...args: any) => MuiPickersAdapter<TDate>
+  dateAdapter?: new (..._args: any) => MuiPickersAdapter<TDate>
 }
 
 export function DateFnsProvider({

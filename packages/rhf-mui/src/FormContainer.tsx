@@ -50,8 +50,8 @@ export function FormContainer<TFieldValues extends FieldValues = FieldValues>({
           handleSubmit
             ? handleSubmit
             : onSuccess
-            ? formContext.handleSubmit(onSuccess, onError)
-            : () => console.log('submit handler `onSuccess` is missing')
+              ? formContext.handleSubmit(onSuccess, onError)
+              : () => console.log('submit handler `onSuccess` is missing')
         }
       >
         {children}
@@ -61,7 +61,7 @@ export function FormContainer<TFieldValues extends FieldValues = FieldValues>({
 }
 
 function FormProviderWithoutContext<
-  TFieldValues extends FieldValues = FieldValues
+  TFieldValues extends FieldValues = FieldValues,
 >({
   onSuccess,
   onError,

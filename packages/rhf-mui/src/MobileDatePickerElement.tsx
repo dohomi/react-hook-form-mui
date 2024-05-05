@@ -32,7 +32,7 @@ export type MobileDatePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false
+  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<MobileDatePickerProps<TValue>, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
@@ -59,7 +59,7 @@ export type MobileDatePickerElementProps<
 type MobileDatePickerElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue extends PickerValidDate = PickerValidDate
+  TValue extends PickerValidDate = PickerValidDate,
 >(
   props: MobileDatePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -68,7 +68,7 @@ type MobileDatePickerElementComponent = <
 const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue extends PickerValidDate = PickerValidDate
+  TValue extends PickerValidDate = PickerValidDate,
 >(
   props: MobileDatePickerElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>

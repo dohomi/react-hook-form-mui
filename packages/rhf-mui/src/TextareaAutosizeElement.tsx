@@ -27,7 +27,7 @@ import {useTransform} from './useTransform'
 export type TextareaAutosizeElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = Omit<TextFieldProps, 'name' | 'type'> & {
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
@@ -45,7 +45,7 @@ export type TextareaAutosizeElementProps<
 type TextareaAutosizeElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: TextareaAutosizeElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -54,7 +54,7 @@ type TextareaAutosizeElementComponent = <
 const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: TextareaAutosizeElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>

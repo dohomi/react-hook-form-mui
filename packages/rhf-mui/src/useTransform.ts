@@ -8,7 +8,7 @@ import {
 export type UseTransformOptions<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = {
   value: UseControllerReturn<TFieldValues, TName>['field']['value']
   onChange: UseControllerReturn<TFieldValues, TName>['field']['onChange']
@@ -21,7 +21,7 @@ export type UseTransformOptions<
 export type UseTransformReturn<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = {
   value: TValue
   onChange: UseControllerReturn<TFieldValues, TName>['field']['onChange']
@@ -30,7 +30,7 @@ export type UseTransformReturn<
 export function useTransform<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   options: UseTransformOptions<TFieldValues, TName, TValue>
 ): UseTransformReturn<TFieldValues, TName, TValue> {

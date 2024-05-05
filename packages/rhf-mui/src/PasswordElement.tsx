@@ -15,14 +15,14 @@ import {FieldPath, FieldValues} from 'react-hook-form'
 export type PasswordElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = TextFieldElementProps<TFieldValues, TName, TValue> & {
   iconColor?: IconButtonProps['color']
   renderIcon?: (password: boolean) => ReactNode
 }
 type PasswordElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >(
   props: PasswordElementProps<TFieldValues, TName> &
     RefAttributes<HTMLDivElement>
@@ -30,7 +30,7 @@ type PasswordElementComponent = <
 const PasswordElement = forwardRef(function PasswordEl<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: PasswordElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>

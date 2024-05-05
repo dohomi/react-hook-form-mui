@@ -15,6 +15,7 @@ import {
   FormControlProps,
   FormHelperText,
   InputLabel,
+  InputLabelProps,
   ListItemText,
   MenuItem,
   Select,
@@ -25,12 +26,12 @@ import {
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {useTransform} from './useTransform'
-import {hasOwnProperty} from './utils'
+import {propertyExists} from './utils'
 
 export type MultiSelectElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 > = Omit<SelectProps, 'value'> & {
   options: TValue[]
   label?: string
@@ -57,12 +58,13 @@ export type MultiSelectElementProps<
       child: ReactNode
     ) => PathValue<TFieldValues, TName>
   }
+  inputLabelProps?: Omit<InputLabelProps, 'htmlFor' | 'required'>
 }
 
 type MultiSelectElementComponent = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: MultiSelectElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
@@ -74,7 +76,7 @@ const ITEM_PADDING_TOP = 8
 const MultiSelectElement = forwardRef(function MultiSelectElement<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TValue = unknown
+  TValue = unknown,
 >(
   props: MultiSelectElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
@@ -100,6 +102,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
     formControlProps,
     inputRef,
     transform,
+    inputLabelProps,
     ...rest
   } = props
 
@@ -169,7 +172,8 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
     >
       {label && (
         <InputLabel
-          size={rest.size === 'small' ? 'small' : undefined}
+          {...inputLabelProps}
+          size={rest.size === 'small' ? 'small' : inputLabelProps?.size}
           error={!!error}
           htmlFor={rest.id || `select-multi-select-${name}`}
           required={required}
@@ -196,7 +200,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
                 style: {
                   maxHeight: menuMaxHeight,
                   width: menuMaxWidth,
-                  ...(hasOwnProperty(
+                  ...(propertyExists(
                     rest.MenuProps?.slotProps?.paper,
                     'style'
                   ) &&
@@ -213,40 +217,40 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
           typeof rest.renderValue === 'function'
             ? rest.renderValue
             : showChips
-            ? (selected) => (
-                <div style={{display: 'flex', flexWrap: 'wrap'}}>
-                  {(preserveOrder
-                    ? options.filter((option) =>
-                        (selected as any[]).includes(option)
-                      )
-                    : (selected as any[]) || []
-                  ).map((selectedValue) => (
-                    <Chip
-                      key={selectedValue}
-                      label={renderLabel(selectedValue)}
-                      style={{display: 'flex', flexWrap: 'wrap'}}
-                      onDelete={() => {
-                        onChange(
-                          (Array.isArray(value) ? value : []).filter(
-                            (i: any) => i !== selectedValue
-                          )
+              ? (selected) => (
+                  <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                    {(preserveOrder
+                      ? options.filter((option) =>
+                          (selected as any[]).includes(option)
                         )
-                      }}
-                      deleteIcon={
-                        <CloseIcon
-                          onMouseDown={(ev) => {
-                            ev.stopPropagation()
-                          }}
-                        />
-                      }
-                    />
-                  ))}
-                </div>
-              )
-            : (selected) =>
-                Array.isArray(selected)
-                  ? selected.map(renderLabel).join(', ')
-                  : ''
+                      : (selected as any[]) || []
+                    ).map((selectedValue) => (
+                      <Chip
+                        key={selectedValue}
+                        label={renderLabel(selectedValue)}
+                        style={{display: 'flex', flexWrap: 'wrap'}}
+                        onDelete={() => {
+                          onChange(
+                            (Array.isArray(value) ? value : []).filter(
+                              (i: any) => i !== selectedValue
+                            )
+                          )
+                        }}
+                        deleteIcon={
+                          <CloseIcon
+                            onMouseDown={(ev) => {
+                              ev.stopPropagation()
+                            }}
+                          />
+                        }
+                      />
+                    ))}
+                  </div>
+                )
+              : (selected) =>
+                  Array.isArray(selected)
+                    ? selected.map(renderLabel).join(', ')
+                    : ''
         }
         inputRef={handleInputRef}
       >
