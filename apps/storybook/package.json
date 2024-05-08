@@ -47,19 +47,17 @@
     "react-hook-form-mui": "file:../../packages/rhf-mui"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "8.0.9",
-    "@storybook/react": "8.0.9",
-    "@storybook/react-vite": "8.0.9",
+    "@storybook/addon-essentials": "8.0.10",
+    "@storybook/react": "8.0.10",
+    "@storybook/react-vite": "8.0.10",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
-    "@typescript-eslint/eslint-plugin": "^5.30.4",
-    "@typescript-eslint/parser": "^5.30.4",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "date-fns": "3.6.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form": "7.48.2",
-    "storybook": "8.0.9",
+    "storybook": "8.0.10",
     "typescript": "5.4.4",
     "vite": "^5.2.11"
   }
