@@ -83,7 +83,8 @@ function Form() {
     const {control, handleSubmit} = useForm({
       defaultValues: {
         name: '',
-        auto: ''
+        auto: '',
+        check: false
       },
     })
     const options = [
@@ -117,7 +118,7 @@ function Form() {
   }
 ```
 
-You can have a look at all different possibilities to use forms at following code [`examples`](apps/storybook/stories/FormContainer.stories.tsx)
+You can have a look at all different possibilities to use forms at following [`code examples`](apps/storybook/stories/FormContainer.stories.tsx)
 
 ### FormContainer creates `formContext`
 
