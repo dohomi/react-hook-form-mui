@@ -93,7 +93,7 @@ function Form() {
       {id: 'three', label: 'Three'},
     ]
     return (
-        <form onSubmit={handleSubmit(() => action('submit'))} noValidate>
+        <form onSubmit={handleSubmit((data) => console.log(data))} noValidate>
           <Stack spacing={2}>
             <TextFieldElement
               name={'name'}
