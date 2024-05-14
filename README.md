@@ -59,7 +59,7 @@ From versions >= 3.x of this package MUI v5 is in use. Versions of 1 & 2 using M
 
 From version >= 6 x-date-pickers version 6 is in use. Make sure you upgrade your dependencies.
 
-### Your component code
+### Simple form setup
 
 ```tsx
 import {FormContainer, TextFieldElement} from 'react-hook-form-mui'
@@ -76,7 +76,48 @@ function Form() {
 }
 ```
 
-You can have a look at the [`example`](apps/nextjs/) folder which sets up NextJS with `react-hook-form-mui`
+### Typesafe form setup
+
+```tsx
+  function Form() {
+    const {control, handleSubmit} = useForm({
+      defaultValues: {
+        name: '',
+        auto: ''
+      },
+    })
+    const options = [
+      {id: 'one', label: 'One'},
+      {id: 'two', label: 'Two'},
+      {id: 'three', label: 'Three'},
+    ]
+    return (
+        <form onSubmit={handleSubmit(() => action('submit'))} noValidate>
+          <Stack spacing={2}>
+            <TextFieldElement
+              name={'name'}
+              label={'Name'}
+              control={control}
+              required
+              fullWidth
+            />
+            <AutocompleteElement
+              name={'auto'}
+              label={'Autocomplete'}
+              control={control}
+              options={options}
+            />
+            <CheckboxElement name={'check'} label={'Check'} control={control} />
+            <Button type={'submit'} color={'primary'}>
+              Submit
+            </Button>
+          </Stack>
+        </form>
+    )
+  }
+```
+
+You can have a look at all different possibilities to use forms at following code [`examples`](apps/storybook/stories/FormContainer.stories.tsx)
 
 ### FormContainer creates `formContext`
 
