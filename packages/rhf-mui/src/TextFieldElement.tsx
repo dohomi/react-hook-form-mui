@@ -100,17 +100,16 @@ const TextFieldElement = forwardRef(function TextFieldElement<
         typeof transform?.input === 'function'
           ? transform.input
           : (value) => {
-              return value || ('' as TValue)
+              return value == null ? ('' as TValue) : value
             },
       output:
         typeof transform?.output === 'function'
           ? transform.output
           : (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
               const value = event.target.value
-              return (type === 'number' && value ? +value : value) as PathValue<
-                TFieldValues,
-                TName
-              >
+              return (
+                type === 'number' && value != null ? +value : value
+              ) as PathValue<TFieldValues, TName>
             },
     },
   })
