@@ -21,7 +21,7 @@
     "storybook": "cd apps/storybook && yarn storybook",
     "next": "cd apps/nextjs && yarn dev",
     "watch": "cd packages/rhf-mui && yarn run watch",
-    "build:storybook": "cd apps/storybook && yarn build-storybook",
+    "build:storybook": "cd apps/storybook && yarn install && yarn build-storybook",
     "sb-start": "cd apps/storybook && yarn build-storybook && yarn start-storybook",
     "check-types": "cd packages/rhf-mui && tsc --noemit",
     "lint": "npx @biomejs/biome lint --apply apps/storybook/stories packages/rhf-mui/src",
