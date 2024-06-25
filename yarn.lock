@@ -10074,7 +10074,7 @@ __metadata:
 
 "react-hook-form-mui@file:../../packages/rhf-mui::locator=nextjs%40workspace%3Aapps%2Fnextjs":
   version: 7.0.0
-  resolution: "react-hook-form-mui@file:../../packages/rhf-mui#../../packages/rhf-mui::hash=1457c6&locator=nextjs%40workspace%3Aapps%2Fnextjs"
+  resolution: "react-hook-form-mui@file:../../packages/rhf-mui#../../packages/rhf-mui::hash=a3f51b&locator=nextjs%40workspace%3Aapps%2Fnextjs"
   peerDependencies:
     "@mui/icons-material": ">= 5.x <6"
     "@mui/material": ">= 5.x <6"
@@ -10086,13 +10086,13 @@ __metadata:
       optional: true
     "@mui/x-date-pickers":
       optional: true
-  checksum: 10/6c47c31f9aac7c5e461d9659b312f00a1ab33cffad7de35fe4e2a97db1af3ab350acac8053cbacdbe62956d305529ad1dc4e2c6521a77f64687fa60a01c65651
+  checksum: 10/eb2a1abf37a074969bfa920c3ad4e32f13e44c1a2c46764211090a94fd2bb50afff33171942b37229222f4b4c987a765c2bbadc82540625e1e5b8687c72cf6e8
   languageName: node
   linkType: hard
 
 "react-hook-form-mui@file:../../packages/rhf-mui::locator=rhfm-storybook%40workspace%3Aapps%2Fstorybook":
   version: 7.0.0
-  resolution: "react-hook-form-mui@file:../../packages/rhf-mui#../../packages/rhf-mui::hash=1457c6&locator=rhfm-storybook%40workspace%3Aapps%2Fstorybook"
+  resolution: "react-hook-form-mui@file:../../packages/rhf-mui#../../packages/rhf-mui::hash=a3f51b&locator=rhfm-storybook%40workspace%3Aapps%2Fstorybook"
   peerDependencies:
     "@mui/icons-material": ">= 5.x <6"
     "@mui/material": ">= 5.x <6"
@@ -10104,7 +10104,7 @@ __metadata:
       optional: true
     "@mui/x-date-pickers":
       optional: true
-  checksum: 10/6c47c31f9aac7c5e461d9659b312f00a1ab33cffad7de35fe4e2a97db1af3ab350acac8053cbacdbe62956d305529ad1dc4e2c6521a77f64687fa60a01c65651
+  checksum: 10/eb2a1abf37a074969bfa920c3ad4e32f13e44c1a2c46764211090a94fd2bb50afff33171942b37229222f4b4c987a765c2bbadc82540625e1e5b8687c72cf6e8
   languageName: node
   linkType: hard
 
