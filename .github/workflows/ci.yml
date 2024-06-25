@@ -39,4 +39,4 @@ jobs:
         run: yarn build
 
       - name: Build storybook
-        run: yarn build-storybook
+        run: yarn build:storybook
