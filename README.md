@@ -166,3 +166,34 @@ This project uses `tsup` to wrap the package for `npm`.
 ### Support Maintanance
 If you find this package useful consider a small contribution:
 [Buy Me A Coffee](https://www.buymeacoffee.com/dohomi)
+
+### Contributing
+
+Make sure you're running Node.js 20
+
+1. Clone this repository
+
+```bash
+git clone https://github.com/dohomi/react-hook-form-mui.git
+cd react-hook-form-mui
+```
+
+2. Install dependencies
+
+```bash
+yarn
+```
+
+3. Build the project
+
+```bash
+yarn build
+```
+
+4. Run the storybook
+
+```bash
+yarn sb-start
+```
+
+Changes to storybook stories can be made in `apps/storybook/stories`. Changes to the library can be made in `packages/rhf-mui`.
