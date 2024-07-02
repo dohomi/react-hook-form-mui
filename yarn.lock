@@ -9026,7 +9026,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-hook-form: "npm:7.48.2"
-    react-hook-form-mui: "file:../../packages/rhf-mui"
+    react-hook-form-mui: "portal:../../packages/rhf-mui"
     typescript: "npm:5.4.4"
   languageName: unknown
   linkType: soft
@@ -10072,9 +10072,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react-hook-form-mui@file:../../packages/rhf-mui::locator=nextjs%40workspace%3Aapps%2Fnextjs":
-  version: 7.0.0
-  resolution: "react-hook-form-mui@file:../../packages/rhf-mui#../../packages/rhf-mui::hash=1457c6&locator=nextjs%40workspace%3Aapps%2Fnextjs"
+"react-hook-form-mui@portal:../../packages/rhf-mui::locator=nextjs%40workspace%3Aapps%2Fnextjs":
+  version: 0.0.0-use.local
+  resolution: "react-hook-form-mui@portal:../../packages/rhf-mui::locator=nextjs%40workspace%3Aapps%2Fnextjs"
   peerDependencies:
     "@mui/icons-material": ">= 5.x <6"
     "@mui/material": ">= 5.x <6"
@@ -10086,13 +10086,12 @@ __metadata:
       optional: true
     "@mui/x-date-pickers":
       optional: true
-  checksum: 10/6c47c31f9aac7c5e461d9659b312f00a1ab33cffad7de35fe4e2a97db1af3ab350acac8053cbacdbe62956d305529ad1dc4e2c6521a77f64687fa60a01c65651
   languageName: node
-  linkType: hard
+  linkType: soft
 
-"react-hook-form-mui@file:../../packages/rhf-mui::locator=rhfm-storybook%40workspace%3Aapps%2Fstorybook":
-  version: 7.0.0
-  resolution: "react-hook-form-mui@file:../../packages/rhf-mui#../../packages/rhf-mui::hash=1457c6&locator=rhfm-storybook%40workspace%3Aapps%2Fstorybook"
+"react-hook-form-mui@portal:../../packages/rhf-mui::locator=rhfm-storybook%40workspace%3Aapps%2Fstorybook":
+  version: 0.0.0-use.local
+  resolution: "react-hook-form-mui@portal:../../packages/rhf-mui::locator=rhfm-storybook%40workspace%3Aapps%2Fstorybook"
   peerDependencies:
     "@mui/icons-material": ">= 5.x <6"
     "@mui/material": ">= 5.x <6"
@@ -10104,9 +10103,8 @@ __metadata:
       optional: true
     "@mui/x-date-pickers":
       optional: true
-  checksum: 10/6c47c31f9aac7c5e461d9659b312f00a1ab33cffad7de35fe4e2a97db1af3ab350acac8053cbacdbe62956d305529ad1dc4e2c6521a77f64687fa60a01c65651
   languageName: node
-  linkType: hard
+  linkType: soft
 
 "react-hook-form-mui@workspace:packages/rhf-mui":
   version: 0.0.0-use.local
@@ -10609,7 +10607,7 @@ __metadata:
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     react-hook-form: "npm:7.48.2"
-    react-hook-form-mui: "file:../../packages/rhf-mui"
+    react-hook-form-mui: "portal:../../packages/rhf-mui"
     storybook: "npm:8.0.10"
     typescript: "npm:5.4.4"
     vite: "npm:^5.2.11"
