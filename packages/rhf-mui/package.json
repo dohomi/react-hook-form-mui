@@ -1,28 +1,17 @@
 {
-  "version": "7.0.0",
+  "version": "7.0.1",
   "license": "MIT",
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.vercel.app",
-  "keywords": [
-    "react",
-    "mui",
-    "material-ui",
-    "react-hook-form"
-  ],
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "keywords": ["react", "mui", "material-ui", "react-hook-form"],
+  "workspaces": ["apps/*", "packages/*"],
   "name": "react-hook-form-mui",
   "author": "Dominic Garms",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/index.d.ts",
-  "files": [
-    "dist/**",
-    "src/**"
-  ],
+  "files": ["dist/**", "src/**"],
   "exports": {
     "./package.json": "./package.json",
     ".": {

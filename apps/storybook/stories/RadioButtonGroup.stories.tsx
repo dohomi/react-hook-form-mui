@@ -1,6 +1,8 @@
 import {RadioButtonGroup} from 'react-hook-form-mui'
 import {Meta, StoryObj} from '@storybook/react'
 import {FormContainerDecorator} from '../src/FormDecorator'
+import {useRef} from 'react'
+import {Button, Stack} from '@mui/material'
 
 const meta = {
   title: 'RadioButtonGroup',
@@ -70,5 +72,20 @@ export const IndividuallyDisabled: Story = {
     label: 'Individually Disabled Options',
     name: 'individuallydisabled',
     options: withDisabledOptions,
+  },
+}
+
+export const SetFocus: Story = {
+  render: () => {
+    const ref = useRef<HTMLInputElement>(null)
+    const focus = () => {
+      ref.current?.focus()
+    }
+    return (
+      <Stack>
+        <RadioButtonGroup options={options} name={'focus'} ref={ref} />
+        <Button onClick={() => focus()}>Set Focus</Button>
+      </Stack>
+    )
   },
 }
