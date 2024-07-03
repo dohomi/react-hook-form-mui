@@ -15,7 +15,7 @@
     "preserveSymlinks": true,
     "jsx": "react-jsx",
     "module": "system",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "bundler",
     "noEmitOnError": false,
     "noImplicitAny": false,
     "noImplicitReturns": false,

@@ -28,8 +28,8 @@
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "start-storybook": "npx serve storybook-static",
-    "chromatic": "npx chromatic --project-token=chpt_68f87dfefc47179",
+    "start-storybook": "npx -y serve storybook-static",
+    "chromatic": "npx -y chromatic",
     "check-types": "tsc --noemit",
     "deploy": "yarn run build && cd storybook-static && vercel --name react-hook-form-material-ui --prod"
   },
@@ -58,7 +58,7 @@
     "react-dom": "18.3.1",
     "react-hook-form": "7.48.2",
     "storybook": "8.0.10",
-    "typescript": "5.4.4",
+    "typescript": "5.5.3",
     "vite": "^5.2.11"
   }
 }
