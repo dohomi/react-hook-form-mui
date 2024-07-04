@@ -1,6 +1,9 @@
 import {Alert, Button, Stack} from '@mui/material'
+import {LocalizationProvider} from '@mui/x-date-pickers'
 import {FormContainer, TextFieldElement, useWatch} from 'react-hook-form-mui'
 import {DatePickerElement} from 'react-hook-form-mui/date-pickers'
+
+import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFnsV3'
 
 const SubComponent = () => {
   const [name, email] = useWatch({
@@ -46,7 +49,9 @@ export default function IndexPage() {
           />{' '}
           <br />
           <TextFieldElement name={'interest'} label={'Interest'} /> <br />
-          <DatePickerElement name={'date'} label={'Date'} /> <br />
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePickerElement name={'date'} label={'Date'} /> <br />
+          </LocalizationProvider>
           <SubComponent />
         </Stack>
       </FormContainer>

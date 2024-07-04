@@ -35,6 +35,9 @@ jobs:
       - name: Check types
         run: yarn check-types
 
+      - name: Lint code
+        run: yarn lint
+
       - name: Build package
         run: yarn build
 

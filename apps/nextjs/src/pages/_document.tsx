@@ -77,7 +77,7 @@ MyDocument.getInitialProps = async (ctx) => {
     <style
       data-emotion={`${style.key} ${style.ids.join(' ')}`}
       key={style.key}
-      // eslint-disable-next-line react/no-danger
+      // biome-ignore lint/security/noDangerouslySetInnerHtml: disabled as this is the only way to render css from emotion
       dangerouslySetInnerHTML={{__html: style.css}}
     />
   ))

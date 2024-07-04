@@ -24,8 +24,8 @@
     "build:storybook": "cd apps/storybook && yarn install && yarn build-storybook",
     "sb-start": "cd apps/storybook && yarn && yarn build-storybook && yarn start-storybook",
     "check-types": "cd packages/rhf-mui && tsc --noemit",
-    "lint": "npx @biomejs/biome lint --apply apps/storybook/stories packages/rhf-mui/src",
-    "prettier": "npx @biomejs/biome format --write apps/storybook/stories packages/rhf-mui/src",
+    "lint": "npx @biomejs/biome lint --apply apps/storybook/stories packages/rhf-mui/src apps/nextjs/src",
+    "prettier": "npx @biomejs/biome format --write apps/storybook/stories packages/rhf-mui/src apps/nextjs/src",
     "deploy": "yarm build && cd apps/storybook/storybook-static && vercel --name react-hook-form-material-ui --prod",
     "build": "yarn lint && yarn prettier && cd packages/rhf-mui && yarn build",
     "upgrade:sb": "yarn up '@storybook/*' storybook -E",
@@ -40,7 +40,7 @@
     "@biomejs/biome": "1.7.2",
     "release": "^6.3.1",
     "simple-git-hooks": "^2.8.1",
-    "typescript": "5.4.4"
+    "typescript": "5.5.3"
   },
   "packageManager": "yarn@4.2.1",
   "lint-staged": {

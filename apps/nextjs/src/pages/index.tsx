@@ -1,6 +1,12 @@
-import {FormContainer, TextFieldElement} from 'react-hook-form-mui'
-import {Button, Stack} from '@mui/material'
 import {useState} from 'react'
+import {Button, Stack} from '@mui/material'
+
+import {FormContainer, TextFieldElement} from 'react-hook-form-mui'
+import {DatePickerElement} from 'react-hook-form-mui/date-pickers'
+import {LocalizationProvider} from '@mui/x-date-pickers'
+
+// https://mui.com/x/react-date-pickers/getting-started/#setup-your-date-library-adapter
+import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFnsV3'
 
 type FormProps = {
   hallo: string
@@ -27,6 +33,10 @@ export default function Index() {
             name={'secondary'}
             label={'Secondary'}
           />
+          <br />
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePickerElement name={'date'} label={'Date'} />
+          </LocalizationProvider>
           <br />
           <Button type={'submit'} variant={'contained'} color={'primary'}>
             Submit
