@@ -89,6 +89,7 @@ const SelectElement = forwardRef(function SelectElement<
     rules: rulesTmp,
     disabled: rest.disabled,
     control,
+    defaultValue: rest.defaultValue as PathValue<TFieldValues, TName>,
   })
 
   const {value, onChange} = useTransform<TFieldValues, TName, TValue>({

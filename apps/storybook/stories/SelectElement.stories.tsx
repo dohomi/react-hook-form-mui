@@ -61,6 +61,15 @@ export const WithDisabledOption: Story = {
   },
 }
 
+export const WithPreselectedOption: Story = {
+  args: {
+    name: 'With preselected',
+    required: true,
+    defaultValue: options[1].id,
+    options
+  }
+}
+
 export const MonthPicker: Story = {
   args: {
     name: 'month',
