@@ -12,7 +12,7 @@ import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight'
 import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify'
 
 const meta = {
-  title: 'ToggleButtonGroupElement',
+  title: 'Radio & Sliders & Switches/ToggleButtonGroupElement',
   component: ToggleButtonGroupElement,
   decorators: [Decorator],
 } satisfies Meta<typeof ToggleButtonGroupElement>

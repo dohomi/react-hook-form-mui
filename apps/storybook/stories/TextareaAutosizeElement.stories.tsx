@@ -4,7 +4,7 @@ import {action} from '@storybook/addon-actions'
 import {SubmitButton} from '../src/Shared'
 
 const meta = {
-  title: 'TextareaAutosizeElement',
+  title: 'Text Input/TextareaAutosizeElement',
   component: TextareaAutosizeElement,
   decorators: [FormWrap],
 } satisfies Meta<typeof TextareaAutosizeElement>

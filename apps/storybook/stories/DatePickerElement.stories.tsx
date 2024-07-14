@@ -3,7 +3,7 @@ import {FormContainerDecorator} from '../src/FormDecorator'
 import {DatePickerElement} from 'react-hook-form-mui/date-pickers'
 
 const meta = {
-  title: 'DatePickerElement',
+  title: 'Date & Time/DatePickerElement',
   component: DatePickerElement,
   decorators: [FormContainerDecorator],
 } satisfies Meta<typeof DatePickerElement>

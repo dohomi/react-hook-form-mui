@@ -7,7 +7,7 @@ import LocationIcon from '@mui/icons-material/LocationOn'
 import AutoModeIcon from '@mui/icons-material/AutoMode'
 
 const meta = {
-  title: 'Autocomplete',
+  title: 'Select/Autocomplete',
   component: AutocompleteElement,
   decorators: [FormWrap],
 } satisfies Meta<typeof AutocompleteElement>

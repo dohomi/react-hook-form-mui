@@ -3,7 +3,7 @@ import {Meta, StoryObj} from '@storybook/react'
 import {FormContainerDecorator} from '../src/FormDecorator'
 
 const meta = {
-  title: 'TimePickerElement',
+  title: 'Date & Time/TimePickerElement',
   component: TimePickerElement,
   decorators: [FormContainerDecorator],
 } satisfies Meta<typeof TimePickerElement>

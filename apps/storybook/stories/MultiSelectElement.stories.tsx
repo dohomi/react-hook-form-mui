@@ -3,7 +3,7 @@ import {Meta, StoryObj} from '@storybook/react'
 import {FormContainerDecorator} from '../src/FormDecorator'
 
 const meta = {
-  title: 'MultiSelectElement',
+  title: 'Select/MultiSelectElement',
   component: MultiSelectElement,
   decorators: [FormContainerDecorator],
 } satisfies Meta<typeof MultiSelectElement>

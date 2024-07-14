@@ -5,7 +5,7 @@ import {useRef} from 'react'
 import {Button, Stack} from '@mui/material'
 
 const meta = {
-  title: 'RadioButtonGroup',
+  title: 'Radio & Sliders & Switches/RadioButtonGroup',
   component: RadioButtonGroup,
   decorators: [FormContainerDecorator],
 } satisfies Meta<typeof RadioButtonGroup>

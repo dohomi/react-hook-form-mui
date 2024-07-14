@@ -4,7 +4,7 @@ import {action} from '@storybook/addon-actions'
 import {SubmitButton} from '../src/Shared'
 
 const meta = {
-  title: 'Slider Element',
+  title: 'Radio & Sliders & Switches/SliderElement',
   component: SliderElement,
   decorators: [FormWrap],
 } satisfies Meta<typeof SliderElement>
