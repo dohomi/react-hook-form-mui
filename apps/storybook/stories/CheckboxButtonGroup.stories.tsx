@@ -3,7 +3,7 @@ import {Meta, StoryObj} from '@storybook/react'
 import {FormContainerDecorator} from '../src/FormDecorator'
 
 const meta = {
-  title: 'CheckboxButtonGroup',
+  title: 'Checkbox/CheckboxButtonGroup',
   component: CheckboxButtonGroup,
   decorators: [FormContainerDecorator],
 } satisfies Meta<typeof CheckboxButtonGroup>

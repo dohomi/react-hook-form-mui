@@ -3,9 +3,11 @@ import {Meta, StoryObj} from '@storybook/react'
 import {FormContainerDecoratorBasic} from '../src/FormDecorator'
 
 const meta = {
-  title: 'SelectElement',
+  title: 'Select/SelectElement',
   component: SelectElement,
   decorators: [FormContainerDecoratorBasic],
+  args: {sx: {minWidth: '150px'}},
+  tags: ['Select'],
 } satisfies Meta<typeof SelectElement>
 export default meta
 type Story = StoryObj<typeof meta>

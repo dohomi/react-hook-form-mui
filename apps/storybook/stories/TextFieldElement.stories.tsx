@@ -14,7 +14,7 @@ import {SubmitButton} from '../src/Shared'
 import {AccountCircle} from '@mui/icons-material'
 
 const meta = {
-  title: 'TextFieldElement',
+  title: 'Text Input/TextFieldElement',
   component: TextFieldElement,
   decorators: [FormWrap],
 } satisfies Meta<typeof TextFieldElement>

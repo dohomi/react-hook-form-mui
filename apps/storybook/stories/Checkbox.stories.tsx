@@ -5,7 +5,7 @@ import {Box, Button} from '@mui/material'
 import React from 'react'
 
 const meta = {
-  title: 'Checkbox',
+  title: 'Checkbox/Checkbox',
   component: CheckboxElement,
   decorators: [FormWrap],
 } satisfies Meta<typeof CheckboxElement>
