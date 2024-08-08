@@ -21,7 +21,10 @@ import {MouseEvent, ReactNode} from 'react'
 import {useFormError} from './FormErrorProvider'
 import {useTransform} from './useTransform'
 
-type SingleToggleButtonProps = Omit<ToggleButtonProps, 'value' | 'children'> & {
+type SingleToggleButtonProps = Omit<
+  ToggleButtonProps,
+  'id' | 'value' | 'children'
+> & {
   id: number | string
   label: ReactNode
 }
