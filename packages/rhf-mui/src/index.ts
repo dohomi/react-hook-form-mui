@@ -1,3 +1,5 @@
+'use client'
+
 export {default as TextFieldElement} from './TextFieldElement'
 export type {TextFieldElementProps} from './TextFieldElement'
 
