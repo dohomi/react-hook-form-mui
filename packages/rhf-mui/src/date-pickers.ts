@@ -1,3 +1,5 @@
+'use client'
+
 export {default as DatePickerElement} from './DatePickerElement'
 export type {DatePickerElementProps} from './DatePickerElement'
 
