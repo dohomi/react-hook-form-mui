@@ -1,8 +1,8 @@
-import {createContext, PropsWithChildren, useContext} from 'react'
+import {createContext, useContext, type PropsWithChildren, type ReactNode } from 'react'
 import {FieldError} from 'react-hook-form'
 
 export type FormErrorProviderProps = {
-  onError: (error: FieldError) => string | undefined
+  onError: (error: FieldError) => ReactNode
 }
 
 const FormErrorProviderContext = createContext<FormErrorProviderProps>({
