@@ -21,8 +21,8 @@ import {
   Ref,
   RefAttributes,
 } from 'react'
-import {useFormError} from './FormErrorProvider'
-import {useTransform} from './useTransform'
+import { useFormError } from './FormErrorProvider'
+import { useTransform } from './useTransform'
 
 export type TextareaAutosizeElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -66,7 +66,9 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     name,
     control,
     rows,
-    resizeStyle,
+    resizeStyle = 'none',
+    maxRows,
+    minRows,
     inputRef,
     inputProps,
     transform,
@@ -78,12 +80,12 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
 
   const rulesTmp = {
     ...rules,
-    ...(required && !rules.required && {required: 'This field is required'}),
+    ...(required && !rules.required && { required: 'This field is required' }),
   }
 
   const {
     field,
-    fieldState: {error},
+    fieldState: { error },
   } = useController({
     name,
     control,
@@ -91,7 +93,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     disabled: rest.disabled,
   })
 
-  const {value, onChange} = useTransform<TFieldValues, TName, TValue>({
+  const { value, onChange } = useTransform<TFieldValues, TName, TValue>({
     value: field.value,
     onChange: field.onChange,
     transform: {
@@ -99,14 +101,14 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
         typeof transform?.input === 'function'
           ? transform.input
           : (value) => {
-              return value ?? ('' as TValue)
-            },
+            return value ?? ('' as TValue)
+          },
       output:
         typeof transform?.output === 'function'
           ? transform.output
           : (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-              return event.target.value as PathValue<TFieldValues, TName>
-            },
+            return event.target.value as PathValue<TFieldValues, TName>
+          },
     },
   })
 
@@ -135,17 +137,20 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
       }
       inputRef={handleInputRef}
       multiline
-      InputProps={{
-        inputComponent: TextareaAutosize,
-        inputProps: {
-          minRows: rows,
-          style: {
-            resize: resizeStyle || 'both',
+      ref={ref}
+      slotProps={{
+        input: {
+          inputComponent: TextareaAutosize,
+          inputProps: {
+            minRows: minRows || rows,
+            maxRows: maxRows || rows,
+            style: {
+              resize: resizeStyle,
+            },
+            ...(inputProps || {}),
           },
-          ...(inputProps || {}),
         },
       }}
-      ref={ref}
     />
   )
 })
