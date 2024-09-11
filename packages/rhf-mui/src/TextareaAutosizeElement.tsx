@@ -67,6 +67,8 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     control,
     rows,
     resizeStyle,
+    maxRows,
+    minRows,
     inputRef,
     inputProps,
     transform,
@@ -135,17 +137,20 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
       }
       inputRef={handleInputRef}
       multiline
-      InputProps={{
-        inputComponent: TextareaAutosize,
-        inputProps: {
-          minRows: rows,
-          style: {
-            resize: resizeStyle || 'both',
+      ref={ref}
+      slotProps={{
+        input: {
+          inputComponent: TextareaAutosize,
+          inputProps: {
+            minRows: minRows || rows,
+            maxRows: maxRows || rows,
+            style: {
+              resize: resizeStyle,
+            },
+            ...(inputProps || {}),
           },
-          ...(inputProps || {}),
         },
       }}
-      ref={ref}
     />
   )
 })
