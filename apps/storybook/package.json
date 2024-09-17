@@ -59,6 +59,6 @@
     "react-hook-form": "7.48.2",
     "storybook": "8.0.10",
     "typescript": "5.5.3",
-    "vite": "^5.2.11"
+    "vite": "^5.2.14"
   }
 }
