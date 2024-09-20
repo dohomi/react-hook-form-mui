@@ -62,6 +62,7 @@ const TextFieldElement = forwardRef(function TextFieldElement<
     component: TextFieldComponent = TextField,
     inputRef,
     transform,
+    onBlur,
     ...rest
   } = props
 
@@ -139,7 +140,12 @@ const TextFieldElement = forwardRef(function TextFieldElement<
           rest.onChange(event)
         }
       }}
-      onBlur={field.onBlur}
+      onBlur={(event) => {
+        field.onBlur()
+        if(typeof onBlur === 'function'){
+          onBlur(event)
+        }
+      }}
       required={required}
       type={type}
       error={!!error}

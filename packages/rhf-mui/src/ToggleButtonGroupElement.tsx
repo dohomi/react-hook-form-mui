@@ -62,6 +62,7 @@ export default function ToggleButtonGroupElement<
     rules = {},
     required,
     options = [],
+    onBlur,
     parseError,
     helperText,
     formLabelProps,
@@ -133,7 +134,12 @@ export default function ToggleButtonGroupElement<
         {...toggleButtonGroupProps}
         exclusive={exclusive}
         value={value}
-        onBlur={field.onBlur}
+        onBlur={(event) => {
+          field.onBlur()
+          if(typeof onBlur === 'function'){
+            onBlur(event)
+          }
+        }}
         onChange={(event, value) => {
           if (enforceAtLeastOneSelected) {
             // don't allow unselecting the last item

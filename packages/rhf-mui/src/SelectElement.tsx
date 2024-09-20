@@ -66,6 +66,7 @@ const SelectElement = forwardRef(function SelectElement<
     control,
     inputRef,
     transform,
+    onBlur,
     ...rest
   } = props
 
@@ -127,7 +128,12 @@ const SelectElement = forwardRef(function SelectElement<
       {...rest}
       name={name}
       value={value}
-      onBlur={field.onBlur}
+      onBlur={(event) => {
+        field.onBlur()
+        if(typeof onBlur === 'function'){
+          onBlur(event)
+        }
+      }}
       ref={ref}
       onChange={(event) => {
         onChange(event)

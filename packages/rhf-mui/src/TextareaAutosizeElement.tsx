@@ -72,6 +72,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     inputRef,
     inputProps,
     transform,
+    onBlur,
     ...rest
   } = props
 
@@ -125,7 +126,12 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
           rest.onChange(event)
         }
       }}
-      onBlur={field.onBlur}
+      onBlur={(event) => {
+        field.onBlur()
+        if(typeof onBlur === 'function'){
+          onBlur(event)
+        }
+      }}
       required={required}
       error={!!error}
       helperText={
