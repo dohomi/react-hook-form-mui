@@ -82,6 +82,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
   ref: Ref<HTMLDivElement>
 ) {
   const {
+    onBlur,
     options,
     label = '',
     itemKey = 'id',
@@ -190,7 +191,12 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
         value={value}
         required={required}
         onChange={onChange}
-        onBlur={field.onBlur}
+        onBlur={(event) => {
+          field.onBlur()
+          if(typeof onBlur === 'function'){
+            onBlur(event)
+          }
+        }}
         MenuProps={{
           ...rest.MenuProps,
           slotProps: {
