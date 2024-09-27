@@ -39,7 +39,7 @@ const PasswordElement = forwardRef(function PasswordEl<
     iconColor,
     renderIcon = (password) => (password ? <Visibility /> : <VisibilityOff />),
     InputProps = {},
-    slotProps = {},
+    slotProps,
     ...rest
   } = props;
   const [password, setPassword] = useState<boolean>(true);
@@ -75,7 +75,7 @@ const PasswordElement = forwardRef(function PasswordEl<
               input: {
                 endAdornment,
                 ...InputProps,
-                ...(slotProps.input),
+                ...slotProps?.input
               },
             } as TextFieldElementProps['slotProps'],
           })}
