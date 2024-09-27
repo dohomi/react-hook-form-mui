@@ -38,7 +38,7 @@ const PasswordElement = forwardRef(function PasswordEl<
   const {
     iconColor,
     renderIcon = (password) => (password ? <Visibility /> : <VisibilityOff />),
-    InputProps,
+    InputProps = {},
     ...rest
   } = props
   const [password, setPassword] = useState<boolean>(true)
