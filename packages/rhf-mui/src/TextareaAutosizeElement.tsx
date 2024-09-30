@@ -66,10 +66,13 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     name,
     control,
     rows,
-    resizeStyle,
+    resizeStyle = 'none',
+    maxRows,
+    minRows,
     inputRef,
     inputProps,
     transform,
+    onBlur,
     ...rest
   } = props
 
@@ -123,7 +126,12 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
           rest.onChange(event)
         }
       }}
-      onBlur={field.onBlur}
+      onBlur={(event) => {
+        field.onBlur()
+        if (typeof onBlur === 'function') {
+          onBlur(event)
+        }
+      }}
       required={required}
       error={!!error}
       helperText={
@@ -135,17 +143,20 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
       }
       inputRef={handleInputRef}
       multiline
-      InputProps={{
-        inputComponent: TextareaAutosize,
-        inputProps: {
-          minRows: rows,
-          style: {
-            resize: resizeStyle || 'both',
+      ref={ref}
+      slotProps={{
+        input: {
+          inputComponent: TextareaAutosize,
+          inputProps: {
+            minRows: minRows || rows,
+            maxRows: maxRows || rows,
+            style: {
+              resize: resizeStyle,
+            },
+            ...(inputProps || {}),
           },
-          ...(inputProps || {}),
         },
       }}
-      ref={ref}
     />
   )
 })

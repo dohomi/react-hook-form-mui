@@ -45,11 +45,29 @@ export const Rows: Story = {
   },
 }
 
-export const ResizeStyle: Story = {
+export const MinMaxRows: Story = {
+  args: {
+    label: 'Min/Max Rows Textarea',
+    name: 'textarea-min-max-rows',
+    minRows: 2,
+    maxRows: 5,
+  },
+}
+
+export const VerticalResizeStyle: Story = {
   args: {
     label: 'Vertical Resize',
     name: 'textarea-vertical',
     resizeStyle: 'vertical',
+    rows: 3,
+  },
+}
+
+export const BothResizeStyle: Story = {
+  args: {
+    label: 'Both Resize',
+    name: 'textarea-both',
+    resizeStyle: 'both',
     rows: 3,
   },
 }

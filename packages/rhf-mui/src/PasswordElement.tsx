@@ -38,30 +38,47 @@ const PasswordElement = forwardRef(function PasswordEl<
   const {
     iconColor,
     renderIcon = (password) => (password ? <Visibility /> : <VisibilityOff />),
+    InputProps = {},
+    slotProps,
     ...rest
   } = props
   const [password, setPassword] = useState<boolean>(true)
+
+  const endAdornment = (
+    <InputAdornment position={'end'}>
+      <IconButton
+        onMouseDown={(e: MouseEvent<HTMLButtonElement>) => e.preventDefault()}
+        onClick={() => setPassword(!password)}
+        tabIndex={-1}
+        color={iconColor ?? 'default'}
+      >
+        {renderIcon(password)}
+      </IconButton>
+    </InputAdornment>
+  )
+
   return (
     <TextFieldElement
       {...(rest as TextFieldElementProps)}
       ref={ref}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position={'end'}>
-            <IconButton
-              onMouseDown={(e: MouseEvent<HTMLButtonElement>) =>
-                e.preventDefault()
-              }
-              onClick={() => setPassword(!password)}
-              tabIndex={-1}
-              color={iconColor ?? 'default'}
-            >
-              {renderIcon(password)}
-            </IconButton>
-          </InputAdornment>
-        ),
-      }}
       type={password ? 'password' : 'text'}
+      {...(typeof slotProps === 'undefined'
+        ? {
+            InputProps: {
+              endAdornment,
+              ...InputProps,
+            },
+          }
+        : {
+            slotProps: {
+              ...slotProps,
+              input: {
+                endAdornment,
+                ...InputProps,
+                ...slotProps?.input,
+              },
+            } as TextFieldElementProps['slotProps'],
+          })}
     />
   )
 })
