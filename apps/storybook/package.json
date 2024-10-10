@@ -41,7 +41,7 @@
     "@mui/icons-material": "6.0.1",
     "@mui/material": "6.0.1",
     "@mui/system": "6.0.1",
-    "@mui/x-date-pickers": "7.15.0",
+    "@mui/x-date-pickers": "7.17.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-hook-form-mui": "portal:../../packages/rhf-mui"

@@ -1405,12 +1405,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.25.0, @babel/runtime@npm:^7.25.4":
+"@babel/runtime@npm:^7.25.0":
   version: 7.25.6
   resolution: "@babel/runtime@npm:7.25.6"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
   checksum: 10/0c4134734deb20e1005ffb9165bf342e1074576621b246d8e5e41cc7cb315a885b7d98950fbf5c63619a2990a56ae82f444d35fe8c4691a0b70c2fe5673667dc
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.25.6":
+  version: 7.25.7
+  resolution: "@babel/runtime@npm:7.25.7"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: 10/73411fe0f1bff3a962586cef05b30f49e554b6563767e6d84f7d79d605b2c20e7fc3df291a3aebef69043181a8f893afdab9e6672557a5c2d08b9377d6f678cd
   languageName: node
   linkType: hard
 
@@ -2583,12 +2592,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/x-date-pickers@npm:7.15.0":
-  version: 7.15.0
-  resolution: "@mui/x-date-pickers@npm:7.15.0"
+"@mui/x-date-pickers@npm:7.17.0":
+  version: 7.17.0
+  resolution: "@mui/x-date-pickers@npm:7.17.0"
   dependencies:
-    "@babel/runtime": "npm:^7.25.4"
+    "@babel/runtime": "npm:^7.25.6"
     "@mui/utils": "npm:^5.16.6"
+    "@mui/x-internals": "npm:7.17.0"
     "@types/react-transition-group": "npm:^4.4.11"
     clsx: "npm:^2.1.1"
     prop-types: "npm:^15.8.1"
@@ -2626,7 +2636,19 @@ __metadata:
       optional: true
     moment-jalaali:
       optional: true
-  checksum: 10/cb8cc9d306ae5a8f3ea10fbc701c4371905421877067326829ab7e17c070aa99bd5ae2eb662b20bf50d7a639e8eebf91e3ccbda694b61c4518bed28aa1a1fd94
+  checksum: 10/90ad16ed155a43f93d6b074ba422005269e0f7055599426b102b32e2332cde5b19f9cc4cd0edd45ce77e94e5443bf0bda9b5ee2eb23f67d4ee9f54ac41c4dd61
+  languageName: node
+  linkType: hard
+
+"@mui/x-internals@npm:7.17.0":
+  version: 7.17.0
+  resolution: "@mui/x-internals@npm:7.17.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.25.6"
+    "@mui/utils": "npm:^5.16.6"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0
+  checksum: 10/92b912d955bb6c983e4aa8440581812fa42869a211530e67f00681152a9c7f29bc21fa71c746d3a5f67beb75343923b5cc9bac3c927aa530f2bf81a78df86fc0
   languageName: node
   linkType: hard
 
@@ -9566,7 +9588,7 @@ __metadata:
     "@mui/icons-material": "npm:6.0.1"
     "@mui/material": "npm:6.0.1"
     "@mui/system": "npm:6.0.1"
-    "@mui/x-date-pickers": "npm:7.15.0"
+    "@mui/x-date-pickers": "npm:7.17.0"
     "@next/bundle-analyzer": "npm:latest"
     "@types/eslint": "npm:^8"
     "@types/react": "npm:latest"
@@ -10658,7 +10680,7 @@ __metadata:
   peerDependencies:
     "@mui/icons-material": ">= 5.x <7"
     "@mui/material": ">= 5.x <7"
-    "@mui/x-date-pickers": ">=7.0.0 <8"
+    "@mui/x-date-pickers": ">=7.17.0 <8"
     react: ">=17 <19"
     react-hook-form: ">=7.33.1"
   peerDependenciesMeta:
@@ -10675,7 +10697,7 @@ __metadata:
   peerDependencies:
     "@mui/icons-material": ">= 5.x <7"
     "@mui/material": ">= 5.x <7"
-    "@mui/x-date-pickers": ">=7.0.0 <8"
+    "@mui/x-date-pickers": ">=7.17.0 <8"
     react: ">=17 <19"
     react-hook-form: ">=7.33.1"
   peerDependenciesMeta:
@@ -10697,7 +10719,7 @@ __metadata:
     "@mui/icons-material": "npm:6.0.1"
     "@mui/material": "npm:6.0.1"
     "@mui/system": "npm:6.0.1"
-    "@mui/x-date-pickers": "npm:7.15.0"
+    "@mui/x-date-pickers": "npm:7.17.0"
     "@swc/core": "npm:^1.3.17"
     "@types/react": "npm:^18.0.14"
     "@types/react-dom": "npm:^18.0.5"
@@ -10712,7 +10734,7 @@ __metadata:
   peerDependencies:
     "@mui/icons-material": ">= 5.x <7"
     "@mui/material": ">= 5.x <7"
-    "@mui/x-date-pickers": ">=7.0.0 <8"
+    "@mui/x-date-pickers": ">=7.17.0 <8"
     react: ">=17 <19"
     react-hook-form: ">=7.33.1"
   peerDependenciesMeta:
@@ -11176,7 +11198,7 @@ __metadata:
     "@mui/icons-material": "npm:6.0.1"
     "@mui/material": "npm:6.0.1"
     "@mui/system": "npm:6.0.1"
-    "@mui/x-date-pickers": "npm:7.15.0"
+    "@mui/x-date-pickers": "npm:7.17.0"
     "@storybook/addon-essentials": "npm:8.0.10"
     "@storybook/react": "npm:8.0.10"
     "@storybook/react-vite": "npm:8.0.10"
