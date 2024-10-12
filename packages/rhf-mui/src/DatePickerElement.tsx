@@ -103,6 +103,9 @@ const DatePickerElement = forwardRef(function DatePickerElement<
       }),
     validate: {
       internal: (value: TValue | null) => {
+        if(!value){
+          return true
+        }
         const internalError = validateDate({
           props: {
             shouldDisableDate: rest.shouldDisableDate,
