@@ -188,7 +188,7 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
                   onChange={() => handleChange(option)}
                 />
               }
-              label={`${optionLabel}`}
+              label={optionLabel as ReactNode}
               key={`${optionValue}`}
             />
           )
