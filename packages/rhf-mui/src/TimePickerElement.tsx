@@ -104,7 +104,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
       }),
     validate: {
       internal: (value: TValue | null) => {
-        if(!value){
+        if (!value) {
           return true
         }
         const internalError = validateTime({

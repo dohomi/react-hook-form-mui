@@ -102,7 +102,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
       }),
     validate: {
       internal: (value: TValue | null) => {
-        if(!value){
+        if (!value) {
           return true
         }
         const internalError = validateDateTime({

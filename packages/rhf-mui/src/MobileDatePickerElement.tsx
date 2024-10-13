@@ -103,7 +103,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
       }),
     validate: {
       internal: (value: TValue | null) => {
-        if(!value){
+        if (!value) {
           return true
         }
         const internalError = validateDate({
