@@ -24,6 +24,12 @@ export function getTimezone<TDate extends PickerValidDate>(
 export function readValueAsDate<TDate extends PickerValidDate>(
   adapter: ReturnType<typeof useLocalizationContext>,
   value: string | null | TDate
-): TDate | null {
-  return value && typeof value === 'string' ? adapter.utils.date(value) as TDate: null
+): TDate | null | string {
+  if(typeof value === 'string'){
+    if(value === ''){
+      return null
+    }
+    return adapter.utils.date(value) as TDate
+  }
+  return value
 }
