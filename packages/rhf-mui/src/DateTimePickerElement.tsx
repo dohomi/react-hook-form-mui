@@ -22,7 +22,7 @@ import { useFormError } from "./FormErrorProvider";
 import { forwardRef, ReactNode, Ref, RefAttributes } from "react";
 import { defaultErrorMessages } from "./messages/DateTimePicker";
 import { useTransform } from "./useTransform";
-import { getTimezone } from "./utils";
+import { getTimezone, readValueAsDate } from "./utils";
 
 export type DateTimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -102,7 +102,8 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
       }),
     validate: {
       internal: (value: TValue | null) => {
-        if(!value){
+        const date = readValueAsDate(adapter, value);
+        if(!date){
           return true
         }
         const internalError = validateDateTime({
@@ -121,8 +122,8 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
             minutesStep: rest.minutesStep,
             shouldDisableTime: rest.shouldDisableTime,
           },
-          timezone: rest.timezone ?? getTimezone(adapter, value) ?? "default",
-          value,
+          timezone: rest.timezone ?? getTimezone(adapter, date) ?? "default",
+          value: date,
           adapter,
         });
 
@@ -150,11 +151,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
       input:
         typeof transform?.input === "function"
           ? transform.input
-          : (newValue) => {
-              return newValue && typeof newValue === "string"
-                ? (adapter.utils.date(newValue) as unknown as TValue) // need to see if this works for all localization adaptors
-                : newValue;
-            },
+          : (newValue) => readValueAsDate(adapter, newValue),
       output:
         typeof transform?.output === "function"
           ? transform.output

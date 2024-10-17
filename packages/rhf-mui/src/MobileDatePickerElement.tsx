@@ -23,7 +23,7 @@ import {
   DateValidationError,
   PickerChangeHandlerContext,
 } from "@mui/x-date-pickers";
-import { getTimezone } from "./utils";
+import { getTimezone, readValueAsDate } from "./utils";
 import { PickerValidDate } from "@mui/x-date-pickers/models";
 
 export type MobileDatePickerElementProps<
@@ -103,7 +103,8 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
       }),
     validate: {
       internal: (value: TValue | null) => {
-        if(!value){
+        const date = readValueAsDate(adapter, value)
+        if(!date){
           return true
         }
         const internalError = validateDate({
@@ -116,8 +117,8 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
             minDate: rest.minDate,
             maxDate: rest.maxDate,
           },
-          timezone: rest.timezone ?? getTimezone(adapter, value) ?? "default",
-          value,
+          timezone: rest.timezone ?? getTimezone(adapter, date) ?? "default",
+          value: date,
           adapter,
         });
         return internalError == null || errorMessages[internalError];
@@ -144,11 +145,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
       input:
         typeof transform?.input === "function"
           ? transform.input
-          : (newValue) => {
-              return newValue && typeof newValue === "string"
-                ? (adapter.utils.date(newValue) as unknown as TValue) // need to see if this works for all localization adaptors
-                : newValue;
-            },
+          : (newValue) => readValueAsDate(adapter, newValue),
       output:
         typeof transform?.output === "function"
           ? transform.output

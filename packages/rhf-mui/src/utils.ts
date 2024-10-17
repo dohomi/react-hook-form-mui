@@ -1,3 +1,4 @@
+import { type PickerValidDate } from '@mui/x-date-pickers'
 import {useLocalizationContext} from '@mui/x-date-pickers/internals'
 
 export function propertyExists<X, Y extends PropertyKey>(
@@ -11,11 +12,18 @@ export function propertyExists<X, Y extends PropertyKey>(
   )
 }
 
-export function getTimezone<TDate>(
+export function getTimezone<TDate extends PickerValidDate>(
   adapter: ReturnType<typeof useLocalizationContext>,
   value: TDate
 ): string | null {
   return value == null || !adapter.utils.isValid(value as unknown as Date)
     ? null
     : adapter.utils.getTimezone(value as unknown as Date)
+}
+
+export function readValueAsDate<TDate extends PickerValidDate>(
+  adapter: ReturnType<typeof useLocalizationContext>,
+  value: string | null | TDate
+): TDate | null {
+  return value && typeof value === 'string' ? adapter.utils.date(value) as TDate: null
 }
