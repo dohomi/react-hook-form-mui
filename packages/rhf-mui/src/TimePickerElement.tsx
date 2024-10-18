@@ -1,7 +1,9 @@
 import {
+  PickerChangeHandlerContext,
   TimePicker,
   TimePickerProps,
   TimePickerSlotProps,
+  TimeValidationError,
   validateTime,
 } from '@mui/x-date-pickers'
 import {
@@ -19,11 +21,7 @@ import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {useLocalizationContext} from '@mui/x-date-pickers/internals'
 import {defaultErrorMessages} from './messages/TimePicker'
 import {useTransform} from './useTransform'
-import {
-  PickerChangeHandlerContext,
-  TimeValidationError,
-} from '@mui/x-date-pickers'
-import {getTimezone} from './utils'
+import {getTimezone, readValueAsDate} from './utils'
 import {PickerValidDate} from '@mui/x-date-pickers/models'
 
 export type TimePickerElementProps<
@@ -104,7 +102,8 @@ const TimePickerElement = forwardRef(function TimePickerElement<
       }),
     validate: {
       internal: (value: TValue | null) => {
-        if (!value) {
+        const date = readValueAsDate(adapter, value)
+        if (!date) {
           return true
         }
         const internalError = validateTime({
@@ -118,7 +117,8 @@ const TimePickerElement = forwardRef(function TimePickerElement<
             disablePast: Boolean(rest.disablePast),
             disableFuture: Boolean(rest.disableFuture),
           },
-          timezone: rest.timezone ?? getTimezone(adapter, value) ?? 'default',
+
+          timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value,
           adapter,
         })
@@ -146,11 +146,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
       input:
         typeof transform?.input === 'function'
           ? transform.input
-          : (newValue) => {
-              return newValue && typeof newValue === 'string'
-                ? (adapter.utils.date(newValue) as unknown as TValue) // need to see if this works for all localization adaptors
-                : newValue
-            },
+          : (newValue) => readValueAsDate(adapter, newValue),
       output:
         typeof transform?.output === 'function'
           ? transform.output
