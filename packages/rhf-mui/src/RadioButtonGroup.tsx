@@ -46,6 +46,7 @@ export type RadioButtonGroupProps<
   control?: Control<TFieldValues>
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control' | 'value'>
   formLabelProps?: Omit<FormLabelProps, 'required' | 'error'>
+  radioProps?: RadioGroupProps
   disabled?: boolean
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue
@@ -90,6 +91,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
     labelProps,
     disabled,
     formLabelProps,
+    radioProps,
     transform,
     rules = {},
     ...rest
@@ -165,6 +167,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
             {...labelProps}
             control={
               <Radio
+               {...radioProps}
                 sx={{
                   color: error ? theme.palette.error.main : undefined,
                 }}
@@ -194,6 +197,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
               {...labelProps}
               control={
                 <Radio
+                  {...radioProps}
                   sx={{
                     color: error ? theme.palette.error.main : undefined,
                   }}
