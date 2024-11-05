@@ -17,7 +17,7 @@ import {
   FormLabelProps,
   Radio,
   RadioGroup,
-  RadioGroupProps,
+  RadioProps,
   useTheme,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
@@ -46,7 +46,7 @@ export type RadioButtonGroupProps<
   control?: Control<TFieldValues>
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control' | 'value'>
   formLabelProps?: Omit<FormLabelProps, 'required' | 'error'>
-  radioProps?: RadioGroupProps
+  radioProps?: RadioProps
   disabled?: boolean
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue
