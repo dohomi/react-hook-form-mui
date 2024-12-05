@@ -261,7 +261,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
         inputRef={handleInputRef}
       >
         {options.map((item) => {
-          const val: string | number = item[itemValue || itemKey] || item
+          const val: string | number = item[itemValue || itemKey] ?? item
           const isChecked = Array.isArray(value)
             ? value.some((v) => v === val)
             : false

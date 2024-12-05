@@ -108,10 +108,10 @@ export const WithCheckbox: Story = {
 }
 
 const objectVals = [
-  {id: 1, name: 'Alpha'},
-  {id: 2, name: 'Beta'},
-  {id: 3, name: 'Celsius'},
-  {id: 4, name: 'Delta'},
+  {id: 0, name: 'Alpha'},
+  {id: 1, name: 'Beta'},
+  {id: 2, name: 'Celsius'},
+  {id: 3, name: 'Delta'},
 ]
 
 export const WithObjectArray: Story = {
