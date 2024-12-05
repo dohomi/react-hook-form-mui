@@ -17,6 +17,7 @@ import {
   FormLabelProps,
   Radio,
   RadioGroup,
+  RadioGroupProps,
   RadioProps,
   useTheme,
 } from '@mui/material'
@@ -167,7 +168,7 @@ const RadioButtonGroup = forwardRef(function RadioButtonGroup<
             {...labelProps}
             control={
               <Radio
-               {...radioProps}
+                {...radioProps}
                 sx={{
                   color: error ? theme.palette.error.main : undefined,
                 }}

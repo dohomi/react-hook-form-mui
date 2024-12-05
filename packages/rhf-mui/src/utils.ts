@@ -1,4 +1,4 @@
-import { type PickerValidDate } from '@mui/x-date-pickers'
+import {type PickerValidDate} from '@mui/x-date-pickers'
 import {useLocalizationContext} from '@mui/x-date-pickers/internals'
 
 export function propertyExists<X, Y extends PropertyKey>(
@@ -25,8 +25,8 @@ export function readValueAsDate<TDate extends PickerValidDate>(
   adapter: ReturnType<typeof useLocalizationContext>,
   value: string | null | TDate
 ): TDate | null {
-  if(typeof value === 'string'){
-    if(value === ''){
+  if (typeof value === 'string') {
+    if (value === '') {
       return null
     }
     return adapter.utils.date(value) as TDate
