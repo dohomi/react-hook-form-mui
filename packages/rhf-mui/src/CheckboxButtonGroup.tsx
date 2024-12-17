@@ -66,7 +66,7 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
   TValue = unknown,
 >(
   props: CheckboxButtonGroupProps<TFieldValues, TName, TValue>,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLFieldSetElement>
 ) {
   const {
     helperText,
@@ -155,8 +155,13 @@ const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
     : helperText
 
   return (
-    <FormControl error={invalid} required={required} ref={ref}>
-      {label ? <FormLabel>{label}</FormLabel> : null}
+    <FormControl
+      error={invalid}
+      required={required}
+      ref={ref}
+      component="fieldset"
+    >
+      {label ? <FormLabel component="legend">{label}</FormLabel> : null}
       <FormGroup row={row}>
         {options.map((option) => {
           const optionValue = propertyExists(option, valueKey)
