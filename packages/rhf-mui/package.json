@@ -74,7 +74,7 @@
     "react": "18.3.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "18.3.1",
-    "react-hook-form": "7.48.2",
+    "react-hook-form": "7.54.2",
     "release": "^6.3.1",
     "tsup": "^6.1.2",
     "typescript": "5.5.3"
