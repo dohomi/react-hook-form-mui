@@ -1,5 +1,6 @@
 import {FormEventHandler, FormHTMLAttributes, PropsWithChildren} from 'react'
 import {
+  FieldValues,
   FormProvider,
   SubmitErrorHandler,
   SubmitHandler,
@@ -7,7 +8,6 @@ import {
   UseFormProps,
   UseFormReturn,
 } from 'react-hook-form'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
 
 export type FormContainerProps<T extends FieldValues = FieldValues> =
   PropsWithChildren<

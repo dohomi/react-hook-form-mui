@@ -9707,7 +9707,7 @@ __metadata:
     next: "npm:14.2.10"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
-    react-hook-form: "npm:7.48.2"
+    react-hook-form: "npm:7.54.2"
     react-hook-form-mui: "portal:../../packages/rhf-mui"
     typescript: "npm:5.5.3"
   languageName: unknown
@@ -10835,7 +10835,7 @@ __metadata:
     react: "npm:18.3.1"
     react-docgen-typescript-loader: "npm:^3.7.2"
     react-dom: "npm:18.3.1"
-    react-hook-form: "npm:7.48.2"
+    react-hook-form: "npm:7.54.2"
     release: "npm:^6.3.1"
     tsup: "npm:^6.1.2"
     typescript: "npm:5.5.3"
@@ -10853,12 +10853,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"react-hook-form@npm:7.48.2":
-  version: 7.48.2
-  resolution: "react-hook-form@npm:7.48.2"
+"react-hook-form@npm:7.54.2":
+  version: 7.54.2
+  resolution: "react-hook-form@npm:7.54.2"
   peerDependencies:
-    react: ^16.8.0 || ^17 || ^18
-  checksum: 10/6cb494f359675e78c14c49a33d1c568df1a03db4c750eab18d6554e622fd64e04195c57efa138db03f8988587d132c57d2a7f5f3dd9157be996cc9acd4362170
+    react: ^16.8.0 || ^17 || ^18 || ^19
+  checksum: 10/b156d15b6246c76d0275e5722d9056014693e014d0e3dec06e44bf2672ee549aaba4366de5144d18c4cab29e631f3b2b84269d4fd5727ca17aad9b970fde6960
   languageName: node
   linkType: hard
 
@@ -11316,7 +11316,7 @@ __metadata:
     date-fns: "npm:3.6.0"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
-    react-hook-form: "npm:7.48.2"
+    react-hook-form: "npm:7.54.2"
     react-hook-form-mui: "portal:../../packages/rhf-mui"
     storybook: "npm:8.0.10"
     typescript: "npm:5.5.3"

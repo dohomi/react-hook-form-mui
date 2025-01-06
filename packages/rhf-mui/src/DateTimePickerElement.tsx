@@ -12,12 +12,12 @@ import {
   Control,
   FieldError,
   FieldPath,
+  FieldValues,
   PathValue,
   useController,
   UseControllerProps,
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
-import {FieldValues} from 'react-hook-form/dist/types/fields'
 import {useFormError} from './FormErrorProvider'
 import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
 import {defaultErrorMessages} from './messages/DateTimePicker'
