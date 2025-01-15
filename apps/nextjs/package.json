@@ -11,18 +11,18 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
-    "@emotion/cache": "11.11.0",
-    "@emotion/react": "11.11.4",
+    "@emotion/cache": "11.14.0",
+    "@emotion/react": "11.14.0",
     "@emotion/server": "11.11.0",
-    "@emotion/styled": "11.11.5",
-    "@mui/icons-material": "6.0.1",
-    "@mui/material": "6.0.1",
-    "@mui/system": "6.0.1",
-    "@mui/x-date-pickers": "7.17.0",
+    "@emotion/styled": "11.14.0",
+    "@mui/icons-material": "6.4.0",
+    "@mui/material": "6.4.0",
+    "@mui/system": "6.4.0",
+    "@mui/x-date-pickers": "7.23.6",
     "eslint": "^8",
-    "next": "14.2.21",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "next": "15.1.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-hook-form": "7.54.2",
     "react-hook-form-mui": "portal:../../packages/rhf-mui"
   },
@@ -32,7 +32,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "cross-env": "latest",
-    "eslint-config-next": "14.2.4",
+    "eslint-config-next": "15.1.4",
     "typescript": "5.5.3"
   }
 }
