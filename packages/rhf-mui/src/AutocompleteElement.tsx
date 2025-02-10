@@ -282,7 +282,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
         (showCheckbox
           ? (props, option, {selected}) => {
               return (
-                <li {...props}>
+                <li {...props} key={props.key}>
                   <Checkbox sx={{marginRight: 1}} checked={selected} />
                   {getOptionLabel(option)}
                 </li>
