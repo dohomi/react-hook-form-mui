@@ -224,7 +224,7 @@ const MultiSelectElement = forwardRef(function MultiSelectElement<
             ? rest.renderValue
             : showChips
               ? (selected) => (
-                  <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                  <div style={{display: 'flex', flexWrap: 'wrap', gap: '4px'}}>
                     {(preserveOrder
                       ? options.filter((option) =>
                           (selected as any[]).includes(option)
