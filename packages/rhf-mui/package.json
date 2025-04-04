@@ -55,8 +55,8 @@
     "npmPublish": "npm publish"
   },
   "peerDependencies": {
-    "@mui/icons-material": ">= 5.x <7",
-    "@mui/material": ">= 5.x <7",
+    "@mui/icons-material": ">= 5.x <8",
+    "@mui/material": ">= 5.x <8",
     "@mui/x-date-pickers": ">=7.17.0 <8",
     "react": ">=17 <20",
     "react-hook-form": ">=7.33.1"
@@ -74,10 +74,10 @@
     "@emotion/react": "11.14.0",
     "@emotion/server": "11.11.0",
     "@emotion/styled": "11.14.0",
-    "@mui/icons-material": "6.4.0",
-    "@mui/material": "6.4.0",
-    "@mui/system": "6.4.0",
-    "@mui/x-date-pickers": "7.23.6",
+    "@mui/icons-material": "7.0.1",
+    "@mui/material": "7.0.1",
+    "@mui/system": "7.0.1",
+    "@mui/x-date-pickers": "7.28.3",
     "@swc/core": "^1.3.17",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
