@@ -8380,7 +8380,7 @@ __metadata:
     react-hook-form-mui: "portal:../../packages/rhf-mui"
     storybook: "npm:8.4.7"
     typescript: "npm:5.5.3"
-    vite: "npm:^5.2.14"
+    vite: "npm:^5.4.17"
   languageName: unknown
   linkType: soft
 
@@ -9840,9 +9840,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.2.14":
-  version: 5.4.6
-  resolution: "vite@npm:5.4.6"
+"vite@npm:^5.4.17":
+  version: 5.4.17
+  resolution: "vite@npm:5.4.17"
   dependencies:
     esbuild: "npm:^0.21.3"
     fsevents: "npm:~2.3.3"
@@ -9879,7 +9879,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/8489fa55c48675fc12b64bf7af58b5e2f8a11b2aebc63cb177861bd53dc196d7c496d6918f5a8c48828f51b6fe498166a1a2350334bbfaae10d015a0c71f1c77
+  checksum: 10/95b2f94d378305cf8a4fadb40f96da3e59593188733738c486252ecb67ac6439100a44ec9170b66fa319b4d61eea161800e610a0499e61bf110ae6e7e6f233f0
   languageName: node
   linkType: hard
 
