@@ -47,6 +47,7 @@ const PasswordElement = forwardRef(function PasswordEl<
   const endAdornment = (
     <InputAdornment position={'end'}>
       <IconButton
+        aria-label={password ? 'Hide password' : 'Show password'}
         onMouseDown={(e: MouseEvent<HTMLButtonElement>) => e.preventDefault()}
         onClick={() => setPassword(!password)}
         tabIndex={-1}

@@ -4,14 +4,14 @@
   "repository": "https://github.com/dohomi/react-hook-form-mui",
   "homepage": "https://react-hook-form-material-ui.vercel.app",
   "keywords": [
-	"react",
-	"mui",
-	"material-ui",
-	"react-hook-form"
+    "react",
+    "mui",
+    "material-ui",
+    "react-hook-form"
   ],
   "workspaces": [
-	"apps/*",
-	"packages/*"
+    "apps/*",
+    "packages/*"
   ],
   "name": "react-hook-form-mui",
   "author": "Dominic Garms",
@@ -20,74 +20,74 @@
   "module": "dist/esm/index.js",
   "typings": "dist/index.d.ts",
   "files": [
-	"dist/**",
-	"src/**"
+    "dist/**",
+    "src/**"
   ],
   "exports": {
-	"./package.json": "./package.json",
-	".": {
-	  "types": "./dist/index.d.ts",
-	  "import": "./dist/esm/index.js",
-	  "require": "./dist/index.js"
-	},
-	"./date-fns": {
-	  "types": "./dist/date-fns.d.ts",
-	  "import": "./dist/esm/date-fns.js",
-	  "require": "./dist/date-fns.js"
-	},
-	"./date-pickers": {
-	  "types": "./dist/date-pickers.d.ts",
-	  "import": "./dist/esm/date-pickers.js",
-	  "require": "./dist/date-pickers.js"
-	}
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    },
+    "./date-fns": {
+      "types": "./dist/date-fns.d.ts",
+      "import": "./dist/esm/date-fns.js",
+      "require": "./dist/date-fns.js"
+    },
+    "./date-pickers": {
+      "types": "./dist/date-pickers.d.ts",
+      "import": "./dist/esm/date-pickers.js",
+      "require": "./dist/date-pickers.js"
+    }
   },
   "engines": {
-	"node": ">=14"
+    "node": ">=14"
   },
   "scripts": {
-	"prepare": "npm run build",
-	"check-types": "tsc --noemit",
-	"build": "tsup src/index.ts src/date-fns.ts src/date-pickers.ts --clean --format esm,cjs --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
-	"watch": "tsup src/index.ts src/date-fns.ts src/date-pickers.ts --clean --format esm,cjs --watch --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
-	"release-minor": "npm run build && npm run check-types && release minor",
-	"release-patch": "npm run build && npm run check-types && release patch",
-	"release-major": "npm run build && npm run check-types && release major",
-	"npmPublish": "npm publish"
+    "prepare": "npm run build",
+    "check-types": "tsc --noemit",
+    "build": "tsup src/index.ts src/date-fns.ts src/date-pickers.ts --clean --format esm,cjs --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
+    "watch": "tsup src/index.ts src/date-fns.ts src/date-pickers.ts --clean --format esm,cjs --watch --dts --external react --inject ./react-shim.js --legacy-output --minify --sourcemap",
+    "release-minor": "npm run build && npm run check-types && release minor",
+    "release-patch": "npm run build && npm run check-types && release patch",
+    "release-major": "npm run build && npm run check-types && release major",
+    "npmPublish": "npm publish"
   },
   "peerDependencies": {
-	"@mui/icons-material": ">= 5.x <7",
-	"@mui/material": ">= 5.x <7",
-	"@mui/x-date-pickers": ">=7.17.0 <8",
-	"react": ">=17 <20",
-	"react-hook-form": ">=7.33.1"
+    "@mui/icons-material": ">= 5.x <8",
+    "@mui/material": ">= 5.x <8",
+    "@mui/x-date-pickers": ">=7.17.0 <8",
+    "react": ">=17 <20",
+    "react-hook-form": ">=7.33.1"
   },
   "peerDependenciesMeta": {
-	"@mui/icons-material": {
-	  "optional": true
-	},
-	"@mui/x-date-pickers": {
-	  "optional": true
-	}
+    "@mui/icons-material": {
+      "optional": true
+    },
+    "@mui/x-date-pickers": {
+      "optional": true
+    }
   },
   "devDependencies": {
-	"@emotion/cache": "11.14.0",
-	"@emotion/react": "11.14.0",
-	"@emotion/server": "11.11.0",
-	"@emotion/styled": "11.14.0",
-	"@mui/icons-material": "6.4.0",
-	"@mui/material": "6.4.0",
-	"@mui/system": "6.4.0",
-	"@mui/x-date-pickers": "7.23.6",
-	"@swc/core": "^1.3.17",
-	"@types/react": "^18.0.14",
-	"@types/react-dom": "^18.0.5",
-	"date-fns": "4.1.0",
-	"react": "19.0.0",
-	"react-docgen-typescript-loader": "^3.7.2",
-	"react-dom": "19.0.0",
-	"react-hook-form": "7.54.2",
-	"release": "^6.3.1",
-	"tsup": "^6.1.2",
-	"typescript": "5.5.3"
+    "@emotion/cache": "11.14.0",
+    "@emotion/react": "11.14.0",
+    "@emotion/server": "11.11.0",
+    "@emotion/styled": "11.14.0",
+    "@mui/icons-material": "7.0.1",
+    "@mui/material": "7.0.1",
+    "@mui/system": "7.0.1",
+    "@mui/x-date-pickers": "7.28.3",
+    "@swc/core": "^1.3.17",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "date-fns": "4.1.0",
+    "react": "19.0.0",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "react-dom": "19.0.0",
+    "react-hook-form": "7.54.2",
+    "release": "^6.3.1",
+    "tsup": "^6.1.2",
+    "typescript": "5.5.3"
   }
 }

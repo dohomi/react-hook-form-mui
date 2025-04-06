@@ -163,37 +163,58 @@ const MySubmit = () => {
 This project uses `tsup` to wrap the package for `npm`.
 
 
-### Support Maintanance
+### Support Maintenance
 If you find this package useful consider a small contribution:
 [Buy Me A Coffee](https://www.buymeacoffee.com/dohomi)
 
+---
+
 ### Contributing
 
-Make sure you're running Node.js 20
+Make sure you're running **Node.js 20**
 
-1. Clone this repository
+1. **Fork this repository**
+
+Click the **“Fork”** button on the top-right of the repo:  
+👉 [https://github.com/dohomi/react-hook-form-mui](https://github.com/dohomi/react-hook-form-mui)
+
+2. **Clone your forked repository**
+
+Replace `<your-username>` with your GitHub username:
 
 ```bash
-git clone https://github.com/dohomi/react-hook-form-mui.git
+git clone https://github.com/<your-username>/react-hook-form-mui.git
 cd react-hook-form-mui
 ```
 
-2. Install dependencies
+Optional (but recommended): Add the original repo as a remote named `upstream`:
+
+```bash
+git remote add upstream https://github.com/dohomi/react-hook-form-mui.git
+```
+
+3. **Install dependencies**
 
 ```bash
 yarn
 ```
 
-3. Build the project
+4. **Build the project**
 
 ```bash
 yarn build
 ```
 
-4. Run the storybook
+5. **Run the Storybook**
 
 ```bash
 yarn sb-start
 ```
 
-Changes to storybook stories can be made in `apps/storybook/stories`. Changes to the library can be made in `packages/rhf-mui`.
+6. **Make your changes**
+- Changes to storybook stories can be made in `apps/storybook/stories`. 
+- Changes to the library can be made in `packages/rhf-mui`.
+
+7. **Push to a branch on your fork and open a Pull Request**
+
+After pushing, GitHub will show a **“Compare & pull request”** button.
