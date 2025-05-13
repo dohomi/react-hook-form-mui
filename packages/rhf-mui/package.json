@@ -57,7 +57,7 @@
   "peerDependencies": {
     "@mui/icons-material": ">= 5.x <8",
     "@mui/material": ">= 5.x <8",
-    "@mui/x-date-pickers": ">=7.17.0 <9",
+    "@mui/x-date-pickers": ">=7.17.0 <8",
     "react": ">=17 <20",
     "react-hook-form": ">=7.33.1"
   },
