@@ -38,7 +38,7 @@ export type AutocompleteElementProps<
   Multiple extends boolean | undefined,
   DisableClearable extends boolean | undefined,
   FreeSolo extends boolean | undefined,
-  ChipComponent extends React.ElementType = ChipTypeMap["defaultComponent"],
+  ChipComponent extends ElementType = ChipTypeMap["defaultComponent"],
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 > = {
@@ -80,10 +80,10 @@ export type AutocompleteElementProps<
 
 type AutocompleteElementComponent = <
   TValue,
-  Multiple extends boolean | undefined,
-  DisableClearable extends boolean | undefined,
-  FreeSolo extends boolean | undefined,
-  ChipComponent extends React.ElementType = ChipTypeMap["defaultComponent"],
+  Multiple extends boolean | undefined = false,
+  DisableClearable extends boolean | undefined = false,
+  FreeSolo extends boolean | undefined = false,
+  ChipComponent extends ElementType = ChipTypeMap["defaultComponent"],
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 >(
@@ -101,10 +101,10 @@ type AutocompleteElementComponent = <
 
 const AutocompleteElement = forwardRef(function AutocompleteElement<
   TValue,
-  Multiple extends boolean | undefined,
-  DisableClearable extends boolean | undefined,
-  FreeSolo extends boolean | undefined,
-  ChipComponent extends React.ElementType = ChipTypeMap["defaultComponent"],
+  Multiple extends boolean | undefined = false,
+  DisableClearable extends boolean | undefined = false,
+  FreeSolo extends boolean | undefined = false,
+  ChipComponent extends ElementType = ChipTypeMap["defaultComponent"],
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
 >(
