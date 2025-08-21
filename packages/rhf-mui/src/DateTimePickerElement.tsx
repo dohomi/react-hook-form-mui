@@ -29,7 +29,7 @@ export type DateTimePickerElementProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
   TEnableAccessibleFieldDOMStructure extends boolean = false,
-> = Omit<DateTimePickerProps<TValue>, 'value' | 'slotProps'> & {
+> = Omit<DateTimePickerProps, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
   isDate?: boolean
@@ -40,7 +40,7 @@ export type DateTimePickerElementProps<
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
   slotProps?: Omit<
-    DateTimePickerSlotProps<TValue, TEnableAccessibleFieldDOMStructure>,
+    DateTimePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
     'textField'
   >
   overwriteErrorMessages?: typeof defaultErrorMessages
@@ -103,7 +103,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
     validate: {
       internal: (value: TValue | null) => {
         const date = readValueAsDate(adapter, value)
-        if (!date) {
+        if (!date || !rest.minDate || !rest.maxDate) {
           return true
         }
         const internalError = validateDateTime({
@@ -125,7 +125,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
 
           timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value: date,
-          adapter,
+          adapter: adapter.adapter,
         })
 
         return internalError == null || errorMessages[internalError]
