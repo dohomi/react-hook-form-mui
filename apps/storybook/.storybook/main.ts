@@ -7,17 +7,15 @@ import {StorybookConfig} from '@storybook/react-vite'
 
 const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: [getAbsolutePath('@storybook/addon-essentials')],
+  addons: [getAbsolutePath("@storybook/addon-docs")],
+
   // core: {
   //     builder: '@storybook/react-vite'
   // },
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
-  },
-  docs: {
-    autodocs: true,
-  },
+  }
 }
 export default config
 

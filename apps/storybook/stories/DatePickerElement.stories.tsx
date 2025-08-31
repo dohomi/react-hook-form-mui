@@ -1,4 +1,4 @@
-import {Meta, StoryObj} from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react-vite'
 import {FormContainerDecorator} from '../src/FormDecorator'
 import {DatePickerElement} from 'react-hook-form-mui/date-pickers'
 

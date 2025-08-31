@@ -1,5 +1,5 @@
 import {RadioButtonGroup} from 'react-hook-form-mui'
-import {Meta, StoryObj} from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react-vite'
 import {FormContainerDecorator} from '../src/FormDecorator'
 import {useRef} from 'react'
 import {Button, Stack} from '@mui/material'

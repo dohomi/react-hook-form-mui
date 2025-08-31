@@ -34,13 +34,14 @@
     "upgrade:mui": "yarn up '@mui/*' date-fns '@emotion/*' -E",
     "upgrade:next": "yarn up next eslint-config-next -E",
     "upgrade:react": "yarn up react react-dom -E",
+    "upgrade:vite": "yarn up vite -E",
     "test": "cd apps/storybook && yarn chromatic"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.2",
     "release": "^6.3.1",
     "simple-git-hooks": "^2.8.1",
-    "typescript": "5.5.3"
+    "typescript": "5.9.2"
   },
   "packageManager": "yarn@4.2.1",
   "lint-staged": {

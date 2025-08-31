@@ -29,7 +29,7 @@ export type MobileDatePickerElementProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
   TEnableAccessibleFieldDOMStructure extends boolean = false,
-> = Omit<MobileDatePickerProps<TValue>, 'value' | 'slotProps'> & {
+> = Omit<MobileDatePickerProps, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
   isDate?: boolean
@@ -39,7 +39,7 @@ export type MobileDatePickerElementProps<
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   slotProps?: Omit<
-    MobileDatePickerSlotProps<TValue, TEnableAccessibleFieldDOMStructure>,
+    MobileDatePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
     'textField'
   >
   overwriteErrorMessages?: typeof defaultErrorMessages
@@ -112,12 +112,12 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
             shouldDisableYear: rest.shouldDisableYear,
             disablePast: Boolean(rest.disablePast),
             disableFuture: Boolean(rest.disableFuture),
-            minDate: rest.minDate,
-            maxDate: rest.maxDate,
+            minDate: rest.minDate ?? adapter.defaultDates.minDate,
+            maxDate: rest.maxDate ?? adapter.defaultDates.maxDate,
           },
           timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value: date,
-          adapter,
+          adapter: adapter.adapter,
         })
         return internalError == null || errorMessages[internalError]
       },

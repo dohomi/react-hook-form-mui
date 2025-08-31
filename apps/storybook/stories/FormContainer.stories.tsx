@@ -13,8 +13,8 @@ import {
 } from 'react-hook-form-mui'
 import {useForm, useWatch} from 'react-hook-form'
 import {Button, Stack} from '@mui/material'
-import {action} from '@storybook/addon-actions'
-import {Meta, StoryObj} from '@storybook/react'
+import {action} from 'storybook/actions'
+import {Meta, StoryObj} from '@storybook/react-vite'
 import {DateFnsProvider} from 'react-hook-form-mui/date-fns'
 import {DatePickerElement} from 'react-hook-form-mui/date-pickers'
 

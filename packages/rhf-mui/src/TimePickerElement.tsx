@@ -29,7 +29,7 @@ export type TimePickerElementProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
   TEnableAccessibleFieldDOMStructure extends boolean = false,
-> = Omit<TimePickerProps<TValue>, 'value' | 'renderInput'> & {
+> = Omit<TimePickerProps, 'value' | 'renderInput'> & {
   name: TName
   required?: boolean
   isDate?: boolean
@@ -40,7 +40,7 @@ export type TimePickerElementProps<
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
   slotProps?: Omit<
-    TimePickerSlotProps<TValue, TEnableAccessibleFieldDOMStructure>,
+    TimePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
     'textField'
   >
   overwriteErrorMessages?: typeof defaultErrorMessages
@@ -120,7 +120,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
 
           timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value,
-          adapter,
+          adapter: adapter.adapter,
         })
         return internalError == null || errorMessages[internalError]
       },

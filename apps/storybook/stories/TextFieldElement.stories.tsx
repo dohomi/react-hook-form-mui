@@ -1,4 +1,4 @@
-import {action} from '@storybook/addon-actions'
+import {action} from 'storybook/actions'
 import {InputAdornment, Stack} from '@mui/material'
 import {FieldError} from 'react-hook-form'
 import {
@@ -9,7 +9,7 @@ import {
   PasswordRepeatElement,
   TextFieldElement,
 } from 'react-hook-form-mui'
-import {Meta, StoryObj} from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react-vite'
 import {SubmitButton} from '../src/Shared'
 import {AccountCircle} from '@mui/icons-material'
 

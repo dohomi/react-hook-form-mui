@@ -1,5 +1,5 @@
 import {CheckboxButtonGroup} from 'react-hook-form-mui'
-import {Meta, StoryObj} from '@storybook/react'
+import {Meta, StoryObj} from '@storybook/react-vite'
 import {FormContainerDecorator} from '../src/FormDecorator'
 
 const meta = {

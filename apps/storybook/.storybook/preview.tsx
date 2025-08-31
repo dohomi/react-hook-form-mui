@@ -1,4 +1,4 @@
-import {Preview} from '@storybook/react'
+import {Preview} from '@storybook/react-vite'
 import {createTheme, ThemeProvider} from '@mui/material'
 import React from 'react';
 
@@ -12,6 +12,7 @@ const preview: Preview = {
       </ThemeProvider>
     ),
   ],
+
   parameters: {
     options: {
       storySort: {
@@ -20,6 +21,8 @@ const preview: Preview = {
       }
     },
   },
+
+  tags: ['autodocs']
 }
 
 export default preview;
