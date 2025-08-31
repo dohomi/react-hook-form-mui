@@ -29,7 +29,7 @@ export type MobileDatePickerElementProps<
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
   TEnableAccessibleFieldDOMStructure extends boolean = false,
-> = Omit<MobileDatePickerProps<TValue>, 'value' | 'slotProps'> & {
+> = Omit<MobileDatePickerProps, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
   isDate?: boolean
@@ -39,7 +39,7 @@ export type MobileDatePickerElementProps<
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   slotProps?: Omit<
-    MobileDatePickerSlotProps<TValue, TEnableAccessibleFieldDOMStructure>,
+    MobileDatePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
     'textField'
   >
   overwriteErrorMessages?: typeof defaultErrorMessages
@@ -102,7 +102,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
     validate: {
       internal: (value: TValue | null) => {
         const date = readValueAsDate(adapter, value)
-        if (!date) {
+        if (!date || !rest.minDate || !rest.maxDate) {
           return true
         }
         const internalError = validateDate({
@@ -117,7 +117,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
           },
           timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value: date,
-          adapter,
+          adapter: adapter.adapter,
         })
         return internalError == null || errorMessages[internalError]
       },
