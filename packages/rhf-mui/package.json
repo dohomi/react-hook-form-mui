@@ -87,7 +87,7 @@
     "react-dom": "19.1.1",
     "react-hook-form": "7.62.0",
     "release": "^6.3.1",
-    "tsup": "^6.1.2",
+    "tsup": "^8.5.0",
     "typescript": "5.9.2"
   }
 }
