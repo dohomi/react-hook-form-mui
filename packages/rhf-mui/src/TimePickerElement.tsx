@@ -1,11 +1,10 @@
 import {
-  PickerChangeHandlerContext,
-  TimePicker,
-  TimePickerProps,
-  TimePickerSlotProps,
-  TimeValidationError,
-  validateTime,
-} from '@mui/x-date-pickers'
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {
   Control,
   FieldError,
@@ -16,19 +15,21 @@ import {
   UseControllerProps,
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
-import {useFormError} from './FormErrorProvider'
 import {
-  forwardRef,
-  type ReactElement,
-  ReactNode,
-  Ref,
-  RefAttributes,
-} from 'react'
-import {useLocalizationContext} from '@mui/x-date-pickers/internals'
+  PickerChangeHandlerContext,
+  TimePicker,
+  TimePickerProps,
+  TimePickerSlotProps,
+  TimeValidationError,
+  usePickerAdapter,
+  validateTime,
+} from '@mui/x-date-pickers'
+import {PickerValidDate} from '@mui/x-date-pickers/models'
+import {useApplyDefaultValuesToTimeValidationProps} from '@mui/x-date-pickers/internals'
+import {useFormError} from './FormErrorProvider'
 import {defaultErrorMessages} from './messages/TimePicker'
 import {useTransform} from './useTransform'
 import {getTimezone, readValueAsDate} from './utils'
-import {PickerValidDate} from '@mui/x-date-pickers/models'
 
 export type TimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -91,7 +92,8 @@ const TimePickerElement = forwardRef(function TimePickerElement<
     ...rest
   } = props
 
-  const adapter = useLocalizationContext()
+  const adapter = usePickerAdapter()
+  const validationProps = useApplyDefaultValuesToTimeValidationProps(rest)
 
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
@@ -120,13 +122,12 @@ const TimePickerElement = forwardRef(function TimePickerElement<
             shouldDisableTime: rest.shouldDisableTime,
             disableIgnoringDatePartForTimeValidation:
               rest.disableIgnoringDatePartForTimeValidation,
-            disablePast: Boolean(rest.disablePast),
-            disableFuture: Boolean(rest.disableFuture),
+            ...validationProps,
           },
 
           timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value,
-          adapter: adapter.adapter,
+          adapter: adapter,
         })
         return internalError == null || errorMessages[internalError]
       },

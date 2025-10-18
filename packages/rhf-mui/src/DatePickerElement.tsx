@@ -1,3 +1,4 @@
+import {forwardRef, ReactNode, Ref, RefAttributes, type ReactElement} from 'react'
 import {
   Control,
   FieldError,
@@ -10,25 +11,19 @@ import {
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {useFormError} from './FormErrorProvider'
 import {
-  forwardRef,
-  type ReactElement,
-  ReactNode,
-  Ref,
-  RefAttributes,
-} from 'react'
-import {
   DatePicker,
   DatePickerProps,
   DatePickerSlotProps,
   DateValidationError,
   PickerChangeHandlerContext,
+  usePickerAdapter,
   validateDate,
 } from '@mui/x-date-pickers'
-import {useLocalizationContext} from '@mui/x-date-pickers/internals'
+import {PickerValidDate} from '@mui/x-date-pickers/models'
+import {useApplyDefaultValuesToDateValidationProps} from '@mui/x-date-pickers/internals'
 import {defaultErrorMessages} from './messages/DatePicker'
 import {useTransform} from './useTransform'
 import {getTimezone, readValueAsDate} from './utils'
-import {PickerValidDate} from '@mui/x-date-pickers/models'
 
 export type DatePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -91,7 +86,8 @@ const DatePickerElement = forwardRef(function DatePickerElement<
     ...rest
   } = props
 
-  const adapter = useLocalizationContext()
+  const adapter = usePickerAdapter()
+  const validationProps = useApplyDefaultValuesToDateValidationProps(rest)
 
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
@@ -110,7 +106,7 @@ const DatePickerElement = forwardRef(function DatePickerElement<
     validate: {
       internal: (value: TValue | null) => {
         const date = readValueAsDate(adapter, value)
-        if (!date || !rest.minDate || !rest.maxDate) {
+        if (!date) {
           return true
         }
         const internalError = validateDate({
@@ -118,14 +114,11 @@ const DatePickerElement = forwardRef(function DatePickerElement<
             shouldDisableDate: rest.shouldDisableDate,
             shouldDisableMonth: rest.shouldDisableMonth,
             shouldDisableYear: rest.shouldDisableYear,
-            disablePast: Boolean(rest.disablePast),
-            disableFuture: Boolean(rest.disableFuture),
-            minDate: rest.minDate,
-            maxDate: rest.maxDate,
+            ...validationProps,
           },
           timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value: date,
-          adapter: adapter.adapter,
+          adapter: adapter,
         })
         return internalError == null || errorMessages[internalError]
       },
