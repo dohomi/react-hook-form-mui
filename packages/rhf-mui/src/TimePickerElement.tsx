@@ -17,7 +17,13 @@ import {
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {useLocalizationContext} from '@mui/x-date-pickers/internals'
 import {defaultErrorMessages} from './messages/TimePicker'
 import {useTransform} from './useTransform'
@@ -60,7 +66,7 @@ type TimePickerElementComponent = <
 >(
   props: TimePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const TimePickerElement = forwardRef(function TimePickerElement<
   TFieldValues extends FieldValues = FieldValues,

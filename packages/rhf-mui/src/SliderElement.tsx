@@ -16,7 +16,13 @@ import {
   SliderProps,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {useTransform} from './useTransform'
 
 export type SliderElementProps<
@@ -47,7 +53,7 @@ type SliderElementComponent = <
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >(
   props: SliderElementProps<TFieldValues, TName> & RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const SliderElement = forwardRef(function SliderElement<
   TFieldValues extends FieldValues = FieldValues,

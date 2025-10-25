@@ -16,15 +16,16 @@ import {
   AutocompleteValue,
   Checkbox,
   ChipTypeMap,
+  CircularProgress,
   TextField,
   TextFieldProps,
   useForkRef,
-  CircularProgress,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
 import {
   ElementType,
   forwardRef,
+  type ReactElement,
   ReactNode,
   Ref,
   RefAttributes,
@@ -97,7 +98,7 @@ type AutocompleteElementComponent = <
     TName
   > &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const AutocompleteElement = forwardRef(function AutocompleteElement<
   TValue,

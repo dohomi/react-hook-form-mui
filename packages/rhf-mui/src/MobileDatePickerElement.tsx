@@ -17,7 +17,13 @@ import {
 } from 'react-hook-form'
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {defaultErrorMessages} from './messages/DatePicker'
 import {useLocalizationContext} from '@mui/x-date-pickers/internals'
 import {useTransform} from './useTransform'
@@ -59,7 +65,7 @@ type MobileDatePickerElementComponent = <
 >(
   props: MobileDatePickerElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
   TFieldValues extends FieldValues = FieldValues,
