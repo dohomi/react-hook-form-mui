@@ -20,7 +20,7 @@
     "@mui/system": "7.3.1",
     "@mui/x-date-pickers": "8.10.2",
     "eslint": "^8",
-    "next": "15.5.7",
+    "next": "15.5.8",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "react-hook-form": "7.62.0",
