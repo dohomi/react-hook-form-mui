@@ -19,7 +19,13 @@ import {
   UseControllerProps,
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {useTransform} from './useTransform'
 import {propertyExists} from './utils'
 
@@ -58,7 +64,7 @@ type CheckboxButtonGroupComponent = <
 >(
   props: CheckboxButtonGroupProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const CheckboxButtonGroup = forwardRef(function CheckboxButtonGroup<
   TFieldValues extends FieldValues = FieldValues,

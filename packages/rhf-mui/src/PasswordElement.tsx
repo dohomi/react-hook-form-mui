@@ -1,6 +1,7 @@
 import {
   forwardRef,
   MouseEvent,
+  type ReactElement,
   ReactNode,
   Ref,
   RefAttributes,
@@ -26,7 +27,7 @@ type PasswordElementComponent = <
 >(
   props: PasswordElementProps<TFieldValues, TName> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 const PasswordElement = forwardRef(function PasswordEl<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,

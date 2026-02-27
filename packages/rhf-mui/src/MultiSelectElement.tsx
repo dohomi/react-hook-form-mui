@@ -24,7 +24,13 @@ import {
   useForkRef,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {useTransform} from './useTransform'
 import {propertyExists} from './utils'
 
@@ -68,7 +74,7 @@ type MultiSelectElementComponent = <
 >(
   props: MultiSelectElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const ITEM_HEIGHT = 48
 const ITEM_PADDING_TOP = 8

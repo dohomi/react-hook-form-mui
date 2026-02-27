@@ -18,7 +18,14 @@ import {
   useForkRef,
 } from '@mui/material'
 import {useFormError} from './FormErrorProvider'
-import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  ChangeEvent,
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {useTransform} from './useTransform'
 
 export type CheckboxElementProps<
@@ -49,7 +56,7 @@ type CheckboxElementComponent = <
 >(
   props: CheckboxElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const CheckboxElement = forwardRef(function CheckboxElement<
   TFieldValues extends FieldValues = FieldValues,

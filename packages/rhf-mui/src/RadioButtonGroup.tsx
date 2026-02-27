@@ -1,4 +1,10 @@
-import {forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {
   Control,
   FieldError,
@@ -64,7 +70,7 @@ type RadioButtonGroupComponent = <
 >(
   props: RadioButtonGroupProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const RadioButtonGroup = forwardRef(function RadioButtonGroup<
   TFieldValues extends FieldValues = FieldValues,

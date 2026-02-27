@@ -17,6 +17,7 @@ import {
   ChangeEvent,
   CSSProperties,
   forwardRef,
+  type ReactElement,
   ReactNode,
   Ref,
   RefAttributes,
@@ -49,7 +50,7 @@ type TextareaAutosizeElementComponent = <
 >(
   props: TextareaAutosizeElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
   TFieldValues extends FieldValues = FieldValues,

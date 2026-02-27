@@ -9,7 +9,14 @@ import {
   UseControllerProps,
 } from 'react-hook-form'
 import {useFormError} from './FormErrorProvider'
-import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  ChangeEvent,
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {useTransform} from './useTransform'
 
 export type TextFieldElementProps<
@@ -42,7 +49,7 @@ type TextFieldElementComponent = <
 >(
   props: TextFieldElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const TextFieldElement = forwardRef(function TextFieldElement<
   TFieldValues extends FieldValues = FieldValues,

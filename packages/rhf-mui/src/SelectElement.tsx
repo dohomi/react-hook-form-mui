@@ -1,4 +1,11 @@
-import {ChangeEvent, forwardRef, ReactNode, Ref, RefAttributes} from 'react'
+import {
+  ChangeEvent,
+  forwardRef,
+  type ReactElement,
+  ReactNode,
+  Ref,
+  RefAttributes,
+} from 'react'
 import {MenuItem, TextField, TextFieldProps, useForkRef} from '@mui/material'
 import {
   Control,
@@ -43,7 +50,7 @@ type SelectElementComponent = <
 >(
   props: SelectElementProps<TFieldValues, TName, TValue> &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const SelectElement = forwardRef(function SelectElement<
   TFieldValues extends FieldValues = FieldValues,

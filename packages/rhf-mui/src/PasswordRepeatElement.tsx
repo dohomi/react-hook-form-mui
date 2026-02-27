@@ -1,6 +1,6 @@
 import PasswordElement, {PasswordElementProps} from './PasswordElement'
 import {FieldPath, FieldValues, useWatch} from 'react-hook-form'
-import {forwardRef, Ref, RefAttributes} from 'react'
+import {forwardRef, type ReactElement, Ref, RefAttributes} from 'react'
 
 export type PasswordRepeatElementProps<
   TFieldValues extends FieldValues = FieldValues,
@@ -29,7 +29,7 @@ type PasswordRepeatElementComponent = <
     TPasswordName
   > &
     RefAttributes<HTMLDivElement>
-) => JSX.Element
+) => ReactElement
 
 const PasswordRepeatElement = forwardRef(function PasswordRepeatElement<
   TFieldValues extends FieldValues = FieldValues,
