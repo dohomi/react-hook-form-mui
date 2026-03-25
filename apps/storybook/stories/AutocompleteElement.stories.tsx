@@ -158,6 +158,29 @@ export const MatchIdMulti = {
   },
 }
 
+export const FreeSolo: Story = {
+  args: {
+    label: 'Free Solo',
+    name: 'free-solo',
+    options,
+    autocompleteProps: {
+      freeSolo: true,
+    },
+  },
+}
+
+export const FreeSoloMultiple: Story = {
+  args: {
+    label: 'Free Solo Multiple',
+    name: 'free-solo-multi',
+    options,
+    multiple: true,
+    autocompleteProps: {
+      freeSolo: true,
+    },
+  },
+}
+
 export const CustomInput = {
   args: {
     name: 'custom-input',
