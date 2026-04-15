@@ -80,12 +80,14 @@ export const Basic = () => {
         type={'email'}
         margin={'dense'}
         label={'Email'}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          ),
+        slotProps={{
+          input: {
+            startAdornment: (
+              <InputAdornment position="start">
+                <AccountCircle />
+              </InputAdornment>
+            ),
+          },
         }}
         name={'default-email'}
       />

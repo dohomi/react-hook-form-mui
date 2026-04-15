@@ -13,6 +13,7 @@ import {
   AutocompleteChangeReason,
   AutocompleteFreeSoloValueMapping,
   AutocompleteProps,
+  AutocompleteValueOrFreeSoloValueMapping,
   AutocompleteValue,
   Checkbox,
   ChipTypeMap,
@@ -159,7 +160,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
   })
 
   const getOptionLabel = (
-    option: TValue | AutocompleteFreeSoloValueMapping<FreeSolo>
+    option: AutocompleteValueOrFreeSoloValueMapping<TValue, FreeSolo>
   ): string => {
     if (typeof autocompleteProps?.getOptionLabel === 'function') {
       return autocompleteProps.getOptionLabel(option)
@@ -170,7 +171,10 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
     return `${option}`
   }
 
-  const isOptionEqualToValue = (option: TValue, value: TValue): boolean => {
+  const isOptionEqualToValue = (
+    option: TValue,
+    value: AutocompleteValueOrFreeSoloValueMapping<TValue, FreeSolo>
+  ): boolean => {
     if (typeof autocompleteProps?.isOptionEqualToValue == 'function') {
       return autocompleteProps.isOptionEqualToValue(option, value)
     }
@@ -246,7 +250,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
     },
   })
 
-  const handleInputRef = useForkRef(field.ref, textFieldProps?.inputRef)
+  const handleInputRef = useForkRef(field.ref)
 
   const loadingElement = loadingIndicator || (
     <CircularProgress color="inherit" size={20} />
@@ -300,24 +304,6 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
           {...textFieldProps}
           {...params}
           error={!!error}
-          InputLabelProps={{
-            ...params.InputLabelProps,
-            ...textFieldProps?.InputLabelProps,
-          }}
-          InputProps={{
-            ...params.InputProps,
-            endAdornment: (
-              <>
-                {loading ? loadingElement : null}
-                {params.InputProps.endAdornment}
-              </>
-            ),
-            ...textFieldProps?.InputProps,
-          }}
-          inputProps={{
-            ...params.inputProps,
-            ...textFieldProps?.inputProps,
-          }}
           helperText={
             error
               ? typeof customErrorFn === 'function'
@@ -325,11 +311,33 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
                 : error.message
               : textFieldProps?.helperText
           }
-          inputRef={handleInputRef}
+          slotProps={{
+            ...params.slotProps,
+            ...textFieldProps?.slotProps,
+            input: {
+              ...params.slotProps?.input,
+              endAdornment: (
+                <>
+                  {loading ? loadingElement : null}
+                  {params.slotProps?.input?.endAdornment}
+                </>
+              ),
+              ...textFieldProps?.slotProps?.input,
+            },
+            htmlInput: {
+              ...params.slotProps?.htmlInput,
+              ref: handleInputRef,
+              ...textFieldProps?.slotProps?.htmlInput,
+            },
+            inputLabel: {
+              ...params.slotProps?.inputLabel,
+              ...textFieldProps?.slotProps?.inputLabel,
+            },
+          }}
         />
       )}
     />
-  )
+  );
 })
 AutocompleteElement.displayName = 'AutocompleteElement'
 export default AutocompleteElement as AutocompleteElementComponent

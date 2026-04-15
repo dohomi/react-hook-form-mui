@@ -35,7 +35,6 @@ export type TimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<TimePickerProps, 'value' | 'renderInput'> & {
   name: TName
   required?: boolean
@@ -46,10 +45,7 @@ export type TimePickerElementProps<
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
-  slotProps?: Omit<
-    TimePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
-    'textField'
-  >
+  slotProps?: Omit<TimePickerSlotProps, 'textField'>
   overwriteErrorMessages?: typeof defaultErrorMessages
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue | null
@@ -185,7 +181,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
       slotProps={{
         ...slotProps,
         textField: {
-          ...inputProps,
+          ...(inputProps as any),
           required,
           error: !!error,
           helperText: error
@@ -193,9 +189,10 @@ const TimePickerElement = forwardRef(function TimePickerElement<
               ? customErrorFn(error)
               : error.message
             : inputProps?.helperText || rest.helperText,
-          inputProps: {
-            readOnly: textReadOnly,
-            ...inputProps?.inputProps,
+          slotProps: {
+            htmlInput: {
+              readOnly: !!textReadOnly,
+            },
           },
         },
       }}

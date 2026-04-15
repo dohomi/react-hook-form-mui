@@ -164,7 +164,9 @@ export const CustomInput = {
     options,
     textFieldProps: {
       placeholder: 'Some placeholder',
-      InputProps: {startAdornment: <LocationIcon />, endAdornment: null},
+      slotProps: {
+        input: {startAdornment: <LocationIcon />, endAdornment: null},
+      },
     },
   },
 }

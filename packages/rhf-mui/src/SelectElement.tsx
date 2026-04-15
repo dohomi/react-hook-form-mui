@@ -79,7 +79,7 @@ const SelectElement = forwardRef(function SelectElement<
 
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
-  const isNativeSelect = !!rest.SelectProps?.native
+  const isNativeSelect = !!(rest.slotProps?.select as any)?.native
 
   const rulesTmp = {
     ...rules,
@@ -126,8 +126,14 @@ const SelectElement = forwardRef(function SelectElement<
 
   // handle shrink on number input fields
   if (type === 'number' && typeof value !== 'undefined') {
-    rest.InputLabelProps = rest.InputLabelProps || {}
-    rest.InputLabelProps.shrink = true
+    rest.slotProps = rest.slotProps || {}
+    rest.slotProps = {
+      ...rest.slotProps,
+      inputLabel: {
+        ...rest.slotProps?.inputLabel,
+        shrink: true,
+      },
+    }
   }
 
   return (

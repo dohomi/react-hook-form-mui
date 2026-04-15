@@ -35,7 +35,6 @@ export type DatePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<DatePickerProps, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
@@ -46,10 +45,7 @@ export type DatePickerElementProps<
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
-  slotProps?: Omit<
-    DatePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
-    'textField'
-  >
+  slotProps?: Omit<DatePickerSlotProps, 'textField'>
   overwriteErrorMessages?: typeof defaultErrorMessages
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue | null
@@ -188,21 +184,19 @@ const DatePickerElement = forwardRef(function DatePickerElement<
       slotProps={{
         ...slotProps,
         textField: {
-          ...inputProps,
+          ...(inputProps as any),
           required,
-          onBlur: (event) => {
+          onBlur: () => {
             field.onBlur()
-            if (typeof inputProps?.onBlur === 'function') {
-              inputProps.onBlur(event)
-            }
           },
           error: !!errorMessage,
           helperText: errorMessage
             ? errorMessage
             : inputProps?.helperText || rest.helperText,
-          inputProps: {
-            readOnly: !!textReadOnly,
-            ...inputProps?.inputProps,
+          slotProps: {
+            htmlInput: {
+              readOnly: !!textReadOnly,
+            },
           },
         },
       }}

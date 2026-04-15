@@ -35,7 +35,6 @@ export type MobileDatePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<MobileDatePickerProps, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
@@ -45,10 +44,7 @@ export type MobileDatePickerElementProps<
   control?: Control<TFieldValues>
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
-  slotProps?: Omit<
-    MobileDatePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
-    'textField'
-  >
+  slotProps?: Omit<MobileDatePickerSlotProps, 'textField'>
   overwriteErrorMessages?: typeof defaultErrorMessages
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue | null
@@ -180,7 +176,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
       slotProps={{
         ...slotProps,
         textField: {
-          ...inputProps,
+          ...(inputProps as any),
           required,
           error: !!error,
           helperText: error

@@ -15,6 +15,7 @@ import {
 } from 'react-hook-form'
 import {
   ChangeEvent,
+  ComponentPropsWithoutRef,
   CSSProperties,
   forwardRef,
   type ReactElement,
@@ -35,6 +36,7 @@ export type TextareaAutosizeElementProps<
   parseError?: (error: FieldError) => ReactNode
   control?: Control<TFieldValues>
   resizeStyle?: CSSProperties['resize']
+  inputProps?: ComponentPropsWithoutRef<'textarea'>
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue
     output?: (

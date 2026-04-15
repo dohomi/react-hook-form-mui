@@ -71,14 +71,18 @@ export const MonthPicker: Story = {
     sx: {
       minWidth: '150px',
     },
-    SelectProps: {
-      MenuProps: {
-        PaperProps: {
-          sx: {
-            '& .MuiList-root': {
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '4px',
+    slotProps: {
+      select: {
+        MenuProps: {
+          slotProps: {
+            paper: {
+              sx: {
+                '& .MuiList-root': {
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(3, 1fr)',
+                  gap: '4px',
+                },
+              },
             },
           },
         },

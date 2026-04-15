@@ -20,10 +20,10 @@ import {
   DateTimePickerSlotProps,
   DateTimeValidationError,
   PickerChangeHandlerContext,
-  PickerValidDate,
   validateDateTime,
   usePickerAdapter,
 } from '@mui/x-date-pickers'
+import {PickerValidDate} from '@mui/x-date-pickers/models'
 import {TextFieldProps, useForkRef} from '@mui/material'
 import {useApplyDefaultValuesToDateTimeValidationProps} from '@mui/x-date-pickers/internals'
 import {useFormError} from './FormErrorProvider'
@@ -35,7 +35,6 @@ export type DateTimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<DateTimePickerProps, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
@@ -46,10 +45,7 @@ export type DateTimePickerElementProps<
   inputProps?: TextFieldProps
   helperText?: TextFieldProps['helperText']
   textReadOnly?: boolean
-  slotProps?: Omit<
-    DateTimePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
-    'textField'
-  >
+  slotProps?: Omit<DateTimePickerSlotProps, 'textField'>
   overwriteErrorMessages?: typeof defaultErrorMessages
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue | null
@@ -186,7 +182,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
       slotProps={{
         ...slotProps,
         textField: {
-          ...inputProps,
+          ...(inputProps as any),
           required,
           error: !!error,
           helperText: error
@@ -194,9 +190,10 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
               ? customErrorFn(error)
               : error.message
             : inputProps?.helperText || rest.helperText,
-          inputProps: {
-            readOnly: textReadOnly,
-            ...inputProps?.inputProps,
+          slotProps: {
+            htmlInput: {
+              readOnly: !!textReadOnly,
+            },
           },
         },
       }}

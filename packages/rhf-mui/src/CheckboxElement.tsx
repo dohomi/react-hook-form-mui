@@ -39,6 +39,7 @@ export type CheckboxElementProps<
   label?: FormControlLabelProps['label']
   helperText?: string
   control?: Control<TFieldValues>
+  inputRef?: Ref<HTMLInputElement>
   labelProps?: Omit<FormControlLabelProps, 'label' | 'control'>
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue
@@ -145,7 +146,11 @@ const CheckboxElement = forwardRef(function CheckboxElement<
                   rest.onChange(event, newValue)
                 }
               }}
-              inputRef={handleInputRef}
+              slotProps={{
+                input: {
+                  ref: handleInputRef
+                }
+              }}
             />
           }
         />
@@ -154,7 +159,7 @@ const CheckboxElement = forwardRef(function CheckboxElement<
         <FormHelperText error={!!error}>{renderHelperText}</FormHelperText>
       )}
     </FormControl>
-  )
+  );
 })
 CheckboxElement.displayName = 'CheckboxElement'
 export default CheckboxElement as CheckboxElementComponent
