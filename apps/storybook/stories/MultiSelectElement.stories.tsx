@@ -152,12 +152,14 @@ export const MonthPicker: Story = {
     options: months,
     label: 'Months',
     MenuProps: {
-      PaperProps: {
-        sx: {
-          '& .MuiList-root': {
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '4px',
+      slotProps: {
+        paper: {
+          sx: {
+            '& .MuiList-root': {
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '4px',
+            },
           },
         },
       },
@@ -172,12 +174,14 @@ export const MonthPickerSmall: Story = {
     label: 'Months',
     size: 'small',
     MenuProps: {
-      PaperProps: {
-        sx: {
-          '& .MuiList-root': {
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '4px',
+      slotProps: {
+        paper: {
+          sx: {
+            '& .MuiList-root': {
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '4px',
+            },
           },
         },
       },

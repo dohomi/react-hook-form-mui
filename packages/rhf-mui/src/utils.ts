@@ -1,4 +1,5 @@
-import {usePickerAdapter, type PickerValidDate} from '@mui/x-date-pickers'
+import {usePickerAdapter} from '@mui/x-date-pickers/hooks'
+import type {PickerValidDate} from '@mui/x-date-pickers/models'
 
 export function propertyExists<X, Y extends PropertyKey>(
   obj: X,

@@ -11,9 +11,9 @@ import {
   Autocomplete,
   AutocompleteChangeDetails,
   AutocompleteChangeReason,
-  AutocompleteFreeSoloValueMapping,
   AutocompleteProps,
   AutocompleteValue,
+  AutocompleteValueOrFreeSoloValueMapping,
   Checkbox,
   ChipTypeMap,
   CircularProgress,
@@ -21,6 +21,7 @@ import {
   TextFieldProps,
   useForkRef,
 } from '@mui/material'
+import {setRef} from '@mui/material/utils'
 import {useFormError} from './FormErrorProvider'
 import {
   ElementType,
@@ -159,10 +160,13 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
   })
 
   const getOptionLabel = (
-    option: TValue | AutocompleteFreeSoloValueMapping<FreeSolo>
+    option: AutocompleteValueOrFreeSoloValueMapping<TValue, FreeSolo>
   ): string => {
     if (typeof autocompleteProps?.getOptionLabel === 'function') {
       return autocompleteProps.getOptionLabel(option)
+    }
+    if (typeof option === 'string') {
+      return option
     }
     if (propertyExists(option, 'label')) {
       return `${option?.label}`
@@ -170,11 +174,17 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
     return `${option}`
   }
 
-  const isOptionEqualToValue = (option: TValue, value: TValue): boolean => {
+  const isOptionEqualToValue = (
+    option: TValue,
+    value: AutocompleteValueOrFreeSoloValueMapping<TValue, FreeSolo>
+  ): boolean => {
     if (typeof autocompleteProps?.isOptionEqualToValue == 'function') {
       return autocompleteProps.isOptionEqualToValue(option, value)
     }
     const optionKey = propertyExists(option, 'id') ? option.id : option
+    if (typeof value === 'string' || typeof value === 'number') {
+      return optionKey === value
+    }
     const valueKey = propertyExists(value, 'id') ? value.id : value
     return optionKey === valueKey
   }
@@ -292,42 +302,67 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
           autocompleteProps.onBlur(event)
         }
       }}
-      renderInput={(params) => (
-        <TextField
-          name={name}
-          required={rules?.required ? true : required}
-          label={label}
-          {...textFieldProps}
-          {...params}
-          error={!!error}
-          InputLabelProps={{
-            ...params.InputLabelProps,
-            ...textFieldProps?.InputLabelProps,
-          }}
-          InputProps={{
-            ...params.InputProps,
-            endAdornment: (
-              <>
-                {loading ? loadingElement : null}
-                {params.InputProps.endAdornment}
-              </>
-            ),
-            ...textFieldProps?.InputProps,
-          }}
-          inputProps={{
-            ...params.inputProps,
-            ...textFieldProps?.inputProps,
-          }}
-          helperText={
-            error
-              ? typeof customErrorFn === 'function'
-                ? customErrorFn(error)
-                : error.message
-              : textFieldProps?.helperText
-          }
-          inputRef={handleInputRef}
-        />
-      )}
+      renderInput={(params) => {
+        const paramsHtml = params.slotProps.htmlInput
+        const tfHtml = textFieldProps?.slotProps?.htmlInput
+        const paramsHtmlRef =
+          paramsHtml &&
+          typeof paramsHtml === 'object' &&
+          'ref' in paramsHtml
+            ? (paramsHtml as {ref?: React.Ref<HTMLInputElement | null>}).ref
+            : undefined
+        const tfHtmlRef =
+          tfHtml && typeof tfHtml === 'object' && 'ref' in tfHtml
+            ? (tfHtml as {ref?: React.Ref<HTMLInputElement | null>}).ref
+            : undefined
+        const htmlInputRef = (instance: HTMLInputElement | null) => {
+          setRef(handleInputRef, instance)
+          setRef(paramsHtmlRef, instance)
+          setRef(tfHtmlRef, instance)
+        }
+        return (
+          <TextField
+            {...textFieldProps}
+            name={name}
+            required={rules?.required ? true : required}
+            label={label}
+            id={params.id}
+            disabled={params.disabled}
+            fullWidth={params.fullWidth}
+            size={params.size}
+            error={!!error}
+            helperText={
+              error
+                ? typeof customErrorFn === 'function'
+                  ? customErrorFn(error)
+                  : error.message
+                : textFieldProps?.helperText
+            }
+            slotProps={{
+              ...textFieldProps?.slotProps,
+              inputLabel: {
+                ...params.slotProps.inputLabel,
+                ...textFieldProps?.slotProps?.inputLabel,
+              },
+              input: {
+                ...params.slotProps.input,
+                ...textFieldProps?.slotProps?.input,
+                endAdornment: (
+                  <>
+                    {loading ? loadingElement : null}
+                    {params.slotProps.input.endAdornment}
+                  </>
+                ),
+              },
+              htmlInput: {
+                ...params.slotProps.htmlInput,
+                ...(typeof tfHtml === 'object' && tfHtml !== null ? tfHtml : {}),
+                ref: htmlInputRef,
+              },
+            }}
+          />
+        )
+      }}
     />
   )
 })

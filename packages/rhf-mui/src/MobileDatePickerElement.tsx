@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  type FocusEvent,
   type ReactElement,
   ReactNode,
   Ref,
@@ -14,18 +15,20 @@ import {
   useController,
   UseControllerProps,
 } from 'react-hook-form'
-import {TextFieldProps, useForkRef} from '@mui/material'
+import {useForkRef} from '@mui/material'
 import {
   DateValidationError,
+  extractValidationProps,
   MobileDatePicker,
   MobileDatePickerProps,
   MobileDatePickerSlotProps,
   PickerChangeHandlerContext,
   validateDate,
-  usePickerAdapter,
 } from '@mui/x-date-pickers'
-import {useApplyDefaultValuesToDateValidationProps} from '@mui/x-date-pickers/internals'
+import type {ValidateDateProps} from '@mui/x-date-pickers/validation'
+import {usePickerAdapter} from '@mui/x-date-pickers/hooks'
 import {PickerValidDate} from '@mui/x-date-pickers/models'
+import type {PickersTextFieldProps} from '@mui/x-date-pickers/PickersTextField'
 import {useFormError} from './FormErrorProvider'
 import {defaultErrorMessages} from './messages/DatePicker'
 import {useTransform} from './useTransform'
@@ -35,7 +38,6 @@ export type MobileDatePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<MobileDatePickerProps, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
@@ -43,12 +45,9 @@ export type MobileDatePickerElementProps<
   parseError?: (error: FieldError) => ReactNode
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   control?: Control<TFieldValues>
-  inputProps?: TextFieldProps
-  helperText?: TextFieldProps['helperText']
-  slotProps?: Omit<
-    MobileDatePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
-    'textField'
-  >
+  inputProps?: Partial<PickersTextFieldProps>
+  helperText?: PickersTextFieldProps['helperText']
+  slotProps?: Omit<MobileDatePickerSlotProps, 'textField'>
   overwriteErrorMessages?: typeof defaultErrorMessages
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue | null
@@ -91,7 +90,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
   } = props
 
   const adapter = usePickerAdapter()
-  const validationProps = useApplyDefaultValuesToDateValidationProps(rest)
+  const validationProps = extractValidationProps(rest)
 
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
@@ -115,11 +114,10 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
         }
         const internalError = validateDate({
           props: {
-            shouldDisableDate: rest.shouldDisableDate,
-            shouldDisableMonth: rest.shouldDisableMonth,
-            shouldDisableYear: rest.shouldDisableYear,
+            disableFuture: false,
+            disablePast: false,
             ...validationProps,
-          },
+          } as ValidateDateProps,
           timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value: date,
           adapter: adapter,
@@ -158,13 +156,46 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
 
   const handleInputRef = useForkRef(field.ref, inputRef)
 
+  const htmlInputFromUser = inputProps?.slotProps?.htmlInput
+  const priorHtmlInputRef =
+    htmlInputFromUser &&
+    typeof htmlInputFromUser === 'object' &&
+    'ref' in htmlInputFromUser
+      ? (htmlInputFromUser as {ref?: React.Ref<HTMLInputElement | null>}).ref
+      : undefined
+
+  const mergedHtmlInputRef = useForkRef(handleInputRef, priorHtmlInputRef)
+
+  const textFieldSlot: Partial<PickersTextFieldProps> = {
+    ...inputProps,
+    required,
+    error: !!error,
+    helperText: error
+      ? typeof customErrorFn === 'function'
+        ? customErrorFn(error)
+        : error.message
+      : (inputProps?.helperText ?? rest.helperText),
+    onBlur: (event: FocusEvent<HTMLDivElement>) => {
+      field.onBlur()
+      inputProps?.onBlur?.(event)
+    },
+    slotProps: {
+      ...inputProps?.slotProps,
+      htmlInput: {
+        ...(typeof htmlInputFromUser === 'object' && htmlInputFromUser !== null
+          ? htmlInputFromUser
+          : {}),
+        ref: mergedHtmlInputRef,
+      },
+    },
+  }
+
   return (
     <MobileDatePicker
       {...rest}
       {...field}
       value={value}
       ref={ref}
-      inputRef={handleInputRef}
       onClose={(...args) => {
         field.onBlur()
         if (rest.onClose) {
@@ -179,16 +210,7 @@ const MobileDatePickerElement = forwardRef(function MobileDatePickerElement<
       }}
       slotProps={{
         ...slotProps,
-        textField: {
-          ...inputProps,
-          required,
-          error: !!error,
-          helperText: error
-            ? typeof customErrorFn === 'function'
-              ? customErrorFn(error)
-              : error.message
-            : inputProps?.helperText || rest.helperText,
-        },
+        textField: textFieldSlot,
       }}
     />
   )

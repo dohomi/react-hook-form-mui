@@ -1,5 +1,8 @@
 *.log
 .DS_Store
+.env
+.env.local
+.env*.local
 node_modules
 .yarn/*
 !.yarn/patches

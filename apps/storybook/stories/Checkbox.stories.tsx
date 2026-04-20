@@ -25,7 +25,7 @@ function FormWrap(Story) {
       }}
     >
       <Story />
-      <Box marginTop={2}>
+      <Box sx={{mt: 2}}>
         <Button type={'submit'}>Submit</Button>
       </Box>
     </FormContainer>

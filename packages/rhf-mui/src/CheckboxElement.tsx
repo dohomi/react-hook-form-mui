@@ -35,6 +35,8 @@ export type CheckboxElementProps<
 > = Omit<CheckboxProps, 'name'> & {
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   name: TName
+  /** Merged into the checkbox `input` slot (`slotProps.input.ref`). */
+  inputRef?: Ref<HTMLInputElement>
   parseError?: (error: FieldError) => ReactNode
   label?: FormControlLabelProps['label']
   helperText?: string
@@ -76,6 +78,7 @@ const CheckboxElement = forwardRef(function CheckboxElement<
     helperText,
     labelProps,
     inputRef,
+    slotProps,
     transform,
     ...rest
   } = props
@@ -113,7 +116,17 @@ const CheckboxElement = forwardRef(function CheckboxElement<
     },
   })
 
-  const handleInputRef = useForkRef(field.ref, inputRef)
+  const userInputRef =
+    slotProps?.input &&
+    typeof slotProps.input === 'object' &&
+    'ref' in slotProps.input
+      ? (slotProps.input as {ref?: Ref<HTMLInputElement>}).ref
+      : undefined
+
+  const handleInputRef = useForkRef(
+    field.ref,
+    useForkRef(inputRef, userInputRef)
+  )
 
   const renderHelperText = error
     ? typeof customErrorFn === 'function'
@@ -145,7 +158,13 @@ const CheckboxElement = forwardRef(function CheckboxElement<
                   rest.onChange(event, newValue)
                 }
               }}
-              inputRef={handleInputRef}
+              slotProps={{
+                ...slotProps,
+                input: {
+                  ...slotProps?.input,
+                  ref: handleInputRef,
+                },
+              }}
             />
           }
         />

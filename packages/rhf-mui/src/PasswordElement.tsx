@@ -36,13 +36,8 @@ const PasswordElement = forwardRef(function PasswordEl<
   props: PasswordElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
 ) {
-  const {
-    iconColor,
-    renderIcon = (password) => (password ? <Visibility /> : <VisibilityOff />),
-    InputProps = {},
-    slotProps,
-    ...rest
-  } = props
+  const {iconColor, renderIcon = (password) => (password ? <Visibility /> : <VisibilityOff />), slotProps, ...rest} =
+    props
   const [password, setPassword] = useState<boolean>(true)
 
   const endAdornment = (
@@ -59,28 +54,29 @@ const PasswordElement = forwardRef(function PasswordEl<
     </InputAdornment>
   )
 
+  const inputSlot = slotProps?.input
+  const inputSlotPlain =
+    inputSlot && typeof inputSlot === 'object' && !('call' in inputSlot)
+      ? (inputSlot as {endAdornment?: ReactNode})
+      : undefined
+
   return (
     <TextFieldElement
       {...(rest as TextFieldElementProps)}
       ref={ref}
       type={password ? 'password' : 'text'}
-      {...(typeof slotProps === 'undefined'
-        ? {
-            InputProps: {
-              endAdornment,
-              ...InputProps,
-            },
-          }
-        : {
-            slotProps: {
-              ...slotProps,
-              input: {
-                endAdornment,
-                ...InputProps,
-                ...slotProps?.input,
-              },
-            } as TextFieldElementProps['slotProps'],
-          })}
+      slotProps={{
+        ...slotProps,
+        input: {
+          ...inputSlotPlain,
+          endAdornment: (
+            <>
+              {endAdornment}
+              {inputSlotPlain?.endAdornment}
+            </>
+          ),
+        },
+      }}
     />
   )
 })

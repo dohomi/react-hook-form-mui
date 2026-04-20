@@ -1,5 +1,6 @@
 import {
   forwardRef,
+  type FocusEvent,
   type ReactElement,
   ReactNode,
   Ref,
@@ -19,13 +20,15 @@ import {
   DateTimePickerProps,
   DateTimePickerSlotProps,
   DateTimeValidationError,
+  extractValidationProps,
   PickerChangeHandlerContext,
   PickerValidDate,
   validateDateTime,
-  usePickerAdapter,
 } from '@mui/x-date-pickers'
-import {TextFieldProps, useForkRef} from '@mui/material'
-import {useApplyDefaultValuesToDateTimeValidationProps} from '@mui/x-date-pickers/internals'
+import type {ValidateDateTimeProps} from '@mui/x-date-pickers/validation'
+import {usePickerAdapter} from '@mui/x-date-pickers/hooks'
+import {useForkRef} from '@mui/material'
+import type {PickersTextFieldProps} from '@mui/x-date-pickers/PickersTextField'
 import {useFormError} from './FormErrorProvider'
 import {defaultErrorMessages} from './messages/DateTimePicker'
 import {useTransform} from './useTransform'
@@ -35,7 +38,6 @@ export type DateTimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<DateTimePickerProps, 'value' | 'slotProps'> & {
   name: TName
   required?: boolean
@@ -43,13 +45,10 @@ export type DateTimePickerElementProps<
   parseError?: (error: FieldError) => ReactNode
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   control?: Control<TFieldValues>
-  inputProps?: TextFieldProps
-  helperText?: TextFieldProps['helperText']
+  inputProps?: Partial<PickersTextFieldProps>
+  helperText?: PickersTextFieldProps['helperText']
   textReadOnly?: boolean
-  slotProps?: Omit<
-    DateTimePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
-    'textField'
-  >
+  slotProps?: Omit<DateTimePickerSlotProps, 'textField'>
   overwriteErrorMessages?: typeof defaultErrorMessages
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue | null
@@ -93,7 +92,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
   } = props
 
   const adapter = usePickerAdapter()
-  const validationProps = useApplyDefaultValuesToDateTimeValidationProps(rest)
+  const validationProps = extractValidationProps(rest)
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
   const errorMessages = {
@@ -115,15 +114,10 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
         }
         const internalError = validateDateTime({
           props: {
-            shouldDisableDate: rest.shouldDisableDate,
-            shouldDisableMonth: rest.shouldDisableMonth,
-            shouldDisableYear: rest.shouldDisableYear,
-            disableIgnoringDatePartForTimeValidation:
-              rest.disableIgnoringDatePartForTimeValidation,
-            minutesStep: rest.minutesStep,
-            shouldDisableTime: rest.shouldDisableTime,
+            disableFuture: false,
+            disablePast: false,
             ...validationProps,
-          },
+          } as ValidateDateTimeProps,
           timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value: date,
           adapter: adapter,
@@ -164,13 +158,47 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
 
   const handleInputRef = useForkRef(field.ref, inputRef)
 
+  const htmlInputFromUser = inputProps?.slotProps?.htmlInput
+  const priorHtmlInputRef =
+    htmlInputFromUser &&
+    typeof htmlInputFromUser === 'object' &&
+    'ref' in htmlInputFromUser
+      ? (htmlInputFromUser as {ref?: React.Ref<HTMLInputElement | null>}).ref
+      : undefined
+
+  const mergedHtmlInputRef = useForkRef(handleInputRef, priorHtmlInputRef)
+
+  const textFieldSlot: Partial<PickersTextFieldProps> = {
+    ...inputProps,
+    required,
+    error: !!error,
+    helperText: error
+      ? typeof customErrorFn === 'function'
+        ? customErrorFn(error)
+        : error.message
+      : (inputProps?.helperText ?? rest.helperText),
+    onBlur: (event: FocusEvent<HTMLDivElement>) => {
+      field.onBlur()
+      inputProps?.onBlur?.(event)
+    },
+    slotProps: {
+      ...inputProps?.slotProps,
+      htmlInput: {
+        ...(typeof htmlInputFromUser === 'object' && htmlInputFromUser !== null
+          ? htmlInputFromUser
+          : {}),
+        readOnly: textReadOnly,
+        ref: mergedHtmlInputRef,
+      },
+    },
+  }
+
   return (
     <DateTimePicker
       {...rest}
       {...field}
       value={value}
       ref={ref}
-      inputRef={handleInputRef}
       onClose={(...args) => {
         field.onBlur()
         if (rest.onClose) {
@@ -185,20 +213,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
       }}
       slotProps={{
         ...slotProps,
-        textField: {
-          ...inputProps,
-          required,
-          error: !!error,
-          helperText: error
-            ? typeof customErrorFn === 'function'
-              ? customErrorFn(error)
-              : error.message
-            : inputProps?.helperText || rest.helperText,
-          inputProps: {
-            readOnly: textReadOnly,
-            ...inputProps?.inputProps,
-          },
-        },
+        textField: textFieldSlot,
       }}
     />
   )

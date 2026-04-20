@@ -15,6 +15,7 @@ import {
 } from 'react-hook-form'
 import {
   ChangeEvent,
+  ComponentPropsWithoutRef,
   CSSProperties,
   forwardRef,
   type ReactElement,
@@ -34,6 +35,8 @@ export type TextareaAutosizeElementProps<
   name: TName
   parseError?: (error: FieldError) => ReactNode
   control?: Control<TFieldValues>
+  /** Passed to the TextField `htmlInput` slot (native textarea attributes). */
+  inputProps?: ComponentPropsWithoutRef<'textarea'>
   resizeStyle?: CSSProperties['resize']
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue
@@ -71,7 +74,7 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
     maxRows,
     minRows,
     inputRef,
-    inputProps,
+    inputProps: htmlInputUserProps = {},
     transform,
     onBlur,
     ...rest
@@ -146,16 +149,19 @@ const TextareaAutosizeElement = forwardRef(function TextareaAutosizeElement<
       multiline
       ref={ref}
       slotProps={{
+        ...rest.slotProps,
         input: {
+          ...rest.slotProps?.input,
           inputComponent: TextareaAutosize,
-          inputProps: {
-            minRows: minRows || rows,
-            maxRows: maxRows || rows,
-            style: {
-              resize: resizeStyle,
-            },
-            ...(inputProps || {}),
+        },
+        htmlInput: {
+          minRows: minRows || rows,
+          maxRows: maxRows || rows,
+          style: {
+            resize: resizeStyle,
           },
+          ...(htmlInputUserProps || {}),
+          ...rest.slotProps?.htmlInput,
         },
       }}
     />

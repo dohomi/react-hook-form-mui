@@ -74,12 +74,19 @@ const SelectElement = forwardRef(function SelectElement<
     inputRef,
     transform,
     onBlur,
+    slotProps,
     ...rest
   } = props
 
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
-  const isNativeSelect = !!rest.SelectProps?.native
+  const selectSlot = slotProps?.select
+  const isNativeSelect = !!(
+    selectSlot &&
+    typeof selectSlot === 'object' &&
+    'native' in selectSlot &&
+    (selectSlot as {native?: boolean}).native
+  )
 
   const rulesTmp = {
     ...rules,
@@ -124,15 +131,22 @@ const SelectElement = forwardRef(function SelectElement<
 
   const handleInputRef = useForkRef(field.ref, inputRef)
 
-  // handle shrink on number input fields
-  if (type === 'number' && typeof value !== 'undefined') {
-    rest.InputLabelProps = rest.InputLabelProps || {}
-    rest.InputLabelProps.shrink = true
+  const mergedSlotProps = {
+    ...slotProps,
+    ...(type === 'number' && typeof value !== 'undefined'
+      ? {
+          inputLabel: {
+            shrink: true,
+            ...slotProps?.inputLabel,
+          },
+        }
+      : {}),
   }
 
   return (
     <TextField
       {...rest}
+      slotProps={mergedSlotProps}
       name={name}
       value={value}
       onBlur={(event) => {

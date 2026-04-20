@@ -28,7 +28,7 @@ function FormWrap(Story) {
       }}
     >
       <Story />
-      <Box marginTop={2}>
+      <Box sx={{mt: 2}}>
         <Button type={'submit'}>Submit</Button>
       </Box>
     </FormContainer>
@@ -164,7 +164,12 @@ export const CustomInput = {
     options,
     textFieldProps: {
       placeholder: 'Some placeholder',
-      InputProps: {startAdornment: <LocationIcon />, endAdornment: null},
+      slotProps: {
+        input: {
+          startAdornment: <LocationIcon />,
+          endAdornment: null,
+        },
+      },
     },
   },
 }

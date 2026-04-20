@@ -14,18 +14,20 @@ import {
   useController,
   UseControllerProps,
 } from 'react-hook-form'
-import {TextFieldProps, useForkRef} from '@mui/material'
+import {useForkRef} from '@mui/material'
+import type {PickersTextFieldProps} from '@mui/x-date-pickers/PickersTextField'
 import {
+  extractValidationProps,
   PickerChangeHandlerContext,
   TimePicker,
   TimePickerProps,
   TimePickerSlotProps,
   TimeValidationError,
-  usePickerAdapter,
   validateTime,
 } from '@mui/x-date-pickers'
+import type {ValidateTimeProps} from '@mui/x-date-pickers/validation'
+import {usePickerAdapter} from '@mui/x-date-pickers/hooks'
 import {PickerValidDate} from '@mui/x-date-pickers/models'
-import {useApplyDefaultValuesToTimeValidationProps} from '@mui/x-date-pickers/internals'
 import {useFormError} from './FormErrorProvider'
 import {defaultErrorMessages} from './messages/TimePicker'
 import {useTransform} from './useTransform'
@@ -35,7 +37,6 @@ export type TimePickerElementProps<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
   TValue extends PickerValidDate = PickerValidDate,
-  TEnableAccessibleFieldDOMStructure extends boolean = false,
 > = Omit<TimePickerProps, 'value' | 'renderInput'> & {
   name: TName
   required?: boolean
@@ -43,13 +44,10 @@ export type TimePickerElementProps<
   parseError?: (error: FieldError) => ReactNode
   rules?: UseControllerProps<TFieldValues, TName>['rules']
   control?: Control<TFieldValues>
-  inputProps?: TextFieldProps
-  helperText?: TextFieldProps['helperText']
+  inputProps?: Partial<PickersTextFieldProps>
+  helperText?: PickersTextFieldProps['helperText']
   textReadOnly?: boolean
-  slotProps?: Omit<
-    TimePickerSlotProps<TEnableAccessibleFieldDOMStructure>,
-    'textField'
-  >
+  slotProps?: Omit<TimePickerSlotProps, 'textField'>
   overwriteErrorMessages?: typeof defaultErrorMessages
   transform?: {
     input?: (value: PathValue<TFieldValues, TName>) => TValue | null
@@ -93,7 +91,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
   } = props
 
   const adapter = usePickerAdapter()
-  const validationProps = useApplyDefaultValuesToTimeValidationProps(rest)
+  const validationProps = extractValidationProps(rest)
 
   const errorMsgFn = useFormError()
   const customErrorFn = parseError || errorMsgFn
@@ -116,6 +114,8 @@ const TimePickerElement = forwardRef(function TimePickerElement<
         }
         const internalError = validateTime({
           props: {
+            disableFuture: false,
+            disablePast: false,
             minTime: rest.minTime,
             maxTime: rest.maxTime,
             minutesStep: rest.minutesStep,
@@ -123,7 +123,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
             disableIgnoringDatePartForTimeValidation:
               rest.disableIgnoringDatePartForTimeValidation,
             ...validationProps,
-          },
+          } as ValidateTimeProps,
 
           timezone: rest.timezone ?? getTimezone(adapter, date) ?? 'default',
           value,
@@ -163,13 +163,43 @@ const TimePickerElement = forwardRef(function TimePickerElement<
 
   const handleInputRef = useForkRef(field.ref, inputRef)
 
+  const htmlInputFromUser = inputProps?.slotProps?.htmlInput
+  const priorHtmlInputRef =
+    htmlInputFromUser &&
+    typeof htmlInputFromUser === 'object' &&
+    'ref' in htmlInputFromUser
+      ? (htmlInputFromUser as {ref?: React.Ref<HTMLInputElement | null>}).ref
+      : undefined
+
+  const mergedHtmlInputRef = useForkRef(handleInputRef, priorHtmlInputRef)
+
+  const textFieldSlot: Partial<PickersTextFieldProps> = {
+    ...inputProps,
+    required,
+    error: !!error,
+    helperText: error
+      ? typeof customErrorFn === 'function'
+        ? customErrorFn(error)
+        : error.message
+      : (inputProps?.helperText ?? rest.helperText),
+    slotProps: {
+      ...inputProps?.slotProps,
+      htmlInput: {
+        ...(typeof htmlInputFromUser === 'object' && htmlInputFromUser !== null
+          ? htmlInputFromUser
+          : {}),
+        readOnly: textReadOnly,
+        ref: mergedHtmlInputRef,
+      },
+    },
+  }
+
   return (
     <TimePicker
       {...rest}
       {...field}
       value={value}
       ref={ref}
-      inputRef={handleInputRef}
       onClose={(...args) => {
         field.onBlur()
         if (rest.onClose) {
@@ -184,20 +214,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
       }}
       slotProps={{
         ...slotProps,
-        textField: {
-          ...inputProps,
-          required,
-          error: !!error,
-          helperText: error
-            ? typeof customErrorFn === 'function'
-              ? customErrorFn(error)
-              : error.message
-            : inputProps?.helperText || rest.helperText,
-          inputProps: {
-            readOnly: textReadOnly,
-            ...inputProps?.inputProps,
-          },
-        },
+        textField: textFieldSlot,
       }}
     />
   )

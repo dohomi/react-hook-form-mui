@@ -16,7 +16,7 @@ export const Layout: FunctionComponent<PropsWithChildren> = ({children}) => {
         </Toolbar>
       </AppBar>
       <Toolbar />
-      <Box padding={3}>{children}</Box>
+      <Box sx={{p: 3}}>{children}</Box>
     </Box>
   )
 }
