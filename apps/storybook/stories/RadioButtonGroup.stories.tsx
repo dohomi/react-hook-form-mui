@@ -76,14 +76,19 @@ export const IndividuallyDisabled: Story = {
 }
 
 export const SetFocus: Story = {
-  render: () => {
+  args: {
+    label: 'Set focus',
+    name: 'focus',
+    options,
+  },
+  render: (args) => {
     const ref = useRef<HTMLInputElement>(null)
     const focus = () => {
       ref.current?.focus()
     }
     return (
       <Stack>
-        <RadioButtonGroup options={options} name={'focus'} ref={ref} />
+        <RadioButtonGroup {...args} ref={ref} />
         <Button onClick={() => focus()}>Set Focus</Button>
       </Stack>
     )

@@ -20,7 +20,7 @@
     "@mui/system": "7.3.1",
     "@mui/x-date-pickers": "8.10.2",
     "eslint": "^8",
-    "next": "15.5.2",
+    "next": "16.2.4",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "react-hook-form": "7.62.0",
@@ -32,7 +32,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "cross-env": "latest",
-    "eslint-config-next": "15.5.2",
+    "eslint-config-next": "16.2.4",
     "typescript": "5.9.2"
   }
 }

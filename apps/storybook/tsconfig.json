@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "preserveSymlinks": true,
     "jsx": "react-jsx",
-    "module": "system",
+    "module": "ESNext",
     "moduleResolution": "bundler",
     "noEmitOnError": false,
     "noImplicitAny": false,
