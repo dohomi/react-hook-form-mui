@@ -176,7 +176,7 @@ const DateTimePickerElement = forwardRef(function DateTimePickerElement<
       ? typeof customErrorFn === 'function'
         ? customErrorFn(error)
         : error.message
-      : (inputProps?.helperText ?? rest.helperText),
+      : inputProps?.helperText ?? rest.helperText,
     onBlur: (event: FocusEvent<HTMLDivElement>) => {
       field.onBlur()
       inputProps?.onBlur?.(event)

@@ -207,7 +207,7 @@ const DatePickerElement = forwardRef(function DatePickerElement<
           error: !!errorMessage,
           helperText: errorMessage
             ? errorMessage
-            : (inputProps?.helperText ?? rest.helperText),
+            : inputProps?.helperText ?? rest.helperText,
           slotProps: {
             ...inputProps?.slotProps,
             htmlInput: {

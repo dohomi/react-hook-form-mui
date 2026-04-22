@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "latest",
-    "@types/eslint": "^8",
+    "@types/eslint": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "cross-env": "latest",

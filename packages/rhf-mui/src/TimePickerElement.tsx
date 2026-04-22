@@ -181,7 +181,7 @@ const TimePickerElement = forwardRef(function TimePickerElement<
       ? typeof customErrorFn === 'function'
         ? customErrorFn(error)
         : error.message
-      : (inputProps?.helperText ?? rest.helperText),
+      : inputProps?.helperText ?? rest.helperText,
     slotProps: {
       ...inputProps?.slotProps,
       htmlInput: {

@@ -309,9 +309,7 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
         const paramsHtml = params.slotProps.htmlInput
         const tfHtml = textFieldProps?.slotProps?.htmlInput
         const paramsHtmlRef =
-          paramsHtml &&
-          typeof paramsHtml === 'object' &&
-          'ref' in paramsHtml
+          paramsHtml && typeof paramsHtml === 'object' && 'ref' in paramsHtml
             ? (paramsHtml as {ref?: React.Ref<HTMLInputElement | null>}).ref
             : undefined
         const tfHtmlRef =
@@ -359,7 +357,9 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
               },
               htmlInput: {
                 ...params.slotProps.htmlInput,
-                ...(typeof tfHtml === 'object' && tfHtml !== null ? tfHtml : {}),
+                ...(typeof tfHtml === 'object' && tfHtml !== null
+                  ? tfHtml
+                  : {}),
                 ref: htmlInputRef,
               },
             }}

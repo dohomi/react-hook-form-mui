@@ -36,8 +36,12 @@ const PasswordElement = forwardRef(function PasswordEl<
   props: PasswordElementProps<TFieldValues, TName, TValue>,
   ref: Ref<HTMLDivElement>
 ) {
-  const {iconColor, renderIcon = (password) => (password ? <Visibility /> : <VisibilityOff />), slotProps, ...rest} =
-    props
+  const {
+    iconColor,
+    renderIcon = (password) => (password ? <Visibility /> : <VisibilityOff />),
+    slotProps,
+    ...rest
+  } = props
   const [password, setPassword] = useState<boolean>(true)
 
   const endAdornment = (
