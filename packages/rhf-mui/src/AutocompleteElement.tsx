@@ -213,9 +213,12 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
               return (
                 multiple
                   ? (Array.isArray(newValue) ? newValue : []).map(
-                      matchOptionByValue
+                      (v) =>
+                        matchOptionByValue(v) ??
+                        (autocompleteProps?.freeSolo ? v : undefined)
                     )
-                  : matchOptionByValue(newValue) ?? null
+                  : matchOptionByValue(newValue) ??
+                    (autocompleteProps?.freeSolo ? newValue : null)
               ) as AutocompleteValue<
                 TValue,
                 Multiple,
