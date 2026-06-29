@@ -345,15 +345,22 @@ const AutocompleteElement = forwardRef(function AutocompleteElement<
                 ...params.slotProps.inputLabel,
                 ...textFieldProps?.slotProps?.inputLabel,
               },
-              input: {
-                ...params.slotProps.input,
-                ...textFieldProps?.slotProps?.input,
-                endAdornment: (
-                  <>
-                    {loading ? loadingElement : null}
-                    {params.slotProps.input.endAdornment}
-                  </>
-                ),
+              input: (ownerState) => {
+                const inputProps =
+                  typeof textFieldProps?.slotProps?.input === 'function'
+                    ? textFieldProps?.slotProps?.input(ownerState)
+                    : textFieldProps?.slotProps?.input || {}
+                return {
+                  ...params.slotProps.input,
+                  ...inputProps,
+                  endAdornment: (
+                    <>
+                      {inputProps?.endAdornment}
+                      {loading ? loadingElement : null}
+                      {params.slotProps.input.endAdornment}
+                    </>
+                  ),
+                }
               },
               htmlInput: {
                 ...params.slotProps.htmlInput,
